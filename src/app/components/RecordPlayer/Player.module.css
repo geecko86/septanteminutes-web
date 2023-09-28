@@ -1,0 +1,108 @@
+.player {
+    display: grid;
+    -webkit-filter: drop-shadow(0px 4px 27px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 27px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.25));
+    background-image: url('/img/player.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.needle_base {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/needle_base.png');
+    background-size: cover;
+    z-index: 1;
+    transform: none;
+}
+
+.needle {
+    aspect-ratio: 0.3289;
+    height: 86% !important;
+    width: auto !important;
+    position: absolute !important;
+    left: 69.31% !important;
+    top: 8% !important;
+    transform-origin: 49% 20.5% !important;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.needle[start=true] {
+    transform: none !important;
+}
+
+.needle img {
+    content: url('/img/needle_cut.png');
+    z-index: 4;
+    transform-origin: 49% 20.5% !important;
+    transition-property: transform;
+    transition-duration: 0.3s;
+}
+
+.needle[start=true] img {
+    transform: rotate(30deg);
+}
+
+.needle::after {
+    /* Rotation center property */
+    position: absolute;
+    left: 49%;
+    top: 20.5%;
+    width: 5px;
+    height: 5px;
+    content: '';
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.reflection {
+    aspect-ratio: 1;
+    height: 82.5% !important;
+    width: auto !important;
+    position: absolute !important;
+    top: 8.5%;
+    left: 7%;
+    opacity: .27 !important;
+    mix-blend-mode: screen;
+    cursor: pointer;
+}
+
+.reflection img {
+    content: url('/img/vinyl_light.png');
+    rotate: -10deg;
+}
+
+.disk {
+    aspect-ratio: 1;
+    height: 82.5% !important;
+    width: auto !important;
+    position: absolute !important;
+    top: 8.55%;
+    left: 6.9%;
+    animation: rotate 3.6363s infinite linear;
+    animation-play-state: paused;
+}
+
+.disk img {
+    content: url('/img/vinyl.png');
+}
+
+.disk[start=true] {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

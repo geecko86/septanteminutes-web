@@ -1,0 +1,417 @@
+.page {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.floor {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0px 0px 0px 0px;
+  align-content: center;
+  flex-wrap: nowrap;
+  margin: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-image: url('/img/floor.jpg');
+
+  @supports (background-image: url('/img/floor.webp')) {
+    background-image: url('/img/floor.webp');
+  }
+}
+
+.chair {
+  position: absolute !important;
+  top: calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50vh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.8129) * 0.25));
+  left: calc(max(73vw, var(--tableMinWidth)) + (50vw - max(73vw/2, var(--tableMinWidth) / 2)) - max(75vw * 0.54, 320px) * 1.03);
+  aspect-ratio: 0.8129;
+  height: auto !important;
+  width: calc(75vw * 0.54) !important;
+  min-width: 320px;
+  transform: rotate(-23deg);
+}
+
+.chair img {
+  height: 100%;
+  width: 100%;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.invisiblefill {
+  height: 100vh;
+  width: 100vw;
+  content: " ";
+}
+
+.table {
+  display: block;
+  aspect-ratio: 2.0268;
+  height: auto;
+  width: 73vw;
+  min-height: var(--tableMinHeight);
+  min-width: var(--tableMinWidth);
+  max-height: 100vh;
+  max-width: 202.68vh;
+  box-shadow: 0px 4px 128px 0px rgba(0, 0, 0, 0.25);
+  background: radial-gradient(61.87275794553494% 61.87275794553494% at 44.76127579995074% 44.57884970692233%, #ffffff 0%, hsl(0, 0%, 87%) 100%);
+  overflow: visible;
+  z-index: 1;
+  border-radius: 8px;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.table,
+.table * {
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+.notebook {
+  aspect-ratio: 1;
+  height: 55% !important;
+  width: auto !important;
+  position: absolute !important;
+  left: 30.68%;
+  bottom: 3.2%;
+  cursor: pointer;
+  clip-path: inset(10% 25% 15% 15%);
+}
+
+.notebook>div:not(:has(img)) {
+  width: 32% !important;
+  height: 12% !important;
+  left: calc(28.45%) !important;
+  top: calc(36.6938%) !important;
+}
+
+.notebook>div>div {
+  width: 95% !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: unset !important;
+  container-type: inline-size;
+}
+
+.notebook>div>div>p {
+  font-size: 25cqw !important;
+  text-align: center !important;
+  will-change: transform;
+  display: block;
+}
+
+.pen {
+  aspect-ratio: 1;
+  height: 55% !important;
+  width: auto !important;
+  position: absolute !important;
+  left: 39%;
+  bottom: -5%;
+  pointer-events: none;
+  transform: rotate(-2.5deg) !important;
+}
+
+.player {
+  position: absolute;
+  top: 8%;
+  right: 3%;
+  width: 38.9% !important;
+  height: 62% !important;
+}
+
+.headphones {
+  aspect-ratio: 1;
+  height: 65% !important;
+  width: auto !important;
+  position: absolute !important;
+  left: 31.4%;
+  top: -3.2%;
+  transform: rotate(7deg);
+  transform-origin: center;
+}
+
+.camera {
+  aspect-ratio: 1;
+  height: 45% !important;
+  width: auto !important;
+  position: absolute !important;
+  top: -7%;
+  left: -2%;
+  clip-path: inset(16% 0 15% 8%);
+}
+
+.camera img {
+  transform: rotate(-27deg);
+  transform-origin: center;
+}
+
+.camera img {
+  -webkit-user-drag: none;
+}
+
+.phone {
+  aspect-ratio: 1;
+  height: 55% !important;
+  width: auto !important;
+  position: absolute !important;
+  top: -16.5%;
+  left: 18%;
+  transform: rotate(-12deg);
+  transform-origin: center;
+}
+
+.albums {
+  aspect-ratio: 324/320;
+  height: 57.5% !important;
+  width: auto !important;
+  position: absolute !important;
+  left: 4.1% !important;
+  bottom: 9% !important;
+}
+
+.albums>div {
+  display: none !important;
+  position: absolute;
+  aspect-ratio: 1;
+  height: auto !important;
+  width: 94% !important;
+}
+
+.albums>div:nth-child(6n) {
+  right: 0;
+  top: calc(50.62500000000002% - 95% / 2);
+}
+
+.albums>div:nth-child(6n + 1) {
+  top: 51%;
+  right: 0;
+  translate: 0 -50%;
+}
+
+.albums>div:nth-child(6n + 2) {
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.albums>div:nth-child(6n + 3) {
+  left: 0;
+  top: 49%;
+  translate: 0 -50%;
+}
+
+.albums>div:nth-child(6n + 4) {
+  left: 52%;
+  bottom: 0;
+  translate: -50% 0;
+}
+
+.albums>div:nth-child(6n + 5) {
+  left: 50%;
+  top: 0;
+  translate: -50% 0;
+}
+
+.albums>div:nth-last-child(-1n + 7 of :not([hidden])) {
+  /* eslint-disable-line */
+  display: block !important;
+}
+
+.albums div:has(img):not(.albums > div),
+.albums img {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.postitnotes {
+  position: absolute;
+  bottom: 3%;
+  left: 56%;
+  display: flex;
+  justify-content: space-between;
+  width: 32.75% !important;
+  height: 22% !important;
+}
+
+.postitnotes *:nth-child(1)>.postit {
+  transform: rotate(-0deg) translate(2%, -9%) !important;
+}
+
+.postitnotes *:nth-child(2)>.postit {
+  transform: rotate(-6deg) translate(-2%, -2%) !important;
+}
+
+.postitnotes div:nth-child(3)>.postit {
+  transform: rotate(6deg) translate(-4%, -5%) !important;
+}
+
+.postit {
+  scale: 1.5;
+  height: 100% !important;
+  width: 100% !important;
+  clip-path: inset(23% 16% 25% 25%);
+}
+
+.postit:not(:has(figure)) div:has(> p) {
+  position: absolute !important;
+  padding-top: 15% !important;
+  top: 52.5% !important;
+  left: 58.5% !important;
+  width: 43% !important;
+  height: 40% !important;
+  container-type: size;
+  cursor: pointer;
+}
+
+.postit:has(figure) div:has(> p) {
+  position: absolute !important;
+  top: 30% !important;
+  left: 60% !important;
+  width: 43% !important;
+  height: 40% !important;
+  container-type: size;
+  cursor: pointer;
+}
+
+.postit p {
+  font-size: 30cqw !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  display: block;
+  will-change: transform;
+}
+
+.postit figure {
+  margin: 0 !important;
+  left: 50% !important;
+  top: 30% !important;
+  width: 20% !important;
+  height: 20% !important;
+}
+
+.postit img {
+  width: 80% !important;
+  height: 70% !important;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1200px) and (orientation: portrait) {
+  .page {
+    height: 100%;
+    width: 100vw;
+  }
+
+  .table {
+    aspect-ratio: 0.4933;
+    width: auto;
+    height: 85vmax;
+    min-height: unset;
+    min-width: unset;
+  }
+
+  .chair {
+    left: calc(85vmax * 0.4933 + (50vmin - (85vmax * 0.4933) / 2) - ((75vmax * 0.54 / 0.8129) * 0.14));
+    bottom: calc(85vmax + (50vmax - 42.5vmax) - (75vmax * 0.64));
+    top: unset;
+    aspect-ratio: 0.8129;
+    width: auto !important;
+    height: calc(75vmax * 0.54) !important;
+    min-width: unset;
+    transform: rotate(247deg);
+  }
+
+  .notebook {
+    height: auto !important;
+    width: 60% !important;
+    bottom: 35%;
+    right: 25% !important;
+    left: unset !important;
+    cursor: pointer;
+    transform: rotate(-23deg) !important;
+  }
+
+  .notebook>div>div {
+    container-type: inline-size;
+  }
+
+  .notebook>div>div>p {
+    font-size: 25cqw !important;
+  }
+
+  .pen {
+    height: auto !important;
+    width: 60% !important;
+    top: unset !important;
+    bottom: 33%;
+    left: 37.5% !important;
+    transform: rotate(-15deg);
+  }
+
+  .albums {
+    bottom: 3% !important;
+    left: 50% !important;
+    width: 70% !important;
+    height: unset !important;
+    transform: translateX(-50%);
+  }
+
+  .player {
+    aspect-ratio: 1.2782;
+    width: 90% !important;
+    height: auto !important;
+    right: 50% !important;
+    top: 3% !important;
+    transform: translateX(50%);
+  }
+
+  .phone {
+    display: none;
+  }
+
+  .headphones {
+    display: none;
+  }
+
+  .camera {
+    display: none;
+  }
+
+  .postitnotes {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) and (orientation: landscape) {
+  
+}
