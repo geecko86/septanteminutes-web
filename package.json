@@ -1,0 +1,31 @@
+{
+  "name": "septanteminutes-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.25.4",
+    "@floating-ui/react-dom-interactions": "^0.13.3",
+    "@types/node": "20.6.2",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.49.0",
+    "eslint-config-next": "13.4.19",
+    "framer": "^2.4.1",
+    "framer-motion": "^10.16.4",
+    "next": "13.4.19",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "scroll-snap": "^4.0.3",
+    "styled-components": "^6.0.8",
+    "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "style-loader": "^3.3.3"
+  }
+}
