@@ -23,16 +23,6 @@ import data from "../utils/tempdata.js";
 export default function EpisodeTable() {
   const { episodes } = data;
 
-  const episodePage = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    container: episodePage
-  });
-
-  useMotionValueEvent(scrollYProgress, "change", value => {
-    // console.log(value);
-  });
-
   const vinyls = Array.from(
     { length: Object.keys(episodes).length },
     (v, k) => episodes[(k + 1).toString() as key]
@@ -43,21 +33,28 @@ export default function EpisodeTable() {
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
   const [selectedPosition, setSelectedPosition] = useState(0);
 
+  const episodePage = useRef<HTMLDivElement>(null);
+
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
     setFloatingNode,
+  });
+
+  const { scrollYProgress } = useScroll({
+    container: episodePage
   });
 
   useEffect(() => {
     const element = episodePage.current;
     if (element) {
-      const snapElement = createScrollSnap(element as HTMLDivElement, {
+      createScrollSnap(element as HTMLDivElement, {
         snapDestinationY: "100vh",
-        timeout: 100,
+        timeout: 0,
+        duration: 0,
         threshold: 0.4
       }, () => {
         const selectedPosition = Math.min(Math.floor(scrollYProgress.get() * vinyls.length), vinyls.length - 1);
         const currentEpisode = vinyls.length - selectedPosition;
-        // console.log(`Selected child #${selectedPosition}`, `episode #${currentEpisode}`);
+        console.log(`Selected child #${selectedPosition}`, `episode #${currentEpisode}`);
         setSelectedPosition(selectedPosition);
         setSelectedEpisode(currentEpisode);
       }).bind();
@@ -69,10 +66,29 @@ export default function EpisodeTable() {
     const newId = setTimeout(() => {
       const destination = selectedPosition * ((episodePage.current)?.clientHeight || 0);
       // console.log("scroll:", selectedPosition, ((episodePage.current)?.clientHeight || 0), destination);
-      episodePage.current?.scroll({top: destination, behavior: "instant"});
+      episodePage.current?.scroll({ top: destination, behavior: "instant" });
     }, 300);
     setTimeoutId(newId);
   });
+
+  const handleArrows = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    console.log(e);
+    switch (e.keyCode) {
+      case 38: // up arrow
+        if (selectedPosition == 0) return;
+        episodePage.current?.scrollBy({ top: ((episodePage.current)?.clientHeight || 0) * -0.75, behavior: "instant" })
+        break;
+      case 40: // down arrow
+        if (selectedPosition == vinyls.length - 1) return;
+        episodePage.current?.scrollBy({ top: ((episodePage.current)?.clientHeight || 0) * 0.75, behavior: "instant" })
+        break;
+      case 13: // enter key
+        // TODO
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <div
@@ -81,7 +97,8 @@ export default function EpisodeTable() {
     >
       {floatingNode &&
         cloneElement(notebookOverlayComponent, { setFloatingNode })}
-      <motion.div className={styles.main}>
+      <motion.div className={styles.main}
+        onKeyDown={e => handleArrows(e)} tabIndex={0}>
         <div className={styles.floor}>
           <Chair className={styles.chair} />
           <div className={styles.invisiblefill} />
