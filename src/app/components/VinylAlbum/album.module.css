@@ -1,19 +1,20 @@
-div.shadow8:before {
-    opacity: 0.6;
+div.shadow8 {
+    box-shadow: -6px -2px 15px rgba(0,0,0,.5), -5px -1px 4px -3px rgba(0,0,0,.3);
 }
 
-div.shadow24:before {
-    opacity: 1;
+div.shadow24 {
+    box-shadow: -19px -4px 38px rgba(0, 0, 0, 0.16), -15px -3px 12px -3px rgba(0, 0, 0, 0.08);
 }
 
-.album:before {
-    content: "";
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    transition: all .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+.separate_shadow {
+    aspect-ratio: 1;
+    height: calc(57.5% * 0.95172) !important; /* Not entirely sure about this */
+    width: auto !important;
+    position: absolute !important;
+    box-shadow: 0 0 0 transparent, 0 0 0 0 transparent;
+    transition: box-shadow .8s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.separate_shadow[hidden=false] {
+    visibility: revert !important;
 }

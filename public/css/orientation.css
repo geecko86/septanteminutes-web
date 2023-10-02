@@ -3,7 +3,7 @@
     --tableMinWidth: 790px;
 }
 
-html {
+html, * {
     /* Hide scrollbar for IE, Edge and Firefox */
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -29,16 +29,16 @@ html::-webkit-scrollbar {
 
 * {
     -webkit-backface-visibility: hidden !important;
+    scroll-behavior: auto;
+    overscroll-behavior-y: none;
 }
 
-.episode_table {
+.episode_page {
     position: absolute;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
     overflow: auto;
 }
 
 @media screen and (min-width: 320px) and (max-width: 1200px) and (orientation: landscape) {
-    .episode_table {
-        width: 100%;
-    }
 }

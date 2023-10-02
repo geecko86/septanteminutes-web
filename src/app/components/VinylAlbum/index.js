@@ -9,15 +9,17 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "framer-motion";
+import { useEventListener } from 'usehooks-ts'
+
 import Vinyl from "https://framer.com/m/Vynil-Copy-STPN.js@q9hC2XpeKHiuA8fEujyh";
 
 const VinylAlbum = ({
   position,
   scrollYProgress,
   image,
-  total
+  total,
+  type = "vinyl"
 }) => {
-  
   const albumRotation = useSpring(0, {
     stiffness: 1000,
     damping: 52,
@@ -36,48 +38,88 @@ const VinylAlbum = ({
 
   const rotateZ = useTransform(
     albumRotation,
-    [position * -25, (position * -25) - 25],
+    [position * -25 - 1, (position * -25) - 25],
     [0, -25]
   );
 
+  const translateX = useTransform(
+    albumXOffset,
+    [position * -500 - 25, (position + 1) * -500],
+    ["0%", "-213%"]
+  );
+  const translateY = useTransform(
+    albumYOffset,
+    [position * -200 - 25, (position + 1) * -200],
+    ["0%", "-66%"]
+  );
+
   const [isGone, setGone] = useState(rotateZ == -25);
-  const [shadowClass, setShadow] = useState("");
+  const [shadowLevel, setShadowLevel] = useState("");
+  const [ignoreScroll, setIgnoreScroll] = useState(false);
+  const [timeoutId, setTimeoutId] = useState(0);
 
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
-    if (position != total-1) {
-        albumRotation.set(progress * total * -25);
-        albumXOffset.set(progress * total * -500);
-        albumYOffset.set(progress * total * -200);
+    if (position != total - 1 && !ignoreScroll) {
+      albumRotation.set(progress * (total - 1) * -25);
+      albumXOffset.set(progress * (total - 1) * -500);
+      albumYOffset.set(progress * (total - 1) * -200);
     }
   });
 
-  useMotionValueEvent(rotateZ, "change", (progress) => {
-    setGone(rotateZ.get() == -25);
-    setShadow(rotateZ.get() >= -25 && rotateZ.get() < -5 ? styles.shadow8 : rotateZ.get() < -1 ? styles.shadow24 : "");
+  useEventListener('resize', () => {
+    setIgnoreScroll(true);
+    if (timeoutId) clearTimeout(timeoutId);
+    const newId = setTimeout(() => {
+      setIgnoreScroll(false);
+    }, 50);
+    setTimeoutId(newId);
   });
 
-  return (
+  useMotionValueEvent(rotateZ, "change", (rotation) => {
+    setGone(rotation < -24);
+    setShadowLevel(rotation >= -25 && rotation < -7 ? styles.shadow24 : rotation < -1 ? styles.shadow8 : "");
+  });
+
+  const style = {
+    translateX,
+    translateY,
+    rotateZ,
+    zIndex: (total - position + (type == "shadow" ? 1 : 0)),
+    visibility: rotateZ.current == -25 ? "collapse" : "inherit"
+  };
+
+  return type === "shadow" ? (
+    <motion.div
+      className={`${styles.separate_shadow} ${shadowLevel}`}
+      hidden={isGone}
+      style={style} />
+  ) : (
     <motion.div
       hidden={isGone}
-      className={`${shadowClass} ${styles.album}`}
-      style={{
-        rotateZ,
-        translateX: useTransform(
-          albumXOffset,
-          [position * -500, (position * -500) - 500],
-          ["0%", "-213%"]
-        ),
-        translateY: useTransform(
-          albumYOffset,
-          [position * -200, (position * -200) - 200],
-          ["0%", "-66%"]
-        ),
-        visibility: rotateZ.current == -25 ? "collapse" : "inherit"
-      }}
+      className={styles.album}
+      style={style}
     >
       <Vinyl image={image} />
     </motion.div>
   );
 };
 
-export default VinylAlbum;
+const ShadowAlbum = ({
+  position,
+  scrollYProgress,
+  image,
+  total,
+  type = "shadow"
+}) => {
+  return (
+    VinylAlbum({
+      position,
+      scrollYProgress,
+      image,
+      total,
+      type
+    })
+  );
+}
+
+export { VinylAlbum as default, ShadowAlbum };

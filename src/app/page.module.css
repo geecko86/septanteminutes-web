@@ -1,16 +1,18 @@
-.page {
+.main {
+  margin-top: -100vh;
   height: 100vh;
-  width: 100vw;
-  position: fixed;
+  width: 100%;
+  position: sticky;
   top: 0;
 }
 
 .section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   width: 100%;
+}
+
+.section p {
+  margin: 0;
 }
 
 .floor {
@@ -93,6 +95,14 @@
   user-select: none;
   -webkit-user-drag: none;
   user-drag: none;
+}
+
+.table_shadow_box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  contain: content;
+  z-index: 99;
 }
 
 .notebook {
@@ -199,10 +209,12 @@
 
 .albums>div {
   display: none !important;
+  opacity: 0;
   position: absolute;
   aspect-ratio: 1;
   height: auto !important;
   width: 94% !important;
+  transition: opacity 500ms;
 }
 
 .albums>div:nth-child(6n) {
@@ -240,9 +252,10 @@
   translate: -50% 0;
 }
 
-.albums>div:nth-last-child(-1n + 7 of :not([hidden])) {
-  /* eslint-disable-line */
+.albums>div:nth-last-child(-1n + 9 of :not([hidden])) {
+  /* eslint-disable */
   display: block !important;
+  opacity: 1;
 }
 
 .albums div:has(img):not(.albums > div),
