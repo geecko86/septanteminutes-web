@@ -34,6 +34,8 @@ export default function EpisodeTable() {
   const [selectedPosition, setSelectedPosition] = useState(0);
 
   const episodePage = useRef<HTMLDivElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
+  const shadows = useRef<HTMLDivElement>(null);
 
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
     setFloatingNode,
@@ -58,6 +60,7 @@ export default function EpisodeTable() {
         setSelectedPosition(selectedPosition);
         setSelectedEpisode(currentEpisode);
       }).bind();
+      mainRef.current?.focus();
     }
   }, [episodePage]);
 
@@ -97,7 +100,7 @@ export default function EpisodeTable() {
     >
       {floatingNode &&
         cloneElement(notebookOverlayComponent, { setFloatingNode })}
-      <motion.div className={styles.main}
+      <motion.div className={styles.main} ref={mainRef}
         onKeyDown={e => handleArrows(e)} tabIndex={0}>
         <div className={styles.floor}>
           <Chair className={styles.chair} />
@@ -105,7 +108,7 @@ export default function EpisodeTable() {
         </div>
         <div className={styles.table}>
           <div className={styles.table_shadow_box} >
-            <motion.div className={styles.albums}>
+            <motion.div className={styles.albums} ref={shadows} >
               {vinyls.map((_, index) => (
                 <ShadowAlbum
                   key={index}
@@ -149,6 +152,12 @@ export default function EpisodeTable() {
             {vinyls.map((episode, index) => (
               <VinylAlbum
                 key={index}
+                onMouseEnter={e => {
+                  shadows.current?.children[index].setAttribute("hover", "true");
+                }}
+                onMouseLeave={e => {
+                  shadows.current?.children[index].removeAttribute("hover");
+                }}
                 image={episode["img"] || ""}
                 total={vinyls.length}
                 position={vinyls.length - index - 1}

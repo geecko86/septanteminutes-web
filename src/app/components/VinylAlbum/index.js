@@ -18,20 +18,22 @@ const VinylAlbum = ({
   scrollYProgress,
   image,
   total,
-  type = "vinyl"
+  type = "vinyl",
+  onMouseEnter = e => {},
+  onMouseLeave = e => {}
 }) => {
   const albumRotation = useSpring(0, {
-    stiffness: 1000,
+    stiffness: 700,
     damping: 52,
     mass: 1.8,
   });
   const albumXOffset = useSpring(0, {
-    stiffness: 1000,
+    stiffness: 700,
     damping: 52,
     mass: 1.8,
   });
   const albumYOffset = useSpring(0, {
-    stiffness: 1000,
+    stiffness: 700,
     damping: 52,
     mass: 1.8,
   });
@@ -45,7 +47,7 @@ const VinylAlbum = ({
   const translateX = useTransform(
     albumXOffset,
     [position * -500 - 25, (position + 1) * -500],
-    ["0%", "-213%"]
+    ["0%", "-266%"]
   );
   const translateY = useTransform(
     albumYOffset,
@@ -89,13 +91,18 @@ const VinylAlbum = ({
   };
 
   return type === "shadow" ? (
-    <motion.div
-      className={`${styles.separate_shadow} ${shadowLevel}`}
-      hidden={isGone}
-      style={style} />
+    <div className={styles.shadow_container}>
+      <motion.div
+        className={`${styles.separate_shadow} ${shadowLevel}`}
+        hidden={isGone}
+        style={style}
+      />
+    </div>
   ) : (
     <motion.div
       hidden={isGone}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className={styles.album}
       style={style}
     >

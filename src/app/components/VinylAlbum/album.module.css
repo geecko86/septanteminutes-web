@@ -1,5 +1,5 @@
 div.shadow8 {
-    box-shadow: -6px -2px 15px rgba(0,0,0,.5), -5px -1px 4px -3px rgba(0,0,0,.3);
+    box-shadow: -6px -2px 18px rgba(0, 0, 0,.5), -5px -1px 4px -3px rgba(0,0,0,.3);
 }
 
 div.shadow24 {
@@ -7,12 +7,22 @@ div.shadow24 {
 }
 
 .separate_shadow {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 0 transparent, 0 0 0 0 transparent;
+    transition: box-shadow .8s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.shadow_container {
     aspect-ratio: 1;
     height: calc(57.5% * 0.95172) !important; /* Not entirely sure about this */
     width: auto !important;
     position: absolute !important;
-    box-shadow: 0 0 0 transparent, 0 0 0 0 transparent;
-    transition: box-shadow .8s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    transition: transform .3s lineaar;
+}
+
+.shadow_container[hover] {
+    transform: rotate(-3deg);
 }
 
 .separate_shadow[hidden=false] {
