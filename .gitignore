@@ -12,6 +12,7 @@
 /.next/
 /out/
 next.lock/
+.firebase/
 
 # production
 /build
