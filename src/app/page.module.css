@@ -116,6 +116,7 @@
   bottom: 3.2%;
   cursor: pointer;
   clip-path: inset(10% 25% 15% 15%);
+  will-change: transform;
 }
 
 .notebook>div:not(:has(img)) {
@@ -136,7 +137,6 @@
 .notebook>div>div>p {
   font-size: 25cqw !important;
   text-align: center !important;
-  will-change: transform;
   display: block;
 }
 
@@ -264,6 +264,7 @@
 .albums img {
   height: 100% !important;
   width: 100% !important;
+  will-change: transform;
 }
 
 .postitnotes {
@@ -276,15 +277,15 @@
   height: 22% !important;
 }
 
-.postitnotes *:nth-child(1)>.postit {
+.postitnotes *:nth-child(1) > .postit {
   transform: rotate(-0deg) translate(2%, -9%) !important;
 }
 
-.postitnotes *:nth-child(2)>.postit {
+.postitnotes *:nth-child(2) > .postit {
   transform: rotate(-6deg) translate(-2%, -2%) !important;
 }
 
-.postitnotes div:nth-child(3)>.postit {
+.postitnotes div:nth-child(3) > .postit {
   transform: rotate(6deg) translate(-4%, -5%) !important;
 }
 
@@ -293,6 +294,10 @@
   height: 100% !important;
   width: 100% !important;
   clip-path: inset(23% 16% 25% 25%);
+}
+
+.postit > div {
+  will-change: transform;
 }
 
 .postit:not(:has(figure)) div:has(> p) {
@@ -321,7 +326,6 @@
   text-align: center !important;
   line-height: 1 !important;
   display: block;
-  will-change: transform;
 }
 
 .postit figure {
@@ -339,6 +343,49 @@
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.postit.download_postit div:has(> p) {
+  top: 55% !important;
+  left: 59% !important;
+}
+
+.download_postit p {
+  font-size: 27cqw !important;
+}
+
+.download_postit figure {
+  content: url("/img/download.png");
+  aspect-ratio: unset !important;
+  width: auto !important;
+  top: 33% !important;
+  bottom: unset !important;
+  right: 20% !important;
+  left: unset !important;
+  transform: translateX(-50%) !important;
+  cursor: pointer;
+}
+
+.postit.contact_postit div:has(> p) {
+  top: 55% !important;
+  left: 59% !important;
+}
+
+.contact_postit p {
+  font-size: 33cqw !important;
+}
+
+.contact_postit figure {
+  content: url("/img/mail.png");
+  aspect-ratio: unset !important;
+  width: auto !important;
+  top: 33% !important;
+  bottom: unset !important;
+  right: 20% !important;
+  left: unset !important;
+  transform: translateX(-50%) !important;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) and (orientation: portrait) {

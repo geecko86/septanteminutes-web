@@ -1,17 +1,16 @@
 "use client";
 
 import styles from "./page.module.css";
-import React, { useState, useRef, useEffect, cloneElement } from "react";
+import React, { useState, useRef, useEffect, useCallback, cloneElement } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useEventListener } from 'usehooks-ts'
+import { useEventListener } from 'usehooks-ts';
 import createScrollSnap from "scroll-snap";
 
-import Chair from "https://framer.com/m/Chair-DLhl.js@JuWjXbhwOYQagHrgKa8w";
-import Notebook from "https://framer.com/m/Notebook-Large-NSPa.js";
-import Pen from "https://framer.com/m/Pen-y9p1.js@0TKtKBOXn6QqbuYWU4Dd";
-import PostIt from "https://framer.com/m/Post-It-woNB.js@VbZ89G1tiRk4tmFeh90v";
-import ImagedPostIt from "https://framer.com/m/Imaged-Post-It-1vlf.js@awriGhqD00eedeeh1NVA";
-import Headphones from "https://framer.com/m/Headphones-p7iC.js@oQAzVYDXOsYSKncaRb32";
+import Chair from "./framer/Chair-DLhl.js";
+import Notebook from "./framer/Notebook-Large-POCp.js";
+import Pen from "./framer/Pen-y9p1.js";
+import ImagedPostIt from "./framer/Imaged-Post-It-1vlf.js";
+import Headphones from "./framer/Headphones-p7iC.js";
 import Phone from "https://framer.com/m/Phone-LGnb.js@zfhXvJfaEcaTAAB8pSKH";
 import Camera from "https://framer.com/m/Camera-2YBb.js@ml9NEzDk9cuHo9UjgqQs";
 
@@ -45,6 +44,8 @@ export default function EpisodeTable() {
     container: episodePage
   });
 
+  const getCurrentPosition = useCallback(() => Math.min(Math.floor(scrollYProgress.get() * vinyls.length), vinyls.length - 1), [scrollYProgress, vinyls.length]);
+
   useEffect(() => {
     const element = episodePage.current;
     if (element) {
@@ -54,15 +55,15 @@ export default function EpisodeTable() {
         duration: 0,
         threshold: 0.4
       }, () => {
-        const selectedPosition = Math.min(Math.floor(scrollYProgress.get() * vinyls.length), vinyls.length - 1);
-        const currentEpisode = vinyls.length - selectedPosition;
-        console.log(`Selected child #${selectedPosition}`, `episode #${currentEpisode}`);
-        setSelectedPosition(selectedPosition);
+        const currentPosition = getCurrentPosition();
+        const currentEpisode = currentPosition;
+        console.log(`Selected child #${currentPosition}`, `episode #${currentEpisode}`);
+        setSelectedPosition(currentPosition);
         setSelectedEpisode(currentEpisode);
       }).bind();
       mainRef.current?.focus();
     }
-  }, [episodePage]);
+  }, [episodePage, getCurrentPosition]);
 
   useEventListener('resize', () => {
     if (timeoutId) clearTimeout(timeoutId);
@@ -75,7 +76,6 @@ export default function EpisodeTable() {
   });
 
   const handleArrows = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    console.log(e);
     switch (e.keyCode) {
       case 38: // up arrow
         if (selectedPosition == 0) return;
@@ -114,7 +114,7 @@ export default function EpisodeTable() {
                   key={index}
                   image=""
                   total={vinyls.length}
-                  position={vinyls.length - index - 1}
+                  position={index}
                   scrollYProgress={scrollYProgress}
                 />
               ))}
@@ -135,13 +135,14 @@ export default function EpisodeTable() {
               className={styles.postit}
               title={"\nPage\nd'accueil"}
             />
-            <PostIt
-              className={styles.postit}
-              title={"S'abonner"}
-              {...referenceProps}
+            <ImagedPostIt
+              classNam
+              className={[styles.postit, styles.download_postit].join(' ')}
+              title={"Télécharger"}
+              onClick={() => {}}
             />
-            <PostIt
-              className={styles.postit}
+            <ImagedPostIt
+              className={[styles.postit, styles.contact_postit].join(' ')}
               title={"Contact"}
               onClick={() =>
                 window.open("mailto:contact@septanteminutes.be", "_blank")
@@ -160,14 +161,14 @@ export default function EpisodeTable() {
                 }}
                 image={episode["img"] || ""}
                 total={vinyls.length}
-                position={vinyls.length - index - 1}
+                position={index}
                 scrollYProgress={scrollYProgress}
               />
             ))}
           </motion.div>
         </div>
       </motion.div>
-      {vinyls.toReversed().map((v, i) => (
+      {vinyls.map((v, i) => (
         <div className={styles.section} key={i}>
           {/* <p>{v.title}</p> */}
         </div>

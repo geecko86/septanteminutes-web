@@ -2,7 +2,7 @@
 
 import styles from "./album.module.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   motion,
   useTransform,
@@ -40,18 +40,18 @@ const VinylAlbum = ({
 
   const rotateZ = useTransform(
     albumRotation,
-    [position * -25 - 1, (position * -25) - 25],
+    [(total - position - 1) * -25 - 1, ((total - position - 1) * -25) - 25],
     [0, -25]
   );
 
   const translateX = useTransform(
     albumXOffset,
-    [position * -500 - 25, (position + 1) * -500],
+    [(total - position - 1) * -500 - 25, ((total - position - 1) + 1) * -500],
     ["0%", "-266%"]
   );
   const translateY = useTransform(
     albumYOffset,
-    [position * -200 - 25, (position + 1) * -200],
+    [(total - position - 1) * -200 - 25, ((total - position - 1) + 1) * -200],
     ["0%", "-66%"]
   );
 
@@ -60,13 +60,14 @@ const VinylAlbum = ({
   const [ignoreScroll, setIgnoreScroll] = useState(false);
   const [timeoutId, setTimeoutId] = useState(0);
 
-  useMotionValueEvent(scrollYProgress, "change", (progress) => {
-    if (position != total - 1 && !ignoreScroll) {
+  useEffect(() => scrollYProgress.onChange(progress => {
+    if (position == 60) console.log(progress, position, total);
+    if (position != 0 && !ignoreScroll) {
       albumRotation.set(progress * (total - 1) * -25);
-      albumXOffset.set(progress * (total - 1) * -500);
       albumYOffset.set(progress * (total - 1) * -200);
+      albumXOffset.set(progress * (total - 1) * -500);
     }
-  });
+  }));
 
   useEventListener('resize', () => {
     setIgnoreScroll(true);
@@ -86,7 +87,7 @@ const VinylAlbum = ({
     translateX,
     translateY,
     rotateZ,
-    zIndex: (total - position + (type == "shadow" ? 1 : 0)),
+    zIndex: (position + (type == "shadow" ? 1 : 0)),
     visibility: rotateZ.current == -25 ? "collapse" : "inherit"
   };
 
