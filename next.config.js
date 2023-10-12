@@ -1,5 +1,17 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+const withPWAInit = require("next-pwa");
+const runtimeCaching = require("./worker/cache");
+
+const withPWA = withPWAInit({
+	dest: "public",
+	register: true,
+	skipWaiting: true,
+	disable: false,
+	runtimeCaching,
+});
+
+const NextConfig = {
     experimental: {
       urlImports: ['https://framer.com/m/', 'https://framerusercontent.com/modules/'],
     },
@@ -10,4 +22,6 @@ module.exports = {
     images: {
       formats: ['image/webp'],
     }
-  }
+};
+
+module.exports = withPWA(NextConfig);
