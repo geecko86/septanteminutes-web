@@ -9,8 +9,9 @@ import createScrollSnap from "scroll-snap";
 import Chair from "./framer/Chair-DLhl.js";
 import Notebook from "./framer/Notebook-Large-POCp.js";
 import Pen from "./framer/Pen-y9p1.js";
-import ImagedPostIt from "./framer/Imaged-Post-It-1vlf.js";
 import Headphones from "./framer/Headphones-p7iC.js";
+// import ImagedPostIt from "./framer/Imaged-Post-It-1vlf.js";
+import ImagedPostIt from "https://framer.com/m/Imaged-Post-It-1vlf.js@AD5ktpy1qC52n5WE8mk2";
 import Phone from "https://framer.com/m/Phone-LGnb.js@zfhXvJfaEcaTAAB8pSKH";
 import Camera from "https://framer.com/m/Camera-2YBb.js@ml9NEzDk9cuHo9UjgqQs";
 
