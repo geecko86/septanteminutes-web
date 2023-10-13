@@ -34,5 +34,9 @@
   },
   "devDependencies": {
     "style-loader": "^3.3.3"
+  },
+ "overrides": {
+    "postcss": ">=8.4.31",
+    "zod": ">=3.22.3"
   }
 }
