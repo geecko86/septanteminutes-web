@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 
-const withPWAInit = require("next-pwa");
+const withPWAInit = require('next-pwa');
 const runtimeCaching = require("./worker/cache");
 
 const withPWA = withPWAInit({
-	dest: "public",
-	register: true,
-	skipWaiting: true,
-	disable: false,
-	runtimeCaching,
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: false, // true if develop
+  runtimeCaching,
 });
 
 const NextConfig = {

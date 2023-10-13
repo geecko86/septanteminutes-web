@@ -6,11 +6,11 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEventListener } from 'usehooks-ts';
 import createScrollSnap from "scroll-snap";
 
-import Chair from "https://framer.com/m/Chair-DLhl.js@JuWjXbhwOYQagHrgKa8w";
-import Notebook from "https://framer.com/m/Notebook-Large-NSPa.js";
-import Pen from "https://framer.com/m/Pen-y9p1.js@0TKtKBOXn6QqbuYWU4Dd";
-import ImagedPostIt from "https://framer.com/m/Imaged-Post-It-1vlf.js@awriGhqD00eedeeh1NVA";
-import Headphones from "https://framer.com/m/Headphones-p7iC.js@oQAzVYDXOsYSKncaRb32";
+import Chair from "https://framer.com/m/Chair-DLhl.js@hfhV1Ivpl4djGhax4S0X";
+import Notebook from "https://framer.com/m/Notebook-Large-POCp.js@79zBHEjU6XDP6VRk6xji";
+import Pen from "https://framer.com/m/Pen-y9p1.js@IgCjWcHop7DisPyKzbQc";
+import Headphones from "https://framer.com/m/Headphones-p7iC.js@6poQgfxsncRiI7MTwEnF";
+import ImagedPostIt from "https://framer.com/m/Imaged-Post-It-1vlf.js@AD5ktpy1qC52n5WE8mk2";
 import Phone from "https://framer.com/m/Phone-LGnb.js@zfhXvJfaEcaTAAB8pSKH";
 import Camera from "https://framer.com/m/Camera-2YBb.js@ml9NEzDk9cuHo9UjgqQs";
 
