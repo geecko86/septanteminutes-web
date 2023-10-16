@@ -26,10 +26,28 @@
   font-size: 1.1rem !important;
 }
 
-.openbook p {
-  font-size: 1.5rem !important;
+.openbook div:has(> p) {
   overflow-y: scroll;
-  height: 350px;
+  height: 350px !important;
+}
+
+.openbook div:has(> p) * {
+  font-size: 1.5rem !important;
+  margin: 0 !important;
+}
+
+.openbook ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.openbook div:has(> p) a {
+  color: var(--extracted-1eung3n, rgb(168, 87, 0));
+  text-decoration: none;
+}
+
+.openbook div:has(> p) a:hover {
+  text-decoration: underline;
 }
 
 .openbook p::-webkit-scrollbar {

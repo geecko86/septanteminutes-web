@@ -39,6 +39,9 @@ export default function EpisodeTable() {
 
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
     setFloatingNode,
+    title: vinyls[selectedEpisode].title.split(/\s?(-|–)\s?/g)[2],
+    subtitle: `Avec ${vinyls[selectedEpisode].title.split(/\s?(-|–)\s?/g)[0]}`,
+    desc: vinyls[selectedEpisode].desc
   });
 
   const { scrollYProgress } = useScroll({
@@ -57,14 +60,14 @@ export default function EpisodeTable() {
         threshold: 0.4
       }, () => {
         const currentPosition = getCurrentPosition();
-        const currentEpisode = currentPosition;
+        const currentEpisode = vinyls.length - currentPosition - 1;
         console.log(`Selected child #${currentPosition}`, `episode #${currentEpisode}`);
         setSelectedPosition(currentPosition);
         setSelectedEpisode(currentEpisode);
       }).bind();
       mainRef.current?.focus();
     }
-  }, [episodePage, getCurrentPosition]);
+  }, [episodePage, getCurrentPosition, vinyls.length]);
 
   useEventListener('resize', () => {
     if (timeoutId) clearTimeout(timeoutId);
@@ -121,7 +124,6 @@ export default function EpisodeTable() {
                   image=""
                   total={vinyls.length}
                   position={index}
-                  hover={index == hoveredPosition}
                   scrollYProgress={scrollYProgress}
                 />
               ))}
