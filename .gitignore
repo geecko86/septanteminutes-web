@@ -39,4 +39,4 @@ package-lock.json
 next-env.d.ts
 
 # ServiceWorker
-public/sw*
+/public/sw*
