@@ -105,8 +105,7 @@ export default function EpisodeTable() {
       ref={episodePage}
       className={`episode_page`}
     >
-      {floatingNode &&
-        cloneElement(notebookOverlayComponent, { setFloatingNode })}
+      {cloneElement(notebookOverlayComponent, { setFloatingNode })}
       <motion.div className={styles.main} ref={mainRef}
         onKeyDown={e => handleArrows(e)} tabIndex={0}>
         <div className={styles.floor}>

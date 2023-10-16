@@ -434,7 +434,7 @@
     height: auto !important;
     width: 60% !important;
     bottom: 35%;
-    right: 25% !important;
+    right: 40% !important;
     left: unset !important;
     cursor: pointer;
     transform: rotate(-23deg) !important;
@@ -453,7 +453,7 @@
     width: 60% !important;
     top: unset !important;
     bottom: 33%;
-    left: 37.5% !important;
+    left: 25% !important;
     transform: rotate(-15deg);
   }
 
@@ -487,7 +487,40 @@
   }
 
   .postitnotes {
-    display: none;
+    height: 25% !important;
+    width: 40% !important;
+    bottom: 50% !important;
+    left: 57.5%;
+    transform: translateY(50%);
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0px !important;
+    row-gap: 0px !important;
+    overflow: visible;
+  }
+
+  .postit {
+    height: calc(85vmax * 0.2275 * 0.5) !important;
+    width: 50% !important;
+    overflow: visible !important;
+  }
+
+  .postit > * {
+    transform:translateX(-10%) !important;
+  }
+
+  .postitnotes *:nth-child(1) > .postit {
+    transform: rotate(0deg) translate(0%, 5%) !important;
+  }
+
+  .postitnotes *:nth-child(2) > .postit {
+    transform: rotate(-6deg) translate(-10%, 27.5%) !important;
+  }
+
+  .postitnotes div:nth-child(3) > .postit {
+    transform: rotate(6deg) translate(0%, -10%) !important;
   }
 }
 

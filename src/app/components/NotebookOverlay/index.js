@@ -70,7 +70,7 @@ const NotebookOverlay = ({ setFloatingNode }) => {
           >
             <FloatingOverlay
               lockScroll
-              className={styles.backdrop}
+              className={[styles.backdrop, descVisible ? "" : styles.hidden].join(" ")}
               onClick={(e) => {
                 if (!refs.floating.current?.contains(e.target)) {
                   toggleOverlay(false);
