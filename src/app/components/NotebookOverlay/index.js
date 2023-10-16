@@ -16,7 +16,7 @@ import { motion, animate, AnimatePresence } from "framer-motion";
 
 import NoteBookOpen from "../../framer/NoteBook-Open-NHDl.js";
 
-const NotebookOverlay = ({ setFloatingNode, title, subtitle, desc }) => {
+const NotebookOverlay = ({ setFloatingNode = (_) => {}, title = "", subtitle = "", desc = "" }) => {
   const [descVisible, setdescVisible] = useState(false);
 
   const toggleOverlay = (open) => {

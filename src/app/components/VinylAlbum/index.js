@@ -9,18 +9,22 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "framer-motion";
-import { useEventListener } from 'usehooks-ts'
+import Image from "next/image";
+import { useEventListener } from "usehooks-ts";
 
-import Vinyl from "https://framer.com/m/Vynil-Copy-STPN.js@q9hC2XpeKHiuA8fEujyh";
+const imageLoader = ({ src, width, quality }) => {
+  return `${src}?w=${width}&q=${quality || 75}`; // FIXME
+};
 
 const VinylAlbum = ({
   position,
   scrollYProgress,
   image,
   total,
+  alt = "",
   type = "vinyl",
-  onMouseEnter = e => { },
-  onMouseLeave = e => { }
+  onMouseEnter = (e) => {},
+  onMouseLeave = (e) => {},
 }) => {
   const albumRotation = useSpring(0, {
     stiffness: 700,
@@ -40,18 +44,18 @@ const VinylAlbum = ({
 
   const rotateZ = useTransform(
     albumRotation,
-    [(total - position - 1) * -25 - 1, ((total - position - 1) * -25) - 25],
+    [(total - position - 1) * -25 - 1, (total - position - 1) * -25 - 25],
     [0, -25]
   );
 
   const translateX = useTransform(
     albumXOffset,
-    [(total - position - 1) * -500 - 25, ((total - position - 1) + 1) * -500],
+    [(total - position - 1) * -500 - 25, (total - position - 1 + 1) * -500],
     ["0%", "-266%"]
   );
   const translateY = useTransform(
     albumYOffset,
-    [(total - position - 1) * -200 - 25, ((total - position - 1) + 1) * -200],
+    [(total - position - 1) * -200 - 25, (total - position - 1 + 1) * -200],
     ["0%", "-66%"]
   );
 
@@ -61,16 +65,18 @@ const VinylAlbum = ({
   const [isMoving, setMoving] = useState(false);
   const [timeoutId, setTimeoutId] = useState(0);
 
-  useEffect(() => scrollYProgress.onChange(progress => {
-    if (position == 60) console.log(progress, position, total);
-    if (position != 0 && !ignoreScroll) {
-      albumRotation.set(progress * (total - 1) * -25);
-      albumYOffset.set(progress * (total - 1) * -200);
-      albumXOffset.set(progress * (total - 1) * -500);
-    }
-  }));
+  useEffect(() =>
+    scrollYProgress.onChange((progress) => {
+      if (position == 60) console.log(progress, position, total);
+      if (position != 0 && !ignoreScroll) {
+        albumRotation.set(progress * (total - 1) * -25);
+        albumYOffset.set(progress * (total - 1) * -200);
+        albumXOffset.set(progress * (total - 1) * -500);
+      }
+    })
+  );
 
-  useEventListener('resize', () => {
+  useEventListener("resize", () => {
     setIgnoreScroll(true);
     if (timeoutId) clearTimeout(timeoutId);
     const newId = setTimeout(() => {
@@ -81,7 +87,13 @@ const VinylAlbum = ({
 
   useMotionValueEvent(rotateZ, "change", (rotation) => {
     setGone(rotation < -24);
-    setShadowLevel(rotation >= -25 && rotation < -7 ? styles.shadow24 : rotation < -1 ? styles.shadow8 : "");
+    setShadowLevel(
+      rotation >= -25 && rotation < -7
+        ? styles.shadow24
+        : rotation < -1
+        ? styles.shadow8
+        : ""
+    );
     setMoving(rotation < 0);
   });
 
@@ -89,13 +101,12 @@ const VinylAlbum = ({
     translateX,
     translateY,
     rotateZ,
-    zIndex: (position + (type == "shadow" ? 1 : 0)),
-    visibility: rotateZ.current == -25 ? "collapse" : "inherit"
+    zIndex: position + (type == "shadow" ? 1 : 0),
+    visibility: rotateZ.current == -25 ? "collapse" : "inherit",
   };
 
   return type === "shadow" ? (
-    <div className={styles.shadow_container}
-      hidden={isGone}>
+    <div className={styles.shadow_container} hidden={isGone}>
       <motion.div
         className={`${styles.separate_shadow} ${shadowLevel}`}
         style={style}
@@ -103,7 +114,9 @@ const VinylAlbum = ({
     </div>
   ) : (
     <div
-      className={[styles.hover_container, isMoving ? styles.moving : ""].join(" ")}
+      className={[styles.hover_container, isMoving ? styles.moving : ""].join(
+        " "
+      )}
       hidden={isGone}
     >
       <motion.div
@@ -112,8 +125,19 @@ const VinylAlbum = ({
         className={styles.album}
         style={style}
       >
-        <img src={image} loading="lazy" />
-        <img className={styles.wrinkles} src="/img/vinyl_box.webp" />
+        <Image
+          src={image}
+          alt={alt}
+          fill={true}
+          loader={imageLoader}
+        />
+        <Image
+          className={styles.wrinkles}
+          loader={imageLoader}
+          src="/img/vinyl_box.webp"
+          fill={true}
+          alt=""
+        />
       </motion.div>
     </div>
   );
@@ -124,17 +148,15 @@ const ShadowAlbum = ({
   scrollYProgress,
   image,
   total,
-  type = "shadow"
+  type = "shadow",
 }) => {
-  return (
-    VinylAlbum({
-      position,
-      scrollYProgress,
-      image,
-      total,
-      type
-    })
-  );
-}
+  return VinylAlbum({
+    position,
+    scrollYProgress,
+    image,
+    total,
+    type,
+  });
+};
 
 export { VinylAlbum as default, ShadowAlbum };

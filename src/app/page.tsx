@@ -163,6 +163,7 @@ export default function EpisodeTable() {
               <VinylAlbum
                 key={index}
                 image={episode["img"] || ""}
+                alt={episode["title"]}
                 total={vinyls.length}
                 position={index}
                 scrollYProgress={scrollYProgress}

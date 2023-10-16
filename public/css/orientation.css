@@ -28,8 +28,8 @@ html::-webkit-scrollbar {
 }
 
 * {
-    backface-visibility: hidden !important;
-    -webkit-backface-visibility: hidden !important;
+    /* backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important; */
     scroll-behavior: auto;
     overscroll-behavior-y: none;
 }

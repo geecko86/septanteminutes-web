@@ -37,11 +37,11 @@
 
 .chair {
   position: absolute !important;
-  top: calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50vh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.8129) * 0.25));
-  left: calc(max(73vw, var(--tableMinWidth)) + (50vw - max(73vw/2, var(--tableMinWidth) / 2)) - max(75vw * 0.54, 320px) * 1.03);
+  top: calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50vh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.395) * 0.25));
+  left: calc(max(73vw, var(--tableMinWidth)) + (50vw - max(73vw/2, var(--tableMinWidth) / 2)) - max(75vw * 0.65, 320px) * 1.03);
   aspect-ratio: 0.8129;
   height: auto !important;
-  width: calc(75vw * 0.54) !important;
+  width: calc(75vw * 0.8) !important;
   min-width: 320px;
   transform: rotate(-23deg);
 }
