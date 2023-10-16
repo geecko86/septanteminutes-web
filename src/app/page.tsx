@@ -1,16 +1,16 @@
 "use client";
 
 import styles from "./page.module.css";
-import React, { useState, useRef, useEffect, useCallback, cloneElement } from "react";
+import React, { useState, useRef, useEffect, useCallback, cloneElement, FC } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEventListener } from 'usehooks-ts';
 import createScrollSnap from "scroll-snap";
 
-import Chair from "https://framer.com/m/Chair-DLhl.js@hfhV1Ivpl4djGhax4S0X";
-import Notebook from "https://framer.com/m/Notebook-Large-POCp.js@79zBHEjU6XDP6VRk6xji";
-import Pen from "https://framer.com/m/Pen-y9p1.js@IgCjWcHop7DisPyKzbQc";
-import Headphones from "https://framer.com/m/Headphones-p7iC.js@6poQgfxsncRiI7MTwEnF";
-import ImagedPostIt from "https://framer.com/m/Imaged-Post-It-1vlf.js@AD5ktpy1qC52n5WE8mk2";
+import Chair_ from "./framer/Chair-DLhl.js";
+import Notebook_ from "./framer/Notebook-Large-POCp.js";
+import Pen_ from "./framer/Pen-y9p1.js";
+import Headphones_ from "./framer/Headphones-p7iC.js";
+import ImagedPostIt_ from "./framer/Imaged-Post-It-1vlf.js";
 import Phone from "https://framer.com/m/Phone-LGnb.js@zfhXvJfaEcaTAAB8pSKH";
 import Camera from "https://framer.com/m/Camera-2YBb.js@ml9NEzDk9cuHo9UjgqQs";
 
@@ -31,6 +31,7 @@ export default function EpisodeTable() {
   const [timeoutId, setTimeoutId] = useState<any>(null);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
   const [selectedPosition, setSelectedPosition] = useState(0);
+  const [hoveredPosition, setHoveredPosition] = useState(-1);
 
   const episodePage = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -93,6 +94,12 @@ export default function EpisodeTable() {
     }
   };
 
+  const Chair: FC<any> = Chair_;
+  const Notebook: FC<any> = Notebook_;
+  const Pen: FC<any> = Pen_;
+  const Headphones: FC<any> = Headphones_;
+  const ImagedPostIt: FC<any> = ImagedPostIt_;
+
   return (
     <div
       ref={episodePage}
@@ -115,6 +122,7 @@ export default function EpisodeTable() {
                   image=""
                   total={vinyls.length}
                   position={index}
+                  hover={index == hoveredPosition}
                   scrollYProgress={scrollYProgress}
                 />
               ))}
@@ -136,7 +144,6 @@ export default function EpisodeTable() {
               title={"\nPage\nd'accueil"}
             />
             <ImagedPostIt
-              classNam
               className={[styles.postit, styles.download_postit].join(' ')}
               title={"Télécharger"}
               onClick={() => {}}

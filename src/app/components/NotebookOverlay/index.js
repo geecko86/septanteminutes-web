@@ -14,7 +14,7 @@ import {
 import React, { useState } from "react";
 import { motion, animate, AnimatePresence } from "framer-motion";
 
-import NoteBookOpen from "https://framer.com/m/NoteBook-Open-NHDl.js@yj7EhZfYZxYhr8SufJwy";
+import NoteBookOpen from "../../framer/NoteBook-Open-NHDl.js";
 
 const NotebookOverlay = ({ setFloatingNode }) => {
   const [descVisible, setdescVisible] = useState(false);
