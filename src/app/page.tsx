@@ -132,8 +132,9 @@ export default function EpisodeTable() {
           <RecordPlayer className={styles.player} />
           <div className={styles.postitnotes}>
             <ImagedPostIt
-              className={styles.postit}
-              title={"\nPage\nd'accueil"}
+              className={[styles.postit, styles.home_postit].join(' ')}
+              title={"Accueil"}
+              onClick={() => {}}
             />
             <ImagedPostIt
               classNam
@@ -153,12 +154,6 @@ export default function EpisodeTable() {
             {vinyls.map((episode, index) => (
               <VinylAlbum
                 key={index}
-                onMouseEnter={e => {
-                  shadows.current?.children[index].setAttribute("hover", "true");
-                }}
-                onMouseLeave={e => {
-                  shadows.current?.children[index].removeAttribute("hover");
-                }}
                 image={episode["img"] || ""}
                 total={vinyls.length}
                 position={index}

@@ -19,8 +19,8 @@ const VinylAlbum = ({
   image,
   total,
   type = "vinyl",
-  onMouseEnter = e => {},
-  onMouseLeave = e => {}
+  onMouseEnter = e => { },
+  onMouseLeave = e => { }
 }) => {
   const albumRotation = useSpring(0, {
     stiffness: 700,
@@ -58,6 +58,7 @@ const VinylAlbum = ({
   const [isGone, setGone] = useState(rotateZ == -25);
   const [shadowLevel, setShadowLevel] = useState("");
   const [ignoreScroll, setIgnoreScroll] = useState(false);
+  const [isMoving, setMoving] = useState(false);
   const [timeoutId, setTimeoutId] = useState(0);
 
   useEffect(() => scrollYProgress.onChange(progress => {
@@ -81,6 +82,7 @@ const VinylAlbum = ({
   useMotionValueEvent(rotateZ, "change", (rotation) => {
     setGone(rotation < -24);
     setShadowLevel(rotation >= -25 && rotation < -7 ? styles.shadow24 : rotation < -1 ? styles.shadow8 : "");
+    setMoving(rotation < 0);
   });
 
   const style = {
@@ -92,23 +94,28 @@ const VinylAlbum = ({
   };
 
   return type === "shadow" ? (
-    <div className={styles.shadow_container}>
+    <div className={styles.shadow_container}
+      hidden={isGone}>
       <motion.div
         className={`${styles.separate_shadow} ${shadowLevel}`}
-        hidden={isGone}
         style={style}
       />
     </div>
   ) : (
-    <motion.div
+    <div
+      className={[styles.hover_container, isMoving ? styles.moving : ""].join(" ")}
       hidden={isGone}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      className={styles.album}
-      style={style}
     >
-      <Vinyl image={image} />
-    </motion.div>
+      <motion.div
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        className={styles.album}
+        style={style}
+      >
+        <img src={image} loading="lazy" />
+        <img className={styles.wrinkles} src="/img/vinyl_box.webp" />
+      </motion.div>
+    </div>
   );
 };
 

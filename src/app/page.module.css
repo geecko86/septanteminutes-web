@@ -356,7 +356,7 @@
 }
 
 .download_postit figure {
-  content: url("/img/download.png");
+  content: url("/img/download.svg");
   aspect-ratio: unset !important;
   width: auto !important;
   top: 33% !important;
@@ -377,7 +377,7 @@
 }
 
 .contact_postit figure {
-  content: url("/img/mail.png");
+  content: url("/img/email.svg");
   aspect-ratio: unset !important;
   width: auto !important;
   top: 33% !important;
@@ -385,6 +385,27 @@
   right: 20% !important;
   left: unset !important;
   transform: translateX(-50%) !important;
+  cursor: pointer;
+}
+
+.postit.home_postit div:has(> p) {
+  top: 44% !important;
+  left: 59% !important;
+}
+
+.home_postit p {
+  font-size: 37cqw !important;
+}
+
+.home_postit figure {
+  content: url("/img/back.svg");
+  aspect-ratio: unset !important;
+  width: 15% !important;
+  top: 28% !important;
+  bottom: unset !important;
+  right: 42.5% !important;
+  left: unset !important;
+  transform: unset !important;
   cursor: pointer;
 }
 
