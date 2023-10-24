@@ -276,7 +276,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
             /*#__PURE__*/ _jsx(RichText, {
               __fromCanvasComponent: true,
               children: /*#__PURE__*/ _jsx(React.Fragment, {
-                children: /*#__PURE__*/ _jsx(motion.p, {
+                children: /*#__PURE__*/ _jsx(motion.h5, {
                   style: {
                     "--font-selector": "R0Y7Q2F2ZWF0LXJlZ3VsYXI=",
                     "--framer-font-family": '"Caveat", sans-serif',
@@ -284,7 +284,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     "--framer-text-color":
                       "var(--extracted-r6o4lv, rgb(38, 38, 38))",
                   },
-                  children: "Follow Us",
+                  children: "Abonnez-vous !",
                 }),
               }),
               className: "framer-1ij9ooc",
