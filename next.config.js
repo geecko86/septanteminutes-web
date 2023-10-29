@@ -16,9 +16,10 @@ const NextConfig = {
     },
     output: 'export',
     compiler: {
-      removeConsole: true
+      removeConsole: process.env.NODE_ENV !== 'development'
     },
     images: {
+      unoptimized: true,
       formats: ['image/webp'],
     }
 };

@@ -13,7 +13,11 @@ html, * {
     -webkit-tap-highlight-color: transparent;
 }
 
-html::-webkit-scrollbar {
+body {
+    margin: 0;
+}
+
+html *::-webkit-scrollbar {
     display: none;
 }
 

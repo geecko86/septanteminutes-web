@@ -4,6 +4,8 @@ import { NetworkOnly, NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'wor
 import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
 import { matchPrecache, precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching';
 
+self.__WB_DISABLE_DEV_LOGS = true;
+
 skipWaiting();
 clientsClaim();
 

@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/pages/_zapp.tsx"  ],
   "exclude": [
     "node_modules"
   ]

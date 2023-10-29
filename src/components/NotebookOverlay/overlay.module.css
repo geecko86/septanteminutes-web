@@ -33,22 +33,22 @@
   width: 38.62% !important;
   top: 17% !important;
   right: 6% !important;
-  height: 39.0243902% !important;
+  height: 78.048% !important;
 }
 
-.openbook a:has(img) {
-  height: 38.46% !important;
+.openbook a:has(img) { 
+  height: 19.23% !important;
   width: auto !important;
   aspect-ratio: 1;
 }
 
-.openbook a:has(img):nth-child(2) {
-  top: 52% !important;
+.openbook a:has(img):nth-child(2) { /* RSS */ 
+  top: 26% !important;
 }
 
-.openbook a:has(img):nth-child(5) {
+.openbook a:has(img):nth-child(5) { /* Youtube */ 
   right: 29.90% !important;
-  top: 52% !important;
+  top: 26% !important;
 }
 
 .openbook > div:nth-child(2) {
@@ -78,7 +78,7 @@
 }
 
 .openbook h5 {
-  font-size: 1.3cqw !important;;
+  font-size: 1.4cqw !important;;
 }
 
 .openbook div:has(> p) {
@@ -105,6 +105,6 @@
   text-decoration: underline;
 }
 
-.openbook p::-webkit-scrollbar {
+.openbook *::-webkit-scrollbar {
   display: none;
 }

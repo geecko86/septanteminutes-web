@@ -13,14 +13,17 @@ import Image from "next/image";
 import { useEventListener } from "usehooks-ts";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `${src}?w=${width}&q=${quality || 75}`; // FIXME
+  return src.replace("/upload/", `/upload/c_scale,w_${width},f_webp,q_${quality || 75}/`);
 };
+
+const blur = (src) => src.replace("/upload/", "/upload/c_scale,w_64,f_webp,q_50/");
 
 const VinylAlbum = ({
   position,
   scrollYProgress,
   image,
   total,
+  mayAnimate = false,
   alt = "",
   type = "vinyl",
   onMouseEnter = (e) => {},
@@ -67,7 +70,6 @@ const VinylAlbum = ({
 
   useEffect(() =>
     scrollYProgress.onChange((progress) => {
-      if (position == 60) console.log(progress, position, total);
       if (position != 0 && !ignoreScroll) {
         albumRotation.set(progress * (total - 1) * -25);
         albumYOffset.set(progress * (total - 1) * -200);
@@ -97,13 +99,13 @@ const VinylAlbum = ({
     setMoving(rotation < 0);
   });
 
-  const style = {
+  const style = mayAnimate ? {
     translateX,
     translateY,
     rotateZ,
     zIndex: position + (type == "shadow" ? 1 : 0),
     visibility: rotateZ.current == -25 ? "collapse" : "inherit",
-  };
+  } : {};
 
   return type === "shadow" ? (
     <div className={styles.shadow_container} hidden={isGone}>
@@ -129,13 +131,17 @@ const VinylAlbum = ({
           src={image}
           alt={alt}
           fill={true}
+          placeholder="blur"
+          blurDataURL={blur(image)}
           loader={imageLoader}
+          sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
         />
         <Image
           className={styles.wrinkles}
           loader={imageLoader}
           src="/img/vinyl_box.webp"
           fill={true}
+          priority={true}
           alt=""
         />
       </motion.div>
@@ -148,6 +154,7 @@ const ShadowAlbum = ({
   scrollYProgress,
   image,
   total,
+  mayAnimate = false,
   type = "shadow",
 }) => {
   return VinylAlbum({
@@ -155,6 +162,7 @@ const ShadowAlbum = ({
     scrollYProgress,
     image,
     total,
+    mayAnimate,
     type,
   });
 };

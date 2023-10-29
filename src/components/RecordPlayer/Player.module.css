@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 
-.needle[start=true] {
+.playing_needle {
     transform: none !important;
 }
 
@@ -45,7 +45,7 @@
     transition-duration: 0.3s;
 }
 
-.needle[start=true] img {
+.playing_needle img {
     transform: rotate(30deg);
 }
 
@@ -93,7 +93,7 @@
     content: url('/img/vinyl.webp');
 }
 
-.disk[start=true] {
+.playing_disk {
     animation-play-state: running;
 }
 

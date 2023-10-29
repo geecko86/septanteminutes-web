@@ -12,8 +12,8 @@ const RecordPlayer = ({className}) => {
 
     return (<div className={`${className} ${styles.player}`}>
         <div className={`${styles.needle} ${styles.needle_base}`} />
-        <Needle className={styles.needle} start={playing || undefined} onClick={() => setPlaying(!playing)} />
-        <Vinyl className={styles.disk} start={playing || undefined} />
+        <Needle className={`${styles.needle} ${playing ? styles.playing_needle : ""}`} onClick={() => setPlaying(!playing)} />
+        <Vinyl className={`${styles.disk} ${playing ? styles.playing_disk : ""}`} />
         <VinylReflection className={styles.reflection} onClick={() => setPlaying(!playing)} />
     </div>);
 }
