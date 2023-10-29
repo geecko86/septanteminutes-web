@@ -12,8 +12,12 @@ import {
   useVariantState,
   withCSS,
 } from "framer";
+import NextImage from "next/image";
 import { LayoutGroup, motion, MotionConfigContext } from "framer-motion";
 import * as React from "react";
+
+import styles from "./notebook-open.module.css";
+
 const cycleOrder = ["sFPu3J3Yn"];
 const variantClassNames = { sFPu3J3Yn: "framer-v-1i1477k" };
 function addPropertyOverrides(overrides, ...variants) {
@@ -72,8 +76,7 @@ const getProps = ({
         ? ref
         : {
             src: new URL(
-              "assets/hDECKuxjFOGsOLnfV2L8zeRNsuE.webp",
-              "https://framerusercontent.com/"
+              "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698608146/framer/notebook_open.webp"
             ).href,
           },
     I94Rs1RIH:
@@ -152,18 +155,8 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
       style: { display: "contents" },
       children: /*#__PURE__*/ _jsx(Transition, {
         value: transition,
-        children: /*#__PURE__*/ _jsxs(Image, {
+        children: /*#__PURE__*/ _jsxs(motion.div, {
           ...restProps,
-          background: {
-            alt: "",
-            fit: "fill",
-            intrinsicHeight: 370.5,
-            intrinsicWidth: 504,
-            pixelHeight: 741,
-            pixelWidth: 1008,
-            sizes: "min(725px, 100vw)",
-            ...toResponsiveImage(HGybZ8uLx),
-          },
           className: cx("framer-1i1477k", className),
           "data-framer-name": "Variant 1",
           layoutDependency: layoutDependency,
@@ -171,6 +164,12 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
           ref: ref,
           style: { ...style },
           children: [
+            /*#__PURE__*/ _jsxs(NextImage, {
+              alt: "",
+              fill: true,
+              sizes: "34.5vw",
+              ...toResponsiveImage(HGybZ8uLx),
+            }),
             /*#__PURE__*/ _jsxs(motion.div, {
               className: "framer-1qal9rh",
               layoutDependency: layoutDependency,
@@ -311,7 +310,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
                     background: {
-                      alt: "",
+                      alt: "Apple Podcasts",
                       fit: "fit",
                       intrinsicHeight: 1225,
                       intrinsicWidth: 1225,
@@ -334,7 +333,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
                     background: {
-                      alt: "",
+                      alt: "Flux RSS",
                       fit: "fill",
                       intrinsicHeight: 1225,
                       intrinsicWidth: 1225,
@@ -358,7 +357,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
                     background: {
-                      alt: "",
+                      alt: "Spotify",
                       fit: "fill",
                       intrinsicHeight: 1225,
                       intrinsicWidth: 1225,
@@ -383,7 +382,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
                     background: {
-                      alt: "",
+                      alt: "Pocket Casts",
                       fit: "fill",
                       intrinsicHeight: 1225,
                       intrinsicWidth: 1225,
@@ -407,7 +406,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
                     background: {
-                      alt: "",
+                      alt: "YouTube",
                       fit: "fill",
                       intrinsicHeight: 1225,
                       intrinsicWidth: 1225,
@@ -431,7 +430,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
                     background: {
-                      alt: "",
+                      alt: "lien facebook",
                       fit: "fill",
                       intrinsicHeight: 1225,
                       intrinsicWidth: 1225,
@@ -439,8 +438,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "/img/facebook.webp",
                     },
-                    id: "facebook-stamp",
-                    className: "framer-bawjxc",
+                    className: `framer-bawjxc ${styles.facebook_stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
                     style: {
@@ -457,7 +455,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
                     background: {
-                      alt: "",
+                      alt: "lien twitter",
                       fit: "fill",
                       intrinsicHeight: 1225,
                       intrinsicWidth: 1225,
@@ -465,8 +463,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "/img/twitter.webp",
                     },
-                    id: "twitter-stamp",
-                    className: "framer-bawjxc",
+                    className: `framer-bawjxc ${styles.twitter_stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
                     style: {
@@ -483,7 +480,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
                     background: {
-                      alt: "",
+                      alt: "lien instagram",
                       fit: "fill",
                       intrinsicHeight: 1225,
                       intrinsicWidth: 1225,
@@ -491,8 +488,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "/img/instagram.webp",
                     },
-                    id: "instagram-stamp",
-                    className: "framer-bawjxc",
+                    className: `framer-bawjxc ${styles.instagram_stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
                     style: {
@@ -516,17 +512,17 @@ const css = [
   '.framer-N8Zts [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
   ".framer-N8Zts .framer-bawjxc { display: block; }",
-  ".framer-N8Zts .framer-1i1477k { height: 533px; overflow: visible; position: relative; width: 725px; }",
-  ".framer-N8Zts .framer-1qal9rh { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 16px; height: min-content; justify-content: center; left: 42px; overflow: visible; padding: 0px 0px 0px 0px; position: absolute; top: 49px; width: 297px; }",
-  ".framer-N8Zts .framer-z9vgup { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 4px; height: min-content; justify-content: center; overflow: visible; padding: 0px 0px 0px 0px; position: relative; width: 297px; }",
+  ".framer-N8Zts .framer-1i1477k { height: 533px; position: relative; width: 725px; }",
+  ".framer-N8Zts .framer-1qal9rh { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 16px; height: min-content; justify-content: center; left: 42px; padding: 0px 0px 0px 0px; position: absolute; top: 49px; width: 297px; }",
+  ".framer-N8Zts .framer-z9vgup { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 4px; height: min-content; justify-content: center; padding: 0px 0px 0px 0px; position: relative; width: 297px; }",
   ".framer-N8Zts .framer-ewqvqc, .framer-N8Zts .framer-1e605kk, .framer-N8Zts .framer-pdriv7 { flex: none; height: auto; position: relative; white-space: pre-wrap; width: 100%; word-break: break-word; word-wrap: break-word; }",
   ".framer-N8Zts .framer-1ij9ooc { flex: none; height: auto; position: absolute; right: 100px; top: 49px; white-space: pre-wrap; width: 211px; word-break: break-word; word-wrap: break-word; }",
-  ".framer-N8Zts .framer-j4o6rv { flex: none; height: 208px; overflow: visible; position: absolute; right: 44px; top: 93px; width: 280px; }",
-  ".framer-N8Zts .framer-vneoqq { aspect-ratio: 1 / 1; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); left: 0px; overflow: visible; position: absolute; text-decoration: none; top: 4px; width: 80px; }",
-  ".framer-N8Zts .framer-sw8xpb { aspect-ratio: 1 / 1; bottom: 14px; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); left: 14px; overflow: visible; position: absolute; text-decoration: none; width: 80px; }",
-  ".framer-N8Zts .framer-13t9c6s { aspect-ratio: 1 / 1; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); left: 49%; overflow: visible; position: absolute; text-decoration: none; top: 13px; width: 80px; }",
-  ".framer-N8Zts .framer-y9hbwq { aspect-ratio: 1 / 1; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); overflow: visible; position: absolute; right: 4px; text-decoration: none; top: 5px; width: 80px; }",
-  ".framer-N8Zts .framer-1d6xbzh { aspect-ratio: 1 / 1; bottom: 12px; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); overflow: visible; position: absolute; right: 83px; text-decoration: none; width: 80px; }",
+  ".framer-N8Zts .framer-j4o6rv { flex: none; height: 208px; position: absolute; right: 44px; top: 93px; width: 280px; }",
+  ".framer-N8Zts .framer-vneoqq { aspect-ratio: 1 / 1; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); left: 0px; position: absolute; text-decoration: none; top: 4px; width: 80px; }",
+  ".framer-N8Zts .framer-sw8xpb { aspect-ratio: 1 / 1; bottom: 14px; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); left: 14px; position: absolute; text-decoration: none; width: 80px; }",
+  ".framer-N8Zts .framer-13t9c6s { aspect-ratio: 1 / 1; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); left: 49%; position: absolute; text-decoration: none; top: 13px; width: 80px; }",
+  ".framer-N8Zts .framer-y9hbwq { aspect-ratio: 1 / 1; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); position: absolute; right: 4px; text-decoration: none; top: 5px; width: 80px; }",
+  ".framer-N8Zts .framer-1d6xbzh { aspect-ratio: 1 / 1; bottom: 12px; cursor: pointer; flex: none; height: var(--framer-aspect-ratio-supported, 80px); position: absolute; right: 83px; text-decoration: none; width: 80px; }",
   "@supports (background: -webkit-named-image(i)) and (not (font-palette:dark)) { .framer-N8Zts .framer-1qal9rh, .framer-N8Zts .framer-z9vgup { gap: 0px; } .framer-N8Zts .framer-1qal9rh > * { margin: 0px; margin-bottom: calc(16px / 2); margin-top: calc(16px / 2); } .framer-N8Zts .framer-1qal9rh > :first-child, .framer-N8Zts .framer-z9vgup > :first-child { margin-top: 0px; } .framer-N8Zts .framer-1qal9rh > :last-child, .framer-N8Zts .framer-z9vgup > :last-child { margin-bottom: 0px; } .framer-N8Zts .framer-z9vgup > * { margin: 0px; margin-bottom: calc(4px / 2); margin-top: calc(4px / 2); } }",
 ];
 /**

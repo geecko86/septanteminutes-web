@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/google-font-preconnect */
+/* eslint-disable @next/next/google-font-display */
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="fr">
         <Head>
           <link rel="stylesheet" href={"/css/orientation.css"} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,8 +15,19 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Caveat&display=fallback"
+            as="style"
+          />
+          <link
+            rel="preload"
+            href="https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjfJ9eIipYSxP.woff2"
+            as="font"
+            type="font/woff2" crossorigin
+          />
+          <link
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Caveat&display=fallback"
           />
 
           <meta name="application-name" content="PWA App" />

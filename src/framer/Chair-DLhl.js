@@ -5,11 +5,11 @@ import {
   addPropertyControls,
   ControlType,
   cx,
-  Image,
   useLocaleInfo,
   useVariantState,
   withCSS,
 } from "framer";
+import Image from 'next/image';
 import { LayoutGroup, motion, MotionConfigContext } from "framer-motion";
 import * as React from "react";
 const cycleOrder = ["yrIu2Sstk"];
@@ -59,9 +59,8 @@ const getProps = ({ height, id, image, width, ...props }) => {
         ? ref
         : {
             src: new URL(
-              "assets/0ApqjTBovBJEl24fqQX8PlJSRI.webp",
-              "https://framerusercontent.com/"
-            ).href,
+              "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698601709/framer/chair.webp"
+              ).href,
           },
   };
 };
@@ -104,16 +103,12 @@ const Component = /*#__PURE__*/ React.forwardRef(function Chair(props, ref) {
         value: transition,
         children: /*#__PURE__*/ _jsx(Image, {
           ...restProps,
-          background: {
-            alt: "",
-            fit: "fit",
-            intrinsicHeight: 5e3,
-            intrinsicWidth: 5e3,
-            pixelHeight: 5e3,
-            pixelWidth: 5e3,
-            sizes: "min(1577px, 100vw)",
-            ...toResponsiveImage(SVXX2h40W),
-          },
+          alt: "",
+          fit: "fit",
+          fill: true,
+          loading: "eager",
+          sizes: "(max-width: 1200px) 40.5vmax,(min-width: 1201px) 60vw, 60vw",
+          ...toResponsiveImage(SVXX2h40W),
           className: cx("framer-10d98jw", className),
           "data-framer-name": "Variant 1",
           layoutDependency: layoutDependency,
@@ -129,7 +124,7 @@ const css = [
   '.framer-zV98x [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
   ".framer-zV98x .framer-4lbx2f { display: block; }",
-  ".framer-zV98x .framer-10d98jw { height: 1577px; overflow: visible; position: relative; width: 1577px; }",
+  ".framer-zV98x .framer-10d98jw { height: 1577px; position: relative; width: 1577px; }",
 ];
 /**
  * This is a generated Framer component.

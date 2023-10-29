@@ -12,11 +12,7 @@ import {
 import Image from "next/image";
 import { useEventListener } from "usehooks-ts";
 
-const imageLoader = ({ src, width, quality }) => {
-  return src.replace("/upload/", `/upload/c_scale,w_${width},f_webp,q_${quality || 75}/`);
-};
-
-const blur = (src) => src.replace("/upload/", "/upload/c_scale,w_64,f_webp,q_50/");
+import { blur } from "../../utils/cloudinary_loader";
 
 const VinylAlbum = ({
   position,
@@ -133,16 +129,15 @@ const VinylAlbum = ({
           fill={true}
           placeholder="blur"
           blurDataURL={blur(image)}
-          loader={imageLoader}
           sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
         />
         <Image
-          className={styles.wrinkles}
-          loader={imageLoader}
-          src="/img/vinyl_box.webp"
+          src="https://res.cloudinary.com/dcodwkhcg/image/upload/v1698610880/framer/vinyl_box.webp"
+          alt=""
           fill={true}
           priority={true}
-          alt=""
+          className={styles.wrinkles}
+          sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
         />
       </motion.div>
     </div>

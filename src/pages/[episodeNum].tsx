@@ -11,8 +11,9 @@ import { useRouter } from "next/router";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
+import Head from "next/head";
+import Image from "next/image";
 import type {
-  InferGetStaticPropsType,
   GetStaticProps,
   GetStaticPaths,
 } from 'next'
@@ -53,8 +54,8 @@ export default function EpisodeTable() {
 
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
     setFloatingNode,
-    title: vinyls[selectedEpisode].title.split(/\s?(-|–)\s?/g)[2],
-    subtitle: `Avec ${vinyls[selectedEpisode].title.split(/\s?(-|–)\s?/g)[0]}`,
+    title: vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[2].trim(),
+    subtitle: `Avec ${vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[0].trim()}`,
     desc: vinyls[selectedEpisode].desc,
   });
 
@@ -172,6 +173,9 @@ export default function EpisodeTable() {
   return (
     <div ref={episodePage} className={`episode_page`}>
       {cloneElement(notebookOverlayComponent, { setFloatingNode })}
+      <Head>
+        <title>Septante Minutes Avec {vinyls[selectedEpisode]["title"]}</title>
+      </Head>
       <motion.div
         className={styles.main}
         ref={mainRef}
@@ -179,6 +183,7 @@ export default function EpisodeTable() {
         tabIndex={0}
       >
         <div className={styles.floor}>
+          <Image alt="" loading="eager" src="https://res.cloudinary.com/dcodwkhcg/image/upload/v1698607699/framer/floor.webp" sizes="100vw" objectFit="cover" fill />
           <Chair className={styles.chair} />
           <div className={styles.invisiblefill} />
         </div>
@@ -257,8 +262,8 @@ export default function EpisodeTable() {
 type key = "1" | "2"; // Etc.
  
 export const getStaticPaths = (async () => {
-  const paths = Array.from(Array(100).keys()).map((i) => ({
-    params: { episodeNum: `${i}` },
+  const paths = Array.from(Array(199).keys()).map((i) => ({
+    params: { episodeNum: `${i + 1}` },
   }));
   return {
     paths: paths,

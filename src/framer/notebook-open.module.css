@@ -1,16 +1,16 @@
-#instagram-stamp {
+.instagram_stamp {
     position: absolute;
     bottom: 1%;
     left: 49%;
 }
 
-#facebook-stamp {
+.facebook_stamp {
     position: absolute;
     bottom: 2%;
     left: 85%;
 }
 
-#twitter-stamp {
+.twitter_stamp {
     position: absolute;
     bottom: 3.5%;
     left: 15%;

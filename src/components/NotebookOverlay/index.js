@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./overlay.module.css";
-import "./overlay.css";
 import { enterAnim, exitAnim } from "../../anim/notebook.js";
 import {
   useClick,
@@ -82,6 +81,7 @@ const NotebookOverlay = ({ setFloatingNode = (_) => {}, title = "", subtitle = "
             >
               <NoteBookOpen
                 role="dialog"
+                aria-labelledby="framer-z9vgup"
                 ref={refs.setFloating}
                 className={styles.openbook}
                 followPrompt={"Abonnez-vous !"}

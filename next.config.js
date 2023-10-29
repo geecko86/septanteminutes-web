@@ -6,7 +6,7 @@ const withPWA = withPWAInit({
   swSrc: 'sw.js',
   register: true,
   skipWaiting: true,
-  disable: false, // true if develop
+  disable: false,
   // disable:process.env.NODE_ENV === 'development'
 });
 
@@ -19,7 +19,8 @@ const NextConfig = {
       removeConsole: process.env.NODE_ENV !== 'development'
     },
     images: {
-      unoptimized: true,
+      loader: "custom",
+      loaderFile: "src/utils/cloudinary_loader.js",
       formats: ['image/webp'],
     }
 };

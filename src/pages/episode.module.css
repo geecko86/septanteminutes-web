@@ -16,7 +16,7 @@
   margin: 0;
 }
 
-.floor {
+.floor, .floor > img {
   height: 100%;
   width: 100%;
   display: flex;
@@ -32,13 +32,13 @@
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  background-image: url('/img/floor.webp');
 }
 
 .chair {
   position: absolute !important;
-  top: calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50vh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.395) * 0.25));
-  left: calc(max(73vw, var(--tableMinWidth)) + (50vw - max(73vw/2, var(--tableMinWidth) / 2)) - max(75vw * 0.65, 320px) * 1.03);
+  top: calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50vh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.395) * 0.25)) !important;
+  left: calc(max(73vw, var(--tableMinWidth)) + (50vw - max(73vw/2, var(--tableMinWidth) / 2)) - max(75vw * 0.65, 320px) * 1.03) !important;
+  object-fit: contain;
   aspect-ratio: 0.8129;
   height: auto !important;
   width: calc(75vw * 0.8) !important;
@@ -92,6 +92,10 @@
   user-select: none;
   -webkit-user-drag: none;
   user-drag: none;
+}
+
+.table p {
+  margin: 0 !important;
 }
 
 .table_shadow_box {
@@ -160,8 +164,8 @@
   height: 65% !important;
   width: auto !important;
   position: absolute !important;
-  left: 31.4%;
-  top: -3.2%;
+  left: 31.4% !important;
+  top: -3.2% !important;
   transform: rotate(7deg);
   transform-origin: center;
 }
@@ -385,7 +389,7 @@
 }
 
 .postit.home_postit div:has(> p) {
-  top: 44% !important;
+  top: 53% !important;
   left: 59% !important;
 }
 
@@ -396,12 +400,12 @@
 .home_postit figure {
   content: url("/img/back.svg");
   aspect-ratio: unset !important;
-  width: 15% !important;
-  top: 28% !important;
+  width: auto !important;
+  top: 33% !important;
   bottom: unset !important;
-  right: 42.5% !important;
+  right: 20% !important;
   left: unset !important;
-  transform: unset !important;
+  transform: translateX(-50%) !important;
   cursor: pointer;
 }
 
