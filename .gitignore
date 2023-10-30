@@ -40,3 +40,4 @@ next-env.d.ts
 
 # ServiceWorker
 /public/sw*
+/public/worker*.js
