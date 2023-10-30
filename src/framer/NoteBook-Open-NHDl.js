@@ -76,7 +76,8 @@ const getProps = ({
         ? ref
         : {
             src: new URL(
-              "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698608146/framer/notebook_open.webp"
+              "https://framerusercontent.com/images/yYJS4WsSdE8HHVqXY7DZVs3GZiM.jpg"
+              // "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698608146/framer/notebook_open.webp"
             ).href,
           },
     I94Rs1RIH:

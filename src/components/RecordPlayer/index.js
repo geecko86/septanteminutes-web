@@ -1,20 +1,21 @@
 'use client'
 
 import React, { useState } from 'react';
-import Needle from "https://framer.com/m/Vinyl-CAF-d-Needle-us2p.js@sOM1QI54B9pYOUwmEKNx";
-import VinylReflection from "https://framer.com/m/Vinyl-Reflection-IINh.js@RmfraWHlkM4fSssHxhWZ";
-import Vinyl from "https://framer.com/m/Vinyl-BASE-O9DQ.js@xzjYq9eqSbN4j5mTg1pW";
+import Image from "next/image";
+
+import Vinyl from "../../framer/Vinyl-BASE-09DQ";
+import Needle from "../../framer/Needle_cut-us2p";
 import styles from './Player.module.css';
 
 const RecordPlayer = ({className}) => {
-
     const [playing, setPlaying] = useState(false);
 
     return (<div className={`${className} ${styles.player}`}>
-        <div className={`${styles.needle} ${styles.needle_base}`} />
+        <Image src="https://framerusercontent.com/images/vVd897dq9a3NfXBgLf0vXNFfpB0.webp" alt="" sizes='28vmax' fill/>
+        <Image src="https://framerusercontent.com/images/XcxoBsaaXbRA34sHY4OH8eIn60.webp" alt="" sizes='6.32vmax' fill objectFit='cover' className={`${styles.needle} ${styles.needle_base}`} />
         <Needle className={`${styles.needle} ${playing ? styles.playing_needle : ""}`} onClick={() => setPlaying(!playing)} />
         <Vinyl className={`${styles.disk} ${playing ? styles.playing_disk : ""}`} />
-        <VinylReflection className={styles.reflection} onClick={() => setPlaying(!playing)} />
+        <Image src="https://framerusercontent.com/images/uFFvuLhLGlvEmeGjj9m2rQbbNto.webp" alt="" fill sizes='18.43vmax' className={styles.reflection} onClick={() => setPlaying(!playing)} />
     </div>);
 }
 

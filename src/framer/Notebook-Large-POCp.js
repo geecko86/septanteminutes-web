@@ -67,7 +67,7 @@ const getProps = ({ height, id, image, title, width, ...props }) => {
         ? ref1
         : {
             src: new URL(
-              "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698602101/framer/notebook_large.webp"
+              "https://framerusercontent.com/images/zLZpVcFd3TJlKbssFNQWljSjDo.png"
             ).href,
           },
   };
@@ -137,6 +137,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
             /*#__PURE__*/ _jsx(Image, {
             ...restProps,
             alt: "",
+            key: `${layoutId}_notebook`,
             fill: true,
             sizes: "19.8vw",
             ...toResponsiveImage(ul7zV60QI),
@@ -144,6 +145,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
             /*#__PURE__*/ _jsx(motion.div, {
             background: { alt: "", fit: "fill" },
             className: "framer-1laise1",
+            key: `${layoutId}_notebook_label`,
             layoutDependency: layoutDependency,
             layoutId: "kIuogoOph",
             children: /*#__PURE__*/ _jsx(RichText, {
@@ -158,10 +160,10 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
                     "--framer-text-color":
                     "var(--extracted-r6o4lv, rgb(38, 38, 38))",
                     "color": "var(--framer-text-color, #000)",
-                    "letter-spacing": "var(--framer-letter-spacing, 0)",
-                    "line-height": "var(--framer-line-height, 1.2em)",
-                    "font-family": "var(--framer-font-family)",
-                    "font-weight": "700",
+                    "letterSpacing": "var(--framer-letter-spacing, 0)",
+                    "lineHeight": "var(--framer-line-height, 1.2em)",
+                    "fontFamily": "var(--framer-font-family)",
+                    "fontWeight": "700",
                   },
                   children: "Description",
                 }),
@@ -191,7 +193,7 @@ const css = [
   '.framer-jxdNa [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
   ".framer-jxdNa .framer-6j6id6 { display: block; }",
-  ".framer-jxdNa .framer-vowb3z { height: 307px; overflow: visible; position: relative; width: 307px; }",
+  ".framer-jxdNa .framer-vowb3z { height: 307px; position: relative; width: 307px; }",
   ".framer-jxdNa .framer-1laise1 { flex: none; height: 28px; left: 99px; overflow: hidden; position: absolute; top: 114px; width: 78px; }",
   ".framer-jxdNa .framer-1xol49o { flex: none; height: auto; left: 8px; position: absolute; top: 50%; white-space: pre; width: auto; }",
   ".framer-jxdNa .framer-v-vowb3z .framer-vowb3z { cursor: pointer; }",

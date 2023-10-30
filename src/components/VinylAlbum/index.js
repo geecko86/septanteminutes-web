@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import { useEventListener } from "usehooks-ts";
 
-import { blur } from "../../utils/cloudinary_loader";
+import { blur } from "../../utils/cdn_img_loader";
 
 const VinylAlbum = ({
   position,
@@ -132,7 +132,7 @@ const VinylAlbum = ({
           sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
         />
         <Image
-          src="https://res.cloudinary.com/dcodwkhcg/image/upload/v1698610880/framer/vinyl_box.webp"
+          src="https://framerusercontent.com/images/xASprVMQ8YKj6GHkS84CpZ7ElQ.png"
           alt=""
           fill={true}
           priority={true}

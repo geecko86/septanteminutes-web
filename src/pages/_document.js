@@ -23,7 +23,7 @@ class MyDocument extends Document {
             rel="preload"
             href="https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjfJ9eIipYSxP.woff2"
             as="font"
-            type="font/woff2" crossorigin
+            type="font/woff2" crossOrigin="anonymous"
           />
           <link
             rel="stylesheet"

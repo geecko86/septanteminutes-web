@@ -59,13 +59,12 @@ const getProps = ({ height, id, image, width, ...props }) => {
         ? ref
         : {
             src: new URL(
-              "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698601709/framer/chair.webp"
+              "https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png"
+              // "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698601709/framer/chair.webp"
               ).href,
           },
   };
 };
-const createLayoutDependency = (props, variants) =>
-  variants.join("-") + props.layoutDependency;
 const Component = /*#__PURE__*/ React.forwardRef(function Chair(props, ref) {
   const { activeLocale } = useLocaleInfo();
   const { style, className, layoutId, variant, SVXX2h40W, ...restProps } =
@@ -85,7 +84,6 @@ const Component = /*#__PURE__*/ React.forwardRef(function Chair(props, ref) {
     variant,
     variantClassNames,
   });
-  const layoutDependency = createLayoutDependency(props, variants);
   const defaultLayoutId = React.useId();
   return /*#__PURE__*/ _jsx(LayoutGroup, {
     id: layoutId !== null && layoutId !== void 0 ? layoutId : defaultLayoutId,
@@ -111,8 +109,6 @@ const Component = /*#__PURE__*/ React.forwardRef(function Chair(props, ref) {
           ...toResponsiveImage(SVXX2h40W),
           className: cx("framer-10d98jw", className),
           "data-framer-name": "Variant 1",
-          layoutDependency: layoutDependency,
-          layoutId: "yrIu2Sstk",
           ref: ref,
           style: { ...style },
         }),

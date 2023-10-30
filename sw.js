@@ -4,11 +4,10 @@ import { NetworkOnly, NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'wor
 import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
 import { matchPrecache, precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching';
 
-self.__WB_DISABLE_DEV_LOGS = true;
-
 skipWaiting();
 clientsClaim();
 
+self.__WB_DISABLE_DEV_LOGS = true;
 // must include following lines when using inject manifest module from workbox
 // https://developers.google.com/web/tools/workbox/guides/precache-files/workbox-build#add_an_injection_point
 const WB_MANIFEST = self.__WB_MANIFEST;

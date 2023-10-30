@@ -59,7 +59,8 @@ const getProps = ({ height, id, image, width, ...props }) => {
         ? ref
         : {
             src: new URL(
-              "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698602304/framer/headphones.webp"
+              "https://framerusercontent.com/images/79iKMvZpOdjB4LrQS90DE0i4o.webp"
+              // "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698602304/framer/headphones.webp"
             ).href,
           },
   };
@@ -88,7 +89,6 @@ const Component = /*#__PURE__*/ React.forwardRef(function Headphones(
     variant,
     variantClassNames,
   });
-  const layoutDependency = createLayoutDependency(props, variants);
   const defaultLayoutId = React.useId();
   return /*#__PURE__*/ _jsx(LayoutGroup, {
     id: layoutId !== null && layoutId !== void 0 ? layoutId : defaultLayoutId,
@@ -112,8 +112,6 @@ const Component = /*#__PURE__*/ React.forwardRef(function Headphones(
           ...toResponsiveImage(YqhEgdT0I),
           className: cx("framer-g8egy3", className),
           "data-framer-name": "Variant 1",
-          layoutDependency: layoutDependency,
-          layoutId: "Pev2aqGm4",
           ref: ref,
           style: { ...style },
         }),
@@ -125,7 +123,7 @@ const css = [
   '.framer-YO2qS [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
   ".framer-YO2qS .framer-ze8ysu { display: block; }",
-  ".framer-YO2qS .framer-g8egy3 { height: 363px; overflow: visible; position: relative; width: 363px; }",
+  ".framer-YO2qS .framer-g8egy3 { height: 363px; position: relative; width: 363px; }",
 ];
 /**
  * This is a generated Framer component.

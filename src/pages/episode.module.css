@@ -145,8 +145,9 @@
   height: 55% !important;
   width: auto !important;
   position: absolute !important;
-  left: 39%;
-  bottom: -5%;
+  left: 39% !important;
+  bottom: -5% !important;
+  top: inherit !important;
   pointer-events: none;
   transform: rotate(-2.5deg) !important;
 }
@@ -175,8 +176,8 @@
   height: 45% !important;
   width: auto !important;
   position: absolute !important;
-  top: -7%;
-  left: -2%;
+  top: -7% !important;
+  left: -2% !important;
   clip-path: inset(16% 0 15% 8%);
 }
 
@@ -194,8 +195,8 @@
   height: 55% !important;
   width: auto !important;
   position: absolute !important;
-  top: -16.5%;
-  left: 18%;
+  top: -16.5% !important;
+  left: 18% !important;
   transform: rotate(-12deg);
   transform-origin: center;
 }
@@ -300,17 +301,6 @@
   will-change: transform;
 }
 
-.postit:not(:has(figure)) div:has(> p) {
-  position: absolute !important;
-  padding-top: 15% !important;
-  top: 52.5% !important;
-  left: 58.5% !important;
-  width: 43% !important;
-  height: 40% !important;
-  container-type: size;
-  cursor: pointer;
-}
-
 .postit:has(figure) div:has(> p) {
   position: absolute !important;
   top: 30% !important;
@@ -338,10 +328,10 @@
 
 .postit img {
   width: 80% !important;
-  height: 70% !important;
+  height: 80% !important;
   position: absolute;
-  top: 50%;
-  left: 60%;
+  top: 50% !important;
+  left: 60% !important;
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
@@ -425,8 +415,8 @@
 
   .chair {
     left: calc(85vmax * 0.4933 + (50vmin - (85vmax * 0.4933) / 2) - ((75vmax * 0.54 / 0.8129) * 0.14));
-    bottom: calc(85vmax + (50vmax - 42.5vmax) - (75vmax * 0.64));
-    top: unset;
+    bottom: calc(85vmax + (50vmax - 42.5vmax) - (75vmax * 0.64)) !important;
+    top: unset !important;
     aspect-ratio: 0.8129;
     width: auto !important;
     height: calc(75vmax * 0.54) !important;
@@ -456,7 +446,7 @@
     height: auto !important;
     width: 60% !important;
     top: unset !important;
-    bottom: 33%;
+    bottom: 33% !important;
     left: 25% !important;
     transform: rotate(-15deg);
   }

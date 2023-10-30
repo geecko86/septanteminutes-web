@@ -23,8 +23,6 @@ import Notebook_ from "../framer/Notebook-Large-POCp.js";
 import Pen_ from "../framer/Pen-y9p1.js";
 import Headphones_ from "../framer/Headphones-p7iC.js";
 import ImagedPostIt_ from "../framer/Imaged-Post-It-1vlf.js";
-import Phone from "https://framer.com/m/Phone-LGnb.js@zfhXvJfaEcaTAAB8pSKH";
-import Camera from "https://framer.com/m/Camera-2YBb.js@ml9NEzDk9cuHo9UjgqQs";
 
 import RecordPlayer from "../components/RecordPlayer";
 import VinylAlbum, { ShadowAlbum } from "../components/VinylAlbum";
@@ -183,7 +181,7 @@ export default function EpisodeTable() {
         tabIndex={0}
       >
         <div className={styles.floor}>
-          <Image alt="" loading="eager" src="https://res.cloudinary.com/dcodwkhcg/image/upload/v1698607699/framer/floor.webp" sizes="100vw" objectFit="cover" fill />
+          <Image alt="" loading="eager" src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" objectFit="cover" fill />
           <Chair className={styles.chair} />
           <div className={styles.invisiblefill} />
         </div>
@@ -209,8 +207,8 @@ export default function EpisodeTable() {
             ref={refs.setReference}
             {...referenceProps}
           />
-          <Phone className={styles.phone} />
-          <Camera className={styles.camera} />
+          <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />
+          <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />
           <RecordPlayer className={styles.player} />
           <div className={styles.postitnotes}>
             <ImagedPostIt

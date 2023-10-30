@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
-const withPWAInit = require('next-pwa');
+const withPWAInit = require("next-pwa");
 
 const withPWA = withPWAInit({
   dest: "public",
-  swSrc: 'sw.js',
+  swSrc: "sw.js",
   register: true,
   skipWaiting: true,
   disable: false,
@@ -11,18 +11,15 @@ const withPWA = withPWAInit({
 });
 
 const NextConfig = {
-    experimental: {
-      urlImports: ['https://framer.com/m/', 'https://framerusercontent.com/modules/'],
-    },
-    output: 'export',
-    compiler: {
-      removeConsole: process.env.NODE_ENV !== 'development'
-    },
-    images: {
-      loader: "custom",
-      loaderFile: "src/utils/cloudinary_loader.js",
-      formats: ['image/webp'],
-    }
+  output: "export",
+  compiler: {
+    removeConsole: process.env.NODE_ENV !== "development",
+  },
+  images: {
+    loader: "custom",
+    loaderFile: "src/utils/cdn_img_loader.js",
+    formats: ["image/webp"],
+  },
 };
 
 module.exports = withPWA(NextConfig);
