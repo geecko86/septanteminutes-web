@@ -81,7 +81,7 @@ const NotebookOverlay = ({ setFloatingNode = (_) => {}, title = "", subtitle = "
             >
               <NoteBookOpen
                 role="dialog"
-                aria-labelledby="framer-z9vgup"
+                aria-label={`${title}, ${subtitle}`}
                 ref={refs.setFloating}
                 className={styles.openbook}
                 followPrompt={"Abonnez-vous !"}

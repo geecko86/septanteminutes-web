@@ -163,18 +163,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
                   children: /*#__PURE__*/ _jsx(motion.p, {
                     className: "framer-styles-preset-1sry874",
                     "data-styles-preset": "aJJBLE7Pu",
-                    children: "Call to action",
-                    style: {
-                      "--framer-font-family": '"Caveat", sans-serif',
-                      "--framer-font-weight": "700",
-                      "--framer-letter-spacing": "-0.8px",
-                      "--framer-text-color": "var(--extracted-r6o4lv, rgb(38, 38, 38))",
-                      "color": "var(--framer-text-color, #000)",
-                      "letterSpacing": "var(--framer-letter-spacing, 0)",
-                      "lineHeight": "var(--framer-line-height, 1.2em)",
-                      "fontFamily": "var(--framer-font-family)",
-                      "fontWeight": "700",
-                    },
+                    children: "Call to action"
                   }),
                 }),
                 className: "framer-d1mgg1",

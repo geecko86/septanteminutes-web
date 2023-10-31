@@ -18,23 +18,29 @@ div.shadow24 {
     height: calc(57.5% * 0.95172) !important; /* Not entirely sure about this */
     width: auto !important;
     position: absolute !important;
-    transition: transform .3s lineaar;
+    transition: transform .3s linear;
+    visibility: hidden;
 }
 
 .shadow_container[hover] {
     transform: rotate(-3deg);
 }
 
-.separate_shadow[hidden=false] {
-    visibility: revert !important;
+.shadow_container:not([hidden]) {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .hover_container {
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 500ms !important;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 150ms !important;
 }
 
 .hover_container:not(.moving):hover {
     transform: rotate(-3deg);
+}
+
+.hover_container.moving {
+    pointer-events: none;
 }
 
 .album {

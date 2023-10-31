@@ -32,7 +32,6 @@
 }
 
 .needle img {
-    content: url('/img/needle_cut.webp');
     z-index: 4;
     transform-origin: 49% 20.5% !important;
     transition-property: transform;
@@ -68,7 +67,6 @@
 }
 
 .reflection img {
-    content: url('/img/vinyl_light.webp');
     rotate: -10deg;
 }
 
@@ -81,10 +79,6 @@
     left: 6.9% !important;
     animation: rotate 3.6363s infinite linear;
     animation-play-state: paused;
-}
-
-.disk img {
-    content: url('/img/vinyl.webp');
 }
 
 .playing_disk {

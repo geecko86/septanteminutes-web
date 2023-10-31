@@ -168,7 +168,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
             /*#__PURE__*/ _jsxs(NextImage, {
               alt: "",
               fill: true,
-              sizes: "34.5vw",
+              sizes: "(max-width: 1200px) 100vw, 34.5vw",
               ...toResponsiveImage(HGybZ8uLx),
             }),
             /*#__PURE__*/ _jsxs(motion.div, {

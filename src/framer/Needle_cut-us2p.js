@@ -95,12 +95,8 @@ let w = {
         style: { display: "contents" },
         children: /*#__PURE__*/ e(j, {
           value: S,
-          children: /*#__PURE__*/ e(i, {
+          children: /*#__PURE__*/ e(l.div, {
             ...D,
-            alt: "",
-            fill: true,
-            sizes: "6vmax",
-            ...g(R),
             className: o("framer-nrqjoj", p),
             "data-framer-name": "Variant 1",
             ref: null != t ? t : A,
@@ -110,6 +106,12 @@ let w = {
               WebkitFilter: "drop-shadow(0px 1px 11px rgba(0, 0, 0, 0.33))",
               ...d,
             },
+            children: /*#__PURE__*/ e(i, {
+              alt: "",
+              fill: true,
+              sizes: "(max-width: 1200px) 54vw, 18vw",
+              ...g(R),
+            }),
             variants: { "b37RCHR57-hover": { rotate: 2 } },
             ...v({ "b37RCHR57-hover": { "data-framer-name": void 0 } }, I, q),
           }),

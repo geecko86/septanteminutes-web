@@ -19,6 +19,7 @@ const VinylAlbum = ({
   scrollYProgress,
   image,
   total,
+  episodeNumParam= -1,
   mayAnimate = false,
   alt = "",
   type = "vinyl",
@@ -58,11 +59,21 @@ const VinylAlbum = ({
     ["0%", "-66%"]
   );
 
-  const [isGone, setGone] = useState(rotateZ == -25);
+  const [isHidden, setHidden] = useState(true);
+  const [isGone, setGone] = useState(false);
   const [shadowLevel, setShadowLevel] = useState("");
   const [ignoreScroll, setIgnoreScroll] = useState(false);
   const [isMoving, setMoving] = useState(false);
   const [timeoutId, setTimeoutId] = useState(0);
+
+  useEffect(() => {
+    if (episodeNumParam == -1) return;
+    if (!mayAnimate) {
+      if (position <= episodeNumParam) setHidden(false)
+    } else {
+      setHidden(((position > episodeNumParam || episodeNumParam == -1)));
+    }
+  }, [mayAnimate, episodeNumParam, position]);
 
   useEffect(() =>
     scrollYProgress.onChange((progress) => {
@@ -84,7 +95,10 @@ const VinylAlbum = ({
   });
 
   useMotionValueEvent(rotateZ, "change", (rotation) => {
-    setGone(rotation < -24);
+    if (mayAnimate) {
+      setGone(rotation < -24);
+      setHidden(rotation < -24);
+    }
     setShadowLevel(
       rotation >= -25 && rotation < -7
         ? styles.shadow24
@@ -104,7 +118,7 @@ const VinylAlbum = ({
   } : {};
 
   return type === "shadow" ? (
-    <div className={styles.shadow_container} hidden={isGone}>
+    <div className={styles.shadow_container} hidden={isHidden}>
       <motion.div
         className={`${styles.separate_shadow} ${shadowLevel}`}
         style={style}
@@ -115,6 +129,7 @@ const VinylAlbum = ({
       className={[styles.hover_container, isMoving ? styles.moving : ""].join(
         " "
       )}
+      lang={isHidden ? "hidden" : false}
       hidden={isGone}
     >
       <motion.div

@@ -108,3 +108,11 @@
 .openbook *::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width: 1200px) and (orientation: portrait) {
+  .openbook {
+    width: 100vw !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+}

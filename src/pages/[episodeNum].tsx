@@ -47,7 +47,7 @@ export default function EpisodeTable() {
   const mainRef = useRef<HTMLDivElement>(null);
   const shadows = useRef<HTMLDivElement>(null);
   
-  const [episodeNumParam, setEpisodeNumParam] = useState(vinyls.length - 1);
+  const [episodeNumParam, setEpisodeNumParam] = useState(-1);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
 
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
@@ -73,7 +73,7 @@ export default function EpisodeTable() {
   useEffect(() => {
     const selectedEp = router.query.episodeNum ? Math.min(Number(router.query.episodeNum) - 1, vinyls.length - 1) : vinyls.length - 1;
     setEpisodeNumParam(selectedEp);
-    setSelectedEpisode(selectedEp)
+    setSelectedEpisode(selectedEp);
   }, [router.query.episodeNum, vinyls.length]);
 
   useEffect(() => {
@@ -85,6 +85,7 @@ export default function EpisodeTable() {
           snapDestinationY: "100vh",
           timeout: 0,
           duration: 0,
+          easing: t => (--t)*t*t+1,
           threshold: 0.4,
         },
         () => {
@@ -108,14 +109,10 @@ export default function EpisodeTable() {
 
   const scroll = useCallback((node: HTMLDivElement | null) => {
     if (node !== null) {
-      if (node.offsetTop === 0) {
-        setMayAnimate(true);
-      } else {
-        episodePage.current?.scrollTo({
-          top: node.offsetTop,
-          behavior: "instant",
-        });
-      }
+      episodePage.current?.scrollTo({
+        top: node.offsetTop,
+        behavior: "instant",
+      });
     }
   }, []);
 
@@ -172,7 +169,7 @@ export default function EpisodeTable() {
     <div ref={episodePage} className={`episode_page`}>
       {cloneElement(notebookOverlayComponent, { setFloatingNode })}
       <Head>
-        <title>Septante Minutes Avec {vinyls[selectedEpisode]["title"]}</title>
+        <title>{`Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}`}</title>
       </Head>
       <motion.div
         className={styles.main}
@@ -237,6 +234,7 @@ export default function EpisodeTable() {
                 alt={episode["title"]}
                 total={vinyls.length}
                 position={index}
+                episodeNumParam={episodeNumParam}
                 scrollYProgress={scrollYProgress}
                 mayAnimate={mayAnimate}
               />
@@ -245,13 +243,21 @@ export default function EpisodeTable() {
         </div>
       </motion.div>
       {vinyls.map((v, i) => (
-        <div
+        <motion.div
           className={styles.section}
-          key={i}
+          key={`${episodeNumParam}_${i}`}
           ref={i === vinyls.length - (episodeNumParam + 1) ? scroll : null}
+          onViewportEnter={() => {
+            console.log(i, episodeNumParam, vinyls.length - episodeNumParam);
+            if ((i === vinyls.length - (episodeNumParam + 1) && i!=0) || episodeNumParam == vinyls.length - 1) {
+              setTimeout(() => {
+                setMayAnimate(true);
+              }, 200);
+            }
+          }}
         >
-          {/* <p>{v.title}</p> */}
-        </div>
+          {/* <p>{v.title} {episodeNumParam}</p> */}
+        </motion.div>
       ))}
     </div>
   );

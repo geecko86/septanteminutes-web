@@ -143,7 +143,6 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
             ...toResponsiveImage(ul7zV60QI),
             }),
             /*#__PURE__*/ _jsx(motion.div, {
-            background: { alt: "", fit: "fill" },
             className: "framer-1laise1",
             key: `${layoutId}_notebook_label`,
             layoutDependency: layoutDependency,
