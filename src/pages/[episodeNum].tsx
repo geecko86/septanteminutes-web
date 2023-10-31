@@ -178,7 +178,7 @@ export default function EpisodeTable() {
         tabIndex={0}
       >
         <div className={styles.floor}>
-          <Image alt="" loading="eager" src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" objectFit="cover" fill />
+          <Image alt="" loading="eager" src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{objectFit: "cover"}} fill />
           <Chair className={styles.chair} />
           <div className={styles.invisiblefill} />
         </div>
