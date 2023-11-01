@@ -16,7 +16,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Caveat&display=fallback"
+            href="https://fonts.googleapis.com/css2?family=Caveat&display=block"
             as="style"
           />
           <link
@@ -27,7 +27,7 @@ class MyDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Caveat&display=fallback"
+            href="https://fonts.googleapis.com/css2?family=Caveat&display=block"
           />
 
           <meta name="application-name" content="PWA App" />

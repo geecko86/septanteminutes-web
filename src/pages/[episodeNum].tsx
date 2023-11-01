@@ -113,6 +113,7 @@ export default function EpisodeTable() {
         top: node.offsetTop,
         behavior: "instant",
       });
+      console.log("instant scroll to", node.textContent);
     }
   }, []);
 
@@ -227,7 +228,7 @@ export default function EpisodeTable() {
             />
           </div>
           <motion.div className={styles.albums}>
-            {vinyls.map((episode, index) => (
+            {router.query.episodeNum && vinyls.map((episode, index) => (
               <VinylAlbum
                 key={index}
                 image={episode["img"] || ""}
@@ -256,7 +257,7 @@ export default function EpisodeTable() {
             }
           }}
         >
-          {/* <p>{v.title} {episodeNumParam}</p> */}
+          <p>{`${episodeNumParam}_${i}`}</p>
         </motion.div>
       ))}
     </div>

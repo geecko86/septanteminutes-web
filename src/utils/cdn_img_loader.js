@@ -7,5 +7,3 @@ export default function loader({ src, width, quality }) {
         return src.replace("http://", "https://").replace("/assets/", "/images/").replace(/(\.[a-z]{1,4})$/, `$1?scale-down-to=${width}&q=${quality || 75}`);
     else return src;
 }
-
-export const blur = (src) => src.replace("/upload/", "/upload/c_scale,w_64,f_webp,q_50/");

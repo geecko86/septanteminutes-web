@@ -59,7 +59,8 @@ const VinylAlbum = ({
     ["0%", "-66%"]
   );
 
-  const [isHidden, setHidden] = useState(true);
+  const [isHidden, setHidden] = useState(position > episodeNumParam);
+  const [loaded, setLoadedComplete] = useState(false);
   const [isGone, setGone] = useState(false);
   const [shadowLevel, setShadowLevel] = useState("");
   const [ignoreScroll, setIgnoreScroll] = useState(false);
@@ -129,7 +130,7 @@ const VinylAlbum = ({
       className={[styles.hover_container, isMoving ? styles.moving : ""].join(
         " "
       )}
-      lang={isHidden ? "hidden" : false}
+      data-visibility={isHidden ? "hidden" : "visible"}
       hidden={isGone}
     >
       <motion.div
@@ -142,9 +143,11 @@ const VinylAlbum = ({
           src={image}
           alt={alt}
           fill={true}
-          placeholder="blur"
-          blurDataURL={blur(image)}
+          className={!loaded ? styles.image_loading : ""}
           sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
+          onLoad={() => {
+            setLoadedComplete(true);
+          }}
         />
         <Image
           src="https://framerusercontent.com/images/xASprVMQ8YKj6GHkS84CpZ7ElQ.png"
