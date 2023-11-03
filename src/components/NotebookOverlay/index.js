@@ -16,12 +16,12 @@ import { motion, animate, AnimatePresence } from "framer-motion";
 
 import NoteBookOpen from "../../framer/NoteBook-Open-NHDl.js";
 
-const NotebookOverlay = ({ setFloatingNode = (_) => {}, title = "", subtitle = "", desc = "" }) => {
+const NotebookOverlay = ({ title = "", subtitle = "", desc = "" }) => {
   const [descVisible, setdescVisible] = useState(false);
 
   const toggleOverlay = (open) => {
     if (open) {
-      setFloatingNode(true);
+      // setFloatingNode(true);
       let target = document.getElementById("scrollTarget");
       if (target) target.scrollTop = 0;
     }
@@ -66,7 +66,7 @@ const NotebookOverlay = ({ setFloatingNode = (_) => {}, title = "", subtitle = "
               });
             }}
             onAnimationComplete={() => {
-              if (!descVisible) setFloatingNode(false);
+              // if (!descVisible) setFloatingNode(false);
             }}
             {...getFloatingProps()}
           >
