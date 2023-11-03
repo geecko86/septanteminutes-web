@@ -257,7 +257,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       dangerouslySetInnerHTML: { __html: I94Rs1RIH },
                     }),
                   }),
-                  className: "framer-pdriv7",
+                  className: `framer-pdriv7 ${styles.scrollTarget}`,
                   fonts: ["GF;Caveat-regular"],
                   layoutDependency: layoutDependency,
                   layoutId: "US6woX6iP",
@@ -287,7 +287,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   children: "Abonnez-vous !",
                 }),
               }),
-              className: "framer-1ij9ooc",
+              className: `framer-1ij9ooc ${styles.subscribe}`,
               fonts: ["GF;Caveat-regular"],
               layoutDependency: layoutDependency,
               layoutId: "QF_eW7RPb",
@@ -319,7 +319,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "https://framerusercontent.com/images/uy4YuRGtJIgZBhChY9PmR35TZ8.webp",
                     },
-                    className: "framer-vneoqq framer-bawjxc",
+                    className: `framer-vneoqq framer-bawjxc ${styles.apple_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "W5kr0cdFs",
                     style: {
@@ -342,7 +342,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "https://framerusercontent.com/images/9QofB853JJQi0SNhZcbMj7VhbIw.webp",
                     },
-                    className: "framer-sw8xpb framer-bawjxc",
+                    className: `framer-sw8xpb framer-bawjxc ${styles.rss_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "CMl66vw1w",
                     style: {
@@ -366,7 +366,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "https://framerusercontent.com/images/dYXoJtgY2NyoUHiV90tLgTotu8.webp",
                     },
-                    className: "framer-13t9c6s framer-bawjxc",
+                    className: `framer-13t9c6s framer-bawjxc ${styles.spotify_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
                     style: {
@@ -391,7 +391,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "https://framerusercontent.com/images/HVAnLI92uaHXpeHkc1Q72k02ZU.webp",
                     },
-                    className: "framer-y9hbwq framer-bawjxc",
+                    className: `framer-y9hbwq framer-bawjxc ${styles.pocketcasts_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "CsI_GCZc4",
                     style: {
@@ -415,7 +415,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "https://framerusercontent.com/images/DyDLJkdYpuhaOtavTzHrtMXY7I.webp",
                     },
-                    className: "framer-1d6xbzh framer-bawjxc",
+                    className: `framer-1d6xbzh framer-bawjxc ${styles.youtube_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Sp89tdPUU",
                     style: {
@@ -439,7 +439,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "/img/facebook.webp",
                     },
-                    className: `framer-bawjxc ${styles.facebook_stamp}`,
+                    className: `framer-bawjxc ${styles.facebook_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
                     style: {
@@ -464,7 +464,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "/img/twitter.webp",
                     },
-                    className: `framer-bawjxc ${styles.twitter_stamp}`,
+                    className: `framer-bawjxc ${styles.twitter_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
                     style: {
@@ -489,7 +489,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       pixelWidth: 1225,
                       src: "/img/instagram.webp",
                     },
-                    className: `framer-bawjxc ${styles.instagram_stamp}`,
+                    className: `framer-bawjxc ${styles.instagram_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
                     style: {

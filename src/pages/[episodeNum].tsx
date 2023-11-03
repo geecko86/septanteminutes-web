@@ -32,13 +32,14 @@ import data from "../utils/tempdata.js";
 export default function EpisodeTable() {
   const { episodes } = data;
   const router = useRouter();
+  const funqueue = [] as (() => void)[];
 
-  const vinyls = Array.from(
+  const [vinyls, setVinyls] = useState(Array.from(
     { length: Object.keys(episodes).length },
     (v, k) => episodes[(k + 1).toString() as key]
-  );
-
+  ));
   const [floatingNode, setFloatingNode] = useState(false);
+  const [snapping, setSnapping] = useState(false);
   const [timeoutId, setTimeoutId] = useState<any>(null);
   const [selectedPosition, setSelectedPosition] = useState(0);
   const [mayAnimate, setMayAnimate] = useState(false);
@@ -85,10 +86,17 @@ export default function EpisodeTable() {
           snapDestinationY: "100vh",
           timeout: 0,
           duration: 0,
-          easing: t => (--t)*t*t+1,
+          easing: t => {
+            setSnapping(true);
+            return (--t)*t*t+1;
+          },
           threshold: 0.4,
         },
         () => {
+          setSnapping(false);
+          if (funqueue.length) {
+            requestIdleCallback((funqueue.shift() as () => void))
+          }
           const currentPosition = getCurrentPosition();
           const currentEpisode = vinyls.length - currentPosition - 1;
           // console.log(
@@ -105,7 +113,7 @@ export default function EpisodeTable() {
       ).bind();
       mainRef.current?.focus();
     }
-  }, [episodePage, getCurrentPosition, vinyls.length]);
+  }, [episodePage, getCurrentPosition, vinyls.length, funqueue]);
 
   const scroll = useCallback((node: HTMLDivElement | null) => {
     if (node !== null) {
@@ -113,9 +121,10 @@ export default function EpisodeTable() {
         top: node.offsetTop,
         behavior: "instant",
       });
-      console.log("instant scroll to", node.textContent);
+      setSelectedEpisode(episodeNumParam);
+      setSelectedPosition(vinyls.length - episodeNumParam);
     }
-  }, []);
+  }, [vinyls.length, episodeNumParam]);
 
   useMotionValueEvent(scrollY, "change", (y) => {
     if (episodeNumParam >= vinyls.length - 1) {
@@ -137,20 +146,35 @@ export default function EpisodeTable() {
   });
 
   const handleArrows = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    let scroll;
     switch (e.keyCode) {
       case 38: // up arrow
         if (selectedPosition == 0) return;
-        episodePage.current?.scrollBy({
-          top: (episodePage.current?.clientHeight || 0) * -0.75,
-          behavior: "instant",
-        });
+        scroll = function() {
+          episodePage.current?.scrollBy({
+            top: (episodePage.current?.clientHeight || 0) * -0.97,
+            behavior: "instant",
+          });
+        };
+        if (snapping) {
+          console.log("STUCK!");
+          if (funqueue.length == 0) funqueue.push(scroll);
+        }
+        else scroll();
         break;
       case 40: // down arrow
         if (selectedPosition == vinyls.length - 1) return;
-        episodePage.current?.scrollBy({
-          top: (episodePage.current?.clientHeight || 0) * 0.75,
-          behavior: "instant",
-        });
+        scroll = function() {
+          episodePage.current?.scrollBy({
+            top: (episodePage.current?.clientHeight || 0) * 0.85,
+            behavior: "instant",
+          });
+        };
+        if (snapping) {
+          console.log("STUCK!");
+          if (funqueue.length == 0) funqueue.push(scroll);
+        }
+        else scroll();
         break;
       case 13: // enter key
         // TODO
@@ -243,13 +267,12 @@ export default function EpisodeTable() {
           </motion.div>
         </div>
       </motion.div>
-      {vinyls.map((v, i) => (
+      {[...vinyls].reverse().map((v, i) => (
         <motion.div
           className={styles.section}
           key={`${episodeNumParam}_${i}`}
           ref={i === vinyls.length - (episodeNumParam + 1) ? scroll : null}
           onViewportEnter={() => {
-            console.log(i, episodeNumParam, vinyls.length - episodeNumParam);
             if ((i === vinyls.length - (episodeNumParam + 1) && i!=0) || episodeNumParam == vinyls.length - 1) {
               setTimeout(() => {
                 setMayAnimate(true);
@@ -257,7 +280,7 @@ export default function EpisodeTable() {
             }
           }}
         >
-          <p>{`${episodeNumParam}_${i}`}</p>
+          <p>{`${i}__________episode#${v.num}: ${v.title}`}</p>
         </motion.div>
       ))}
     </div>

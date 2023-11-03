@@ -147,6 +147,13 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
             key: `${layoutId}_notebook_label`,
             layoutDependency: layoutDependency,
             layoutId: "kIuogoOph",
+            style: {
+              "width": "32% !important",
+              "height": "12% !important",
+              "left": "calc(28.45%) !important",
+              "top": "calc(36.6938%) !important",
+              "pointerEvents": "none",
+            },
             children: /*#__PURE__*/ _jsx(RichText, {
               __fromCanvasComponent: true,
               children: /*#__PURE__*/ _jsx(React.Fragment, {

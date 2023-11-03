@@ -1,3 +1,43 @@
+.scrollTarget {
+    overflow-y: scroll;
+    height: 75.66% !important;
+}
+
+.scrollTarget * {
+    font-size: 1.3cqw !important;
+    margin: 0 !important;
+}
+
+.scrollTarget a {
+    color: var(--extracted-1eung3n, rgb(168, 87, 0));
+    text-decoration: none;
+}
+
+.scrollTarget a:hover {
+    text-decoration: underline;
+}
+
+.subscribe {
+    width: 29.10% !important;
+    right: 13.79% !important;
+    top: 7.5% !important
+}
+
+.stamp {
+    height: 19.23% !important;
+    width: auto !important;
+    aspect-ratio: 1;
+}
+
+.rss_stamp {
+    top: 26% !important;
+}
+
+.youtube_stamp {
+    right: 29.90% !important;
+    top: 26% !important;
+}
+
 .instagram_stamp {
     position: absolute;
     bottom: 1%;
