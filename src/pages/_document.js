@@ -16,18 +16,18 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Caveat&display=block"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=block"
             as="style"
           />
           <link
             rel="preload"
-            href="https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjfJ9eIipYSxP.woff2"
+            href="https://fonts.gstatic.com/s/caveat/v18/Wnz6HAc5bAfYB2Q7ZjYYiAzcPA.woff2"
             as="font"
             type="font/woff2" crossOrigin="anonymous"
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Caveat&display=block"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap"
           />
 
           <meta name="application-name" content="PWA App" />
