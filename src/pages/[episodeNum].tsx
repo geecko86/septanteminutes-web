@@ -8,6 +8,7 @@ import React, {
   FC,
 } from "react";
 import { useRouter } from "next/router";
+import { replaceState } from "history-throttled";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
@@ -95,7 +96,7 @@ export default function EpisodeTable() {
         () => {
           setSnapping(false);
           if (funqueue.length) {
-            requestIdleCallback((funqueue.shift() as () => void))
+            if (typeof window != "undefined" && window.requestIdleCallback) window.requestIdleCallback((funqueue.shift() as () => void))
           }
           const currentPosition = getCurrentPosition();
           const currentEpisode = vinyls.length - currentPosition - 1;
@@ -108,7 +109,7 @@ export default function EpisodeTable() {
           const newUrl = `${window.location.origin}/${
             currentEpisode + 1
           }`;
-          window.history.replaceState({ path: newUrl }, "", newUrl);
+          replaceState({ path: newUrl }, "", newUrl);
         }
       ).bind();
       mainRef.current?.focus();
