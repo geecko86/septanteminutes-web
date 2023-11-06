@@ -16,7 +16,17 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=block"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&display=block"
+            as="style"
+          />
+          <link
+            rel="preload"
+            href="https://fonts.cdnfonts.com/css/radwave-demo"
+            as="style"
+          />
+          <link
+            rel="preload"
+            href="https://fonts.cdnfonts.com/css/futura-condensed-extra"
             as="style"
           />
           <link
@@ -26,8 +36,28 @@ class MyDocument extends Document {
             type="font/woff2" crossOrigin="anonymous"
           />
           <link
+            rel="preload"
+            href="https://fonts.cdnfonts.com/s/69012/RadwaveFont-Demo.woff"
+            as="font"
+            type="font/woff" crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="https://fonts.cdnfonts.com/s/92636/Futura Condensed Extra Bold.woff"
+            as="font"
+            type="font/woff" crossOrigin="anonymous"
+          />
+          <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&display=block"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.cdnfonts.com/css/radwave-demo"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.cdnfonts.com/css/futura-condensed-extra"
           />
 
           <meta name="application-name" content="PWA App" />

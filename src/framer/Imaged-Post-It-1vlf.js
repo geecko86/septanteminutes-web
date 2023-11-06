@@ -243,7 +243,8 @@ const css = [
  * @framerCanvasComponentVariantDetails {"propertyName":"variant","data":{"default":{"layout":["fixed","fixed"]},"CLOrvHmWQ":{"layout":["fixed","fixed"]}}}
  * @framerVariables {"XmvAL8ZsJ":"image","dkre4FA5N":"title","fKpdeXn5p":"logo"}
  * @framerImmutableVariables false
- */ const FramercdaGYJ9TI = withCSS(Component, css, "framer-C4Wjh");
+ */
+const FramercdaGYJ9TI = withCSS(Component, css, "framer-C4Wjh");
 export default FramercdaGYJ9TI;
 FramercdaGYJ9TI.displayName = "Imaged Post It";
 FramercdaGYJ9TI.defaultProps = { height: 140, width: 140 };
