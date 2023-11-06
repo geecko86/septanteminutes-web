@@ -1,0 +1,261 @@
+.backwall {
+    position: absolute;
+    width: 300vw;
+    height: 79.8vh;
+    /* width: 3840px;
+    height: 664px; */
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), linear-gradient(0deg, #D3D3D3, #D3D3D3);
+    top: 11.5vh;
+    left: 0;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.backwall_light {
+    width: 100%;
+    height: 101.53%;
+    position: absolute;
+    left: 0px;
+    top: -1.53%;
+
+    mix-blend-mode: multiply;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.posters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12.5%;
+
+    position: absolute;
+    width: 100%;
+    height: 67%;
+    left: 3.5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.poster {
+    box-sizing: border-box;
+    filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 0.15)) drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.1));
+    border-radius: 2px;
+    flex: none;
+    flex-grow: 0;
+}
+
+.leuven {
+    aspect-ratio: calc(440/288);
+    width: auto;
+    height: 64.73%;
+    order: 0;
+}
+
+.brel {
+    aspect-ratio: calc(337/448);
+    width: auto;
+    height: 100%;
+    order: 1;
+}
+
+.redford{
+    aspect-ratio: calc(512/397);
+    width: auto;
+    height: 89.23%;
+    order: 2;
+}
+
+.stones {
+    aspect-ratio: 1;
+    width: auto;
+    height: 100%;
+    order: 3;
+}
+
+.ceiling {
+    position: absolute;
+    width: 300vw;
+    height: 11.5vh;
+    top: 0;
+    opacity: 25%;
+    background: linear-gradient(180deg, black 0%, transparent 50%);
+    transform: rotate(180deg);
+}
+
+.ceiling_2 {
+    content: "";
+    position: absolute;
+    width: 300vw;
+    height: 100vh;
+    bottom: 88.5vh;
+    opacity: 25%;
+    background-image: url("/img/ceiling_floor.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+}
+
+.ceiling_3 {
+    position: absolute;
+    width: 300vw;
+    height: 11.5vh;
+    left: 0;
+    top: 0;
+    background: #D3D3D3;
+}
+
+.floor {
+    position: absolute;
+    width: 300vw;
+    height: 100vh;
+    top: 88.5vh;
+    opacity: 30%;
+    background: linear-gradient(180deg, black 0%, transparent 6.38%);
+}
+
+.floor_2 {
+    content: "";
+    position: absolute;
+    width: 300vw;
+    height: 100vh;
+    top: 88.5vh;
+    background-image: url("/img/ceiling_floor.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: 0.70;
+}
+
+.floor_3 {
+    position: absolute;
+    width: 300vw;
+    height: 11.5vh;
+    left: 0;
+    bottom: 0;
+    background: #E0E0E0;
+}
+
+/* Layer 1 */
+
+.season_frame {
+    aspect-ratio: calc(784/720);
+    height: 100% !important;
+    width: auto !important;
+}
+
+.season_frame div[data-framer-name="Chair"] {
+    aspect-ratio: calc(280/239);
+    height: 33.2% !important;
+    width: auto;
+    bottom: -7.8% !important;
+    left: 0% !important;
+}
+
+.season_frame div[data-framer-name="Header"] {
+    aspect-ratio: calc(254.81/55);
+    height: auto !important;
+    width: 34.62% !important;
+    gap: 10% !important;
+    padding-bottom: 3.33%;
+    left: 10.2% !important;
+    top: 11% !important;
+    place-content: ce;
+}
+
+.season_frame div[data-framer-name="Header"] > * {
+    height: 66% !important;
+    place-content: space-around !important;
+}
+
+.season_frame div[data-framer-name="Header"] * {
+    width: auto !important;
+    left: unset !important;
+    aspect-ratio: unset !important;
+}
+
+.season_frame div[data-framer-name="Logo"] > * {
+    bottom: unset !important;
+    transform: translateY(-50%) !important;
+    top: 50% !important;
+}
+
+.season_frame div[data-framer-name="Logo"], .season_frame div[data-framer-name="Logo"] > div {
+    height: 65.92% !important;
+    width: 47% !important;
+}
+
+.season_frame div[data-framer-name="Header"] p {
+    height: fit-content !important;
+}
+
+.season_frame div[data-framer-name="LEGENDE"] {
+    height: 1.666%;
+    gap: 3.06%;
+    bottom: 15.13%;
+    padding: 0;
+}
+
+.season_frame div[data-framer-name="LEGENDE"] > div {
+    height: 100% !important;
+    width: auto !important;
+}
+
+.season_frame div[data-framer-name="LEGENDE"] p {
+    --framer-font-size: 30% !important;
+}
+
+.season_frame div[data-framer-name="Albums"] {
+    top: 22.91%;
+    left: 10.2%;
+    right: 10.2%;
+    bottom: 22.91%;
+    display: grid !important;
+    place-items: center;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5%;
+    overflow: visible;
+}
+
+.season_frame div[data-framer-name="Albums"] > div div {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1;
+}
+
+.season_frame div[data-framer-name="Album_support"] {
+    height: 10% !important;
+    width: 50% !important;
+    inset: 96% 25% -4px !important;
+}
+
+/* Layers */
+
+.layer {
+    position: absolute;
+    overflow: hidden;
+}
+
+.layer_0 { /* wall, ceiling, floor */
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 300vw;
+}
+
+.layer_1 { /* Season Walls */ 
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px 0px;
+    gap: 29vw;
+
+    position: absolute;
+    width: 300vw;
+    height: 85vh;
+    left: 14.5vw;
+    top: 6vh;
+
+    overflow: visible;
+}

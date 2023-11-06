@@ -33,13 +33,12 @@ import data from "../utils/tempdata.js";
 export default function EpisodeTable() {
   const { episodes } = data;
   const router = useRouter();
-  const funqueue = [] as (() => void)[];
+  const [funqueue, _] = useState([] as (() => void)[]);
 
-  const [vinyls, setVinyls] = useState(Array.from(
+  const [vinyls, __] = useState(Array.from(
     { length: Object.keys(episodes).length },
     (v, k) => episodes[(k + 1).toString() as key]
   ));
-  const [floatingNode, setFloatingNode] = useState(false);
   const [snapping, setSnapping] = useState(false);
   const [timeoutId, setTimeoutId] = useState<any>(null);
   const [selectedPosition, setSelectedPosition] = useState(0);
@@ -53,7 +52,6 @@ export default function EpisodeTable() {
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
 
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
-    setFloatingNode,
     title: vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[2].trim(),
     subtitle: `Avec ${vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[0].trim()}`,
     desc: vinyls[selectedEpisode].desc,
@@ -193,7 +191,7 @@ export default function EpisodeTable() {
 
   return (
     <div ref={episodePage} className={`episode_page`}>
-      {cloneElement(notebookOverlayComponent, { setFloatingNode })}
+      {cloneElement(notebookOverlayComponent, { })}
       <Head>
         <title>{`Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}`}</title>
       </Head>
