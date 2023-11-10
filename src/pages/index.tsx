@@ -6,9 +6,10 @@ import React, {
   FC
 } from "react";
 import simpleParallax from 'simple-parallax-js';
+import HorizontalScroll from 'react-scroll-horizontal'
 import Image from "next/image";
 
-import Season_ from "../framer/Season-pOfC.js";
+import Season_, { Chairs } from "../framer/Season-pOfC.js";
 import HomeAlbum_ from "../framer/HomeAlbum-WCxn.js";
 import data from "../utils/tempdata.js";
 
@@ -31,7 +32,7 @@ export default function Home() {
     }, [data]);
 
     return (
-        <>
+        <HorizontalScroll className={styles.home} reverseScroll pageLock>
             <div className={[styles.layer_0, styles.layer].join(" ")}>
                 <div className={styles.ceiling_3} />
                 <div className={styles.ceiling_2} />
@@ -54,6 +55,7 @@ export default function Home() {
                     <div className={styles.backwall_light}>
                         <Image alt="" src="/img/BackWallLight.png" fill />
                     </div>
+                    <div className={styles.backwall_paint} />
                 </div>
                 
                 <div className={styles.floor_3} />
@@ -62,16 +64,16 @@ export default function Home() {
             </div>
             <div className={[styles.layer_1, styles.layer].join(" ")}>
                 {
-                    [...seasons].reverse().map(season => (
-                        <Season key={season.name} seasonTitle={`SAISON ${season.name}`} className={styles.season_frame} style={{aspectRatio: `calc(max(784, ${100 * Math.ceil(season.episodes.length / 3)})/720)`}}>
-                            {season.episodes.map((ep: episode) => (
+                    [...seasons].reverse().map((season, i) => (
+                        <Season key={season.name} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
+                            {season.episodes.reverse().map((ep: episode) => (
                                 <HomeAlbum key={ep.num} image={ep.img} />
                             ))}
                         </Season>
                     ))
                 }
             </div>
-        </>
+        </HorizontalScroll>
     );
 }
 

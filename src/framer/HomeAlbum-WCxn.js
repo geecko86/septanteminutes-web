@@ -5,7 +5,6 @@ import {
   addPropertyControls as a,
   ControlType as o,
   cx as i,
-  Image as s,
   useLocaleInfo as n,
   useVariantState as d,
   withCSS as l,
@@ -15,6 +14,7 @@ import {
   motion as f,
   MotionConfigContext as m,
 } from "framer-motion";
+import Image from "next/image";
 import * as u from "react";
 let c = ["I447:517;355:380"],
   b = "framer-LFfFl",
@@ -79,13 +79,14 @@ let h = {
       H = F(t, B),
       T = u.useRef(null),
       S = u.useId();
+    const [isHovered, setHovered] = u.useState(false);
     return /*#__PURE__*/ e(p, {
       id: null != b ? b : S,
       children: /*#__PURE__*/ e(f.div, {
         initial: g,
         animate: B,
-        onHoverStart: () => j({ isHovered: !0 }),
-        onHoverEnd: () => j({ isHovered: !1 }),
+        onHoverStart: () => setHovered(true),
+        onHoverEnd: () => setHovered(false),
         onTapStart: () => j({ isPressed: !0 }),
         onTap: () => j({ isPressed: !1 }),
         onTapCancel: () => j({ isPressed: !1 }),
@@ -102,25 +103,39 @@ let h = {
             ref: null != a ? a : T,
             style: { ...l },
             children: [
-              /*#__PURE__*/ e(s, {
-                background: {
-                  alt: "",
-                  fit: "stretch",
-                  sizes: "min(104px, 100vw)",
-                  ...v(w),
+              r(f.div, {
+                className: i("boxart", m),
+                initial: false,
+                transition: { type: "spring", stiffness: 100, damping: 15, mass: 1 },
+                animate:{
+                  y: isHovered? "-10%" : 0
                 },
-                className: "framer-rrg5dj",
-                "data-framer-name": "Rectangle 4",
-                layoutDependency: H,
-                layoutId: "I447:517;355:380;301:10",
-                style: {
-                  borderBottomLeftRadius: 2,
-                  borderBottomRightRadius: 2,
-                  borderTopLeftRadius: 2,
-                  borderTopRightRadius: 2,
-                  boxShadow:
-                    "0px 3px 2px 0px rgba(0, 0, 0, 0.10000000149011612), 0px 4px 8px 0px rgba(0, 0, 0, 0.05000000074505806)",
-                },
+                children: [
+                  r(f.div, {
+                    className: i("color-underlay", m)
+                  }),
+                  r(f.div, {
+                    initial: false,
+                    transition: { type: "spring", stiffness: 100, damping: 15, mass: 1 },
+                    animate: {
+                      opacity: isHovered ? 1.0 : 0.75
+                    }, children: [
+                      /*#__PURE__*/ e(Image, {
+                      src: w,
+                      fill: true,
+                      className: "homealbum-img",
+                      style: {
+                        borderBottomLeftRadius: 2,
+                        borderBottomRightRadius: 2,
+                        borderTopLeftRadius: 2,
+                        borderTopRightRadius: 2,
+                        boxShadow:
+                          "0px 3px 2px 0px rgba(0, 0, 0, 0.10000000149011612), 0px 4px 8px 0px rgba(0, 0, 0, 0.05000000074505806)",
+                      },
+                    })
+                    ]
+                  }),
+                ]
               }),
               /*#__PURE__*/ e(f.div, {
                 className: "framer-1eiicw1",
@@ -148,6 +163,7 @@ let h = {
     "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
     ".framer-LFfFl .framer-110p41z { display: block; }",
     ".framer-LFfFl .framer-n5ds9d { height: 104px; overflow: visible; position: relative; width: 104px; }",
+    ".color-underlay { background-color: rgba(241, 241, 241, 1) }",
     ".framer-LFfFl .framer-rrg5dj { aspect-ratio: 1 / 1; bottom: var(--framer-aspect-ratio-supported, 0px); flex: none; height: 104px; left: 0px; position: absolute; right: 0px; top: 0px; }",
     ".framer-LFfFl .framer-1eiicw1 { bottom: -4px; flex: none; left: 32px; position: absolute; right: 32px; top: 100px; }",
   ],

@@ -8,7 +8,7 @@ import React, {
   FC,
 } from "react";
 import { useRouter } from "next/router";
-import { replaceState } from "history-throttled";
+import { replaceState, pushState } from "history-throttled";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
@@ -235,7 +235,7 @@ export default function EpisodeTable() {
             <ImagedPostIt
               className={[styles.postit, styles.home_postit].join(" ")}
               title={"Accueil"}
-              onClick={() => {}}
+              onClick={() => window.location.replace("/")}
             />
             <ImagedPostIt
               className={[styles.postit, styles.download_postit].join(" ")}
