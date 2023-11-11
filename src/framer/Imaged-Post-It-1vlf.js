@@ -12,6 +12,7 @@ import {
   withCSS,
 } from "framer";
 import NextImage from "next/image";
+import Link from "next/link";
 import { LayoutGroup, motion, MotionConfigContext } from "framer-motion";
 import * as React from "react";
 const enabledGestures = { aP1r6qEU4: { hover: true } };
@@ -22,8 +23,8 @@ function addPropertyOverrides(overrides, ...variants) {
   variants === null || variants === void 0
     ? void 0
     : variants.forEach(
-        (variant) => variant && Object.assign(nextOverrides, overrides[variant])
-      );
+      (variant) => variant && Object.assign(nextOverrides, overrides[variant])
+    );
   return nextOverrides;
 }
 const transitions = {
@@ -53,10 +54,12 @@ const Transition = ({ value, children }) => {
     children: children,
   });
 };
-const getProps = ({ height, id, image, logo, title, width, ...props }) => {
+const getProps = ({ height, id, image, link, separate, logo, title, width, ...props }) => {
   var ref, ref1, ref2;
   return {
     ...props,
+    link: link,
+    separate: separate,
     dkre4FA5N:
       (ref = title !== null && title !== void 0 ? title : props.dkre4FA5N) !==
         null && ref !== void 0
@@ -67,17 +70,17 @@ const getProps = ({ height, id, image, logo, title, width, ...props }) => {
         null && ref1 !== void 0
         ? ref1
         : {
-            src: ""
-          },
+          src: ""
+        },
     XmvAL8ZsJ:
       (ref2 = image !== null && image !== void 0 ? image : props.XmvAL8ZsJ) !==
         null && ref2 !== void 0
         ? ref2
         : {
-            src: new URL(
-              "https://framerusercontent.com/assets/LrAyLk4UQNWCrqITOzynthhRv0U.webp",
-            ).href,
-          },
+          src: new URL(
+            "https://framerusercontent.com/assets/LrAyLk4UQNWCrqITOzynthhRv0U.webp",
+          ).href,
+        },
   };
 };
 const createLayoutDependency = (props, variants) =>
@@ -95,6 +98,8 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
     XmvAL8ZsJ,
     dkre4FA5N,
     fKpdeXn5p,
+    link,
+    separate,
     ...restProps
   } = getProps(props);
   const {
@@ -127,30 +132,34 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
       onTapCancel: () => setGestureState({ isPressed: false }),
       className: cx("framer-C4Wjh", classNames),
       style: { display: "contents" },
-      children: /*#__PURE__*/ _jsx(Transition, {
-        value: transition,
-        children: /*#__PURE__*/ _jsx(motion.div, {
-          ...restProps,
-          className: cx("framer-tgvrn3", className),
-          "data-framer-name": "Variant 1",
-          layoutDependency: layoutDependency,
-          layoutId: "aP1r6qEU4",
-          ref: ref,
-          style: { rotate: 0, ...style },
-          variants: { "aP1r6qEU4-hover": { rotate: 2 } },
-          ...addPropertyOverrides(
-            { "aP1r6qEU4-hover": { "data-framer-name": undefined } },
-            baseVariant,
-            gestureVariant
-          ),
-          children: /*#__PURE__*/ _jsxs(motion.div, {
-            className: "framer-1tcxbxb",
-            "data-framer-name": "Post_it_3",
+        children: /*#__PURE__*/ _jsx(Transition, {
+          value: transition,
+          children: /*#__PURE__*/ _jsx(motion.div, {
+            ...restProps,
+            className: cx("framer-tgvrn3", className),
+            "data-framer-name": "Variant 1",
             layoutDependency: layoutDependency,
-            layoutId: "OtZiM2zbM",
-            style: { rotate: 0 },
-            variants: { "aP1r6qEU4-hover": { rotate: 4 } },
-            children: [
+            layoutId: "aP1r6qEU4",
+            ref: ref,
+            style: { rotate: 0, ...style },
+            variants: { "aP1r6qEU4-hover": { rotate: 2 } },
+            ...addPropertyOverrides(
+              { "aP1r6qEU4-hover": { "data-framer-name": undefined } },
+              baseVariant,
+              gestureVariant
+            ),
+            children: _jsx(Link, {
+              href: link,
+              style: { display: "contents" },
+              target: separate ? "_blank" : "",
+            children: /*#__PURE__*/ _jsxs(motion.div, {
+              className: "framer-1tcxbxb",
+              "data-framer-name": "Post_it_3",
+              layoutDependency: layoutDependency,
+              layoutId: "OtZiM2zbM",
+              style: { rotate: 0 },
+              variants: { "aP1r6qEU4-hover": { rotate: 4 } },
+              children: [
               /*#__PURE__*/ _jsx(NextImage, {
                 alt: "",
                 fill: true,
@@ -219,10 +228,11 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
                 },
                 transformTemplate: transformTemplate,
               }),
-            ],
+              ],
+            }),
           }),
         }),
-      }),
+      })
     }),
   });
 });

@@ -235,19 +235,19 @@ export default function EpisodeTable() {
             <ImagedPostIt
               className={[styles.postit, styles.home_postit].join(" ")}
               title={"Accueil"}
-              onClick={() => window.location.replace("/")}
+              link="/"
             />
             <ImagedPostIt
               className={[styles.postit, styles.download_postit].join(" ")}
               title={"Télécharger"}
-              onClick={() => {}}
+              link={vinyls[selectedEpisode]["mp3"]}
+              separate={true}
             />
             <ImagedPostIt
               className={[styles.postit, styles.contact_postit].join(" ")}
               title={"Contact"}
-              onClick={() =>
-                window.open("mailto:contact@septanteminutes.be", "_blank")
-              }
+              link="mailto:contact@septanteminutes.be"
+              separate={true}
             />
           </div>
           <motion.div className={styles.albums}>

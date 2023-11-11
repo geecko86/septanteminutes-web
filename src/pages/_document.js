@@ -21,7 +21,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.cdnfonts.com/css/radwave-demo"
+            href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699618189/fonts/radwave.css"
             as="style"
           />
           <link
@@ -37,7 +37,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.cdnfonts.com/s/69012/RadwaveFont-Demo.woff"
+            href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699617997/fonts/radwave.woff2"
             as="font"
             type="font/woff" crossOrigin="anonymous"
           />
@@ -53,7 +53,7 @@ class MyDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="https://fonts.cdnfonts.com/css/radwave-demo"
+            href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699618189/fonts/radwave.css"
           />
           <link
             rel="stylesheet"

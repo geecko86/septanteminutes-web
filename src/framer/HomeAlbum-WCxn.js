@@ -15,6 +15,7 @@ import {
   MotionConfigContext as m,
 } from "framer-motion";
 import Image from "next/image";
+import Link from 'next/link';
 import * as u from "react";
 let c = ["I447:517;355:380"],
   b = "framer-LFfFl",
@@ -38,10 +39,11 @@ let h = {
       i = u.useMemo(() => ({ ...a, transition: o }), [JSON.stringify(o)]);
     return /*#__PURE__*/ e(m.Provider, { value: i, children: t });
   },
-  R = ({ height: e, id: r, image: t, width: a, ...o }) => {
+  R = ({ height: e, id: r, image: t, num: num, width: a, ...o }) => {
     var i;
     return {
       ...o,
+      num: num,
       l4skPfBuN:
         null !== (i = null != t ? t : o.l4skPfBuN) && void 0 !== i
           ? i
@@ -59,6 +61,7 @@ let h = {
         layoutId: b,
         variant: g,
         l4skPfBuN: w,
+        num: num,
         ...I
       } = R(t),
       {
@@ -94,8 +97,9 @@ let h = {
         style: { display: "contents" },
         children: /*#__PURE__*/ e(y, {
           value: P,
-          children: /*#__PURE__*/ r(f.div, {
+          children: /*#__PURE__*/ r(Link, {
             ...I,
+            href: `/${num}`,
             className: i("framer-n5ds9d", m),
             "data-framer-name": "Variant 1",
             layoutDependency: H,
@@ -112,17 +116,20 @@ let h = {
                 },
                 children: [
                   r(f.div, {
-                    className: i("color-underlay", m)
+                    className: i("color-underlay", m),
+                    style: { position: "absolute" }
                   }),
                   r(f.div, {
                     initial: false,
                     transition: { type: "spring", stiffness: 100, damping: 15, mass: 1 },
+                    style: { position: "absolute" },
                     animate: {
                       opacity: isHovered ? 1.0 : 0.75
                     }, children: [
                       /*#__PURE__*/ e(Image, {
                       src: w,
                       fill: true,
+                      sizes: "17.5vmin",
                       className: "homealbum-img",
                       style: {
                         borderBottomLeftRadius: 2,
@@ -170,7 +177,7 @@ let h = {
   L = l(w, I, "framer-LFfFl");
 export default L;
 (L.displayName = "HomeAlbum"),
-  (L.defaultProps = { height: 104, width: 104 }),
+  (L.defaultProps = { height: 104, width: 104, num: 1 }),
   a(L, {
     l4skPfBuN: {
       __defaultAssetReference:
