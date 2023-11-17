@@ -4,8 +4,8 @@
 }
 
 html, * {
-    
-
+    /* Hide scrollbar (firefox) */
+    /* scrollbar-width: none; */
     /* remove highlight on click (mobile) */
     -webkit-tap-highlight-color: transparent;
 }

@@ -141,6 +141,7 @@ let v = {
               children: /*#__PURE__*/ e(Image, {
                 fill: true,
                 src: chair,
+                sizes: "30vw",
                 className: "framer-15pybt5"
               }),
             }),
@@ -149,7 +150,7 @@ let v = {
               fill: true,
               style: {},
               src: "https://framerusercontent.com/images/Tz6XyH009VWJibZLhAnSdcNMiA.png",
-              lazy: "false",
+              loading: "eager",
               className: "framer-aibtig"
             }),
             /*#__PURE__*/ a(h.div, {

@@ -7,7 +7,7 @@ import React, {
     useEffect,
     FC,
 } from "react";
-import { motion, useTransform, useMotionValue, animate, AnimationPlaybackControls, useScroll } from "framer-motion";
+import { motion, useTransform, useMotionValue, useScroll } from "framer-motion";
 import Image from "next/image";
 
 import Season_, { Chairs } from "../framer/Season-pOfC.js";
@@ -51,39 +51,35 @@ export default function Home() {
     }, [data]);
 
     useEffect(() => {
-        const task = () => {
-            if (typeof window === "undefined" || !subroot.current) return;
-            window.scrollTo({
-                top: subroot.current.scrollHeight / 2,
-                left: subroot.current.scrollWidth / 2,
-                behavior: "instant"
-            });
-        };
-        requestIdleCallback(task);
-
         root.current?.addEventListener("wheel", onHomeWheel, { passive: false });
     }, [home]);
 
-    const { scrollX, scrollY } = useScroll();
-    // const scrollX = useTransform(originalScrollX, [subroot.current?.scrollWidth / 2, subroot.current?.scrollWidth], [0, home.current?.clientWidth]);
-    // const scrollY = useTransform(originalScrollY, [subroot.current?.scrollHeight / 2, subroot.current?.scrollHeight], [0, home.current?.clientWidth]);
+    const { scrollX } = useScroll();
+    const scrollXAdditional = useMotionValue(0);
+    const scrollYAdditional = useMotionValue(0);
     const newScrollX = useTransform(() => {
         if (!subroot?.current) return 0;
 
-        const scrollSum = scrollX.get() + scrollY.get() - subroot.current.scrollHeight / 2 - subroot.current.scrollWidth / 2;
-        console.log(scrollSum);
-        if (scrollSum < 0) {
-            scrollX.set(subroot.current?.scrollWidth / 2);
-            scrollY.set(subroot.current?.scrollHeight / 2);
+        if (Math.abs(scrollX.get()) >= 1) {
+            console.log("scrollX not null - reset", scrollX.get(), subroot.current?.scrollWidth / 2);
             window.scrollTo({
-                top: subroot.current.scrollHeight / 2,
-                left: subroot.current.scrollWidth / 2,
+                left: 0,
                 behavior: "instant"
             });
+        }
+
+        const scrollSum = scrollXAdditional.get() + scrollYAdditional.get();
+        if (scrollSum < 0) {
+            console.log("Negative scroll - reset");
+            scrollXAdditional.set(0);
+            scrollYAdditional.set(0);
             return 0;
         }
 
-        if (typeof window === "undefined") return -scrollSum;
+        if (typeof window === "undefined") {
+            console.log("undefined window", -scrollSum);
+            return -scrollSum
+        };
         const limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
         const output = Math.min(-Math.min(scrollSum, limit), 0);
         console.log("newScrollX:", output);
@@ -98,35 +94,34 @@ export default function Home() {
     const onHomeWheel = (e: WheelEvent) => {
         if (e.stopImmediatePropagation) e.stopImmediatePropagation();
         const limit = (home.current?.clientWidth || 5000) - window.innerWidth;
-        // console.log("newScrollX:", newScrollX.get(), "/", -limit);
 
+        // console.log(newScrollX.get(), -limit, home.current?.clientWidth, window.innerWidth);
         if (newScrollX.get() <= -limit && e.deltaX + e.deltaY > 0) {
-            e.preventDefault();
             console.log("BLOCK! A", e.deltaX + e.deltaY);
         } else if (newScrollX.get() >= 0 && e.deltaX + e.deltaY < 0) {
-            e.preventDefault();
             console.log("BLOCK! B", e.deltaX + e.deltaY);
-        } else if (e.deltaX !== 0) {
-            // animate(scrollX, scrollX.get() + e.deltaX, { duration: 0.014})
-            // e.preventDefault();
-        } else if (e.deltaY !== 0) {
-            // animate(scrollY, scrollY.get() + e.deltaY, { duration: 0.014})
-            // e.preventDefault();
+        } else {
+            if (e.deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + e.deltaX);
+            else if (e.deltaY !== 0) scrollYAdditional.set(scrollYAdditional.get() + e.deltaY);
         }
+        e.preventDefault();
     };
 
     const posters = [
         (<div className={[styles.poster, styles.leuven].join(" ")}>
-            <Image className={styles.leuven} alt="" src="/img/leuven.png" fill />
+            <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg" sizes="40vw" fill />
+        </div>),
+        (<div className={[styles.poster, styles.akerman].join(" ")}>
+            <Image className={styles.akerman} alt="" src="https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg" sizes="40vw" fill />
         </div>),
         (<div className={[styles.poster, styles.brel].join(" ")}>
-            <Image className={styles.leuven} alt="" src="/img/brel.png" fill />
+            <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/4x11RpHpM5DEUM2LRHjPYitFo.jpg" sizes="40vw" fill />
         </div>),
         (<div className={[styles.poster, styles.redford].join(" ")}>
-            <Image className={styles.leuven} alt="" src="/img/redford.png" fill />
+            <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg" sizes="40vw" fill />
         </div>),
         (<div className={[styles.poster, styles.stones].join(" ")}>
-            <Image className={styles.leuven} alt="" src="/img/stones.png" fill />
+            <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg" sizes="40vw" fill />
         </div>)
     ];
 
@@ -136,7 +131,9 @@ export default function Home() {
                 <motion.div className={styles.home} ref={home} style={{ translateX: newScrollX }}>
                     <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer].join(" ")} style={{ translateX: offset0 }}>
                         <div className={styles.ceiling_3} />
-                        <div className={styles.ceiling_2} />
+                        <div className={styles.ceiling_2}>
+                            <Image loading="eager" src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" fill sizes={`${home.current?.clientWidth}px`} />
+                        </div>
                         <div className={styles.ceiling} />
                         <div className={styles.backwall}>
                             <div className={styles.posters}>
@@ -156,13 +153,15 @@ export default function Home() {
                                 }
                             </div>
                             <div className={styles.backwall_light}>
-                                <Image alt="" src="/img/BackWallLight.png" fill />
+                                <Image loading="eager" alt="" src="https://framerusercontent.com/images/FsKB3GEHFAPqgBfbeEkGrIb6lA.png" fill sizes="461vw" />
                             </div>
                             <div className={styles.backwall_paint} />
                         </div>
 
                         <div className={styles.floor_3} />
-                        <div className={styles.floor_2} />
+                        <div className={styles.floor_2}>
+                            <Image loading="eager" src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" fill sizes={`${home.current?.clientWidth}px`} />
+                        </div>
                         <div className={styles.floor} />
                     </motion.div>
                     <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer].join(" ")}
