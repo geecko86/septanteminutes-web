@@ -235,7 +235,7 @@ export default function EpisodeTable() {
             <ImagedPostIt
               className={[styles.postit, styles.home_postit].join(" ")}
               title={"Accueil"}
-              link="/"
+              link={`/#${selectedEpisode + 1}`}
             />
             <ImagedPostIt
               className={[styles.postit, styles.download_postit].join(" ")}

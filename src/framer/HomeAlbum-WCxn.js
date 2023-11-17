@@ -39,11 +39,12 @@ let h = {
       i = u.useMemo(() => ({ ...a, transition: o }), [JSON.stringify(o)]);
     return /*#__PURE__*/ e(m.Provider, { value: i, children: t });
   },
-  R = ({ height: e, id: r, image: t, num: num, width: a, ...o }) => {
+  R = ({ height: e, id: r, image: t, id:id, num: num, width: a, ...o }) => {
     var i;
     return {
       ...o,
       num: num,
+      id: id,
       l4skPfBuN:
         null !== (i = null != t ? t : o.l4skPfBuN) && void 0 !== i
           ? i
@@ -62,6 +63,7 @@ let h = {
         variant: g,
         l4skPfBuN: w,
         num: num,
+        id: id,
         ...I
       } = R(t),
       {
@@ -100,6 +102,7 @@ let h = {
           children: /*#__PURE__*/ r(Link, {
             ...I,
             href: `/${num}`,
+            id: id,
             className: i("framer-n5ds9d", m),
             "data-framer-name": "Variant 1",
             layoutDependency: H,
@@ -177,7 +180,7 @@ let h = {
   L = l(w, I, "framer-LFfFl");
 export default L;
 (L.displayName = "HomeAlbum"),
-  (L.defaultProps = { height: 104, width: 104, num: 1 }),
+  (L.defaultProps = { height: 104, width: 104, num: 1, id: null, }),
   a(L, {
     l4skPfBuN: {
       __defaultAssetReference:

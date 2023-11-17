@@ -1,7 +1,32 @@
+.home_subroot {
+    display: grid;
+    grid-template-rows: 4fr 4fr;
+    grid-template-columns: 4fr 4fr;
+    position: static;
+    min-height: 100vh;
+    min-width: 100vw;
+    width: max-content;
+    top: 0;
+}
+
+.home_root {
+    position: sticky;
+    min-height: 100vh;
+    width: fit-content;
+    height: auto;
+    aspect-ratio: 1;
+    top: 0;
+    left: 0;
+
+}
+
 .home {
-    position: relative;
+    display: inline-flex;
+    position: sticky;
+    top: 0;
     height: 100vh;
     width: fit-content;
+    will-change: transform;
     overflow: visible !important;
 }
 
@@ -45,7 +70,7 @@
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 62vmin;
+    gap: 22vmin;
 
     position: absolute;
     width: 100%;
@@ -72,28 +97,24 @@
     aspect-ratio: calc(440/288);
     width: auto;
     height: calc(67% * 0.6473);
-    order: 0;
 }
 
 .brel {
     aspect-ratio: calc(337/448);
     width: auto;
     height: 67%;
-    order: 1;
 }
 
 .redford{
     aspect-ratio: calc(512/397);
     width: auto;
     height: calc(67% * 0.8923);
-    order: 2;
 }
 
 .stones {
     aspect-ratio: 1;
     width: auto;
     height: 67%;
-    order: 3;
 }
 
 .gap {
@@ -341,11 +362,12 @@
     inset: 96% 25% -4px !important;
 }
 
-.lamps_1_5 { /* lamps front */ 
+.lamps_1_5 { /* ceiling lamps */ 
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 133vh;
+    gap: 118vh;
+    transform: translateX(-300vh);
 
     position: relative;
     width: fit-content;
@@ -354,11 +376,12 @@
     left: 66vmin;
 }
 
-.lamps_2 { /* lamps front */ 
+.lamps_2 { /* ceiling lamps front */ 
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 133vh;
+    transform: translateX(-300vh);
 
     position: relative;
     width: fit-content;
@@ -379,9 +402,10 @@
 }
 
 .front_column {
-    aspect-ratio: 1713/3330;
-    height: 133.41%;
-    width: auto;
+    aspect-ratio: 571/1110;
+    height: calc(1110/832 * 100vh) !important;
+    width: auto !important;
+    transform: translateY(-12%);
 }
 
 /* Layers */
@@ -392,8 +416,10 @@
 }
 
 .layer_0 { /* wall, ceiling, floor */
+    padding-right: 15%;
     top: 0;
     bottom: 0;
+    pointer-events: none;
     height: 100vh;
     width: 100%;
 }
@@ -404,6 +430,7 @@
     align-items: flex-start;
     padding: 0px 14.5vw;
     padding-bottom: 5.2vh;
+    pointer-events: none;
 
     position: absolute;
     width: fit-content;
@@ -413,6 +440,7 @@
 
 .layer_0_5 > * {
     min-height: 1px;
+    pointer-events: none;
 }
 
 .layer_1 { /* Season Walls */ 
@@ -436,6 +464,8 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    pointer-events: none;
+    overflow: visible;
 
     position: absolute;
     width: 100%;
@@ -447,6 +477,8 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    pointer-events: none;
+    overflow: visible;
 
     position: absolute;
     width: 100%;
@@ -455,11 +487,19 @@
 }
 
 .layer_3 { /* Calumn, plant */ 
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
 
     position: absolute;
+    z-index: 15;
+}
+
+.layer_3_wrapper { /* X offset */
+    pointer-events: none;
+    transform: translateX(-400vw);
+    padding-right: 400vw;
     width: 100%;
     height: 100vh;
     z-index: 15;

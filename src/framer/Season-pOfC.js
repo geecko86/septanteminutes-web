@@ -147,8 +147,9 @@ let v = {
               /*#__PURE__*/ a(Image, {
               sizes: "85vh",
               fill: true,
+              style: {},
               src: "https://framerusercontent.com/images/Tz6XyH009VWJibZLhAnSdcNMiA.png",
-              lazy: false,
+              lazy: "false",
               className: "framer-aibtig"
             }),
             /*#__PURE__*/ a(h.div, {

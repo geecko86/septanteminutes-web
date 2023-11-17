@@ -4,10 +4,7 @@
 }
 
 html, * {
-    /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
+    
 
     /* remove highlight on click (mobile) */
     -webkit-tap-highlight-color: transparent;
