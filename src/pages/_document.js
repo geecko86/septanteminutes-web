@@ -117,14 +117,17 @@ class MyDocument extends Document {
             property="og:image"
             content="https://www.septanteminutes.be/img/192.png"
           />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
 
           {/* <link rel='apple-touch-startup-image' href='/img/2048.png' sizes='2048x2732' />
-        <link rel='apple-touch-startup-image' href='/img/1668.png' sizes='1668x2224' />
-        <link rel='apple-touch-startup-image' href='/img/1536.png' sizes='1536x2048' />
-        <link rel='apple-touch-startup-image' href='/img/1125.png' sizes='1125x2436' />
-        <link rel='apple-touch-startup-image' href='/img/1242.png' sizes='1242x2208' />
-        <link rel='apple-touch-startup-image' href='/img/750.png' sizes='750x1334' />
-        <link rel='apple-touch-startup-image' href='/img/640.png' sizes='640x1136' /> */}
+          <link rel='apple-touch-startup-image' href='/img/1668.png' sizes='1668x2224' />
+          <link rel='apple-touch-startup-image' href='/img/1536.png' sizes='1536x2048' />
+          <link rel='apple-touch-startup-image' href='/img/1125.png' sizes='1125x2436' />
+          <link rel='apple-touch-startup-image' href='/img/1242.png' sizes='1242x2208' />
+          <link rel='apple-touch-startup-image' href='/img/750.png' sizes='750x1334' />
+          <link rel='apple-touch-startup-image' href='/img/640.png' sizes='640x1136' /> */}
+
+          <script type="text/javascript" src="/js/portrait.js" defer />          
         </Head>
         <body>
           <Main />

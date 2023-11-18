@@ -157,7 +157,7 @@ let v = {
               className: "framer-1bqyp6a",
               "data-framer-name": "Wall",
               style: {
-                aspectRatio: `max(665.17, 8.22 * 17.5 * ${Math.ceil((t?.children?.length || 2) / 2)} + 8.22 * 3.5 * ${Math.ceil((t?.children?.length || 2) / 2) - 1})/543`
+                aspectRatio: `max(665.17, 8.22 * 17.5 * ${Math.ceil((t?.children?.length || 2) / 2)} + 8.22 * 7 * ${Math.ceil((t?.children?.length || 2) / 2) - 1})/543`
               },
               children: [
               /*#__PURE__*/ a(h.div, {

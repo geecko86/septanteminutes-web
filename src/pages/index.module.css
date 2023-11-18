@@ -74,12 +74,12 @@
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 22vmin;
+    gap: 22vh;
 
     position: absolute;
     width: 100%;
     height: 96.5%;
-    left: 27vmin;
+    left: 27vh;
     top: 48%;
     transform: translateY(-50%);
 }
@@ -94,14 +94,19 @@
 }
 
 .poster img {
+    border: solid #E0E0E0 10px;
     object-fit: cover !important;
-    border: solid white 10px;
+    opacity: 0.85;
 }
 
 .leuven {
     aspect-ratio: calc(440/288);
     width: auto;
     height: calc(67% * 0.6473);
+}
+
+.leuven img {
+    border: solid white 10px !important;
 }
 
 .brel {
@@ -157,7 +162,7 @@
 .ceiling {
     position: absolute;
     width: 100%;
-    height: 11.5vmin;
+    height: 11.5vh;
     top: 0;
     opacity: 25%;
     background: linear-gradient(180deg, black 0%, transparent 50%);
@@ -220,7 +225,7 @@
     height: calc(100%*(7/9));
     width: auto;
     min-width: calc(100%*(7/9));
-    padding: calc(85vmin / 9);
+    padding: calc(85vh / 9);
     align-items: start;
     flex-flow: column;
 }
@@ -245,7 +250,7 @@
     height: 5.36% !important;
     width: auto !important;
     gap: 2.4rem !important;
-    padding-bottom: 3.33%;
+    padding-bottom: 3vh;
     left: 10.2% !important;
     top: 11% !important;
 }
@@ -355,11 +360,11 @@
     width: 100%;
     display: grid !important;
     place-items: stretch;
-    grid-template-columns: repeat(auto-fill, 17.5vmin); /* Adjust the minmax value as needed */
+    grid-template-columns: repeat(auto-fill, 17.5vh); /* Adjust the minmax value as needed */
     grid-template-rows: repeat(2, 1fr); /* 3 rows */
     grid-auto-columns: 1fr; /* Automatically add more columns if needed */
     grid-auto-flow: column;
-    gap: 3.5vmin;
+    gap: 7vh;
     overflow: visible;
 }
 
@@ -384,9 +389,9 @@
 
     position: relative;
     width: fit-content;
-    height: 27vmin;
+    height: 27vh;
     top: 0;
-    left: 66vmin;
+    left: 66vh;
 }
 
 .lamps_2 { /* ceiling lamps front */ 
@@ -398,9 +403,9 @@
 
     position: relative;
     width: fit-content;
-    height: 85vmin;
+    height: 85vh;
     top: -34.5vh;
-    left: 31vmin;
+    left: 31vh;
 }
 
 .lamp {
@@ -415,10 +420,12 @@
 }
 
 .front_column {
-    aspect-ratio: 571/1110;
+    aspect-ratio: 595/1110;
     height: calc(1110/832 * 100vh) !important;
     width: auto !important;
     transform: translateY(-12%);
+    padding: 0.1% !important;
+    filter: blur(6px);
 }
 
 /* Layers */
@@ -462,7 +469,7 @@
     align-items: flex-start;
     padding: 0px 14.5vw;
     padding-bottom: 5.2vh;
-    gap: 50vmin;
+    gap: 50vh;
 
     position: relative;
     width: fit-content;
@@ -486,6 +493,10 @@
     z-index: 7;
 }
 
+.layer_1_5 > * {
+    filter: blur(1px);
+}
+
 .layer_2 { /* Lamps */ 
     display: flex;
     flex-direction: row;
@@ -499,6 +510,17 @@
     z-index: 10;
 }
 
+.layer_2 > * {
+    filter: blur(2px);
+}
+
+.layer_3_wrapper { /* X offset */
+    pointer-events: none;
+    width: 100%;
+    height: 100vh;
+    z-index: 15;
+}
+
 .layer_3 { /* Calumn, plant */ 
     height: 100%;
     display: flex;
@@ -509,11 +531,7 @@
     z-index: 15;
 }
 
-.layer_3_wrapper { /* X offset */
-    pointer-events: none;
-    transform: translateX(-400vw);
-    padding-right: 400vw;
-    width: 100%;
-    height: 100vh;
-    z-index: 15;
+.layer_3 > * {
+    filter: blur(6px);
+    pointer-events: all;
 }

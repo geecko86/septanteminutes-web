@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
-function ScrollToAnchor() {
+function ScrollToAnchor(props: {move: (x: number) => void}) {
     const { asPath } = useRouter();
     const lastHash = useRef('');
 
@@ -16,15 +16,9 @@ function ScrollToAnchor() {
         const id = `art_${lastHash.current}`;
 
         if (lastHash.current && document.getElementById(id)) {
-            const { x } = document
-            .getElementById(id)
-            .getBoundingClientRect();
-            window.scrollBy({
-                top: x - (window.innerWidth / 2),
-                behavior: "instant"
-            });
-            console.log(id, document.getElementById(id));
-            console.log(lastHash.current, "scrollBy", x);
+            const element = document.getElementById(id);
+            const { x } = element?.getBoundingClientRect() || { x: 0 };
+            props.move(x - window.innerWidth / 2);
             lastHash.current = '';
             }
       }, 450);

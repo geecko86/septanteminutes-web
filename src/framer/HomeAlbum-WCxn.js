@@ -5,6 +5,7 @@ import {
   addPropertyControls as a,
   ControlType as o,
   cx as i,
+  RichText as rich,
   useLocaleInfo as n,
   useVariantState as d,
   withCSS as l,
@@ -39,11 +40,12 @@ let h = {
       i = u.useMemo(() => ({ ...a, transition: o }), [JSON.stringify(o)]);
     return /*#__PURE__*/ e(m.Provider, { value: i, children: t });
   },
-  R = ({ height: e, id: r, image: t, id:id, num: num, width: a, ...o }) => {
+  R = ({ height: e, id: r, image: t, id:id, num: num, guest: guest, width: a, ...o }) => {
     var i;
     return {
       ...o,
       num: num,
+      guest: guest,
       id: id,
       l4skPfBuN:
         null !== (i = null != t ? t : o.l4skPfBuN) && void 0 !== i
@@ -63,6 +65,7 @@ let h = {
         variant: g,
         l4skPfBuN: w,
         num: num,
+        guest: guest,
         id: id,
         ...I
       } = R(t),
@@ -127,7 +130,7 @@ let h = {
                     transition: { type: "spring", stiffness: 100, damping: 15, mass: 1 },
                     style: { position: "absolute" },
                     animate: {
-                      opacity: isHovered ? 1.0 : 0.75
+                      opacity: isHovered ? 1.0 : 0.95
                     }, children: [
                       /*#__PURE__*/ e(Image, {
                       src: w,
@@ -162,6 +165,18 @@ let h = {
                     "0px 3px 2px 0px rgba(0, 0, 0, 0.10000000149011612), 0px 4px 8px 0px rgba(0, 0, 0, 0.05000000074505806)",
                 },
               }),
+              /*#__PURE__*/ e(rich, {
+                __fromCanvasComponent: !0,
+                children: /*#__PURE__*/ e(u.Fragment, {
+                  children: /*#__PURE__*/ e(f.p, {
+                    children: "MYRIAM LEROY",
+                  }),
+                }),
+                style: { "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, "--framer-text-color": "rgb(66, 56, 37)", "--framer-font-size": "1.5vh", "paddingTop": "1px", "white-space": "inherit", "--framer-text-alignment": "center", "padding-top": "2vh", "aspect-ratio": "unset", "height": "min-content", "width": "100%"},
+                text: guest.split(/\s(-|–)\s?/g)[0],
+                verticalAlignment: "top",
+                withExternalLayout: !0,
+              })
             ],
           }),
         }),
@@ -180,7 +195,7 @@ let h = {
   L = l(w, I, "framer-LFfFl");
 export default L;
 (L.displayName = "HomeAlbum"),
-  (L.defaultProps = { height: 104, width: 104, num: 1, id: null, }),
+  (L.defaultProps = { height: 104, width: 104, num: 1, guest: "", id: null, }),
   a(L, {
     l4skPfBuN: {
       __defaultAssetReference:

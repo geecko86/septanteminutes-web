@@ -86,10 +86,10 @@ export default function Home() {
         return output;
     });
     const offset0 = useTransform(() => newScrollX.get() * 0.15);
-    const offset05 = useTransform(() => newScrollX.get() * 0.25);
-    const offset15 = useTransform(() => newScrollX.get() * -1.15);
-    const offset2 = useTransform(() => newScrollX.get() * -1.35);
-    const offset3 = useTransform(() => newScrollX.get() * -2);
+    const offset05 = useTransform(() => newScrollX.get() * 0.2);
+    const offset15 = useTransform(() => newScrollX.get() * 1.15);
+    const offset2 = useTransform(() => newScrollX.get() * 1.35);
+    const offset3 = useTransform(() => newScrollX.get() * 2);
 
     const onHomeWheel = (e: WheelEvent) => {
         if (e.stopImmediatePropagation) e.stopImmediatePropagation();
@@ -108,19 +108,19 @@ export default function Home() {
     };
 
     const posters = [
-        (<div className={[styles.poster, styles.leuven].join(" ")}>
+        (<div className={[styles.poster, styles.leuven].join(" ")} key="poster_leuven">
             <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg" sizes="40vw" fill />
         </div>),
-        (<div className={[styles.poster, styles.akerman].join(" ")}>
+        (<div className={[styles.poster, styles.akerman].join(" ")} key="poster_akerman">
             <Image className={styles.akerman} alt="" src="https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg" sizes="40vw" fill />
         </div>),
-        (<div className={[styles.poster, styles.brel].join(" ")}>
+        (<div className={[styles.poster, styles.brel].join(" ")} key="poster_brel">
             <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/4x11RpHpM5DEUM2LRHjPYitFo.jpg" sizes="40vw" fill />
         </div>),
-        (<div className={[styles.poster, styles.redford].join(" ")}>
+        (<div className={[styles.poster, styles.redford].join(" ")} key="poster_redford">
             <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg" sizes="40vw" fill />
         </div>),
-        (<div className={[styles.poster, styles.stones].join(" ")}>
+        (<div className={[styles.poster, styles.stones].join(" ")} key="poster_stones">
             <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg" sizes="40vw" fill />
         </div>)
     ];
@@ -201,7 +201,7 @@ export default function Home() {
                             [...seasons].reverse().map((season, i) => (
                                 <Season key={season.name} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
                                     {season.episodes.reverse().map((ep: episode) => (
-                                        <HomeAlbum id={`art_${ep.num}`} key={ep.num} image={ep.img} num={ep.num} />
+                                        <HomeAlbum id={`art_${ep.num}`} guest={ep.title} key={ep.num} image={ep.img} num={ep.num} />
                                     ))}
                                 </Season>
                             ))
@@ -210,34 +210,37 @@ export default function Home() {
                     <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer].join(" ")} style={{ translateX: offset15 }}>
                         <div className={styles.lamps_1_5} >
                             <div className={styles.gap} style={{ width: "33vh" }} />
-                            <BellLamp className={styles.lamp} />
-                            <BellLamp className={styles.lamp} />
-                            <BellLamp className={styles.lamp} />
-                            <BellLamp className={styles.lamp} />
+                            {[...Array(45).keys()].map((i) => (
+                                <BellLamp key={`lamp_1_5_${i}`} className={styles.lamp} />
+                            ))}
                         </div>
                     </motion.div>
                     <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer].join(" ")} style={{ translateX: offset2 }}>
-                        <div className={styles.lamps_2} >
-                            <BellLamp className={styles.lamp} />
-                            <BellLamp className={styles.lamp} />
-                            <BellLamp className={styles.lamp} />
+                        <div className={styles.lamps_2}>
+                            {[...Array(35).keys()].map((i) => (
+                                <BellLamp key={`lamp_2_${i}`} className={styles.lamp} />
+                            ))}
                         </div>
                     </motion.div>
-                    <div key="layer_3" ref={layer3} className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
-                        <motion.div key="layer_3" ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3 }}>
-                            <div className={styles.gap} style={{ width: "155vh" }} />
+                    <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
+                        <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3 }}>
+                            <div className={styles.gap} style={{ width: "500vw" }} />
                             <PlantC className={styles.plant_front} />
-                            <div className={styles.gap} style={{ width: "282vh" }} />
+                            <div className={styles.gap} style={{ width: "500vw" }} />
                             <FrontColumn className={styles.front_column} />
+                            <div className={styles.gap} style={{ width: "500vw" }} />
+                            <PlantC className={styles.plant_front} />
                         </motion.div>
                     </div>
                 </motion.div>
             </div>
             <div />
-            <ScrollToAnchor />
+            <ScrollToAnchor move={(x) => scrollXAdditional.set(x)} />
         </div>
     );
 }
 
 type key = "1" | "2"; // Etc.
-type episode = { img: string, num: string }
+type episode = {
+    title: string; img: string, num: number 
+}
