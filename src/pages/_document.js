@@ -117,7 +117,6 @@ class MyDocument extends Document {
             property="og:image"
             content="https://www.septanteminutes.be/img/192.png"
           />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
 
           {/* <link rel='apple-touch-startup-image' href='/img/2048.png' sizes='2048x2732' />
           <link rel='apple-touch-startup-image' href='/img/1668.png' sizes='1668x2224' />
