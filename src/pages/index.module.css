@@ -21,6 +21,8 @@
 }
 
 .home {
+    --unit: 1vh;
+
     display: inline-flex;
     position: sticky;
     top: 0;
@@ -30,16 +32,24 @@
     overflow: visible !important;
 }
 
+.home * {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
 /* Layer 0 */
 
 .backwall {
     position: absolute;
     width: 100%;
-    height: 79.8vh;
+    height: 79.8%;
     /* width: 3840px;
     height: 664px; */
     background-color: #f6f6f6;
-    top: 11.5vh;
+    top: 11.5%;
     left: 0;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -102,7 +112,7 @@
 .leuven {
     aspect-ratio: calc(440/288);
     width: auto;
-    height: calc(67% * 0.6473);
+    height: 50%;
 }
 
 .leuven img {
@@ -131,6 +141,26 @@
     height: calc(67% * 0.8923);
 }
 
+.congo {
+    transform: translateX(25%);
+    aspect-ratio: 2267/1704;
+    width: auto;
+    height: 67%;
+}
+
+.cavell {
+    transform: translateX(25%);
+    aspect-ratio: 2267/1704;
+    width: auto;
+    height: 52%;
+}
+
+.walenbuiten {
+    aspect-ratio: 2267/1704;
+    width: auto;
+    height: calc(67% * 0.8923);
+}
+
 .stones {
     aspect-ratio: 1;
     width: auto;
@@ -146,8 +176,9 @@
     width: auto;
     height: 45%;
     margin-top: auto;
-    top: 48px;
+    top: 7%;
     position: relative;
+    pointer-events: none;
 }
 
 .plant_front {
@@ -159,10 +190,14 @@
     object-fit: contain;
 }
 
+.eggchair {
+    left: -20vh;
+}
+
 .ceiling {
     position: absolute;
     width: 100%;
-    height: 11.5vh;
+    height: 11.5%;
     top: 0;
     opacity: 25%;
     background: linear-gradient(180deg, black 0%, transparent 50%);
@@ -173,8 +208,8 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: 100vh;
-    bottom: 88.5vh;
+    height: 100%;
+    bottom: 88.5%;
     opacity: 25%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -184,7 +219,7 @@
 .ceiling_3 {
     position: absolute;
     width: 100%;
-    height: 11.5vh;
+    height: 11.5%;
     left: 0;
     top: 0;
     background: #D3D3D3;
@@ -193,8 +228,8 @@
 .floor {
     position: absolute;
     width: 100%;
-    height: 100vh;
-    top: 88.5vh;
+    height: 100%;
+    top: 88.5%;
     opacity: 30%;
     background: linear-gradient(180deg, black 0%, transparent 6.38%);
 }
@@ -203,8 +238,8 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: 100vh;
-    top: 88.5vh;
+    height: 100%;
+    top: 88.5%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     opacity: 0.70;
@@ -213,7 +248,7 @@
 .floor_3 {
     position: absolute;
     width: 100%;
-    height: 11.5vh;
+    height: 11.5%;
     left: 0;
     bottom: 0;
     background: #E0E0E0;
@@ -250,7 +285,7 @@
     height: 5.36% !important;
     width: auto !important;
     gap: 2.4rem !important;
-    padding-bottom: 3vh;
+    padding-bottom: 1rem;
     left: 10.2% !important;
     top: 11% !important;
 }
@@ -314,7 +349,7 @@
 
 .season_frame div[data-framer-name="Header"] div[data-framer-component-type="RichTextContainer"]:nth-child(2) {
     bottom: 0;
-    --framer-font-size: 0.84vh
+    --framer-font-size: 0.45rem;
 }
 
 .season_frame div[data-framer-name="LEGENDE"] {
@@ -324,7 +359,7 @@
     gap: 2.15rem;
     padding: 0;
     place-content: unset;
-    bottom: calc(85vh/6.56);
+    bottom: calc(100%/6.56);
     right: calc(85vh/9);
     left: initial !important;
     justify-content: end;
@@ -352,7 +387,7 @@
 }
 
 .season_frame div[data-framer-name="LEGENDE"] p {
-    --framer-font-size: calc(85vh * 0.006) !important;
+    --framer-font-size: 0.132rem !important;
 }
 
 .season_frame div[data-framer-name="Albums"] {
@@ -384,14 +419,13 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 118vh;
-    transform: translateX(-300vh);
+    gap: 133vh;
+    transform: translateX(90vh);
 
     position: relative;
     width: fit-content;
     height: 27vh;
     top: 0;
-    left: 66vh;
 }
 
 .lamps_2 { /* ceiling lamps front */ 
@@ -399,13 +433,12 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 133vh;
-    transform: translateX(-300vh);
+    transform: translateX(40vh);
 
     position: relative;
     width: fit-content;
     height: 85vh;
     top: -34.5vh;
-    left: 31vh;
 }
 
 .lamp {
@@ -425,7 +458,13 @@
     width: auto !important;
     transform: translateY(-12%);
     padding: 0.1% !important;
-    filter: blur(6px);
+    filter: blur(8px);
+    pointer-events: all;
+    transition: filter 0.8s ease-out 0.5s;
+}
+
+.front_column:hover {
+    filter: none;
 }
 
 /* Layers */
@@ -440,7 +479,7 @@
     top: 0;
     bottom: 0;
     pointer-events: none;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -449,13 +488,13 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 0px 14.5vw;
-    padding-bottom: 5.2vh;
+    padding-bottom: 5.2%;
     pointer-events: none;
 
     position: absolute;
     width: fit-content;
-    height: 79.8vh;
-    top: 8vh;
+    height: 79.8%;
+    top: 8%;
 }
 
 .layer_0_5 > * {
@@ -468,14 +507,14 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 0px 14.5vw;
-    padding-bottom: 5.2vh;
+    padding-bottom: 5.2%;
     gap: 50vh;
 
     position: relative;
     width: fit-content;
-    height: 85vh;
+    height: 85%;
     z-index: 5;
-    top: 8vh;
+    top: 8%;
 
     opacity: 1;
 }
@@ -489,7 +528,7 @@
 
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 7;
 }
 
@@ -506,7 +545,7 @@
 
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 10;
 }
 
@@ -517,7 +556,7 @@
 .layer_3_wrapper { /* X offset */
     pointer-events: none;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 15;
 }
 
@@ -526,12 +565,90 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    gap: 500vw;
 
     position: absolute;
     z-index: 15;
 }
 
-.layer_3 > * {
-    filter: blur(6px);
-    pointer-events: all;
+/* coordinates shift */
+.left_m15 {
+    left: -15vh;
+}
+
+/* attributes */
+
+.blur6 {
+    filter: blur(16px);
+    transition: filter 0.8s ease-out 0.5s;
+}
+
+.blurReady {
+    transition: filter 0.4s ease-out 0.1s;
+}
+
+@media only screen and (max-height: 575.98px) and (orientation: landscape) {
+    .home {
+        --unit: 1vmax;
+        rotate: 90deg;
+        translate: 0 -100vw;
+        transform-origin: 0% 100%;
+        height: 100vw;
+    }
+
+    .layer_1 {
+        gap: 50vmax;
+    }
+
+    .layer_3 {
+        gap: 500vmin;
+    }
+
+    .season_frame div[data-framer-name="Albums"] {
+        grid-template-columns: repeat(auto-fill, 17.5vmax);
+        gap: 7vmax;
+    }
+
+    .posters {
+        gap: 22vmax;
+        left: 27vmax;
+    }
+
+    .eggchair {
+        left: -20vmax;
+    }
+
+    .plant_front {
+        top: 17vmax;
+        height: 89%;
+    }
+
+    .season_frame > div[data-framer-name="Wall"] {
+        padding: calc(85vmax / 9);
+    }
+
+    .season_frame {
+        min-width: calc(784/720 * 85vmax);
+    }
+
+    .lamps_1_5 { /* ceiling lamps */ 
+        gap: 133vvmax;
+        transform: translateX(90vmax);
+        height: 27vmax;
+    }
+
+    .lamps_2 { /* ceiling lamps front */ 
+        gap: 133vmax;
+        transform: translateX(40vmax);
+        height: 85vmax;
+        top: -34.5vmax;
+    }
+
+    .front_column {
+        height: calc(1110/832 * 100vmax) !important;
+    }
+
+    .left_m15 {
+        left: -15vmax;
+    }
 }

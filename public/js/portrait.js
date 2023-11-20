@@ -1,6 +1,6 @@
 // Lock the screen orientation to portrait
 function lockOrientation() {
-    const lockFunction = screen.orientation.lock || screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+    const lockFunction = window.screen.orientation.lock || screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
 
     if (lockFunction) {
         lockFunction('portrait').then(() => {

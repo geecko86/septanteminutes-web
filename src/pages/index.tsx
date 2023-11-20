@@ -17,7 +17,7 @@ import Eggchair_ from "../framer/Eggchair.js";
 import PlantA_ from "../framer/Plant_0.js";
 import PlantB_ from "../framer/Plant_1.js";
 import PlantC_ from "../framer/Plant_2.js";
-import FrontColumn_ from "../framer/front-column-h3ym.js";
+import FrontColumn_, { FrontPosters } from "../framer/front-column-h3ym.js";
 
 import ScrollToAnchor from "../utils/scroll_to_anchor";
 import data from "../utils/tempdata.js";
@@ -34,8 +34,8 @@ export default function Home() {
     const FrontColumn: FC<any> = FrontColumn_;
 
     const [seasons, setSeasons] = useState<any[]>([]);
-    // const [animateY, setAnimateY] = useState<AnimationPlaybackControls | undefined>(undefined);
-    // const [targetAnimateY, setTargetAnimateY] = useState<number | undefined>(undefined);
+    const [screenContentRatio, setRatio] = useState(1);
+    const [columnFocus, setColumnFocus] = useState(false);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
     const layer0 = useRef(null), layer0_5 = useRef(null), layer1 = useRef(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
 
@@ -53,36 +53,58 @@ export default function Home() {
     useEffect(() => {
         root.current?.addEventListener("wheel", onHomeWheel, { passive: false });
     }, [home]);
+    useEffect(() => {
+        setRatio((home.current?.clientWidth || 0) / (home.current?.clientHeight || 1));
+    }, [home.current?.clientWidth])
 
-    const { scrollX } = useScroll();
+    const { scrollX, scrollY } = useScroll();
     const scrollXAdditional = useMotionValue(0);
     const scrollYAdditional = useMotionValue(0);
     const newScrollX = useTransform(() => {
         if (!subroot?.current) return 0;
 
-        if (Math.abs(scrollX.get()) >= 1) {
-            console.log("scrollX not null - reset", scrollX.get(), subroot.current?.scrollWidth / 2);
+        let limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        if (!isTouchDevice) {
+            if (Math.abs(scrollX.get()) >= 1) {
+                console.log("scrollX not null - reset", scrollX.get(), subroot.current?.scrollWidth / 2);
+                window.scrollTo({
+                    left: 0,
+                    behavior: "instant"
+                });
+            }
+        } else {
+            const smallerDim = Math.min(window.innerWidth, window.innerHeight);
+            limit = (home.current?.clientWidth || smallerDim) - smallerDim;
+            if (scrollX.get() >= limit) {
+                window.scrollTo({
+                    left: limit,
+                    behavior: "instant"
+                });
+            }
+        }
+
+        const scrollSum = scrollX.get() + scrollY.get() + scrollXAdditional.get() + scrollYAdditional.get();
+        if (scrollSum < 0) {
+            console.warn("Negative scroll - reset");
             window.scrollTo({
                 left: 0,
                 behavior: "instant"
-            });
-        }
-
-        const scrollSum = scrollXAdditional.get() + scrollYAdditional.get();
-        if (scrollSum < 0) {
-            console.log("Negative scroll - reset");
+            })
             scrollXAdditional.set(0);
             scrollYAdditional.set(0);
             return 0;
         }
 
         if (typeof window === "undefined") {
-            console.log("undefined window", -scrollSum);
+            console.warn("undefined window", -scrollSum);
             return -scrollSum
         };
-        const limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
         const output = Math.min(-Math.min(scrollSum, limit), 0);
-        console.log("newScrollX:", output);
+        // console.log("scrollX", scrollX.get());
+        // console.log("scrollXAdditional", scrollXAdditional.get());
+        // console.log("newScrollX:", output);
         return output;
     });
     const offset0 = useTransform(() => newScrollX.get() * 0.15);
@@ -105,31 +127,25 @@ export default function Home() {
             else if (e.deltaY !== 0) scrollYAdditional.set(scrollYAdditional.get() + e.deltaY);
         }
         e.preventDefault();
+        setColumnFocus(false);
     };
 
     const posters = [
-        (<div className={[styles.poster, styles.leuven].join(" ")} key="poster_leuven">
-            <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg" sizes="40vw" fill />
-        </div>),
-        (<div className={[styles.poster, styles.akerman].join(" ")} key="poster_akerman">
-            <Image className={styles.akerman} alt="" src="https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg" sizes="40vw" fill />
-        </div>),
-        (<div className={[styles.poster, styles.brel].join(" ")} key="poster_brel">
-            <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/4x11RpHpM5DEUM2LRHjPYitFo.jpg" sizes="40vw" fill />
-        </div>),
-        (<div className={[styles.poster, styles.redford].join(" ")} key="poster_redford">
-            <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg" sizes="40vw" fill />
-        </div>),
-        (<div className={[styles.poster, styles.stones].join(" ")} key="poster_stones">
-            <Image className={styles.leuven} alt="" src="https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg" sizes="40vw" fill />
-        </div>)
-    ];
+        {src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", style: styles.leuven},
+        {src: "https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg", style: styles.akerman},
+        {src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", style: styles.brel},
+        {src: "https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg", style: styles.redford},
+        {src: "https://framerusercontent.com/images/ZUrkjCIHCUv6FqcoUXJw3atquQ.webp", style: styles.cavell},
+        {src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", style: styles.congo},
+        {src: "https://framerusercontent.com/images/WiTE1wYTrGK2zx2OVVRi5QGnFg.jpg", style: styles.walenbuiten},
+        {src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", style: styles.stones},
+    ]
 
     return (
         <div ref={subroot} className={styles.home_subroot}>
             <div ref={root} className={styles.home_root}>
                 <motion.div className={styles.home} ref={home} style={{ translateX: newScrollX }}>
-                    <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer].join(" ")} style={{ translateX: offset0 }}>
+                    <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")} style={{ translateX: offset0 }}>
                         <div className={styles.ceiling_3} />
                         <div className={styles.ceiling_2}>
                             <Image loading="eager" src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" fill sizes={`${home.current?.clientWidth}px`} />
@@ -140,13 +156,15 @@ export default function Home() {
                                 {
                                     [...seasons].reverse().map((season, i) => (
                                         <>
-                                            <Season key={season.name + "_invisible"} className={styles.season_frame} chair={Chairs[i % 4]} style={{ visibility: "hidden" }}>
+                                            <Season key={season.name + "_invisible"} className={styles.season_frame} chair={""} style={{ visibility: "hidden" }}>
                                                 {season.episodes.reverse().map((ep: episode) => (
                                                     <HomeAlbum key={ep.num} image={""} num={ep.num} />
                                                 ))}
                                             </Season>
                                             {
-                                                posters[i]
+                                                <div className={[styles.poster, posters[i].style].join(" ")} key={`poster_${i}`}>
+                                                    <Image alt="" src={posters[i].src} sizes="40vw" fill />
+                                                </div>
                                             }
                                         </>
                                     ))
@@ -164,13 +182,12 @@ export default function Home() {
                         </div>
                         <div className={styles.floor} />
                     </motion.div>
-                    <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer].join(" ")}
-                    style={{ translateX: offset05 }}>
-                        <div className={styles.gap} style={{ width: "15vh" }} />
+                    <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")} style={{ translateX: offset05 }}>
+                        <div className={styles.gap} style={{ width: "calc(15 * var(--unit))" }} />
                         {
                             [...seasons].reverse().map((season, i) => (
                                 <>
-                                    <Season key={season.name + "_invisible"} className={styles.season_frame} chair={Chairs[i % 4]} style={{ visibility: "hidden" }}>
+                                    <Season key={season.name + "_invisible"} className={styles.season_frame} chair={""} style={{ visibility: "hidden" }}>
                                         {season.episodes.reverse().map((ep: episode) => (
                                             <HomeAlbum key={ep.num} image={""} num={ep.num} />
                                         ))}
@@ -179,63 +196,74 @@ export default function Home() {
                                         [
                                             (<>
                                                 <PlantA className={styles.plant} style={{ zIndex: 2 }}/>
-                                                <Eggchair className={styles.eggchair} style={{ left: "-20vh" }}/>
+                                                <Eggchair className={styles.eggchair}/>
                                             </>),
                                             (<>
-                                                <Eggchair className={styles.eggchair} style={{ zIndex: 2 }} />
-                                                <PlantB className={styles.plant} style={{ left: "-15vh" }} />
+                                                <Eggchair className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} />
+                                                <PlantB className={[styles.plant, styles.left_m15].join(" ")} />
                                             </>),
                                             (<>
-                                                <Eggchair className={styles.eggchair} style={{ zIndex: 2 }} />
-                                                <PlantA className={styles.plant} style={{ left: "-15vh" }} />
+                                                <Eggchair className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} />
+                                                <PlantA className={[styles.plant, styles.left_m15].join(" ")} />
                                             </>)
                                         ][i % 3]
                                     }
-                                    <div className={styles.gap} style={{ width: "25vh" }} />
+                                    <div className={styles.gap} style={{ width: "calc(25 * var(--unit))" }} />
                                 </>
                             ))
                         }
                     </motion.div>
-                    <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer].join(" ")}>
+                    <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")}>
                         {
                             [...seasons].reverse().map((season, i) => (
                                 <Season key={season.name} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
-                                    {season.episodes.reverse().map((ep: episode) => (
+                                    {season.episodes.toReversed().map((ep: episode) => (
                                         <HomeAlbum id={`art_${ep.num}`} guest={ep.title} key={ep.num} image={ep.img} num={ep.num} />
                                     ))}
                                 </Season>
                             ))
                         }
                     </motion.div>
-                    <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer].join(" ")} style={{ translateX: offset15 }}>
+                    <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")} style={{ translateX: offset15 }}>
                         <div className={styles.lamps_1_5} >
-                            <div className={styles.gap} style={{ width: "33vh" }} />
-                            {[...Array(45).keys()].map((i) => (
+                            {[...Array(Math.ceil(1.6 * screenContentRatio)).keys()].map((i) => (
                                 <BellLamp key={`lamp_1_5_${i}`} className={styles.lamp} />
                             ))}
                         </div>
                     </motion.div>
-                    <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer].join(" ")} style={{ translateX: offset2 }}>
+                    <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")} style={{ translateX: offset2 }}>
                         <div className={styles.lamps_2}>
-                            {[...Array(35).keys()].map((i) => (
+                            {[...Array(Math.ceil(1.5 * screenContentRatio)).keys()].map((i) => (
                                 <BellLamp key={`lamp_2_${i}`} className={styles.lamp} />
                             ))}
                         </div>
                     </motion.div>
                     <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
                         <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3 }}>
-                            <div className={styles.gap} style={{ width: "500vw" }} />
-                            <PlantC className={styles.plant_front} />
-                            <div className={styles.gap} style={{ width: "500vw" }} />
-                            <FrontColumn className={styles.front_column} />
-                            <div className={styles.gap} style={{ width: "500vw" }} />
-                            <PlantC className={styles.plant_front} />
+                            {[...Array(Math.floor(screenContentRatio / 3)).keys()].map((i) => (
+                                <>
+                                    <PlantC className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur6].join(" ")} />
+                                    <FrontColumn className={[styles.front_column].join(" ")}
+                                        pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} screenContentRatio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date}
+                                        onMouseEnter={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }}/>
+                                </>
+                            ))}
                         </motion.div>
                     </div>
                 </motion.div>
             </div>
             <div />
-            <ScrollToAnchor move={(x) => scrollXAdditional.set(x)} />
+            <ScrollToAnchor move={(x) => {
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                if (isTouchDevice) {
+                    window.scrollBy({
+                        left: x,
+                        behavior: "instant"
+                    });
+                } else {
+                    scrollXAdditional.set(x);
+                }
+            }} />
         </div>
     );
 }
