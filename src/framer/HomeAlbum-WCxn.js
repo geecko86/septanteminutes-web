@@ -107,9 +107,6 @@ let h = {
             href: `/${num}`,
             id: id,
             className: i("framer-n5ds9d", m),
-            "data-framer-name": "Variant 1",
-            layoutDependency: H,
-            layoutId: "I447:517;355:380",
             ref: null != a ? a : T,
             style: { ...l },
             children: [
@@ -133,10 +130,11 @@ let h = {
                       opacity: isHovered ? 1.0 : 0.95
                     }, children: [
                       /*#__PURE__*/ e(Image, {
-                      src: w,
+                      src: w || "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVQIW2P8z8AARAwMjDAGACwBA/+8RVWvAAAAAElFTkSuQmCC",
                       fill: true,
                       sizes: "17.5vmin",
                       className: "homealbum-img",
+                      alt: "",
                       style: {
                         borderBottomLeftRadius: 2,
                         borderBottomRightRadius: 2,
@@ -172,7 +170,7 @@ let h = {
                     children: "MYRIAM LEROY",
                   }),
                 }),
-                style: { "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, "--framer-text-color": "rgb(66, 56, 37)", "--framer-font-size": "0.805rem", "white-space": "inherit", "--framer-text-alignment": "center", "marginTop": "1rem", "aspect-ratio": "unset", "height": "min-content", "width": "100%"},
+                style: { "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, "--framer-text-color": "rgb(66, 56, 37)", "--framer-font-size": "0.805rem", "whiteSpace": "inherit", "--framer-text-alignment": "center", "marginTop": "1rem", "aspectRatio": "unset", "height": "min-content", "width": "100%"},
                 text: guest.split(/\s(-|–)\s?/g)[0],
                 verticalAlignment: "top",
                 withExternalLayout: !0,

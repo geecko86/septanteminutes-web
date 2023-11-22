@@ -138,17 +138,20 @@ let v = {
               "data-framer-name": "Chair",
               layoutDependency: A,
               layoutId: "yfbfRinuQ",
-              children: /*#__PURE__*/ e(Image, {
+              children: /*#__PURE__*/ chair ? e(Image, {
                 fill: true,
                 src: chair,
                 sizes: "30vw",
+                alt: "",
                 className: "framer-15pybt5"
-              }),
+              }) : [],
             }),
               /*#__PURE__*/ a(Image, {
               sizes: "85vh",
               fill: true,
               style: {},
+              priority: true,
+              alt: "",
               src: "https://framerusercontent.com/images/Tz6XyH009VWJibZLhAnSdcNMiA.png",
               loading: "eager",
               className: "framer-aibtig"
@@ -172,6 +175,7 @@ let v = {
                   children: /*#__PURE__*/ e(Image, {
                     fill: true,
                     sizes: "128px",
+                    alt: "Septante Minutes Avec",
                     src: "https://framerusercontent.com/images/QokJTU8EgfetEJChRtQByxNfgTw.png",
                     className: "framer-8pz4y"
                   }),

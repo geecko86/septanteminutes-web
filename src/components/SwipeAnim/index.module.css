@@ -1,0 +1,12 @@
+.box {
+  width: 3.5vh;
+  height: 3.5vh;
+  border-radius: 50%;
+  border: 0.5vh solid black;
+  background-image: url("/img/chevron.svg");
+  background-size: 66% 100%;
+  /* background-blend-mode: color-dodge; */
+  background-color: white;
+  background-position: center;
+  display: block;
+}

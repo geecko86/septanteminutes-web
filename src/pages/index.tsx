@@ -7,9 +7,10 @@ import React, {
     useEffect,
     FC,
 } from "react";
-import { motion, useTransform, useMotionValue, useScroll } from "framer-motion";
+import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls } from "framer-motion";
 import Image from "next/image";
 
+import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../framer/Season-pOfC.js";
 import HomeAlbum_ from "../framer/HomeAlbum-WCxn.js";
 import BellLamp_ from "../framer/BellLamp.js";
@@ -21,6 +22,7 @@ import FrontColumn_, { FrontPosters } from "../framer/front-column-h3ym.js";
 
 import ScrollToAnchor from "../utils/scroll_to_anchor";
 import data from "../utils/tempdata.js";
+import Head from "next/head";
 
 export default function Home() {
 
@@ -36,6 +38,11 @@ export default function Home() {
     const [seasons, setSeasons] = useState<any[]>([]);
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
+    const [showSwiper, setShowSwiper] = useState(false);
+
+    const hasMovedRef = useRef(false), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
+    const idleCallbackRef = useRef<number>(0);
+
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
     const layer0 = useRef(null), layer0_5 = useRef(null), layer1 = useRef(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
 
@@ -52,6 +59,32 @@ export default function Home() {
 
     useEffect(() => {
         root.current?.addEventListener("wheel", onHomeWheel, { passive: false });
+        const swiperTimer = setInterval(() => {
+            if (!hasMovedRef.current) {
+                const from = scrollXAdditional.get(), to = scrollXAdditional.get() + Math.floor(window.innerWidth / 11);
+                const anim = animate([[scrollXAdditional, to, {
+                    duration: 0.45,
+                    ease: "easeIn"
+                }], [scrollXAdditional, [to, from], {
+                    duration: 0.45,
+                    delay: 0.75,
+                    ease: "easeInOut"
+                }], [scrollXAdditional, from, {
+                    duration: 0,
+                    delay: 3
+                }]]);
+                idleAnimRef.current = anim;
+                idleAnimRef.current.then(() => {
+                    hasMovedRef.current = false;
+                    setShowSwiper(false);
+                });
+                setShowSwiper(true);
+            } else {
+                clearInterval(swiperTimer);
+            }
+        }, 6500);
+        home.current?.focus();
+        return () => { clearInterval(swiperTimer); }
     }, [home]);
     useEffect(() => {
         setRatio((home.current?.clientWidth || 0) / (home.current?.clientHeight || 1));
@@ -65,16 +98,8 @@ export default function Home() {
 
         let limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        
-        if (!isTouchDevice) {
-            if (Math.abs(scrollX.get()) >= 1) {
-                console.log("scrollX not null - reset", scrollX.get(), subroot.current?.scrollWidth / 2);
-                window.scrollTo({
-                    left: 0,
-                    behavior: "instant"
-                });
-            }
-        } else {
+
+        if (isTouchDevice) {
             const smallerDim = Math.min(window.innerWidth, window.innerHeight);
             limit = (home.current?.clientWidth || smallerDim) - smallerDim;
             if (scrollX.get() >= limit) {
@@ -99,12 +124,9 @@ export default function Home() {
 
         if (typeof window === "undefined") {
             console.warn("undefined window", -scrollSum);
-            return -scrollSum
+            return -scrollSum;
         };
         const output = Math.min(-Math.min(scrollSum, limit), 0);
-        // console.log("scrollX", scrollX.get());
-        // console.log("scrollXAdditional", scrollXAdditional.get());
-        // console.log("newScrollX:", output);
         return output;
     });
     const offset0 = useTransform(() => newScrollX.get() * 0.15);
@@ -120,32 +142,91 @@ export default function Home() {
         // console.log(newScrollX.get(), -limit, home.current?.clientWidth, window.innerWidth);
         if (newScrollX.get() <= -limit && e.deltaX + e.deltaY > 0) {
             console.log("BLOCK! A", e.deltaX + e.deltaY);
+            scrollXAdditional.set(limit);
+            scrollYAdditional.set(0);
+            window.scrollTo({
+                left: 0,
+                top: 0,
+                behavior: "instant"
+            });
         } else if (newScrollX.get() >= 0 && e.deltaX + e.deltaY < 0) {
             console.log("BLOCK! B", e.deltaX + e.deltaY);
         } else {
             if (e.deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + e.deltaX);
             else if (e.deltaY !== 0) scrollYAdditional.set(scrollYAdditional.get() + e.deltaY);
+            setColumnFocus(false);
+            setShowSwiper(false);
+            idleAnimRef.current?.stop();
         }
         e.preventDefault();
-        setColumnFocus(false);
     };
 
+    const handleArrowsDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+        switch (e.keyCode) {
+            case 38: // up arrow
+            case 37: // left arrow
+                const scroll = -Math.floor(window.innerWidth * 0.06);
+                animate(scrollXAdditional, scrollXAdditional.get() + scroll, { duration: 0.075 });
+            case 39:
+            case 40:
+                setShowSwiper(false);
+                hasMovedRef.current = true;
+                idleAnimRef.current?.stop();
+                if (("cancelIdleCallback" in window)) {
+                    // TODO Fixme Safari
+                    cancelIdleCallback(idleCallbackRef.current);
+                }
+                break;
+        }
+    }
+
+    const handleArrowsUp = (e: React.KeyboardEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        switch (e.keyCode) {
+            case 40: // down arrow
+            case 39: // right arrow;
+                if (!("requestIdleCallback" in window)) {
+                    // TODO Fixme Safari
+                    return;
+                }
+                const idleCallback = requestIdleCallback(() => {
+                    const limit = (home.current?.clientWidth || 5000) - window.innerWidth;
+                    scrollXAdditional.set(Math.min(limit, scrollXAdditional.get() + scrollX.get()));
+                    window.scrollTo({
+                        left: 0,
+                        behavior: "instant"
+                    });
+                    scrollX.set(0);
+                });
+                idleCallbackRef.current = idleCallback;
+                break;
+        }
+    };
+
+    useMotionValueEvent(newScrollX, "change", () => {
+        hasMovedRef.current = true;
+    });
+
     const posters = [
-        {src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", style: styles.leuven},
-        {src: "https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg", style: styles.akerman},
-        {src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", style: styles.brel},
-        {src: "https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg", style: styles.redford},
-        {src: "https://framerusercontent.com/images/ZUrkjCIHCUv6FqcoUXJw3atquQ.webp", style: styles.cavell},
-        {src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", style: styles.congo},
-        {src: "https://framerusercontent.com/images/WiTE1wYTrGK2zx2OVVRi5QGnFg.jpg", style: styles.walenbuiten},
-        {src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", style: styles.stones},
+        { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", style: styles.leuven },
+        { src: "https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg", style: styles.akerman },
+        { src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", style: styles.brel },
+        { src: "https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg", style: styles.redford },
+        { src: "https://framerusercontent.com/images/ZUrkjCIHCUv6FqcoUXJw3atquQ.webp", style: styles.cavell },
+        { src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", style: styles.congo },
+        { src: "https://framerusercontent.com/images/WiTE1wYTrGK2zx2OVVRi5QGnFg.jpg", style: styles.walenbuiten },
+        { src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", style: styles.stones },
     ]
 
     return (
         <div ref={subroot} className={styles.home_subroot}>
             <div ref={root} className={styles.home_root}>
-                <motion.div className={styles.home} ref={home} style={{ translateX: newScrollX }}>
-                    <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")} style={{ translateX: offset0 }}>
+                <motion.div className={styles.home} ref={home} tabIndex={0} onKeyDown={handleArrowsDown} onKeyUp={handleArrowsUp} style={{ translateX: newScrollX }}>
+                    <Head>
+                        <title>{"Septante Minutes Avec"}</title>
+                    </Head>
+                    <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset0 }}>
                         <div className={styles.ceiling_3} />
                         <div className={styles.ceiling_2}>
                             <Image loading="eager" src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" fill sizes={`${home.current?.clientWidth}px`} />
@@ -171,7 +252,7 @@ export default function Home() {
                                 }
                             </div>
                             <div className={styles.backwall_light}>
-                                <Image loading="eager" alt="" src="https://framerusercontent.com/images/FsKB3GEHFAPqgBfbeEkGrIb6lA.png" fill sizes="461vw" />
+                                <Image loading="eager" alt="" src="https://framerusercontent.com/images/FsKB3GEHFAPqgBfbeEkGrIb6lA.png" fill priority={true} sizes="461vw" />
                             </div>
                             <div className={styles.backwall_paint} />
                         </div>
@@ -182,7 +263,7 @@ export default function Home() {
                         </div>
                         <div className={styles.floor} />
                     </motion.div>
-                    <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")} style={{ translateX: offset05 }}>
+                    <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset05 }}>
                         <div className={styles.gap} style={{ width: "calc(15 * var(--unit))" }} />
                         {
                             [...seasons].reverse().map((season, i) => (
@@ -195,8 +276,8 @@ export default function Home() {
                                     {
                                         [
                                             (<>
-                                                <PlantA className={styles.plant} style={{ zIndex: 2 }}/>
-                                                <Eggchair className={styles.eggchair}/>
+                                                <PlantA className={styles.plant} style={{ zIndex: 2 }} />
+                                                <Eggchair className={styles.eggchair} />
                                             </>),
                                             (<>
                                                 <Eggchair className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} />
@@ -213,7 +294,7 @@ export default function Home() {
                             ))
                         }
                     </motion.div>
-                    <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")}>
+                    <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")}>
                         {
                             [...seasons].reverse().map((season, i) => (
                                 <Season key={season.name} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
@@ -224,14 +305,14 @@ export default function Home() {
                             ))
                         }
                     </motion.div>
-                    <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")} style={{ translateX: offset15 }}>
+                    <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15 }}>
                         <div className={styles.lamps_1_5} >
                             {[...Array(Math.ceil(1.6 * screenContentRatio)).keys()].map((i) => (
                                 <BellLamp key={`lamp_1_5_${i}`} className={styles.lamp} />
                             ))}
                         </div>
                     </motion.div>
-                    <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur6 : styles.blurReady].join(" ")} style={{ translateX: offset2 }}>
+                    <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2 }}>
                         <div className={styles.lamps_2}>
                             {[...Array(Math.ceil(1.5 * screenContentRatio)).keys()].map((i) => (
                                 <BellLamp key={`lamp_2_${i}`} className={styles.lamp} />
@@ -240,19 +321,21 @@ export default function Home() {
                     </motion.div>
                     <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
                         <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3 }}>
-                            {[...Array(Math.floor(screenContentRatio / 3)).keys()].map((i) => (
+                            {[...Array(Math.floor(screenContentRatio / 3.1)).keys()].map((i) => (
                                 <>
-                                    <PlantC className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur6].join(" ")} />
+                                    <PlantC className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                     <FrontColumn className={[styles.front_column].join(" ")}
-                                        pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} screenContentRatio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date}
-                                        onMouseEnter={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }}/>
+                                        pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date}
+                                        onMouseEnter={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />
                                 </>
                             ))}
                         </motion.div>
                     </div>
+                    <div className={styles.swipe_anim}>
+                        <SwipeAnim play={showSwiper} />
+                    </div>
                 </motion.div>
             </div>
-            <div />
             <ScrollToAnchor move={(x) => {
                 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
                 if (isTouchDevice) {
@@ -263,6 +346,7 @@ export default function Home() {
                 } else {
                     scrollXAdditional.set(x);
                 }
+                hasMovedRef.current = false;
             }} />
         </div>
     );
@@ -270,5 +354,5 @@ export default function Home() {
 
 type key = "1" | "2"; // Etc.
 type episode = {
-    title: string; img: string, num: number 
+    title: string; img: string, num: number
 }

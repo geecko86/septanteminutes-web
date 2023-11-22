@@ -40,6 +40,17 @@
   user-drag: none;
 }
 
+.swipe_anim {
+    position: sticky;
+    z-index: 999;
+    top: 25%;
+    right: 4%;
+    width: fit-content;
+    height: fit-content;
+    transform: translateY(-50%);
+    opacity: 0.75;
+}
+
 /* Layer 0 */
 
 .backwall {
@@ -457,14 +468,15 @@
     height: calc(1110/832 * 100vh) !important;
     width: auto !important;
     transform: translateY(-12%);
-    padding: 0.1% !important;
+    padding: 0.1% 0 !important;
     filter: blur(8px);
     pointer-events: all;
-    transition: filter 0.8s ease-out 0.5s;
+    transition: filter 0.4s ease-out 0.25s;
 }
 
 .front_column:hover {
     filter: none;
+    transition: filter 0.8s ease-out 0.5s;
 }
 
 /* Layers */
@@ -565,7 +577,8 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 500vw;
+    padding-left: calc(100vw - 44.5vh);
+    gap: 300vw;
 
     position: absolute;
     z-index: 15;
@@ -578,8 +591,13 @@
 
 /* attributes */
 
-.blur6 {
+.blur16 {
     filter: blur(16px);
+    transition: filter 0.8s ease-out 0.5s;
+}
+
+.blur8 {
+    filter: blur(8px);
     transition: filter 0.8s ease-out 0.5s;
 }
 
@@ -601,7 +619,8 @@
     }
 
     .layer_3 {
-        gap: 500vmin;
+        gap: 300vmin;
+        padding-left: calc(100vmax - 44.5vmin);
     }
 
     .season_frame div[data-framer-name="Albums"] {
