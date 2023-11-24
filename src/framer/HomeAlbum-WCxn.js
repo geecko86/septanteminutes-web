@@ -128,23 +128,23 @@ let h = {
                     style: { position: "absolute" },
                     animate: {
                       opacity: isHovered ? 1.0 : 0.95
-                    }, children: [
+                    }, children: w ? [
                       /*#__PURE__*/ e(Image, {
-                      src: w || "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVQIW2P8z8AARAwMjDAGACwBA/+8RVWvAAAAAElFTkSuQmCC",
-                      fill: true,
-                      sizes: "17.5vmin",
-                      className: "homealbum-img",
-                      alt: "",
-                      style: {
-                        borderBottomLeftRadius: 2,
-                        borderBottomRightRadius: 2,
-                        borderTopLeftRadius: 2,
-                        borderTopRightRadius: 2,
-                        boxShadow:
-                          "0px 3px 2px 0px rgba(0, 0, 0, 0.10000000149011612), 0px 4px 8px 0px rgba(0, 0, 0, 0.05000000074505806)",
-                      },
-                    })
-                    ]
+                        src: w,
+                        fill: true,
+                        sizes: "17.5vmin",
+                        className: "homealbum-img",
+                        alt: "",
+                        style: {
+                          borderBottomLeftRadius: 2,
+                          borderBottomRightRadius: 2,
+                          borderTopLeftRadius: 2,
+                          borderTopRightRadius: 2,
+                          boxShadow:
+                            "0px 3px 2px 0px rgba(0, 0, 0, 0.10000000149011612), 0px 4px 8px 0px rgba(0, 0, 0, 0.05000000074505806)",
+                        },
+                      })
+                    ] : []
                   }),
                 ]
               }),

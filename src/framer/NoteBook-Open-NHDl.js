@@ -310,38 +310,34 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   href: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
-                    background: {
-                      alt: "Apple Podcasts",
-                      fit: "fit",
-                      intrinsicHeight: 1225,
-                      intrinsicWidth: 1225,
-                      pixelHeight: 1225,
-                      pixelWidth: 1225,
-                      src: "https://framerusercontent.com/images/uy4YuRGtJIgZBhChY9PmR35TZ8.webp",
-                    },
                     className: `framer-vneoqq framer-bawjxc ${styles.apple_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "W5kr0cdFs",
                     style: {
                       filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                      rotate: 0,
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
+                    role: "img",
+                    "aria-label": "Apple Podcasts",
+                    children: [
+                      _jsx(motion.div, {
+                        className: styles.stamp_inner_shadow
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_paper
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_logo
+                      })
+                    ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
                   href: "https://anchor.fm/s/b43f59a8/podcast/rss",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
-                    background: {
-                      alt: "Flux RSS",
-                      fit: "fill",
-                      intrinsicHeight: 1225,
-                      intrinsicWidth: 1225,
-                      pixelHeight: 1225,
-                      pixelWidth: 1225,
-                      src: "https://framerusercontent.com/images/9QofB853JJQi0SNhZcbMj7VhbIw.webp",
-                    },
                     className: `framer-sw8xpb framer-bawjxc ${styles.rss_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "CMl66vw1w",
@@ -351,21 +347,25 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
+                    role: "img",
+                    "aria-label": "Flux RSS",
+                    children: [
+                      _jsx(motion.div, {
+                        className: styles.stamp_inner_shadow
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_paper
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_logo
+                      })
+                    ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
                   href: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
-                    background: {
-                      alt: "Spotify",
-                      fit: "fill",
-                      intrinsicHeight: 1225,
-                      intrinsicWidth: 1225,
-                      pixelHeight: 1225,
-                      pixelWidth: 1225,
-                      src: "https://framerusercontent.com/images/dYXoJtgY2NyoUHiV90tLgTotu8.webp",
-                    },
                     className: `framer-13t9c6s framer-bawjxc ${styles.spotify_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
@@ -375,6 +375,20 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
+                    role: "img",
+                    "aria-label": "Spotify",
+                    children: [
+                      _jsx(motion.div, {
+                        className: styles.stamp_inner_shadow
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_paper
+                      }),
+
+                      _jsx(motion.div, {
+                        className: styles.stamp_logo
+                      })
+                    ],
                     transformTemplate: transformTemplate,
                   }),
                 }),
@@ -382,15 +396,6 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   href: "https://pca.st/A6sJ",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
-                    background: {
-                      alt: "Pocket Casts",
-                      fit: "fill",
-                      intrinsicHeight: 1225,
-                      intrinsicWidth: 1225,
-                      pixelHeight: 1225,
-                      pixelWidth: 1225,
-                      src: "https://framerusercontent.com/images/HVAnLI92uaHXpeHkc1Q72k02ZU.webp",
-                    },
                     className: `framer-y9hbwq framer-bawjxc ${styles.pocketcasts_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "CsI_GCZc4",
@@ -400,21 +405,25 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
+                    role: "img",
+                    "aria-label": "Pocket Casts",
+                    children: [
+                      _jsx(motion.div, {
+                        className: styles.stamp_inner_shadow
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_paper
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_logo
+                      })
+                    ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
                   href: "https://www.youtube.com/@septanteminutes",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
-                    background: {
-                      alt: "YouTube",
-                      fit: "fill",
-                      intrinsicHeight: 1225,
-                      intrinsicWidth: 1225,
-                      pixelHeight: 1225,
-                      pixelWidth: 1225,
-                      src: "https://framerusercontent.com/images/DyDLJkdYpuhaOtavTzHrtMXY7I.webp",
-                    },
                     className: `framer-1d6xbzh framer-bawjxc ${styles.youtube_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Sp89tdPUU",
@@ -424,21 +433,25 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
+                    role: "img",
+                    "aria-label": "Page YouTube",
+                    children: [
+                      _jsx(motion.div, {
+                        className: styles.stamp_inner_shadow
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_paper
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_logo
+                      })
+                    ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
                   href: "https://www.facebook.com/SeptanteMinutesAvec",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
-                    background: {
-                      alt: "lien facebook",
-                      fit: "fill",
-                      intrinsicHeight: 1225,
-                      intrinsicWidth: 1225,
-                      pixelHeight: 1225,
-                      pixelWidth: 1225,
-                      src: "/img/facebook.webp",
-                    },
                     className: `framer-bawjxc ${styles.facebook_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
@@ -448,22 +461,27 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
+                    role: "img",
+                    "aria-label": "Page Facebook",
                     transformTemplate: transformTemplate,
+                    children: [
+                      _jsx(motion.div, {
+                        className: styles.stamp_inner_shadow
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_paper
+                      }),
+
+                      _jsx(motion.div, {
+                        className: styles.stamp_logo
+                      })
+                    ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
                   href: "https://twitter.com/SeptanteMinutes",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
-                    background: {
-                      alt: "lien twitter",
-                      fit: "fill",
-                      intrinsicHeight: 1225,
-                      intrinsicWidth: 1225,
-                      pixelHeight: 1225,
-                      pixelWidth: 1225,
-                      src: "/img/twitter.webp",
-                    },
                     className: `framer-bawjxc ${styles.twitter_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
@@ -473,22 +491,26 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
+                    role: "img",
+                    "aria-label": "Page Twitter",
                     transformTemplate: transformTemplate,
+                    children: [
+                      _jsx(motion.div, {
+                        className: styles.stamp_inner_shadow
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_paper
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_logo
+                      })
+                    ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
                   href: "https://instagram.com/GuiHachez",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
-                    background: {
-                      alt: "lien instagram",
-                      fit: "fill",
-                      intrinsicHeight: 1225,
-                      intrinsicWidth: 1225,
-                      pixelHeight: 1225,
-                      pixelWidth: 1225,
-                      src: "/img/instagram.webp",
-                    },
                     className: `framer-bawjxc ${styles.instagram_stamp} ${styles.stamp}`,
                     layoutDependency: layoutDependency,
                     layoutId: "Lyxjmilvm",
@@ -498,7 +520,20 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
+                    role: "img",
+                    "aria-label": "Page Instagram",
                     transformTemplate: transformTemplate,
+                    children: [
+                      _jsx(motion.div, {
+                        className: styles.stamp_inner_shadow
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_paper
+                      }),
+                      _jsx(motion.div, {
+                        className: styles.stamp_logo
+                      })
+                    ]
                   }),
                 }),
               ],

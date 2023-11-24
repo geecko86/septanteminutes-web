@@ -24,18 +24,119 @@
 }
 
 .stamp {
+    position: absolute;
     height: 19.23% !important;
     width: auto !important;
     aspect-ratio: 1;
+}
+
+.stamp::after {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    content: "";
+    mix-blend-mode: overlay;
+    background-image: url("https://framerusercontent.com/images/yP4BhtozmCSOyh3GHpWLqgft2Y.png?scale-down-to=128");
+    background-size: 100%;
+    background-position: center;
+    mask-image: url("/img/stamp.svg");
+    mask-size: 100%;
+    bottom: 0;
+}
+
+.stamp > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.stamp > div.stamp_inner_shadow {
+    background-color: rgba(0, 0, 0, 0.2);
+    mix-blend-mode: multiply;
+    mask-image: url("/img/stamp.svg"), url("/img/stamp.svg");
+    mask-size: 100%;
+    mask-position: 0.2px 0.2px, 0px 0px;
+    mask-composite: xor;
+}
+
+.stamp > div.stamp_paper {
+    background-image: url("https://framerusercontent.com/images/Hg1xiuPodl7HWtXQCUmAyJfCCw.jpg?scale-down-to=128");
+    mask-image: url("/img/stamp.svg");
+    mask-size: 100%;
+}
+
+.stamp > div.stamp_logo {
+    mix-blend-mode: multiply;
+}
+
+.stamp > div.stamp_logo::after, .stamp > div.stamp_logo::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stamp > div.stamp_logo::before {
+    background-image: linear-gradient(#fff8e5, #fff8e5);
+    background-position: center;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    mask-image: url("/img/stamp.svg");
+    mask-size: 100%;
+}
+
+.stamp > div.stamp_logo::after {
+    background-size: 84% 84%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    mask-position: center;
+    mask-composite: xor;
+    mask-repeat: no-repeat;
+}
+
+.apple_stamp > div.stamp_logo::after {
+    background-image: linear-gradient(#a655be, #a655be);
+    mask-image: url("/img/applepodcasts.svg"), url("/img/stamp.svg");
+    mask-size: 48%, 100%;
+}
+
+.spotify_stamp > div.stamp_logo::after {
+    background-image: linear-gradient(#55be86, #55be86);
+    mask-image: url("/img/spotify.svg"), url("/img/stamp.svg");
+    mask-size: 50%, 100%;
+}
+
+.pocketcasts_stamp > div.stamp_logo::after {
+    background-image: linear-gradient(#be5555, #be5555);
+    mask-image: url("/img/pocketcasts.svg"), url("/img/stamp.svg");
+    mask-size: 54%, 100%;
+}
+
+.youtube_stamp {
+    right: 29.90% !important;
+    top: 26% !important;
+}
+
+.youtube_stamp > div.stamp_logo::after {
+    background-image: linear-gradient(#9a4553, #9a4553);
+    mask-image: url("/img/youtube.svg"), url("/img/stamp.svg");
+    mask-size: 48%, 100%;
 }
 
 .rss_stamp {
     top: 26% !important;
 }
 
-.youtube_stamp {
-    right: 29.90% !important;
-    top: 26% !important;
+.rss_stamp > div.stamp_logo::after {
+    background-image: linear-gradient(#9a6b45, #9a6b45);
+    mask-image: url("/img/rss.svg"), url("/img/stamp.svg");
+    mask-size: 54%, 100%;
 }
 
 .instagram_stamp {
@@ -44,14 +145,32 @@
     left: 49%;
 }
 
+.instagram_stamp > div.stamp_logo::after {
+    background-image: linear-gradient(#ff4287, #ff4287);
+    mask-image: url("/img/instagram.svg"), url("/img/stamp.svg");
+    mask-size: 60%, 100%;
+}
+
 .facebook_stamp {
     position: absolute;
     bottom: 2%;
     left: 85%;
 }
 
+.facebook_stamp > div.stamp_logo::after {
+    background-image: linear-gradient(#1877F2, #1877F2);
+    mask-image: url("/img/facebook.svg"), url("/img/stamp.svg");
+    mask-size: 60%, 100%;
+}
+
 .twitter_stamp {
     position: absolute;
     bottom: 3.5%;
     left: 15%;
+}
+
+.twitter_stamp > div.stamp_logo::after {
+    background-image: linear-gradient(#1DA1F2, #1DA1F2);
+    mask-image: url("/img/twitter.svg"), url("/img/stamp.svg");
+    mask-size: 62%, 100%;
 }
