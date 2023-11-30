@@ -1,0 +1,537 @@
+.season [data-border="true"]::after {
+    content: "";
+    border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0);
+    border-color: var(--border-color, none);
+    border-style: var(--border-style, none);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.season .framer-8nz2j7 {
+    display: block;
+}
+
+.season .season_inside {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0px;
+    height: 720px;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    width: 784px;
+
+    background-color: "#E9E9E9";
+    box-shadow: "0px 2px 0px 0px rgba(0, 0, 0, 0.10000000149011612), 0px -2px 0px 0px rgba(0, 0, 0, 0.10000000149011612)",
+}
+
+.season .chair {
+    align-content: flex-start;
+    align-items: flex-start;
+    bottom: -57px;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: 239px;
+    justify-content: flex-start;
+    left: 12px;
+    overflow: visible;
+    padding: 0px 0px 0px 0px;
+    position: absolute;
+    width: 280px;
+    z-index: 1;
+}
+
+.season .chair_img {
+    aspect-ratio: 1.1715481171548117 / 1;
+    flex: 1 0 0px;
+    height: var(--framer-aspect-ratio-supported, 239px);
+    position: relative;
+    width: 1px;
+}
+
+.season .wall {
+    align-content: flex-start;
+    align-items: flex-start;
+    flex: 1 0 0px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: unset;
+    height: 1px;
+    justify-content: flex-start;
+    overflow: visible;
+    position: relative;
+    width: 100%;
+}
+
+.season .header {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+    height: min-content;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 0px 0px 24px 0px;
+    position: relative;
+    width: min-content;
+}
+
+.season .header_logo {
+    aspect-ratio: 5.0048773582928625 / 1;
+    flex: none;
+    height: var(--framer-aspect-ratio-supported, 25px);
+    overflow: visible;
+    position: relative;
+    width: 128px;
+}
+
+.season .header_logo_img {
+    aspect-ratio: 5.0048773582928625 / 1;
+    bottom: var(--framer-aspect-ratio-supported, 0px);
+    flex: none;
+    height: 26px;
+    left: 0px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.season .svg_0 {
+    flex: none;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 3/31;
+    position: relative;
+}
+
+.season .season_title {
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 4px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    width: min-content;
+}
+
+.season .richtextcontainer0,
+.season .richtextcontainer1,
+.season .richtextcontainer2 {
+    flex: none;
+    height: auto;
+    position: relative;
+    white-space: pre;
+    width: auto;
+}
+
+.season .albums_containr {
+    flex: none;
+    position: absolute;
+}
+
+.season .season_legende {
+    align-content: center;
+    align-items: center;
+    bottom: 109px;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+    height: min-content;
+    justify-content: flex-end;
+    left: 50%;
+    overflow: visible;
+    padding: 24px 0px 0px 0px;
+    position: absolute;
+    width: 80%;
+    z-index: 1;
+}
+
+.season .svg_1 {
+    flex: none;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 31/12;
+    position: relative;
+}
+
+.season .svg_2 {
+    flex: none;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 13/12;
+    position: relative;
+}
+
+.season .svg_3 {
+    flex: none;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 28/12;
+    position: relative;
+}
+
+.season .svg_4 {
+    flex: none;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 21/12;
+    position: relative;
+}
+
+@supports (background: -webkit-named-image(i)) and (not (font-palette:dark)) {
+
+    .season .season_inside,
+    .season .chair,
+    .season .wall,
+    .season .header,
+    .season .season [data-border="true"]::after {
+        content: "";
+        border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0);
+        border-color: var(--border-color, none);
+        border-style: var(--border-style, none);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+        border-radius: inherit;
+        pointer-events: none;
+    }
+
+    .season .framer-8nz2j7 {
+        display: block;
+    }
+
+    .season .season_inside {
+        align-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0px;
+        height: 720px;
+        justify-content: flex-start;
+        overflow: visible;
+        padding: 0px 0px 0px 0px;
+        position: relative;
+        width: 784px;
+    }
+
+    .season .chair {
+        align-content: flex-start;
+        align-items: flex-start;
+        bottom: -57px;
+        display: flex;
+        flex: none;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        height: 239px;
+        justify-content: flex-start;
+        left: 12px;
+        overflow: visible;
+        padding: 0px 0px 0px 0px;
+        position: absolute;
+        width: 280px;
+        z-index: 1;
+    }
+
+    .season .chair_img {
+        aspect-ratio: 1.1715481171548117 / 1;
+        flex: 1 0 0px;
+        height: var(--framer-aspect-ratio-supported, 239px);
+        position: relative;
+        width: 1px;
+    }
+
+    .season .wall {
+        align-content: flex-start;
+        align-items: flex-start;
+        flex: 1 0 0px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: unset;
+        height: 1px;
+        justify-content: flex-start;
+        overflow: visible;
+        position: relative;
+        width: 100%;
+    }
+
+    .season .header {
+        align-content: center;
+        align-items: center;
+        display: flex;
+        flex: none;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 24px;
+        height: min-content;
+        justify-content: flex-start;
+        overflow: visible;
+        padding: 0px 0px 24px 0px;
+        position: relative;
+        width: min-content;
+    }
+
+    .season .header_logo {
+        aspect-ratio: 5.0048773582928625 / 1;
+        flex: none;
+        height: var(--framer-aspect-ratio-supported, 25px);
+        overflow: visible;
+        position: relative;
+        width: 128px;
+    }
+
+    .season .header_logo_img {
+        aspect-ratio: 5.0048773582928625 / 1;
+        bottom: var(--framer-aspect-ratio-supported, 0px);
+        flex: none;
+        height: 26px;
+        left: 0px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+
+    .season .svg_0 {
+        flex: none;
+        height: 100%;
+        width: auto;
+        aspect-ratio: 3/31;
+        position: relative;
+    }
+
+    .season .season_title {
+        align-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+        flex: none;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 4px;
+        height: min-content;
+        justify-content: center;
+        overflow: visible;
+        padding: 0px 0px 0px 0px;
+        position: relative;
+        width: min-content;
+    }
+
+    .season .richtextcontainer0,
+    .season .richtextcontainer1,
+    .season .richtextcontainer2 {
+        flex: none;
+        height: auto;
+        position: relative;
+        white-space: pre;
+        width: auto;
+    }
+
+    .season .albums_container {
+        flex: none;
+        position: absolute;
+    }
+
+    .season .season_legende {
+        align-content: center;
+        align-items: center;
+        bottom: 109px;
+        display: flex;
+        flex: none;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 24px;
+        height: min-content;
+        justify-content: flex-end;
+        left: 50%;
+        overflow: visible;
+        padding: 24px 0px 0px 0px;
+        position: absolute;
+        width: 80%;
+        z-index: 1;
+    }
+
+    .season .svg_1 {
+        flex: none;
+        height: 100%;
+        width: auto;
+        aspect-ratio: 31/12;
+        position: relative;
+    }
+
+    .season .svg_2 {
+        flex: none;
+        height: 100%;
+        width: auto;
+        aspect-ratio: 13/12;
+        position: relative;
+    }
+
+    .season .svg_3 {
+        flex: none;
+        height: 100%;
+        width: auto;
+        aspect-ratio: 28/12;
+        position: relative;
+    }
+
+    .season .svg_4 {
+        flex: none;
+        height: 100%;
+        width: auto;
+        aspect-ratio: 21/12;
+        position: relative;
+    }
+
+    @supports (background: -webkit-named-image(i)) and (not (font-palette:dark)) {
+
+        .season .season_inside,
+        .season .chair,
+        .season .wall,
+        .season .header,
+        .season .season_title,
+        .season .season_legende {
+            gap: 0px;
+        }
+
+        .season .season_inside>* {
+            margin: 0px;
+            margin-bottom: calc(0px / 2);
+            margin-top: calc(0px / 2);
+        }
+
+        .season .season_inside> :first-child,
+        .season .wall> :first-child,
+        .season .season_title> :first-child {
+            margin-top: 0px;
+        }
+
+        .season .season_inside> :last-child,
+        .season .wall> :last-child,
+        .season .season_title> :last-child {
+            margin-bottom: 0px;
+        }
+
+        .season .chair>* {
+            margin: 0px;
+            margin-left: calc(10px / 2);
+            margin-right: calc(10px / 2);
+        }
+
+        .season .chair> :first-child,
+        .season .header> :first-child,
+        .season .season_legende> :first-child {
+            margin-left: 0px;
+        }
+
+        .season .chair> :last-child,
+        .season .header> :last-child,
+        .season .season_legende> :last-child {
+            margin-right: 0px;
+        }
+
+        .season .wall>* {
+            margin: 0px;
+            margin-bottom: calc(32px / 2);
+            margin-top: calc(32px / 2);
+        }
+
+        .season .header>*,
+        .season .season_legende>* {
+            margin: 0px;
+            margin-left: calc(24px / 2);
+            margin-right: calc(24px / 2);
+        }
+
+        .season .season_title>* {
+            margin: 0px;
+            margin-bottom: calc(4px / 2);
+            margin-top: calc(4px / 2);
+        }
+    }
+
+    .season .season_legende {
+        gap: 0px;
+    }
+
+    .season .season_inside>* {
+        margin: 0px;
+        margin-bottom: calc(0px / 2);
+        margin-top: calc(0px / 2);
+    }
+
+    .season .season_inside> :first-child,
+    .season .wall> :first-child,
+    .season .season_title> :first-child {
+        margin-top: 0px;
+    }
+
+    .season .season_inside> :last-child,
+    .season .wall> :last-child,
+    .season .season_title> :last-child {
+        margin-bottom: 0px;
+    }
+
+    .season .chair>* {
+        margin: 0px;
+        margin-left: calc(10px / 2);
+        margin-right: calc(10px / 2);
+    }
+
+    .season .chair> :first-child,
+    .season .header> :first-child,
+    .season .season_legende> :first-child {
+        margin-left: 0px;
+    }
+
+    .season .chair> :last-child,
+    .season .header> :last-child,
+    .season .season_legende> :last-child {
+        margin-right: 0px;
+    }
+
+    .season .wall>* {
+        margin: 0px;
+        margin-bottom: calc(32px / 2);
+        margin-top: calc(32px / 2);
+    }
+
+    .season .header>*,
+    .season .season_legende>* {
+        margin: 0px;
+        margin-left: calc(24px / 2);
+        margin-right: calc(24px / 2);
+    }
+
+    .season .season_title>* {
+        margin: 0px;
+        margin-bottom: calc(4px / 2);
+        margin-top: calc(4px / 2);
+    }
+}

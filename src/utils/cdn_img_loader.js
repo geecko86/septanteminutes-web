@@ -1,6 +1,7 @@
 'use client'
  
-export default function loader({ src, width, quality }) {
+export default function loader(props) {
+    const { src, width, quality } = props;
     if (src.includes("cloudinary"))
         return src.replace("http://", "https://").replace("/upload/", `/upload/c_scale,w_${width},f_webp,q_${quality || 100}/`);
     else if (src.includes("framerusercontent.com"))

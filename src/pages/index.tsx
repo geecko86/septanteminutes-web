@@ -11,14 +11,17 @@ import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValu
 import Image from "next/image";
 
 import SwipeAnim from "../components/SwipeAnim";
-import Season_, { Chairs } from "../framer/Season-pOfC.js";
+import Season_, { Chairs } from "../components/Season";
+import FrontColumn_, { FrontPosters } from "../components/FrontColumn";
+
 import HomeAlbum_ from "../framer/HomeAlbum-WCxn.js";
 import BellLamp_ from "../framer/BellLamp.js";
 import Eggchair_ from "../framer/Eggchair.js";
 import PlantA_ from "../framer/Plant_0.js";
+import PlantA2_ from "../framer/Plant_2.js";
 import PlantB_ from "../framer/Plant_1.js";
-import PlantC_ from "../framer/Plant_2.js";
-import FrontColumn_, { FrontPosters } from "../framer/front-column-h3ym.js";
+import PlantD_ from "../framer/Plant_3.js";
+import PlantE_ from "../framer/Plant_4.js";
 
 import ScrollToAnchor from "../utils/scroll_to_anchor";
 import data from "../utils/tempdata.js";
@@ -31,11 +34,13 @@ export default function Home() {
     const BellLamp: FC<any> = BellLamp_;
     const Eggchair: FC<any> = Eggchair_;
     const PlantA: FC<any> = PlantA_;
+    const PlantA2: FC<any> = PlantA2_;
     const PlantB: FC<any> = PlantB_;
-    const PlantC: FC<any> = PlantC_;
+    const PlantD: FC<any> = PlantD_;
+    const PlantE: FC<any> = PlantE_;
     const FrontColumn: FC<any> = FrontColumn_;
 
-    const [seasons, setSeasons] = useState<any[]>([]);
+    const [seasons, setSeasons] = useState<Season[]>([]);
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
     const [showSwiper, setShowSwiper] = useState(false);
@@ -51,10 +56,12 @@ export default function Home() {
             { length: Object.keys(data.episodes).length },
             (v, k) => data.episodes[(k + 1).toString() as key]
         );
-        setSeasons([...new Set(vinyls.map(v => v.season))].map(season => ({
-            name: season,
-            episodes: vinyls.filter(ep => ep.season === season)
-        })))
+        setSeasons(
+            [...new Set(vinyls.map(v => v.season))].map(season => ({
+                name: season,
+                episodes: vinyls.filter(ep => ep.season === season)
+            }))
+        );
     }, [data]);
 
     useEffect(() => {
@@ -63,11 +70,11 @@ export default function Home() {
             if (!hasMovedRef.current) {
                 const from = scrollXAdditional.get(), to = scrollXAdditional.get() + Math.floor(window.innerWidth / 11);
                 const anim = animate([[scrollXAdditional, to, {
-                    duration: 0.45,
+                    duration: 0.9,
                     ease: "easeIn"
                 }], [scrollXAdditional, [to, from], {
-                    duration: 0.45,
-                    delay: 0.75,
+                    duration: 0.9,
+                    delay: 1.5,
                     ease: "easeInOut"
                 }], [scrollXAdditional, from, {
                     duration: 0,
@@ -82,7 +89,7 @@ export default function Home() {
             } else {
                 clearInterval(swiperTimer);
             }
-        }, 6500);
+        }, 10500);
         home.current?.focus();
         return () => { clearInterval(swiperTimer); }
     }, [home]);
@@ -151,9 +158,10 @@ export default function Home() {
             });
         } else if (newScrollX.get() >= 0 && e.deltaX + e.deltaY < 0) {
             console.log("BLOCK! B", e.deltaX + e.deltaY);
+            return;
         } else {
-            if (e.deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + e.deltaX);
-            else if (e.deltaY !== 0) scrollYAdditional.set(scrollYAdditional.get() + e.deltaY);
+            if (e.deltaY !== 0 && Math.abs(e.deltaY) > Math.abs(e.deltaX)) scrollYAdditional.set(scrollYAdditional.get() + e.deltaY);
+            else if (e.deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + e.deltaX);
             setColumnFocus(false);
             setShowSwiper(false);
             idleAnimRef.current?.stop();
@@ -209,14 +217,14 @@ export default function Home() {
     });
 
     const posters = [
-        { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", style: styles.leuven },
-        { src: "https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg", style: styles.akerman },
-        { src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", style: styles.brel },
-        { src: "https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg", style: styles.redford },
-        { src: "https://framerusercontent.com/images/ZUrkjCIHCUv6FqcoUXJw3atquQ.webp", style: styles.cavell },
-        { src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", style: styles.congo },
-        { src: "https://framerusercontent.com/images/WiTE1wYTrGK2zx2OVVRi5QGnFg.jpg", style: styles.walenbuiten },
-        { src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", style: styles.stones },
+        { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", class: styles.leuven, ratio: 440 / 228 },
+        { src: "https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg", class: styles.akerman, ratio: 337 / 296 },
+        { src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", class: styles.brel, ratio: 337 / 448 },
+        { src: "https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg", class: styles.redford, ratio: 582 / 397 },
+        { src: "https://framerusercontent.com/images/ZUrkjCIHCUv6FqcoUXJw3atquQ.webp", class: styles.cavell, ratio: 2267 / 1704 },
+        { src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", class: styles.congo, ratio: 2267 / 1704 },
+        { src: "https://framerusercontent.com/images/WiTE1wYTrGK2zx2OVVRi5QGnFg.jpg", class: styles.walenbuiten, ratio: 2267 / 1704 },
+        { src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", class: styles.stones, ratio: 1 },
     ]
 
     return (
@@ -229,7 +237,9 @@ export default function Home() {
                     <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset0 }}>
                         <div className={styles.ceiling_3} />
                         <div className={styles.ceiling_2}>
-                            <Image loading="eager" src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" fill sizes={`${home.current?.clientWidth}px`} />
+                            {[...Array(Math.floor(screenContentRatio / 2.4)).keys()].map((i) => (
+                                <Image loading="eager" key={`ceiling_${i}`} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} height={858} width={3618} />
+                            ))}
                         </div>
                         <div className={styles.ceiling} />
                         <div className={styles.backwall}>
@@ -237,14 +247,14 @@ export default function Home() {
                                 {
                                     [...seasons].reverse().map((season, i) => (
                                         <>
-                                            <Season key={season.name + "_invisible"} className={styles.season_frame} chair={""} style={{ visibility: "hidden" }}>
+                                            <Season key={season.name + "_invisible00"} className={styles.season_frame} chair={""} style={{ visibility: "hidden" }}>
                                                 {season.episodes.reverse().map((ep: episode) => (
-                                                    <HomeAlbum key={ep.num} image={""} num={ep.num} />
+                                                    <HomeAlbum key={`${ep.num}_invisible00`} image={""} num={ep.num} />
                                                 ))}
                                             </Season>
                                             {
-                                                <div className={[styles.poster, posters[i].style].join(" ")} key={`poster_${i}`}>
-                                                    <Image alt="" src={posters[i].src} sizes="40vw" fill />
+                                                <div className={[styles.poster, posters[i].class].join(" ")} key={`${season.name}_invisible00_poster_${i}`}>
+                                                    <Image alt="" key={`${season.name}_invisible00_poster_img_${i}`} src={posters[i].src} quality={50} sizes={`${Math.floor(40 * posters[i].ratio)}vh`} fill />
                                                 </div>
                                             }
                                         </>
@@ -259,7 +269,9 @@ export default function Home() {
 
                         <div className={styles.floor_3} />
                         <div className={styles.floor_2}>
-                            <Image loading="eager" src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" fill sizes={`${home.current?.clientWidth}px`} />
+                            {[...Array(Math.floor(screenContentRatio / 2.4)).keys()].map((i) => (
+                                <Image loading="eager" key={`floor_${i}`} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} height={858} width={3618} />
+                            ))}
                         </div>
                         <div className={styles.floor} />
                     </motion.div>
@@ -268,28 +280,37 @@ export default function Home() {
                         {
                             [...seasons].reverse().map((season, i) => (
                                 <>
-                                    <Season key={season.name + "_invisible"} className={styles.season_frame} chair={""} style={{ visibility: "hidden" }}>
+                                    <Season key={season.name + "_invisible05"} className={styles.season_frame} chair={""} style={{ visibility: "hidden" }}>
                                         {season.episodes.reverse().map((ep: episode) => (
-                                            <HomeAlbum key={ep.num} image={""} num={ep.num} />
+                                            <HomeAlbum key={`${season.name}_homealbum_${ep.num}_invisible05`} image={""} num={ep.num} />
                                         ))}
                                     </Season>
                                     {
                                         [
                                             (<>
-                                                <PlantA className={styles.plant} style={{ zIndex: 2 }} />
-                                                <Eggchair className={styles.eggchair} />
+                                                <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left: "-15vh" }} />
+                                                <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} />
                                             </>),
                                             (<>
-                                                <Eggchair className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} />
-                                                <PlantB className={[styles.plant, styles.left_m15].join(" ")} />
+                                                <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} />
+                                                <PlantA key={`layer05_prop_${i}_PlantA`} className={[styles.plant, styles.left_m15].join(" ")} />
                                             </>),
                                             (<>
-                                                <Eggchair className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} />
-                                                <PlantA className={[styles.plant, styles.left_m15].join(" ")} />
+                                                <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} />
+                                                <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} />
+                                            </>),
+                                            (<>
+                                                <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left: "30vh" }} />
+                                                <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "10vh" }} />
+                                            </>),
+                                            (<>
+                                                <div key={`layer05_gap0_${i}_div`} className={styles.gap} style={{ width: "calc(55 * var(--unit))" }} />
+                                                <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} />
+                                                <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} />
                                             </>)
-                                        ][i % 3]
+                                        ][i % 5]
                                     }
-                                    <div className={styles.gap} style={{ width: "calc(25 * var(--unit))" }} />
+                                    <div key={`layer05_gap_${i}`} className={styles.gap} style={{ width: "calc(25 * var(--unit))" }} />
                                 </>
                             ))
                         }
@@ -297,9 +318,9 @@ export default function Home() {
                     <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")}>
                         {
                             [...seasons].reverse().map((season, i) => (
-                                <Season key={season.name} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
+                                <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
                                     {season.episodes.toReversed().map((ep: episode) => (
-                                        <HomeAlbum id={`art_${ep.num}`} guest={ep.title} key={ep.num} image={ep.img} num={ep.num} />
+                                        <HomeAlbum id={`art_${ep.num}`} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num} />
                                     ))}
                                 </Season>
                             ))
@@ -323,17 +344,15 @@ export default function Home() {
                         <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3 }}>
                             {[...Array(Math.floor(screenContentRatio / 3.1)).keys()].map((i) => (
                                 <>
-                                    <PlantC className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
-                                    <FrontColumn className={[styles.front_column].join(" ")}
+                                    <PlantA2 key={`layer3_prop_${i}_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
+                                    <FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
                                         pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date}
-                                        onMouseEnter={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />
+                                        onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />
                                 </>
                             ))}
                         </motion.div>
                     </div>
-                    <div className={styles.swipe_anim}>
-                        <SwipeAnim play={showSwiper} />
-                    </div>
+                    <SwipeAnim play={showSwiper} className={styles.swipe_anim} />
                 </motion.div>
             </div>
             <ScrollToAnchor move={(x) => {
@@ -354,5 +373,17 @@ export default function Home() {
 
 type key = "1" | "2"; // Etc.
 type episode = {
-    title: string; img: string, num: number
-}
+    title: string,
+    img: string,
+    spotifyLink: string,
+    mp3: string,
+    season: string,
+    appleLink: string,
+    desc: string,
+    num: string,
+    epoch: number
+};
+type Season = {
+    name: string,
+    episodes: episode[]
+};

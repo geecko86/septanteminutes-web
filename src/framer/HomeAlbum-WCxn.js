@@ -133,6 +133,7 @@ let h = {
                         src: w,
                         fill: true,
                         sizes: "17.5vmin",
+                        quality: 80,
                         className: "homealbum-img",
                         alt: "",
                         style: {

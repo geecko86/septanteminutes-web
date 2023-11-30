@@ -119,7 +119,7 @@ const VinylAlbum = ({
   } : {};
 
   return type === "shadow" ? (
-    <div className={styles.shadow_container} hidden={isHidden}>
+    <div className={styles.shadow_container} data-visibility={isHidden ? "hidden" : "visible"}>
       <motion.div
         className={`${styles.separate_shadow} ${shadowLevel}`}
         style={style}

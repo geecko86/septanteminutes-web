@@ -319,7 +319,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    role: "img",
+                    
                     "aria-label": "Apple Podcasts",
                     children: [
                       _jsx(motion.div, {
@@ -347,7 +347,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    role: "img",
+                    
                     "aria-label": "Flux RSS",
                     children: [
                       _jsx(motion.div, {
@@ -375,7 +375,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    role: "img",
+                    
                     "aria-label": "Spotify",
                     children: [
                       _jsx(motion.div, {
@@ -405,7 +405,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    role: "img",
+                    
                     "aria-label": "Pocket Casts",
                     children: [
                       _jsx(motion.div, {
@@ -433,7 +433,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    role: "img",
+                    
                     "aria-label": "Page YouTube",
                     children: [
                       _jsx(motion.div, {
@@ -461,7 +461,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    role: "img",
+                    
                     "aria-label": "Page Facebook",
                     transformTemplate: transformTemplate,
                     children: [
@@ -491,7 +491,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    role: "img",
+                    
                     "aria-label": "Page Twitter",
                     transformTemplate: transformTemplate,
                     children: [
@@ -520,7 +520,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    role: "img",
+                    
                     "aria-label": "Page Instagram",
                     transformTemplate: transformTemplate,
                     children: [

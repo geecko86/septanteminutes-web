@@ -1,49 +1,64 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, animate, AnimationPlaybackControls } from "framer-motion";
 
 import styles from "./index.module.css";
 
-export default function App(props: {play: boolean}) {
-  return (
-    <motion.div
-      className={styles.box}
-      initial={{
+export default function App(props: { play: boolean, className: string }) {
+
+    const {
+        play,
+        className
+    } = props;
+
+    const [anim, setAnim] = useState<AnimationPlaybackControls | undefined>(undefined);
+
+    const sequence = [
+        [`.${styles.box}`, { opacity: 0, scaleX: -1, x: "0vw", scale: 0.6 }, { duration: 0 }],
+        [`.${styles.box}`, { opacity: 1 }, { duration: 0.15, at: 0, ease: "easeInOut" }],
+        [`.${styles.box}`, { opacity: 0 }, { duration: 0.4, at: 0.45, ease: "easeInOut" }],
+        [`.${styles.box}`, { opacity: 1 }, { duration: 0.25, at: 1.35, ease: "easeInOut" }],
+        [`.${styles.box}`, { opacity: 0 }, { duration: 0.25, at: 2.25, ease: "easeInOut" }],
+
+        [`.${styles.box}`, { x: "-25vw" }, { duration: 0.45, at: 0.35, ease: "easeInOut" }],
+        [`.${styles.box}`, { x: "0vw" }, { duration: 0.45, at: 1.65, ease: "easeInOut" }],
+        
+        [`.${styles.box}`, { scale: 1.3 }, { duration: 0.2, at: 0, ease: "easeInOut" }],
+        [`.${styles.box}`, { scale: 1 }, { duration: 0.1, at: 0.2, ease: "easeInOut" }],
+        [`.${styles.box}`, { scale: 1.5 }, { duration: 0.2, at: 0.75, ease: "easeInOut" }],
+        [`.${styles.box}`, { scale: 0.6 }, { duration: 0.01, at: 1.25, ease: "easeInOut" }],
+        [`.${styles.box}`, { scale: 1.3 }, { duration: 0.2, at: 1.3, ease: "easeInOut" }],
+        [`.${styles.box}`, { scale: 1 }, { duration: 0.2, at: 1.5, ease: "easeInOut" }],
+        [`.${styles.box}`, { scale: 1.5 }, { duration: 0.2, at: 2.05, ease: "easeInOut" }],
+        
+        [`.${styles.box}`, { scaleX: 1 }, { duration: 0.01, at: 1.15, ease: "easeInOut" }],
+        [`.${styles.box}`, { scaleX: -1 }, { duration: 0.01, at: 2.5, ease: "easeInOut" }],
+    ];
+
+    useEffect(() => {
+        if (play) {
+            setAnim(animate(sequence as any, {
+                ease: "easeInOut"
+            }));
+        } else if (anim) {
+            animate(`.${styles.box}`, { opacity: 0 }, { duration: 0.2, ease: "easeInOut" }).then(() => {
+                anim.cancel();
+                setAnim(undefined);
+            });
+        }
+    }, [play]);
+
+    const defaultStyle = {
         opacity: 0,
         scale: 0.6,
         x: "0vw",
         scaleX: 1
-      }}
-      animate={props.play ? {
-        opacity: [0, 1, 1, 0],
-        scale: [0.6, 1.3, 1, 1, 1.5],
-        scaleX: [-1, -1, 1, 1],
-        x:         ["0vw", "0vw", "-25vw", "-25vw", "-25vw", "-25vw", "0vw", "0vw"]
-      } : { }}
-      transition={{
-        ease: "easeInOut",
-        x: {
-            duration: 1,
-            times: [0,      0.15,   0.4,    0.5,        0.7,   0.85, 1.1,   1.2]
-        },
-        scaleX: {
-            duration: 1,
-            times: [0, 0.5, 0.51, 1]
-        },
-        scale: {
-            duration: 0.5,
-            times: [0, 0.2, 0.3, 0.8, 1],
-            repeat: 1,
-            repeatType: "loop",
-            repeatDelay: 0.2
-        },
-        opacity: {
-            duration: 0.5,
-            times: [0, 0.3, 0.8, 1],
-            repeat: 1,
-            repeatType: "loop",
-            repeatDelay: 0.2
-        },
-      }}
-    />
-  );
+    };
+    return (
+        <div className={className}>
+            <motion.div
+                className={styles.box}
+                style={defaultStyle}                
+            />
+        </div>
+    );
 };

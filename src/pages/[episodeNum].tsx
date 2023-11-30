@@ -8,7 +8,7 @@ import React, {
   FC,
 } from "react";
 import { useRouter } from "next/router";
-import { replaceState, pushState } from "history-throttled";
+import { replaceState } from "history-throttled";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";

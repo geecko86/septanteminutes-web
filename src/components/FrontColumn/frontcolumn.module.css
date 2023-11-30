@@ -1,0 +1,98 @@
+.front_column {
+    place-content: center flex-start;
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    overflow: visible;
+    position: relative;
+}
+
+.photo {
+    flex: 0 0 auto;
+    aspect-ratio: 411 / 471;
+    margin-top: 10%;
+    height: auto !important;
+    position: relative !important;
+    width: calc(71.979%) !important;
+}
+
+.photo[data-border="true"]::after {
+    content: "";
+    border-width: var(--borderTopWidth, 0) var(--borderRightWidth, 0) var(--borderBottomWidth, 0) var(--borderLeftWidth, 0);
+    border-color: var(--borderColor, none);
+    border-style: var(--borderStyle, none);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    left: 0px;
+    top: 0px;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.legende {
+    place-content: center space-between;
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row;
+    height: min-content;
+    overflow: visible;
+    padding: 24px 0px 0px;
+    position: relative;
+    width: 72%;
+}
+
+.subtitle {
+    place-content: flex-start center;
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column;
+    gap: 4px;
+    height: min-content;
+    overflow: visible;
+    padding: 0px;
+    position: relative;
+    width: min-content;
+}
+
+.subtitle_text, .date_text {
+    flex: 0 0 auto;
+    height: auto;
+    position: relative;
+    white-space: pre;
+    width: auto;
+}
+
+.svg0, .svg1, .svg2, .svg3 {
+    position: relative;
+    flex: 0 0 auto;
+    height: 13px;
+}
+
+.subtitle_text, .date_text, .credits {
+    flex: 0 0 auto m !important;
+    height: auto !important;
+    position: relative !important;
+    white-space: pre !important;
+    width: auto !important;
+}
+
+.svg0 {
+    width: 31px;
+}
+
+.svg1 {
+    width: 13px;
+}
+
+.svg2 {
+    width: 28px;
+}
+
+.svg3 {
+    width: 21px;
+}

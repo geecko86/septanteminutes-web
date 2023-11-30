@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
+import { replaceState } from "history-throttled";
 
 function ScrollToAnchor(props: { move: (x: number) => void }) {
     const { asPath } = useRouter();
@@ -11,16 +12,24 @@ function ScrollToAnchor(props: { move: (x: number) => void }) {
             lastHash.current = asPath.split('#')[1];
         }
 
-        setTimeout(() => {
+        const action = () => {
             const id = `art_${lastHash.current}`;
 
             if (lastHash.current && document.getElementById(id)) {
                 const element = document.getElementById(id);
                 const { x } = element?.getBoundingClientRect() || { x: 0 };
-                move(x - window.innerWidth / 2);
+                const target = Math.max(x - window.innerWidth / 2, 0);
+                if (target > 0) move(target);
                 lastHash.current = '';
+                replaceState({ path: "/" }, "", "/");
             }
-        }, 450);
+        }
+
+        if ("requestIdleCallback" in window) {
+            requestIdleCallback(action);
+        } else {
+            setTimeout(action, 450);
+        }
     }, [asPath, move]);
 
     return null;
