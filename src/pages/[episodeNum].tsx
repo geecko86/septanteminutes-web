@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { useRouter } from "next/router";
 import { replaceState } from "history-throttled";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
 import Head from "next/head";
@@ -47,7 +47,9 @@ export default function EpisodeTable() {
   const episodePage = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
   const shadows = useRef<HTMLDivElement>(null);
-  
+  const hasClickedNotebookRef = useRef(false);
+  const hasClickedPlayRef = useRef(false);
+
   const [episodeNumParam, setEpisodeNumParam] = useState(-1);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
 
@@ -71,6 +73,45 @@ export default function EpisodeTable() {
   );
 
   useEffect(() => {
+    const doNotebookIdleAnimation = () => {
+      if ((hasClickedNotebookRef.current)) return;
+
+      const onFinished = () => {
+        if (!hasClickedNotebookRef.current) setTimeout(doNotebookIdleAnimation, 8500);
+      };
+      
+      if (!document.getElementsByClassName(styles.notebook)[0].matches(":hover")) {
+        const notebookControls = animate([
+          [`.${styles.notebook}`, { rotate: -6 }, { ease: "easeIn", duration: 0.2, at: "3" }],
+          [`.${styles.notebook}`, { rotate: 6 }, { ease: "easeInOut", duration: 0.2 }],
+          [`.${styles.notebook}`, { rotate: 0 }, { ease: "easeOut", duration: 0.4 }]
+        ]);
+        notebookControls.then(onFinished);
+      } else onFinished();
+    };
+    if (!hasClickedNotebookRef.current) {
+      setTimeout(doNotebookIdleAnimation, 8500);
+    }
+    const doIdlePlayButtonAnimation = () => {
+      if ((hasClickedPlayRef.current)) return;
+
+      const playButtonControls = animate([
+          [`.${styles.playButton}`, { opacity: 0.8 }, { ease: "easeOut", duration: 1 }],
+          [`.${styles.playButton}`, { opacity: 0 }, { ease: "easeIn", duration: 0.5 }]
+      ]);
+      playButtonControls.then(() => {
+        if (!(hasClickedPlayRef.current)) setTimeout(doIdlePlayButtonAnimation, 8500);
+      });
+    };
+    if (!hasClickedPlayRef.current) { // if has never clicked Play Button and is not currently playing
+      setTimeout(doIdlePlayButtonAnimation, 5500);
+    };
+    // TODO: local storage
+    // hasClickedNotebookRef.current = hasClickedNotebook;
+    // hasClickedPlayRef.current = hasClickedPlay;
+  }, [vinyls.length]);
+
+  useEffect(() => {
     const selectedEp = router.query.episodeNum ? Math.min(Number(router.query.episodeNum) - 1, vinyls.length - 1) : vinyls.length - 1;
     setEpisodeNumParam(selectedEp);
     setSelectedEpisode(selectedEp);
@@ -87,7 +128,7 @@ export default function EpisodeTable() {
           duration: 0,
           easing: t => {
             setSnapping(true);
-            return (--t)*t*t+1;
+            return (--t) * t * t + 1;
           },
           threshold: 0.4,
         },
@@ -104,9 +145,8 @@ export default function EpisodeTable() {
           // );
           setSelectedPosition(currentPosition);
           setSelectedEpisode(currentEpisode);
-          const newUrl = `${window.location.origin}/${
-            currentEpisode + 1
-          }`;
+          const newUrl = `${window.location.origin}/${currentEpisode + 1
+            }`;
           replaceState({ path: newUrl }, "", newUrl);
         }
       ).bind();
@@ -149,7 +189,7 @@ export default function EpisodeTable() {
     switch (e.keyCode) {
       case 38: // up arrow
         if (selectedPosition == 0) return;
-        scroll = function() {
+        scroll = function () {
           episodePage.current?.scrollBy({
             top: (episodePage.current?.clientHeight || 0) * -0.97,
             behavior: "instant",
@@ -163,7 +203,7 @@ export default function EpisodeTable() {
         break;
       case 40: // down arrow
         if (selectedPosition == vinyls.length - 1) return;
-        scroll = function() {
+        scroll = function () {
           episodePage.current?.scrollBy({
             top: (episodePage.current?.clientHeight || 0) * 0.85,
             behavior: "instant",
@@ -191,7 +231,7 @@ export default function EpisodeTable() {
 
   return (
     <div ref={episodePage} className={`episode_page`}>
-      {cloneElement(notebookOverlayComponent, { })}
+      {cloneElement(notebookOverlayComponent, {})}
       <Head>
         <title>{`Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}`}</title>
       </Head>
@@ -202,7 +242,7 @@ export default function EpisodeTable() {
         tabIndex={0}
       >
         <div className={styles.floor}>
-          <Image alt="" loading="eager" src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{objectFit: "cover"}} fill />
+          <Image alt="" loading="eager" src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{ objectFit: "cover" }} fill />
           <Chair className={styles.chair} />
           <div className={styles.invisiblefill} />
         </div>
@@ -227,6 +267,9 @@ export default function EpisodeTable() {
             className={styles.notebook}
             ref={refs.setReference}
             {...referenceProps}
+            action={() => {
+              hasClickedNotebookRef.current = true;
+            }}
           />
           <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />
           <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />
@@ -250,7 +293,10 @@ export default function EpisodeTable() {
               separate={true}
             />
           </div>
-          <motion.div className={styles.albums}>
+          <motion.div className={styles.albums} onClick={() => {
+            hasClickedPlayRef.current = true;
+            // TODO: playback
+          }}>
             {router.query.episodeNum && vinyls.map((episode, index) => (
               <VinylAlbum
                 key={index}
@@ -263,6 +309,9 @@ export default function EpisodeTable() {
                 mayAnimate={mayAnimate}
               />
             ))}
+            <div className={styles.playButton} style={{opacity: 0}}>
+              <img src="/img/play.svg" alt="Lancer la lecture" role="button" />
+            </div>
           </motion.div>
         </div>
       </motion.div>
@@ -272,7 +321,7 @@ export default function EpisodeTable() {
           key={`${episodeNumParam}_${i}`}
           ref={i === vinyls.length - (episodeNumParam + 1) ? scroll : null}
           onViewportEnter={() => {
-            if ((i === vinyls.length - (episodeNumParam + 1) && i!=0) || episodeNumParam == vinyls.length - 1) {
+            if ((i === vinyls.length - (episodeNumParam + 1) && i != 0) || episodeNumParam == vinyls.length - 1) {
               setTimeout(() => {
                 setMayAnimate(true);
               }, 200);
@@ -287,7 +336,7 @@ export default function EpisodeTable() {
 }
 
 type key = "1" | "2"; // Etc.
- 
+
 export const getStaticPaths = (async () => {
   const paths = Array.from(Array(199).keys()).map((i) => ({
     params: { episodeNum: `${i + 1}` },
@@ -297,8 +346,8 @@ export const getStaticPaths = (async () => {
     fallback: false // anything not included will 404
   }
 }) satisfies GetStaticPaths
- 
+
 export const getStaticProps = (async (context) => {
-  return { props: { } }
+  return { props: {} }
 }) satisfies GetStaticProps<{
 }>;

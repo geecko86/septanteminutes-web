@@ -237,7 +237,7 @@ export default function Home() {
                     <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset0 }}>
                         <div className={styles.ceiling_3} />
                         <div className={styles.ceiling_2}>
-                            {[...Array(Math.floor(screenContentRatio / 2.4)).keys()].map((i) => (
+                            {[...Array(Math.ceil(screenContentRatio / 2.4)).keys()].map((i) => (
                                 <Image loading="eager" key={`ceiling_${i}`} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} height={858} width={3618} />
                             ))}
                         </div>
@@ -269,7 +269,7 @@ export default function Home() {
 
                         <div className={styles.floor_3} />
                         <div className={styles.floor_2}>
-                            {[...Array(Math.floor(screenContentRatio / 2.4)).keys()].map((i) => (
+                            {[...Array(Math.ceil(screenContentRatio / 2.4)).keys()].map((i) => (
                                 <Image loading="eager" key={`floor_${i}`} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} height={858} width={3618} />
                             ))}
                         </div>

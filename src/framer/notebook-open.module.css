@@ -174,3 +174,23 @@
     mask-image: url("/img/twitter.svg"), url("/img/stamp.svg");
     mask-size: 62%, 100%;
 }
+
+@media (min-width: 1200px) {
+.scrollTarget {
+    padding-right: 15px;
+}
+
+.scrollTarget::-webkit-scrollbar {
+    display: block !important;
+    width: 10px !important;
+  }
+  
+.scrollTarget::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+.scrollTarget::-webkit-scrollbar-thumb {
+    background: rgba(107, 86, 61, 0.3);
+    border-radius: 20px;
+  }
+}

@@ -13,6 +13,8 @@ import {
 import Image from "next/image";
 import { LayoutGroup, motion, MotionConfigContext } from "framer-motion";
 import * as React from "react";
+import styles from "./notebook-large.module.css";
+
 const enabledGestures = { ujaK3JlKR: { hover: true } };
 const cycleOrder = ["ujaK3JlKR"];
 const variantClassNames = { ujaK3JlKR: "framer-v-vowb3z" };
@@ -84,6 +86,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
     className,
     layoutId,
     variant,
+    action,
     oWFELkAPo,
     ul7zV60QI,
     ...restProps
@@ -116,7 +119,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
       onTapStart: () => setGestureState({ isPressed: true }),
       onTap: () => setGestureState({ isPressed: false }),
       onTapCancel: () => setGestureState({ isPressed: false }),
-      className: cx("framer-jxdNa", classNames),
+      className: cx("framer-jxdNa", styles.notebook_parent, classNames),
       style: { display: "contents" },
       children: /*#__PURE__*/ _jsx(Transition, {
         value: transition,
@@ -126,6 +129,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
           layoutDependency: layoutDependency,
           layoutId: "ujaK3JlKR",
           ref: ref,
+          onClick: action,
           style: { rotate: 0, ...style },
           variants: { "ujaK3JlKR-hover": { rotate: -3 } },
           ...addPropertyOverrides(

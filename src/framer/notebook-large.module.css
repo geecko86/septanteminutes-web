@@ -1,0 +1,21 @@
+@media (max-width: 1200px) and (orientation: portrait) {
+
+    .notebook_parent {
+        transform: rotate(-23deg) !important;
+        width: 60%;
+        height: auto;
+        aspect-ratio: 1;
+        bottom: 35%;
+        position: absolute;
+        right: 44%;
+        display: block !important;
+    }
+
+    .notebook_parent > div {
+        width: 100% !important;
+        height: 100% !important;
+        right: unset !important;
+        bottom: unset !important;
+    }
+
+}
