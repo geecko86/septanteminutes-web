@@ -307,6 +307,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
               layoutId: "ZW17gGN7x",
               children: [
                 /*#__PURE__*/ _jsx(Link, {
+                  key: "apple-podcasts-stamp",
                   href: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
@@ -319,22 +320,25 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                       WebkitFilter:
                         "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                     },
-                    
                     "aria-label": "Apple Podcasts",
                     children: [
                       _jsx(motion.div, {
+                        key: "inner-shadow-apple",
                         className: styles.stamp_inner_shadow
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-paper-apple",
                         className: styles.stamp_paper
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-logo-apple",
                         className: styles.stamp_logo
                       })
                     ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
+                  key: "rss-stamp",
                   href: "https://anchor.fm/s/b43f59a8/podcast/rss",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
@@ -351,18 +355,22 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     "aria-label": "Flux RSS",
                     children: [
                       _jsx(motion.div, {
+                        key: "inner-shadow-rss",
                         className: styles.stamp_inner_shadow
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-paper-rss",
                         className: styles.stamp_paper
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-logo-rss",
                         className: styles.stamp_logo
                       })
                     ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
+                  key: "spotify-stamp",
                   href: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
@@ -379,13 +387,16 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     "aria-label": "Spotify",
                     children: [
                       _jsx(motion.div, {
+                        key: "inner-shadow-spotify",
                         className: styles.stamp_inner_shadow
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-paper-spotify",
                         className: styles.stamp_paper
                       }),
 
                       _jsx(motion.div, {
+                        key: "stamp-logo-spotify",
                         className: styles.stamp_logo
                       })
                     ],
@@ -393,6 +404,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
+                  key: "pocket-casts-stamp",
                   href: "https://pca.st/A6sJ",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
@@ -409,18 +421,22 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     "aria-label": "Pocket Casts",
                     children: [
                       _jsx(motion.div, {
+                        key: "inner-shadow-pocketcasts",
                         className: styles.stamp_inner_shadow
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-paper-pocketcasts",
                         className: styles.stamp_paper
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-logo-pocketcasts",
                         className: styles.stamp_logo
                       })
                     ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
+                  key: "youtube-stamp",
                   href: "https://www.youtube.com/@septanteminutes",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
@@ -437,18 +453,22 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     "aria-label": "Page YouTube",
                     children: [
                       _jsx(motion.div, {
+                        key: "inner-shadow-youtube",
                         className: styles.stamp_inner_shadow
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-paper-youtube",
                         className: styles.stamp_paper
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-logo-youtube",
                         className: styles.stamp_logo
                       })
                     ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
+                  key: "facebook-stamp",
                   href: "https://www.facebook.com/SeptanteMinutesAvec",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
@@ -466,19 +486,22 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     transformTemplate: transformTemplate,
                     children: [
                       _jsx(motion.div, {
+                        key: "inner-shadow-Facebook",
                         className: styles.stamp_inner_shadow
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-paper-Facebook",
                         className: styles.stamp_paper
                       }),
-
                       _jsx(motion.div, {
+                        key: "stamp-logo-Facebook",
                         className: styles.stamp_logo
                       })
                     ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
+                  key: "twitter-stamp",
                   href: "https://twitter.com/SeptanteMinutes",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
@@ -496,18 +519,22 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     transformTemplate: transformTemplate,
                     children: [
                       _jsx(motion.div, {
+                        key: "inner-shadow-Twitter",
                         className: styles.stamp_inner_shadow
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-paper-Twitter",
                         className: styles.stamp_paper
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-logo-Twitter",
                         className: styles.stamp_logo
                       })
                     ]
                   }),
                 }),
                 /*#__PURE__*/ _jsx(Link, {
+                  key: "instagram-stamp",
                   href: "https://instagram.com/GuiHachez",
                   children: /*#__PURE__*/ _jsx(Image, {
                     as: "a",
@@ -525,12 +552,15 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     transformTemplate: transformTemplate,
                     children: [
                       _jsx(motion.div, {
+                        key: "inner-shadow-Instagram",
                         className: styles.stamp_inner_shadow
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-paper-Instagram",
                         className: styles.stamp_paper
                       }),
                       _jsx(motion.div, {
+                        key: "stamp-logo-Instagram",
                         className: styles.stamp_logo
                       })
                     ]

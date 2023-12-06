@@ -1,0 +1,246 @@
+.frame {
+    --controls-margin: 5vh;
+    --computed-width: calc(max(12vh, 96px) * (395/96));
+
+    position: sticky;
+    left: var(--controls-margin);
+    top: 100%;
+    transform: translateX(calc(-1 * var(--controls-margin) - var(--computed-width))) translateY(calc(-1 * var(--controls-margin)));
+    
+    border-radius: 8px;
+    background: linear-gradient(-93deg, rgba(0, 0, 0, 0.05), transparent), linear-gradient(#EDE7D9, #EDE7D9);
+
+    height: 12vh;
+    width: var(--computed-width);
+    min-height: 96px;
+    max-width: calc(100vw - 10vh);
+    
+    display: flex;
+    overflow: hidden;
+    pointer-events: all !important;
+
+    transition: transform .3s ease-in-out, width .3s ease-in-out;
+}
+
+.frame.active {
+    transform: translateY(calc(-1 * var(--controls-margin))) !important;
+}
+
+.frame:focus {
+    outline: 0;
+}
+
+.frame.hovered {
+    width: calc(100vw - 2 * var(--controls-margin));
+}
+
+.frame::before {
+    content: "";
+    display: block;
+    min-width: calc(0.1315 * var(--computed-width));
+    height: 100%;
+    background: linear-gradient(to right,
+            #C6A248 25%,
+            #BC7450 25% 50%,
+            #A8543F 50% 75%,
+            #AB3C3C 75%
+    );
+}
+
+.frame * {
+    text-decoration: none !important;
+}
+
+.frame svg {
+    width: 100%;
+    height: 100%;
+}
+
+.frame .content {
+    display: flex;
+    position: relative;
+    width: calc(100% - 0.1315 * var(--computed-width));
+    align-items: center;
+}
+
+.content *:not(.playButtonBar) {
+    transition: all 0.3s ease-in;
+}
+
+.content .text_section {
+    height: 92%;
+    width: auto;
+    min-width: 26.33vh;
+    flex-grow: 1;
+    flex-basis: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0% calc(0.075 * var(--computed-width));
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+}
+
+.frame.hovered .text_section {
+    flex-grow: 1;
+}
+
+.text_section span {
+    font-family: var(--font-family, Inter, Inter Placeholder, sans-serif);
+    color: black;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    text-overflow: " …";
+}
+
+.text_section .episode_number {
+    --font-family: "Radwave Demo";
+    height: fit-content;
+    line-height: calc(0.10 * 12vh);
+    font-size: 1.2cqh;
+}
+
+.text_section .guest_name {
+    --font-family: "Oswald";
+    height: auto;
+    min-height: 36%;
+    font-size: 2.5cqh;
+    
+    white-space: nowrap;
+    line-height: calc(0.36 * 12vh);
+}
+
+.frame.hovered .text_section .guest_name {
+    white-space: unset;
+    line-height: calc(0.27 * 12vh);
+}
+
+.content .progress_bar_section {
+    flex-grow: 0;
+    width: 0px;
+    min-height: 10px;
+    height: fit-content;
+    display: block;
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    transform-origin: right;
+    pointer-events: none;
+}
+
+.frame.hovered .progress_bar_section {
+    width: auto;
+    flex-grow: 5;
+    transform-origin: left;
+    opacity: 1;
+    transition: all 0.2s ease-in;
+
+    height: 92%;
+    display: grid;
+    align-items: center;
+
+    pointer-events: unset;
+}
+
+.content .progress_bar_section > *:first-child {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+}
+
+.content .progress_bar_section .media_timestamp {
+    position: absolute;
+    bottom: 12.5%;
+}
+
+.content .progress_bar_section .media_duration {
+    position: absolute;
+    bottom: 12.5%;
+    right: 0;
+}
+
+.progress_bar_section > span {
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
+}
+
+.frame.hovered .progress_bar_section > span {
+    opacity: 1;
+}
+
+.progress_bar_section .media_duration, .progress_bar_section .media_timestamp {
+    font-family: 'Oswald', sans-serif;
+    color: #2d2c29;
+}
+
+.content .separator {
+    height: 66.666%;
+    width: 2px;
+    flex-grow: 0;
+    background-color: black;
+}
+
+.frame.hovered .separator {
+    margin-left: calc(0.075 * var(--computed-width));
+}
+
+.content .end_section {
+    height: 100%;
+    width: calc(0.18 * var(--computed-width));
+    flex-grow: 0;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.end_section .playButton {
+    height: 21.76%;
+    width: auto;
+    aspect-ratio: 0.76;
+    cursor: pointer;
+}
+
+svg.playButton_svg {
+    overflow: visible;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1;
+}
+
+.playButton_svg.playing {
+
+}
+
+.playButton_svg.paused {
+
+}
+
+.playButtonBar {
+    transition-property: transform stroke-width;
+    transition-duration: 0.3s;
+    transform-origin: center;
+    stroke: black;
+    stroke-width: 10%;
+}
+
+.playButtonBar_left {
+
+}
+
+.playButtonBar_bottom, .playButtonBar_top {
+    transform-origin: 50%;
+}
+
+.playing .playButtonBar {
+    stroke-width: 15%;
+}
+
+.playing .playButtonBar_bottom {
+    transform: scaleY(0.58)  translateY(15%) translateX(-10%) rotate(-55.5deg);
+}
+
+.playing .playButtonBar_top {
+    transform: scaleY(0.58)  translateY(-15%) translateX(-10%) rotate(55.5deg);
+}

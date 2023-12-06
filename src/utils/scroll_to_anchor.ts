@@ -26,9 +26,15 @@ function ScrollToAnchor(props: { move: (x: number) => void }) {
         }
 
         if ("requestIdleCallback" in window) {
-            requestIdleCallback(action);
+            const id = requestIdleCallback(action);
+            return () => {
+                cancelIdleCallback(id);
+            }
         } else {
-            setTimeout(action, 450);
+            const id = setTimeout(action, 450);
+            return () => {
+                clearTimeout(id);
+            }
         }
     }, [asPath, move]);
 

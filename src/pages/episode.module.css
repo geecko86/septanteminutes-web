@@ -31,7 +31,11 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
+  position: absolute !important;
+}
+
+div:has(> .chair) {
+  position: relative;
 }
 
 .chair {
@@ -76,7 +80,7 @@
   overflow: visible;
   z-index: 1;
   border-radius: 8px;
-  position: absolute;
+  position: absolute !important;
   margin: 0;
   top: 50%;
   left: 50%;
@@ -94,12 +98,16 @@
   user-drag: none;
 }
 
+.table div:has(>img[data-nimg="fill"]) {
+  position: relative;
+}
+
 .table p {
   margin: 0 !important;
 }
 
 .table_shadow_box {
-  position: absolute;
+  position: absolute !important;
   width: 100%;
   height: 100%;
   contain: content;
@@ -146,7 +154,7 @@
 }
 
 .player {
-  position: absolute;
+  position: absolute !important;
   top: 8%;
   right: 3%;
   width: 38.9% !important;
@@ -215,7 +223,7 @@
 .albums>div {
   opacity: 1;
   display: none;
-  position: absolute;
+  position: absolute !important;
   aspect-ratio: 1;
   height: auto !important;
   width: 94% !important;
@@ -270,7 +278,7 @@
 }
 
 .postitnotes {
-  position: absolute;
+  position: absolute !important;
   bottom: 3%;
   left: 56%;
   display: flex;
@@ -339,7 +347,7 @@
 .postit img {
   width: 80% !important;
   height: 80% !important;
-  position: absolute;
+  position: absolute !important;
   top: 50% !important;
   left: 60% !important;
   transform: translate(-50%, -50%);

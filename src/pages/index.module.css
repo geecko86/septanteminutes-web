@@ -272,7 +272,7 @@
     width: auto;
     min-width: calc(100%*(7/9));
     padding: calc(85vh / 9);
-    align-items: start;
+    align-items: flex-start;
     flex-flow: column;
     place-content: center flex-start;
     display: flex;

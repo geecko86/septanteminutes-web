@@ -12,8 +12,6 @@ import {
 import Image from "next/image";
 import { useEventListener } from "usehooks-ts";
 
-import { blur } from "../../utils/cdn_img_loader";
-
 const VinylAlbum = ({
   position,
   scrollYProgress,
@@ -77,7 +75,7 @@ const VinylAlbum = ({
   }, [mayAnimate, episodeNumParam, position]);
 
   useEffect(() =>
-    scrollYProgress.onChange((progress) => {
+    scrollYProgress.on("change", (progress) => {
       if (position != 0 && !ignoreScroll) {
         albumRotation.set(progress * (total - 1) * -25);
         albumYOffset.set(progress * (total - 1) * -200);
@@ -114,7 +112,7 @@ const VinylAlbum = ({
     translateX,
     translateY,
     rotateZ,
-    zIndex: position + (type == "shadow" ? 1 : 0),
+    zIndex: (type == "shadow" ? 1 : 0),
     visibility: rotateZ.current == -25 ? "collapse" : "inherit",
   } : {};
 
@@ -137,7 +135,7 @@ const VinylAlbum = ({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         className={styles.album}
-        style={style}
+        style={{ ...style }}
       >
         <Image
           src={image}

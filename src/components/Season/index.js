@@ -12,7 +12,7 @@ const Season = ({
     ...otherProps
 }) => {
     return (
-        <div key={`season_${seasonTitle}`} {...otherProps} className={[styles.season, styles.season_inside].join(" ")} tabIndex={0} style={{ ...style, display: "contents" }}>
+        <div {...otherProps} className={[styles.season, styles.season_inside, otherProps.className || ""].join(" ")} tabIndex={0} style={{ ...style, display: "contents" }}>
             <div className={[styles.season_inside, styles.index_season_frame, className].join(" ")} style={{
                 backgroundColor: "rgb(233, 233, 233)",
                 boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 0px 0px, rgba(0, 0, 0, 0.1) 0px -2px 0px 0px",
@@ -44,7 +44,7 @@ const Season = ({
                                     src="https://framerusercontent.com/images/hxXL2jKccfg84wL6UdchMdB312c.jpg"
                                     style={{
                                         position: "absolute",
-                                        opacity: 0.45,
+                                        opacity: 0.32,
                                         transform: `scaleX(${i % 2 === 0 ? 1 : -1})`
                                     }}
                                 />

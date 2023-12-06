@@ -17,7 +17,7 @@ import Image from "next/image";
 import type {
   GetStaticProps,
   GetStaticPaths,
-} from 'next'
+} from 'next';
 
 import Chair_ from "../framer/Chair-DLhl.js";
 import Notebook_ from "../framer/Notebook-Large-POCp.js";
@@ -28,6 +28,7 @@ import ImagedPostIt_ from "../framer/Imaged-Post-It-1vlf.js";
 import RecordPlayer from "../components/RecordPlayer";
 import VinylAlbum, { ShadowAlbum } from "../components/VinylAlbum";
 import NotebookOverlay from "../components/NotebookOverlay";
+import { usePlayback } from '../utils/PlayerContext';
 import data from "../utils/tempdata.js";
 
 export default function EpisodeTable() {
@@ -40,15 +41,21 @@ export default function EpisodeTable() {
     (v, k) => episodes[(k + 1).toString() as key]
   ));
   const [snapping, setSnapping] = useState(false);
-  const [timeoutId, setTimeoutId] = useState<any>(null);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [selectedPosition, setSelectedPosition] = useState(0);
   const [mayAnimate, setMayAnimate] = useState(false);
+  const [hasClickedNotebook, setHasClickedNotebook] = useState(false);
+  const [hasClickedPlay, setHasClickedPlay] = useState(false);
+  const [idleAnimationTimeoutId, setIdleAnimationTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
 
   const episodePage = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
   const shadows = useRef<HTMLDivElement>(null);
-  const hasClickedNotebookRef = useRef(false);
-  const hasClickedPlayRef = useRef(false);
+  const idleAnimationTimeoutIdRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  const hasClickedNotebookRef = useRef(hasClickedNotebook);
+  const hasClickedPlayRef = useRef(hasClickedPlay);
+  const playbackMP3Ref = useRef("");
+  const isPlayingRef = useRef(false);
 
   const [episodeNumParam, setEpisodeNumParam] = useState(-1);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
@@ -72,43 +79,73 @@ export default function EpisodeTable() {
     [scrollYProgress, vinyls.length]
   );
 
+  const { setPlaying, isPlaying, playbackMP3, setPlaybackMP3, playbackTitle, setPlaybackTitle, setPlaybackNum } = usePlayback();
+
+  isPlayingRef.current = isPlaying;
+  playbackMP3Ref.current = playbackMP3;
+
+  const doNotebookIdleAnimation = () => {
+    const notebookElement = document.getElementsByClassName(styles.notebook)[0];
+    
+    if (hasClickedNotebookRef.current || !notebookElement) return;
+
+    const onFinished = () => {
+      if (!hasClickedNotebookRef.current) {
+        clearTimeout(idleAnimationTimeoutId);
+        const id = setTimeout(doNotebookIdleAnimation, 8500);
+        setIdleAnimationTimeoutId(id);
+      }
+    };
+
+    if (!notebookElement?.matches(":hover")) {
+      const notebookControls = animate([
+        [`.${styles.notebook}`, { rotate: -6 }, { ease: "easeIn", duration: 0.2, at: "3" }],
+        [`.${styles.notebook}`, { rotate: 6 }, { ease: "easeInOut", duration: 0.2 }],
+        [`.${styles.notebook}`, { rotate: 0 }, { ease: "easeOut", duration: 0.4 }]
+      ]).then(onFinished);
+    } else onFinished();
+  };
+
+  const doIdlePlayButtonAnimation = () => {
+    if (hasClickedPlayRef.current || playbackMP3Ref.current) return;
+
+    animate([
+        [`.${styles.playButton}`, { opacity: 0.8 }, { ease: "easeOut", duration: 1 }],
+        [`.${styles.playButton}`, { opacity: 0 }, { ease: "easeIn", duration: 0.5 }]
+    ]).then(() => {
+      if (!hasClickedPlayRef.current && !playbackMP3Ref.current) {
+        clearTimeout(idleAnimationTimeoutIdRef.current);
+        const id = setTimeout(doIdlePlayButtonAnimation, 8500);
+        setIdleAnimationTimeoutId(id);
+      }
+    });
+  };
+
   useEffect(() => {
-    const doNotebookIdleAnimation = () => {
-      if ((hasClickedNotebookRef.current)) return;
+    playbackMP3Ref.current = playbackMP3;
+    if (!playbackMP3) return;
+    
+    console.log("prepping notebook idleAnimation");
+    clearTimeout(idleAnimationTimeoutId);
+    const id = setTimeout(doNotebookIdleAnimation, 8500);
+    setIdleAnimationTimeoutId(id);
 
-      const onFinished = () => {
-        if (!hasClickedNotebookRef.current) setTimeout(doNotebookIdleAnimation, 8500);
-      };
-      
-      if (!document.getElementsByClassName(styles.notebook)[0].matches(":hover")) {
-        const notebookControls = animate([
-          [`.${styles.notebook}`, { rotate: -6 }, { ease: "easeIn", duration: 0.2, at: "3" }],
-          [`.${styles.notebook}`, { rotate: 6 }, { ease: "easeInOut", duration: 0.2 }],
-          [`.${styles.notebook}`, { rotate: 0 }, { ease: "easeOut", duration: 0.4 }]
-        ]);
-        notebookControls.then(onFinished);
-      } else onFinished();
-    };
-    if (!hasClickedNotebookRef.current) {
-      setTimeout(doNotebookIdleAnimation, 8500);
+    return () => {
+      clearTimeout(id);
+      clearTimeout(idleAnimationTimeoutIdRef.current);
     }
-    const doIdlePlayButtonAnimation = () => {
-      if ((hasClickedPlayRef.current)) return;
+  }, [playbackMP3]);
 
-      const playButtonControls = animate([
-          [`.${styles.playButton}`, { opacity: 0.8 }, { ease: "easeOut", duration: 1 }],
-          [`.${styles.playButton}`, { opacity: 0 }, { ease: "easeIn", duration: 0.5 }]
-      ]);
-      playButtonControls.then(() => {
-        if (!(hasClickedPlayRef.current)) setTimeout(doIdlePlayButtonAnimation, 8500);
-      });
+  useEffect(() => {
+    if (!hasClickedPlayRef.current && !isPlayingRef.current) { // if has never clicked Play Button and is not currently playing
+      clearTimeout(idleAnimationTimeoutId);
+      const id = setTimeout(doIdlePlayButtonAnimation, 5500);
+      setIdleAnimationTimeoutId(id);
     };
-    if (!hasClickedPlayRef.current) { // if has never clicked Play Button and is not currently playing
-      setTimeout(doIdlePlayButtonAnimation, 5500);
-    };
-    // TODO: local storage
-    // hasClickedNotebookRef.current = hasClickedNotebook;
-    // hasClickedPlayRef.current = hasClickedPlay;
+
+    return () => {
+      clearTimeout(idleAnimationTimeoutIdRef.current);
+    }
   }, [vinyls.length]);
 
   useEffect(() => {
@@ -119,6 +156,7 @@ export default function EpisodeTable() {
 
   useEffect(() => {
     const element = episodePage.current;
+    let id = 0;
     if (element) {
       createScrollSnap(
         element as HTMLDivElement,
@@ -135,24 +173,29 @@ export default function EpisodeTable() {
         () => {
           setSnapping(false);
           if (funqueue.length) {
-            if (typeof window != "undefined" && window.requestIdleCallback) window.requestIdleCallback((funqueue.shift() as () => void))
+            if (typeof window != "undefined" && window.requestIdleCallback) id = window.requestIdleCallback((funqueue.shift() as () => void))
           }
           const currentPosition = getCurrentPosition();
           const currentEpisode = vinyls.length - currentPosition - 1;
-          // console.log(
-          //   `Selected child #${currentPosition}`,
-          //   `episode #${currentEpisode}`
-          // );
           setSelectedPosition(currentPosition);
           setSelectedEpisode(currentEpisode);
-          const newUrl = `${window.location.origin}/${currentEpisode + 1
-            }`;
+          const newUrl = `${window.location.origin}/${currentEpisode + 1}`;
           replaceState({ path: newUrl }, "", newUrl);
         }
       ).bind();
       mainRef.current?.focus();
+
+      return () => {
+        if (id) cancelIdleCallback(id);
+      }
     }
   }, [episodePage, getCurrentPosition, vinyls.length, funqueue]);
+
+  useEffect(() => {
+    hasClickedNotebookRef.current = hasClickedNotebook;
+    hasClickedPlayRef.current = hasClickedPlay;
+    idleAnimationTimeoutIdRef.current = idleAnimationTimeoutId;
+  }, [hasClickedNotebook, hasClickedPlay, hasClickedNotebookRef, hasClickedNotebookRef, idleAnimationTimeoutId, idleAnimationTimeoutIdRef]);
 
   const scroll = useCallback((node: HTMLDivElement | null) => {
     if (node !== null) {
@@ -176,16 +219,16 @@ export default function EpisodeTable() {
   useEventListener("resize", () => {
     if (timeoutId) clearTimeout(timeoutId);
     const newId = setTimeout(() => {
-      const destination =
-        selectedPosition * (episodePage.current?.clientHeight || 0);
+      const destination = selectedPosition * (episodePage.current?.clientHeight || 0);
       // console.log("scroll:", selectedPosition, ((episodePage.current)?.clientHeight || 0), destination);
       episodePage.current?.scroll({ top: destination, behavior: "instant" });
     }, 300);
     setTimeoutId(newId);
   });
 
-  const handleArrows = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     let scroll;
+    e.preventDefault();
     switch (e.keyCode) {
       case 38: // up arrow
         if (selectedPosition == 0) return;
@@ -215,12 +258,22 @@ export default function EpisodeTable() {
         }
         else scroll();
         break;
+      case 32: // space key
+        setPlaying(playing => !playing);
+        break;
       case 13: // enter key
-        // TODO
+        playEpisode(selectedEpisode);
+        setHasClickedPlay(true);
         break;
       default:
         break;
     }
+  };
+
+  const playEpisode = (position: number) => {
+    setPlaybackMP3(vinyls[position].mp3);
+    setPlaybackNum(position + 1);
+    setPlaybackTitle(vinyls[selectedEpisode].title);
   };
 
   const Chair: FC<any> = Chair_;
@@ -233,12 +286,12 @@ export default function EpisodeTable() {
     <div ref={episodePage} className={`episode_page`}>
       {cloneElement(notebookOverlayComponent, {})}
       <Head>
-        <title>{`Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}`}</title>
+        <title>{ playbackTitle ? `${ isPlaying ? "▶ " : ""}${playbackTitle}` : `Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}` }</title>
       </Head>
       <motion.div
         className={styles.main}
         ref={mainRef}
-        onKeyDown={(e) => handleArrows(e)}
+        onKeyDown={handleKeyPress}
         tabIndex={0}
       >
         <div className={styles.floor}>
@@ -268,12 +321,16 @@ export default function EpisodeTable() {
             ref={refs.setReference}
             {...referenceProps}
             action={() => {
-              hasClickedNotebookRef.current = true;
+              setHasClickedNotebook(true)
             }}
           />
           <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />
           <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />
-          <RecordPlayer className={styles.player} />
+          <RecordPlayer className={styles.player} playing={isPlaying} onClick={() => {
+            if (playbackMP3) {
+              setPlaying(!isPlaying);
+            }
+          }} />
           <div className={styles.postitnotes}>
             <ImagedPostIt
               className={[styles.postit, styles.home_postit].join(" ")}
@@ -294,8 +351,8 @@ export default function EpisodeTable() {
             />
           </div>
           <motion.div className={styles.albums} onClick={() => {
-            hasClickedPlayRef.current = true;
-            // TODO: playback
+            setHasClickedPlay(true);
+            playEpisode(selectedEpisode);
           }}>
             {router.query.episodeNum && vinyls.map((episode, index) => (
               <VinylAlbum

@@ -95,9 +95,10 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    mask-position: center;
-    mask-composite: xor;
     mask-repeat: no-repeat;
+    mask-position: center;
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
 }
 
 .apple_stamp > div.stamp_logo::after {
@@ -178,6 +179,9 @@
 @media (min-width: 1200px) {
 .scrollTarget {
     padding-right: 15px;
+    overflow: -moz-scrollbars-vertical;
+    scrollbar-width: unset !important;
+    scrollbar-color: rgba(107, 86, 61, 0.3) #C2D2E4;
 }
 
 .scrollTarget::-webkit-scrollbar {

@@ -104,6 +104,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function Chair(props, ref) {
           alt: "",
           fit: "fit",
           fill: true,
+          priority: true,
           loading: "eager",
           sizes: "(max-width: 1200px) 40.5vmax,(min-width: 1201px) 60vw, 60vw",
           ...toResponsiveImage(SVXX2h40W),
