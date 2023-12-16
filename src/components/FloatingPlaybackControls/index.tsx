@@ -30,7 +30,7 @@ const Controls = () => {
     const [hoverTimeoutId, setHoverTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
     const [progress, setProgress] = useState(0.0);
 
-    const { playbackMP3: mp3, audio: audio, playbackNum: num, playbackTitle: title, setPlaying, isPlaying } = usePlayback();
+    const { playbackMP3: mp3, audio: audio, playbackNum: num, playbackTitle: title, setPlaying, isPlaying, status, setStatus } = usePlayback();
 
     const active = mp3 && num && title;
 
@@ -55,18 +55,18 @@ const Controls = () => {
     }, [audio, audio?.paused]);
 
     let formattedProgress = "", formattedDuration = "";
-    if (audio && progress) {
-        formattedProgress = formatTime(progress);
+    if (audio?.duration) {
+        formattedProgress = formatTime(progress || 0);
         formattedDuration = formatTime(audio.duration);
     }
 
     return (
-        <div className={[styles.frame, active ? styles.active : styles.hidden, hovered && (audio?.readyState || 0) >= 3  ? styles.hovered : ""].join(" ")} tabIndex={0} onKeyDown={handleKeyPress}
+        <div className={[styles.frame, active ? styles.active : styles.hidden, hovered && status >= 3  ? styles.hovered : ""].join(" ")} tabIndex={0} onKeyDown={handleKeyPress}
             onMouseLeave={() => {
                 if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                 setHoverTimeoutId(setTimeout(() => {
                     setHovered(false)
-                }, 2000));
+                }, 600));
             }}
         >
             <div className={styles.content}>
@@ -74,7 +74,6 @@ const Controls = () => {
                     setHovered(isPlaying);
                     if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                 }}>
-                        <div style={{minHeight: "26%"}} />
                         <span className={styles.episode_number}>{`episode ${num}`}</span>
                         <span className={styles.guest_name}>{title.split(/\s(-|–)\s?/g)[0].trim()}</span>
                 </Link>
@@ -106,7 +105,7 @@ const Controls = () => {
                 <div className={styles.separator} style={{ imageRendering: "pixelated", fill: "black", opacity: 1 }} />
                 <div className={styles.end_section}>
                     {
-                    (audio?.readyState || 0) < 3 ? (<MaterialSpinningLoader />) :
+                    status < 3 ? (<MaterialSpinningLoader />) :
                         (<div className={styles.playButton} style={{ imageRendering: "pixelated" }}
                             onClick={() => {
                                 setPlaying((playing) => !playing);

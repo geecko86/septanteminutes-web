@@ -18,6 +18,7 @@ import NoteBookOpen from "../../framer/NoteBook-Open-NHDl.js";
 
 const NotebookOverlay = ({ title = "", subtitle = "", desc = "" }) => {
   const [descVisible, setdescVisible] = useState(false);
+  const [ready, setReady] = useState(false);
 
   const toggleOverlay = (open) => {
     if (open) {
@@ -64,9 +65,10 @@ const NotebookOverlay = ({ title = "", subtitle = "", desc = "" }) => {
               animate(descVisible ? enterAnim : exitAnim, {
                 duration: descVisible ? 0.4 : 0.4,
               });
+              if (!descVisible) setReady(false);
             }}
             onAnimationComplete={() => {
-              // if (!descVisible) setFloatingNode(false);
+              if (descVisible) setReady(true);
             }}
             {...getFloatingProps()}
           >
@@ -88,6 +90,7 @@ const NotebookOverlay = ({ title = "", subtitle = "", desc = "" }) => {
                 title={title}
                 subtitle={subtitle}
                 text={desc}
+                ready={ready}
                 onClick={() => {}}
               />
             </FloatingOverlay>

@@ -1,0 +1,107 @@
+:root {
+    --tableMinHeight: 390px;
+    --tableMinWidth: 790px;
+}
+
+html,
+* {
+    /* Hide scrollbar (firefox) */
+    scrollbar-width: none;
+    /* remove highlight on click (mobile) */
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+}
+
+html *::-webkit-scrollbar {
+    display: none;
+}
+
+*:not(div[role="dialog"] *)::-moz-selection {
+    background-color: transparent;
+    color: #000;
+}
+
+*:not(div[role="dialog"] *)::selection {
+    background-color: transparent;
+    color: #000;
+}
+
+* {
+    /* backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important; */
+    scroll-behavior: auto;
+    overscroll-behavior-y: none;
+}
+
+.transition_loader {
+    pointer-events: initial !important;
+    background-color: white !important;
+}
+
+#globalLoader, .transition_loader {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+
+    position: sticky;
+    top: 0;
+    bottom: 0;
+
+    transition: opacity 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
+#globalLoader > div {
+    place-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54%;
+    height: 54%;
+}
+
+.gone {
+    opacity: 0 !important;
+    transition: opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
+.gone > * {
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slide-top 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.episode_page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1200px) and (orientation: landscape) {}
+
+@-webkit-keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+    }
+
+    100% {
+        -webkit-transform: translateY(-100vh);
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100vh);
+    }
+}

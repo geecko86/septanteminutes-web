@@ -54,11 +54,12 @@ const Transition = ({ value, children }) => {
     children: children,
   });
 };
-const getProps = ({ height, id, image, link, separate, logo, title, width, ...props }) => {
+const getProps = ({ height, id, image, link, onClick, separate, logo, title, width, ...props }) => {
   var ref, ref1, ref2;
   return {
     ...props,
     link: link,
+    onClick: onClick,
     separate: separate,
     dkre4FA5N:
       (ref = title !== null && title !== void 0 ? title : props.dkre4FA5N) !==
@@ -99,6 +100,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
     dkre4FA5N,
     fKpdeXn5p,
     link,
+    onClick,
     separate,
     ...restProps
   } = getProps(props);
@@ -150,6 +152,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
             ),
             children: _jsx(Link, {
               href: link,
+              onClick: onClick,
               style: { display: "contents" },
               target: separate ? "_blank" : "",
             children: /*#__PURE__*/ _jsxs(motion.div, {

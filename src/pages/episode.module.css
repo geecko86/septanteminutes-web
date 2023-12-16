@@ -425,7 +425,7 @@ div:has(> .chair) {
 
   .table {
     aspect-ratio: 0.4933;
-    width: auto;
+    width: auto !important;
     height: 85vmax;
     min-height: unset;
     min-width: unset;
@@ -585,7 +585,7 @@ div:has(> .chair) {
   
 }
 
-@media (max-aspect-ratio: 4/3) and (min-aspect-ratio: 9.1/16) {
+@media (max-aspect-ratio: 4/3) and (min-aspect-ratio: 9.1/16) and (min-width: 875px) {
   .table {
     width: 94vw;
   }

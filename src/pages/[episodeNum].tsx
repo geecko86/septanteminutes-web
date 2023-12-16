@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { useRouter } from "next/router";
 import { replaceState } from "history-throttled";
-import { motion, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls } from "framer-motion";
+import { motion, useScroll, animate, useMotionValueEvent } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
 import Head from "next/head";
@@ -31,7 +31,16 @@ import NotebookOverlay from "../components/NotebookOverlay";
 import { usePlayback } from '../utils/PlayerContext';
 import data from "../utils/tempdata.js";
 
-export default function EpisodeTable() {
+const variants = {
+  hidden: { opacity: 0 },
+  enter: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+export default function EpisodeTable(props: {
+  onReady: (ready: boolean) => void,
+  ready: boolean
+}) {
   const { episodes } = data;
   const router = useRouter();
   const [funqueue, _] = useState([] as (() => void)[]);
@@ -40,6 +49,7 @@ export default function EpisodeTable() {
     { length: Object.keys(episodes).length },
     (v, k) => episodes[(k + 1).toString() as key]
   ));
+  const [ready, setReady] = useState(false);
   const [snapping, setSnapping] = useState(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [selectedPosition, setSelectedPosition] = useState(0);
@@ -79,7 +89,7 @@ export default function EpisodeTable() {
     [scrollYProgress, vinyls.length]
   );
 
-  const { setPlaying, isPlaying, playbackMP3, setPlaybackMP3, playbackTitle, setPlaybackTitle, setPlaybackNum } = usePlayback();
+  const { setPlaying, isPlaying, playbackMP3, setPlaybackMP3, playbackTitle, setPlaybackTitle, setPlaybackNum, autoplay, status } = usePlayback();
 
   isPlayingRef.current = isPlaying;
   playbackMP3Ref.current = playbackMP3;
@@ -121,9 +131,22 @@ export default function EpisodeTable() {
     });
   };
 
+  const scrollCallback = () => {
+    setSnapping(false);
+    if (funqueue.length) {
+      if (typeof window != "undefined" && window.requestIdleCallback) window.requestIdleCallback((funqueue.shift() as () => void))
+    }
+    const currentPosition = getCurrentPosition();
+    const currentEpisode = vinyls.length - currentPosition - 1;
+    setSelectedPosition(currentPosition);
+    setSelectedEpisode(currentEpisode);
+    const newUrl = `${window.location.origin}/${currentEpisode + 1}`;
+    replaceState({ path: newUrl }, "", newUrl);
+  };
+
   useEffect(() => {
     playbackMP3Ref.current = playbackMP3;
-    if (!playbackMP3) return;
+    if (!playbackMP3 || !props.ready) return;
     
     console.log("prepping notebook idleAnimation");
     clearTimeout(idleAnimationTimeoutId);
@@ -134,9 +157,11 @@ export default function EpisodeTable() {
       clearTimeout(id);
       clearTimeout(idleAnimationTimeoutIdRef.current);
     }
-  }, [playbackMP3]);
+  }, [playbackMP3, props.ready]);
 
   useEffect(() => {
+    if (!props.ready) return;
+
     if (!hasClickedPlayRef.current && !isPlayingRef.current) { // if has never clicked Play Button and is not currently playing
       clearTimeout(idleAnimationTimeoutId);
       const id = setTimeout(doIdlePlayButtonAnimation, 5500);
@@ -146,7 +171,7 @@ export default function EpisodeTable() {
     return () => {
       clearTimeout(idleAnimationTimeoutIdRef.current);
     }
-  }, [vinyls.length]);
+  }, [vinyls.length, props.ready]);
 
   useEffect(() => {
     const selectedEp = router.query.episodeNum ? Math.min(Number(router.query.episodeNum) - 1, vinyls.length - 1) : vinyls.length - 1;
@@ -156,9 +181,8 @@ export default function EpisodeTable() {
 
   useEffect(() => {
     const element = episodePage.current;
-    let id = 0;
     if (element) {
-      createScrollSnap(
+      const { bind, unbind } = createScrollSnap(
         element as HTMLDivElement,
         {
           snapDestinationY: "100vh",
@@ -168,26 +192,14 @@ export default function EpisodeTable() {
             setSnapping(true);
             return (--t) * t * t + 1;
           },
-          threshold: 0.4,
+          threshold: 0.49,
         },
-        () => {
-          setSnapping(false);
-          if (funqueue.length) {
-            if (typeof window != "undefined" && window.requestIdleCallback) id = window.requestIdleCallback((funqueue.shift() as () => void))
-          }
-          const currentPosition = getCurrentPosition();
-          const currentEpisode = vinyls.length - currentPosition - 1;
-          setSelectedPosition(currentPosition);
-          setSelectedEpisode(currentEpisode);
-          const newUrl = `${window.location.origin}/${currentEpisode + 1}`;
-          replaceState({ path: newUrl }, "", newUrl);
-        }
-      ).bind();
+        scrollCallback
+      );
+      bind();
       mainRef.current?.focus();
 
-      return () => {
-        if (id) cancelIdleCallback(id);
-      }
+      return unbind
     }
   }, [episodePage, getCurrentPosition, vinyls.length, funqueue]);
 
@@ -195,7 +207,7 @@ export default function EpisodeTable() {
     hasClickedNotebookRef.current = hasClickedNotebook;
     hasClickedPlayRef.current = hasClickedPlay;
     idleAnimationTimeoutIdRef.current = idleAnimationTimeoutId;
-  }, [hasClickedNotebook, hasClickedPlay, hasClickedNotebookRef, hasClickedNotebookRef, idleAnimationTimeoutId, idleAnimationTimeoutIdRef]);
+  }, [hasClickedNotebook, hasClickedPlay, hasClickedNotebookRef, idleAnimationTimeoutId, idleAnimationTimeoutIdRef]);
 
   const scroll = useCallback((node: HTMLDivElement | null) => {
     if (node !== null) {
@@ -228,15 +240,16 @@ export default function EpisodeTable() {
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     let scroll;
-    e.preventDefault();
     switch (e.keyCode) {
       case 38: // up arrow
         if (selectedPosition == 0) return;
-        scroll = function () {
-          episodePage.current?.scrollBy({
-            top: (episodePage.current?.clientHeight || 0) * -0.97,
-            behavior: "instant",
+        scroll = () => {
+          const el = episodePage.current?.children[selectedPosition];
+            episodePage.current?.scrollTo({
+            top: (el as HTMLElement)?.offsetTop,
+            behavior: "instant"
           });
+          requestIdleCallback(scrollCallback);
         };
         if (snapping) {
           console.log("STUCK!");
@@ -246,11 +259,13 @@ export default function EpisodeTable() {
         break;
       case 40: // down arrow
         if (selectedPosition == vinyls.length - 1) return;
-        scroll = function () {
-          episodePage.current?.scrollBy({
-            top: (episodePage.current?.clientHeight || 0) * 0.85,
-            behavior: "instant",
+        scroll = () => {
+          const el = episodePage.current?.children[selectedPosition + 1 + 1];
+          episodePage.current?.scrollTo({
+            top: (el as HTMLElement)?.offsetTop,
+            behavior: "instant"
           });
+          requestIdleCallback(scrollCallback);
         };
         if (snapping) {
           console.log("STUCK!");
@@ -266,8 +281,9 @@ export default function EpisodeTable() {
         setHasClickedPlay(true);
         break;
       default:
-        break;
+        return;
     }
+    e.preventDefault();
   };
 
   const playEpisode = (position: number) => {
@@ -283,112 +299,131 @@ export default function EpisodeTable() {
   const ImagedPostIt: FC<any> = ImagedPostIt_;
 
   return (
-    <div ref={episodePage} className={`episode_page`}>
-      {cloneElement(notebookOverlayComponent, {})}
-      <Head>
-        <title>{ playbackTitle ? `${ isPlaying ? "▶ " : ""}${playbackTitle}` : `Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}` }</title>
-      </Head>
-      <motion.div
-        className={styles.main}
-        ref={mainRef}
-        onKeyDown={handleKeyPress}
-        tabIndex={0}
-      >
-        <div className={styles.floor}>
-          <Image alt="" loading="eager" src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{ objectFit: "cover" }} fill />
-          <Chair className={styles.chair} />
-          <div className={styles.invisiblefill} />
-        </div>
-        <div className={styles.table}>
-          <div className={styles.table_shadow_box}>
-            <motion.div className={styles.albums} ref={shadows}>
-              {vinyls.map((_, index) => (
-                <ShadowAlbum
+    <motion.div
+            key="transition_loader"
+            initial="hidden"
+            animate={ready ? "enter" : "hidden"}
+            exit="exit"
+            variants={variants}
+            transition={{ type: 'linear' }}
+            className="transition_loader" >
+      <div ref={episodePage} className={`episode_page`}>
+        {cloneElement(notebookOverlayComponent, {})}
+        <Head>
+          <title>{ playbackTitle ? `${ isPlaying ? "▶ " : ""}${playbackTitle}` : `Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}` }</title>
+        </Head>
+        <motion.div
+          className={styles.main}
+          ref={mainRef}
+          onKeyDown={handleKeyPress}
+          tabIndex={0}
+        >
+          <div className={styles.floor}>
+            <Image alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{ objectFit: "cover" }} fill />
+            <Chair className={styles.chair} />
+            <div className={styles.invisiblefill} />
+          </div>
+          <div className={styles.table}>
+            <div className={styles.table_shadow_box}>
+              <motion.div className={styles.albums} ref={shadows}>
+                {vinyls.map((_, index) => (
+                  <ShadowAlbum
+                    key={index}
+                    image=""
+                    total={vinyls.length}
+                    position={index}
+                    scrollYProgress={scrollYProgress}
+                    mayAnimate={mayAnimate}
+                  />
+                ))}
+              </motion.div>
+            </div>
+            <Headphones className={styles.headphones} />
+            <Pen className={styles.pen} />
+            <Notebook
+              className={styles.notebook}
+              ref={refs.setReference}
+              {...referenceProps}
+              action={() => {
+                setHasClickedNotebook(true)
+              }}
+            />
+            <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />
+            <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />
+            <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
+              if (playbackMP3) {
+                setPlaying(!isPlaying);
+              }
+            }} />
+            <div className={styles.postitnotes}>
+              <ImagedPostIt
+                className={[styles.postit, styles.home_postit].join(" ")}
+                title={"Accueil"}
+                link={`/#${selectedEpisode + 1}`}
+                onClick={() => {
+                  setReady(false)
+                }}
+              />
+              <ImagedPostIt
+                className={[styles.postit, styles.download_postit].join(" ")}
+                title={"Télécharger"}
+                link={vinyls[selectedEpisode]["mp3"]}
+                separate={true}
+              />
+              <ImagedPostIt
+                className={[styles.postit, styles.contact_postit].join(" ")}
+                title={"Contact"}
+                link="mailto:contact@septanteminutes.be"
+                separate={true}
+              />
+            </div>
+            <motion.div className={styles.albums} onClick={() => {
+              setHasClickedPlay(true);
+              playEpisode(selectedEpisode);
+            }}>
+              {router.query.episodeNum && vinyls.map((episode, index) => (
+                <VinylAlbum
                   key={index}
-                  image=""
+                  image={episode["img"] || ""}
+                  alt={episode["title"]}
                   total={vinyls.length}
                   position={index}
+                  onLoad={() => {
+                    props.onReady(true);
+                    if (index == selectedEpisode) setReady(true);
+                    if (autoplay?.num == episode.num) {
+                      playEpisode(index);
+                    }
+                  }}
+                  episodeNumParam={episodeNumParam}
                   scrollYProgress={scrollYProgress}
                   mayAnimate={mayAnimate}
                 />
               ))}
+              <div className={styles.playButton} style={{opacity: 0}}>
+                <img src="/img/play.svg" alt="Lancer la lecture" role="button" />
+              </div>
             </motion.div>
           </div>
-          <Headphones className={styles.headphones} />
-          <Pen className={styles.pen} />
-          <Notebook
-            className={styles.notebook}
-            ref={refs.setReference}
-            {...referenceProps}
-            action={() => {
-              setHasClickedNotebook(true)
-            }}
-          />
-          <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />
-          <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />
-          <RecordPlayer className={styles.player} playing={isPlaying} onClick={() => {
-            if (playbackMP3) {
-              setPlaying(!isPlaying);
-            }
-          }} />
-          <div className={styles.postitnotes}>
-            <ImagedPostIt
-              className={[styles.postit, styles.home_postit].join(" ")}
-              title={"Accueil"}
-              link={`/#${selectedEpisode + 1}`}
-            />
-            <ImagedPostIt
-              className={[styles.postit, styles.download_postit].join(" ")}
-              title={"Télécharger"}
-              link={vinyls[selectedEpisode]["mp3"]}
-              separate={true}
-            />
-            <ImagedPostIt
-              className={[styles.postit, styles.contact_postit].join(" ")}
-              title={"Contact"}
-              link="mailto:contact@septanteminutes.be"
-              separate={true}
-            />
-          </div>
-          <motion.div className={styles.albums} onClick={() => {
-            setHasClickedPlay(true);
-            playEpisode(selectedEpisode);
-          }}>
-            {router.query.episodeNum && vinyls.map((episode, index) => (
-              <VinylAlbum
-                key={index}
-                image={episode["img"] || ""}
-                alt={episode["title"]}
-                total={vinyls.length}
-                position={index}
-                episodeNumParam={episodeNumParam}
-                scrollYProgress={scrollYProgress}
-                mayAnimate={mayAnimate}
-              />
-            ))}
-            <div className={styles.playButton} style={{opacity: 0}}>
-              <img src="/img/play.svg" alt="Lancer la lecture" role="button" />
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
-      {[...vinyls].reverse().map((v, i) => (
-        <motion.div
-          className={styles.section}
-          key={`${episodeNumParam}_${i}`}
-          ref={i === vinyls.length - (episodeNumParam + 1) ? scroll : null}
-          onViewportEnter={() => {
-            if ((i === vinyls.length - (episodeNumParam + 1) && i != 0) || episodeNumParam == vinyls.length - 1) {
-              setTimeout(() => {
-                setMayAnimate(true);
-              }, 200);
-            }
-          }}
-        >
-          <p>{`${i}__________episode#${v.num}: ${v.title}`}</p>
         </motion.div>
-      ))}
-    </div>
+        {[...vinyls].reverse().map((v, i) => (
+          <motion.div
+            className={styles.section}
+            key={`${episodeNumParam}_${i}`}
+            ref={i === vinyls.length - (episodeNumParam + 1) ? scroll : null}
+            onViewportEnter={() => {
+              if ((i === vinyls.length - (episodeNumParam + 1) && i != 0) || episodeNumParam == vinyls.length - 1) {
+                setTimeout(() => {
+                  setMayAnimate(true);
+                }, 200);
+              }
+            }}
+          >
+            <p>{`${i}__________episode#${v.num}: ${v.title}`}</p>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
   );
 }
 

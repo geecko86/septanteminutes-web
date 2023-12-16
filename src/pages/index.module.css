@@ -47,7 +47,7 @@
     right: 4%;
     width: fit-content;
     height: fit-content;
-    transform: translateY(-50%);
+    transform: translateY(-50%) translateZ(0) !important;
     opacity: 0.75;
 }
 
@@ -71,6 +71,7 @@
 .backwall_paint {
     height: 100%;
     width: 100%;
+    transform: none !important;
     background-color: #D8D8D8;
 }
 
@@ -102,7 +103,7 @@
     height: 96.5%;
     left: 27vh;
     top: 48%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) translateZ(0) !important;
 }
 
 .posters > * {
@@ -153,14 +154,14 @@
 }
 
 .congo {
-    transform: translateX(25%);
+    transform: translateX(25%) translateZ(0) !important;
     aspect-ratio: 2267/1704;
     width: auto;
     height: 67%;
 }
 
 .cavell {
-    transform: translateX(25%);
+    transform: translateX(25%) translateZ(0) !important;
     aspect-ratio: 2267/1704;
     width: auto;
     height: 52%;
@@ -216,7 +217,7 @@
     top: 0;
     opacity: 25%;
     background: linear-gradient(180deg, black 0%, transparent 50%);
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateZ(0) !important;
 }
 
 .ceiling_2 {
@@ -226,7 +227,7 @@
     height: 100%;
     bottom: 88.5%;
     opacity: 25%;
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateZ(0) !important;
 }
 
 .ceiling_3 {
@@ -435,7 +436,7 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 133vh;
-    transform: translateX(90vh);
+    transform: translateX(90vh) translateZ(0) !important;
 
     position: relative;
     width: fit-content;
@@ -448,7 +449,7 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 133vh;
-    transform: translateX(40vh);
+    transform: translateX(40vh) translateZ(0) !important;
 
     position: relative;
     width: fit-content;
@@ -471,7 +472,7 @@
     aspect-ratio: 595/1110;
     height: calc(1110/832 * 100vh) !important;
     width: auto !important;
-    transform: translateY(-12%);
+    transform: translateY(-12%) translateZ(0) !important;
     background-color: #826853;
     padding: 0.1% 0 !important;
     filter: none;
@@ -489,6 +490,10 @@
 .layer {
     position: absolute;
     overflow: hidden;
+}
+
+@supports (-webkit-hyphens:none) {
+    .layer * { -webkit-transform: translateZ(0); }
 }
 
 .layer_0 { /* wall, ceiling, floor */
@@ -661,13 +666,13 @@
 
     .lamps_1_5 { /* ceiling lamps */ 
         gap: 133vvmax;
-        transform: translateX(90vmax);
+        transform: translateX(90vmax) translateZ(0) !important;
         height: 27vmax;
     }
 
     .lamps_2 { /* ceiling lamps front */ 
         gap: 133vmax;
-        transform: translateX(40vmax);
+        transform: translateX(40vmax) translateZ(0) !important;
         height: 85vmax;
         top: -34.5vmax;
     }

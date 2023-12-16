@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useContext, createContext, SetStateAction, useState, useEffect, ReactElement } from "react";
+import type { episode } from "../types/episode";
 
 const PlayerContext = createContext<PlaybackContextData | undefined>(undefined);
 
@@ -9,24 +10,33 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const [playbackMP3, setMP3] = useState("")
     const [playbackTitle, setPlaybackTitle] = useState("")
     const [playbackNum, setPlaybackNum] = useState<number>(0)
+    const [status, setStatus] = useState<number>(0);
+    const [autoPlay, setAutoplay] = useState<episode | undefined>(undefined);
 
     const [audio, setAudio] = useState<undefined | HTMLAudioElement>(undefined);
 
+    const onLoaded = () => {
+        setStatus(audio?.readyState || 0)
+        setPlaying(true);
+    };
+    const onEnded = () => {
+        setMP3("");
+        setPlaybackTitle("");
+        setAudio(undefined);
+    };
+
+    const stop = () => {
+        if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    };
+
     useEffect(() => {
-        if (playbackMP3 && audio?.src !== playbackMP3) {
+        if (playbackMP3) {
             const newAudio = new Audio(playbackMP3);
             newAudio.controls = false;
             newAudio.slot = "media";
-            const onLoaded = () => {
-                setPlaying(true);
-            };
-            const onEnded = () => {
-                setMP3("");
-                setPlaybackTitle("");
-                setAudio(undefined);
-                newAudio.removeEventListener("ended", onEnded);
-                newAudio.removeEventListener("canplay", onLoaded);
-            };
             newAudio.addEventListener("canplay", onLoaded, { passive: true });
             newAudio.addEventListener("ended", onEnded, { passive: true });
             newAudio.addEventListener("error", (ev) => {
@@ -37,10 +47,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
                     console.error(err);
                 }
             }, { passive: true });
-            if (audio) {
-                audio.pause();
-                audio.currentTime = 0;
-            }
+            stop();
             setAudio(newAudio);
 
             return () => {
@@ -54,12 +61,14 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         if (!audio) {
             if (isPlaying) setPlaying(false);
             return;
+        } else {
+            setStatus(audio?.readyState || 0);
         }
 
-        if (isPlaying) {
-            if (audio.readyState >= 2) audio.play();
+        if (isPlaying && audio.readyState >= 2) {
+            audio.play();
         } else audio.pause();
-    }, [isPlaying]);
+    }, [isPlaying, audio?.readyState]);
 
     const playbackData: PlaybackContextData = {
         isPlaying: isPlaying,
@@ -70,6 +79,10 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         setPlaybackTitle: setPlaybackTitle,
         playbackNum: playbackNum,
         setPlaybackNum: setPlaybackNum,
+        status: status,
+        setStatus: setStatus,
+        autoplay: autoPlay,
+        setAutoplay: setAutoplay,
         audio: audio
     };
 
@@ -97,6 +110,10 @@ export type PlaybackContextData = {
     setPlaybackNum: (arg0: SetStateAction<number>) => void,
     playbackTitle: string,
     setPlaybackTitle: (arg0: SetStateAction<string>) => void,
+    status: number,
+    setStatus: (arg0: SetStateAction<number>) => void,
+    autoplay: episode | undefined,
+    setAutoplay: (arg0: SetStateAction<episode | undefined>) => void,
     audio: HTMLAudioElement | undefined
 }
 

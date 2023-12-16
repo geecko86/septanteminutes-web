@@ -7,7 +7,8 @@ class MyDocument extends Document {
     return (
       <Html lang="fr">
         <Head>
-          <link rel="stylesheet" href={"/css/orientation.css"} />
+          <link rel="stylesheet" href={"/css/global.css"} />
+          <link rel="stylesheet" href={"/css/spinner.css"} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -125,8 +126,6 @@ class MyDocument extends Document {
           <link rel='apple-touch-startup-image' href='/img/1242.png' sizes='1242x2208' />
           <link rel='apple-touch-startup-image' href='/img/750.png' sizes='750x1334' />
           <link rel='apple-touch-startup-image' href='/img/640.png' sizes='640x1136' /> */}
-
-          <script type="text/javascript" src="/js/portrait.js" defer />          
         </Head>
         <body>
           <Main />

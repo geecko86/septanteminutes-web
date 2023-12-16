@@ -1,4 +1,4 @@
-  .spinner {
+.spinner {
     -webkit-animation: rotator 1.4s linear infinite;
             animation: rotator 1.4s linear infinite;
             height: 35% !important;

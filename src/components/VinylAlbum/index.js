@@ -16,6 +16,7 @@ const VinylAlbum = ({
   position,
   scrollYProgress,
   image,
+  onLoad,
   total,
   episodeNumParam= -1,
   mayAnimate = false,
@@ -63,6 +64,7 @@ const VinylAlbum = ({
   const [shadowLevel, setShadowLevel] = useState("");
   const [ignoreScroll, setIgnoreScroll] = useState(false);
   const [isMoving, setMoving] = useState(false);
+  const [jump, setJump] = useState(true);
   const [timeoutId, setTimeoutId] = useState(0);
 
   useEffect(() => {
@@ -74,15 +76,20 @@ const VinylAlbum = ({
     }
   }, [mayAnimate, episodeNumParam, position]);
 
-  useEffect(() =>
-    scrollYProgress.on("change", (progress) => {
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
       if (position != 0 && !ignoreScroll) {
+        if (jump) {
+          albumRotation.jump(progress * (total - 1) * -25);
+          albumYOffset.jump(progress * (total - 1) * -200);
+          albumXOffset.jump(progress * (total - 1) * -500);
+          setJump(false);
+          return;
+        }
         albumRotation.set(progress * (total - 1) * -25);
         albumYOffset.set(progress * (total - 1) * -200);
         albumXOffset.set(progress * (total - 1) * -500);
       }
-    })
-  );
+  });
 
   useEventListener("resize", () => {
     setIgnoreScroll(true);
@@ -145,6 +152,7 @@ const VinylAlbum = ({
           sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
           onLoad={() => {
             setLoadedComplete(true);
+            if (!isGone && onLoad) onLoad()
           }}
         />
         <Image

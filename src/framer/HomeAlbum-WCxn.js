@@ -10,6 +10,7 @@ import {
   useVariantState as d,
   withCSS as l,
 } from "framer";
+import { isSafari } from 'react-device-detect';
 import {
   LayoutGroup as p,
   motion as f,
@@ -65,6 +66,7 @@ let h = {
         variant: g,
         l4skPfBuN: w,
         num: num,
+        onReady: onReady,
         guest: guest,
         id: id,
         ...I
@@ -114,8 +116,8 @@ let h = {
                 className: i("boxart", m),
                 initial: false,
                 transition: { type: "spring", stiffness: 100, damping: 15, mass: 1 },
-                animate:{
-                  y: isHovered? "-10%" : 0
+                animate: {
+                  transform: `translateY(${isHovered? "-10%" : "0%"}) ${isSafari ? "translateZ(0)" : ""}`,
                 },
                 children: [
                   r(f.div, {
@@ -136,6 +138,9 @@ let h = {
                         quality: 80,
                         className: "homealbum-img",
                         alt: "",
+                        onLoad: () => {
+                          if (onReady) onReady(true);
+                        },
                         style: {
                           borderBottomLeftRadius: 2,
                           borderBottomRightRadius: 2,

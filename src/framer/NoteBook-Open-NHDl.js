@@ -64,6 +64,7 @@ const getProps = ({
   subtitle,
   text,
   title,
+  ready,
   width,
   ...props
 }) => {
@@ -119,6 +120,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
     layoutId,
     variant,
     I94Rs1RIH,
+    ready,
     HGybZ8uLx,
     RI514VBvw,
     KBBmo6ff1,
@@ -162,6 +164,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
           "data-framer-name": "Variant 1",
           layoutDependency: layoutDependency,
           layoutId: "sFPu3J3Yn",
+          ready: props.ready ? "true" : "false",
           ref: ref,
           style: { ...style },
           children: [

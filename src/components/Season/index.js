@@ -39,7 +39,7 @@ const Season = ({
                             <div key={`season_${seasonTitle}_texture_${i}`} style={{ height: "100%", width: "auto", aspectRatio: 3 / 2, position: "relative" }}>
                                 <Image
                                     alt="" fill={true}
-                                    priority={true} loading="eager"
+                                    priority={true}
                                     className={styles.wall} sizes="85vh"
                                     src="https://framerusercontent.com/images/hxXL2jKccfg84wL6UdchMdB312c.jpg"
                                     style={{
