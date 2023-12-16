@@ -10,7 +10,7 @@ function ScrollToAnchor(props: { move: (x: number) => void }) {
     useEffect(() => {
         if (asPath && asPath.includes("#")) {
             lastHash.current = asPath.split('#')[1];
-        }
+        } else return;
 
         const action = () => {
             const id = `art_${lastHash.current}`;
