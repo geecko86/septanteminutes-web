@@ -17,7 +17,7 @@
     max-width: calc(100vw - 10vh);
     
     display: flex;
-    overflow: hidden;
+    overflow: clip;
     pointer-events: all !important;
 
     transition: transform .3s ease-in-out, width .3s ease-in-out;
@@ -79,7 +79,7 @@
     place-content: center;
     padding: 0% calc(0.075 * var(--computed-width));
     transition: all 0.3s ease-in;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .frame.hovered .text_section {
@@ -89,7 +89,7 @@
 .text_section span {
     font-family: var(--font-family, Inter, Inter Placeholder, sans-serif);
     color: black;
-    overflow: hidden;
+    overflow: clip;
     text-transform: uppercase;
     text-overflow: ellipsis;
     text-overflow: " …";

@@ -23,7 +23,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  contain: paint;
   padding: 0px 0px 0px 0px;
   align-content: center;
   flex-wrap: nowrap;
@@ -221,7 +221,6 @@ div:has(> .chair) {
 }
 
 .albums>div {
-  opacity: 1;
   display: none;
   position: absolute !important;
   aspect-ratio: 1;
@@ -267,7 +266,6 @@ div:has(> .chair) {
 .albums>div:nth-last-child(-1n + 9 of :not([data-visibility="hidden"])) {
   /* eslint-disable */
   display: block !important;
-  opacity: 1;
 }
 
 .albums div > div,

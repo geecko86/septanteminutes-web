@@ -16,7 +16,8 @@ const Season = ({
             <div className={[styles.season_inside, styles.index_season_frame, className].join(" ")} style={{
                 backgroundColor: "rgb(233, 233, 233)",
                 boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 0px 0px, rgba(0, 0, 0, 0.1) 0px -2px 0px 0px",
-                opacity: 1
+                opacity: 1,
+                minWidth: chair ? "inherit" : "unset"
             }}>
                 {chair ?
                     (<div className={styles.chair} data-framer-name="Chair">
@@ -27,7 +28,7 @@ const Season = ({
                         }} />
                     </div>) : null
                 }
-                <div style={{
+                {!!chair && <div style={{
                     height: "100%",
                     width: "100%",
                     position: "absolute",
@@ -51,10 +52,10 @@ const Season = ({
                             </div>
                         ))
                     }
-                </div>
+                </div>}
                 <div data-framer-name="Wall" style={{
                     background: "linear-gradient(rgba(255, 255, 255, 0.3), rgba(190, 189, 189, 0.3))",
-                    aspectRatio: `max(665.17, 8.22 * 17.5 * ${Math.ceil((children?.length || 2) / 2)} + 8.22 * 7 * ${Math.ceil((children?.length || 2) / 2) - 1})/543`
+                    aspectRatio: true ? `max(665.17, 8.22 * 17.5 * ${Math.ceil((children?.length || 2) / 2)} + 8.22 * 7 * ${Math.ceil((children?.length || 2) / 2) - 1})/543` : "unset"
                 }}>
                     <div className={styles.header} key={`season_header_${seasonTitle}`} data-framer-name="Header">
                         <div className={styles.header_logo} data-framer-name="Logo">

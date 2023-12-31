@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 
-import Vinyl from "../../framer/Vinyl-BASE-09DQ";
+import { Vinyl_Base as Vinyl } from "../../framer/ImageWrapper"
 import Needle from "../../framer/Needle_cut-us2p";
 import styles from './Player.module.css';
 

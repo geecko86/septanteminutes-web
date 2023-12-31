@@ -1,27 +1,38 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
-import { replaceState } from "history-throttled";
+
+export const getEpisodeNum = (asPath: string) => {
+    let episodeNum = ''
+    try {
+        if (asPath && asPath.includes("#")) {
+            const split = asPath.split('#');
+            episodeNum = split[1];
+        }
+    } catch(err) {
+    } finally {
+        return episodeNum;
+    }
+}
 
 function ScrollToAnchor(props: { move: (x: number) => void }) {
-    const { asPath } = useRouter();
+    const { asPath, replace } = useRouter();
     const lastHash = useRef('');
     const { move } = props;
 
     useEffect(() => {
-        if (asPath && asPath.includes("#")) {
-            lastHash.current = asPath.split('#')[1];
-        } else return;
+        lastHash.current = getEpisodeNum(asPath);
+        if (!lastHash.current) return;
 
         const action = () => {
             const id = `art_${lastHash.current}`;
 
             if (lastHash.current && document.getElementById(id)) {
                 const element = document.getElementById(id);
-                const { x } = element?.getBoundingClientRect() || { x: 0 };
-                const target = Math.max(x - window.innerWidth / 2, 0);
-                if (target > 0) move(target);
+                const { x, width } = element?.getBoundingClientRect() || { x: 0, width: 0 };
+                const target = Math.floor(Math.max(x - window.innerWidth / 2 + width / 2, 0));
+                if (width > 0 && target > width) move(target);
                 lastHash.current = '';
-                replaceState({ path: "/" }, "", "/");
+                replace("/", undefined, { scroll: false, shallow: true });
             }
         }
 
@@ -31,9 +42,9 @@ function ScrollToAnchor(props: { move: (x: number) => void }) {
                 cancelIdleCallback(id);
             }
         } else {
-            const id = setTimeout(action, 450);
+            const id = requestAnimationFrame(action);
             return () => {
-                clearTimeout(id);
+                cancelAnimationFrame(id);
             }
         }
     }, [asPath, move]);

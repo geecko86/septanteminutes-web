@@ -90,6 +90,9 @@ let h = {
       T = u.useRef(null),
       S = u.useId();
     const [isHovered, setHovered] = u.useState(false);
+    const { ref,
+      ...otherProps
+    } = I;
     return /*#__PURE__*/ e(p, {
       id: null != b ? b : S,
       children: /*#__PURE__*/ e(f.div, {
@@ -105,11 +108,11 @@ let h = {
         children: /*#__PURE__*/ e(y, {
           value: P,
           children: /*#__PURE__*/ r(Link, {
-            ...I,
+            ...otherProps,
             href: `/${num}`,
             id: id,
+            scroll: false,
             className: i("framer-n5ds9d", m),
-            ref: null != a ? a : T,
             style: { ...l },
             children: [
               r(f.div, {
@@ -133,13 +136,14 @@ let h = {
                     }, children: w ? [
                       /*#__PURE__*/ e(Image, {
                         src: w,
+                        ref: null != a ? a : T,
                         fill: true,
                         sizes: "17.5vmin",
                         quality: 80,
                         className: "homealbum-img",
                         alt: "",
                         onLoad: () => {
-                          if (onReady) onReady(true);
+                          if (onReady) onReady();
                         },
                         style: {
                           borderBottomLeftRadius: 2,

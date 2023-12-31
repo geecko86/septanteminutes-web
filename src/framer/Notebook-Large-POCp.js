@@ -200,7 +200,7 @@ const css = [
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
   ".framer-jxdNa .framer-6j6id6 { display: block; }",
   ".framer-jxdNa .framer-vowb3z { height: 307px; position: relative; width: 307px; }",
-  ".framer-jxdNa .framer-1laise1 { height: 32%; left: 28.45%; overflow: hidden; position: absolute; top: 36.6938%; width: 32%; }",
+  ".framer-jxdNa .framer-1laise1 { height: 32%; left: 28.45%; overflow: clip; position: absolute; top: 36.6938%; width: 32%; }",
   ".framer-jxdNa .framer-1xol49o { flex: none; height: auto; left: 8px; position: absolute; top: 50%; white-space: pre; width: auto; }",
   ".framer-jxdNa .framer-v-vowb3z .framer-vowb3z { cursor: pointer; }",
   ".framer-jxdNa.framer-v-vowb3z.hover .framer-vowb3z { aspect-ratio: 1 / 1; height: var(--framer-aspect-ratio-supported, 307px); }",

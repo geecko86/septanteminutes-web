@@ -1,9 +1,9 @@
 import { ReactElement, ReactNode, useEffect, useState } from 'react'
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
-import { motion } from 'framer-motion'
 
 import { PlaybackProvider } from '../utils/PlayerContext'
 import FloatingPlaybackControls from "../components/FloatingPlaybackControls"
@@ -13,8 +13,10 @@ import styles from "./layout.module.css"
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState("");
   const [showSpinner, setShowSpinner] = useState(true);
+
+  const { pathname } = useRouter();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -25,13 +27,13 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         if (!loaded) {
           timeoutId = setTimeout(() => {
             if (loader.className) setShowSpinner(true);
-          }, 600);
+          }, 100);
         } else {
           timeoutId = setTimeout(() => {
             setShowSpinner(false);
           }, 2000);
         }
-        if (timeoutId) return () => {
+        return () => {
           clearTimeout(timeoutId);
         };
       }
@@ -47,8 +49,11 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
       </Head>
       <PlaybackProvider>
-        <AnimatePresence mode="wait" initial={false}>
-          <Component {...pageProps} ready={loaded} onReady={setLoaded} />
+        <AnimatePresence mode="wait">
+          <Component {...pageProps} key={Component.name} ready={loaded === pathname} onReady={() => {
+            setLoaded(pathname);
+          }}
+        />
         </AnimatePresence>
         <div className={styles.overlay} key="overlay">
           <FloatingPlaybackControls />

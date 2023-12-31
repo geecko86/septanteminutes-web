@@ -49,7 +49,7 @@ const Controls = () => {
         if (!audio) return;
 
         progressCallback();
-        
+
         (audio as HTMLAudioElement).addEventListener("timeupdate", progressCallback, { passive: true });
         return () => { (audio as HTMLAudioElement).removeEventListener("timeupdate", progressCallback) }
     }, [audio, audio?.paused]);
@@ -61,7 +61,7 @@ const Controls = () => {
     }
 
     return (
-        <div className={[styles.frame, active ? styles.active : styles.hidden, hovered && status >= 3  ? styles.hovered : ""].join(" ")} tabIndex={0} onKeyDown={handleKeyPress}
+        <div className={[styles.frame, active ? styles.active : styles.hidden, hovered && status >= 3 ? styles.hovered : ""].join(" ")} tabIndex={0} onKeyDown={handleKeyPress}
             onMouseLeave={() => {
                 if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                 setHoverTimeoutId(setTimeout(() => {
@@ -70,12 +70,12 @@ const Controls = () => {
             }}
         >
             <div className={styles.content}>
-                <Link href={`/${num}`} className={styles.text_section} onMouseEnter={() => {
+                <Link scroll={false} href={`/${num}`} className={styles.text_section} onMouseEnter={() => {
                     setHovered(isPlaying);
                     if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                 }}>
-                        <span className={styles.episode_number}>{`episode ${num}`}</span>
-                        <span className={styles.guest_name}>{title.split(/\s(-|–)\s?/g)[0].trim()}</span>
+                    <span className={styles.episode_number}>{`episode ${num}`}</span>
+                    <span className={styles.guest_name}>{title.split(/\s(-|–)\s?/g)[0].trim()}</span>
                 </Link>
                 <div className={styles.progress_bar_section}>
                     {audio && audio.src && audio.duration ? (
@@ -105,17 +105,18 @@ const Controls = () => {
                 <div className={styles.separator} style={{ imageRendering: "pixelated", fill: "black", opacity: 1 }} />
                 <div className={styles.end_section}>
                     {
-                    status < 3 ? (<MaterialSpinningLoader />) :
-                        (<div className={styles.playButton} style={{ imageRendering: "pixelated" }}
-                            onClick={() => {
-                                setPlaying((playing) => !playing);
-                            }}>
-                            <svg className={[styles.playButton_svg, isPlaying ? styles.playing : styles.paused].join(" ")}>
-                                <line x1="0%" y1="93%" x2="0%" y2="7%" className={[styles.playButtonBar, styles.playButtonBar_left].join(" ")} strokeLinecap="round" />
-                                <line x1="1%" y1="6%" x2="65%" y2="50%" className={[styles.playButtonBar, styles.playButtonBar_top].join(" ")} strokeLinecap="round" />
-                                <line x1="1%" y1="94%" x2="65%" y2="50%" className={[styles.playButtonBar, styles.playButtonBar_bottom].join(" ")} strokeLinecap="round" />
-                            </svg>
-                        </div>)
+                        active && (status < 3 ? (<MaterialSpinningLoader />) :
+                            (<div className={styles.playButton} style={{ imageRendering: "pixelated" }}
+                                onClick={() => {
+                                    setPlaying((playing) => !playing);
+                                }}>
+                                <svg className={[styles.playButton_svg, isPlaying ? styles.playing : styles.paused].join(" ")}>
+                                    <line x1="0%" y1="93%" x2="0%" y2="7%" className={[styles.playButtonBar, styles.playButtonBar_left].join(" ")} strokeLinecap="round" />
+                                    <line x1="1%" y1="6%" x2="65%" y2="50%" className={[styles.playButtonBar, styles.playButtonBar_top].join(" ")} strokeLinecap="round" />
+                                    <line x1="1%" y1="94%" x2="65%" y2="50%" className={[styles.playButtonBar, styles.playButtonBar_bottom].join(" ")} strokeLinecap="round" />
+                                </svg>
+                            </div>)
+                        )
                     }
                 </div>
             </div>

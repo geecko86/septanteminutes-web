@@ -22,6 +22,7 @@ const VinylAlbum = ({
   mayAnimate = false,
   alt = "",
   type = "vinyl",
+  onSelect = () => {},
   onMouseEnter = (e) => {},
   onMouseLeave = (e) => {},
 }) => {
@@ -70,7 +71,7 @@ const VinylAlbum = ({
   useEffect(() => {
     if (episodeNumParam == -1) return;
     if (!mayAnimate) {
-      if (position <= episodeNumParam) setHidden(false)
+      if (position <= episodeNumParam) setHidden(false);
     } else {
       setHidden(((position > episodeNumParam || episodeNumParam == -1)));
     }
@@ -113,6 +114,7 @@ const VinylAlbum = ({
         : ""
     );
     setMoving(rotation < 0);
+    if (rotation == -25) onSelect(); // Somehow fixes the issue of resizing the window but how...?
   });
 
   const style = mayAnimate ? {

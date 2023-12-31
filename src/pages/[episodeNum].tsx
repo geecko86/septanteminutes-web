@@ -8,8 +8,7 @@ import React, {
   FC,
 } from "react";
 import { useRouter } from "next/router";
-import { replaceState } from "history-throttled";
-import { motion, useScroll, animate, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, animate, useMotionValueEvent, usePresence } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
 import Head from "next/head";
@@ -19,10 +18,8 @@ import type {
   GetStaticPaths,
 } from 'next';
 
-import Chair_ from "../framer/Chair-DLhl.js";
+import { Pen as Pen_, Chair as Chair_, Headphones as Headphones_ } from "../framer/ImageWrapper";
 import Notebook_ from "../framer/Notebook-Large-POCp.js";
-import Pen_ from "../framer/Pen-y9p1.js";
-import Headphones_ from "../framer/Headphones-p7iC.js";
 import ImagedPostIt_ from "../framer/Imaged-Post-It-1vlf.js";
 
 import RecordPlayer from "../components/RecordPlayer";
@@ -38,8 +35,9 @@ const variants = {
 };
 
 export default function EpisodeTable(props: {
-  onReady: (ready: boolean) => void,
-  ready: boolean
+  onReady: () => void,
+  ready: boolean,
+  cleared: boolean
 }) {
   const { episodes } = data;
   const router = useRouter();
@@ -49,7 +47,6 @@ export default function EpisodeTable(props: {
     { length: Object.keys(episodes).length },
     (v, k) => episodes[(k + 1).toString() as key]
   ));
-  const [ready, setReady] = useState(false);
   const [snapping, setSnapping] = useState(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [selectedPosition, setSelectedPosition] = useState(0);
@@ -57,6 +54,9 @@ export default function EpisodeTable(props: {
   const [hasClickedNotebook, setHasClickedNotebook] = useState(false);
   const [hasClickedPlay, setHasClickedPlay] = useState(false);
   const [idleAnimationTimeoutId, setIdleAnimationTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
+  const [displayedURL, setDisplayedURL] = useState("");
+  const [episodeNumParam, setEpisodeNumParam] = useState(-1);
+  const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
 
   const episodePage = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -67,8 +67,7 @@ export default function EpisodeTable(props: {
   const playbackMP3Ref = useRef("");
   const isPlayingRef = useRef(false);
 
-  const [episodeNumParam, setEpisodeNumParam] = useState(-1);
-  const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
+  const [isPresent, safeToRemove] = usePresence();
 
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
     title: vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[2].trim(),
@@ -141,14 +140,13 @@ export default function EpisodeTable(props: {
     setSelectedPosition(currentPosition);
     setSelectedEpisode(currentEpisode);
     const newUrl = `${window.location.origin}/${currentEpisode + 1}`;
-    replaceState({ path: newUrl }, "", newUrl);
+    setDisplayedURL(newUrl);
   };
 
   useEffect(() => {
     playbackMP3Ref.current = playbackMP3;
     if (!playbackMP3 || !props.ready) return;
-    
-    console.log("prepping notebook idleAnimation");
+
     clearTimeout(idleAnimationTimeoutId);
     const id = setTimeout(doNotebookIdleAnimation, 8500);
     setIdleAnimationTimeoutId(id);
@@ -158,6 +156,18 @@ export default function EpisodeTable(props: {
       clearTimeout(idleAnimationTimeoutIdRef.current);
     }
   }, [playbackMP3, props.ready]);
+
+  useEffect(() => {
+    if (displayedURL) {
+      const id = setTimeout(() => {
+        router.replace(displayedURL, undefined, { scroll: false, shallow: true });
+      }, 600);
+
+      return () => {
+        clearTimeout(id);
+      }
+    }
+  }, [displayedURL]);
 
   useEffect(() => {
     if (!props.ready) return;
@@ -174,9 +184,14 @@ export default function EpisodeTable(props: {
   }, [vinyls.length, props.ready]);
 
   useEffect(() => {
-    const selectedEp = router.query.episodeNum ? Math.min(Number(router.query.episodeNum) - 1, vinyls.length - 1) : vinyls.length - 1;
-    setEpisodeNumParam(selectedEp);
-    setSelectedEpisode(selectedEp);
+    if (router.query.episodeNum) {
+      const selectedEp = Math.min(Number(router.query.episodeNum) - 1, vinyls.length - 1);
+      setEpisodeNumParam(selectedEp);
+      setSelectedEpisode(selectedEp);
+    } else if (!episodeNumParam) {
+      setEpisodeNumParam(vinyls.length - 1);
+      setSelectedEpisode(vinyls.length - 1);
+    }
   }, [router.query.episodeNum, vinyls.length]);
 
   useEffect(() => {
@@ -209,8 +224,8 @@ export default function EpisodeTable(props: {
     idleAnimationTimeoutIdRef.current = idleAnimationTimeoutId;
   }, [hasClickedNotebook, hasClickedPlay, hasClickedNotebookRef, idleAnimationTimeoutId, idleAnimationTimeoutIdRef]);
 
-  const scroll = useCallback((node: HTMLDivElement | null) => {
-    if (node !== null) {
+  const initialSectionScroll = useCallback((node: HTMLDivElement | null) => {
+    if (node && node.offsetTop) {
       episodePage.current?.scrollTo({
         top: node.offsetTop,
         behavior: "instant",
@@ -301,11 +316,12 @@ export default function EpisodeTable(props: {
   return (
     <motion.div
             key="transition_loader"
-            initial="hidden"
-            animate={ready ? "enter" : "hidden"}
-            exit="exit"
-            variants={variants}
-            transition={{ type: 'linear' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: props.ready && !props.cleared && isPresent && router.pathname == "/[episodeNum]" ? 1 : 0 }}
+            transition={{ type: 'linear', duration: 0.25 }}
+            onUpdate={(latest: { opacity: number}) => {
+                if (latest.opacity === 0 && !isPresent && !!safeToRemove) safeToRemove();
+            }}
             className="transition_loader" >
       <div ref={episodePage} className={`episode_page`}>
         {cloneElement(notebookOverlayComponent, {})}
@@ -360,9 +376,6 @@ export default function EpisodeTable(props: {
                 className={[styles.postit, styles.home_postit].join(" ")}
                 title={"Accueil"}
                 link={`/#${selectedEpisode + 1}`}
-                onClick={() => {
-                  setReady(false)
-                }}
               />
               <ImagedPostIt
                 className={[styles.postit, styles.download_postit].join(" ")}
@@ -381,7 +394,7 @@ export default function EpisodeTable(props: {
               setHasClickedPlay(true);
               playEpisode(selectedEpisode);
             }}>
-              {router.query.episodeNum && vinyls.map((episode, index) => (
+              {vinyls.map((episode, index) => (
                 <VinylAlbum
                   key={index}
                   image={episode["img"] || ""}
@@ -389,12 +402,14 @@ export default function EpisodeTable(props: {
                   total={vinyls.length}
                   position={index}
                   onLoad={() => {
-                    props.onReady(true);
-                    if (index == selectedEpisode) setReady(true);
+                    if (index == selectedEpisode) {
+                      props.onReady();
+                    }
                     if (autoplay?.num == episode.num) {
                       playEpisode(index);
                     }
                   }}
+                  onSelect={scrollCallback}
                   episodeNumParam={episodeNumParam}
                   scrollYProgress={scrollYProgress}
                   mayAnimate={mayAnimate}
@@ -409,8 +424,8 @@ export default function EpisodeTable(props: {
         {[...vinyls].reverse().map((v, i) => (
           <motion.div
             className={styles.section}
-            key={`${episodeNumParam}_${i}`}
-            ref={i === vinyls.length - (episodeNumParam + 1) ? scroll : null}
+            key={`section_ep_${v.num}_${episodeNumParam > 0 ? "dep" : ""}`}
+            ref={i === vinyls.length - (episodeNumParam + 1) ? initialSectionScroll : null}
             onViewportEnter={() => {
               if ((i === vinyls.length - (episodeNumParam + 1) && i != 0) || episodeNumParam == vinyls.length - 1) {
                 setTimeout(() => {

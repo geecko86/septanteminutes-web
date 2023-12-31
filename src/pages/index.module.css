@@ -63,7 +63,7 @@
     top: 11.5%;
     left: 0;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    contain: paint;
     display: flex;
     flex-direction: row;
 }
@@ -71,7 +71,6 @@
 .backwall_paint {
     height: 100%;
     width: 100%;
-    transform: none !important;
     background-color: #D8D8D8;
 }
 
@@ -83,7 +82,7 @@
     left: 0px;
     top: -8.53%;
     object-fit: contain;
-    overflow: hidden;
+    contain: paint;
     mix-blend-mode: multiply;
 }
 
@@ -96,12 +95,12 @@
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 22vh;
+    gap: 8vh;
 
     position: absolute;
     width: 100%;
     height: 96.5%;
-    left: 27vh;
+    left: -28vh;
     top: 48%;
     transform: translateY(-50%) translateZ(0) !important;
 }
@@ -116,7 +115,7 @@
 }
 
 .poster img {
-    border: solid #E0E0E0 10px;
+    border: solid #EAEAEA 7px;
     object-fit: cover !important;
     opacity: 0.85;
 }
@@ -128,7 +127,7 @@
 }
 
 .leuven img {
-    border: solid white 10px !important;
+    border-color: white !important;
 }
 
 .brel {
@@ -154,14 +153,12 @@
 }
 
 .congo {
-    transform: translateX(25%) translateZ(0) !important;
     aspect-ratio: 2267/1704;
     width: auto;
     height: 67%;
 }
 
 .cavell {
-    transform: translateX(25%) translateZ(0) !important;
     aspect-ratio: 2267/1704;
     width: auto;
     height: 52%;
@@ -207,7 +204,7 @@
 }
 
 .eggchair {
-    left: -20vh;
+   
 }
 
 .ceiling {
@@ -285,6 +282,10 @@
     height: 100% !important;
     width: auto !important;
     min-width: calc(784/720 * 85vh);
+}
+
+.invisible_season div[data-framer-name="Wall"] {
+    padding: 0 !important;
 }
 
 .season_frame div[data-framer-name="Chair"] {
@@ -489,7 +490,7 @@
 
 .layer {
     position: absolute;
-    overflow: hidden;
+    overflow: clip;
 }
 
 @supports (-webkit-hyphens:none) {
@@ -509,7 +510,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 0px 14.5vw;
+    padding: 0px 29vh;
     padding-bottom: 5.2%;
     pointer-events: none;
 
@@ -588,7 +589,7 @@
     flex-direction: row;
     align-items: flex-start;
     padding-left: calc(100vw - 44.5vh);
-    gap: calc(max(300vw, 550vh));
+    gap: calc(max(275vw, 538vh));
 
     position: absolute;
     z-index: 15;
@@ -596,11 +597,11 @@
 
 /* coordinates shift */
 .left_m15 {
-    left: -15vh;
+   
 }
 
 .left_m30 {
-    left: -30vh;
+   
 }
 
 /* attributes */
@@ -633,7 +634,7 @@
     }
 
     .layer_3 {
-        gap: 300vmin;
+        gap: 275vmin;
         padding-left: calc(100vmax - 44.5vmin);
     }
 
@@ -643,8 +644,8 @@
     }
 
     .posters {
-        gap: 22vmax;
-        left: 27vmax;
+        gap: 8vmax;
+        left: -28vmax;
     }
 
     .eggchair {

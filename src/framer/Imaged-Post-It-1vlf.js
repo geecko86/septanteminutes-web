@@ -152,7 +152,9 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
             ),
             children: _jsx(Link, {
               href: link,
-              onClick: onClick,
+              scroll: false,
+              onClick: (e) => {
+              },
               style: { display: "contents" },
               target: separate ? "_blank" : "",
             children: /*#__PURE__*/ _jsxs(motion.div, {
@@ -243,7 +245,7 @@ const css = [
   '.framer-C4Wjh [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
   ".framer-C4Wjh .framer-14uv52q { display: block; }",
-  ".framer-C4Wjh .framer-tgvrn3 { height: 140px; overflow: hidden; position: relative; width: 140px; }",
+  ".framer-C4Wjh .framer-tgvrn3 { height: 140px; overflow: clip; position: relative; width: 140px; }",
   ".framer-C4Wjh .framer-1tcxbxb { aspect-ratio: 1 / 1; bottom: 0px; flex: none; height: 100%; left: 0px; position: absolute; width: var(--framer-aspect-ratio-supported, 140px); }",
   ".framer-C4Wjh .framer-d1mgg1 { flex: none; height: auto; left: 50%; position: absolute; top: 38px; white-space: pre; width: auto; }",
   ".framer-C4Wjh .framer-95un7a { aspect-ratio: 1 / 1; bottom: 34px; flex: none; height: var(--framer-aspect-ratio-supported, 48px); left: 50%; overflow: hidden; position: absolute; width: 48px; will-change: var(--framer-will-change-override, transform); }",
