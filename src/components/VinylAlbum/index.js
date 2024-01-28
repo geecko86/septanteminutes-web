@@ -18,6 +18,7 @@ const VinylAlbum = ({
   image,
   onLoad,
   total,
+  inheritedRef,
   episodeNumParam= -1,
   mayAnimate = false,
   alt = "",
@@ -150,6 +151,7 @@ const VinylAlbum = ({
           src={image}
           alt={alt}
           fill={true}
+          ref={inheritedRef}
           className={!loaded ? styles.image_loading : ""}
           sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
           onLoad={() => {

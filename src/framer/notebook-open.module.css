@@ -1,15 +1,18 @@
-div[ready="true"] .scrollTarget {
-    overflow-y: scroll !important;
-}
+div[ready="true"] .scrollTarget {}
 
 .scrollTarget {
-    height: 75.66% !important;
-    overflow-y: hidden;
+    height: 75% !important;
+    overflow-y: scroll;
+    padding-right: calc(max(1cqw, 1.3cqh));
 }
 
 .scrollTarget * {
-    font-size: 1.3cqw !important;
+    font-size: 1.75cqh !important;
     margin: 0 !important;
+}
+
+.scrollTarget>p {
+    padding-bottom: 0.6rem !important;
 }
 
 .scrollTarget a {
@@ -50,14 +53,14 @@ div[ready="true"] .scrollTarget {
     bottom: 0;
 }
 
-.stamp > div {
+.stamp>div {
     width: 100%;
     height: 100%;
     position: absolute;
     bottom: 0;
 }
 
-.stamp > div.stamp_inner_shadow {
+.stamp>div.stamp_inner_shadow {
     background-color: rgba(0, 0, 0, 0.2);
     mix-blend-mode: multiply;
     mask-image: url("/img/stamp.svg"), url("/img/stamp.svg");
@@ -66,17 +69,18 @@ div[ready="true"] .scrollTarget {
     mask-composite: xor;
 }
 
-.stamp > div.stamp_paper {
+.stamp>div.stamp_paper {
     background-image: url("https://framerusercontent.com/images/Hg1xiuPodl7HWtXQCUmAyJfCCw.jpg?scale-down-to=128");
     mask-image: url("/img/stamp.svg");
     mask-size: 100%;
 }
 
-.stamp > div.stamp_logo {
+.stamp>div.stamp_logo {
     mix-blend-mode: multiply;
 }
 
-.stamp > div.stamp_logo::after, .stamp > div.stamp_logo::before {
+.stamp>div.stamp_logo::after,
+.stamp>div.stamp_logo::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -85,7 +89,7 @@ div[ready="true"] .scrollTarget {
     display: block;
 }
 
-.stamp > div.stamp_logo::before {
+.stamp>div.stamp_logo::before {
     background-image: linear-gradient(#fff8e5, #fff8e5);
     background-position: center;
     background-size: 80% 80%;
@@ -94,7 +98,7 @@ div[ready="true"] .scrollTarget {
     mask-size: 100%;
 }
 
-.stamp > div.stamp_logo::after {
+.stamp>div.stamp_logo::after {
     background-size: 84% 84%;
     background-position: center;
     background-repeat: no-repeat;
@@ -105,19 +109,19 @@ div[ready="true"] .scrollTarget {
     -webkit-mask-composite: xor;
 }
 
-.apple_stamp > div.stamp_logo::after {
+.apple_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#a655be, #a655be);
     mask-image: url("/img/applepodcasts.svg"), url("/img/stamp.svg");
     mask-size: 48%, 100%;
 }
 
-.spotify_stamp > div.stamp_logo::after {
+.spotify_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#55be86, #55be86);
     mask-image: url("/img/spotify.svg"), url("/img/stamp.svg");
     mask-size: 50%, 100%;
 }
 
-.pocketcasts_stamp > div.stamp_logo::after {
+.pocketcasts_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#be5555, #be5555);
     mask-image: url("/img/pocketcasts.svg"), url("/img/stamp.svg");
     mask-size: 54%, 100%;
@@ -128,7 +132,7 @@ div[ready="true"] .scrollTarget {
     top: 26% !important;
 }
 
-.youtube_stamp > div.stamp_logo::after {
+.youtube_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#9a4553, #9a4553);
     mask-image: url("/img/youtube.svg"), url("/img/stamp.svg");
     mask-size: 48%, 100%;
@@ -138,7 +142,7 @@ div[ready="true"] .scrollTarget {
     top: 26% !important;
 }
 
-.rss_stamp > div.stamp_logo::after {
+.rss_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#9a6b45, #9a6b45);
     mask-image: url("/img/rss.svg"), url("/img/stamp.svg");
     mask-size: 54%, 100%;
@@ -150,7 +154,7 @@ div[ready="true"] .scrollTarget {
     left: 49%;
 }
 
-.instagram_stamp > div.stamp_logo::after {
+.instagram_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#ff4287, #ff4287);
     mask-image: url("/img/instagram.svg"), url("/img/stamp.svg");
     mask-size: 60%, 100%;
@@ -162,7 +166,7 @@ div[ready="true"] .scrollTarget {
     left: 85%;
 }
 
-.facebook_stamp > div.stamp_logo::after {
+.facebook_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#1877F2, #1877F2);
     mask-image: url("/img/facebook.svg"), url("/img/stamp.svg");
     mask-size: 60%, 100%;
@@ -174,31 +178,72 @@ div[ready="true"] .scrollTarget {
     left: 15%;
 }
 
-.twitter_stamp > div.stamp_logo::after {
+.twitter_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#1DA1F2, #1DA1F2);
     mask-image: url("/img/twitter.svg"), url("/img/stamp.svg");
     mask-size: 62%, 100%;
 }
 
-@media only screen and (min-width: 1200px) {
-.scrollTarget {
-    padding-right: 15px;
-    overflow: -moz-scrollbars-vertical;
-    scrollbar-width: unset !important;
-    scrollbar-color: rgba(107, 86, 61, 0.3) transparent;
+.exit_cross {
+    display: none;
 }
 
-.scrollTarget::-webkit-scrollbar {
-    display: block !important;
-    width: 10px !important;
-  }
-  
-.scrollTarget::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-.scrollTarget::-webkit-scrollbar-thumb {
-    background: rgba(107, 86, 61, 0.3);
-    border-radius: 20px;
-  }
+@media only screen and (min-width: 1200px) {
+    .scrollTarget {
+        overflow: -moz-scrollbars-vertical;
+        scrollbar-width: unset !important;
+        scrollbar-color: rgba(107, 86, 61, 0.3) transparent;
+    }
+
+    .scrollTarget::-webkit-scrollbar {
+        display: block !important;
+        width: 10px !important;
+    }
+
+    .scrollTarget::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .div:not([ready="true"]) .scrollTarget::-webkit-scrollbar-thumb {
+        display: none !important;
+    }
+
+    .scrollTarget::-webkit-scrollbar-thumb {
+        display: block !important;
+        background: rgba(107, 86, 61, 0.3);
+        border-radius: 20px;
+    }
+
+    .scrollTarget::-webkit-scrollbar-thumb {
+        background: rgba(107, 86, 61, 0.3);
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (orientation: portrait) {
+    .exit_cross {
+        position: absolute;
+        top: 3.5%;
+        left: calc((100vw - 8vh) / 2);
+        width: 2.75vh;
+        height: auto;
+        cursor: pointer;
+        aspect-ratio: 1;
+        display: unset;
+    }
+
+    .exit_cross::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url("/img/X.svg");
+    }
+}
+
+@media (orientation: landscape) {
+    .scrollTarget * {
+        font-size: 2.55vh !important;
+        ;
+    }
 }

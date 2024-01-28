@@ -5,6 +5,7 @@ import React, {
     useState,
     useRef,
     useEffect,
+    useMemo,
     FC,
 } from "react";
 import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
@@ -17,7 +18,7 @@ import FrontColumn_, { FrontPosters } from "../components/FrontColumn";
 import { usePlayback } from '../utils/PlayerContext';
 
 import HomeAlbum_ from "../framer/HomeAlbum-WCxn.js";
-import { BellLamp as BellLamp_, Plant0 as PlantA_, Eggchair as Eggchair_, Plant1 as PlantB_, Plant2 as PlantA2_, Plant3 as PlantD_, Plant4 as PlantE_ } from "../framer/ImageWrapper.js";
+import { BellLamp as BellLamp_, Plant0 as PlantA_, Eggchair as Eggchair_, Plant1 as PlantB_, Plant2 as PlantA2_, Plant3 as PlantD_, Plant4 as PlantE_, BackwallLight } from "../framer/ImageWrapper.js";
 
 import ScrollToAnchor, { getEpisodeNum as getTargetEpisodeNum } from "../utils/scroll_to_anchor"
 import data from "../utils/tempdata.js";
@@ -52,17 +53,19 @@ export default function Home(props: {
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
     const [showSwiper, setShowSwiper] = useState(false);
-
+    
     const hasMovedRef = useRef(false), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
-
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
-    const layer0 = useRef(null), layer0_5 = useRef(null), layer1 = useRef(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
-    const firstAlbum = useRef<HTMLImageElement>(null);
+    const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
+    const firstAlbum = useRef<HTMLImageElement>(null), firstPoster = useRef<HTMLDivElement>(null);
+    const resolveScrollRef = useRef<(() => void) | null>(null);
 
     const { setPlaying, isPlaying, setAutoplay, playbackTitle } = usePlayback();
     const router = useRouter();
     const [isPresent, safeToRemove] = usePresence();
 
+    const floorKeys = useMemo(() => [...Array(Math.ceil(screenContentRatio / 2.4)).keys()], [screenContentRatio]);
+    
     useEffect(() => {
         const vinyls = Array.from(
             { length: Object.keys(data.episodes).length },
@@ -72,7 +75,7 @@ export default function Home(props: {
             name: season,
             episodes: vinyls.filter(ep => ep.season === season)
         }));
-        setSeasons(seasons);
+        setSeasons([...seasons].reverse());
     }, [data?.episodes]);
 
     useEffect(() => {
@@ -82,7 +85,7 @@ export default function Home(props: {
     const { scrollX, scrollY } = useScroll();
     const scrollXAdditional = useMotionValue(0);
     const scrollYAdditional = useMotionValue(0);
-    const newScrollX: MotionValue = useTransform(() => {
+    var newScrollX: MotionValue = useTransform(() => {
         if (!subroot?.current) return 0;
 
         let limit = (home.current?.clientWidth || 0) > window.innerWidth ?
@@ -102,16 +105,16 @@ export default function Home(props: {
 
         const scrollSum = scrollX.get() + scrollY.get() + scrollXAdditional.get() + scrollYAdditional.get();
         if (scrollSum < 0) {
-            console.warn("Negative scroll - reset");
+            console.log("Negative scroll - reset");
             window.scrollTo({
                 left: 0,
                 behavior: "instant"
-            })
+            });
             scrollXAdditional.set(0);
             scrollYAdditional.set(0);
-            return newScrollX ? Math.floor(newScrollX.get() / 2) : 0;
+            return typeof(newScrollX) !== "undefined" ? Math.floor(newScrollX.get() / 2) : 0;
         } else if (scrollSum > limit) {
-            console.warn("Overscroll", scrollSum, limit, scrollSum - limit);
+            console.log("Overscroll", scrollSum, scrollX.get(), scrollY.get(), limit, scrollSum - limit);
             return -limit;
         }
 
@@ -125,34 +128,35 @@ export default function Home(props: {
 
     const velocity = useVelocity(newScrollX);
 
-    const offset0 = useTransform(() => newScrollX.get() * -0.32);
-    const offset05 = useTransform(() => newScrollX.get() * -0.25);
+    // const offset0 = useTransform(() => newScrollX.get() * -0.32);
+    // const offset05 = useTransform(() => newScrollX.get() * -0.25);
     const offset15 = useTransform(() => newScrollX.get() * 1.15);
     const offset2 = useTransform(() => newScrollX.get() * 1.35);
     const offset3 = useTransform(() => newScrollX.get() * 2);
 
     const onHomeWheel = (e: WheelEvent) => {
         if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-        const limit = (home.current?.clientWidth || 5000) - window.innerWidth;
+        const limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
+        const { deltaX, deltaY } = e;
 
         // console.log(newScrollX.get(), -limit, home.current?.clientWidth, window.innerWidth);
-        if (newScrollX.get() <= -limit && e.deltaX + e.deltaY > 0) {
-            console.log("BLOCK! A", e.deltaX + e.deltaY);
-            // scrollXAdditional.set(limit);
-            // scrollYAdditional.set(0);
-            // window.scrollTo({
-            //     left: 0,
-            //     top: 0,
-            //     behavior: "instant"
-            // });
-        } else if (newScrollX.get() >= -1 && e.deltaX + e.deltaY < 0) {
-            console.log("BLOCK! B", e.deltaX + e.deltaY);
-            if (e.deltaY < 0 && scrollYAdditional.get() + e.deltaY < 0) scrollYAdditional.set(0);
-            if (e.deltaX < 0 && scrollXAdditional.get() + e.deltaX < 0) scrollXAdditional.set(0);
+        if (newScrollX.get() <= -limit && deltaX + deltaY > 0) {
+            console.log("BLOCK! A", deltaX + deltaY);
+            scrollXAdditional.set(limit);
+            scrollYAdditional.set(0);
+            window.scrollTo({
+                left: 0,
+                top: 0,
+                behavior: "instant"
+            });
+        } else if (newScrollX.get() >= -1 && deltaX + deltaY < 0) {
+            console.log("BLOCK! B", deltaX + deltaY);
+            if (deltaY < 0 && scrollYAdditional.get() + deltaY < 0) scrollYAdditional.set(0);
+            if (deltaX < 0 && scrollXAdditional.get() + deltaX < 0) scrollXAdditional.set(0);
             return;
         } else {
-            if (e.deltaY !== 0 && Math.abs(e.deltaY) > Math.abs(e.deltaX)) scrollYAdditional.set(scrollYAdditional.get() + e.deltaY);
-            else if (e.deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + e.deltaX);
+            if (deltaY !== 0 && Math.abs(deltaY) > Math.abs(deltaX)) scrollYAdditional.set(scrollYAdditional.get() + deltaY);
+            else if (deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + deltaX);
             setColumnFocus(false);
             setShowSwiper(false);
             idleAnimRef.current?.stop();
@@ -234,12 +238,89 @@ export default function Home(props: {
     });
 
     useEffect(() => {
-        if (!firstAlbum.current) return;
-        if (!router.asPath.includes("#") && isPresent && !props.ready) {
-            if (firstAlbum.current.complete) props.onReady();
-            else firstAlbum.current.onload = props.onReady;
+        if (firstAlbum.current) {
+          const artworkLoaded = new Promise<void>((resolve, reject) => {
+            const timeoutId = setTimeout(resolve, 2500);
+            console.log("waiting for artwork", firstAlbum.current?.src);
+            if (firstAlbum.current?.complete) {
+              resolve();
+              console.log("artwork already loaded");
+              clearTimeout(timeoutId);
+            } else if (firstAlbum.current) {
+              firstAlbum.current.onload = () => {
+                console.log("artwork loaded");
+                clearTimeout(timeoutId);
+                resolve();
+              };
+              firstAlbum.current.onerror = () => {
+                reject(new Error('Failed to load artwork'));
+              };
+            }
+          });
+
+          const plantLoaded = new Promise<void>((resolve, reject) => {
+            layer0_5.current?.querySelectorAll(`.${styles.plant} img`).forEach((plantImg, i) => {
+                const timeoutId = setTimeout(resolve, 2500);
+                console.log(`waiting for plant ${i}`)
+                const img = plantImg as HTMLImageElement;
+                if (!img.complete) {
+                    img.onload = () => {
+                        resolve();
+                        clearTimeout(timeoutId);
+                        console.log(`plant ${i} loaded`);
+                    };
+                    img.onerror = () => {
+                        reject(new Error('Failed to load plant img'));
+                    };
+                } else {
+                    console.log(`plant ${i} already loaded`)
+                    clearTimeout(timeoutId);
+                    resolve();
+                }
+            });
+          });
+
+          const posterLoaded = new Promise<void>((resolve, reject) => {
+            layer0.current?.querySelectorAll(`.${styles.poster} img`).forEach((posterImg, i) => {
+                console.log(`waiting for poster ${i}`);
+                const timeoutId = setTimeout(resolve, 2500);
+                const img = posterImg as HTMLImageElement;
+                if (!img.complete) {
+                    img.onload = () => {
+                        resolve();
+                        clearTimeout(timeoutId);
+                        console.log(`poster ${i} loaded`);
+                    };
+                    img.onerror = () => {
+                        reject(new Error('Failed to load poster img'));
+                        console.log("poster error")
+                    };
+                } else {
+                    console.log(`poster ${i} already loaded`)
+                    clearTimeout(timeoutId);
+                    resolve();
+                }
+            });
+          });
+
+          const scrollToAnchorPromise = new Promise<void>((resolve, reject) => {
+            console.log("waiting for anchor scroll");
+            const timeoutId = setTimeout(resolve, 2500);
+            resolveScrollRef.current = () => {
+                resolve();
+                clearTimeout(timeoutId);
+                console.log("anchor scroll done");
+            };
+          });
+          
+          const promisesList = [artworkLoaded, plantLoaded, posterLoaded];
+          if (router.asPath.includes("#")) promisesList.push(scrollToAnchorPromise);
+
+          Promise.all(promisesList)
+            .then(props.onReady)
+            .catch(console.error);
         }
-    }, [firstAlbum.current, firstAlbum.current?.complete, isPresent, props.ready]);
+      }, [firstAlbum.current, isPresent, router.asPath, props.ready]);
 
     const posters = [
         { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", className: styles.leuven, ratio: 440 / 228, parallaxFactor: 120 },
@@ -264,26 +345,25 @@ export default function Home(props: {
             className="transition_loader" >
             <div ref={subroot} className={styles.home_subroot} key={"home_subroot"}>
                 <div ref={root} className={styles.home_root} key={"home_root"}>
-                    <motion.div className={styles.home} key={"home"} ref={home} tabIndex={0} onKeyDown={handleKeysDown} style={{ translateZ: 0, translateX: newScrollX }}>
+                    <motion.div className={styles.home} key={"home"} ref={home} tabIndex={0} id="home"
+                    onKeyDown={handleKeysDown} style={{ translateZ: 0, translateX: newScrollX }}>
                         <Head>
                             <title>{playbackTitle ? `${isPlaying ? "▶ " : ""}${playbackTitle}` : "Septante Minutes Avec"}</title>
                         </Head>
                         <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateZ: 0 }}>
                             <div className={styles.ceiling_3} key={"ceiling_3"} />
                             <div className={styles.ceiling_2} key={"ceiling_2"}>
-                                {[...Array(Math.ceil(screenContentRatio / 2.4)).keys()].map((i) => (
+                                {floorKeys.map((i) => (
                                     <Image priority={true} key={`ceiling_${i}`} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} height={858} width={3618} />
                                 ))}
                             </div>
                             <div className={styles.ceiling} key={"ceiling"} />
                             <div className={styles.backwall} key={"backwall"}>
-                                <motion.div className={styles.backwall_light} key={"backwall_light"} style={{translateX: offset0, translateZ: 0}} >
-                                    <Image priority={true} alt="" src="https://framerusercontent.com/images/FsKB3GEHFAPqgBfbeEkGrIb6lA.png" fill sizes="461vw" />
-                                </motion.div>
-                                <motion.div className={styles.backwall_paint} key={"backwall_paint"} style={{x: offset0, translateZ: 0}}/>
+                                <BackwallLight className={styles.backwall_light} targetRef={firstPoster} motionValue={newScrollX} key="backwall_light" />
+                                <motion.div className={styles.backwall_paint} key={"backwall_paint"} />
                                 <div className={styles.posters} key={"posters"}>
                                     {
-                                        [...seasons].reverse().map((season, i) => (
+                                        seasons.map((season, i) => (
                                             <React.Fragment key={season.name + "_invisible00_fragment"}>
                                                 <Season key={season.name + "_invisible00"} className={styles.season_frame} chair={""} style={{ visibility: "hidden" }}>
                                                     {season.episodes.map((ep: episode) => (
@@ -291,7 +371,8 @@ export default function Home(props: {
                                                     ))}
                                                 </Season>
                                                 {
-                                                    <Poster className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}`} poster={posters[i]} motionValue={newScrollX} />
+                                                    <Poster inheritedRef={i == 0 ? firstPoster : undefined} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}`}
+                                                    poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} />
                                                 }
                                             </ React.Fragment>
                                         ))
@@ -301,7 +382,7 @@ export default function Home(props: {
 
                             <div className={styles.floor_3} key={"floor_3"} />
                             <div className={styles.floor_2} key={"floor_2"}>
-                                {[...Array(Math.ceil(screenContentRatio / 2.4)).keys()].map((i) => (
+                                {floorKeys.map((i) => (
                                     <Image priority={true} key={`floor_${i}`} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} height={858} width={3618} />
                                 ))}
                             </div>
@@ -309,7 +390,7 @@ export default function Home(props: {
                         </motion.div>
                         <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateZ: 0 }}>
                             {
-                                [...seasons].reverse().map((season, i) => (
+                                seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
                                         <Season key={season.name + "_invisible05"} className={[styles.season_frame, styles.invisible_season].join(" ")} chair={""} style={{ visibility: "hidden" }}>
                                             {season.episodes.map((ep: episode) => (
@@ -319,12 +400,7 @@ export default function Home(props: {
                                         {
                                             [
                                                 (<React.Fragment key={`deco05_0_${i}`}>
-                                                    <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left: "-5vh" }} motionValue={newScrollX} onReady={() => {
-                                                        if (firstAlbum.current) {
-                                                            if (firstAlbum.current.complete) props.onReady();
-                                                            else firstAlbum.current.onload = props.onReady
-                                                        }
-                                                    }} />
+                                                    <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left: "-5vh" }} motionValue={newScrollX} />
                                                     <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_1_${i}`}>
@@ -332,8 +408,8 @@ export default function Home(props: {
                                                     <PlantA key={`layer05_prop_${i}_PlantA`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_2_${i}`}>
-                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} motionValue={newScrollX} />
                                                     <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} />
+                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_3_${i}`}>
                                                     <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left: "-10vh" }} motionValue={newScrollX} />
@@ -352,10 +428,10 @@ export default function Home(props: {
                         </motion.div>
                         <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")}>
                             {
-                                [...seasons].reverse().map((season, i) => (
+                                seasons.map((season, i) => (
                                     <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
                                         {season.episodes.toReversed().map((ep: episode, j: number) => (
-                                            <HomeAlbum id={`art_${ep.num}`} ref={(i == 0 && j == 0 && !router.asPath.includes("#") || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
+                                            <HomeAlbum id={`art_${ep.num}`} ref={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
                                                 onClick={(e: MouseEvent) => {
                                                     if (e.button != 0) return;
                                                     // setAutoplay(ep);
@@ -368,26 +444,27 @@ export default function Home(props: {
                         </motion.div>
                         <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateZ: 0, translateX: offset15 }}>
                             <div className={styles.lamps_1_5} key={"lamps_1_5"} >
-                                {[...Array(Math.ceil(1.6 * screenContentRatio)).keys()].map((i) => (
+                                {floorKeys.map((i) => (
                                     <BellLamp key={`lamp_1_5_${i}`} className={styles.lamp} />
                                 ))}
                             </div>
                         </motion.div>
                         <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateZ: 0, translateX: offset2 }}>
                             <div className={styles.lamps_2} key={"lamps_2"}>
-                                {[...Array(Math.ceil(1.5 * screenContentRatio)).keys()].map((i) => (
+                                {floorKeys.map((i) => (
                                     <BellLamp key={`lamp_2_${i}`} className={styles.lamp} />
                                 ))}
                             </div>
                         </motion.div>
                         <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
                             <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateZ: 0, translateX: offset3 }}>
-                                {[...Array(Math.floor(screenContentRatio / 3.1)).keys()].map((i) => (
+                            <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />                                        
+                                {floorKeys.slice(0, Math.floor(floorKeys.length / 1.8)).map((i) => (
                                     <React.Fragment key={`layer3_deco_${i}`}>
-                                        <PlantA2 key={`layer3_prop_${i}_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                         <FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
                                             pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date}
                                             onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />
+                                        <PlantA2 key={`layer3_prop_${i}_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />                                        
                                     </ React.Fragment>
                                 ))}
                             </motion.div>
@@ -395,7 +472,7 @@ export default function Home(props: {
                         <SwipeAnim play={showSwiper} className={styles.swipe_anim} key={"swipe_anim"} />
                     </motion.div>
                 </div>
-                <ScrollToAnchor move={(x) => {
+                <ScrollToAnchor move={(x: number) => {
                     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
                     if (x > 0) {
                         x = Math.min(x, (home.current?.clientWidth || window.innerWidth) - window.innerWidth);
@@ -407,9 +484,10 @@ export default function Home(props: {
                         } else {
                             scrollXAdditional.set(x);
                         }
-                        console.log("scrolled", x);
+                        // console.log("scrolled", x);
                     }
                     hasMovedRef.current = false;
+                    if (resolveScrollRef.current) resolveScrollRef.current();
                 }} />
             </div>
         </motion.div>

@@ -16,7 +16,7 @@ import { motion, animate, AnimatePresence } from "framer-motion";
 
 import NoteBookOpen from "../../framer/NoteBook-Open-NHDl.js";
 
-const NotebookOverlay = ({ title = "", subtitle = "", desc = "" }) => {
+const NotebookOverlay = ({ title = "", subtitle = "", desc = "", translateX = "left" }) => {
   const [descVisible, setdescVisible] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -85,12 +85,13 @@ const NotebookOverlay = ({ title = "", subtitle = "", desc = "" }) => {
                 role="dialog"
                 aria-label={`${title}, ${subtitle}`}
                 ref={refs.setFloating}
-                className={styles.openbook}
+                className={[styles.openbook, styles[`page_${translateX}`]].join(" ")}
                 followPrompt={"Abonnez-vous !"}
                 title={title}
                 subtitle={subtitle}
                 text={desc}
                 ready={ready}
+                toggleOverlay={toggleOverlay}
                 onClick={() => {}}
               />
             </FloatingOverlay>

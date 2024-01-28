@@ -15,7 +15,6 @@
   z-index: 2;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   will-change: transform;
   -webkit-transform-origin: 50%  51%;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -39,21 +38,29 @@
 .openbook > div:nth-child(2) {
   width: 41.96% !important;
   left: 5.79% !important;
-  height: 96% !important;
-  justify-content: space-evenly;
-  top: 3% !important;
+  height: calc(111% - 3ch) !important;
+  justify-content: start;
+  gap: 3ch !important;
+  top: 4.5% !important;
 }
 
 .openbook > div:nth-child(2) > div {
   width: 100% !important;
+  opacity: 1 !important;
+}
+
+.openbook h1, .openbook h4, .openbook h5 {
+  max-width: 35cqw !important;
+  max-height: 3ch;
+  opacity: 1 !important;
 }
 
 .openbook h1 {
-  font-size: 1.6cqw !important;
+  font-size: 2.7vh !important;
 }
 
 .openbook h4 {
-  font-size: 1.1cqw !important;
+  font-size: 2vh !important;
 }
 
 .openbook > div[data-framer-component-type="RichTextContainer"] {
@@ -63,7 +70,7 @@
 }
 
 .openbook h5 {
-  font-size: 1.4cqw !important;;
+  font-size: 2.5vh !important;
 }
 
 .openbook ul {
@@ -79,8 +86,37 @@
   .openbook {
     width: 100vw !important;
     height: auto !important;
+    max-height: 45vh !important;
     min-height: unset !important;
-    left: 100%;
-    zoom: 200%;
+    top: 30%;
+  }
+
+  .openbook.page_left {
+    transform: scale(2) translate(0, 0) !important;
+  }
+
+  .openbook.page_right {
+    transform: scale(2) translateX(-50%) !important;
+  }
+
+  .openbook h1, .openbook h4, .openbook h5 {
+    max-width: 35vmin !important;
+  }
+
+  .openbook h1 {
+    font-size: 1.9cqh !important;
+  }
+
+  .openbook h4 {
+    font-size: 1.4cqh !important;
+  }
+
+  .openbook h5 {
+    font-size: 1.7cqh !important;
+  } 
+
+  .openbook > div:nth-child(2) {
+    height: calc(110% - 1.5ch) !important;
+    gap: 1.5ch !important;
   }
 }

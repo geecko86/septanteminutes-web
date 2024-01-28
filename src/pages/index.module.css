@@ -7,6 +7,7 @@
     min-width: 100vw;
     width: max-content;
     top: 0;
+    contain: paint;
 }
 
 .home_root {
@@ -84,6 +85,11 @@
     object-fit: contain;
     contain: paint;
     mix-blend-mode: multiply;
+    background-color: #d8d8d8;
+}
+
+.backwall_light > div {
+    left: -100vh;
 }
 
 .backwall_light img {
@@ -95,7 +101,7 @@
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 8vh;
+    gap: 5vh;
 
     position: absolute;
     width: 100%;
@@ -112,6 +118,10 @@
     flex: none;
     flex-grow: 0;
     position: relative !important;
+}
+
+.poster {
+    margin-left: 8vh;
 }
 
 .poster img {
@@ -417,6 +427,7 @@
     grid-auto-columns: 1fr; /* Automatically add more columns if needed */
     grid-auto-flow: column;
     gap: 7vh;
+    row-gap: calc(7 * max(1vh, 8px));
     overflow: visible;
 }
 
@@ -529,7 +540,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 0px 14.5vw;
+    padding: 0px 25.6vh;
     padding-bottom: 5.2%;
     gap: 50vh;
 
@@ -581,6 +592,7 @@
     width: 100%;
     height: 100%;
     z-index: 15;
+    overflow: unset !important;
 }
 
 .layer_3 { /* Calumn, plant */ 
@@ -620,6 +632,18 @@
     transition: filter 0.4s ease-out 0.1s;
 }
 
+@media only screen and (max-width: 1200px) and (orientation: portrait) {
+    .home_subroot {
+        min-width: unset !important;
+    }
+
+    .home_root {
+        position: relative;
+        top: 50%;
+        left: calc(50% - 50vmin);
+    }
+}
+
 @media only screen and (max-height: 575.98px) and (orientation: landscape) {
     .home {
         --unit: 1vmax;
@@ -641,10 +665,11 @@
     .season_frame div[data-framer-name="Albums"] {
         grid-template-columns: repeat(auto-fill, 17.5vmax);
         gap: 7vmax;
+        row-gap: calc(7 * max(1vmax, 8px));
     }
 
     .posters {
-        gap: 8vmax;
+        gap: 5vmax;
         left: -28vmax;
     }
 

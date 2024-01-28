@@ -2,16 +2,20 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 
 import useOffset from  "../utils/ParallaxOffset";
 
 const ImageOffsetWrapper = (props) => {
-    const ref = useRef(null);
+    const { motionValue, src, sizes, onReady, offsetFactor, targetRef, ...newProps } = props;
+    const ref = useRef(targetRef?.current || null);
 
-    const { motionValue, src, sizes, onReady, ...newProps } = props;
-    const translateX = useOffset(ref, motionValue, 140, src, onReady);
-    
+    let translateX;
+    const jumpToValue = (val) => {
+        if (translateX) translateX.jump(val);
+    };
+    translateX = useOffset(props.targetRef || ref, motionValue, offsetFactor || 140, src, onReady, jumpToValue);
+
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ position: "relative", translateX, height: "100%", width: "100%" }}>
             <Image src={src} alt="" fill sizes={props.sizes || "10vw"} />
@@ -79,3 +83,8 @@ export const Eggchair = (props) => {
     const comp = (<ImageOffsetWrapper {...props} src="https://framerusercontent.com/images/p7a4OJaiiEBm2LbB08atc4nEjM.png" />);
     return {...comp, displayName: "Eggchair"};
 };
+
+export const BackwallLight = (props) => {
+    const comp = (<ImageOffsetWrapper offsetFactor={20.1} {...props} src="https://framerusercontent.com/images/FsKB3GEHFAPqgBfbeEkGrIb6lA.png" sizes="461vw" />);
+    return {...comp, displayName: "BackwallLight"};
+}

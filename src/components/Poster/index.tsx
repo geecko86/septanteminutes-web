@@ -1,14 +1,18 @@
-import React, { useRef } from "react";
+import React, { RefObject, useRef } from "react";
 import { MotionValue, motion } from "framer-motion";
 import Image from "next/image";
 import useOffset from  "../../utils/ParallaxOffset";
 
 const Poster = (props: PosterProps) => {
 
-    const ref = useRef<HTMLDivElement>(null);
+    const { motionValue, poster: { src, ratio, parallaxFactor }, onReady, isLast, inheritedRef, ...newProps } = props;
+    const ref = useRef<HTMLDivElement>(inheritedRef?.current || null);
 
-    const { motionValue, poster: { src, ratio, parallaxFactor }, onReady, ...newProps } = props;
-    const translateX = useOffset(ref, motionValue, parallaxFactor || 160, src, onReady);
+    let translateX: MotionValue;
+    const jumpToValue = isLast ? (val: number | string) => {
+        if (translateX) translateX.jump(val);
+    } : undefined;
+    translateX = useOffset(ref, motionValue, parallaxFactor || 160, src, onReady, jumpToValue);
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ position: "relative", translateX, height: "100%", width: "100%" }}>
@@ -23,6 +27,8 @@ type PosterProps = {
     className: string,
     motionValue: MotionValue,
     onReady?: () => void,
+    inheritedRef?: RefObject<HTMLDivElement>,
+    isLast?: boolean,
     poster: {
         src: string,
         ratio: number,

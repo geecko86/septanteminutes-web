@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
 export const getEpisodeNum = (asPath: string) => {
@@ -14,14 +14,14 @@ export const getEpisodeNum = (asPath: string) => {
     }
 }
 
-function ScrollToAnchor(props: { move: (x: number) => void }) {
+function ScrollToAnchor(props: { id?: string, move: ((x: number) => void) | null }) {
     const { asPath, replace } = useRouter();
     const lastHash = useRef('');
     const { move } = props;
 
     useEffect(() => {
         lastHash.current = getEpisodeNum(asPath);
-        if (!lastHash.current) return;
+        if (!lastHash.current || !move) return;
 
         const action = () => {
             const id = `art_${lastHash.current}`;
@@ -37,19 +37,19 @@ function ScrollToAnchor(props: { move: (x: number) => void }) {
         }
 
         if ("requestIdleCallback" in window) {
-            const id = requestIdleCallback(action);
+            const callbackId = requestIdleCallback(action);
             return () => {
-                cancelIdleCallback(id);
+                cancelIdleCallback(callbackId);
             }
         } else {
-            const id = requestAnimationFrame(action);
+            const callbackId = requestAnimationFrame(action);
             return () => {
-                cancelAnimationFrame(id);
+                cancelAnimationFrame(callbackId);
             }
         }
     }, [asPath, move]);
 
-    return null;
+    return (<div id={props.id} />);
 }
 
 export default ScrollToAnchor;

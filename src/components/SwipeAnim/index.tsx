@@ -3,7 +3,7 @@ import { motion, animate, AnimationPlaybackControls } from "framer-motion";
 
 import styles from "./index.module.css";
 
-export default function App(props: { play: boolean, className: string }) {
+export default function IdleSwipeAnim(props: { play: boolean, className: string }) {
 
     const {
         play,

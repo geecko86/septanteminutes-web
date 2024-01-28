@@ -52,8 +52,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <AnimatePresence mode="wait">
           <Component {...pageProps} key={Component.name} ready={loaded === pathname} onReady={() => {
             setLoaded(pathname);
-          }}
-        />
+          }} />
         </AnimatePresence>
         <div className={styles.overlay} key="overlay">
           <FloatingPlaybackControls />

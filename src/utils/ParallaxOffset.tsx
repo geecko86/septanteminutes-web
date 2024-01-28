@@ -1,9 +1,9 @@
-import { MotionValue, motion, useTransform } from "framer-motion";
-import { RefObject, useEffect } from "react";
+import { MotionValue, useTransform } from "framer-motion";
+import { RefObject, useEffect, useState } from "react";
 
-export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, src: string = "", onReady?: () => void) => {
+export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
 
-  const updateTranslationX = () => {
+  const computeTranslationX = () => {
     const target = ref.current;
     if (!target) return "0%";
 
@@ -19,7 +19,7 @@ export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff:
       // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, "-aaa-")
       return `0%`;
     }
-    if (targetRect.right < -targetRect.width) return `${coeff * 1.22}%`;
+    if (targetRect.right < -2 * targetRect.width) return `${coeff * 1.22}%`;
 
 
     // Calculate the progress percentage
@@ -34,28 +34,43 @@ export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff:
   };
 
   useEffect(() => {
-    if (onReady) {
+    // Define limit
+    const limit = (document.getElementById("home")?.clientWidth || window.innerWidth) - window.innerWidth;
+    let onReadyMutationObserver: MutationObserver, limitMutationObserver: MutationObserver, onReadyTimeoutId: NodeJS.Timeout;
+
+    if (onReady && ref.current) {
       // Create a MutationObserver
-      const mutationObserver = new MutationObserver(() => {
+      onReadyMutationObserver = new MutationObserver(() => {
         onReady();
-        mutationObserver.disconnect();
+        onReadyMutationObserver.disconnect();
       });
-      setTimeout(() => {
-        onReady();
-        mutationObserver.disconnect();
-      }, 500)
-      
       // Observe changes in attributes and subtree (which includes position changes)
-      if (ref.current) {
-        mutationObserver.observe(ref.current, { attributes: true, subtree: true });
-      }
-      
-      // Cleanup MutationObserver on component unmount
-      return () => {
-        mutationObserver.disconnect();
-      };
+      onReadyMutationObserver.observe(ref.current, { attributes: true, subtree: true });
+      onReadyTimeoutId = setTimeout(onReady, 500);
     }
+
+    if (jumpToValue && limit && ref.current) {
+      const position = Array.prototype.indexOf.call(ref.current.parentElement?.childNodes, ref.current) - ref.current.parentElement?.childNodes.length!!;
+      if (position >= -2) {
+        limitMutationObserver = new MutationObserver(t => {
+          if (motionValue.get() <= -(limit - 10)) {
+            jumpToValue(computeTranslationX());
+            requestAnimationFrame(() => {
+              jumpToValue(computeTranslationX());
+            });
+          }
+        });
+        limitMutationObserver.observe(ref.current, { attributes: true, subtree: true });
+      }
+    }
+
+    // Cleanup MutationObserver on component unmount
+    return () => {
+      onReadyMutationObserver?.disconnect();
+      limitMutationObserver?.disconnect();
+      if (onReadyTimeoutId) clearTimeout(onReadyTimeoutId);
+    };
   }, []);
 
-  return useTransform(updateTranslationX);
+  return useTransform(computeTranslationX);
 }

@@ -53,6 +53,7 @@ export default function EpisodeTable(props: {
   const [mayAnimate, setMayAnimate] = useState(false);
   const [hasClickedNotebook, setHasClickedNotebook] = useState(false);
   const [hasClickedPlay, setHasClickedPlay] = useState(false);
+  const [overlayNotebookTranslation, setOverlayNotebookTranslation] = useState("left");
   const [idleAnimationTimeoutId, setIdleAnimationTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [displayedURL, setDisplayedURL] = useState("");
   const [episodeNumParam, setEpisodeNumParam] = useState(-1);
@@ -64,6 +65,7 @@ export default function EpisodeTable(props: {
   const idleAnimationTimeoutIdRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const hasClickedNotebookRef = useRef(hasClickedNotebook);
   const hasClickedPlayRef = useRef(hasClickedPlay);
+  const selectedVinyl = useRef<HTMLDivElement>(null);
   const playbackMP3Ref = useRef("");
   const isPlayingRef = useRef(false);
 
@@ -73,6 +75,7 @@ export default function EpisodeTable(props: {
     title: vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[2].trim(),
     subtitle: `Avec ${vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[0].trim()}`,
     desc: vinyls[selectedEpisode].desc,
+    translateX: overlayNotebookTranslation,
   });
 
   const { scrollYProgress, scrollY } = useScroll({
@@ -124,7 +127,7 @@ export default function EpisodeTable(props: {
     ]).then(() => {
       if (!hasClickedPlayRef.current && !playbackMP3Ref.current) {
         clearTimeout(idleAnimationTimeoutIdRef.current);
-        const id = setTimeout(doIdlePlayButtonAnimation, 8500);
+        const id = setTimeout(doIdlePlayButtonAnimation, 6500);
         setIdleAnimationTimeoutId(id);
       }
     });
@@ -132,8 +135,8 @@ export default function EpisodeTable(props: {
 
   const scrollCallback = () => {
     setSnapping(false);
-    if (funqueue.length) {
-      if (typeof window != "undefined" && window.requestIdleCallback) window.requestIdleCallback((funqueue.shift() as () => void))
+    if (funqueue.length && typeof window != "undefined") {
+      (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)((funqueue.shift() as () => void))
     }
     const currentPosition = getCurrentPosition();
     const currentEpisode = vinyls.length - currentPosition - 1;
@@ -174,7 +177,7 @@ export default function EpisodeTable(props: {
 
     if (!hasClickedPlayRef.current && !isPlayingRef.current) { // if has never clicked Play Button and is not currently playing
       clearTimeout(idleAnimationTimeoutId);
-      const id = setTimeout(doIdlePlayButtonAnimation, 5500);
+      const id = setTimeout(doIdlePlayButtonAnimation, 2500);
       setIdleAnimationTimeoutId(id);
     };
 
@@ -217,6 +220,47 @@ export default function EpisodeTable(props: {
       return unbind
     }
   }, [episodePage, getCurrentPosition, vinyls.length, funqueue]);
+
+  useEffect(() => {
+    let clear = false;
+    if (selectedVinyl.current && mainRef.current) {
+      const selectedVinylPromise = new Promise<void>((resolve, reject) => {
+        const timeoutId = setTimeout(resolve, 2500);
+        const img = selectedVinyl.current as HTMLImageElement;
+        const oldOnload: (((e: Event) => any) | null) = img.onload;
+        if (img.complete) resolve();
+        else img.onload = (ev: Event) => {
+          resolve();
+          if (oldOnload) oldOnload(ev);
+          clearTimeout(timeoutId);
+        };
+        img.onerror = () => {
+          reject(new Error('Failed to load selectde vinyl img'));
+        };        
+      });
+      const floorPromise = new Promise<void>((resolve, reject) => {
+        const floorPromise = mainRef.current?.querySelectorAll(`.${styles.floor} img`).forEach((el) => {
+          const timeoutId = setTimeout(resolve, 2500);
+          const img = el as HTMLImageElement;
+          if (img.complete) resolve();
+          else img.onload = () => {
+            resolve();
+            clearTimeout(timeoutId);
+          };
+          img.onerror = () => {
+            reject(new Error('Failed to load floor img'));
+          };
+        });
+      });
+      Promise.all([selectedVinylPromise, floorPromise]).then(() => {
+        if (!clear) props.onReady();
+      });
+    }
+
+    return () => {
+      clear = true;
+    }
+  }, [selectedVinyl.current, mainRef.current]);
 
   useEffect(() => {
     hasClickedNotebookRef.current = hasClickedNotebook;
@@ -264,7 +308,7 @@ export default function EpisodeTable(props: {
             top: (el as HTMLElement)?.offsetTop,
             behavior: "instant"
           });
-          requestIdleCallback(scrollCallback);
+          (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)(scrollCallback);
         };
         if (snapping) {
           console.log("STUCK!");
@@ -280,7 +324,7 @@ export default function EpisodeTable(props: {
             top: (el as HTMLElement)?.offsetTop,
             behavior: "instant"
           });
-          requestIdleCallback(scrollCallback);
+          (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)(scrollCallback);
         };
         if (snapping) {
           console.log("STUCK!");
@@ -360,6 +404,12 @@ export default function EpisodeTable(props: {
               className={styles.notebook}
               ref={refs.setReference}
               {...referenceProps}
+              onClick={(e: Event) => {
+                if (typeof referenceProps?.onClick === 'function') {
+                  referenceProps.onClick(e);
+                  setOverlayNotebookTranslation("left");
+                }
+              }}
               action={() => {
                 setHasClickedNotebook(true)
               }}
@@ -376,6 +426,19 @@ export default function EpisodeTable(props: {
                 className={[styles.postit, styles.home_postit].join(" ")}
                 title={"Accueil"}
                 link={`/#${selectedEpisode + 1}`}
+              />
+              <ImagedPostIt
+                className={[styles.postit, styles.subscribe_postit].join(" ")}              
+                ref={refs.setReference}
+                {...referenceProps}
+                onClick={(e: Event) => {
+                  if (typeof referenceProps?.onClick === 'function') {
+                    referenceProps.onClick(e);
+                    setOverlayNotebookTranslation("right");
+                  }
+                }}
+                title={"S 'abonner"}
+                separate={false}
               />
               <ImagedPostIt
                 className={[styles.postit, styles.download_postit].join(" ")}
@@ -396,15 +459,13 @@ export default function EpisodeTable(props: {
             }}>
               {vinyls.map((episode, index) => (
                 <VinylAlbum
-                  key={index}
+                  key={`vinyl_${episode.num}`}
+                  inheritedRef={index == selectedEpisode ? selectedVinyl : null}
                   image={episode["img"] || ""}
                   alt={episode["title"]}
                   total={vinyls.length}
                   position={index}
                   onLoad={() => {
-                    if (index == selectedEpisode) {
-                      props.onReady();
-                    }
                     if (autoplay?.num == episode.num) {
                       playEpisode(index);
                     }
@@ -434,7 +495,9 @@ export default function EpisodeTable(props: {
               }
             }}
           >
-            <p>{`${i}__________episode#${v.num}: ${v.title}`}</p>
+            {(!process.env.NODE_ENV || process.env.NODE_ENV === 'development') && (
+              <p>{`${i}__________episode#${v.num}: ${v.title}`}</p>
+            )}
           </motion.div>
         ))}
       </div>

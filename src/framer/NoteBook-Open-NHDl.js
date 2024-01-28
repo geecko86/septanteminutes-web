@@ -62,6 +62,7 @@ const getProps = ({
   id,
   image,
   subtitle,
+  toggleOverlay,
   text,
   title,
   ready,
@@ -121,6 +122,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
     variant,
     I94Rs1RIH,
     ready,
+    toggleOverlay,
     HGybZ8uLx,
     RI514VBvw,
     KBBmo6ff1,
@@ -303,6 +305,12 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
               text: qSyYbDFAE,
               verticalAlignment: "top",
               withExternalLayout: true,
+            }),
+            /*#__PURE__*/ _jsxs(motion.div, {
+              className: styles.exit_cross,
+              onClick: () => {
+                if (props.toggleOverlay) props.toggleOverlay(false);
+              }
             }),
             /*#__PURE__*/ _jsxs(motion.div, {
               className: "framer-j4o6rv",

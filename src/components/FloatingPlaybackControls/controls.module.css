@@ -4,6 +4,7 @@
     --computed-width: calc(min(var(--computed-height) * (395/96), 100vw - 10vh));
 
     position: sticky;
+    visibility: hidden;
     left: var(--controls-margin);
     top: 100%;
     transform: translateX(calc(-1 * var(--controls-margin) - var(--computed-width))) translateY(calc(-1 * var(--controls-margin)));
@@ -25,6 +26,7 @@
 
 .frame.active {
     transform: translateY(calc(-1 * var(--controls-margin))) !important;
+    visibility: visible !important;
 }
 
 .frame:focus {
@@ -254,4 +256,10 @@ svg.playButton_svg {
 
 .playing .playButtonBar_top {
     transform: scaleY(0.58)  translateY(-15%) translateX(-10%) rotate(55.5deg);
+}
+
+@media (max-width: 1200px) and (orientation: portrait) {
+    .player {
+        display: none !important;
+    }
 }
