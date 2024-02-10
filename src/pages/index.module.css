@@ -108,7 +108,13 @@
     height: 96.5%;
     left: calc(-18svh - 20vw);
     top: 48%;
-    transform: translateY(-50%) translateZ(0) !important;
+    transform: translateY(-50%)  !important;
+}
+
+@supports (-webkit-hyphens:none) {
+    .posters {
+        transform: translateY(-50%) translateZ(0) !important;
+    }
 }
 
 .posters > * {
@@ -230,7 +236,13 @@
     top: 0;
     opacity: 25%;
     background: linear-gradient(180deg, black 0%, transparent 50%);
-    transform: rotate(180deg) translateZ(0) !important;
+    transform: rotate(180deg)  !important;
+}
+
+@supports (-webkit-hyphens:none) {
+    .ceiling, .ceiling_2 {
+        transform: rotate(180deg) translateZ(0) !important;
+    }
 }
 
 .ceiling_2 {
@@ -240,7 +252,7 @@
     height: 100%;
     bottom: 88.5%;
     opacity: 25%;
-    transform: rotate(180deg) translateZ(0) !important;
+    transform: rotate(180deg)  !important;
 }
 
 .ceiling_3 {
@@ -454,7 +466,7 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 133svh;
-    transform: translateX(90svh) translateZ(0) !important;
+    transform: translateX(90svh)  !important;
 
     position: relative;
     width: fit-content;
@@ -462,17 +474,29 @@
     top: 0;
 }
 
+@supports (-webkit-hyphens:none) {
+    .lamps_1_5 {
+        transform: translateX(90svh) translateZ(0) !important;
+    }
+}
+
 .lamps_2 { /* ceiling lamps front */ 
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 133svh;
-    transform: translateX(40svh) translateZ(0) !important;
+    transform: translateX(40svh)  !important;
 
     position: relative;
     width: fit-content;
     height: 85svh;
     top: -34.5svh;
+}
+
+@supports (-webkit-hyphens:none) {
+    .lamps_2 {
+        transform: translateX(40svh) translateZ(0) !important;
+    }
 }
 
 .lamp {
@@ -490,12 +514,18 @@
     aspect-ratio: 595/1110;
     height: calc(1110/832 * 100svh) !important;
     width: auto !important;
-    transform: translateY(-12%) translateZ(0) !important;
+    transform: translateY(-12%)  !important;
     background-color: #826853;
     padding: 0.1% 0 !important;
     filter: none;
     pointer-events: all;
     transition: filter 0.8s ease-out 0.5s;
+}
+
+@supports (-webkit-hyphens:none) {
+    .front_column {
+        transform: translateY(-12%) translateZ(0) !important;
+    }
 }
 
 .front_column.blur8 {
@@ -724,15 +754,27 @@
 
     .lamps_1_5 { /* ceiling lamps */ 
         gap: 133vvmax;
-        transform: translateX(90svmax) translateZ(0) !important;
+        transform: translateX(90svmax)  !important;
         height: 27svmax;
+    }
+
+    @supports (-webkit-hyphens:none) {
+        .lamps_1_5 {
+            transform: translateXY(90svmax) translateZ(0) !important;
+        }
     }
 
     .lamps_2 { /* ceiling lamps front */ 
         gap: 133svmax;
-        transform: translateX(40svmax) translateZ(0) !important;
+        transform: translateX(40svmax)  !important;
         height: 85svmax;
         top: -34.5svmax;
+    }
+
+    @supports (-webkit-hyphens:none) {
+        .lamps_2 {
+            transform: translateX(40svmax) translateZ(0) !important;
+        }
     }
 
     .front_column {
