@@ -119,12 +119,12 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookLarge(
       onTapStart: () => setGestureState({ isPressed: true }),
       onTap: () => setGestureState({ isPressed: false }),
       onTapCancel: () => setGestureState({ isPressed: false }),
-      className: cx("framer-jxdNa", styles.notebook_parent, classNames),
-      style: { display: "contents" },
+      className: cx("framer-jxdNa", styles.notebook_parent, className),
+      style: { display: "block" },
       children: /*#__PURE__*/ _jsx(Transition, {
         value: transition,
         children: /*#__PURE__*/ _jsx(motion.div, {
-          className: cx("framer-vowb3z", className),
+          className: cx("framer-vowb3z"),
           "data-framer-name": "Variant 1",
           layoutDependency: layoutDependency,
           layoutId: "ujaK3JlKR",

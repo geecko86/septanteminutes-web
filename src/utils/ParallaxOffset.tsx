@@ -1,7 +1,7 @@
 import { MotionValue, useTransform } from "framer-motion";
 import { RefObject, useEffect, useState } from "react";
 
-export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
+export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
 
   const computeTranslationX = () => {
     const target = ref.current;
@@ -14,22 +14,25 @@ export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff:
     const targetStart = targetRect.left;
     const targetEnd = targetRect.right + motionValue.get();
 
+    const adjustedCoeff = coeff * (window.innerWidth / window.innerHeight) ;
+    const adjustedPow = window.innerHeight > window.innerWidth ? pow : 1.0;
+
     // if (targetStart > 0 && targetStart < 1000 && src==="https://framerusercontent.com/images/p7a4OJaiiEBm2LbB08atc4nEjM.png") console.log(targetStart, viewportEnd);
     if (targetStart > window.innerWidth) { 
       // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, "-aaa-")
       return `0%`;
     }
-    if (targetRect.right < -2 * targetRect.width) return `${coeff * 1.22}%`;
+    if (targetRect.right < -3 * targetRect.width) {
+      return `${adjustedCoeff * 1.53}%`;
+    }
+
 
 
     // Calculate the progress percentage
     const newProgress =
-      ((viewportEnd - targetStart) / (viewportEnd + targetRect.width));
+      ((viewportEnd - targetStart) / (viewportEnd + Math.max(targetRect.width, targetRect.height)));
 
-    const output = `${coeff * newProgress}%`;
-
-    // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, output);
-
+    const output = `${Math.pow(newProgress * adjustedCoeff, adjustedPow)}%`;
     return output;
   };
 

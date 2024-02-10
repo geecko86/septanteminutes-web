@@ -1,7 +1,7 @@
 .frame {
-    --controls-margin: 5vh;
-    --computed-height: calc(max(12vh, 96px));
-    --computed-width: calc(min(var(--computed-height) * (395/96), 100vw - 10vh));
+    --controls-margin: 5svh;
+    --computed-height: calc(max(12svh, 96px));
+    --computed-width: calc(min(var(--computed-height) * (395/96), 100vw - 10svh));
 
     position: sticky;
     visibility: hidden;
@@ -15,7 +15,7 @@
     height: var(--computed-height);
     width: var(--computed-width);
     min-height: 96px;
-    max-width: calc(100vw - 10vh);
+    max-width: calc(100vw - 10svh);
     
     display: flex;
     overflow: clip;
@@ -73,7 +73,7 @@
 .content .text_section {
     height: 92%;
     /* width: min-content; */
-    /* min-width: 26.33vh; */
+    /* min-width: 26.33svh; */
     /* flex-basis: 0; */
     flex-grow: 1;
     display: flex;
@@ -223,7 +223,6 @@ svg.playButton_svg {
 }
 
 .playButton_svg.playing {
-
 }
 
 .playButton_svg.paused {
@@ -239,7 +238,6 @@ svg.playButton_svg {
 }
 
 .playButtonBar_left {
-
 }
 
 .playButtonBar_bottom, .playButtonBar_top {
@@ -258,8 +256,8 @@ svg.playButton_svg {
     transform: scaleY(0.58)  translateY(-15%) translateX(-10%) rotate(55.5deg);
 }
 
-@media (max-width: 1200px) and (orientation: portrait) {
-    .player {
+@media (pointer:coarse) {
+    .frame {
         display: none !important;
     }
 }

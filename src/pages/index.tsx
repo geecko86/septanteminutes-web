@@ -92,7 +92,10 @@ export default function Home(props: {
             (home.current?.clientWidth || window.innerWidth) - window.innerWidth : 0;
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
+        const scrollSum = scrollX.get() + scrollY.get() + scrollXAdditional.get() + scrollYAdditional.get();
+
         if (isTouchDevice) {
+            if (showSwiper && scrollSum != 0) setShowSwiper(false);
             const smallerDim = Math.min(window.innerWidth, window.innerHeight);
             limit = (home.current?.clientWidth || smallerDim) - smallerDim;
             if (scrollX.get() >= limit) {
@@ -103,7 +106,6 @@ export default function Home(props: {
             }
         }
 
-        const scrollSum = scrollX.get() + scrollY.get() + scrollXAdditional.get() + scrollYAdditional.get();
         if (scrollSum < 0) {
             console.log("Negative scroll - reset");
             window.scrollTo({
@@ -128,14 +130,30 @@ export default function Home(props: {
 
     const velocity = useVelocity(newScrollX);
 
+    const offset3_factor = typeof window === "undefined" ? 0.5 : ((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
+
     // const offset0 = useTransform(() => newScrollX.get() * -0.32);
     // const offset05 = useTransform(() => newScrollX.get() * -0.25);
     const offset15 = useTransform(() => newScrollX.get() * 1.15);
     const offset2 = useTransform(() => newScrollX.get() * 1.35);
-    const offset3 = useTransform(() => newScrollX.get() * 2);
+    const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
     const onHomeWheel = (e: WheelEvent) => {
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        console.log(isTouchDevice);
         if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        if (isTouchDevice) {
+            scrollXAdditional.set(0);
+            scrollYAdditional.set(0);
+
+            window.scrollTo({
+                left: 0,
+                top: 0,
+                behavior: "instant"
+            });
+            return;
+        }
+        
         const limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
         const { deltaX, deltaY } = e;
 
@@ -202,25 +220,30 @@ export default function Home(props: {
         root.current?.addEventListener("wheel", onHomeWheel, { passive: false });
         root.current?.addEventListener("mousedown", interceptAutoScroll, { passive: false });
         const swiperTimer = setInterval(() => {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             if (!hasMovedRef.current) {
-                const from = scrollXAdditional.get(), to = scrollXAdditional.get() + Math.floor(window.innerWidth / 11);
-                const anim = animate([[scrollXAdditional, to, {
-                    duration: 0.9,
-                    ease: "easeIn"
-                }], [scrollXAdditional, [to, from], {
-                    duration: 0.9,
-                    delay: 1.5,
-                    ease: "easeInOut"
-                }], [scrollXAdditional, from, {
-                    duration: 0,
-                    delay: 3
-                }]]);
-                idleAnimRef.current = anim;
-                idleAnimRef.current.then(() => {
-                    hasMovedRef.current = false;
-                    setShowSwiper(false);
-                });
-                setShowSwiper(true);
+                if (!isTouchDevice) {
+                    const from = scrollXAdditional.get(), to = scrollXAdditional.get() + Math.floor(window.innerWidth / 11);
+                    const anim = animate([[scrollXAdditional, to, {
+                        duration: 0.9,
+                        ease: "easeIn"
+                    }], [scrollXAdditional, [to, from], {
+                        duration: 0.9,
+                        delay: 0.5,
+                        ease: "easeInOut"
+                    }], [scrollXAdditional, from, {
+                        duration: 0,
+                        delay: 3
+                    }]]);
+                    idleAnimRef.current = anim;
+                    idleAnimRef.current.then(() => {
+                        hasMovedRef.current = false;
+                        setShowSwiper(false);
+                    });
+                    setShowSwiper(true);
+                } else {
+                    setShowSwiper(true);
+                }
             } else {
                 clearInterval(swiperTimer);
             }
@@ -324,13 +347,13 @@ export default function Home(props: {
 
     const posters = [
         { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", className: styles.leuven, ratio: 440 / 228, parallaxFactor: 120 },
-        { src: "https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg", className: styles.akerman, ratio: 337 / 296 },
-        { src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", className: styles.brel, ratio: 337 / 448 },
+        { src: "https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg", className: styles.akerman, ratio: 337 / 296, parallaxFactor: 140 },
+        { src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", className: styles.brel, ratio: 337 / 448, parallaxFactor: 170 },
         { src: "https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg", className: styles.redford, ratio: 582 / 397, parallaxFactor: 120 },
         { src: "https://framerusercontent.com/images/ZUrkjCIHCUv6FqcoUXJw3atquQ.webp", className: styles.cavell, ratio: 2267 / 1704, parallaxFactor: 130 },
         { src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", className: styles.congo, ratio: 2267 / 1704, parallaxFactor: 130 },
         { src: "https://framerusercontent.com/images/WiTE1wYTrGK2zx2OVVRi5QGnFg.jpg", className: styles.walenbuiten, ratio: 2267 / 1704, parallaxFactor: 130 },
-        { src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", className: styles.stones, ratio: 1 },
+        { src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", className: styles.stones, ratio: 1, parallaxFactor: 140 },
     ];
 
     return (
@@ -400,7 +423,7 @@ export default function Home(props: {
                                         {
                                             [
                                                 (<React.Fragment key={`deco05_0_${i}`}>
-                                                    <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left: "-5vh" }} motionValue={newScrollX} />
+                                                    <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left: "-5svh" }} motionValue={newScrollX} />
                                                     <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_1_${i}`}>
@@ -412,7 +435,7 @@ export default function Home(props: {
                                                     <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_3_${i}`}>
-                                                    <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left: "-10vh" }} motionValue={newScrollX} />
+                                                    <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left: "-10svh" }} motionValue={newScrollX} />
                                                     <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "" }} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_4_${i}`}>
@@ -434,8 +457,7 @@ export default function Home(props: {
                                             <HomeAlbum id={`art_${ep.num}`} ref={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
                                                 onClick={(e: MouseEvent) => {
                                                     if (e.button != 0) return;
-                                                    // setAutoplay(ep);
-                                                    // TODO enable again
+                                                    if (process.env.NODE_ENV === 'production') setAutoplay(ep);
                                                 }} />
                                         ))}
                                     </Season>
@@ -459,10 +481,10 @@ export default function Home(props: {
                         <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
                             <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateZ: 0, translateX: offset3 }}>
                             <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />                                        
-                                {floorKeys.slice(0, Math.floor(floorKeys.length / 1.8)).map((i) => (
+                                {floorKeys.slice(0, Math.floor(floorKeys.length / (3.6 / offset3_factor))).map((i) => (
                                     <React.Fragment key={`layer3_deco_${i}`}>
                                         <FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
-                                            pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date}
+                                            pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date} blur={FrontPosters[i % 4].blurDataUrl}
                                             onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />
                                         <PlantA2 key={`layer3_prop_${i}_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />                                        
                                     </ React.Fragment>

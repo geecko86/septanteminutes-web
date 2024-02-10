@@ -91,7 +91,7 @@ export default function EpisodeTable(props: {
     [scrollYProgress, vinyls.length]
   );
 
-  const { setPlaying, isPlaying, playbackMP3, setPlaybackMP3, playbackTitle, setPlaybackTitle, setPlaybackNum, autoplay, status } = usePlayback();
+  const { setPlaying, isPlaying, playbackMP3, setPlaybackMP3, playbackTitle, setPlaybackTitle, setPlaybackArtwork, setPlaybackNum, autoplay, status } = usePlayback();
 
   isPlayingRef.current = isPlaying;
   playbackMP3Ref.current = playbackMP3;
@@ -203,7 +203,7 @@ export default function EpisodeTable(props: {
       const { bind, unbind } = createScrollSnap(
         element as HTMLDivElement,
         {
-          snapDestinationY: "100vh",
+          snapDestinationY: "100%",
           timeout: 0,
           duration: 0,
           easing: t => {
@@ -349,6 +349,7 @@ export default function EpisodeTable(props: {
     setPlaybackMP3(vinyls[position].mp3);
     setPlaybackNum(position + 1);
     setPlaybackTitle(vinyls[selectedEpisode].title);
+    setPlaybackArtwork(vinyls[selectedEpisode].img);
   };
 
   const Chair: FC<any> = Chair_;
@@ -414,8 +415,8 @@ export default function EpisodeTable(props: {
                 setHasClickedNotebook(true)
               }}
             />
-            <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />
-            <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />
+            <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47svmax" className={styles.phone} />
+            <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16svmax" className={styles.camera} />
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
               if (playbackMP3) {
                 setPlaying(!isPlaying);

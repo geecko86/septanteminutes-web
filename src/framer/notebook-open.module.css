@@ -12,7 +12,7 @@ div[ready="true"] .scrollTarget {}
 }
 
 .scrollTarget>p {
-    padding-bottom: 0.6rem !important;
+    padding-bottom: 6% !important;
 }
 
 .scrollTarget a {
@@ -224,12 +224,16 @@ div[ready="true"] .scrollTarget {}
     .exit_cross {
         position: absolute;
         top: 3.5%;
-        left: calc((100vw - 8vh) / 2);
-        width: 2.75vh;
+        left: calc((100vw - 8svh) / 2);
+        width: 2.75svh;
         height: auto;
         cursor: pointer;
         aspect-ratio: 1;
         display: unset;
+    }
+
+    .exit_cross_2 {
+        left: calc((100vw - 4svh));
     }
 
     .exit_cross::before {
@@ -243,7 +247,7 @@ div[ready="true"] .scrollTarget {}
 
 @media (orientation: landscape) {
     .scrollTarget * {
-        font-size: 2.55vh !important;
+        font-size: 2.55svh !important;
         ;
     }
 }

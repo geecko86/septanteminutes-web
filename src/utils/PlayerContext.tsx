@@ -1,14 +1,34 @@
 'use client'
 
 import React, { useContext, createContext, SetStateAction, useState, useEffect, ReactElement } from "react";
+import loader from "../utils/cdn_img_loader";
 import type { episode } from "../types/episode";
 
 const PlayerContext = createContext<PlaybackContextData | undefined>(undefined);
+
+const setupMetadata = (playbackData: {playbackTitle: string, playbackArtwork: string}) => {
+    if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+            title: playbackData.playbackTitle,
+            artist: 'Guillaume Hachez',
+            album: 'Septante Minutes Avec',
+            artwork: [
+                { src: loader({src: playbackData.playbackArtwork, width: 96, quality: 75}),   sizes: '96x96',   type: 'image/png' },
+                { src: loader({src: playbackData.playbackArtwork, width: 128, quality: 75}), sizes: '128x128', type: 'image/png' },
+                { src: loader({src: playbackData.playbackArtwork, width: 192, quality: 75}), sizes: '192x192', type: 'image/png' },
+                { src: loader({src: playbackData.playbackArtwork, width: 256, quality: 75}), sizes: '256x256', type: 'image/png' },
+                { src: loader({src: playbackData.playbackArtwork, width: 384, quality: 75}), sizes: '384x384', type: 'image/png' },
+                { src: loader({src: playbackData.playbackArtwork, width: 512, quality: 75}), sizes: '512x512', type: 'image/png' },
+            ]
+        });
+    }
+}
 
 export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const [isPlaying, setPlaying] = useState(false)
     const [playbackMP3, setMP3] = useState("")
     const [playbackTitle, setPlaybackTitle] = useState("")
+    const [playbackArtwork, setPlaybackArtwork] = useState("")
     const [playbackNum, setPlaybackNum] = useState<number>(0)
     const [status, setStatus] = useState<number>(0);
     const [autoPlay, setAutoplay] = useState<episode | undefined>(undefined);
@@ -50,6 +70,22 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
             stop();
             setAudio(newAudio);
 
+            setupMetadata({
+                playbackTitle,
+                playbackArtwork,
+            })
+    
+            navigator.mediaSession.setActionHandler('play', () => {
+                setPlaying(true)
+            });
+            navigator.mediaSession.setActionHandler('pause', () => {
+                setPlaying(false)
+            });
+            navigator.mediaSession.setActionHandler('seekbackward', () => { newAudio.currentTime -= 15 });
+            navigator.mediaSession.setActionHandler('seekforward', () => { newAudio.currentTime += 15 });
+            // navigator.mediaSession.setActionHandler('previoustrack', function() {});
+            // navigator.mediaSession.setActionHandler('nexttrack', function() {});
+
             return () => {
                 newAudio.removeEventListener("canplay", onLoaded);
                 newAudio.removeEventListener("ended", onEnded);
@@ -77,6 +113,8 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         setPlaybackMP3: setMP3,
         playbackTitle: playbackTitle,
         setPlaybackTitle: setPlaybackTitle,
+        playbackArtwork: playbackArtwork,
+        setPlaybackArtwork: setPlaybackArtwork,
         playbackNum: playbackNum,
         setPlaybackNum: setPlaybackNum,
         status: status,
@@ -110,6 +148,8 @@ export type PlaybackContextData = {
     setPlaybackNum: (arg0: SetStateAction<number>) => void,
     playbackTitle: string,
     setPlaybackTitle: (arg0: SetStateAction<string>) => void,
+    playbackArtwork: string,
+    setPlaybackArtwork: (arg0: SetStateAction<string>) => void,
     status: number,
     setStatus: (arg0: SetStateAction<number>) => void,
     autoplay: episode | undefined,

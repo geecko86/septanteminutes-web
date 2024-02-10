@@ -138,7 +138,7 @@ let h = {
                         src: w,
                         ref: null != a ? a : T,
                         fill: true,
-                        sizes: "17.5vmin",
+                        sizes: "17.5svmin",
                         quality: 80,
                         className: "homealbum-img",
                         loading:"eager",

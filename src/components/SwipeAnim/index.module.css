@@ -1,8 +1,8 @@
 .box {
-  width: 3.5vh;
-  height: 3.5vh;
+  width: 3.5svh;
+  height: 3.5svh;
   border-radius: 50%;
-  border: 0.5vh solid black;
+  border: 0.5svh solid black;
   background: url("/img/chevron.svg"), white;
   background-size: 66% 100%, 100%;
   background-position-x: 40%, 0%;

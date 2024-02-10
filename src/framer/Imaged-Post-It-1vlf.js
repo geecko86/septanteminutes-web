@@ -126,34 +126,30 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
     children: /*#__PURE__*/ _jsx(motion.div, {
       initial: variant,
       animate: variants,
-      onHoverStart: () => setGestureState({ isHovered: true }),
-      onHoverEnd: () => setGestureState({ isHovered: false }),
       onTapStart: () => setGestureState({ isPressed: true }),
       onTap: () => setGestureState({ isPressed: false }),
       onTapCancel: () => setGestureState({ isPressed: false }),
       className: cx("framer-C4Wjh", classNames),
       style: { display: "contents" },
-        children: /*#__PURE__*/ _jsx(Transition, {
-          value: transition,
-          children: /*#__PURE__*/ _jsx(motion.div, {
+      children: /*#__PURE__*/ _jsx(Transition, {
+        value: transition,
+        children: /*#__PURE__*/ _jsx(motion.div, {
+          ...restProps,
+          className: cx("framer-tgvrn3", className),
+          "data-framer-name": "Variant 1",
+          layoutDependency: layoutDependency,
+          layoutId: "aP1r6qEU4",
+          ref: ref,
+          style: { rotate: 0, ...style },
+          variants: { "aP1r6qEU4-hover": { rotate: 2 } },
+          ...addPropertyOverrides(
+            { "aP1r6qEU4-hover": { "data-framer-name": undefined } },
+            baseVariant,
+            gestureVariant
+          ),
+          children: _jsx(motion.div, {
             ...restProps,
-            className: cx("framer-tgvrn3", className),
-            "data-framer-name": "Variant 1",
-            layoutDependency: layoutDependency,
-            layoutId: "aP1r6qEU4",
-            ref: ref,
-            style: { rotate: 0, ...style },
-            variants: { "aP1r6qEU4-hover": { rotate: 2 } },
-            ...addPropertyOverrides(
-              { "aP1r6qEU4-hover": { "data-framer-name": undefined } },
-              baseVariant,
-              gestureVariant
-            ),
-            children: _jsx(link ? Link : motion.div, {
-              ...(link ? { href: link, scroll: false, onClick: (e) => {} } : {}),
-              ...restProps,
-              style: { display: "contents" },
-              target: separate ? "_blank" : "",
+            style: { display: "block" },
             children: /*#__PURE__*/ _jsxs(motion.div, {
               className: "framer-1tcxbxb",
               "data-framer-name": "Post_it_3",
@@ -165,7 +161,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
               /*#__PURE__*/ _jsx(NextImage, {
                 alt: "",
                 fill: true,
-                sizes: "10vmax",
+                sizes: "10svmax",
                 ...toResponsiveImage(XmvAL8ZsJ),
               }),
               /*#__PURE__*/ _jsx(RichText, {
@@ -230,6 +226,15 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
                 },
                 transformTemplate: transformTemplate,
               }),
+              /*#__PURE__*/ _jsx(motion.div, {
+                  "data-framer-name": "hover_zone",
+                  onHoverStart: () => setGestureState({ isHovered: true }),
+                  onHoverEnd: () => setGestureState({ isHovered: false }),
+                  children : link ? (/*#__PURE__*/ _jsx(Link, {
+                    ...({ href: link, scroll: false, onClick: (e) => { } }),
+                    target: separate ? "_blank" : "",
+                  })) : null
+                })
               ],
             }),
           }),

@@ -12,7 +12,7 @@ const Poster = (props: PosterProps) => {
     const jumpToValue = isLast ? (val: number | string) => {
         if (translateX) translateX.jump(val);
     } : undefined;
-    translateX = useOffset(ref, motionValue, parallaxFactor || 160, src, onReady, jumpToValue);
+    translateX = useOffset(ref, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ position: "relative", translateX, height: "100%", width: "100%" }}>

@@ -41,7 +41,7 @@ const Season = ({
                                 <Image
                                     alt="" fill={true}
                                     priority={true}
-                                    className={styles.wall} sizes="85vh"
+                                    className={styles.wall} sizes="85svh"
                                     src="https://framerusercontent.com/images/hxXL2jKccfg84wL6UdchMdB312c.jpg"
                                     style={{
                                         position: "absolute",
@@ -75,7 +75,7 @@ const Season = ({
                             </svg>
                             </div>
                         </div>
-                        <div className={styles.season_title} data-framer-name="Frame 10" style={{ opacity: 1 }}><div className={styles.richtextcontainer0} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, "--framer-font-size": "2.37vh", paddingTop: "1px", transform: "none", opacity: 1 }}><p className="framer-text">{seasonTitle}</p></div>
+                        <div className={styles.season_title} data-framer-name="Frame 10" style={{ opacity: 1 }}><div className={styles.richtextcontainer0} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, "--framer-font-size": "2.37svh", paddingTop: "1px", transform: "none", opacity: 1 }}><p className="framer-text">{seasonTitle}</p></div>
                             <div className={styles.richtextcontainer1} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", "flexDirection": "column", justifyContent: "flex-start", "--framer-paragraph-spacing": "0px", paddingBottom: "2px", transform: "none", opacity: 1 }}>
                                 <p className="framer-text">
                                     <span className="framer-text" style={{ "--font-selector": "R0Y7UmFkd2F2ZS1yZWd1bGFy", "--framer-font-family": "Radwave Demo" }}>

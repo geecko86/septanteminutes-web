@@ -313,6 +313,12 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
               }
             }),
             /*#__PURE__*/ _jsxs(motion.div, {
+              className: [styles.exit_cross, styles.exit_cross_2].join(" "),
+              onClick: () => {
+                if (props.toggleOverlay) props.toggleOverlay(false);
+              }
+            }),
+            /*#__PURE__*/ _jsxs(motion.div, {
               className: "framer-j4o6rv",
               layoutDependency: layoutDependency,
               layoutId: "ZW17gGN7x",
