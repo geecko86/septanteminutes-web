@@ -74,7 +74,7 @@ const Controls = () => {
                     setHovered(isPlaying);
                     if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                 }}>
-                    <span className={styles.episode_number}>{`episode ${num}`}</span>
+                    {active && <span className={styles.episode_number}>{`episode ${num}`}</span>}
                     <span className={styles.guest_name}>{title.split(/\s(-|–)\s?/g)[0].trim()}</span>
                 </Link>
                 <div className={styles.progress_bar_section}>

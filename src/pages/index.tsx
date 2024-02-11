@@ -11,6 +11,7 @@ import React, {
 import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from 'next/router';
+import { isSafari } from 'react-device-detect';
 
 import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../components/Season";
@@ -53,6 +54,7 @@ export default function Home(props: {
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
     const [showSwiper, setShowSwiper] = useState(false);
+    const [offset3_factor, setOffset3Factor] = useState<number>(0.5);
     
     const hasMovedRef = useRef(false), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
@@ -80,6 +82,7 @@ export default function Home(props: {
 
     useEffect(() => {
         setRatio((home.current?.clientWidth || 0) / (home.current?.clientHeight || 1));
+        setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
     }, [home.current?.clientWidth]);
 
     const { scrollX, scrollY } = useScroll();
@@ -130,7 +133,6 @@ export default function Home(props: {
 
     const velocity = useVelocity(newScrollX);
 
-    const offset3_factor = typeof window === "undefined" ? 0.5 : ((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
 
     // const offset0 = useTransform(() => newScrollX.get() * -0.32);
     // const offset05 = useTransform(() => newScrollX.get() * -0.25);
@@ -369,11 +371,11 @@ export default function Home(props: {
             <div ref={subroot} className={styles.home_subroot} key={"home_subroot"}>
                 <div ref={root} className={styles.home_root} key={"home_root"}>
                     <motion.div className={styles.home} key={"home"} ref={home} tabIndex={0} id="home"
-                    onKeyDown={handleKeysDown} style={{ translateZ: 0, translateX: newScrollX }}>
+                        onKeyDown={handleKeysDown} style={{ translateX: newScrollX, translateZ: 0 }}>
                         <Head>
                             <title>{playbackTitle ? `${isPlaying ? "▶ " : ""}${playbackTitle}` : "Septante Minutes Avec"}</title>
                         </Head>
-                        <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateZ: 0 }}>
+                        <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari ? { translateZ: 0 } : {}}>
                             <div className={styles.ceiling_3} key={"ceiling_3"} />
                             <div className={styles.ceiling_2} key={"ceiling_2"}>
                                 {floorKeys.map((i) => (
@@ -411,7 +413,7 @@ export default function Home(props: {
                             </div>
                             <div className={styles.floor} key={"floor"} />
                         </motion.div>
-                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateZ: 0 }}>
+                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari ? { translateZ: 0 } : {}}>
                             {
                                 seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
@@ -427,12 +429,12 @@ export default function Home(props: {
                                                     <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_1_${i}`}>
-                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} motionValue={newScrollX} />
+                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} />
                                                     <PlantA key={`layer05_prop_${i}_PlantA`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_2_${i}`}>
                                                     <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} />
-                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} motionValue={newScrollX} />
+                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_3_${i}`}>
                                                     <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left: "-10svh" }} motionValue={newScrollX} />
@@ -440,7 +442,7 @@ export default function Home(props: {
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_4_${i}`}>
                                                         <div key={`layer05_gap0_${i}_div`} className={styles.gap} style={{ width: "calc(55 * var(--unit))" }} />
-                                                        <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "unset" }} motionValue={newScrollX} />
+                                                        <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} />
                                                         <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} />
                                                 </ React.Fragment>)
                                             ][i % 5]
@@ -464,14 +466,14 @@ export default function Home(props: {
                                 ))
                             }
                         </motion.div>
-                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateZ: 0, translateX: offset15 }}>
+                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15, ...(isSafari ? {translateZ: 0} : {}) }}>
                             <div className={styles.lamps_1_5} key={"lamps_1_5"} >
                                 {floorKeys.map((i) => (
                                     <BellLamp key={`lamp_1_5_${i}`} className={styles.lamp} />
                                 ))}
                             </div>
                         </motion.div>
-                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateZ: 0, translateX: offset2 }}>
+                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isSafari ? {translateZ: 0} : {}) }}>
                             <div className={styles.lamps_2} key={"lamps_2"}>
                                 {floorKeys.map((i) => (
                                     <BellLamp key={`lamp_2_${i}`} className={styles.lamp} />
@@ -479,8 +481,8 @@ export default function Home(props: {
                             </div>
                         </motion.div>
                         <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
-                            <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateZ: 0, translateX: offset3 }}>
-                            <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />                                        
+                            <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, ...(isSafari ? {translateZ: 0} : {}) }}>
+                            <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                 {floorKeys.slice(0, Math.floor(floorKeys.length / (3.6 / offset3_factor))).map((i) => (
                                     <React.Fragment key={`layer3_deco_${i}`}>
                                         <FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}

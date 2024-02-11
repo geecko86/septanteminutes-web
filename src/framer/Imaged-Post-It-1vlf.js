@@ -101,6 +101,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
     fKpdeXn5p,
     link,
     separate,
+    onClick,
     ...restProps
   } = getProps(props);
   const {
@@ -228,6 +229,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
               }),
               /*#__PURE__*/ _jsx(motion.div, {
                   "data-framer-name": "hover_zone",
+                  onClick,
                   onHoverStart: () => setGestureState({ isHovered: true }),
                   onHoverEnd: () => setGestureState({ isHovered: false }),
                   children : link ? (/*#__PURE__*/ _jsx(Link, {

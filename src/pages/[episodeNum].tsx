@@ -230,6 +230,7 @@ export default function EpisodeTable(props: {
         const oldOnload: (((e: Event) => any) | null) = img.onload;
         if (img.complete) resolve();
         else img.onload = (ev: Event) => {
+          console.log("Loaded selected vinyl tag")
           resolve();
           if (oldOnload) oldOnload(ev);
           clearTimeout(timeoutId);
@@ -244,6 +245,7 @@ export default function EpisodeTable(props: {
           const img = el as HTMLImageElement;
           if (img.complete) resolve();
           else img.onload = () => {
+            console.log("Loaded floor img")
             resolve();
             clearTimeout(timeoutId);
           };
@@ -253,6 +255,7 @@ export default function EpisodeTable(props: {
         });
       });
       Promise.all([selectedVinylPromise, floorPromise]).then(() => {
+        console.log("All images loaded")
         if (!clear) props.onReady();
       });
     }
