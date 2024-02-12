@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useEffect, useState } from 'react'
+import { ReactElement, ReactNode, StrictMode, useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
@@ -48,16 +48,18 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes"></meta>
       </Head>
-      <PlaybackProvider>
-        <AnimatePresence mode="wait">
-          <Component {...pageProps} key={Component.name} ready={loaded === pathname} onReady={() => {
-            setLoaded(pathname);
-          }} />
-        </AnimatePresence>
-        <div className={styles.overlay} key="overlay">
-          <FloatingPlaybackControls />
-        </div>
-      </PlaybackProvider>
+      <StrictMode>
+        <PlaybackProvider>
+          <AnimatePresence mode="wait">
+            <Component {...pageProps} key={Component.name} ready={loaded === pathname} onReady={() => {
+              setLoaded(pathname);
+            }} />
+          </AnimatePresence>
+          <div className={styles.overlay} key="overlay">
+            <FloatingPlaybackControls />
+          </div>
+        </PlaybackProvider>
+        </StrictMode>
       <div id="globalLoader">
         {showSpinner ? <div>
           <MaterialSpinningLoader />

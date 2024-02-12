@@ -10,7 +10,7 @@ import {
   useVariantState as d,
   withCSS as l,
 } from "framer";
-import { isSafari } from 'react-device-detect';
+import { isSafari, isIOS } from 'react-device-detect';
 import {
   LayoutGroup as p,
   motion as f,
@@ -120,7 +120,7 @@ let h = {
                 initial: false,
                 transition: { type: "spring", stiffness: 100, damping: 15, mass: 1 },
                 animate: {
-                  transform: `translateY(${isHovered? "-10%" : "0%"}) ${isSafari ? "translateZ(0)" : ""}`,
+                  transform: `translateY(${isHovered? "-10%" : "0%"}) ${isSafari || isIOS ? "translateZ(0)" : ""}`,
                 },
                 children: [
                   r(f.div, {

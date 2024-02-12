@@ -25,8 +25,9 @@ import ImagedPostIt_ from "../framer/Imaged-Post-It-1vlf.js";
 import RecordPlayer from "../components/RecordPlayer";
 import VinylAlbum, { ShadowAlbum } from "../components/VinylAlbum";
 import NotebookOverlay from "../components/NotebookOverlay";
-import { usePlayback } from '../utils/PlayerContext';
+import { hackAutoplay, usePlayback } from '../utils/PlayerContext';
 import data from "../utils/tempdata.js";
+import { isIOS } from "react-device-detect";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -91,7 +92,7 @@ export default function EpisodeTable(props: {
     [scrollYProgress, vinyls.length]
   );
 
-  const { setPlaying, isPlaying, playbackMP3, setPlaybackMP3, playbackTitle, setPlaybackTitle, setPlaybackArtwork, setPlaybackNum, autoplay, status } = usePlayback();
+  const { setPlaying, isPlaying, playbackMP3, setPlaybackMP3, playbackTitle, setPlaybackTitle, setPlaybackArtwork, setPlaybackNum, autoplay, status, audio } = usePlayback();
 
   isPlayingRef.current = isPlaying;
   playbackMP3Ref.current = playbackMP3;
@@ -349,10 +350,30 @@ export default function EpisodeTable(props: {
   };
 
   const playEpisode = (position: number) => {
-    setPlaybackMP3(vinyls[position].mp3);
-    setPlaybackNum(position + 1);
-    setPlaybackTitle(vinyls[selectedEpisode].title);
-    setPlaybackArtwork(vinyls[selectedEpisode].img);
+    if (!audio) {
+      console.error("audio element not found!");
+      return;
+    }
+    
+    if (playbackMP3 == vinyls[position].mp3) {
+      console.log("same mp3");
+      setPlaying(true);
+      return;
+    }
+
+    const play = () => {
+      setPlaybackTitle(vinyls[selectedEpisode].title);
+      setPlaybackArtwork(vinyls[selectedEpisode].img);
+      setPlaybackMP3(vinyls[position].mp3);
+      setPlaybackNum(position + 1);
+    };
+
+    if (audio.src || !isIOS) {
+      setPlaying(false);
+      play();
+    } else {
+      hackAutoplay(audio).then(play);
+    }
   };
 
   const Chair: FC<any> = Chair_;
@@ -459,6 +480,7 @@ export default function EpisodeTable(props: {
             </div>
             <motion.div className={styles.albums} onClick={() => {
               setHasClickedPlay(true);
+              if (!audio) return;
               playEpisode(selectedEpisode);
             }}>
               {vinyls.map((episode, index) => (
@@ -470,7 +492,8 @@ export default function EpisodeTable(props: {
                   total={vinyls.length}
                   position={index}
                   onLoad={() => {
-                    if (autoplay?.num == episode.num) {
+                    if (!(isIOS && !audio?.src) && autoplay?.num == episode.num) {
+                      console.log("autoplaying!");
                       playEpisode(index);
                     }
                   }}

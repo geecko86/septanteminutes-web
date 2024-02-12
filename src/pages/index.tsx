@@ -11,7 +11,7 @@ import React, {
 import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from 'next/router';
-import { isSafari } from 'react-device-detect';
+import { isSafari, isIOS } from 'react-device-detect';
 
 import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../components/Season";
@@ -235,7 +235,7 @@ export default function Home(props: {
                         ease: "easeInOut"
                     }], [scrollXAdditional, from, {
                         duration: 0,
-                        delay: 3
+                        delay: 0.25
                     }]]);
                     idleAnimRef.current = anim;
                     idleAnimRef.current.then(() => {
@@ -375,7 +375,7 @@ export default function Home(props: {
                         <Head>
                             <title>{playbackTitle ? `${isPlaying ? "▶ " : ""}${playbackTitle}` : "Septante Minutes Avec"}</title>
                         </Head>
-                        <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari ? { translateZ: 0 } : {}}>
+                        <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isIOS ? { translateZ: 0 } : {}}>
                             <div className={styles.ceiling_3} key={"ceiling_3"} />
                             <div className={styles.ceiling_2} key={"ceiling_2"}>
                                 {floorKeys.map((i) => (
@@ -413,7 +413,7 @@ export default function Home(props: {
                             </div>
                             <div className={styles.floor} key={"floor"} />
                         </motion.div>
-                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari ? { translateZ: 0 } : {}}>
+                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isIOS ? { translateZ: 0 } : {}}>
                             {
                                 seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
@@ -466,14 +466,14 @@ export default function Home(props: {
                                 ))
                             }
                         </motion.div>
-                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15, ...(isSafari ? {translateZ: 0} : {}) }}>
+                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
                             <div className={styles.lamps_1_5} key={"lamps_1_5"} >
                                 {floorKeys.map((i) => (
                                     <BellLamp key={`lamp_1_5_${i}`} className={styles.lamp} />
                                 ))}
                             </div>
                         </motion.div>
-                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isSafari ? {translateZ: 0} : {}) }}>
+                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
                             <div className={styles.lamps_2} key={"lamps_2"}>
                                 {floorKeys.map((i) => (
                                     <BellLamp key={`lamp_2_${i}`} className={styles.lamp} />
@@ -481,7 +481,7 @@ export default function Home(props: {
                             </div>
                         </motion.div>
                         <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
-                            <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, ...(isSafari ? {translateZ: 0} : {}) }}>
+                            <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
                             <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                 {floorKeys.slice(0, Math.floor(floorKeys.length / (3.6 / offset3_factor))).map((i) => (
                                     <React.Fragment key={`layer3_deco_${i}`}>
