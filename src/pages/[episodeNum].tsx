@@ -99,13 +99,12 @@ export default function EpisodeTable(props: {
 
   const doNotebookIdleAnimation = () => {
     const notebookElement = document.getElementsByClassName(styles.notebook)[0];
-    
     if (hasClickedNotebookRef.current || !notebookElement) return;
 
     const onFinished = () => {
       if (!hasClickedNotebookRef.current) {
         clearTimeout(idleAnimationTimeoutId);
-        const id = setTimeout(doNotebookIdleAnimation, 8500);
+        const id = setTimeout(doNotebookIdleAnimation, 3750);
         setIdleAnimationTimeoutId(id);
       }
     };
@@ -152,7 +151,7 @@ export default function EpisodeTable(props: {
     if (!playbackMP3 || !props.ready) return;
 
     clearTimeout(idleAnimationTimeoutId);
-    const id = setTimeout(doNotebookIdleAnimation, 8500);
+    const id = setTimeout(doNotebookIdleAnimation, 100);
     setIdleAnimationTimeoutId(id);
 
     return () => {

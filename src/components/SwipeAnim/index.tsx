@@ -30,8 +30,8 @@ export default function IdleSwipeAnim(props: { play: boolean, className: string 
         [`.${styles.box}`, { scale: 1 }, { duration: 0.2, at: 1.5, ease: "easeInOut" }],
         [`.${styles.box}`, { scale: 1.5 }, { duration: 0.2, at: 2.05, ease: "easeInOut" }],
         
-        [`.${styles.box}`, { rotate: "90deg" }, { duration: 0.01, at: 1.15, ease: "easeInOut" }],
-        [`.${styles.box}`, { rotate: "270deg" }, { duration: 0.01, at: 2.5, ease: "easeInOut" }],
+        [`.${styles.box}`, { rotate: "90deg" }, { duration: 0.01, at: 1.25, ease: "easeInOut" }],
+        [`.${styles.box}`, { rotate: "270deg" }, { duration: 0.01, at: 2.51, ease: "easeInOut" }],
     ];
 
     const touchDeviceSequence = [
