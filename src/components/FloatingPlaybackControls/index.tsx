@@ -33,7 +33,7 @@ const Controls = () => {
 
     const { playbackMP3: mp3, audio: audio, playbackNum: num, playbackTitle: title, setPlaying, isPlaying, status } = usePlayback();
 
-    const active = mp3 && num && title;
+    const active = !!mp3 && !!num && !!title;
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
         if (e.keyCode == 32) {

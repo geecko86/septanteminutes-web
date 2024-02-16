@@ -348,7 +348,7 @@ export default function EpisodeTable(props: {
     e.preventDefault();
   };
 
-  const playEpisode = (position: number) => {
+  const playEpisode = (position: number, autoplay: boolean = false) => {
     if (!audio) {
       console.error("audio element not found!");
       return;
@@ -356,7 +356,7 @@ export default function EpisodeTable(props: {
     
     if (playbackMP3 == vinyls[position].mp3) {
       console.log("same mp3");
-      setPlaying(true);
+      if (!autoplay) setPlaying(true);
       return;
     }
 
@@ -493,7 +493,7 @@ export default function EpisodeTable(props: {
                   onLoad={() => {
                     if (!(isIOS && !audio?.src) && autoplay?.num == episode.num) {
                       console.log("autoplaying!");
-                      playEpisode(index);
+                      playEpisode(index, true);
                     }
                   }}
                   onSelect={scrollCallback}

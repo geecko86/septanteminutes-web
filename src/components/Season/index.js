@@ -19,15 +19,6 @@ const Season = ({
                 opacity: 1,
                 minWidth: chair ? "inherit" : "unset"
             }}>
-                {chair ?
-                    (<div className={styles.chair} data-framer-name="Chair">
-                        <Image alt="" loading="lazy" className="chair_img" sizes="30vw" src={chair} fill={true} style={{
-                            position: "absolute",
-                            objectFit: "contain",
-                            aspectRatio: "unset"
-                        }} />
-                    </div>) : null
-                }
                 {!!chair && <div style={{
                     height: "100%",
                     width: "100%",
@@ -70,9 +61,9 @@ const Season = ({
                         </div>
                         <div data-framer-component-type="SVG" data-framer-name="Line 1" parentsize="0" rotation="0" shadows="" className={styles.svg_0} style={{ imageRendering: "pixelated", fill: "black", opacity: 1 }}>
                             <div className="svgContainer" style={{ width: "100%", height: "100%", aspectRatio: "inherit" }}>
-                            <svg width="3" height="31" viewBox="-1 -1 3 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="0.5" y1="2.18557e-08" x2="0.499999" y2="29" stroke="black"/>
-                            </svg>
+                                <svg width="3" height="31" viewBox="-1 -1 3 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="0.5" y1="2.18557e-08" x2="0.499999" y2="29" stroke="black" />
+                                </svg>
                             </div>
                         </div>
                         <div className={styles.season_title} data-framer-name="Frame 10" style={{ opacity: 1 }}><div className={styles.richtextcontainer0} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, "--framer-font-size": "2.37svh", paddingTop: "1px", transform: "none", opacity: 1 }}><p className="framer-text">{seasonTitle}</p></div>
@@ -99,6 +90,15 @@ const Season = ({
                         </div>
                     </div>
                 </div>
+                {chair ?
+                    (<div className={styles.chair} data-framer-name="Chair">
+                        <Image alt="" loading="lazy" className="chair_img" sizes="30vw" src={chair} fill={true} style={{
+                            position: "absolute",
+                            objectFit: "contain",
+                            aspectRatio: "unset"
+                        }} />
+                    </div>) : null
+                }
             </div>
         </div>
     );

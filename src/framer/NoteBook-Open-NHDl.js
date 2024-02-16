@@ -289,6 +289,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     "--framer-text-color":
                       "var(--extracted-r6o4lv, rgb(38, 38, 38))",
                   },
+                  className: styles.subscribe,
                   children: "Abonnez-vous !",
                 }),
               }),

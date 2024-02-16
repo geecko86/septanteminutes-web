@@ -23,7 +23,7 @@ export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff:
       return `0%`;
     }
     if (targetRect.right < -3 * targetRect.width) {
-      return `${adjustedCoeff * 1.53}%`;
+      return `${adjustedCoeff * -1.53}%`;
     }
 
 

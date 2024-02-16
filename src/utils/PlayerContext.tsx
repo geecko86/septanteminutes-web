@@ -3,7 +3,6 @@
 import React, { useContext, createContext, SetStateAction, useState, useEffect, useRef } from "react";
 import loader from "../utils/cdn_img_loader";
 import type { episode } from "../types/episode";
-import { isIOS } from "react-device-detect";
 
 const PlayerContext = createContext<PlaybackContextData | undefined>(undefined);
 
@@ -119,7 +118,9 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const audio = audioRef.current;
 
     const onLoaded = () => {
-        setStatus(audio?.readyState || 0)
+        if (audio?.readyState) {
+            setStatus(audio?.readyState)
+        }
         setPlaying(true);
     };
     const onEnded = () => {
@@ -141,12 +142,17 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         }
     };
 
-    const onPlay = () => {
+    const onPlaying = () => {
         navigator.mediaSession.playbackState = 'playing';
+        setStatus(4);
     };
 
     const onPause = () => {
         navigator.mediaSession.playbackState = 'paused';
+    };
+
+    const onWaiting = () => {
+        setStatus(2);
     };
 
     useEffect(() => {
@@ -163,22 +169,25 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         newAudio.controls = false;
         newAudio.slot = "media";
 
-        newAudio.addEventListener('play', onPlay);
+        newAudio.addEventListener('playing', onPlaying);
         newAudio.addEventListener('pause', onPause);
+        newAudio.addEventListener("waiting", onWaiting, { passive: true });
         newAudio.addEventListener("canplay", onLoaded, { passive: true });
         newAudio.addEventListener("ended", onEnded, { passive: true });
         newAudio.addEventListener("error", onError, { passive: true });
-        newAudio.addEventListener("canplay", onLoaded, { passive: true });
+        newAudio.addEventListener("seeked", onPlaying, { passive: true });
 
         audioRef.current = newAudio;
 
         return () => {
             console.log("audio removed")
-            newAudio.removeEventListener("canplay", onLoaded);
-            newAudio.removeEventListener("ended", onEnded);
             newAudio.removeEventListener("error", onError);
-            newAudio.removeEventListener('play', onPlay);
+            newAudio.removeEventListener("ended", onEnded);
+            newAudio.removeEventListener("waiting", onWaiting);
+            newAudio.removeEventListener("canplay", onLoaded);
+            newAudio.removeEventListener('playing', onPlaying);
             newAudio.removeEventListener('pause', onPause);
+            newAudio.removeEventListener("seeked", onPlaying);
             audioRef.current = undefined;
         }
     }, []);
@@ -194,8 +203,6 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         if (!audio) {
             if (isPlaying) setPlaying(false);
             return;
-        } else {
-            setStatus(audio?.readyState || 0);
         }
 
         if (isPlaying && audio.src && audio.readyState >= 2 && audio.canPlayType("audio/mpeg")) {

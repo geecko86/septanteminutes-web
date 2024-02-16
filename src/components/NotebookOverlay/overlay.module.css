@@ -52,26 +52,25 @@
 
 .openbook h1, .openbook h4, .openbook h5 {
   max-width: 35cqw !important;
-  max-height: 3ch;
   opacity: 1 !important;
 }
 
 .openbook h1 {
-  font-size: 2.7svh !important;
+  font-size: 3.5svh !important;
 }
 
 .openbook h4 {
-  font-size: 2svh !important;
+  font-size: 2.5svh !important;
 }
 
 .openbook > div[data-framer-component-type="RichTextContainer"] {
   width: 29.10% !important;
   right: 13.79% !important;
-  top: 0.8rem !important
+  top: 4.5% !important
 }
 
 .openbook h5 {
-  font-size: 2.5svh !important;
+  font-size: 3.3svh !important;
 }
 
 .openbook ul {
@@ -119,5 +118,12 @@
   .openbook > div:nth-child(2) {
     height: calc(110% - 1.5ch) !important;
     gap: 1.5ch !important;
+  }
+}
+
+@media (pointer:coarse) and (orientation: landscape) {
+  .openbook {
+      min-height: unset;
+      height: 100svh !important;
   }
 }

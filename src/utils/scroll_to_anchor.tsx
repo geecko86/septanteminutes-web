@@ -29,7 +29,8 @@ function ScrollToAnchor(props: { id?: string, move: ((x: number) => void) | null
             if (lastHash.current && document.getElementById(id)) {
                 const element = document.getElementById(id);
                 const { x, width } = element?.getBoundingClientRect() || { x: 0, width: 0 };
-                const target = Math.floor(Math.max(x - window.innerWidth / 2 + width / 2, 0));
+                const smallerDim = Math.min(window.innerWidth, window.innerHeight);
+                const target = Math.max(Math.floor(x - (smallerDim / 2) + (width / 2)), 0);
                 if (width > 0 && target > width) move(target);
                 lastHash.current = '';
                 replace("/", undefined, { scroll: false, shallow: true });

@@ -66,7 +66,7 @@ export default function Home(props: {
     const router = useRouter();
     const [isPresent, safeToRemove] = usePresence();
 
-    const floorKeys = useMemo(() => [...Array(Math.ceil(screenContentRatio / 2.4)).keys()], [screenContentRatio]);
+    const floorKeys = useMemo(() => [...Array(Math.ceil(screenContentRatio)).keys()], [screenContentRatio]);
     
     useEffect(() => {
         const vinyls = Array.from(
@@ -81,7 +81,7 @@ export default function Home(props: {
     }, [data?.episodes]);
 
     useEffect(() => {
-        setRatio((home.current?.clientWidth || 0) / (home.current?.clientHeight || 1));
+        setRatio((home.current?.clientWidth || 1) / ((home.current?.clientHeight || 1) * (3618/858)));
         setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
     }, [home.current?.clientWidth]);
 
@@ -101,12 +101,17 @@ export default function Home(props: {
             if (showSwiper && scrollSum != 0) setShowSwiper(false);
             const smallerDim = Math.min(window.innerWidth, window.innerHeight);
             limit = (home.current?.clientWidth || smallerDim) - smallerDim;
+            console.log("isTouchDevice");
+            console.log("scrollX", scrollX.get(), "scrollY", scrollY.get());
+            console.log("scrollSum", scrollSum, "limit", limit);
             if (scrollX.get() >= limit) {
                 window.scrollTo({
                     left: limit,
                     behavior: "instant"
                 });
             }
+        } else {
+            console.log("not touch device")
         }
 
         if (scrollSum < 0) {
@@ -142,9 +147,9 @@ export default function Home(props: {
 
     const onHomeWheel = (e: WheelEvent) => {
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        console.log(isTouchDevice);
         if (e.stopImmediatePropagation) e.stopImmediatePropagation();
         if (isTouchDevice) {
+            console.log("isTouchDevice", isTouchDevice);
             scrollXAdditional.set(0);
             scrollYAdditional.set(0);
 
@@ -379,7 +384,9 @@ export default function Home(props: {
                             <div className={styles.ceiling_3} key={"ceiling_3"} />
                             <div className={styles.ceiling_2} key={"ceiling_2"}>
                                 {floorKeys.map((i) => (
-                                    <Image priority={true} key={`ceiling_${i}`} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} height={858} width={3618} />
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618/858, width: "auto", height: "100svh" }}>
+                                        <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422svh" />
+                                    </div>
                                 ))}
                             </div>
                             <div className={styles.ceiling} key={"ceiling"} />
@@ -408,7 +415,9 @@ export default function Home(props: {
                             <div className={styles.floor_3} key={"floor_3"} />
                             <div className={styles.floor_2} key={"floor_2"}>
                                 {floorKeys.map((i) => (
-                                    <Image priority={true} key={`floor_${i}`} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} height={858} width={3618} />
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618/858, width: "auto", height: "100svh" }}>
+                                        <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422svh" />
+                                    </div>
                                 ))}
                             </div>
                             <div className={styles.floor} key={"floor"} />
@@ -502,7 +511,7 @@ export default function Home(props: {
                         x = Math.min(x, (home.current?.clientWidth || window.innerWidth) - window.innerWidth);
                         if (isTouchDevice) {
                             window.scrollBy({
-                                left: x,
+                                left: x / 2,
                                 behavior: "instant"
                             });
                         } else {
