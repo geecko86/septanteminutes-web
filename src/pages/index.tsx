@@ -158,6 +158,8 @@ export default function Home(props: {
     const offset2 = useTransform(() => newScrollX.get() * 1.35);
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
+    const invisibleSeasonSeparators = useMemo(() => [...(layer1.current?.children || [])].map((_, i) => (layer1.current?.children[i]?.children[0]?.getBoundingClientRect().width || 2000)), [layer1.current?.children.length, seasons]);
+
     const interceptAutoScroll = (e: MouseEvent) => {
         if (e.button == 1) {
             e.preventDefault()
@@ -411,7 +413,7 @@ export default function Home(props: {
                                     {
                                         seasons.map((season, i) => (
                                             <React.Fragment key={season.name + "_invisible00_fragment"}>
-                                                <div key={season.name + "_invisible00"} style={{ width: `calc((${layer1.current?.children[i]?.children[0]?.getBoundingClientRect().width || 2000}px - (85svh / 4.5)))` }} />
+                                                <div key={season.name + "_invisible00"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px - (85svh / 4.5)))` }} />
                                                 {
                                                     <Poster inheritedRef={i == 0 ? firstPoster : undefined} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}`}
                                                     poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} />
@@ -436,7 +438,7 @@ export default function Home(props: {
                             {
                                 seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
-                                        <div key={season.name + "_invisible05"} style={{ width: `calc((${layer1.current?.children[i]?.children[0]?.getBoundingClientRect().width || 2000}px - (85svh / 4.5)) * 0.938842)` }} />
+                                        <div key={season.name + "_invisible05"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px - (85svh / 4.5)) * 0.938842)` }} />
                                         {
                                             [
                                                 (<React.Fragment key={`deco05_0_${i}`}>
@@ -495,7 +497,7 @@ export default function Home(props: {
                                 ))}
                             </div>
                         </motion.div>
-                        {true /* && isMobile */ && <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
+                        {isIOS && <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
                             <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
                             <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                 {floorKeys.slice(0, Math.floor(floorKeys.length / (3.6 / offset3_factor))).map((i) => (
