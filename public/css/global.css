@@ -61,7 +61,7 @@ html *::-webkit-scrollbar {
     justify-content: center;
     pointer-events: none;
     top: 0;
-    bottom: 0;
+    bottom: 1px;
 
     transition: opacity 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000);
 }
