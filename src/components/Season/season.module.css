@@ -71,7 +71,7 @@
     gap: unset;
     height: 1px;
     justify-content: flex-start;
-    overflow: visible;
+    overflow: clip;
     position: relative;
     width: 100%;
 }
@@ -278,7 +278,7 @@
         gap: unset;
         height: 1px;
         justify-content: flex-start;
-        overflow: visible;
+        overflow: clip;
         position: relative;
         width: 100%;
     }

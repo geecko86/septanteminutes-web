@@ -92,7 +92,7 @@ const Season = ({
                 </div>
                 {chair ?
                     (<div className={styles.chair} data-framer-name="Chair">
-                        <Image alt="" loading="lazy" className="chair_img" sizes="30vw" src={chair} fill={true} style={{
+                        <Image alt="" loading="lazy" className="chair_img" sizes="20svmin" src={chair} fill={true} style={{
                             position: "absolute",
                             objectFit: "contain",
                             aspectRatio: "unset"
