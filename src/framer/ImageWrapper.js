@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import useOffset from  "../utils/ParallaxOffset";
+import { isIOS } from "react-device-detect";
 
 const ImageOffsetWrapper = (props) => {
     const { motionValue, src, sizes, onReady, offsetFactor, targetRef, ...newProps } = props;
@@ -14,7 +15,8 @@ const ImageOffsetWrapper = (props) => {
     const jumpToValue = (val) => {
         if (translateX) translateX.jump(val);
     };
-    translateX = useOffset(props.targetRef || ref, motionValue, offsetFactor || 150, 0.9515, src, onReady, jumpToValue);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    translateX = isIOS ? `${offsetFactor*2}%` : useOffset(props.targetRef || ref, motionValue, offsetFactor || 150, 0.9515, src, onReady, jumpToValue);
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ position: "relative", translateX, height: "100%", width: "100%" }}>

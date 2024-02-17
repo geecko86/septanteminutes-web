@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { MotionValue, useTransform } from "framer-motion";
 import { RefObject, useEffect, useState } from "react";
 
