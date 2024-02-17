@@ -497,7 +497,7 @@ export default function Home(props: {
                                 ))}
                             </div>
                         </motion.div>
-                        {isIOS && <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
+                        {!isIOS && <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
                             <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
                             <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                 {floorKeys.slice(0, Math.floor(floorKeys.length / (3.6 / offset3_factor))).map((i) => (
