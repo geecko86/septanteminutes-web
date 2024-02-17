@@ -23,7 +23,7 @@ export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff:
       // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, "-aaa-")
       return `0%`;
     }
-    if (targetRect.right < -3 * targetRect.width) {
+    if (targetRect.right < -1 * Math.ceil(window.innerWidth / targetRect.width) * targetRect.width) {
       return `${adjustedCoeff * -1.53}%`;
     }
 
