@@ -11,7 +11,7 @@ import React, {
 import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from 'next/router';
-import { isSafari, isIOS, isFirefox, isAndroid } from 'react-device-detect';
+import { isSafari, isIOS, isFirefox, isAndroid, isMobile } from 'react-device-detect';
 
 import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../components/Season";
@@ -58,7 +58,7 @@ export default function Home(props: {
     
     const hasMovedRef = useRef(false), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
-    const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
+    const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
     const firstAlbum = useRef<HTMLImageElement>(null), firstPoster = useRef<HTMLDivElement>(null);
     const resolveScrollRef = useRef<(() => void) | null>(null);
 
@@ -158,50 +158,6 @@ export default function Home(props: {
     const offset2 = useTransform(() => newScrollX.get() * 1.35);
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
-    const onHomeWheel = (e: WheelEvent) => {
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-        if (isTouchDevice) {
-            console.log("isTouchDevice", isTouchDevice);
-            scrollXAdditional.set(0);
-            scrollYAdditional.set(0);
-
-            window.scrollTo({
-                left: 0,
-                top: 0,
-                behavior: "instant"
-            });
-            return;
-        }
-        
-        const limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
-        const { deltaX, deltaY } = e;
-
-        // console.log(newScrollX.get(), -limit, home.current?.clientWidth, window.innerWidth);
-        if (newScrollX.get() <= -limit && deltaX + deltaY > 0) {
-            console.log("BLOCK! A", deltaX + deltaY);
-            scrollXAdditional.set(limit);
-            scrollYAdditional.set(0);
-            window.scrollTo({
-                left: 0,
-                top: 0,
-                behavior: "instant"
-            });
-        } else if (newScrollX.get() >= -1 && deltaX + deltaY < 0) {
-            console.log("BLOCK! B", deltaX + deltaY);
-            if (deltaY < 0 && scrollYAdditional.get() + deltaY < 0) scrollYAdditional.set(0);
-            if (deltaX < 0 && scrollXAdditional.get() + deltaX < 0) scrollXAdditional.set(0);
-            return;
-        } else {
-            if (deltaY !== 0 && Math.abs(deltaY) > Math.abs(deltaX)) scrollYAdditional.set(scrollYAdditional.get() + deltaY);
-            else if (deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + deltaX);
-            setColumnFocus(false);
-            setShowSwiper(false);
-            idleAnimRef.current?.stop();
-        }
-        e.preventDefault();
-    };
-
     const interceptAutoScroll = (e: MouseEvent) => {
         if (e.button == 1) {
             e.preventDefault()
@@ -235,10 +191,55 @@ export default function Home(props: {
     }
 
     useEffect(() => {
-        if (!props.ready) return;
+        const rootElem = root.current;
+        if (!props.ready || !rootElem) return;
 
-        root.current?.addEventListener("wheel", onHomeWheel, { passive: false });
-        root.current?.addEventListener("mousedown", interceptAutoScroll, { passive: false });
+        const onHomeWheel = (e: WheelEvent) => {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+            if (isTouchDevice) {
+                console.log("isTouchDevice", isTouchDevice);
+                scrollXAdditional.set(0);
+                scrollYAdditional.set(0);
+    
+                window.scrollTo({
+                    left: 0,
+                    top: 0,
+                    behavior: "instant"
+                });
+                return;
+            }
+            
+            const limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
+            const { deltaX, deltaY } = e;
+    
+            // console.log(newScrollX.get(), -limit, home.current?.clientWidth, window.innerWidth);
+            if (newScrollX.get() <= -limit && deltaX + deltaY > 0) {
+                console.log("BLOCK! A", deltaX + deltaY);
+                scrollXAdditional.set(limit);
+                scrollYAdditional.set(0);
+                window.scrollTo({
+                    left: 0,
+                    top: 0,
+                    behavior: "instant"
+                });
+            } else if (newScrollX.get() >= -1 && deltaX + deltaY < 0) {
+                console.log("BLOCK! B", deltaX + deltaY);
+                if (deltaY < 0 && scrollYAdditional.get() + deltaY < 0) scrollYAdditional.set(0);
+                if (deltaX < 0 && scrollXAdditional.get() + deltaX < 0) scrollXAdditional.set(0);
+                return;
+            } else {
+                if (deltaY !== 0 && Math.abs(deltaY) > Math.abs(deltaX)) scrollYAdditional.set(scrollYAdditional.get() + deltaY);
+                else if (deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + deltaX);
+                setColumnFocus(false);
+                setShowSwiper(false);
+                idleAnimRef.current?.stop();
+            }
+            e.preventDefault();
+        };
+
+        rootElem?.addEventListener("wheel", onHomeWheel, { passive: false });
+        rootElem?.addEventListener("mousedown", interceptAutoScroll, { passive: false });
         const swiperTimer = setInterval(() => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             if (!hasMovedRef.current) {
@@ -271,10 +272,10 @@ export default function Home(props: {
         home.current?.focus();
         return () => {
             clearInterval(swiperTimer);
-            root.current?.removeEventListener("wheel", onHomeWheel);
-            root.current?.removeEventListener("mousedown", interceptAutoScroll);
+            rootElem?.removeEventListener("wheel", onHomeWheel);
+            rootElem?.removeEventListener("mousedown", interceptAutoScroll);
         }
-    }, [home, props.ready, onHomeWheel, scrollXAdditional]);
+    }, [home, props.ready, scrollXAdditional]);
 
     useMotionValueEvent(newScrollX, "change", val => {
         if (val < -3) hasMovedRef.current = true;
@@ -410,16 +411,12 @@ export default function Home(props: {
                                     {
                                         seasons.map((season, i) => (
                                             <React.Fragment key={season.name + "_invisible00_fragment"}>
-                                                <Season key={season.name + "_invisible00"} className={styles.season_frame} chair={""} style={{ visibility: "hidden" }}>
-                                                    {season.episodes.map((ep: episode) => (
-                                                        <HomeAlbum key={`${ep.num}_invisible00`} image={""} num={ep.num} />
-                                                    ))}
-                                                </Season>
+                                                <div key={season.name + "_invisible00"} style={{ width: `calc((${layer1.current?.children[i]?.children[0]?.getBoundingClientRect().width || 2000}px - (85svh / 4.5)) / 0.877882)` }} />
                                                 {
                                                     <Poster inheritedRef={i == 0 ? firstPoster : undefined} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}`}
                                                     poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} />
                                                 }
-                                            </ React.Fragment>
+                                            </React.Fragment>
                                         ))
                                     }
                                 </div>
@@ -439,11 +436,7 @@ export default function Home(props: {
                             {
                                 seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
-                                        <Season key={season.name + "_invisible05"} className={[styles.season_frame, styles.invisible_season].join(" ")} chair={""} style={{ visibility: "hidden" }}>
-                                            {season.episodes.map((ep: episode) => (
-                                                <HomeAlbum key={`${season.name}_homealbum_${ep.num}_invisible05`} image={""} num={ep.num} />
-                                            ))}
-                                        </Season>
+                                        <div key={season.name + "_invisible05"} style={{ width: `calc((${layer1.current?.children[i]?.children[0]?.getBoundingClientRect().width || 2000}px - (85svh / 4.5)) * 0.938842)` }} />
                                         {
                                             [
                                                 (<React.Fragment key={`deco05_0_${i}`}>
@@ -502,7 +495,7 @@ export default function Home(props: {
                                 ))}
                             </div>
                         </motion.div>
-                        <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
+                        {!isMobile && <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
                             <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
                             <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                 {floorKeys.slice(0, Math.floor(floorKeys.length / (3.6 / offset3_factor))).map((i) => (
@@ -510,11 +503,11 @@ export default function Home(props: {
                                         <FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
                                             pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date} blur={FrontPosters[i % 4].blurDataUrl}
                                             onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />
-                                        <PlantA2 key={`layer3_prop_${i}_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />                                        
+                                        <PlantA2 key={`layer3_prop_${i}_PlantA2`} sizes="89svmin" className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />                                        
                                     </ React.Fragment>
                                 ))}
                             </motion.div>
-                        </div>
+                        </div>}
                         <SwipeAnim play={showSwiper} className={styles.swipe_anim} key={"swipe_anim"} />
                     </motion.div>
                 </div>
