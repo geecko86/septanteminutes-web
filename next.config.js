@@ -37,7 +37,10 @@ const NextConfig = {
             importLoaders: 2,
             modules: {
               mode: 'local',
-              localIdentName: isProduction ? '[hash:base64:5]' : '[local]_[hash:base64:5]'
+              localIdentName: '[hash:base64:5]',
+              getLocalIdent: (context, localIdentName, localName) => (
+                localName.includes('rc-') ? localName : null
+              )
             },
           },
         },

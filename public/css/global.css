@@ -94,14 +94,21 @@ html *::-webkit-scrollbar {
 
 @media (pointer:coarse) {
     html, body, #__next {
-        overflow-y: clip;
+        overflow-y: clip !important;
+        height: 100svh !important;
     }
 }
 
 @media (pointer:coarse) and (orientation: landscape) {
     html, body, #__next {
-        overflow-x: clip;
-        overflow-y: unset;
+        overflow-x: clip !important;
+        overflow-y: unset !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) and (pointer:coarse) {
+    body {
+        background-color: black;
     }
 }
 

@@ -11,7 +11,7 @@ import React, {
 import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from 'next/router';
-import { isSafari, isIOS } from 'react-device-detect';
+import { isSafari, isIOS, isFirefox, isAndroid } from 'react-device-detect';
 
 import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../components/Season";
@@ -79,6 +79,19 @@ export default function Home(props: {
         }));
         setSeasons([...seasons].reverse());
     }, [data?.episodes]);
+
+    useEffect(() => {
+        console.log("isFirefox", isFirefox);
+        console.log("isAndroid", isAndroid);
+        if (isFirefox && isAndroid) {
+            screen.orientation.unlock();
+            const onChange = () => { window.location.reload(); }
+            screen.orientation.addEventListener("change", onChange);
+            return () => {
+                screen.orientation.removeEventListener("change", onChange);
+            }
+        }
+    }, []);
 
     useEffect(() => {
         setRatio((home.current?.clientWidth || 1) / ((home.current?.clientHeight || 1) * (3618/858)));
