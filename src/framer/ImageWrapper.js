@@ -25,11 +25,14 @@ const ImageOffsetWrapper = (props) => {
     </div>)
 };
 
-const ImageWrapper = (props) => (
-    <div {...props} >
-        <Image src={props.src} alt="" fill sizes="10vw" />
-    </div>
-);
+const ImageWrapper = (props) => {
+    const { src, sizes, priority, onReady, blurDataURL, ...otherProps } = props;
+    const placeholder = !!blurDataURL ? "blur" : "empty";
+
+    return (<div {...otherProps} >
+        <Image src={src} blurDataURL={blurDataURL} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
+    </div>)
+};
 
 export const Headphones = (props) => {
     const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/79iKMvZpOdjB4LrQS90DE0i4o.webp" sizes="30svh" />);
