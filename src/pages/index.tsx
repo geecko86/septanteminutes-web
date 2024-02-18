@@ -11,7 +11,7 @@ import React, {
 import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from 'next/router';
-import { isSafari, isIOS, isFirefox, isAndroid, isMobile } from 'react-device-detect';
+import { isSafari, isIOS } from 'react-device-detect';
 
 import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../components/Season";
@@ -27,12 +27,6 @@ import Head from "next/head";
 
 import type { episode } from "../types/episode";
 import Poster from "@/components/Poster";
-
-const variants = {
-    hidden: { opacity: 0 },
-    enter: { opacity: 1 },
-    exit: { opacity: 0 },
-};
 
 export default function Home(props: {
     onReady: () => void,
@@ -81,19 +75,6 @@ export default function Home(props: {
     }, [data?.episodes]);
 
     useEffect(() => {
-        console.log("isFirefox", isFirefox);
-        console.log("isAndroid", isAndroid);
-        if (isFirefox && isAndroid) {
-            screen.orientation.unlock();
-            const onChange = () => { window.location.reload(); }
-            screen.orientation.addEventListener("change", onChange);
-            return () => {
-                screen.orientation.removeEventListener("change", onChange);
-            }
-        }
-    }, []);
-
-    useEffect(() => {
         setRatio((home.current?.clientWidth || 1) / ((home.current?.clientHeight || 1) * (3618/858)));
         setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
     }, [home.current?.clientWidth]);
@@ -114,17 +95,12 @@ export default function Home(props: {
             if (showSwiper && scrollSum != 0) setShowSwiper(false);
             const smallerDim = Math.min(window.innerWidth, window.innerHeight);
             limit = (home.current?.clientWidth || smallerDim) - smallerDim;
-            console.log("isTouchDevice");
-            console.log("scrollX", scrollX.get(), "scrollY", scrollY.get());
-            console.log("scrollSum", scrollSum, "limit", limit);
             if (scrollX.get() >= limit) {
                 window.scrollTo({
                     left: limit,
                     behavior: "instant"
                 });
             }
-        } else {
-            console.log("not touch device")
         }
 
         if (scrollSum < 0) {
@@ -148,9 +124,6 @@ export default function Home(props: {
         const output = -Math.min(scrollSum, limit);
         return output;
     });
-
-    const velocity = useVelocity(newScrollX);
-
 
     // const offset0 = useTransform(() => newScrollX.get() * -0.32);
     // const offset05 = useTransform(() => newScrollX.get() * -0.25);
@@ -277,7 +250,7 @@ export default function Home(props: {
             rootElem?.removeEventListener("wheel", onHomeWheel);
             rootElem?.removeEventListener("mousedown", interceptAutoScroll);
         }
-    }, [home, props.ready, scrollXAdditional]);
+    }, [home, props.ready, scrollYAdditional, scrollXAdditional, newScrollX]);
 
     useMotionValueEvent(newScrollX, "change", val => {
         if (val < -3) hasMovedRef.current = true;
