@@ -92,17 +92,25 @@ html *::-webkit-scrollbar {
     overflow: auto;
 }
 
-@media (pointer:coarse) {
+@media (pointer:coarse) and (orientation: portrait) {
     html, body, #__next {
-        overflow-y: clip !important;
         height: 100svh !important;
+    }
+
+    #__next {
+        overflow-y: clip;
+        overflow-x: unset;
     }
 }
 
 @media (pointer:coarse) and (orientation: landscape) {
     html, body, #__next {
-        overflow-x: clip !important;
-        overflow-y: unset !important;
+        height: 100svh !important;
+    }
+
+    #__next {
+        overflow-y: unset;
+        overflow-x: unset;
     }
 }
 

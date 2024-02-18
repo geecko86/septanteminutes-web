@@ -42,10 +42,6 @@ const Controls = () => {
         }
     };
 
-    const progressCallback = () => {
-        if (audio) setProgress(audio.currentTime)
-    };
-
     useEffect(() => {
         if (!isIOS) return;
         var callback : (ev: Event) => void;
@@ -62,6 +58,10 @@ const Controls = () => {
 
     useEffect(() => {
         if (!audio) return;
+
+        const progressCallback = () => {
+            if (audio) setProgress(audio.currentTime)
+        };
 
         progressCallback();
 
