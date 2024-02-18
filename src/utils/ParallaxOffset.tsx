@@ -1,7 +1,7 @@
 import { MotionValue, useTransform } from "framer-motion";
 import { RefObject, useEffect, useState } from "react";
 
-export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
+const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
 
   const computeTranslationX = () => {
     const target = ref.current;
@@ -14,7 +14,7 @@ export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff:
     const targetStart = targetRect.left;
     const targetEnd = targetRect.right + motionValue.get();
 
-    const adjustedCoeff = coeff * (window.innerWidth / window.innerHeight) ;
+    const adjustedCoeff = coeff;
     const adjustedPow = window.innerHeight > window.innerWidth ? pow : 1.0;
 
     // if (targetStart > 0 && targetStart < 1000 && src==="https://framerusercontent.com/images/p7a4OJaiiEBm2LbB08atc4nEjM.png") console.log(targetStart, viewportEnd);
@@ -77,3 +77,5 @@ export default (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff:
 
   return useTransform(computeTranslationX);
 }
+
+export default useOffset;

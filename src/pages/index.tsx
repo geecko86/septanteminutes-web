@@ -413,7 +413,7 @@ export default function Home(props: {
                                     {
                                         seasons.map((season, i) => (
                                             <React.Fragment key={season.name + "_invisible00_fragment"}>
-                                                <div key={season.name + "_invisible00"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px - (85svh / 4.5)))` }} />
+                                                <div key={season.name + "_invisible00"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px` }} />
                                                 {
                                                     <Poster inheritedRef={i == 0 ? firstPoster : undefined} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}`}
                                                     poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} />
