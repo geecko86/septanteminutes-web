@@ -32,7 +32,7 @@ const Season = ({
                                 <Image
                                     alt="" fill={true}
                                     priority={true}
-                                    className={styles.wall} sizes="85svh"
+                                    className={styles.wall} sizes="100svh"
                                     src="https://framerusercontent.com/images/hxXL2jKccfg84wL6UdchMdB312c.jpg"
                                     style={{
                                         position: "absolute",
