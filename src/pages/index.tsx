@@ -60,7 +60,7 @@ export default function Home(props: {
     const router = useRouter();
     const [isPresent, safeToRemove] = usePresence();
 
-    const floorKeys = useMemo(() => [...Array(Math.ceil(screenContentRatio)).keys()], [screenContentRatio]);
+    const floorKeys = useMemo(() => [...Array(Math.ceil(screenContentRatio) + 1).keys()], [screenContentRatio]);
     
     useEffect(() => {
         const vinyls = Array.from(
@@ -75,7 +75,7 @@ export default function Home(props: {
     }, [data?.episodes]);
 
     useEffect(() => {
-        setRatio((home.current?.clientWidth || 1) / ((home.current?.clientHeight || 1) * (3618/858)));
+        setRatio((home.current?.clientWidth || 1) / ((subroot.current?.parentElement?.clientWidth || 1)));
         setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
     }, [home.current?.clientWidth]);
 
@@ -463,14 +463,20 @@ export default function Home(props: {
                         <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
                             <div className={styles.lamps_1_5} key={"lamps_1_5"} >
                                 {floorKeys.map((i) => (
-                                    <BellLamp key={`lamp_1_5_${i}`} className={styles.lamp} />
+                                    <React.Fragment key={`lamps_1_5_${i}`}>
+                                        <BellLamp key={`lamp_1_5_${i}_A`} className={styles.lamp} />
+                                        <BellLamp key={`lamp_1_5_${i}_B`} className={styles.lamp} />
+                                    </React.Fragment>
                                 ))}
                             </div>
                         </motion.div>
                         <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
                             <div className={styles.lamps_2} key={"lamps_2"}>
                                 {floorKeys.map((i) => (
-                                    <BellLamp key={`lamp_2_${i}`} className={styles.lamp} />
+                                    <React.Fragment key={`lamps_2_${i}`}>
+                                        <BellLamp key={`lamp_2_${i}_A`} className={styles.lamp} />
+                                        <BellLamp key={`lamp_2_${i}_B`} className={styles.lamp} />
+                                    </React.Fragment>
                                 ))}
                             </div>
                         </motion.div>

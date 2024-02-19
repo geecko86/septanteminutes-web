@@ -36,7 +36,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
       // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, "-aaa-")
       return `0%`;
     }
-    if (targetStart < -2 * targetWidth) {
+    if (targetStart < -3 * targetWidth) {
       return `${adjustedCoeff * -1.53}%`;
     }
 
