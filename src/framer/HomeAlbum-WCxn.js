@@ -120,7 +120,7 @@ let h = {
                 initial: false,
                 transition: { type: "spring", stiffness: 100, damping: 15, mass: 1 },
                 animate: {
-                  transform: `translateY(${isHovered? "-10%" : "0%"}) ${isSafari || isIOS ? "translateZ(0)" : ""}`,
+                  transform: `translateY(${isHovered? "-10%" : "0%"}) ${isSafari || isIOS ? "translateZ(0px)" : ""}`,
                 },
                 children: [
                   r(f.div, {
