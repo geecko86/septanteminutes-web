@@ -48,7 +48,7 @@
     right: 4%;
     width: fit-content;
     height: fit-content;
-    transform: translateY(-50%) translateZ(0) !important;
+    transform: translateY(-50%) translateZ(0px) !important;
     opacity: 0.75;
 }
 
@@ -112,7 +112,7 @@
 
 @supports (-webkit-hyphens:none) {
     .posters {
-        transform: translateY(-50%) translateZ(0) !important;
+        transform: translateY(-50%) translateZ(0px) !important;
     }
 }
 
@@ -126,7 +126,7 @@
 }
 
 .poster {
-    transform: translateX(calc(-30svh));
+    transform: translateX(calc(-100svh));
 }
 
 .poster img {
@@ -233,7 +233,7 @@
 
 @supports (-webkit-hyphens:none) {
     .ceiling, .ceiling_2 {
-        transform: rotate(180deg) translateZ(0) !important;
+        transform: rotate(180deg) translateZ(0px) !important;
     }
 }
 
@@ -471,7 +471,7 @@
 
 @supports (-webkit-hyphens:none) {
     .lamps_1_5 {
-        transform: translateX(90svh) translateZ(6) !important;
+        transform: translateX(90svh) translateZ(6pxpx) !important;
     }
 }
 
@@ -490,7 +490,7 @@
 
 @supports (-webkit-hyphens:none) {
     .lamps_2 {
-        transform: translateX(40svh) translateZ(10) !important;
+        transform: translateX(40svh) translateZ(10px) !important;
     }
 }
 
@@ -519,7 +519,7 @@
 
 @supports (-webkit-hyphens:none) {
     .front_column {
-        transform: translateY(-12%) translateZ(20) !important;
+        transform: translateY(-12%) translateZ(20px) !important;
     }
 }
 
@@ -536,13 +536,10 @@
 }
 
 @supports (-webkit-hyphens:none) {
-    .layer_0 { transform: translateZ(0); }
-    .layer_0_5 { transform: translateZ(4); }
-    .layer_1 { transform: translateZ(5); }
-    .layer_1_5 { transform: translateZ(6); }
-    .layer_2 { transform: translateZ(10); }
-    .layer_3 { transform: translateZ(20); }
-    .layer_3_wrapper { transform: translateZ(20); }
+    .layer_0, .layer_0 * { transform: translateZ(0px); }
+    .layer_1, .layer_1 * { transform: translateZ(5px); }
+    .layer_1_5, .layer_1_5 * { transform: translateZ(6px); }
+    .layer_2, .layer_2 * { transform: translateZ(10px); }
 }
 
 .layer_0 { /* wall, ceiling, floor */
@@ -572,6 +569,8 @@
     min-height: 1px;
     pointer-events: none;
 }
+
+.layer_0_5, .layer_0_5 * { transform: translateZ(4px); }
 
 .layer_1 { /* Season Walls */ 
     display: flex;
@@ -606,6 +605,8 @@
 .layer_1_5 > * {
     filter: blur(1px);
 }
+
+.layer_1_5, .layer_1_5 * { transform: translateZ(7px); }
 
 .layer_2 { /* Lamps */ 
     display: flex;
@@ -644,14 +645,8 @@
     z-index: 15;
 }
 
-/* coordinates shift */
-.left_m15 {
-   
-}
 
-.left_m30 {
-   
-}
+.layer_3, .layer_3 *, .layer_3_wrapper { transform: translateZ(20px); }
 
 /* attributes */
 
@@ -681,6 +676,10 @@
         height: 100svh;
         left: calc(50% - 50vw);
         aspect-ratio: unset;
+    }
+
+    .poster {
+        transform: translateX(calc(-20svmax));
     }
 }
 
@@ -760,7 +759,7 @@
 
     @supports (-webkit-hyphens:none) {
         .lamps_1_5 {
-            transform: translateXY(90svmax) translateZ(0) !important;
+            transform: translateXY(90svmax) translateZ(0px) !important;
         }
     }
 
@@ -773,7 +772,7 @@
 
     @supports (-webkit-hyphens:none) {
         .lamps_2 {
-            transform: translateX(40svmax) translateZ(0) !important;
+            transform: translateX(40svmax) translateZ(0px) !important;
         }
     }
 
