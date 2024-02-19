@@ -477,7 +477,7 @@
 
 @supports (-webkit-hyphens:none) {
     .lamps_1_5 {
-        transform: translateX(90svh) translateZ(6pxpx) !important;
+        transform: translateX(90svh) translateZ(6px) !important;
     }
 }
 
