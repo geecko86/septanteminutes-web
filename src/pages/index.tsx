@@ -131,7 +131,11 @@ export default function Home(props: {
     const offset2 = useTransform(() => newScrollX.get() * 1.35);
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
-    const invisibleSeasonSeparators = useMemo(() => [...(layer1.current?.children || [])].map((_, i) => (layer1.current?.children[i]?.children[0]?.getBoundingClientRect().width || 2000)), [layer1.current?.children.length, seasons]);
+    const invisibleSeasonSeparators = useMemo(() => [...(layer1.current?.children || [])].map((_, i) => {
+        const dimensions = layer1.current?.children[i]?.children[0]?.getBoundingClientRect();
+        console.log(i, dimensions?.width, dimensions?.height);
+        return Math.max(dimensions?.width || 2000, dimensions?.height || 2000);
+    }), [layer1.current?.children.length, seasons]);
 
     const interceptAutoScroll = (e: MouseEvent) => {
         if (e.button == 1) {
@@ -362,7 +366,7 @@ export default function Home(props: {
                 if (latest.opacity === 0 && !isPresent && !!safeToRemove) safeToRemove();
             }}
             className="transition_loader" >
-            <div ref={subroot} className={styles.home_subroot} key={"home_subroot"}>
+            <div ref={subroot} className={styles.home_subroot} id="subroot" key={"home_subroot"}>
                 <div ref={root} className={styles.home_root} key={"home_root"}>
                     <motion.div className={styles.home} key={"home"} ref={home} tabIndex={0} id="home"
                         onKeyDown={handleKeysDown} style={{ translateX: newScrollX, translateZ: 0 }}>

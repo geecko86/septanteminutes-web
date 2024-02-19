@@ -3,30 +3,42 @@ import { RefObject, useEffect, useState } from "react";
 
 const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
 
+  const [windowDim, setWindowDim] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const subroot: HTMLDivElement | undefined = document.getElementById("subroot") as HTMLDivElement;
+    const parentWidth = subroot?.parentElement?.clientWidth || 0;
+    const width = subroot?.clientHeight === parentWidth ? window.innerHeight : window.innerWidth;
+    const height = subroot?.clientHeight === parentWidth ? window.innerWidth : window.innerHeight;
+
+    setWindowDim({ width, height });
+  }, []);
+
   const computeTranslationX = () => {
     const target = ref.current;
     if (!target) return "0%";
 
-    const viewportEnd = window.innerWidth;
+    const isRotated = window.innerHeight != windowDim.height;
+
+    const viewportEnd = windowDim.width;
     const targetRect = target.getBoundingClientRect();
 
     // Calculate the horizontal position of the target element
-    const targetStart = targetRect.left;
+    const targetStart = isRotated ? targetRect.top : targetRect.left;
+    const targetWidth = isRotated ? targetRect.height : targetRect.width;
     const targetEnd = targetRect.right + motionValue.get();
 
-    const adjustedCoeff = coeff;
-    const adjustedPow = window.innerHeight > window.innerWidth ? pow : 1.0;
+    const adjustedCoeff = coeff * (windowDim.width / windowDim.height);
+    const adjustedPow = windowDim.height > windowDim.width ? pow : pow;
 
     // if (targetStart > 0 && targetStart < 1000 && src==="https://framerusercontent.com/images/p7a4OJaiiEBm2LbB08atc4nEjM.png") console.log(targetStart, viewportEnd);
-    if (targetStart > window.innerWidth) { 
+    if (targetStart > windowDim.width) { 
       // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, "-aaa-")
       return `0%`;
     }
-    if (targetRect.right < -1 * Math.ceil(window.innerWidth / targetRect.width) * targetRect.width) {
+    if (targetStart < -2 * targetWidth) {
       return `${adjustedCoeff * -1.53}%`;
     }
-
-
 
     // Calculate the progress percentage
     const newProgress =
@@ -38,7 +50,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
 
   useEffect(() => {
     // Define limit
-    const limit = (document.getElementById("home")?.clientWidth || window.innerWidth) - window.innerWidth;
+    const limit = (document.getElementById("home")?.clientWidth || windowDim.width) - windowDim.width;
     let onReadyMutationObserver: MutationObserver, limitMutationObserver: MutationObserver, onReadyTimeoutId: NodeJS.Timeout;
 
     if (onReady && ref.current) {
