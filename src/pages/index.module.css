@@ -126,7 +126,13 @@
 }
 
 .poster {
-    transform: translateX(calc(-100svh));
+    transform: translateX(calc(-100svh)) !important;
+}
+
+@supports (-webkit-hyphens:none) {
+    .poster {
+        transform: translateX(calc(-100svh)) translateZ(0px) !important;
+    }
 }
 
 .poster img {
@@ -231,17 +237,17 @@
     background: linear-gradient(180deg, black 0%, transparent 50%);
 }
 
-@supports (-webkit-hyphens:none) {
-    .ceiling, .ceiling_2 {
-        transform: rotate(180deg) translateZ(0px) !important;
-    }
-}
-
 .ceiling, .ceiling_2 {
     position: absolute;
     opacity: 25%;
     transform: rotate(180deg);
     transform-origin: 46%;
+}
+
+@supports (-webkit-hyphens:none) {
+    .ceiling, .ceiling_2 {
+        transform: rotate(180deg) translateZ(0px) !important;
+    }
 }
 
 .ceiling_2 {
@@ -679,7 +685,7 @@
     }
 
     .poster {
-        transform: translateX(calc(-20svmax));
+        transform: translateX(calc(-20svmax)) translateZ(0px) !important;
     }
 }
 
@@ -753,7 +759,7 @@
 
     .lamps_1_5 { /* ceiling lamps */ 
         gap: 133vvmax;
-        transform: translateX(90svmax)  !important;
+        transform: translateX(90svmax) !important;
         height: 27svmax;
     }
 
