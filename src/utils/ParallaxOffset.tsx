@@ -36,13 +36,12 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
       // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, "-aaa-")
       return `0%`;
     }
-    if (targetStart < -3 * targetWidth) {
-      return `${adjustedCoeff * -1.53}%`;
-    }
-
     // Calculate the progress percentage
     const newProgress =
       ((viewportEnd - targetStart) / (viewportEnd + Math.max(targetRect.width, targetRect.height)));
+    if (newProgress >= 1.8) {
+      return `${adjustedCoeff * -1.53}%`;
+    }
 
     const output = `${Math.pow(newProgress * adjustedCoeff, adjustedPow)}%`;
     return output;
