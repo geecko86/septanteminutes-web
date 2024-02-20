@@ -460,7 +460,7 @@ export default function Home(props: {
                                 ))
                             }
                         </motion.div>
-                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
+                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15 }}>
                             <div className={styles.lamps_1_5} key={"lamps_1_5"} >
                                 {floorKeys.map((i) => (
                                     <React.Fragment key={`lamps_1_5_${i}`}>
@@ -470,7 +470,7 @@ export default function Home(props: {
                                 ))}
                             </div>
                         </motion.div>
-                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isSafari || isIOS ? {translateZ: 0} : {}) }}>
+                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isIOS ? {translateZ: "10px"} : {}) }}>
                             <div className={styles.lamps_2} key={"lamps_2"}>
                                 {floorKeys.map((i) => (
                                     <React.Fragment key={`lamps_2_${i}`}>
