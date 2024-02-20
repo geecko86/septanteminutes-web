@@ -219,7 +219,8 @@ export default function Home(props: {
 
         rootElem?.addEventListener("wheel", onHomeWheel, { passive: false });
         rootElem?.addEventListener("mousedown", interceptAutoScroll, { passive: false });
-        const swiperTimer = setInterval(() => {
+        const swiperTimer: NodeJS.Timeout | undefined = undefined;
+        const idleAnimAction = () => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             if (!hasMovedRef.current) {
                 if (!isTouchDevice) {
@@ -247,6 +248,10 @@ export default function Home(props: {
             } else {
                 clearInterval(swiperTimer);
             }
+        };
+        setTimeout(() => {
+            idleAnimAction();
+            setInterval(idleAnimAction, 3500);
         }, 1750);
         home.current?.focus();
         return () => {
@@ -256,7 +261,7 @@ export default function Home(props: {
         }
     }, [home, props.ready, scrollYAdditional, scrollXAdditional, newScrollX]);
 
-    useMotionValueEvent(newScrollX, "change", val => {
+    useMotionValueEvent(isMobile ? newScrollX : scrollXAdditional, "change", val => {
         if (val < -3) hasMovedRef.current = true;
     });
 

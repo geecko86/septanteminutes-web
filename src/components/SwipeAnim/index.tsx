@@ -17,7 +17,7 @@ export default function IdleSwipeAnim(props: { play: boolean, className: string 
         [`.${styles.box}`, { opacity: 1 }, { duration: 0.15, at: 0, ease: "easeInOut" }],
         [`.${styles.box}`, { opacity: 0 }, { duration: 0.4, at: 0.75, ease: "easeInOut" }],
         [`.${styles.box}`, { opacity: 1 }, { duration: 0.25, at: 1.35, ease: "easeInOut" }],
-        [`.${styles.box}`, { opacity: 0 }, { duration: 0.25, at: 2.25, ease: "easeInOut" }],
+        [`.${styles.box}`, { opacity: 0 }, { duration: 0.4, at: 2.00, ease: "easeInOut" }],
 
         [`.${styles.box}`, { y: "25vw" }, { duration: 0.45, at: 0.35, ease: "easeInOut" }],
         [`.${styles.box}`, { y: "0vw" }, { duration: 0.45, at: 1.65, ease: "easeInOut" }],
