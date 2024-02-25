@@ -222,8 +222,12 @@ div:has(> .chair) {
   width: 50% !important;
   height: 50% !important;
   opacity: 0;
-  transform: translateX(50%);
+  transform: translate(50%, -50%);
   pointer-events: none;
+
+  left: unset !important;
+  bottom: 0 !important;
+  translate: unset !important;
 }
 
 .albums .playButton img {
