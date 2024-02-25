@@ -183,7 +183,7 @@ let h = {
                     children: "MYRIAM LEROY",
                   }),
                 }),
-                style: { "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, "--framer-text-color": "rgb(66, 56, 37)", "--framer-font-size": "0.805rem", "whiteSpace": "inherit", "--framer-text-alignment": "center", "marginTop": "1rem", "aspectRatio": "unset", "height": "min-content", "width": "100%"},
+                style: { "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, "--framer-text-color": "rgb(66, 56, 37)", "--framer-font-size": "0.935rem", "whiteSpace": "inherit", "--framer-text-alignment": "center", "marginTop": "1rem", "aspectRatio": "unset", "height": "min-content", "width": "100%"},
                 text: guest.split(/\s(-|–)\s?/g)[0],
                 verticalAlignment: "top",
                 withExternalLayout: !0,
