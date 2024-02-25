@@ -233,7 +233,7 @@ export default function Home(props: {
         const idleAnimAction = () => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             if (!hasMovedRef.current) {
-                if (!isTouchDevice && hasFocusRef.current) {
+                if (!isTouchDevice && hasFocusRef.current && document.hasFocus()) {
                     const from = scrollXAdditional.get(), to = scrollXAdditional.get() + Math.floor(window.innerWidth / 11);
                     const anim = animate([[scrollXAdditional, to, {
                         duration: 0.9,
@@ -468,7 +468,7 @@ export default function Home(props: {
                             {
                                 seasons.map((season, i) => (
                                     <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
-                                        {season.episodes.toReversed().map((ep: episode, j: number) => (
+                                        {season.episodes.slice().reverse().map((ep: episode, j: number) => (
                                             <HomeAlbum id={`art_${ep.num}`} ref={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
                                                 onClick={(e: MouseEvent) => {
                                                     if (e.button != 0) return;
