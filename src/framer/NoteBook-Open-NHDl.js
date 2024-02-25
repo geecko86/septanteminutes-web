@@ -259,7 +259,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                         "--framer-text-color":
                           "var(--extracted-r6o4lv, rgb(38, 38, 38))",
                       },
-                      dangerouslySetInnerHTML: { __html: I94Rs1RIH },
+                      dangerouslySetInnerHTML: { __html: I94Rs1RIH.replace("<a ", "<a target=\"_blank\" ") },
                     }),
                   }),
                   className: `framer-pdriv7 ${styles.scrollTarget}`,
