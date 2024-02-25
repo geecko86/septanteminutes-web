@@ -6,6 +6,5 @@ export type episode = {
     season: string,
     appleLink: string,
     desc: string,
-    num: string,
-    epoch: number
+    num: string
 };
