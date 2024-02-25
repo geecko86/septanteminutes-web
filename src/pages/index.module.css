@@ -645,7 +645,7 @@
 }
 
 
-.layer_3, .layer_3 *, .layer_3_wrapper { transform: translateZ(20px); }
+.layer_3_wrapper, .layer_3_wrapper * { transform: translateZ(20px); }
 
 /* attributes */
 

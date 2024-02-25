@@ -1,5 +1,3 @@
-'use client';
-
 import styles from "./index.module.css";
 import React, {
     useState,
@@ -50,7 +48,7 @@ export default function Home(props: {
     const [showSwiper, setShowSwiper] = useState(false);
     const [offset3_factor, setOffset3Factor] = useState<number>(0.5);
     
-    const hasMovedRef = useRef(false), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
+    const hasMovedRef = useRef(false), hasFocusRef = useRef(true), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
     const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
     const firstAlbum = useRef<HTMLImageElement>(null), firstPoster = useRef<HTMLDivElement>(null);
@@ -197,6 +195,7 @@ export default function Home(props: {
                 console.log("BLOCK! A", deltaX + deltaY);
                 scrollXAdditional.set(limit);
                 scrollYAdditional.set(0);
+                hasMovedRef.current = true;
                 window.scrollTo({
                     left: 0,
                     top: 0,
@@ -208,6 +207,7 @@ export default function Home(props: {
                 if (deltaX < 0 && scrollXAdditional.get() + deltaX < 0) scrollXAdditional.set(0);
                 return;
             } else {
+                hasMovedRef.current = true;
                 if (deltaY !== 0 && Math.abs(deltaY) > Math.abs(deltaX)) scrollYAdditional.set(scrollYAdditional.get() + deltaY);
                 else if (deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + deltaX);
                 setColumnFocus(false);
@@ -217,13 +217,23 @@ export default function Home(props: {
             e.preventDefault();
         };
 
+        const onFocus = () => {
+            hasFocusRef.current = true;
+        };
+
+        const onBlur = () => {
+            hasFocusRef.current = false;
+        };
+
+        window.addEventListener("focus", onFocus, { passive: false });
+        window.addEventListener("blur", onBlur, { passive: false });
         rootElem?.addEventListener("wheel", onHomeWheel, { passive: false });
         rootElem?.addEventListener("mousedown", interceptAutoScroll, { passive: false });
-        const swiperTimer: NodeJS.Timeout | undefined = undefined;
+        let swiperTimer: NodeJS.Timeout | undefined = undefined;
         const idleAnimAction = () => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             if (!hasMovedRef.current) {
-                if (!isTouchDevice) {
+                if (!isTouchDevice && hasFocusRef.current) {
                     const from = scrollXAdditional.get(), to = scrollXAdditional.get() + Math.floor(window.innerWidth / 11);
                     const anim = animate([[scrollXAdditional, to, {
                         duration: 0.9,
@@ -242,6 +252,8 @@ export default function Home(props: {
                         setShowSwiper(false);
                     });
                     setShowSwiper(true);
+                } else if (!hasFocusRef.current) {
+                    setShowSwiper(false);
                 } else {
                     setShowSwiper(true);
                 }
@@ -249,13 +261,15 @@ export default function Home(props: {
                 clearInterval(swiperTimer);
             }
         };
-        setTimeout(() => {
+        swiperTimer = setTimeout(() => {
             idleAnimAction();
-            setInterval(idleAnimAction, 3500);
+            swiperTimer = setInterval(idleAnimAction, 3500);
         }, 1750);
         home.current?.focus();
         return () => {
             clearInterval(swiperTimer);
+            window.removeEventListener("focus", onFocus);
+            window.removeEventListener("blur", onBlur);
             rootElem?.removeEventListener("wheel", onHomeWheel);
             rootElem?.removeEventListener("mousedown", interceptAutoScroll);
         }
@@ -378,7 +392,7 @@ export default function Home(props: {
                         <Head>
                             <title>{playbackTitle ? `${isPlaying ? "▶ " : ""}${playbackTitle}` : "Septante Minutes Avec"}</title>
                         </Head>
-                        <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isIOS ? { translateZ: 0 } : {}}>
+                        <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile ? { translateZ: 0 } : {}}>
                             <div className={styles.ceiling_3} key={"ceiling_3"} />
                             <div className={styles.ceiling_2} key={"ceiling_2"}>
                                 {floorKeys.map((i) => (
@@ -416,7 +430,7 @@ export default function Home(props: {
                             </div>
                             <div className={styles.floor} key={"floor"} />
                         </motion.div>
-                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isIOS ? { translateZ: 0 } : {}}>
+                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile ? { translateZ: 0 } : {}}>
                             {
                                 seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
@@ -465,7 +479,7 @@ export default function Home(props: {
                                 ))
                             }
                         </motion.div>
-                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15 }}>
+                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15, translateZ: "7px" }}>
                             <div className={styles.lamps_1_5} key={"lamps_1_5"} >
                                 {floorKeys.map((i) => (
                                     <React.Fragment key={`lamps_1_5_${i}`}>
@@ -475,7 +489,7 @@ export default function Home(props: {
                                 ))}
                             </div>
                         </motion.div>
-                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isIOS ? {translateZ: "10px"} : {}) }}>
+                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isMobile || isSafari ? {translateZ: "10px"} : {}) }}>
                             <div className={styles.lamps_2} key={"lamps_2"}>
                                 {floorKeys.map((i) => (
                                     <React.Fragment key={`lamps_2_${i}`}>
@@ -486,8 +500,8 @@ export default function Home(props: {
                             </div>
                         </motion.div>
                         <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
-                            <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, ...(isSafari || isIOS ? {translateZ: "20px"} : {}) }}>
-                            <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
+                            <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, translateZ: "20px" }}>
+                                <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                 {floorKeys.slice(0, Math.floor(floorKeys.length / (3.6 / offset3_factor))).map((i) => (
                                     <React.Fragment key={`layer3_deco_${i}`}>
                                         {isMobile ? (<div />) : (<FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
