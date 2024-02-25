@@ -537,8 +537,8 @@
 
 @supports (-webkit-hyphens:none) {
     .layer_0, .layer_0 * { transform: translateZ(0px); }
-    .layer_1, .layer_1 * { transform: translateZ(5px); }
-    .layer_2, .layer_2 * { transform: translateZ(10px); }
+    .layer_1, .layer_1 * { transform: translateZ(5px) !important; }
+    .layer_2, .layer_2 * { transform: translateZ(10px) !important; }
 }
 
 .layer_0 { /* wall, ceiling, floor */
@@ -569,7 +569,7 @@
     pointer-events: none;
 }
 
-.layer_0_5, .layer_0_5 * { transform: translateZ(4px); }
+.layer_0_5, .layer_0_5 * { transform: translateZ(4px) !important; }
 
 .layer_1 { /* Season Walls */ 
     display: flex;
@@ -605,7 +605,7 @@
     filter: blur(1px);
 }
 
-.layer_1_5, .layer_1_5 * { transform: translateZ(7px); }
+.layer_1_5, .layer_1_5 * { transform: translateZ(7px) !important; }
 
 .layer_2 { /* Lamps */ 
     display: flex;
@@ -645,7 +645,7 @@
 }
 
 
-.layer_3_wrapper, .layer_3_wrapper * { transform: translateZ(20px); }
+.layer_3_wrapper, .layer_3_wrapper * { transform: translateZ(20px) !important; }
 
 /* attributes */
 
