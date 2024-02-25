@@ -29,7 +29,7 @@ const FrontColumn = function FrontColumn(props) {
                     <div className={styles.subtitle}>
                         <div className={styles.subtitle_text} data-framer-component-type="RichTextContainer" style={{ outline: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0, "-- extracted1w3ko1f": 'rgba(66, 56, 37, 1)', "--framer-paragraph-spacing": '0px', transform: 'none' }}>
                             <p className="framer-text" style={{ "--framer-font-size": '1.6svh' }}>
-                                <span className="framer-text" style={{ "--fontSelector": 'R0Y7RnV0dXJhLTgwMA==', "--framer-font-family": 'Futura', "--framer-font-size": '1.6svh', "--framer-font-weight": 800, "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))' }}>{subtitle}</span>
+                                <span className="framer-text" style={{ "--fontSelector": 'R0Y7RnV0dXJhLTgwMA==', "--framer-font-family": 'futura condensed extra', "--framer-font-size": '1.6svh', "--framer-font-weight": 800, "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))' }}>{subtitle}</span>
                             </p>
                         </div >
                         <div className={styles.date_text} data-framer-component-type="RichTextContainer" style={{
