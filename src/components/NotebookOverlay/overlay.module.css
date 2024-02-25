@@ -8,9 +8,8 @@
 
 .openbook {
   aspect-ratio: 1.360225141;
-  min-height: 533px;
   overflow: clip;
-  height: 45% !important;
+  height: 62.3svmin !important;
   width: auto !important;
   position: fixed !important;
   z-index: 2;
