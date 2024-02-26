@@ -17,7 +17,8 @@ body {
 }
 
 html, body, #__next {
-    height: 100svh !important;
+    height:  100vh !important;
+    height:  100svh !important;
 }
 
 html *::-webkit-scrollbar {
@@ -53,7 +54,8 @@ html *::-webkit-scrollbar {
 
 #globalLoader, .transition_loader {
     width: 100vw;
-    height: 100svh;
+    height:  100vh;
+    height:  100svh;
     background-color: transparent;
     opacity: 1;
     display: flex;
@@ -94,7 +96,8 @@ html *::-webkit-scrollbar {
 
 @media (pointer:coarse) and (orientation: portrait) {
     html, body, #__next {
-        height: 100svh !important;
+        height:  100vh !important;
+        height:  100svh !important;
     }
 
     #__next {
@@ -105,7 +108,8 @@ html *::-webkit-scrollbar {
 
 @media (pointer:coarse) and (orientation: landscape) {
     html, body, #__next {
-        height: 100svh !important;
+        height:  100vh !important;
+        height:  100svh !important;
     }
 
     #__next {
@@ -138,6 +142,7 @@ html *::-webkit-scrollbar {
     }
 
     100% {
-        transform: translateY(-100svh);
+        transform:  translateY(-100vh);
+        transform:  translateY(-100svh);
     }
 }

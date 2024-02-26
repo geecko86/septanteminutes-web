@@ -1,7 +1,10 @@
 .frame {
-    --controls-margin: 5svh;
-    --computed-height: calc(max(12svh, 96px));
-    --computed-width: calc(min(var(--computed-height) * (395/96), 100vw - 10svh));
+    --controls-margin:  5vh;
+    --controls-margin:  5svh;
+    --computed-height:  calc(max(12vh, 96px));
+    --computed-height:  calc(max(12svh, 96px));
+    --computed-width:  calc(min(var(--computed-height) * (395/96), 100vw - 10vh));
+    --computed-width:  calc(min(var(--computed-height) * (395/96), 100vw - 10svh));
 
     position: sticky;
     visibility: hidden;
@@ -15,7 +18,8 @@
     height: var(--computed-height);
     width: var(--computed-width);
     min-height: 96px;
-    max-width: calc(100vw - 10svh);
+    max-width:  calc(100vw - 10vh);
+    max-width:  calc(100vw - 10svh);
     
     display: flex;
     overflow: clip;
@@ -73,7 +77,8 @@
 .content .text_section {
     height: 92%;
     /* width: min-content; */
-    /* min-width: 26.33svh; */
+    /* min-width:  26.33vh; */
+    /* min-width:  26.33svh; */
     /* flex-basis: 0; */
     flex-grow: 1;
     display: flex;

@@ -9,7 +9,8 @@
 .openbook {
   aspect-ratio: 1.360225141;
   overflow: clip;
-  height: 62.3svmin !important;
+  height:  62.3vw !important;
+  height:  62.3svmin !important;
   width: auto !important;
   position: fixed !important;
   z-index: 2;
@@ -55,11 +56,13 @@
 }
 
 .openbook h1 {
-  font-size: 3.5svh !important;
+  font-size:  3.5vh !important;
+  font-size:  3.5svh !important;
 }
 
 .openbook h4 {
-  font-size: 2.5svh !important;
+  font-size:  2.5vh !important;
+  font-size:  2.5svh !important;
 }
 
 .openbook > div[data-framer-component-type="RichTextContainer"] {
@@ -69,7 +72,8 @@
 }
 
 .openbook h5 {
-  font-size: 3.3svh !important;
+  font-size:  3.3vh !important;
+  font-size:  3.3svh !important;
 }
 
 .openbook ul {
@@ -85,7 +89,8 @@
   .openbook {
     width: 100vw !important;
     height: auto !important;
-    max-height: 45svh !important;
+    max-height:  45vh !important;
+    max-height:  45svh !important;
     min-height: unset !important;
     top: 30%;
   }
@@ -99,7 +104,8 @@
   }
 
   .openbook h1, .openbook h4, .openbook h5 {
-    max-width: 35svmin !important;
+    max-width:  35vmin !important;
+    max-width:  35svmin !important;
   }
 
   .openbook h1 {
@@ -123,6 +129,7 @@
 @media (pointer:coarse) and (orientation: landscape) {
   .openbook {
       min-height: unset;
-      height: 100svh !important;
+      height:  100vh !important;
+      height:  100svh !important;
   }
 }

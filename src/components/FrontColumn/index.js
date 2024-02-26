@@ -28,15 +28,15 @@ const FrontColumn = function FrontColumn(props) {
                 <div className={styles.legende}>
                     <div className={styles.subtitle}>
                         <div className={styles.subtitle_text} data-framer-component-type="RichTextContainer" style={{ outline: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0, "-- extracted1w3ko1f": 'rgba(66, 56, 37, 1)', "--framer-paragraph-spacing": '0px', transform: 'none' }}>
-                            <p className="framer-text" style={{ "--framer-font-size": '1.6svh' }}>
-                                <span className="framer-text" style={{ "--fontSelector": 'R0Y7RnV0dXJhLTgwMA==', "--framer-font-family": 'futura condensed extra', "--framer-font-size": '1.6svh', "--framer-font-weight": 800, "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))' }}>{subtitle}</span>
+                            <p className="framer-text" style={{ "--framer-font-size":  '1.6vh' }}>
+                                <span className="framer-text" style={{ "--fontSelector": 'R0Y7RnV0dXJhLTgwMA==', "--framer-font-family": 'futura condensed extra', "--framer-font-size":  '1.6vh', "--framer-font-weight": 800, "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))' }}>{subtitle}</span>
                             </p>
                         </div >
                         <div className={styles.date_text} data-framer-component-type="RichTextContainer" style={{
                             outline: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0, "-- extracted1w3ko1f": 'rgba(66, 56, 37, 1)', "--framer-paragraph-spacing": '0px', transform: 'none'
                         }}>
-                            <p className="framer-text" style={{ "--framer-font-size": '0.8svh' }}>
-                                <span className="framer-text" style={{ "--fontSelector": 'R0Y7UmFkd2F2ZS1yZWd1bGFy', "--framer-font-family": '"Radwave Demo"', "--framer-font-size": '0.8svh', "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))' }}>{date}</span >
+                            <p className="framer-text" style={{ "--framer-font-size":  '0.8vh' }}>
+                                <span className="framer-text" style={{ "--fontSelector": 'R0Y7UmFkd2F2ZS1yZWd1bGFy', "--framer-font-family": '"Radwave Demo"', "--framer-font-size":  '0.8vh', "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))' }}>{date}</span >
                             </p >
                         </div >
                     </div >
@@ -45,11 +45,11 @@ const FrontColumn = function FrontColumn(props) {
                     <img alt="" src="/img/stereo.svg" />
                     <img alt="" src="/img/import.svg" />
                     <div className={styles.credits} data-framer-component-type="RichTextContainer" style={{ outline: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0, "--extracted-1w3ko1f": 'rgba(66, 56, 37, 1)', "--extracted-5dqwso": 'rgba(66, 56, 37, 1)', "--framer-paragraph-spacing": '0px', transform: 'none', opacity: 1 }}>
-                        <p className="framer-text" style={{ "--framer-font-size": '0.8svh' }}>
-                            <span className="framer-text" style={{ "--fontSelector": 'R0Y7T3N3YWxkLTYwMA==', "--framer-font-family": '"Oswald"', "--framer-font-size": '0.8svh', "--framer-fontWeight": 600, "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))', "--framer-text-transform": 'uppercase' }}> Disponible sur toutes</span >
+                        <p className="framer-text" style={{ "--framer-font-size":  '0.8vh' }}>
+                            <span className="framer-text" style={{ "--fontSelector": 'R0Y7T3N3YWxkLTYwMA==', "--framer-font-family": '"Oswald"', "--framer-font-size":  '0.8vh', "--framer-fontWeight": 600, "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))', "--framer-text-transform": 'uppercase' }}> Disponible sur toutes</span >
                         </p >
-                        <p className="framer-text" style={{ "--framer-font-size": '0.8svh' }}>
-                            <span className="framer-text" style={{ "--fontSelector": 'R0Y7T3N3YWxkLTYwMA==', "--framer-font-family": '"Oswald"', "--framer-font-size": '0.8svh', "--framer-fontWeight": 600, "--framer-text-color": 'var(--extracted-5dqwso, rgba(66, 56, 37, 1))', "--framer-text-transform": 'uppercase' }}> les plateformes</span >
+                        <p className="framer-text" style={{ "--framer-font-size":  '0.8vh' }}>
+                            <span className="framer-text" style={{ "--fontSelector": 'R0Y7T3N3YWxkLTYwMA==', "--framer-font-family": '"Oswald"', "--framer-font-size":  '0.8vh', "--framer-fontWeight": 600, "--framer-text-color": 'var(--extracted-5dqwso, rgba(66, 56, 37, 1))', "--framer-text-transform": 'uppercase' }}> les plateformes</span >
                         </p >
                     </div >
                 </div >

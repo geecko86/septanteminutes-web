@@ -18,7 +18,7 @@ const Poster = (props: PosterProps) => {
     translateX = isIOS ? "55%" : useOffset(ref, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
 
     return (<div {...newProps} ref={ref}>
-        <motion.div style={{ position: "relative", translateX, height: "100%", width: "100%" }}>
+        <motion.div style={{ position: "relative", translateX, translateZ: "0px", height: "100%", width: "100%" }}>
           <Image alt="" src={props.poster.src} quality={50} sizes={`${Math.floor(30 * ratio)}svmin`} fill />
         </motion.div>
     </div>);

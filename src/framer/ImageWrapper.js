@@ -19,7 +19,7 @@ const ImageOffsetWrapper = (props) => {
     translateX = isIOS ? `${offsetFactor*2}%` : useOffset(props.targetRef || ref, motionValue, offsetFactor || 150, 0.9515, src, onReady, jumpToValue);
 
     return (<div {...newProps} ref={ref}>
-        <motion.div style={{ position: "relative", translateX, height: "100%", width: "100%" }}>
+        <motion.div style={{ position: "relative", translateX, translateZ: "4px", height: "100%", width: "100%" }}>
             <Image src={src} alt="" fill priority={!!priority} loading={loading || "lazy"} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
@@ -35,12 +35,12 @@ const ImageWrapper = (props) => {
 };
 
 export const Headphones = (props) => {
-    const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/79iKMvZpOdjB4LrQS90DE0i4o.webp" sizes="30svh" />);
+    const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/79iKMvZpOdjB4LrQS90DE0i4o.webp" sizes="30vh" />);
     return {...comp, displayName: "Headphones"};
 };
 
 export const BellLamp = (props) => {
-    const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/SM7LQLK7ePLJSfc9sOkU4yxHdo.png" sizes="30svh" />);
+    const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/SM7LQLK7ePLJSfc9sOkU4yxHdo.png" sizes="30vh" />);
     return {...comp, displayName: "BellLamp"};
 }
 
