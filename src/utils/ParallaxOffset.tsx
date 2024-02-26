@@ -7,11 +7,20 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
 
   useEffect(() => {
     const subroot: HTMLDivElement | undefined = document.getElementById("subroot") as HTMLDivElement;
-    const parentWidth = subroot?.parentElement?.clientWidth || 0;
-    const width = subroot?.clientHeight === parentWidth ? window.innerHeight : window.innerWidth;
-    const height = subroot?.clientHeight === parentWidth ? window.innerWidth : window.innerHeight;
 
-    setWindowDim({ width, height });
+    const handleResize = () => {
+      const parentWidth = subroot?.parentElement?.clientWidth || 0;
+      const width = subroot?.clientHeight === parentWidth ? window.innerHeight : window.innerWidth;
+      const height = subroot?.clientHeight === parentWidth ? window.innerWidth : window.innerHeight;
+      setWindowDim({ width, height });
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const computeTranslationX = () => {
