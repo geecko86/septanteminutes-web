@@ -119,13 +119,6 @@
     /* left:  calc(-18vh - 20vw); */
     /* left:  calc(-18svh - 20vw); */
     top: 48%;
-    transform: translateY(-50%)  !important;
-}
-
-@supports (-webkit-hyphens:none) {
-    .posters {
-        transform: translateY(-50%) translateZ(0px) !important;
-    }
 }
 
 .posters > *:not(:empty) {
@@ -322,7 +315,15 @@
     flex-flow: column;
     place-content: center flex-start;
     display: flex;
-    gap: 24px;
+    gap: calc(min(24px, 2.8vh));
+}
+
+@media screen and (max-width: 1200px) and (orientation:portrait){
+    .season_frame div[data-framer-name="Wall"] {
+        padding-top:  3rem;
+        padding-bottom: calc(170vh / 9 + -3rem);
+        padding-bottom: calc(170svh / 9 + -3rem);
+    }
 }
 
 .season_frame {
@@ -349,8 +350,10 @@
     aspect-ratio: calc(25.58/720);
     height: 5.36% !important;
     width: auto !important;
+    min-height: 1.5rem;
     gap: 2.4rem !important;
-    padding-bottom: 1rem;
+    padding-bottom: 1.6vh;
+    padding-bottom: 1.6svh;
     left: 10.2% !important;
     top: 11% !important;
 }
@@ -468,8 +471,8 @@
     grid-auto-flow: column;
     gap:  7vh;
     gap:  7svh;
-    row-gap:  calc(7 * max(1vh, 8px));
-    row-gap:  calc(7 * max(1svh, 8px));
+    row-gap:  calc(max(7vh, 4rem));
+    row-gap:  calc(max(7svh, 4rem));
     overflow: visible;
 }
 
@@ -477,6 +480,14 @@
     height: 100%;
     width: auto;
     aspect-ratio: 1;
+}
+
+.season_frame div[data-framer-name="Albums"] > div p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .season_frame div[data-framer-name="Album_support"] {
@@ -775,8 +786,8 @@
         grid-template-columns:  repeat(auto-fill, 17.5svmax);
         gap:  7vmax;
         gap:  7svmax;
-        row-gap:  calc(7 * max(1vmax, 8px));
-        row-gap:  calc(7 * max(1svmax, 8px));
+        row-gap:  calc(max(7vmax, 4rem));
+        row-gap:  calc(max(7svmax, 4rem));
     }
 
     .posters {
@@ -844,5 +855,11 @@
     .left_m30 {
         left:  -30vmax;
         left:  -30svmax;
+    }
+}
+
+@media (pointer:fine) {
+    .grab {
+        cursor: grab;
     }
 }

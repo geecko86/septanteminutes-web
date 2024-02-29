@@ -91,7 +91,7 @@ const Season = ({
                     </div>
                 </div>
                 {chair ?
-                    (<div className={styles.chair} data-framer-name="Chair">
+                    (<div className={styles.chair} data-framer-name="Chair" direction={chair === Chairs[0] || chair === Chairs[2] ? "front" : "side"}>
                         <Image alt="" loading="lazy" className="chair_img" sizes="20svmin" src={chair} fill={true} style={{
                             position: "absolute",
                             objectFit: "contain",

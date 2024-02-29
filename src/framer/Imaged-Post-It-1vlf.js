@@ -162,7 +162,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
               /*#__PURE__*/ _jsx(NextImage, {
                 alt: "",
                 fill: true,
-                sizes: "10svmax",
+                sizes: "10vmax",
                 ...toResponsiveImage(XmvAL8ZsJ),
               }),
               /*#__PURE__*/ _jsx(RichText, {

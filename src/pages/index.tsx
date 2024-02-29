@@ -9,7 +9,7 @@ import React, {
 import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from 'next/router';
-import { isSafari, isIOS, isMobile } from 'react-device-detect';
+import { isSafari, isMobile, isIOS } from 'react-device-detect';
 
 import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../components/Season";
@@ -123,8 +123,8 @@ export default function Home(props: {
         return output;
     });
 
-    // const offset0 = useTransform(() => newScrollX.get() * -0.32);
-    // const offset05 = useTransform(() => newScrollX.get() * -0.25);
+    const offset0 = useTransform(() => newScrollX.get() * 0.05);
+    const offset05 = useTransform(() => newScrollX.get() * 0.105);
     const offset15 = useTransform(() => newScrollX.get() * 1.15);
     const offset2 = useTransform(() => newScrollX.get() * 1.35);
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
@@ -166,6 +166,87 @@ export default function Home(props: {
                 break;
         }
     }
+
+    useEffect(() => {
+        const slider = home.current;
+        if (!slider) return;
+        let isDown = false;
+        let startX: number;
+        let scrollLeft: number;
+        let previousScrollX: number;
+        const limit = slider.clientWidth - window.innerWidth;
+
+        const onMouseDown = (e: MouseEvent) => {
+            isDown = true;
+            slider.classList.add(styles.grab);
+            startX = e.pageX - scrollX.get();
+            scrollLeft = scrollXAdditional.get();
+            cancelMomentumTracking();
+        };
+
+        const onMouseLeave = () => {
+            isDown = false;
+            slider.classList.remove(styles.grab);
+        };
+
+        const onMouseUp = () => {
+            isDown = false;
+            slider.classList.remove(styles.grab);
+            beginMomentumTracking();
+        };
+
+        const onMouseMove = (e: MouseEvent) => {
+            if(!isDown) return;
+            e.preventDefault();
+            hasMovedRef.current = true;
+            const x = e.pageX - scrollX.get();
+            const walk = (x - startX) * 2; //scroll-fast
+            scrollXAdditional.set(Math.min(limit, scrollLeft - walk));
+            setTimeout(() => {
+                previousScrollX = Math.min(scrollXAdditional.get(), limit);
+            }, 200);
+            velX = scrollXAdditional.get() - previousScrollX;
+            if (velX < 0) console.log(velX, scrollXAdditional.get(), previousScrollX);
+        };
+
+        const onWheel = () => {
+            cancelMomentumTracking();
+        };
+
+        slider.addEventListener('mousedown', onMouseDown);
+        slider.addEventListener('mouseleave', onMouseLeave);
+        slider.addEventListener('mouseup', onMouseUp);
+        slider.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('wheel', onWheel);
+
+        // Momentum 
+        var velX = 0;
+        var momentumID: number;
+
+        function beginMomentumTracking(){
+            cancelMomentumTracking();
+            momentumID = requestAnimationFrame(momentumLoop);
+        }
+        function cancelMomentumTracking(){
+            cancelAnimationFrame(momentumID);
+        }
+        function momentumLoop(){
+            scrollXAdditional.set(scrollXAdditional.get() + velX);
+            velX *= 0.8;
+            if (Math.abs(velX) > 0.5){
+                momentumID = requestAnimationFrame(momentumLoop);
+            }
+        }
+
+        return () => {
+            slider.removeEventListener('mousedown', onMouseDown);
+            slider.removeEventListener('mouseleave', onMouseLeave);
+            slider.removeEventListener('mouseup', onMouseUp);
+            slider.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('wheel', onWheel);
+            cancelMomentumTracking();
+        }
+    }, [isMobile, home.current]);
 
     useEffect(() => {
         const rootElem = root.current;
@@ -405,19 +486,19 @@ export default function Home(props: {
                             <div className={styles.backwall} key={"backwall"}>
                                 <BackwallLight className={styles.backwall_light} targetRef={firstPoster} motionValue={newScrollX} key="backwall_light" />
                                 <motion.div className={styles.backwall_paint} key={"backwall_paint"} />
-                                <div className={styles.posters} key={"posters"}>
+                                <motion.div className={styles.posters} key={"posters"} style={isIOS || isSafari ? { translateX: isIOS ? offset0 : 0, translateZ: 0, translateY: "-50%" } : { translateY: "-50%" }}>
                                     {
                                         seasons.map((season, i) => (
                                             <React.Fragment key={season.name + "_invisible00_fragment"}>
                                                 <div key={season.name + "_invisible00"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px` }} />
                                                 {
                                                     <Poster inheritedRef={i == 0 ? firstPoster : undefined} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}`}
-                                                    poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} />
+                                                    poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
                                                 }
                                             </React.Fragment>
                                         ))
                                     }
-                                </div>
+                                </motion.div>
                             </div>
 
                             <div className={styles.floor_3} key={"floor_3"} />
@@ -430,7 +511,7 @@ export default function Home(props: {
                             </div>
                             <div className={styles.floor} key={"floor"} />
                         </motion.div>
-                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile ? { translateZ: 0 } : {}}>
+                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile ? { translateZ: 0, ...(isIOS ? { translateX: offset05 } : {}) } : {}}>
                             {
                                 seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
@@ -438,25 +519,25 @@ export default function Home(props: {
                                         {
                                             [
                                                 (<React.Fragment key={`deco05_0_${i}`}>
-                                                    <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left:  "-5vh" }} motionValue={newScrollX} />
-                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} motionValue={newScrollX} />
+                                                    <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left:  "-5vh" }} motionValue={newScrollX} position={i} />
+                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_1_${i}`}>
-                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} />
-                                                    <PlantA key={`layer05_prop_${i}_PlantA`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} />
+                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} position={i} />
+                                                    <PlantA key={`layer05_prop_${i}_PlantA`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_2_${i}`}>
-                                                    <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} />
-                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} />
+                                                    <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} position={i} />
+                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_3_${i}`}>
-                                                    <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left:  "-10vh" }} motionValue={newScrollX} />
-                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "" }} motionValue={newScrollX} />
+                                                    <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left:  "-10vh" }} motionValue={newScrollX} position={i} />
+                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "" }} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_4_${i}`}>
                                                         <div key={`layer05_gap0_${i}_div`} className={styles.gap} style={{ width: "calc(55 * var(--unit))" }} />
-                                                        <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} />
-                                                        <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} />
+                                                        <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} position={i} />
+                                                        <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>)
                                             ][i % 5]
                                         }

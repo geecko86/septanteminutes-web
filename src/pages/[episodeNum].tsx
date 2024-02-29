@@ -438,8 +438,8 @@ export default function EpisodeTable(props: {
                 setHasClickedNotebook(true)
               }}
             />
-            <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47svmax" className={styles.phone} />
-            <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16svmax" className={styles.camera} />
+            <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />
+            <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
               if (playbackMP3) {
                 setPlaying(!isPlaying);

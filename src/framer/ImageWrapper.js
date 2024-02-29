@@ -8,7 +8,7 @@ import useOffset from  "../utils/ParallaxOffset";
 import { isIOS } from "react-device-detect";
 
 const ImageOffsetWrapper = (props) => {
-    const { motionValue, src, sizes, priority, loading, onReady, offsetFactor, targetRef, ...newProps } = props;
+    const { motionValue, src, sizes, priority, loading, onReady, position, offsetFactor, targetRef, ...newProps } = props;
     const ref = useRef(targetRef?.current || null);
 
     let translateX;
@@ -16,7 +16,7 @@ const ImageOffsetWrapper = (props) => {
         if (translateX) translateX.jump(val);
     };
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    translateX = isIOS ? `${offsetFactor*2}%` : useOffset(props.targetRef || ref, motionValue, offsetFactor || 150, 0.9515, src, onReady, jumpToValue);
+    translateX = isIOS ? `${47.5 * (Math.ceil(position/1.8) + 1)}%` : useOffset(props.targetRef || ref, motionValue, offsetFactor || 150, 0.9515, src, onReady, jumpToValue);
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ position: "relative", translateX, translateZ: "4px", height: "100%", width: "100%" }}>
@@ -29,7 +29,7 @@ const ImageWrapper = (props) => {
     const { src, sizes, priority, onReady, blurDataURL, ...otherProps } = props;
     const placeholder = !!blurDataURL ? "blur" : "empty";
 
-    return (<div {...otherProps} >
+    return (<div {...otherProps} style={{translateZ: "4px"}} >
         <Image src={src} blurDataURL={blurDataURL} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
     </div>)
 };

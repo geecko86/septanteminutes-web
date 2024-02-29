@@ -15,7 +15,7 @@ const Poster = (props: PosterProps) => {
     } : undefined;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    translateX = isIOS ? "55%" : useOffset(ref, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
+    translateX = isIOS ? `${55+5*props.position}%` : useOffset(ref, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ position: "relative", translateX, translateZ: "0px", height: "100%", width: "100%" }}>
@@ -32,6 +32,7 @@ type PosterProps = {
     onReady?: () => void,
     inheritedRef?: RefObject<HTMLDivElement>,
     isLast?: boolean,
+    position: number,
     poster: {
         src: string,
         ratio: number,
