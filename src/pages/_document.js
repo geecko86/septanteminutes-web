@@ -22,17 +22,12 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&display=block"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&family=Jost:wght@400&display=block"
             as="style"
           />
           <link
             rel="preload"
             href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699618189/fonts/radwave.css"
-            as="style"
-          />
-          <link
-            rel="preload"
-            href="https://fonts.cdnfonts.com/css/futura-pt"
             as="style"
           />
           <link
@@ -60,7 +55,7 @@ class MyDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&display=block"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&family=Jost:wght@400&display=block"
           />
           <link
             rel="stylesheet"
@@ -69,10 +64,6 @@ class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="https://fonts.cdnfonts.com/css/futura-condensed-extra"
-          />
-          <link
-            rel="stylesheet"
-            href="https://fonts.cdnfonts.com/css/futura-pt"
           />
 
           <meta name="application-name" content="PWA App" />
