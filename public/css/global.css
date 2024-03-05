@@ -4,6 +4,12 @@
     font-size: 16px;
 }
 
+@media screen and (min-height: 1081px) and (max-height: 1440px) {
+    :root {
+      font-size: 22px; /* Adjust root font size for large screens */
+    }
+  }
+
 @media screen and (min-height: 1441px) and (max-height: 2000px) {
     :root {
       font-size: 24px; /* Adjust root font size for larger screens */

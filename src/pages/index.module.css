@@ -518,7 +518,7 @@
 }
 
 .season_frame div[data-framer-name="Albums"] > div span:last-child {
-    font-family: "Futura";
+    font-family: "Futura", "Futura PT", sans-serif;
     font-weight: 400;
 }
 
