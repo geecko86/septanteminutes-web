@@ -47,6 +47,7 @@
     height: 239px;
     justify-content: flex-start;
     left: 12px;
+    transform: translateX(-85%);
     overflow: visible;
     padding: 0px 0px 0px 0px;
     position: absolute;
@@ -114,6 +115,20 @@
     width: min-content;
 }
 
+.season p {
+    font-family: var(--framer-font-family, Inter, Inter Placeholder, sans-serif);
+    font-style: var(--framer-font-style, normal);
+    font-weight: var(--framer-font-weight, 400);
+    color: var(--framer-text-color, #000);
+    letter-spacing: var(--framer-letter-spacing, 0);
+    text-transform: var(--framer-text-transform, none);
+    text-decoration: var(--framer-text-decoration, none);
+    line-height: var(--framer-line-height, 1.2em);
+    text-align: var(--framer-text-alignment, start);
+    margin: 0px;
+    padding: 0px;
+}
+
 .season .header_logo {
     aspect-ratio: 5.0048773582928625 / 1;
     flex: none;
@@ -176,7 +191,7 @@
 .season .season_legende {
     align-content: center;
     align-items: center;
-    bottom: 109px;
+    bottom: min(80px, 9svh);
     display: flex;
     flex: none;
     flex-direction: row;
@@ -276,6 +291,7 @@
         height: 239px;
         justify-content: flex-start;
         left: 12px;
+        transform: translateX(-100%);
         overflow: visible;
         padding: 0px 0px 0px 0px;
         position: absolute;

@@ -87,9 +87,9 @@
 .backwall_light {
     width: auto;
     height: 114.53%;
-    aspect-ratio: 3840/1000;
+    aspect-ratio: 3840/1100;
     position: relative;
-    left: 0px;
+    left: -65vw;
     top: -8.53%;
     object-fit: contain;
     contain: paint;
@@ -309,20 +309,22 @@
     height: calc(100%*(7/9));
     width: auto;
     min-width: calc(100%*(7/9));
-    padding:  calc(85vh / 9);
-    padding:  calc(85svh / 9);
+    padding:  calc(85vh / 10);
+    padding:  calc(85svh / 10);
+    padding-bottom:  calc(85vh / 8.2);
+    padding-bottom:  calc(85svh / 8.2);
     align-items: flex-start;
     flex-flow: column;
     place-content: center flex-start;
     display: flex;
-    gap: calc(min(24px, 2.8vh));
+    gap: calc(min(24px, 1vh));
 }
 
 @media screen and (max-width: 1200px) and (orientation:portrait){
     .season_frame div[data-framer-name="Wall"] {
         padding-top:  3rem;
-        padding-bottom: calc(170vh / 9 + -3rem);
-        padding-bottom: calc(170svh / 9 + -3rem);
+        padding-bottom: calc(170vh / 10);
+        padding-bottom: calc(170svh / 10);
     }
 }
 
@@ -348,7 +350,7 @@
 .season_frame div[data-framer-name="Header"] {
     position: static;
     aspect-ratio: calc(25.58/720);
-    height: 5.36% !important;
+    height: 1.9rem !important;
     width: auto !important;
     min-height: 1.5rem;
     gap: 2.4rem !important;
@@ -427,7 +429,7 @@
     gap: 2.15rem;
     padding: 0;
     place-content: unset;
-    bottom: calc(100%/6.56);
+    bottom: calc(100%/11.56);
     right:  calc(85vh/9);
     right:  calc(85svh/9);
     left: initial !important;
@@ -464,44 +466,74 @@
     width: 100%;
     display: grid !important;
     place-items: stretch;
-    grid-template-columns:  repeat(auto-fill, 17.5vh); /* Adjust the minmax value as needed */
-    grid-template-columns:  repeat(auto-fill, 17.5svh); /* Adjust the minmax value as needed */
+    grid-template-columns:  repeat(auto-fill, 20vh); /* Adjust the minmax value as needed */
+    grid-template-columns:  repeat(auto-fill, 20svh); /* Adjust the minmax value as needed */
     grid-template-rows: repeat(2, 1fr); /* 3 rows */
     grid-auto-columns: 1fr; /* Automatically add more columns if needed */
     grid-auto-flow: column;
     gap:  7vh;
     gap:  7svh;
-    row-gap:  calc(max(7vh, 4rem));
-    row-gap:  calc(max(7svh, 4rem));
+    row-gap:  calc(max(7vh, 6rem));
+    row-gap:  calc(max(7svh, 6rem));
     overflow: visible;
 }
 
 .season_frame div[data-framer-name="Albums"] > div div, .season_frame div[data-framer-name="Albums"] a {
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
     aspect-ratio: 1;
 }
 
+.season_frame div[data-framer-name="Albums"] a {
+    position: relative;
+    overflow: visible;
+}
+
+.season_frame div[data-framer-name="Albums"] div[data-framer-component-type="RichTextContainer"] {
+    /* transform: translateX(-50%) !important;
+    left: 50%; */
+}
+
 .season_frame div[data-framer-name="Albums"] > div p {
-    overflow: hidden;
+    white-space: pre-wrap;
+    overflow: clip;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    min-height: 6ch;
+    padding-left: 0.5ch;
+    margin: 1rem 0px !important;
+}
+
+.season_frame div[data-framer-name="Albums"] > div span {
+    color: rgb(66, 56, 37);
+    font-size: calc(max(0.935rem, 1.7vmin));
+    text-align: left;
+}
+
+.season_frame div[data-framer-name="Albums"] > div span:first-child {
+    font-family: "Futura Condensed Extra";
+    font-weight: 700;
+}
+
+.season_frame div[data-framer-name="Albums"] > div span:last-child {
+    font-family: "Futura";
+    font-weight: 400;
 }
 
 .season_frame div[data-framer-name="Album_support"] {
-    height: 10% !important;
+    height: 7.33% !important;
     width: 50% !important;
-    inset: 96% 25% -4px !important;
+    inset: 98% 25% -4px !important;
 }
 
 .lamps_1_5 { /* ceiling lamps */ 
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap:  133vh;
-    gap:  133svh;
+    gap:  115vh;
+    gap:  115svh;
     transform:  translateX(90vh) translateZ(7px) !important;
     transform:  translateX(90svh) translateZ(7px) !important;
 
@@ -510,14 +542,15 @@
     height:  27vh;
     height:  27svh;
     top: 0;
+    left: -4vw;
 }
 
 .lamps_2 { /* ceiling lamps front */ 
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap:  133vh;
-    gap:  133svh;
+    gap:  148.5vh;
+    gap:  148.5svh;
     transform:  translateX(40vh)  !important;
     transform:  translateX(40svh)  !important;
 
@@ -527,6 +560,8 @@
     height:  85svh;
     top:  -34.5vh;
     top:  -34.5svh;
+    left: 17.5vw;
+    left: 17.5svw;
 }
 
 @supports (-webkit-hyphens:none) {
@@ -740,6 +775,19 @@
     }
 }
 
+@media (max-height:800px) {
+    .season_frame div[data-framer-name="LEGENDE"] {
+        bottom: 2rem;
+        right:  4rem;
+    }
+}
+
+@media (max-height:699px) {
+    .season_frame div[data-framer-name="LEGENDE"] {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 1200px) and (orientation: portrait) {
     .home_subroot {
         height:  100vh !important;
@@ -786,8 +834,8 @@
         grid-template-columns:  repeat(auto-fill, 17.5svmax);
         gap:  7vmax;
         gap:  7svmax;
-        row-gap:  calc(max(7vmax, 4rem));
-        row-gap:  calc(max(7svmax, 4rem));
+        row-gap:  calc(max(7vmax, 6rem));
+        row-gap:  calc(max(7svmax, 6rem));
     }
 
     .posters {
@@ -807,8 +855,8 @@
     }
 
     .season_frame > div[data-framer-name="Wall"] {
-        padding:  calc(85vmax / 9);
-        padding:  calc(85svmax / 9);
+        padding:  calc(85vmax / 10);
+        padding:  calc(85svmax / 10);
     }
 
     .season_frame {
@@ -832,14 +880,16 @@
     }
 
     .lamps_2 { /* ceiling lamps front */ 
-        gap:  133vmax;
-        gap:  133svmax;
+        gap:  130.25vmax;
+        gap:  130.25svmax;
         transform:  translateX(40vmax)  !important;
         transform:  translateX(40svmax)  !important;
         height:  85vmax;
         height:  85svmax;
         top:  -34.5vmax;
         top:  -34.5svmax;
+        left: 55vmax;
+        left: 55svmax;
     }
 
     .front_column {

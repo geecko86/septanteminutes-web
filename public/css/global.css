@@ -1,6 +1,20 @@
 :root {
     --tableMinHeight: 390px;
     --tableMinWidth: 790px;
+    font-size: 16px;
+}
+
+@media screen and (min-height: 1441px) and (max-height: 2000px) {
+    :root {
+      font-size: 24px; /* Adjust root font size for larger screens */
+    }
+  }
+  
+
+@media (min-height: 2000px) {
+    :root {
+        font-size: 42px;
+    }
 }
 
 html,
@@ -16,9 +30,11 @@ body {
     display: revert !important;
 }
 
-html, body, #__next {
-    height:  100vh !important;
-    height:  100svh !important;
+html,
+body,
+#__next {
+    height: 100vh !important;
+    height: 100svh !important;
 }
 
 html *::-webkit-scrollbar {
@@ -52,23 +68,24 @@ html *::-webkit-scrollbar {
     position: fixed;
 }
 
-#globalLoader, .transition_loader {
+#globalLoader,
+.transition_loader {
     width: 100vw;
-    height:  100vh;
-    height:  100svh;
-    background-color: transparent;
+    height: 100vh;
+    height: 100svh;
+    background-color: white;
     opacity: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
     top: 0;
     bottom: 1px;
 
-    transition: opacity 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    transition: opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    transition-delay: 0.25s !important;
 }
 
-#globalLoader > div {
+#globalLoader>div {
     place-self: center;
     display: flex;
     align-items: center;
@@ -79,12 +96,16 @@ html *::-webkit-scrollbar {
 
 .gone {
     opacity: 0 !important;
-    transition: opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    pointer-events: none;
 }
 
-.gone > * {
-    -webkit-animation: slide-top 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-            animation: slide-top 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+.spinner {
+    opacity: 1;
+    transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.spinner.spinner_hidden {
+    opacity: 0 !important;
 }
 
 .episode_page {
@@ -95,9 +116,12 @@ html *::-webkit-scrollbar {
 }
 
 @media (pointer:coarse) and (orientation: portrait) {
-    html, body, #__next {
-        height:  100vh !important;
-        height:  100svh !important;
+
+    html,
+    body,
+    #__next {
+        height: 100vh !important;
+        height: 100svh !important;
     }
 
     #__next {
@@ -107,9 +131,12 @@ html *::-webkit-scrollbar {
 }
 
 @media (pointer:coarse) and (orientation: landscape) {
-    html, body, #__next {
-        height:  100vh !important;
-        height:  100svh !important;
+
+    html,
+    body,
+    #__next {
+        height: 100vh !important;
+        height: 100svh !important;
     }
 
     #__next {
@@ -125,24 +152,3 @@ html *::-webkit-scrollbar {
 }
 
 @media screen and (min-width: 320px) and (max-width: 1200px) and (orientation: landscape) {}
-
-@-webkit-keyframes slide-top {
-    0% {
-        -webkit-transform: translateY(0);
-    }
-
-    100% {
-        -webkit-transform: translateY(-100svh);
-    }
-}
-
-@keyframes slide-top {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform:  translateY(-100vh);
-        transform:  translateY(-100svh);
-    }
-}

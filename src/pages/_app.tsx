@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 
 import { PlaybackProvider } from '../utils/PlayerContext'
 import FloatingPlaybackControls from "../components/FloatingPlaybackControls"
-import MaterialSpinningLoader from "../components/MaterialSpinningLoader"
+import LoadingAnim from "../components/LoadingAnim"
 
 import styles from "./layout.module.css"
 
@@ -15,6 +15,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const [loaded, setLoaded] = useState("");
   const [showSpinner, setShowSpinner] = useState(true);
+  const [spinnerClass, setSpinnerClass] = useState("spinner");
 
   const { pathname } = useRouter();
 
@@ -26,11 +27,19 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         loader.className = loaded ? 'gone' : '';
         if (!loaded) {
           timeoutId = setTimeout(() => {
-            if (loader.className) setShowSpinner(true);
+            if (loader.className) {
+              setSpinnerClass("spinner");
+              setShowSpinner(true);
+            }
           }, 100);
         } else {
+          setSpinnerClass("spinner spinner_hidden");
           timeoutId = setTimeout(() => {
-            setShowSpinner(false);
+            if ("requestIdleCallback" in window) {
+              requestIdleCallback(() => {
+                setShowSpinner(false);
+              });
+            } else setShowSpinner(false);
           }, 2000);
         }
         return () => {
@@ -62,7 +71,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         </StrictMode>
       <div id="globalLoader">
         {showSpinner ? <div>
-          <MaterialSpinningLoader />
+          <LoadingAnim className={spinnerClass} />
         </div> : null}
       </div>
     </>

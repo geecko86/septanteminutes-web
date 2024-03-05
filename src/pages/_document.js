@@ -8,7 +8,6 @@ class MyDocument extends Document {
       <Html lang="fr">
         <Head>
           <link rel="stylesheet" href={"/css/global.css"} />
-          <link rel="stylesheet" href={"/css/spinner.css"} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -118,6 +117,9 @@ class MyDocument extends Document {
             property="og:image"
             content="https://www.septanteminutes.be/img/192.png"
           />
+
+          <meta name="theme-color" media="(prefers-color-scheme: light)" content="lightgray" />
+          <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
 
           {/* <link rel='apple-touch-startup-image' href='/img/2048.png' sizes='2048x2732' />
           <link rel='apple-touch-startup-image' href='/img/1668.png' sizes='1668x2224' />

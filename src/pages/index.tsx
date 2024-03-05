@@ -126,7 +126,7 @@ export default function Home(props: {
     const offset0 = useTransform(() => newScrollX.get() * 0.05);
     const offset05 = useTransform(() => newScrollX.get() * 0.105);
     const offset15 = useTransform(() => newScrollX.get() * 1.15);
-    const offset2 = useTransform(() => newScrollX.get() * 1.35);
+    const offset2 = useTransform(() => newScrollX.get() * 2.15);
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
     const invisibleSeasonSeparators = useMemo(() => [...(layer1.current?.children || [])].map((_, i) => {
@@ -169,7 +169,7 @@ export default function Home(props: {
 
     useEffect(() => {
         const slider = home.current;
-        if (!slider) return;
+        if (!slider || isMobile) return;
         let isDown = false;
         let startX: number;
         let scrollLeft: number;
@@ -484,7 +484,7 @@ export default function Home(props: {
                             </div>
                             <div className={styles.ceiling} key={"ceiling"} />
                             <div className={styles.backwall} key={"backwall"}>
-                                <BackwallLight className={styles.backwall_light} targetRef={firstPoster} motionValue={newScrollX} key="backwall_light" />
+                                <BackwallLight className={styles.backwall_light} targetRef={firstPoster} motionValue={newScrollX} key="backwall_light" style={{left: "-80vw"}} />
                                 <motion.div className={styles.backwall_paint} key={"backwall_paint"} />
                                 <motion.div className={styles.posters} key={"posters"} style={isIOS || isSafari ? { translateX: isIOS ? offset0 : 0, translateZ: 0, translateY: "-50%" } : { translateY: "-50%" }}>
                                     {
@@ -550,7 +550,7 @@ export default function Home(props: {
                                 seasons.map((season, i) => (
                                     <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} chair={Chairs[i % 4]} className={styles.season_frame}>
                                         {season.episodes.slice().reverse().map((ep: episode, j: number) => (
-                                            <HomeAlbum id={`art_${ep.num}`} ref={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
+                                            <HomeAlbum id={`art_${ep.num}`} imageRef={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
                                                 onClick={(e: MouseEvent) => {
                                                     if (e.button != 0) return;
                                                     if (process.env.NODE_ENV === 'production') setAutoplay(ep);

@@ -233,9 +233,7 @@ div:has(> .chair) {
   transform: translate(50%, -50%, 0px);
   pointer-events: none;
 
-  left: unset !important;
-  bottom: 0 !important;
-  translate: unset !important;
+  bottom: 25% !important;
 }
 
 .albums .playButton img {

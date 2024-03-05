@@ -12,7 +12,7 @@ div[ready="true"] .scrollTarget {}
 }
 
 .scrollTarget>p {
-    padding-bottom: 6% !important;
+    padding-bottom: 4rem !important;
 }
 
 .scrollTarget a {
