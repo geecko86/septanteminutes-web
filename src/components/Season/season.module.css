@@ -47,7 +47,7 @@
     height: 239px;
     justify-content: flex-start;
     left: 12px;
-    transform: translateX(-85%);
+    transform: translateX(-85%) translateZ(5px) !important;
     overflow: visible;
     padding: 0px 0px 0px 0px;
     position: absolute;

@@ -8,8 +8,8 @@ function HomeAlbum({ height, id, image, num, guest, width, ...otherProps }) {
   const { style, className, variant, l4skPfBuN, onReady, imageRef, ...rest } = otherProps;
 
   const subject = guest.split(/\s(-|–)\s?/g)[2];
-  const newLine = guest.split(/\s(-|–)\s?/g)[0].length < 20;
   guest = guest.split(/\s(-|–)\s?/g)[0];
+  const newLine = guest.length < 22;
   
   const T = useRef(null);
 

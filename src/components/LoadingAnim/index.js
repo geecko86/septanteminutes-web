@@ -16,11 +16,7 @@ const Loader = (props) => {
                 {`@keyframes rotateLogo { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }`}
                 </style>
             </Head>
-            <div className={props.className} style={{
-                position: "absolute",
-                top: "35vh",
-                left: "35vw"
-            }}>
+            <div className={props.className}>
                 <div style={{
                     width: "30vh",
                     height: "30vh",

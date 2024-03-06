@@ -16,7 +16,7 @@ import Season_, { Chairs } from "../components/Season";
 import FrontColumn_, { FrontPosters } from "../components/FrontColumn";
 import { usePlayback } from '../utils/PlayerContext';
 
-import HomeAlbum_ from "../framer/HomeAlbum-WCxn.js";
+import HomeAlbum_ from "../components/HomeAlbum";
 import { BellLamp as BellLamp_, Plant0 as PlantA_, Eggchair as Eggchair_, Plant1 as PlantB_, Plant2 as PlantA2_, Plant3 as PlantD_, Plant4 as PlantE_, BackwallLight } from "../framer/ImageWrapper.js";
 
 import ScrollToAnchor, { getEpisodeNum as getTargetEpisodeNum } from "../utils/scroll_to_anchor"
@@ -197,6 +197,7 @@ export default function Home(props: {
 
         const onMouseMove = (e: MouseEvent) => {
             if(!isDown) return;
+            console.log("mouse move");
             e.preventDefault();
             hasMovedRef.current = true;
             const x = e.pageX - scrollX.get();
@@ -210,6 +211,7 @@ export default function Home(props: {
         };
 
         const onWheel = () => {
+            console.log("wheel cancel Momentum tracking");
             cancelMomentumTracking();
         };
 
@@ -255,6 +257,7 @@ export default function Home(props: {
         const onHomeWheel = (e: WheelEvent) => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+            console.log("wheel", e.deltaX, e.deltaY, e.deltaZ);
             if (isTouchDevice) {
                 console.log("isTouchDevice", isTouchDevice);
                 scrollXAdditional.set(0);

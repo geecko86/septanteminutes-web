@@ -19,7 +19,7 @@
 
 @media (min-height: 2000px) {
     :root {
-        font-size: 42px;
+        font-size: 34px;
     }
 }
 
@@ -108,6 +108,12 @@ html *::-webkit-scrollbar {
 .spinner {
     opacity: 1;
     transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 10vh);
+    height: 30vh;
+    width: 50vh;
+    transform: translate(-50%, -50%);
 }
 
 .spinner.spinner_hidden {

@@ -64,7 +64,7 @@ const Season = ({
                         <div className={styles.season_title} data-framer-name="Frame 10" style={{ opacity: 1 }}><div className={styles.richtextcontainer0} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, fontSize:  "1.27rem", paddingTop: "1px", transform: "none", opacity: 1 }}><p className="framer-text">{seasonTitle}</p></div>
                             <div className={styles.richtextcontainer1} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", "flexDirection": "column", justifyContent: "flex-start", "--framer-paragraph-spacing": "0px", paddingBottom: "2px", transform: "none", opacity: 1 }}>
                                 <p className="framer-text">
-                                    <span className="framer-text" style={{ fontFamily: "Radwave Demo", fontSize: "0.45rem" }}>
+                                    <span className="framer-text" style={{ fontFamily: "Radwave Demo", fontSize: "0.46rem" }}>
                                         Présenté par Guillaume Hachez
                                     </span>
                                 </p>

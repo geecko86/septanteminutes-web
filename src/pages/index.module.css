@@ -323,8 +323,8 @@
 @media screen and (max-width: 1200px) and (orientation:portrait){
     .season_frame div[data-framer-name="Wall"] {
         padding-top:  3rem;
-        padding-bottom: calc(170vh / 10);
-        padding-bottom: calc(170svh / 10);
+        padding-bottom: calc(85vh / 8.2 + (85vh / 10 - 3rem));
+        padding-bottom: calc(85svh / 8.2 + (85svh / 10 - 3rem));
     }
 }
 
@@ -396,7 +396,7 @@
 }
 
 .season_frame div[data-framer-name="Header"] p {
-    line-height: 1.35ch;
+    line-height: 1.15ch;
 }
 
 .season_frame div[data-framer-name="Header"] div[data-framer-component-type="RichTextContainer"] {
