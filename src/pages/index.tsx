@@ -47,7 +47,7 @@ export default function Home(props: {
     const [columnFocus, setColumnFocus] = useState(false);
     const [showSwiper, setShowSwiper] = useState(false);
     const [offset3_factor, setOffset3Factor] = useState<number>(0.5);
-    
+ 
     const hasMovedRef = useRef(false), hasFocusRef = useRef(true), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
     const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
@@ -125,8 +125,8 @@ export default function Home(props: {
 
     const offset0 = useTransform(() => newScrollX.get() * 0.05);
     const offset05 = useTransform(() => newScrollX.get() * 0.105);
-    const offset15 = useTransform(() => newScrollX.get() * 1.15);
-    const offset2 = useTransform(() => newScrollX.get() * 2.15);
+    const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
+    const offset2 = useTransform(() => newScrollX.get() * 2.3 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
     const invisibleSeasonSeparators = useMemo(() => [...(layer1.current?.children || [])].map((_, i) => {

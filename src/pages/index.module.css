@@ -530,30 +530,33 @@
 }
 
 .lamps_1_5 { /* ceiling lamps */ 
+    --lamp-width: calc(27vh*0.45*(2233/2291));
+    --lamp-width: calc(27svh*0.45*(2233/2291));
+
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap:  115vh;
-    gap:  115svh;
-    transform:  translateX(90vh) translateZ(7px) !important;
-    transform:  translateX(90svh) translateZ(7px) !important;
+    gap: calc(100vmax - var(--lamp-width));
+    gap: calc(100svmax - var(--lamp-width));
+    transform: translateZ(7px);
 
     position: relative;
     width: fit-content;
     height:  27vh;
     height:  27svh;
     top: 0;
-    left: -4vw;
+    left: calc(50vw - var(--lamp-width)/2);
 }
 
 .lamps_2 { /* ceiling lamps front */ 
+    --lamp-width: calc(85vh*0.45*(2233/2291));
+    --lamp-width: calc(85svh*0.45*(2233/2291));
+
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap:  148.5vh;
-    gap:  148.5svh;
-    transform:  translateX(40vh)  !important;
-    transform:  translateX(40svh)  !important;
+    gap: calc(153.5vmax - var(--lamp-width));
+    gap: calc(153.5svmax - var(--lamp-width));
 
     position: relative;
     width: fit-content;
@@ -561,8 +564,7 @@
     height:  85svh;
     top:  -34.5vh;
     top:  -34.5svh;
-    left: 17.5vw;
-    left: 17.5svw;
+    left: calc(50vw - var(--lamp-width)/2);
 }
 
 @supports (-webkit-hyphens:none) {
@@ -684,7 +686,7 @@
 }
 
 .layer_1_5 > * {
-    filter: blur(1px);
+    filter: blur(1.5px);
 }
 
 .layer_1_5, .layer_1_5 * { transform: translateZ(7px) }
@@ -766,13 +768,6 @@
     .poster {
         transform:  translateX(calc(-20vmax)) translateZ(0px) !important;
         transform:  translateX(calc(-20svmax)) translateZ(0px) !important;
-    }
-}
-
-@media (pointer:coarse) and (orientation:portrait) {
-    .home_root {
-        height:  100vh;
-        height:  100svh;
     }
 }
 
@@ -866,31 +861,16 @@
     }
 
     .lamps_1_5 { /* ceiling lamps */ 
-        gap: 133vvmax;
-        transform:  translateX(90vmax) !important;
-        transform:  translateX(90svmax) !important;
         height:  27vmax;
         height:  27svmax;
     }
 
-    @supports (-webkit-hyphens:none) {
-        .lamps_1_5 {
-            transform:  translateX(90vmax) translateZ(6px) !important;
-            transform:  translateX(90svmax) translateZ(6px) !important;
-        }
-    }
-
     .lamps_2 { /* ceiling lamps front */ 
-        gap:  130.25vmax;
-        gap:  130.25svmax;
-        transform:  translateX(40vmax)  !important;
-        transform:  translateX(40svmax)  !important;
         height:  85vmax;
         height:  85svmax;
         top:  -34.5vmax;
         top:  -34.5svmax;
-        left: 55vmax;
-        left: 55svmax;
+        left: calc(50vmax - var(--lamp-width)/2);
     }
 
     .front_column {
