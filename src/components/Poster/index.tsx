@@ -15,11 +15,12 @@ const Poster = (props: PosterProps) => {
     } : undefined;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    translateX = isIOS ? `${55+5*props.position}%` : useOffset(ref, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
+    translateX = (isIOS || typeof window === 'undefined') ? `${55+5*props.position}%` : useOffset(ref, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
 
+    // TODO: size when landscape rotation
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ position: "relative", translateX, translateZ: "0px", height: "100%", width: "100%" }}>
-          <Image alt="" src={props.poster.src} quality={50} sizes={`${Math.floor(30 * ratio)}svmin`} fill />
+          <Image alt="" src={props.poster.src} quality={50} sizes={`${Math.floor(30 * ratio)}svh`} fill />
         </motion.div>
     </div>);
 };

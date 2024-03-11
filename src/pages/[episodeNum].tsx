@@ -225,15 +225,20 @@ export default function EpisodeTable(props: {
     let clear = false;
     if (selectedVinyl.current && mainRef.current) {
       const selectedVinylPromise = new Promise<void>((resolve, reject) => {
-        const timeoutId = setTimeout(resolve, 2500);
+        const timeoutId = setTimeout(() => {
+          console.log("Timeout on selected vinyl tag");
+          resolve();
+        }, 7500);
         const img = selectedVinyl.current as HTMLImageElement;
         const oldOnload: (((e: Event) => any) | null) = img.onload;
-        if (img.complete) resolve();
-        else img.onload = (ev: Event) => {
+        if (img.complete) { 
+          clearTimeout(timeoutId);
+          resolve();
+        } else img.onload = (ev: Event) => {
+          clearTimeout(timeoutId);
           console.log("Loaded selected vinyl tag")
           resolve();
           if (oldOnload) oldOnload(ev);
-          clearTimeout(timeoutId);
         };
         img.onerror = () => {
           reject(new Error('Failed to load selectde vinyl img'));

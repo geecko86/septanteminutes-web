@@ -1,5 +1,5 @@
 import { MotionValue, useTransform } from "framer-motion";
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useEffect, useCallback, useState } from "react";
 
 const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
 
@@ -23,12 +23,10 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
     };
   }, []);
 
-  const computeTranslationX = () => {
+  const computeTranslationX = useCallback(() => {
     const target = ref.current;
     if (!target) return "0%";
-
-    const isRotated = window.innerHeight != windowDim.height;
-
+    const isRotated = window.innerHeight !== windowDim.height;
     const viewportEnd = windowDim.width;
     const targetRect = target.getBoundingClientRect();
 
@@ -37,14 +35,14 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
     const targetWidth = isRotated ? targetRect.height : targetRect.width;
     const targetEnd = targetRect.right + motionValue.get();
 
-    const adjustedCoeff = coeff * (windowDim.width / windowDim.height);
-    const adjustedPow = windowDim.height > windowDim.width ? pow : pow;
-
     // if (targetStart > 0 && targetStart < 1000 && src==="https://framerusercontent.com/images/p7a4OJaiiEBm2LbB08atc4nEjM.png") console.log(targetStart, viewportEnd);
     if (targetStart > windowDim.width) { 
       // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, "-aaa-")
       return `0%`;
     }
+
+    const adjustedCoeff = coeff * (windowDim.width / windowDim.height);
+    
     // Calculate the progress percentage
     const newProgress =
       ((viewportEnd - targetStart) / (viewportEnd + Math.max(targetRect.width, targetRect.height)));
@@ -52,9 +50,10 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
       return `${adjustedCoeff * -1.53}%`;
     }
 
+    const adjustedPow = windowDim.height > windowDim.width ? pow : pow;
     const output = `${Math.pow(newProgress * adjustedCoeff, adjustedPow)}%`;
     return output;
-  };
+  }, [ref, motionValue, coeff, pow, windowDim]);
 
   useEffect(() => {
     // Define limit
@@ -93,7 +92,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
       limitMutationObserver?.disconnect();
       if (onReadyTimeoutId) clearTimeout(onReadyTimeoutId);
     };
-  }, [onReady, jumpToValue, windowDim.width, motionValue, ref.current]);
+  }, [onReady, jumpToValue, windowDim.width, motionValue, ref.current, computeTranslationX]);
 
   return useTransform(computeTranslationX);
 }

@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState, useRef } from 'react';
 import { motion } from "framer-motion";
 
-function HomeAlbum({ height, id, image, num, guest, width, ...otherProps }) {
+function HomeAlbum({ height, id, image, num, guest, width, onClick, ...otherProps }) {
   const [isHovered, setHovered] = useState(false);
   const { style, className, variant, l4skPfBuN, onReady, imageRef, ...rest } = otherProps;
 
@@ -20,6 +20,7 @@ function HomeAlbum({ height, id, image, num, guest, width, ...otherProps }) {
         onMouseOut={() => setHovered(false)}
         className={`framer-LFfFl ${className || ""}`}
         style={{ display: "contents" }}
+        onClick={onClick}
       >
         <a id={id} href={`/${num}`}>
           <motion.div

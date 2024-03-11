@@ -11,8 +11,8 @@ const Loader = (props) => {
             <Head>
                 <link rel="preload" href="/img/SMA_sleeve.svg" as="image" />
                 <style>
-                {`@keyframes moveDisk {\nfrom { transform:scale(0.975) translateX(0) translateY(7.5%); }  to { transform:scale(0.975) translateX(33%) translateY(7.5%); }}\n`}
-                {`@keyframes moveSleeve { from {  transform: translateX(0); } to { transform: translateX(-33%); } }\n`}
+                {`@keyframes moveDisk {from { transform:scale(0.975) translateX(0) translateY(7.5%); }  to { transform:scale(0.975) translateX(33%) translateY(7.5%); }}`}
+                {`@keyframes moveSleeve { from {  transform: translateX(0); } to { transform: translateX(-25%); } }`}
                 {`@keyframes rotateLogo { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }`}
                 </style>
             </Head>

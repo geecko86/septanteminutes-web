@@ -113,7 +113,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const [playbackArtwork, setPlaybackArtwork] = useState("")
     const [playbackNum, setPlaybackNum] = useState<number>(0)
     const [status, setStatus] = useState<number>(0);
-    const [autoPlay, setAutoplay] = useState<episode | undefined>(undefined);
+    const [autoplay, setAutoplay] = useState<episode | undefined>(undefined);
     const audioRef = useRef<HTMLAudioElement>();
     const audio = audioRef.current;
 
@@ -180,7 +180,6 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         audioRef.current = newAudio;
 
         return () => {
-            console.log("audio removed")
             newAudio.removeEventListener("error", onError);
             newAudio.removeEventListener("ended", onEnded);
             newAudio.removeEventListener("waiting", onWaiting);
@@ -233,7 +232,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         setPlaybackNum: setPlaybackNum,
         status: status,
         setStatus: setStatus,
-        autoplay: autoPlay,
+        autoplay: autoplay,
         setAutoplay: setAutoplay,
         audio: audio
     };

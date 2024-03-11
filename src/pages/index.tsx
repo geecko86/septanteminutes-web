@@ -50,11 +50,12 @@ export default function Home(props: {
  
     const hasMovedRef = useRef(false), hasFocusRef = useRef(true), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
-    const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef(null);
+    const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef<HTMLDivElement>(null);
     const firstAlbum = useRef<HTMLImageElement>(null), firstPoster = useRef<HTMLDivElement>(null);
     const resolveScrollRef = useRef<(() => void) | null>(null);
+    const observerRef = useRef<IntersectionObserver | null>(null);
 
-    const { setPlaying, isPlaying, setAutoplay, playbackTitle } = usePlayback();
+    const { setPlaying, isPlaying, setAutoplay, autoplay, playbackTitle } = usePlayback();
     const router = useRouter();
     const [isPresent, safeToRemove] = usePresence();
 
@@ -73,8 +74,17 @@ export default function Home(props: {
     }, [data?.episodes]);
 
     useEffect(() => {
-        setRatio((home.current?.clientWidth || 1) / ((subroot.current?.parentElement?.clientWidth || 1)));
-        setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
+        const handleResize = () => {
+            setRatio((home.current?.clientWidth || 1) / (window.innerWidth || 1)); // todo: handle screen rotation
+            setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, [home.current?.clientWidth]);
 
     const { scrollX, scrollY } = useScroll();
@@ -87,7 +97,8 @@ export default function Home(props: {
             (home.current?.clientWidth || window.innerWidth) - window.innerWidth : 0;
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        const scrollSum = scrollX.get() + scrollY.get() + scrollXAdditional.get() + scrollYAdditional.get();
+        const scrollSum = scrollX.get() + scrollY.get() + (scrollXAdditional.get() || 0) + scrollYAdditional.get();
+        // console.log("useTransform newScrollX", scrollSum, scrollX.get(), scrollY.get(), scrollXAdditional.get(), scrollYAdditional.get());
 
         if (isTouchDevice) {
             if (showSwiper && scrollSum != 0) setShowSwiper(false);
@@ -123,15 +134,54 @@ export default function Home(props: {
         return output;
     });
 
-    const offset0 = useTransform(() => newScrollX.get() * 0.05);
-    const offset05 = useTransform(() => newScrollX.get() * 0.105);
+    const getLampsCount = (factor: number) => {
+        if (!home.current) return 0;
+
+        const width = home.current.clientWidth;
+        const lampWidth = factor * window.innerHeight * 0.45 * (2233/2291);
+        const maxGapWidth = Math.max(window.innerWidth, window.innerHeight) - lampWidth;
+        const totalWidthPerLamp = lampWidth + maxGapWidth;
+        
+        return Math.floor(width / totalWidthPerLamp);
+    }
+
+    const lamps15Count = useMemo(() => {
+        return getLampsCount(0.27);
+    }, [home.current?.clientWidth, screenContentRatio]);
+
+    const lamps2Count = useMemo(() => {
+        return getLampsCount(0.45)
+    }, [home.current?.clientWidth, screenContentRatio]);
+
+    const groundTexturesCount = useMemo(() => {
+        if (!home.current) return 0;
+
+        const width = home.current.clientWidth;
+        const textureWidth = (3618/858) * window.innerHeight;
+        return Math.ceil(width / textureWidth);
+    }, [home.current?.clientWidth, screenContentRatio]);
+
+    const frontItemsCount = useMemo(() => {
+        if (!home.current) return 0;
+
+        const width = home.current.clientWidth;
+
+        const gap = Math.max(2.75 * window.innerWidth, 5.38 * window.innerHeight);
+        const itemWidth = 0.8 * window.innerHeight;
+        const totalWidthPerItem = itemWidth + gap;
+
+        return Math.ceil(width / totalWidthPerItem);
+    }, [home.current?.clientWidth, screenContentRatio]);
+
+    const offset0 = useTransform(() => newScrollX.get() * 0.08);
+    const offset05 = useTransform(() => newScrollX.get() * 0);
     const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset2 = useTransform(() => newScrollX.get() * 2.3 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
     const invisibleSeasonSeparators = useMemo(() => [...(layer1.current?.children || [])].map((_, i) => {
         const dimensions = layer1.current?.children[i]?.children[0]?.getBoundingClientRect();
-        console.log(i, dimensions?.width, dimensions?.height);
+        // console.log(i, dimensions?.width, dimensions?.height);
         return Math.max(dimensions?.width || 2000, dimensions?.height || 2000);
     }), [layer1.current?.children.length, seasons]);
 
@@ -202,7 +252,7 @@ export default function Home(props: {
             hasMovedRef.current = true;
             const x = e.pageX - scrollX.get();
             const walk = (x - startX) * 2; //scroll-fast
-            scrollXAdditional.set(Math.min(limit, scrollLeft - walk));
+            scrollXAdditional.set(Math.min(limit, scrollLeft - walk) || 0);
             setTimeout(() => {
                 previousScrollX = Math.min(scrollXAdditional.get(), limit);
             }, 200);
@@ -234,7 +284,7 @@ export default function Home(props: {
         }
         function momentumLoop(){
             scrollXAdditional.set(scrollXAdditional.get() + velX);
-            velX *= 0.8;
+            velX *= 0.66;
             if (Math.abs(velX) > 0.5){
                 momentumID = requestAnimationFrame(momentumLoop);
             }
@@ -257,7 +307,7 @@ export default function Home(props: {
         const onHomeWheel = (e: WheelEvent) => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-            console.log("wheel", e.deltaX, e.deltaY, e.deltaZ);
+            // console.log("wheel", e.deltaX, e.deltaY, e.deltaZ, isTouchDevice);
             if (isTouchDevice) {
                 console.log("isTouchDevice", isTouchDevice);
                 scrollXAdditional.set(0);
@@ -292,8 +342,9 @@ export default function Home(props: {
                 return;
             } else {
                 hasMovedRef.current = true;
-                if (deltaY !== 0 && Math.abs(deltaY) > Math.abs(deltaX)) scrollYAdditional.set(scrollYAdditional.get() + deltaY);
-                else if (deltaX !== 0) scrollXAdditional.set(scrollXAdditional.get() + deltaX);
+                if (deltaY !== 0 && Math.abs(deltaY) > Math.abs(deltaX)) scrollYAdditional.set((scrollYAdditional.get() || 0) + deltaY);
+                else if (deltaX !== 0) scrollXAdditional.set((scrollXAdditional.get() || 0) + deltaX);
+                // console.log("moving through wheel", scrollXAdditional.get(), scrollYAdditional.get());
                 setColumnFocus(false);
                 setShowSwiper(false);
                 idleAnimRef.current?.stop();
@@ -365,88 +416,111 @@ export default function Home(props: {
 
     useEffect(() => {
         if (firstAlbum.current) {
-          const artworkLoaded = new Promise<void>((resolve, reject) => {
-            const timeoutId = setTimeout(resolve, 2500);
-            console.log("waiting for artwork", firstAlbum.current?.src);
-            if (firstAlbum.current?.complete) {
-              resolve();
-              console.log("artwork already loaded");
-              clearTimeout(timeoutId);
-            } else if (firstAlbum.current) {
-              firstAlbum.current.onload = () => {
-                console.log("artwork loaded");
-                clearTimeout(timeoutId);
-                resolve();
-              };
-              firstAlbum.current.onerror = () => {
-                reject(new Error('Failed to load artwork'));
-              };
+            const artworkLoaded = new Promise<void>((resolve, reject) => {
+                const timeoutId = setTimeout(() => {
+                    console.log("artwork timeout");
+                    resolve();
+                }, 7500);
+                if (firstAlbum.current?.complete) {
+                    resolve();
+                    clearTimeout(timeoutId);
+                } else if (firstAlbum.current) {
+                    firstAlbum.current.onload = () => {
+                        console.log("artwork loaded");
+                        clearTimeout(timeoutId);
+                        resolve();
+                    };
+                    firstAlbum.current.onerror = () => {
+                        reject(new Error('Failed to load artwork'));
+                    };
+                }
+            });
+
+            const promisesList = [artworkLoaded];
+
+            const posters = layer0.current?.querySelectorAll(`.${styles.poster} img`);
+            const plants = layer0_5.current?.querySelectorAll(`.${styles.plant} img`);
+            const eggchairs = layer0_5.current?.querySelectorAll(`.${styles.eggchair} img`);
+            const frontPlants = layer3.current?.querySelectorAll(`.${styles.plant_front} img`);
+
+            const furniture = [...(eggchairs || []), ...(frontPlants || []), ...(plants || [])];
+
+            if (furniture || posters) {
+                observerRef.current = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target as HTMLImageElement;
+                            console.log(img.src, "intersecting");
+                            const imgLoaded = new Promise<void>((resolve, reject) => {
+                                const timeoutId = setTimeout(resolve, 7500);
+                                const type = [...(posters || [])]?.includes(img) ? "poster" : "plant";
+                                if (!img.complete) {
+                                    console.log(`waiting for ${type} img`)
+                                    img.onload = () => {
+                                        resolve();
+                                        console.log("loaded", type);
+                                        clearTimeout(timeoutId);
+                                    };
+                                    img.onerror = () => {
+                                        reject(new Error('Failed to load poster/plant img'));
+                                    };
+                                } else {
+                                    clearTimeout(timeoutId);
+                                    resolve();
+                                }
+                            });
+                            promisesList.push(imgLoaded);
+
+                            // Once the promise is resolved, unobserve the image
+                            imgLoaded.then(() => {
+                                if (observerRef.current) {
+                                    observerRef.current.unobserve(img);
+                                }
+                            });
+                        }
+                    });
+                });
+
+                ([...(furniture || []), ...(posters || [])]).forEach((img) => {
+                    observerRef.current?.observe(img);
+                });
             }
-          });
 
-          const plantLoaded = new Promise<void>((resolve, reject) => {
-            layer0_5.current?.querySelectorAll(`.${styles.plant} img`).forEach((plantImg, i) => {
+            const scrollToAnchorPromise = new Promise<void>((resolve, reject) => {
                 const timeoutId = setTimeout(resolve, 2500);
-                console.log(`waiting for plant ${i}`)
-                const img = plantImg as HTMLImageElement;
-                if (!img.complete) {
-                    img.onload = () => {
-                        resolve();
-                        clearTimeout(timeoutId);
-                        console.log(`plant ${i} loaded`);
-                    };
-                    img.onerror = () => {
-                        reject(new Error('Failed to load plant img'));
-                    };
-                } else {
-                    console.log(`plant ${i} already loaded`)
-                    clearTimeout(timeoutId);
+                resolveScrollRef.current = () => {
                     resolve();
-                }
-            });
-          });
-
-          const posterLoaded = new Promise<void>((resolve, reject) => {
-            layer0.current?.querySelectorAll(`.${styles.poster} img`).forEach((posterImg, i) => {
-                console.log(`waiting for poster ${i}`);
-                const timeoutId = setTimeout(resolve, 2500);
-                const img = posterImg as HTMLImageElement;
-                if (!img.complete) {
-                    img.onload = () => {
-                        resolve();
-                        clearTimeout(timeoutId);
-                        console.log(`poster ${i} loaded`);
-                    };
-                    img.onerror = () => {
-                        reject(new Error('Failed to load poster img'));
-                        console.log("poster error")
-                    };
-                } else {
-                    console.log(`poster ${i} already loaded`)
                     clearTimeout(timeoutId);
-                    resolve();
-                }
+                    console.log("anchor scroll done");
+                };
             });
-          });
 
-          const scrollToAnchorPromise = new Promise<void>((resolve, reject) => {
-            console.log("waiting for anchor scroll");
-            const timeoutId = setTimeout(resolve, 2500);
-            resolveScrollRef.current = () => {
-                resolve();
-                clearTimeout(timeoutId);
-                console.log("anchor scroll done");
-            };
-          });
-          
-          const promisesList = [artworkLoaded, plantLoaded, posterLoaded];
-          if (router.asPath.includes("#")) promisesList.push(scrollToAnchorPromise);
+            const waitForPromises = () => {
+                if (router.asPath.includes("#")) {
+                    promisesList.push(scrollToAnchorPromise);
+                    console.log(router.asPath, "waiting for anchor scroll")
+                }
+                console.log("waiting for promises", promisesList.length)
+                Promise.all(promisesList)
+                    .then(props.onReady)
+                    .then(() => { observerRef.current?.disconnect() })
+                    .then(() => { console.log(`all ${promisesList.length} promises resolved`) })
+                    .catch(console.error);
+            }
 
-          Promise.all(promisesList)
-            .then(props.onReady)
-            .catch(console.error);
+            if (promisesList.length > 1) {
+                console.log('already intersecting');
+                waitForPromises();
+            } else {
+                setTimeout(waitForPromises, 170);
+                console.log('waiting for intersection')
+            }
         }
-      }, [firstAlbum.current, isPresent, router.asPath, props.ready]);
+
+        return () => {
+            observerRef.current?.disconnect();
+        };
+    }, [firstAlbum.current, isPresent, router.asPath, props.ready]);
 
     const posters = [
         { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", className: styles.leuven, ratio: 440 / 228, parallaxFactor: 120 },
@@ -476,10 +550,10 @@ export default function Home(props: {
                         <Head>
                             <title>{playbackTitle ? `${isPlaying ? "▶ " : ""}${playbackTitle}` : "Septante Minutes Avec"}</title>
                         </Head>
-                        <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile ? { translateZ: 0 } : {}}>
+                        <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} >
                             <div className={styles.ceiling_3} key={"ceiling_3"} />
                             <div className={styles.ceiling_2} key={"ceiling_2"}>
-                                {floorKeys.map((i) => (
+                                {[...Array(groundTexturesCount)].map((_, i) => (
                                     <div key={`floor_${i}`} style={{ aspectRatio: 3618/858, width: "auto", height:  "100vh" }}>
                                         <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 :  1}, 1)` }} fill sizes="422vh" />
                                     </div>
@@ -489,7 +563,7 @@ export default function Home(props: {
                             <div className={styles.backwall} key={"backwall"}>
                                 <BackwallLight className={styles.backwall_light} targetRef={firstPoster} motionValue={newScrollX} key="backwall_light" style={{left: "-80vw"}} />
                                 <motion.div className={styles.backwall_paint} key={"backwall_paint"} />
-                                <motion.div className={styles.posters} key={"posters"} style={isIOS || isSafari ? { translateX: isIOS ? offset0 : 0, translateZ: 0, translateY: "-50%" } : { translateY: "-50%" }}>
+                                <motion.div className={styles.posters} key={"posters"} style={{ translateX: (isIOS || typeof(window) === "undefined") ? offset0 : "0px", translateZ: "0px", translateY: "-50%" }}>
                                     {
                                         seasons.map((season, i) => (
                                             <React.Fragment key={season.name + "_invisible00_fragment"}>
@@ -506,7 +580,7 @@ export default function Home(props: {
 
                             <div className={styles.floor_3} key={"floor_3"} />
                             <div className={styles.floor_2} key={"floor_2"}>
-                                {floorKeys.map((i) => (
+                                {[...Array(groundTexturesCount)].map((_, i) => (
                                     <div key={`floor_${i}`} style={{ aspectRatio: 3618/858, width: "auto", height:  "100vh" }}>
                                         <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 :  1}, 1)` }} fill sizes="422vh" />
                                     </div>
@@ -514,9 +588,9 @@ export default function Home(props: {
                             </div>
                             <div className={styles.floor} key={"floor"} />
                         </motion.div>
-                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile ? { translateZ: 0, ...(isIOS ? { translateX: offset05 } : {}) } : {}}>
+                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile || typeof(window) === "undefined" ? { ...(isIOS ? { translateX: offset05 } : { transform: "translateX(0px)" }) } : { transform: "translateX(0px)" }}>
                             {
-                                seasons.map((season, i) => (
+                                !isIOS && seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
                                         <div key={season.name + "_invisible05"} style={{ width:  `calc((${invisibleSeasonSeparators[i]}px - (85vh / 4.5)) * 0.938842)` }} />
                                         {
@@ -565,7 +639,7 @@ export default function Home(props: {
                         </motion.div>
                         <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15, translateZ: "7px" }}>
                             <div className={styles.lamps_1_5} key={"lamps_1_5"} >
-                                {floorKeys.map((i) => (
+                                {[...Array(lamps15Count)].map((_, i: number) => (
                                     <React.Fragment key={`lamps_1_5_${i}`}>
                                         <BellLamp key={`lamp_1_5_${i}_A`} className={styles.lamp} />
                                         <BellLamp key={`lamp_1_5_${i}_B`} className={styles.lamp} />
@@ -573,9 +647,9 @@ export default function Home(props: {
                                 ))}
                             </div>
                         </motion.div>
-                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2, ...(isMobile || isSafari ? {translateZ: "10px"} : {}) }}>
+                        <motion.div key="layer_2" ref={layer2} className={[styles.layer_2, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset2 }}>
                             <div className={styles.lamps_2} key={"lamps_2"}>
-                                {floorKeys.map((i) => (
+                                {[...Array(lamps2Count)].map((_, i: number) => (
                                     <React.Fragment key={`lamps_2_${i}`}>
                                         <BellLamp key={`lamp_2_${i}_A`} className={styles.lamp} />
                                         <BellLamp key={`lamp_2_${i}_B`} className={styles.lamp} />
@@ -586,7 +660,7 @@ export default function Home(props: {
                         <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
                             <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, translateZ: "20px" }}>
                                 <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
-                                {floorKeys.slice(0, Math.floor(floorKeys.length / (3.6 / offset3_factor))).map((i) => (
+                                {[...Array(frontItemsCount)].map((_, i: number) => (
                                     <React.Fragment key={`layer3_deco_${i}`}>
                                         {isMobile ? (<div />) : (<FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
                                             pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date} blur={FrontPosters[i % 4].blurDataUrl}

@@ -14,7 +14,8 @@ const withPWA = withPWAInit({
 const NextConfig = {
   output: "export",
   compiler: {
-    removeConsole: process.env.NODE_ENV !== "development",
+    // removeConsole: process.env.NODE_ENV !== "development",
+    removeConsole: false,
   },
   images: {
     loader: "custom",

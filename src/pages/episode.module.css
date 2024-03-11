@@ -51,7 +51,14 @@ div:has(> .chair) {
   height: auto !important;
   width: calc(75vw * 0.8) !important;
   min-width: 320px;
-  transform: rotate(-23deg);
+  transform: rotate(-23deg) translateZ(4px) !important;
+}
+
+
+@supports (-webkit-hyphens:none) {
+  .chair {
+    transform: rotate(-23deg) translateZ(4px) !important;
+  }
 }
 
 .chair img {
@@ -505,6 +512,12 @@ div:has(> .chair) {
     min-width: unset;
     transform: rotate(247deg);
   }
+
+  @supports (-webkit-hyphens:none) {
+    .chair {
+      transform: rotate(247deg) translateZ(4px) !important;
+    }
+}
 
   .notebook {
     height: auto !important;
