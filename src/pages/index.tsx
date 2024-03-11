@@ -554,7 +554,7 @@ export default function Home(props: {
                             <div className={styles.ceiling_3} key={"ceiling_3"} />
                             <div className={styles.ceiling_2} key={"ceiling_2"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh" }}>
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh", position: "relative" }}>
                                         <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}
@@ -581,7 +581,7 @@ export default function Home(props: {
                             <div className={styles.floor_3} key={"floor_3"} />
                             <div className={styles.floor_2} key={"floor_2"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh" }}>
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh", position: "relative" }}>
                                         <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}

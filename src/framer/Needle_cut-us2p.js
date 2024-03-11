@@ -109,7 +109,7 @@ let w = {
             children: /*#__PURE__*/ e(i, {
               alt: "",
               fill: true,
-              sizes: "(max-width: 1200px) 54vw, 18vw",
+              sizes: "30vmin",
               ...g(R),
             }),
             variants: { "b37RCHR57-hover": { rotate: 2 } },
