@@ -47,7 +47,7 @@ export default function Home(props: {
     const [columnFocus, setColumnFocus] = useState(false);
     const [showSwiper, setShowSwiper] = useState(false);
     const [offset3_factor, setOffset3Factor] = useState<number>(0.5);
- 
+
     const hasMovedRef = useRef(false), hasFocusRef = useRef(true), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
     const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef<HTMLDivElement>(null);
@@ -60,7 +60,7 @@ export default function Home(props: {
     const [isPresent, safeToRemove] = usePresence();
 
     const floorKeys = useMemo(() => [...Array(Math.ceil(screenContentRatio) + 1).keys()], [screenContentRatio]);
-    
+
     useEffect(() => {
         const vinyls = Array.from(
             { length: Object.keys(data.episodes).length },
@@ -120,7 +120,7 @@ export default function Home(props: {
             });
             scrollXAdditional.set(0);
             scrollYAdditional.set(0);
-            return typeof(newScrollX) !== "undefined" ? Math.floor(newScrollX.get() / 2) : 0;
+            return typeof (newScrollX) !== "undefined" ? Math.floor(newScrollX.get() / 2) : 0;
         } else if (scrollSum > limit) {
             console.log("Overscroll", scrollSum, scrollX.get(), scrollY.get(), limit, scrollSum - limit);
             return -limit;
@@ -138,10 +138,10 @@ export default function Home(props: {
         if (!home.current) return 0;
 
         const width = home.current.clientWidth;
-        const lampWidth = factor * window.innerHeight * 0.45 * (2233/2291);
+        const lampWidth = factor * window.innerHeight * 0.45 * (2233 / 2291);
         const maxGapWidth = Math.max(window.innerWidth, window.innerHeight) - lampWidth;
         const totalWidthPerLamp = lampWidth + maxGapWidth;
-        
+
         return Math.floor(width / totalWidthPerLamp);
     }
 
@@ -157,7 +157,7 @@ export default function Home(props: {
         if (!home.current) return 0;
 
         const width = home.current.clientWidth;
-        const textureWidth = (3618/858) * window.innerHeight;
+        const textureWidth = (3618 / 858) * window.innerHeight;
         return Math.ceil(width / textureWidth);
     }, [home.current?.clientWidth, screenContentRatio]);
 
@@ -246,7 +246,7 @@ export default function Home(props: {
         };
 
         const onMouseMove = (e: MouseEvent) => {
-            if(!isDown) return;
+            if (!isDown) return;
             console.log("mouse move");
             e.preventDefault();
             hasMovedRef.current = true;
@@ -275,17 +275,17 @@ export default function Home(props: {
         var velX = 0;
         var momentumID: number;
 
-        function beginMomentumTracking(){
+        function beginMomentumTracking() {
             cancelMomentumTracking();
             momentumID = requestAnimationFrame(momentumLoop);
         }
-        function cancelMomentumTracking(){
+        function cancelMomentumTracking() {
             cancelAnimationFrame(momentumID);
         }
-        function momentumLoop(){
+        function momentumLoop() {
             scrollXAdditional.set(scrollXAdditional.get() + velX);
             velX *= 0.66;
-            if (Math.abs(velX) > 0.5){
+            if (Math.abs(velX) > 0.5) {
                 momentumID = requestAnimationFrame(momentumLoop);
             }
         }
@@ -312,7 +312,7 @@ export default function Home(props: {
                 console.log("isTouchDevice", isTouchDevice);
                 scrollXAdditional.set(0);
                 scrollYAdditional.set(0);
-    
+
                 window.scrollTo({
                     left: 0,
                     top: 0,
@@ -320,10 +320,10 @@ export default function Home(props: {
                 });
                 return;
             }
-            
+
             const limit = (home.current?.clientWidth || window.innerWidth) - window.innerWidth;
             const { deltaX, deltaY } = e;
-    
+
             // console.log(newScrollX.get(), -limit, home.current?.clientWidth, window.innerWidth);
             if (newScrollX.get() <= -limit && deltaX + deltaY > 0) {
                 console.log("BLOCK! A", deltaX + deltaY);
@@ -539,7 +539,7 @@ export default function Home(props: {
             initial={{ opacity: 0 }}
             animate={{ opacity: props.ready && isPresent && router.pathname === "/" ? 1 : 0 }}
             transition={{ type: 'linear', duration: 0.25 }}
-            onUpdate={(latest: { opacity: number}) => {
+            onUpdate={(latest: { opacity: number }) => {
                 if (latest.opacity === 0 && !isPresent && !!safeToRemove) safeToRemove();
             }}
             className="transition_loader" >
@@ -554,23 +554,23 @@ export default function Home(props: {
                             <div className={styles.ceiling_3} key={"ceiling_3"} />
                             <div className={styles.ceiling_2} key={"ceiling_2"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618/858, width: "auto", height:  "100vh" }}>
-                                        <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 :  1}, 1)` }} fill sizes="422vh" />
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh" }}>
+                                        <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}
                             </div>
                             <div className={styles.ceiling} key={"ceiling"} />
                             <div className={styles.backwall} key={"backwall"}>
-                                <BackwallLight className={styles.backwall_light} targetRef={firstPoster} motionValue={newScrollX} key="backwall_light" style={{left: "-80vw"}} />
+                                <BackwallLight className={styles.backwall_light} targetRef={firstPoster} motionValue={newScrollX} key="backwall_light" style={{ left: "-80vw" }} />
                                 <motion.div className={styles.backwall_paint} key={"backwall_paint"} />
-                                <motion.div className={styles.posters} key={"posters"} style={{ translateX: (isIOS || typeof(window) === "undefined") ? offset0 : "0px", translateZ: "0px", translateY: "-50%" }}>
+                                <motion.div className={styles.posters} key={"posters"} style={{ translateX: (isIOS || typeof (window) === "undefined") ? offset0 : "0px", translateZ: "0px", translateY: "-50%" }}>
                                     {
                                         seasons.map((season, i) => (
                                             <React.Fragment key={season.name + "_invisible00_fragment"}>
                                                 <div key={season.name + "_invisible00"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px` }} />
                                                 {
                                                     <Poster inheritedRef={i == 0 ? firstPoster : undefined} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}`}
-                                                    poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
+                                                        poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
                                                 }
                                             </React.Fragment>
                                         ))
@@ -581,22 +581,22 @@ export default function Home(props: {
                             <div className={styles.floor_3} key={"floor_3"} />
                             <div className={styles.floor_2} key={"floor_2"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618/858, width: "auto", height:  "100vh" }}>
-                                        <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 :  1}, 1)` }} fill sizes="422vh" />
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh" }}>
+                                        <Image priority={true} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}
                             </div>
                             <div className={styles.floor} key={"floor"} />
                         </motion.div>
-                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile || typeof(window) === "undefined" ? { ...(isIOS ? { translateX: offset05 } : { transform: "translateX(0px)" }) } : { transform: "translateX(0px)" }}>
+                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile || typeof (window) === "undefined" ? { ...(isIOS ? { translateX: offset05 } : { transform: "translateX(0px)" }) } : { transform: "translateX(0px)" }}>
                             {
                                 !isIOS && seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
-                                        <div key={season.name + "_invisible05"} style={{ width:  `calc((${invisibleSeasonSeparators[i]}px - (85vh / 4.5)) * 0.938842)` }} />
+                                        <div key={season.name + "_invisible05"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px - (85vh / 4.5)) * 0.938842)` }} />
                                         {
                                             [
                                                 (<React.Fragment key={`deco05_0_${i}`}>
-                                                    <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left:  "-5vh" }} motionValue={newScrollX} position={i} />
+                                                    <PlantD key={`layer05_prop_${i}_PlantD`} className={styles.plant} style={{ zIndex: 2, left: "-5vh" }} motionValue={newScrollX} position={i} />
                                                     <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_1_${i}`}>
@@ -608,13 +608,13 @@ export default function Home(props: {
                                                     <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_3_${i}`}>
-                                                    <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left:  "-10vh" }} motionValue={newScrollX} position={i} />
+                                                    <PlantE key={`layer05_prop_${i}_PlantE`} className={[styles.plant, styles.left_m30].join(" ")} style={{ zIndex: 2, left: "-10vh" }} motionValue={newScrollX} position={i} />
                                                     <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: "" }} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>),
                                                 (<React.Fragment key={`deco05_4_${i}`}>
-                                                        <div key={`layer05_gap0_${i}_div`} className={styles.gap} style={{ width: "calc(55 * var(--unit))" }} />
-                                                        <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} position={i} />
-                                                        <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} position={i} />
+                                                    <div key={`layer05_gap0_${i}_div`} className={styles.gap} style={{ width: "calc(55 * var(--unit))" }} />
+                                                    <Eggchair key={`layer05_prop_${i}_Eggchair`} className={styles.eggchair} style={{ zIndex: 2, left: undefined }} motionValue={newScrollX} position={i} />
+                                                    <PlantB key={`layer05_prop_${i}_PlantB`} className={[styles.plant, styles.left_m15].join(" ")} motionValue={newScrollX} position={i} />
                                                 </ React.Fragment>)
                                             ][i % 5]
                                         }
@@ -665,7 +665,7 @@ export default function Home(props: {
                                         {isMobile ? (<div />) : (<FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
                                             pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date} blur={FrontPosters[i % 4].blurDataUrl}
                                             onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />)}
-                                        <PlantA2 key={`layer3_prop_${i}_PlantA2`} sizes="89svmin" className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />                                        
+                                        <PlantA2 key={`layer3_prop_${i}_PlantA2`} sizes="89svmin" className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                     </ React.Fragment>
                                 ))}
                             </motion.div>
