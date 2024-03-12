@@ -40,9 +40,13 @@ const FrontColumn = function FrontColumn(props) {
                             </p >
                         </div >
                     </div >
+                   { /* eslint-disable-next-line @next/next/no-img-element */ }
                     <img alt="" src="/img/side_A.svg" />
+                   { /* eslint-disable-next-line @next/next/no-img-element */ }
                     <img alt="" src="/img/45_rpm.svg" />
+                   { /* eslint-disable-next-line @next/next/no-img-element */ }
                     <img alt="" src="/img/stereo.svg" />
+                   { /* eslint-disable-next-line @next/next/no-img-element */ }
                     <img alt="" src="/img/import.svg" />
                     <div className={styles.credits} data-framer-component-type="RichTextContainer" style={{ outline: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0, "--extracted-1w3ko1f": 'rgba(66, 56, 37, 1)', "--extracted-5dqwso": 'rgba(66, 56, 37, 1)', "--framer-paragraph-spacing": '0px', transform: 'none', opacity: 1 }}>
                         <p className="framer-text" style={{ "--framer-font-size":  '0.8vh' }}>

@@ -48,7 +48,7 @@ function ScrollToAnchor(props: { id?: string, move: ((x: number) => void) | null
                 cancelAnimationFrame(callbackId);
             }
         }
-    }, [asPath, move]);
+    }, [asPath, move, replace]);
 
     return (<div id={props.id} />);
 }

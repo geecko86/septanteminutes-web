@@ -55,7 +55,6 @@ export default function EpisodeTable(props: {
   const [hasClickedNotebook, setHasClickedNotebook] = useState(false);
   const [hasClickedPlay, setHasClickedPlay] = useState(false);
   const [overlayNotebookTranslation, setOverlayNotebookTranslation] = useState("left");
-  const [idleAnimationTimeoutId, setIdleAnimationTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [displayedURL, setDisplayedURL] = useState("");
   const [episodeNumParam, setEpisodeNumParam] = useState(-1);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
@@ -97,28 +96,7 @@ export default function EpisodeTable(props: {
   isPlayingRef.current = isPlaying;
   playbackMP3Ref.current = playbackMP3;
 
-  const doNotebookIdleAnimation = () => {
-    const notebookElement = document.getElementsByClassName(styles.notebook)[0];
-    if (hasClickedNotebookRef.current || !notebookElement) return;
-
-    const onFinished = () => {
-      if (!hasClickedNotebookRef.current) {
-        clearTimeout(idleAnimationTimeoutId);
-        const id = setTimeout(doNotebookIdleAnimation, 3750);
-        setIdleAnimationTimeoutId(id);
-      }
-    };
-
-    if (!notebookElement?.matches(":hover")) {
-      const notebookControls = animate([
-        [`.${styles.notebook}`, { rotate: -6 }, { ease: "easeIn", duration: 0.2, at: "3" }],
-        [`.${styles.notebook}`, { rotate: 6 }, { ease: "easeInOut", duration: 0.2 }],
-        [`.${styles.notebook}`, { rotate: 0 }, { ease: "easeOut", duration: 0.4 }]
-      ]).then(onFinished);
-    } else onFinished();
-  };
-
-  const doIdlePlayButtonAnimation = () => {
+  const doIdlePlayButtonAnimation = useCallback(() => {
     if (hasClickedPlayRef.current || playbackMP3Ref.current) return;
 
     animate([
@@ -128,12 +106,12 @@ export default function EpisodeTable(props: {
       if (!hasClickedPlayRef.current && !playbackMP3Ref.current) {
         clearTimeout(idleAnimationTimeoutIdRef.current);
         const id = setTimeout(doIdlePlayButtonAnimation, 6500);
-        setIdleAnimationTimeoutId(id);
+        idleAnimationTimeoutIdRef.current = id;
       }
     });
-  };
+  }, [playbackMP3Ref, hasClickedPlayRef]);
 
-  const scrollCallback = () => {
+  const scrollCallback = useCallback(() => {
     setSnapping(false);
     if (funqueue.length && typeof window != "undefined") {
       (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)((funqueue.shift() as () => void))
@@ -144,15 +122,36 @@ export default function EpisodeTable(props: {
     setSelectedEpisode(currentEpisode);
     const newUrl = `${window.location.origin}/${currentEpisode + 1}`;
     setDisplayedURL(newUrl);
-  };
+  }, [funqueue, getCurrentPosition, vinyls.length]);
 
   useEffect(() => {
     playbackMP3Ref.current = playbackMP3;
     if (!playbackMP3 || !props.ready) return;
 
-    clearTimeout(idleAnimationTimeoutId);
+    const doNotebookIdleAnimation = () => {
+      const notebookElement = document.getElementsByClassName(styles.notebook)[0];
+      if (hasClickedNotebookRef.current || !notebookElement) return;
+  
+      const onFinished = () => {
+        if (!hasClickedNotebookRef.current) {
+          clearTimeout(idleAnimationTimeoutIdRef.current);
+          const id = setTimeout(doNotebookIdleAnimation, 3750);
+          idleAnimationTimeoutIdRef.current = id;
+        }
+      };
+  
+      if (!notebookElement?.matches(":hover")) {
+        const notebookControls = animate([
+          [`.${styles.notebook}`, { rotate: -6 }, { ease: "easeIn", duration: 0.2, at: "3" }],
+          [`.${styles.notebook}`, { rotate: 6 }, { ease: "easeInOut", duration: 0.2 }],
+          [`.${styles.notebook}`, { rotate: 0 }, { ease: "easeOut", duration: 0.4 }]
+        ]).then(onFinished);
+      } else onFinished();
+    };
+
+    clearTimeout(idleAnimationTimeoutIdRef.current);
     const id = setTimeout(doNotebookIdleAnimation, 100);
-    setIdleAnimationTimeoutId(id);
+    idleAnimationTimeoutIdRef.current = id;
 
     return () => {
       clearTimeout(id);
@@ -170,21 +169,21 @@ export default function EpisodeTable(props: {
         clearTimeout(id);
       }
     }
-  }, [displayedURL]);
+  }, [router, displayedURL]);
 
   useEffect(() => {
     if (!props.ready) return;
 
     if (!hasClickedPlayRef.current && !isPlayingRef.current) { // if has never clicked Play Button and is not currently playing
-      clearTimeout(idleAnimationTimeoutId);
+      clearTimeout(idleAnimationTimeoutIdRef.current);
       const id = setTimeout(doIdlePlayButtonAnimation, 2500);
-      setIdleAnimationTimeoutId(id);
+      idleAnimationTimeoutIdRef.current = id;
     };
 
     return () => {
       clearTimeout(idleAnimationTimeoutIdRef.current);
     }
-  }, [vinyls.length, props.ready]);
+  }, [vinyls.length, props.ready, doIdlePlayButtonAnimation]);
 
   useEffect(() => {
     if (router.query.episodeNum) {
@@ -195,7 +194,7 @@ export default function EpisodeTable(props: {
       setEpisodeNumParam(vinyls.length - 1);
       setSelectedEpisode(vinyls.length - 1);
     }
-  }, [router.query.episodeNum, vinyls.length]);
+  }, [router.query.episodeNum, vinyls.length, episodeNumParam]);
 
   useEffect(() => {
     const element = episodePage.current;
@@ -219,7 +218,7 @@ export default function EpisodeTable(props: {
 
       return unbind
     }
-  }, [episodePage, getCurrentPosition, vinyls.length, funqueue]);
+  }, [episodePage, getCurrentPosition, vinyls.length, funqueue, scrollCallback]);
 
   useEffect(() => {
     let clear = false;
@@ -268,13 +267,13 @@ export default function EpisodeTable(props: {
     return () => {
       clear = true;
     }
-  }, [selectedVinyl.current, mainRef.current]);
+  }, [selectedVinyl, props, mainRef]);
 
   useEffect(() => {
     hasClickedNotebookRef.current = hasClickedNotebook;
     hasClickedPlayRef.current = hasClickedPlay;
-    idleAnimationTimeoutIdRef.current = idleAnimationTimeoutId;
-  }, [hasClickedNotebook, hasClickedPlay, hasClickedNotebookRef, idleAnimationTimeoutId, idleAnimationTimeoutIdRef]);
+    idleAnimationTimeoutIdRef.current = idleAnimationTimeoutIdRef.current;
+  }, [hasClickedNotebook, hasClickedPlay, hasClickedNotebookRef]);
 
   const initialSectionScroll = useCallback((node: HTMLDivElement | null) => {
     if (node && node.offsetTop) {
@@ -508,6 +507,7 @@ export default function EpisodeTable(props: {
                 />
               ))}
               <div className={styles.playButton} style={{opacity: 0}}>
+                { /* eslint-disable-next-line @next/next/no-img-element */ }
                 <img src="/img/play.svg" alt="Lancer la lecture" role="button" />
               </div>
             </motion.div>

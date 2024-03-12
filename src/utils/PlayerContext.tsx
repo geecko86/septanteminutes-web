@@ -117,57 +117,59 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const audioRef = useRef<HTMLAudioElement>();
     const audio = audioRef.current;
 
-    const onLoaded = () => {
-        if (audio?.readyState) {
-            setStatus(audio?.readyState)
+   useEffect(() => {
+        if (navigator.mediaSession?.metadata?.title !== playbackTitle) {
+            setupMetadata({
+                playbackTitle,
+                playbackArtwork,
+            });
         }
-        setPlaying(true);
-    };
-    const onEnded = () => {
-        setMP3("");
-        setPlaybackTitle("");
-        setPlaybackArtwork("");
-        if (audio) {
-            audio.pause();
-            audio.currentTime = 0;
-        }
-    };
-
-    const onError = (ev: Event) => {
-        console.error(ev, audio?.src, playbackMP3);
-        try {
-            audio?.load();
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
-    const onPlaying = () => {
-        navigator.mediaSession.playbackState = 'playing';
-        setStatus(4);
-    };
-
-    const onPause = () => {
-        navigator.mediaSession.playbackState = 'paused';
-    };
-
-    const onWaiting = () => {
-        setStatus(2);
-    };
+    }, [playbackArtwork, playbackTitle]);
 
     useEffect(() => {
-        setupMetadata({
-            playbackTitle,
-            playbackArtwork,
-        });
-    }, [playbackArtwork]);
-
-    useEffect(() => {
-        if (audio) return;
+        if (audioRef.current) return;
 
         const newAudio = new Audio();
         newAudio.controls = false;
         newAudio.slot = "media";
+
+        const onLoaded = () => {
+            if (audioRef.current?.readyState) {
+                setStatus(audioRef.current.readyState)
+            }
+            setPlaying(true);
+        };
+        const onEnded = () => {
+            setMP3("");
+            setPlaybackTitle("");
+            setPlaybackArtwork("");
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+        };
+
+        const onError = (ev: Event) => {
+            console.error(ev, audioRef.current?.src);
+            try {
+                audioRef.current?.load();
+            } catch (err) {
+                console.error(err);
+            }
+        };
+    
+        const onPlaying = () => {
+            navigator.mediaSession.playbackState = 'playing';
+            setStatus(4);
+        };
+    
+        const onPause = () => {
+            navigator.mediaSession.playbackState = 'paused';
+        };
+    
+        const onWaiting = () => {
+            setStatus(2);
+        };
 
         newAudio.addEventListener('playing', onPlaying);
         newAudio.addEventListener('pause', onPause);
@@ -206,7 +208,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
 
         if (isPlaying && audio.src && audio.readyState >= 2 && audio.canPlayType("audio/mpeg")) {
             audio.play().then(() => {
-                    if (!audio.src.startsWith("data:audio")) {
+                    if (!audio.src.startsWith("data:audio") && navigator.mediaSession?.metadata?.title !== playbackTitle) {
                     setupMetadata({ playbackTitle, playbackArtwork });
                     setupPlaySession(audio, setPlaying);
                     updatePositionState(audio);
@@ -217,7 +219,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         } else if (!audio.paused) {
             audio.pause();
         }
-    }, [isPlaying, audio?.readyState]);
+    }, [isPlaying, audio, playbackArtwork, playbackTitle, audio?.readyState]);
 
     const playbackData: PlaybackContextData = {
         isPlaying: isPlaying,

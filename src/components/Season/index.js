@@ -75,9 +75,13 @@ const Season = ({
                         {children}
                     </div>
                     <div className={styles.season_legende} data-framer-name="LEGENDE" style={{ opacity: 1 }}>
+                        { /* eslint-disable-next-line @next/next/no-img-element */ }
                         <img src="/img/side_A.svg" alt="" />
+                        { /* eslint-disable-next-line @next/next/no-img-element */ }
                         <img src="/img/45_rpm.svg" alt="" />
+                        { /* eslint-disable-next-line @next/next/no-img-element */ }
                         <img src="/img/stereo.svg" alt="" />
+                        { /* eslint-disable-next-line @next/next/no-img-element */ }
                         <img src="/img/import.svg" alt="" />
                         <div className={styles.richtextcontainer2} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", "--framer-paragraph-spacing": "0px", transform: "none", opacity: 1 }}>
                             <p className="framer-text" style={{ "--font-selector": "R0Y7T3N3YWxkLTYwMA==", "--framer-font-family": "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", "--framer-font-weight": 600, "--framer-line-height": "3ch", "--framer-text-transform": "uppercase" }}>Disponible sur toutes</p>

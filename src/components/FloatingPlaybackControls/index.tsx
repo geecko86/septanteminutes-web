@@ -4,7 +4,7 @@ import React, { SetStateAction, useEffect, useState } from 'react';
 import Slider from 'rc-slider';
 import Link from 'next/link'
 
-import MaterialSpinningLoader from "../LoadingAnim";
+import MaterialSpinningLoader from "../MaterialSpinningLoader";
 import { usePlayback, hackAutoplay } from '../../utils/PlayerContext';
 
 import 'rc-slider/assets/index.css';

@@ -47,7 +47,7 @@ const Transition = ({ value, children }) => {
     value !== null && value !== void 0 ? value : config.transition;
   const contextValue = React.useMemo(
     () => ({ ...config, transition }),
-    [JSON.stringify(transition)]
+    [config, transition]
   );
   return /*#__PURE__*/ _jsx(MotionConfigContext.Provider, {
     value: contextValue,

@@ -1,5 +1,6 @@
 'use client'
 
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Head from 'next/head';
 import styled, { keyframes } from 'styled-components';

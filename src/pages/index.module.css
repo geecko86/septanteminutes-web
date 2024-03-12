@@ -41,7 +41,6 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 }
 
 @supports (-webkit-hyphens:none) or (pointer:coarse) {
@@ -234,10 +233,6 @@
 
 .plant {
     top: 6% !important;
-}
-
-.eggchair {
-   
 }
 
 .ceiling {
@@ -489,11 +484,6 @@
     overflow: visible;
 }
 
-.season_frame div[data-framer-name="Albums"] div[data-framer-component-type="RichTextContainer"] {
-    /* transform: translateX(-50%) !important;
-    left: 50%; */
-}
-
 .season_frame div[data-framer-name="Albums"] > div p {
     white-space: pre-wrap;
     overflow: clip;
@@ -538,7 +528,6 @@
     align-items: flex-start;
     gap: calc(100vmax - var(--lamp-width));
     gap: calc(100svmax - var(--lamp-width));
-    transform: translateZ(7px);
 
     position: relative;
     width: fit-content;
@@ -682,11 +671,10 @@
     z-index: 7;
 }
 
-.layer_1_5 > * {
+.lamps_1_5 > * {
     filter: blur(1.5px);
+    transform: translateZ(7px);
 }
-
-.layer_1_5 * { transform: translateZ(7px) !important }
 
 .layer_2 { /* Lamps */ 
     display: flex;
@@ -701,8 +689,9 @@
     z-index: 10;
 }
 
-.layer_2 > * {
+.lamps_2 > * {
     filter: blur(2px);
+    transform: translateZ(8px);
 }
 
 .layer_3_wrapper { /* X offset */

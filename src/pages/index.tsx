@@ -71,12 +71,23 @@ export default function Home(props: {
             episodes: vinyls.filter(ep => ep.season === season)
         }));
         setSeasons([...seasons].reverse());
-    }, [data?.episodes]);
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
             setRatio((home.current?.clientWidth || 1) / (window.innerWidth || 1)); // todo: handle screen rotation
             setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
+            setLamps15Count(getLampsCount(0.27));
+            setLamps2Count(getLampsCount(0.45));
+
+            const width = home.current?.clientWidth || window.innerWidth;
+            const textureWidth = (3618 / 858) * window.innerHeight;
+            setGroundTexturesCount(Math.ceil(width / textureWidth));
+
+            const gap = Math.max(2.75 * window.innerWidth, 5.38 * window.innerHeight);
+            const itemWidth = 0.8 * window.innerHeight;
+            const totalWidthPerItem = itemWidth + gap;
+            setFrontItemsCount(Math.ceil(width / totalWidthPerItem));
         };
 
         window.addEventListener('resize', handleResize);
@@ -145,33 +156,10 @@ export default function Home(props: {
         return Math.floor(width / totalWidthPerLamp);
     }
 
-    const lamps15Count = useMemo(() => {
-        return getLampsCount(0.27);
-    }, [home.current?.clientWidth, screenContentRatio]);
-
-    const lamps2Count = useMemo(() => {
-        return getLampsCount(0.45)
-    }, [home.current?.clientWidth, screenContentRatio]);
-
-    const groundTexturesCount = useMemo(() => {
-        if (!home.current) return 0;
-
-        const width = home.current.clientWidth;
-        const textureWidth = (3618 / 858) * window.innerHeight;
-        return Math.ceil(width / textureWidth);
-    }, [home.current?.clientWidth, screenContentRatio]);
-
-    const frontItemsCount = useMemo(() => {
-        if (!home.current) return 0;
-
-        const width = home.current.clientWidth;
-
-        const gap = Math.max(2.75 * window.innerWidth, 5.38 * window.innerHeight);
-        const itemWidth = 0.8 * window.innerHeight;
-        const totalWidthPerItem = itemWidth + gap;
-
-        return Math.ceil(width / totalWidthPerItem);
-    }, [home.current?.clientWidth, screenContentRatio]);
+    const [lamps15Count, setLamps15Count] = useState<number>(() => getLampsCount(0.27));
+    const [lamps2Count, setLamps2Count] = useState<number>(() => getLampsCount(0.45));
+    const [groundTexturesCount, setGroundTexturesCount] = useState(4);
+    const [frontItemsCount, setFrontItemsCount] = useState(1);
 
     const offset0 = useTransform(() => newScrollX.get() * 0.08);
     const offset05 = useTransform(() => newScrollX.get() * 0);
@@ -179,11 +167,11 @@ export default function Home(props: {
     const offset2 = useTransform(() => newScrollX.get() * 2.3 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
-    const invisibleSeasonSeparators = useMemo(() => [...(layer1.current?.children || [])].map((_, i) => {
+    const invisibleSeasonSeparators = useMemo(() => [...(seasons || [])].map((_, i) => {
         const dimensions = layer1.current?.children[i]?.children[0]?.getBoundingClientRect();
         // console.log(i, dimensions?.width, dimensions?.height);
         return Math.max(dimensions?.width || 2000, dimensions?.height || 2000);
-    }), [layer1.current?.children.length, seasons]);
+    }), [seasons]);
 
     const interceptAutoScroll = (e: MouseEvent) => {
         if (e.button == 1) {
@@ -298,7 +286,7 @@ export default function Home(props: {
             window.removeEventListener('wheel', onWheel);
             cancelMomentumTracking();
         }
-    }, [isMobile, home.current]);
+    }, [scrollX, scrollXAdditional]);
 
     useEffect(() => {
         const rootElem = root.current;
@@ -520,7 +508,7 @@ export default function Home(props: {
         return () => {
             observerRef.current?.disconnect();
         };
-    }, [firstAlbum.current, isPresent, router.asPath, props.ready]);
+    }, [isPresent, router.asPath, props.ready, props.onReady]);
 
     const posters = [
         { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", className: styles.leuven, ratio: 440 / 228, parallaxFactor: 120 },
@@ -637,7 +625,7 @@ export default function Home(props: {
                                 ))
                             }
                         </motion.div>
-                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15, translateZ: "7px" }}>
+                        <motion.div key="layer_1_5" ref={layer1_5} className={[styles.layer_1_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offset15 }}>
                             <div className={styles.lamps_1_5} key={"lamps_1_5"} >
                                 {[...Array(lamps15Count)].map((_, i: number) => (
                                     <React.Fragment key={`lamps_1_5_${i}`}>
