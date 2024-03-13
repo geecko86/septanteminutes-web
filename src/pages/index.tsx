@@ -9,7 +9,7 @@ import React, {
 import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from 'next/router';
-import { isSafari, isMobile, isIOS } from 'react-device-detect';
+import { isSafari, isMobile } from 'react-device-detect';
 
 import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../components/Season";
@@ -25,6 +25,7 @@ import Head from "next/head";
 
 import type { episode } from "../types/episode";
 import Poster from "@/components/Poster";
+import isOldPhone from "@/utils/mobileChecker";
 
 export default function Home(props: {
     onReady: () => void,
@@ -153,7 +154,7 @@ export default function Home(props: {
         const maxGapWidth = Math.max(window.innerWidth, window.innerHeight) - lampWidth;
         const totalWidthPerLamp = lampWidth + maxGapWidth;
 
-        return Math.floor(width / totalWidthPerLamp);
+        return Math.ceil(width / totalWidthPerLamp) + 1;
     }
 
     const [lamps15Count, setLamps15Count] = useState<number>(() => getLampsCount(0.27));
@@ -169,9 +170,8 @@ export default function Home(props: {
 
     const invisibleSeasonSeparators = useMemo(() => [...(seasons || [])].map((_, i) => {
         const dimensions = layer1.current?.children[i]?.children[0]?.getBoundingClientRect();
-        // console.log(i, dimensions?.width, dimensions?.height);
-        return Math.max(dimensions?.width || 2000, dimensions?.height || 2000);
-    }), [seasons]);
+        return Math.max(dimensions?.width || 1000, dimensions?.height || 1000, screenContentRatio);
+    }), [seasons, screenContentRatio]);
 
     const interceptAutoScroll = (e: MouseEvent) => {
         if (e.button == 1) {
@@ -508,7 +508,9 @@ export default function Home(props: {
         return () => {
             observerRef.current?.disconnect();
         };
-    }, [isPresent, router.asPath, props.ready, props.onReady, firstAlbum.current]);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+        [isPresent, router.asPath, props.ready, props.onReady, firstAlbum.current]);
 
     const posters = [
         { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", className: styles.leuven, ratio: 440 / 228, parallaxFactor: 120 },
@@ -551,7 +553,7 @@ export default function Home(props: {
                             <div className={styles.backwall} key={"backwall"}>
                                 <BackwallLight className={styles.backwall_light} targetRef={firstPoster} motionValue={newScrollX} key="backwall_light" style={{ left: "-80vw" }} />
                                 <motion.div className={styles.backwall_paint} key={"backwall_paint"} />
-                                <motion.div className={styles.posters} key={"posters"} style={{ translateX: (isIOS || typeof (window) === "undefined") ? offset0 : "0px", translateZ: "0px", translateY: "-50%" }}>
+                                <motion.div className={styles.posters} key={"posters"} style={{ translateX: (isOldPhone() || typeof (window) === "undefined") ? offset0 : "0px", translateZ: "0px", translateY: "-50%" }}>
                                     {
                                         seasons.map((season, i) => (
                                             <React.Fragment key={season.name + "_invisible00_fragment"}>
@@ -576,9 +578,9 @@ export default function Home(props: {
                             </div>
                             <div className={styles.floor} key={"floor"} />
                         </motion.div>
-                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile || typeof (window) === "undefined" ? { ...(isIOS ? { translateX: offset05 } : { transform: "translateX(0px)" }) } : { transform: "translateX(0px)" }}>
+                        <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isSafari || isMobile || typeof (window) === "undefined" ? { ...(isOldPhone() ? { translateX: offset05 } : { transform: "translateX(0px)" }) } : { transform: "translateX(0px)" }}>
                             {
-                                !isIOS && seasons.map((season, i) => (
+                                !isOldPhone() && seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment"}>
                                         <div key={season.name + "_invisible05"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px - (85vh / 4.5)) * 0.938842)` }} />
                                         {

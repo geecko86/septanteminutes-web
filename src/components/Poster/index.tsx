@@ -2,7 +2,7 @@ import React, { RefObject, useRef } from "react";
 import { MotionValue, motion } from "framer-motion";
 import Image from "next/image";
 import useOffset from  "../../utils/ParallaxOffset";
-import { isIOS } from "react-device-detect";
+import isOldPhone from "../../utils/mobileChecker";
 
 const Poster = (props: PosterProps) => {
 
@@ -15,7 +15,7 @@ const Poster = (props: PosterProps) => {
     } : undefined;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    translateX = (isIOS || typeof window === 'undefined') ? `${55+5*props.position}%` : useOffset(ref, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
+    translateX = (isOldPhone() || typeof window === 'undefined') ? `${55+5*props.position}%` : useOffset(ref, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
 
     // TODO: size when landscape rotation
     return (<div {...newProps} ref={ref}>

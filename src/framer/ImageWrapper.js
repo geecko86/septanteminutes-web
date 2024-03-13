@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import useOffset from  "../utils/ParallaxOffset";
-import { isIOS } from "react-device-detect";
+import isOldPhone from "@/utils/mobileChecker";
 
 const ImageOffsetWrapper = (props) => {
     const { motionValue, src, sizes, priority, loading, onReady, style, position, offsetFactor, targetRef, ...newProps } = props;
@@ -16,7 +16,7 @@ const ImageOffsetWrapper = (props) => {
         if (translateX) translateX.jump(val);
     };
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    translateX = (isIOS || typeof window === 'undefined') ? `${47.5 * (Math.ceil((position || -1.8)/1.8) + 1)}%` : useOffset(ref, motionValue, offsetFactor || 150, 0.9515, src, onReady, jumpToValue);
+    translateX = (isOldPhone() || typeof window === 'undefined') ? `${47.5 * (Math.ceil((position || -1.8)/1.8) + 1)}%` : useOffset(ref, motionValue, offsetFactor || 150, 0.9515, src, onReady, jumpToValue);
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ ...style, position: "relative", translateX, translateZ: "4px", height: "100%", width: "100%" }}>
