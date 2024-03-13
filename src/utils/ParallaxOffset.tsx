@@ -92,7 +92,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
       limitMutationObserver?.disconnect();
       if (onReadyTimeoutId) clearTimeout(onReadyTimeoutId);
     };
-  }, [onReady, jumpToValue, windowDim.width, motionValue, ref, computeTranslationX]);
+  }, [onReady, jumpToValue, windowDim.width, motionValue, ref.current, computeTranslationX]);
 
   return useTransform(computeTranslationX);
 }

@@ -508,7 +508,7 @@ export default function Home(props: {
         return () => {
             observerRef.current?.disconnect();
         };
-    }, [isPresent, router.asPath, props.ready, props.onReady]);
+    }, [isPresent, router.asPath, props.ready, props.onReady, firstAlbum.current]);
 
     const posters = [
         { src: "https://framerusercontent.com/images/XRJGfu2ZZn2mWSL86QVmPhAfBE.jpg", className: styles.leuven, ratio: 440 / 228, parallaxFactor: 120 },
