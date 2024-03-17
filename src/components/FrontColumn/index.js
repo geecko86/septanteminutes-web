@@ -40,14 +40,10 @@ const FrontColumn = function FrontColumn(props) {
                             </p >
                         </div >
                     </div >
-                   { /* eslint-disable-next-line @next/next/no-img-element */ }
-                    <img alt="" src="/img/side_A.svg" />
-                   { /* eslint-disable-next-line @next/next/no-img-element */ }
-                    <img alt="" src="/img/45_rpm.svg" />
-                   { /* eslint-disable-next-line @next/next/no-img-element */ }
-                    <img alt="" src="/img/stereo.svg" />
-                   { /* eslint-disable-next-line @next/next/no-img-element */ }
-                    <img alt="" src="/img/import.svg" />
+                    <Image src="/img/side_A.svg" unoptimized alt="" loading="lazy" width={31} height={12} style={{ aspectRatio: 31/12, height: "4%", width: "auto "}} />
+                    <Image src="/img/45_rpm.svg" unoptimized alt="" loading="lazy" width={13} height={12} />
+                    <Image src="/img/stereo.svg" unoptimized alt="" loading="lazy" width={28} height={12} />
+                    <Image src="/img/import.svg" unoptimized alt="" loading="lazy" width={21} height={12} />
                     <div className={styles.credits} data-framer-component-type="RichTextContainer" style={{ outline: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexShrink: 0, "--extracted-1w3ko1f": 'rgba(66, 56, 37, 1)', "--extracted-5dqwso": 'rgba(66, 56, 37, 1)', "--framer-paragraph-spacing": '0px', transform: 'none', opacity: 1 }}>
                         <p className="framer-text" style={{ "--framer-font-size":  '0.8vh' }}>
                             <span className="framer-text" style={{ "--fontSelector": 'R0Y7T3N3YWxkLTYwMA==', "--framer-font-family": '"Oswald"', "--framer-font-size":  '0.8vh', "--framer-fontWeight": 600, "--framer-text-color": 'var(--extracted-1w3ko1f, rgba(66, 56, 37, 1))', "--framer-text-transform": 'uppercase' }}> Disponible sur toutes</span >

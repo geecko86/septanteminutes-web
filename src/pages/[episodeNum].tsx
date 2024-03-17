@@ -27,7 +27,7 @@ import VinylAlbum, { ShadowAlbum } from "../components/VinylAlbum";
 import NotebookOverlay from "../components/NotebookOverlay";
 import { hackAutoplay, usePlayback } from '../utils/PlayerContext';
 import data from "../utils/tempdata.js";
-import { isIOS } from "react-device-detect";
+import { isIOS, isMobile } from "react-device-detect";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -52,6 +52,7 @@ export default function EpisodeTable(props: {
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [selectedPosition, setSelectedPosition] = useState(0);
   const [mayAnimate, setMayAnimate] = useState(false);
+  const [isMobileDevice, setIsMobileDevice] = useState(true);
   const [hasClickedNotebook, setHasClickedNotebook] = useState(false);
   const [hasClickedPlay, setHasClickedPlay] = useState(false);
   const [overlayNotebookTranslation, setOverlayNotebookTranslation] = useState("left");
@@ -123,6 +124,10 @@ export default function EpisodeTable(props: {
     const newUrl = `${window.location.origin}/${currentEpisode + 1}`;
     setDisplayedURL(newUrl);
   }, [funqueue, getCurrentPosition, vinyls.length]);
+
+  useEffect(() => {
+    setIsMobileDevice(isMobile);
+  }, []);
 
   useEffect(() => {
     playbackMP3Ref.current = playbackMP3;
@@ -395,7 +400,12 @@ export default function EpisodeTable(props: {
                 if (latest.opacity === 0 && !isPresent && !!safeToRemove) safeToRemove();
             }}
             className="transition_loader" >
-      <div ref={episodePage} className={`episode_page`}>
+      <div ref={episodePage} style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          overflow: "auto",
+      }}>
         {cloneElement(notebookOverlayComponent, {})}
         <Head>
           <title>{ playbackTitle ? `${ isPlaying ? "▶ " : ""}${playbackTitle}` : `Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}` }</title>
@@ -426,7 +436,7 @@ export default function EpisodeTable(props: {
                 ))}
               </motion.div>
             </div>
-            <Headphones className={styles.headphones} />
+            { !isMobileDevice && <Headphones className={styles.headphones} />}
             <Pen className={styles.pen} />
             <Notebook
               className={styles.notebook}
@@ -442,8 +452,8 @@ export default function EpisodeTable(props: {
                 setHasClickedNotebook(true)
               }}
             />
-            <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />
-            <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />
+            { !isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
+            { !isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
               if (playbackMP3) {
                 setPlaying(!isPlaying);

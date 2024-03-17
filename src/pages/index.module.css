@@ -147,66 +147,6 @@
     opacity: 0.85;
 }
 
-.leuven {
-    aspect-ratio: calc(440/288);
-    width: auto;
-    height: 50%;
-}
-
-.leuven img {
-    border-color: white !important;
-}
-
-.akerman {
-    aspect-ratio: calc(337/296);
-    width: auto;
-    height: 50%;
-}
-
-.brel {
-    aspect-ratio: calc(337/448);
-    width: auto;
-    height: 67%;
-    /* margin-left:  20vh; */
-    /* margin-left:  20svh; */
-}
-
-.akerman img {
-    object-position: 62%;
-}
-
-.redford{
-    aspect-ratio: calc(512/397);
-    width: auto;
-    height: calc(67% * 0.8923);
-    /* margin-left:  3vh; */
-    /* margin-left:  3svh; */
-}
-
-.congo {
-    aspect-ratio: 2267/1704;
-    width: auto;
-    height: 67%;
-}
-
-.cavell {
-    aspect-ratio: 2267/1704;
-    width: auto;
-    height: 52%;
-}
-
-.walenbuiten {
-    aspect-ratio: 2267/1704;
-    width: auto;
-    height: calc(67% * 0.8923);
-}
-
-.stones {
-    aspect-ratio: 1;
-    width: auto;
-    height: 67%;
-}
-
 .gap {
     position: relative;
 }
@@ -236,66 +176,83 @@
 }
 
 .ceiling {
-    width: 100%;
-    height: 11.5%;
-    top: 0;
-    background: linear-gradient(180deg, black 0%, transparent 50%);
-}
-
-.ceiling, .ceiling_2 {
     position: absolute;
-    opacity: 25%;
     transform: rotate(180deg);
     transform-origin: 46%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    bottom: 88.5vh;
+    bottom: 88.5svh;
 }
 
 @supports (-webkit-hyphens:none) {
-    .ceiling, .ceiling_2 {
+    .ceiling {
         transform: rotate(180deg) translateZ(0px) !important;
     }
 }
 
-.ceiling_2 {
-    display: flex;
+.ceiling::before {
+    content: " ";
     width: 100%;
-    height: 100%;
-    bottom: 88.5%;
+    height: 11.5vh;
+    height: 11.5svh;    
+    position: absolute;
+    display: block;
+    background: #D3D3D3;
 }
 
-.ceiling_3 {
-    position: absolute;
+.ceiling::after {
+    content: " ";
     width: 100%;
-    height: 11.5%;
-    left: 0;
-    top: 0;
-    background: #D3D3D3;
+    height: 11.5vh;
+    height: 11.5svh;
+    position: absolute;
+    display: block;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, transparent 100%);
+}
+
+.ceiling > div {
+    opacity: 0.25;
 }
 
 .floor {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 88.5%;
-    opacity: 30%;
-    background: linear-gradient(180deg, black 0%, transparent 6.38%);
-}
-
-.floor_2 {
-    position: absolute;
     display: flex;
     width: 100%;
     height: 100%;
-    top: 88.5%;
-    opacity: 0.70;
+    top: 88.5vh;
+    top: 88.5svh;
 }
 
-.floor_3 {
-    position: absolute;
+@supports (-webkit-hyphens:none) {
+    .floor {
+        transform: translateZ(0px) !important;
+    }
+}
+
+.floor::after {
+    content: " ";
     width: 100%;
-    height: 11.5%;
-    left: 0;
-    bottom: 0;
+    height: 11.5vh;
+    height: 11.5svh;    
+    position: absolute;
+    display: block;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 57%);
+}
+
+.floor::before {
+    content: " ";
+    width: 100%;
+    height: 11.5vh;
+    height: 11.5svh;
+    position: absolute;
+    display: block;
     background: #E0E0E0;
+}
+
+.floor > div {
+    opacity: 0.7;
 }
 
 /* Layer 1 */
@@ -357,7 +314,7 @@
 
 .season_frame div[data-framer-name="Header"] > * {
     height: 100%;
-    place-content: space-between !important;
+    place-content: space-around !important;
 }
 
 .season_frame div[data-framer-name="Header"] * {
@@ -420,8 +377,7 @@
 .season_frame div[data-framer-name="LEGENDE"] {
     height: 1.666%;
     width: auto;
-    /* gap: 16%; */
-    gap: 2.15rem;
+    gap: 1.5rem;
     padding: 0;
     place-content: unset;
     bottom: calc(100%/11.56);
@@ -431,24 +387,24 @@
     justify-content: end;
 }
 
-.season_frame div[data-framer-name="LEGENDE"] > div {
-    height: 100% !important;
-    width: auto !important;
+.season_frame div[data-framer-name="LEGENDE"] > img {
+    height: 100%;
+    width: auto;
 }
 
-.season_frame div[data-framer-name="LEGENDE"] > div:nth-child(1) {
+.season_frame div[data-framer-name="LEGENDE"] > img:nth-child(1) {
     aspect-ratio: 31/12;
 }
 
-.season_frame div[data-framer-name="LEGENDE"] > div:nth-child(2) {
+.season_frame div[data-framer-name="LEGENDE"] > img:nth-child(2) {
     aspect-ratio: 13/12;
 }
 
-.season_frame div[data-framer-name="LEGENDE"] > div:nth-child(3) {
+.season_frame div[data-framer-name="LEGENDE"] > img:nth-child(3) {
     aspect-ratio: 28/12;
 }
 
-.season_frame div[data-framer-name="LEGENDE"] > div:nth-child(4) {
+.season_frame div[data-framer-name="LEGENDE"] > img:nth-child(4) {
     aspect-ratio: 21/12;
 }
 
@@ -473,7 +429,7 @@
     overflow: visible;
 }
 
-.season_frame div[data-framer-name="Albums"] > div div, .season_frame div[data-framer-name="Albums"] a {
+.season_frame div[data-framer-name="Albums"] > a div, .season_frame div[data-framer-name="Albums"] a {
     height: auto;
     width: 100%;
     aspect-ratio: 1;
@@ -484,7 +440,7 @@
     overflow: visible;
 }
 
-.season_frame div[data-framer-name="Albums"] > div p {
+.season_frame div[data-framer-name="Albums"] > a p {
     white-space: pre-wrap;
     overflow: clip;
     text-overflow: ellipsis;
@@ -496,27 +452,21 @@
     margin: 1rem 0px !important;
 }
 
-.season_frame div[data-framer-name="Albums"] > div span {
+.season_frame div[data-framer-name="Albums"] > a span {
     color: rgb(66, 56, 37);
     font-size: calc(max(0.935rem, 1.7vmin));
     text-align: left;
     font-size: 0.935rem;
 }
 
-.season_frame div[data-framer-name="Albums"] > div span:first-child {
+.season_frame div[data-framer-name="Albums"] > a span:first-child {
     font-family: "Futura Condensed Extra";
     font-weight: 700;
 }
 
-.season_frame div[data-framer-name="Albums"] > div span:last-child {
+.season_frame div[data-framer-name="Albums"] > a span:last-child {
     font-family: "Futura-Medium", "Jost", sans-serif;
     font-weight: 400;
-}
-
-.season_frame div[data-framer-name="Album_support"] {
-    height: 7.33% !important;
-    width: 50% !important;
-    inset: 98% 25% -4px !important;
 }
 
 .lamps_1_5 { /* ceiling lamps */ 
@@ -531,8 +481,8 @@
 
     position: relative;
     width: fit-content;
-    height:  27vh;
-    height:  27svh;
+    height:  27vh !important;
+    height:  27svh !important;
     top: 0;
     left: calc(50vw - var(--lamp-width)/2);
 }
@@ -549,8 +499,8 @@
 
     position: relative;
     width: fit-content;
-    height:  85vh;
-    height:  85svh;
+    height:  85vh !important;
+    height:  85svh !important;
     top:  -34.5vh;
     top:  -34.5svh;
     left: calc(50vw - var(--lamp-width)/2);
@@ -709,8 +659,8 @@
     align-items: flex-start;
     padding-left:  calc(100vw - 44.5vh);
     padding-left:  calc(100vw - 44.5svh);
-    gap:  calc(max(275vw, 538vh));
-    gap:  calc(max(275vw, 538svh));
+    gap: calc(max(275vw, 538vh));
+    gap: calc(max(275vw, 538svh));
 
     position: absolute;
     z-index: 15;
@@ -756,6 +706,14 @@
         transform:  translateX(calc(-20vmax)) translateZ(0px) !important;
         transform:  translateX(calc(-20svmax)) translateZ(0px) !important;
     }
+
+    .lamps_1_5 {
+        gap: calc(175vmax - var(--lamp-width));
+    }
+
+    .lamps_2 {
+        gap: calc(268.625vmax - var(--lamp-width));
+    }
 }
 
 @media (max-height:800px) {
@@ -775,6 +733,11 @@
     .home_subroot {
         height:  100vh !important;
         height:  100svh !important;
+    }
+
+    .layer_3 {
+        gap: calc(max(550vw, 1068vh));
+        gap: calc(max(550svw, 1068svh));
     }
 }
 

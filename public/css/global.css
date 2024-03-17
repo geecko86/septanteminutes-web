@@ -6,16 +6,17 @@
 
 @media screen and (min-height: 1081px) and (max-height: 1440px) {
     :root {
-      font-size: 22px; /* Adjust root font size for large screens */
+        font-size: 22px;
+        /* Adjust root font size for large screens */
     }
-  }
+}
 
 @media screen and (min-height: 1441px) and (max-height: 2000px) {
     :root {
-      font-size: 24px; /* Adjust root font size for larger screens */
+        font-size: 24px;
+        /* Adjust root font size for larger screens */
     }
-  }
-  
+}
 
 @media (min-height: 2000px) {
     :root {
@@ -23,8 +24,7 @@
     }
 }
 
-html,
-* {
+html, * {
     /* Hide scrollbar (firefox) */
     scrollbar-width: none;
     /* remove highlight on click (mobile) */
@@ -36,9 +36,7 @@ body {
     display: revert !important;
 }
 
-html,
-body,
-#__next {
+html, body, #__next {
     height: 100vh !important;
     height: 100svh !important;
 }
@@ -70,12 +68,7 @@ html *::-webkit-scrollbar {
     position: sticky;
 }
 
-#globalLoader {
-    position: fixed;
-}
-
-#globalLoader,
-.transition_loader {
+#globalLoader, .transition_loader {
     width: 100vw;
     height: 100vh;
     height: 100svh;
@@ -86,49 +79,11 @@ html *::-webkit-scrollbar {
     justify-content: center;
     top: 0;
     bottom: 1px;
-
     transition: opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000);
     transition-delay: 0.25s !important;
 }
 
-#globalLoader>div {
-    place-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 54%;
-    height: 54%;
-}
-
-.gone {
-    opacity: 0 !important;
-    pointer-events: none;
-}
-
-.spinner {
-    opacity: 1;
-    transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-    position: absolute;
-    top: 50%;
-    left: calc(50% + 10vh);
-    height: 30vh;
-    width: 50vh;
-    transform: translate(-50%, -50%);
-}
-
-.spinner.spinner_hidden {
-    opacity: 0 !important;
-}
-
-.episode_page {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-}
-
 @media (pointer:coarse) and (orientation: portrait) {
-
     html,
     body,
     #__next {
@@ -143,7 +98,6 @@ html *::-webkit-scrollbar {
 }
 
 @media (pointer:coarse) and (orientation: landscape) {
-
     html,
     body,
     #__next {

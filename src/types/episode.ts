@@ -1,4 +1,4 @@
-export type episode = {
+export type Episode = {
     title: string,
     img: string,
     spotifyLink: string,
@@ -7,4 +7,9 @@ export type episode = {
     appleLink: string,
     desc: string,
     num: string
+};
+
+export type Season = {
+    name: string,
+    episodes: Episode[]
 };

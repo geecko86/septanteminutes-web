@@ -55,23 +55,7 @@
     z-index: 1;
 }
 
-
-@media screen and (max-height: 675px) and (orientation: portrait) {
-    .season .chair[direction="front"] {
-        display: none !important;
-    }
-
-    .season .season_legende {
-        /* display: none !important; */
-    }
-}
-
-
 @media screen and (max-height: 550px) and (orientation: portrait) {
-    .season .chair {
-        display: none !important;
-    }
-
     .season .season_legende {
         display: none !important;
     }

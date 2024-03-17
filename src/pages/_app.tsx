@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, StrictMode, useEffect, useState } from 'react'
+import React, { ReactElement, ReactNode, StrictMode, useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
@@ -10,42 +10,42 @@ import FloatingPlaybackControls from "../components/FloatingPlaybackControls"
 import LoadingAnim from "../components/LoadingAnim"
 
 import styles from "./layout.module.css"
+import { isMobile } from 'react-device-detect'
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const [loaded, setLoaded] = useState("");
-  const [showSpinner, setShowSpinner] = useState(true);
-  const [spinnerClass, setSpinnerClass] = useState("spinner");
+  const [showLoadingAnim, setShowLoadingAnim] = useState(true);
+  const [loaderClass, setLoaderClass] = useState("vinyl_loading");
+  const [isMobileDevice, setIsMobileDevice] = useState(true);
 
   const { pathname } = useRouter();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      let timeoutId: (NodeJS.Timeout | undefined) = undefined;
-      const loader = document.getElementById('globalLoader');
-      if (loader) {
-        loader.className = loaded ? 'gone' : '';
-        if (!loaded) {
-          timeoutId = setTimeout(() => {
-            if (loader.className) {
-              setSpinnerClass("spinner");
-              setShowSpinner(true);
-            }
-          }, 100);
-        } else {
-          setSpinnerClass("spinner spinner_hidden");
-          timeoutId = setTimeout(() => {
-            if ("requestIdleCallback" in window) {
-              requestIdleCallback(() => {
-                setShowSpinner(false);
-              });
-            } else setShowSpinner(false);
-          }, 2000);
-        }
-        return () => {
-          clearTimeout(timeoutId);
-        };
+    setIsMobileDevice(isMobile);
+    let timeoutId: (NodeJS.Timeout | undefined) = undefined;
+    const loader = document.getElementById('globalLoader');
+    if (loader) {
+      if (!loaded) {
+        timeoutId = setTimeout(() => {
+          if (loader.className) {
+            setLoaderClass("vinyl_loading");
+            setShowLoadingAnim(true);
+          }
+        }, 100);
+      } else {
+        setLoaderClass("vinyl_loading vinyl_hidden");
+        timeoutId = setTimeout(() => {
+          if ("requestIdleCallback" in window) {
+            requestIdleCallback(() => {
+              setShowLoadingAnim(false);
+            });
+          } else setShowLoadingAnim(false);
+        }, 2000);
       }
+      return () => {
+        clearTimeout(timeoutId);
+      };
     }
   }, [loaded]);
 
@@ -64,16 +64,14 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
               setLoaded(pathname);
             }} />
           </AnimatePresence>
-          <div className={styles.overlay} key="overlay">
+          {!isMobileDevice && <div className={styles.overlay} key="overlay">
             <FloatingPlaybackControls />
-          </div>
+          </div>}
         </PlaybackProvider>
         </StrictMode>
-      <div id="globalLoader">
-        {showSpinner ? <div>
-          <LoadingAnim className={spinnerClass} />
-        </div> : null}
-      </div>
+        { showLoadingAnim ? <div id="globalLoader" style={ loaded ? { opacity: 0, pointerEvents: "none", position: "fixed" } : { position: "fixed" }}>
+        <LoadingAnim className={loaderClass} />
+      </div> : null }
     </>
   )
 }

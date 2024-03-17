@@ -3,35 +3,56 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Head from 'next/head';
-import styled, { keyframes } from 'styled-components';
+import Image from "next/image";
 
 const Loader = (props) => {
 
     return (
         <>
             <Head>
-                <link rel="preload" href="/img/SMA_sleeve.svg" as="image" />
+                <link rel="preload" href="/img/SMA_sleeve.webp" as="image" />
+                <link rel="preload" href="/img/vinyl.svg" as="image" />
+                <link rel="preload" href="/img/sma_monogram.svg" as="image" />
                 <style>
-                {`@keyframes moveDisk {from { transform:scale(0.975) translateX(0) translateY(7.5%); }  to { transform:scale(0.975) translateX(33%) translateY(7.5%); }}`}
-                {`@keyframes moveSleeve { from {  transform: translateX(0); } to { transform: translateX(-25%); } }`}
+                {`@keyframes moveDisk {from { transform:translateX(0); }  to { transform: translateX(30%); }}`}
+                {`@keyframes moveSleeve { from {  transform: translateX(0); } to { transform: translateX(-30%); } }`}
                 {`@keyframes rotateLogo { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }`}
+                {`.vinyl_loading {
+                    opacity: 1;
+                    transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+                    position: absolute;
+                    height: 30vh;
+                    width: 50vh;
+                    display: flex;
+                    align-items: center;
+                }
+                .vinyl_loading.vinyl_hidden {
+                    opacity: 0 !important;
+                }`}
                 </style>
             </Head>
-            <div className={props.className}>
+            <div className={props.className} style={{
+                placeSelf: "center",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "54%",
+                height: "54%"
+            }}>
                 <div style={{
-                    width: "30vh",
-                    height: "30vh",
-                    transform: "scale(0.975) translateX(0) translateY(7.5%)",
+                    width: "calc(min(30vh, 55vw))",
+                    height: "calc(min(30vh, 55vw))",
+                    transform: "translateX(0)",
                     position: "absolute",
                     animation: "moveDisk 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards"
                 }}>
-                    <img loading="eager" src="/img/vinyl.svg" alt="" style={{
-                        width: "30vh",
-                        height: "30vh",
+                    <img loading="lazy" src="/img/vinyl.svg" alt="" style={{
+                        width: "100%",
+                        height: "100%",
                         position: "absolute",
-                        filter: "drop-shadow(0px 15px 10px rgba(0,0,0,0.3))"
+                        filter: "drop-shadow(1vh 0.75vh 0.5vh rgba(0,0,0,0.3))"
                     }} />
-                    <img loading="eager" src="/img/sma_monogram.svg" alt="" style={{
+                    <img loading="lazy" src="/img/sma_monogram.svg" alt="" style={{
                         position: "absolute",
                         width: "26.6666%",
                         height: "26.6666%",
@@ -49,22 +70,13 @@ const Loader = (props) => {
                         background: "#cccc",
                         clipPath: "circle(4% at center)",
                         position: "absolute"
-                    }}></div>
-                </div>
-                <div style={{position: "absolute", height: "calc(30vh+40px)", display: "flex", flexDirection: "column", zIndex: 5, animation: "moveSleeve 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards" }}>
-                    <div style={{ height: "20px", width: "100%", background: "#0000" }} />
-                    <div alt="sleeve_loading" style={{
-                        width: "30vh",
-                        height: "30vh",
-                        overflow: "hidden",
-                        background: "url(/img/SMA_sleeve.svg) no-repeat center bottom, #574e42",
-                        backgroundSize: "107.66%",
-                        backgroundPositionX: "56%",
-                        backgroundPositionY: "50%",
-                        boxShadow: "5px 10px 30px rgba(0,0,0,0.3), -5px 0px 30px rgba(0,0,0,0.4)",
-                        clipPath: "inset(0px -30px -50px -30px)"
                     }} />
-                    <div style={{ height: "20px", width: "100%", background: "white" }} />
+                </div>
+                <div style={{position: "absolute", height: "calc(min(30vh, 55vw))", width: "auto", aspectRatio: 1, display: "flex", flexDirection: "column", zIndex: 5, animation: "moveSleeve 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards" }}>
+                    <Image src="/img/SMA_sleeve.webp" fill={true} unoptimized loading="lazy" alt="sleeve_loading" style={{
+                        overflow: "hidden",
+                        boxShadow: "0.5vh 1vh 3vh rgba(0,0,0,0.3), -0.5vh 0px 3vh rgba(0,0,0,0.4)",                        
+                    }} />
                 </div>
             </div>
         </>

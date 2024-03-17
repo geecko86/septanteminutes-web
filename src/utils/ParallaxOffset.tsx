@@ -42,16 +42,15 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
     }
 
     const adjustedCoeff = coeff * (windowDim.width / windowDim.height);
-    
     // Calculate the progress percentage
     const newProgress =
       ((viewportEnd - targetStart) / (viewportEnd + Math.max(targetRect.width, targetRect.height)));
-    if (newProgress >= 1.8) {
+    if (newProgress >= 1.6) {
       return `${adjustedCoeff * -1.53}%`;
     }
 
-    const adjustedPow = windowDim.height > windowDim.width ? pow : pow;
-    const output = `${Math.pow(newProgress * adjustedCoeff, adjustedPow)}%`;
+    const output = `${Math.pow(newProgress * adjustedCoeff, pow)}%`;
+    // const output = `${newProgress * adjustedCoeff}%`;
     return output;
   }, [ref, motionValue, coeff, pow, windowDim]);
 

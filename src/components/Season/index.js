@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 
 import styles from "./season.module.css";
 
-const Season = ({
+const SeasonComponent = ({
     chair,
     seasonTitle,
     children,
@@ -11,6 +11,8 @@ const Season = ({
     style,
     ...otherProps
 }) => {
+    const arrayKeys = useMemo(() => [...Array(Math.max(1, Math.ceil((children?.length || 2) / 2 / 3.3))).keys()], [children]);
+
     return (
         <div {...otherProps} className={[styles.season, styles.season_inside, otherProps.className || ""].join(" ")} tabIndex={0} style={{ ...style, display: "contents" }}>
             <div className={[styles.season_inside, styles.index_season_frame, className].join(" ")} style={{
@@ -27,14 +29,15 @@ const Season = ({
                     overflow: "hidden"
                 }}>
                     {
-                        [...Array(Math.max(1, Math.ceil((children?.length || 2) / 2 / 3.3))).keys()].map((i) => (
+                        arrayKeys.map((i) => (
                             <div key={`season_${seasonTitle}_texture_${i}`} style={{ height: "100%", width: "auto", aspectRatio: 3 / 2, position: "relative" }}>
                                 <Image
                                     alt="" fill={true}
                                     priority={true}
-                                    className={styles.wall} sizes="100svh"
+                                    className={styles.wall} sizes="90svh"
                                     src="https://framerusercontent.com/images/hxXL2jKccfg84wL6UdchMdB312c.jpg"
                                     style={{
+                                        aspectRatio: 3 / 2,
                                         position: "absolute",
                                         opacity: 0.32,
                                         transform: `scaleX(${i % 2 === 0 ? 1 : -1})`
@@ -47,7 +50,7 @@ const Season = ({
                 <div data-framer-name="Wall" style={{
                     background: "linear-gradient(rgba(255, 255, 255, 0.3), rgba(190, 189, 189, 0.3))",
                     aspectRatio: true ? `max(665.17, 8.22 * 20 * ${Math.ceil((children?.length || 2) / 2)} + 8.22 * 7 * ${Math.ceil((children?.length || 2) / 2) - 1})/543` : "unset"
-                                    // 8.22 = svh, 20 = coeff, number of columns + number of gaps 
+                    // 8.22 = svh, 20 = coeff, number of columns + number of gaps 
                 }}>
                     <div className={styles.header} key={`season_header_${seasonTitle}`} data-framer-name="Header">
                         <div className={styles.header_logo} data-framer-name="Logo">
@@ -60,29 +63,32 @@ const Season = ({
                                 }}
                             />
                         </div>
-                        <div style={{ minWidth: "1px", height: "95%", background: "black", aspectRatio: "inherit" }} />
-                        <div className={styles.season_title} data-framer-name="Frame 10" style={{ opacity: 1 }}><div className={styles.richtextcontainer0} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", "--framer-font-family": "Futura Condensed Extra", "--framer-font-weight": 700, fontSize:  "1.27rem", paddingTop: "1px", transform: "none", opacity: 1 }}><p className="framer-text">{seasonTitle}</p></div>
-                            <div className={styles.richtextcontainer1} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", "flexDirection": "column", justifyContent: "flex-start", "--framer-paragraph-spacing": "0px", paddingBottom: "2px", transform: "none", opacity: 1 }}>
-                                <p className="framer-text">
-                                    <span className="framer-text" style={{ fontFamily: "Radwave Demo", fontSize: "0.46rem" }}>
-                                        Présenté par Guillaume Hachez
-                                    </span>
-                                </p>
-                            </div>
+                        <div style={{ minWidth: "1px", height: "100%", background: "black", aspectRatio: "inherit" }} />
+                        <div style={{ 
+                                display: "flex",
+                                flexDirection: "column",
+                                position: "relative",
+                                alignItems: "flex-start",
+                                flexWrap: "nowrap",
+                                gap: "0px",
+                                flex: "none"
+                         }}>
+                            <p className="framer-text" style={{ fontFamily: "Futura Condensed Extra", fontWeight: 700, fontSize: "1.27rem" }}>
+                                {seasonTitle}
+                            </p>
+                            <span className="framer-text" style={{ fontFamily: "Radwave Demo", fontSize: "0.46rem", outline: "none", display: "flex", "flexDirection": "column", justifyContent: "flex-start", lineHeight: "1.15ch", paddingTop: "2px", transform: "none", opacity: 1 }}>
+                                Présenté par Guillaume Hachez
+                            </span>
                         </div>
                     </div>
                     <div className={styles.albums_container} data-framer-name="Albums" style={{ opacity: 1 }}>
                         {children}
                     </div>
                     <div className={styles.season_legende} data-framer-name="LEGENDE" style={{ opacity: 1 }}>
-                        { /* eslint-disable-next-line @next/next/no-img-element */ }
-                        <img src="/img/side_A.svg" alt="" />
-                        { /* eslint-disable-next-line @next/next/no-img-element */ }
-                        <img src="/img/45_rpm.svg" alt="" />
-                        { /* eslint-disable-next-line @next/next/no-img-element */ }
-                        <img src="/img/stereo.svg" alt="" />
-                        { /* eslint-disable-next-line @next/next/no-img-element */ }
-                        <img src="/img/import.svg" alt="" />
+                        <Image src="/img/side_A.svg" unoptimized alt="" loading="lazy" width={31} height={12} />
+                        <Image src="/img/45_rpm.svg" unoptimized alt="" loading="lazy" width={13} height={12} />
+                        <Image src="/img/stereo.svg" unoptimized alt="" loading="lazy" width={28} height={12} />
+                        <Image src="/img/import.svg" unoptimized alt="" loading="lazy" width={21} height={12} />
                         <div className={styles.richtextcontainer2} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", "--framer-paragraph-spacing": "0px", transform: "none", opacity: 1 }}>
                             <p className="framer-text" style={{ "--font-selector": "R0Y7T3N3YWxkLTYwMA==", "--framer-font-family": "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", "--framer-font-weight": 600, "--framer-line-height": "3ch", "--framer-text-transform": "uppercase" }}>Disponible sur toutes</p>
                             <p className="framer-text" style={{ "--font-selector": "R0Y7T3N3YWxkLTYwMA==", "--framer-font-family": "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", "--framer-font-weight": 600, "--framer-line-height": "3ch", "--framer-text-transform": "uppercase" }}>les plateformes</p>
@@ -109,5 +115,9 @@ export const Chairs = [
     "https://framerusercontent.com/images/mfSFGgGYoIPEgRTXQFA6vj2bBM.png",
     "https://framerusercontent.com/images/mXqlOpMKSQlSCvhW20s5PM4YM.png"
 ];
+
+
+const Season = React.memo(SeasonComponent);
+Season.displayName = 'Season';
 
 export default Season;

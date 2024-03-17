@@ -2,7 +2,7 @@
 
 import React, { useContext, createContext, SetStateAction, useState, useEffect, useRef } from "react";
 import loader from "../utils/cdn_img_loader";
-import type { episode } from "../types/episode";
+import type { Episode } from "../types/episode";
 
 const PlayerContext = createContext<PlaybackContextData | undefined>(undefined);
 
@@ -113,7 +113,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const [playbackArtwork, setPlaybackArtwork] = useState("")
     const [playbackNum, setPlaybackNum] = useState<number>(0)
     const [status, setStatus] = useState<number>(0);
-    const [autoplay, setAutoplay] = useState<episode | undefined>(undefined);
+    const [autoplay, setAutoplay] = useState<Episode | undefined>(undefined);
     const audioRef = useRef<HTMLAudioElement>();
     const audio = audioRef.current;
 
@@ -182,12 +182,12 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         audioRef.current = newAudio;
 
         return () => {
-            newAudio.removeEventListener("error", onError);
-            newAudio.removeEventListener("ended", onEnded);
-            newAudio.removeEventListener("waiting", onWaiting);
-            newAudio.removeEventListener("canplay", onLoaded);
             newAudio.removeEventListener('playing', onPlaying);
             newAudio.removeEventListener('pause', onPause);
+            newAudio.removeEventListener("waiting", onWaiting);
+            newAudio.removeEventListener("canplay", onLoaded);
+            newAudio.removeEventListener("ended", onEnded);
+            newAudio.removeEventListener("error", onError);
             newAudio.removeEventListener("seeked", onPlaying);
             audioRef.current = undefined;
         }
@@ -267,8 +267,8 @@ export type PlaybackContextData = {
     setPlaybackArtwork: (arg0: SetStateAction<string>) => void,
     status: number,
     setStatus: (arg0: SetStateAction<number>) => void,
-    autoplay: episode | undefined,
-    setAutoplay: (arg0: SetStateAction<episode | undefined>) => void,
+    autoplay: Episode | undefined,
+    setAutoplay: (arg0: SetStateAction<Episode | undefined>) => void,
     audio: HTMLAudioElement | undefined
 }
 

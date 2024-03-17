@@ -30,6 +30,7 @@ const Controls = () => {
     const [hovered, setHovered] = useState(false);
     const [hoverTimeoutId, setHoverTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
     const [progress, setProgress] = useState(0.0);
+    const [showAudioElement, setShowAudioElement] = useState(false);
 
     const { playbackMP3: mp3, audio: audio, playbackNum: num, playbackTitle: title, setPlaying, isPlaying, status } = usePlayback();
 
@@ -41,6 +42,10 @@ const Controls = () => {
             e.preventDefault();
         }
     };
+
+    useEffect(() => {
+        setShowAudioElement(isIOS);
+    }, []);
 
     useEffect(() => {
         if (!isIOS) return;
@@ -137,7 +142,7 @@ const Controls = () => {
                     </div>
                 </div>
             </div>
-            {isIOS && <audio />}
+            {showAudioElement && <audio />}
         </>
     );
 
