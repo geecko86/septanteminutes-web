@@ -414,7 +414,7 @@ export default function Home(props: {
     }, [newScrollX, scrollXAdditional])
 
     useEffect(() => {
-        if (firstAlbumImg && !props.ready) {
+        if (firstAlbum.current && !props.ready) {
             const artworkLoaded = new Promise<void>((resolve, reject) => {
                 const timeoutId = setTimeout(() => {
                     console.log("artwork timeout");
@@ -485,18 +485,16 @@ export default function Home(props: {
                 });
             }
 
-            const scrollToAnchorPromise = new Promise<void>((resolve, reject) => {
-                const timeoutId = setTimeout(resolve, 2500);
-                resolveScrollRef.current = () => {
-                    resolve();
-                    clearTimeout(timeoutId);
-                    console.log("anchor scroll done");
-                };
-            });
-
             const waitForPromises = () => {
                 if (router.asPath.includes("#")) {
-                    promisesList.push(scrollToAnchorPromise);
+                    promisesList.push(new Promise<void>((resolve, reject) => {
+                        const timeoutId = setTimeout(resolve, 2500);
+                        resolveScrollRef.current = () => {
+                            resolve();
+                            clearTimeout(timeoutId);
+                            console.log("anchor scroll done");
+                        };
+                    }));
                     console.log(router.asPath, "waiting for anchor scroll")
                 }
                 console.log("waiting for promises", promisesList.length)
