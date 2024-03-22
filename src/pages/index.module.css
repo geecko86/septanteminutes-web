@@ -23,14 +23,16 @@
 }
 
 .home {
-    --unit:  1vh;
-    --unit:  1svh;
+    --unit: 1vh;
+    --unit: 1svh;
+    --layer_1_gap: 50vh;
+    --layer_1_gap: 50svh;
 
     display: inline-flex;
     position: sticky;
     top: 0;
-    height:  100vh;
-    height:  100svh;
+    height: 100vh;
+    height: 100svh;
     width: fit-content;
     will-change: transform;
     overflow: visible !important;
@@ -115,8 +117,6 @@
     position: absolute;
     width: 100%;
     height: 96.5%;
-    /* left:  calc(-18vh - 20vw); */
-    /* left:  calc(-18svh - 20vw); */
     top: 48%;
 }
 
@@ -126,7 +126,7 @@
     border-radius: 2px;
     flex: none;
     flex-grow: 0;
-    position: relative !important;
+    position: absolute !important;
 }
 
 .poster {
@@ -596,8 +596,7 @@
     padding:  0px calc(min(25.6vh, 25vw));
     padding:  0px calc(min(25.6svh, 25vw));
     padding-bottom: 5.2%;
-    gap:  50vh;
-    gap:  50svh;
+    gap: var(--layer_1_gap);
 
     position: relative;
     width: fit-content;
@@ -703,8 +702,8 @@
     }
 
     .poster {
-        transform:  translateX(calc(-20vmax)) translateZ(0px) !important;
-        transform:  translateX(calc(-20svmax)) translateZ(0px) !important;
+        transform: translateX(-0vmin) translateZ(0px) !important;
+        transform: translateX(-0svmin) translateZ(0px) !important;
     }
 
     .lamps_1_5 {
@@ -739,6 +738,10 @@
         gap: calc(max(550vw, 1068vh));
         gap: calc(max(550svw, 1068svh));
     }
+
+    .posters {
+        padding:  unset !important;
+    }
 }
 
 @media (pointer:coarse) and (orientation:landscape) {
@@ -761,11 +764,8 @@
         translate: 0 -100vw;
         transform-origin: 0% 100%;
         height: 100vw;
-    }
-
-    .layer_1 {
-        gap:  50vmax;
-        gap:  50svmax;
+        --layer_1_gap: 50vmax !important;
+        --layer_1_gap: 50svmax !important;
     }
 
     .layer_3 {
@@ -782,11 +782,6 @@
         gap:  7svmax;
         row-gap:  calc(max(7vmax, 6rem));
         row-gap:  calc(max(7svmax, 6rem));
-    }
-
-    .posters {
-        left:  -28vmax;
-        left:  -28svmax;
     }
 
     .eggchair {

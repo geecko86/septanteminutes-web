@@ -1,19 +1,26 @@
 import React, { RefObject, useRef, useMemo, useState, useEffect, useCallback } from "react";
-import { MotionValue, motion } from "framer-motion";
+import { MotionValue, motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import useOffset from  "../../utils/ParallaxOffset";
 import isOldPhone from "../../utils/mobileChecker";
 import styles from "./poster.module.css";
 
 const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
-    const { motionValue, position, poster: { src, ratio, height }, onReady, isLast, inheritedRef, ...newProps } = props;
+    const { motionValue, position, poster: { src, ratio, height }, offset, onReady, isLast, inheritedRef, ...newProps } = props;
+    
+    const parentRef = useRef<HTMLDivElement>(null);
+    const home = document.getElementById("home");
 
-    const translateX = useMemo(() => `${55+5*position}%`, [position]);
+    // const translateX = useMemo(() => `${55+5*position}%`, [position]);
+    const translateX = useTransform(motionValue, (value) => {
+        const numerator = value + offset * 0.9;
+        return `-${numerator / (home?.clientWidth || 3000) * 500}%`;
+    });
     const size = useMemo(() => `${Math.floor(height * 80)}vmax`, [height]);
-    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio }), [height, ratio]);
+    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + (var(--layer_1_gap) / 2) + ${offset}px + calc(min(25.6vh, 25vw)))` }), [height, ratio, offset, position]);
 
     // TODO: size when landscape rotation
-    return (<div {...newProps} style={style}>
+    return (<div {...newProps} style={style} ref={parentRef}>
         <motion.div style={{ position: "relative", translateX, translateZ: "0px", height: "100%", width: "100%" }}>
           <Image alt="" ref={ref} src={src} quality={50} sizes={size} fill />
         </motion.div>
@@ -22,7 +29,7 @@ const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>(
 PosterComponentOldPhone.displayName = 'PosterComponentOldPhone';
 
 const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
-    const { motionValue, poster: { src, ratio, height, parallaxFactor }, onReady, isLast, ...newProps } = props;
+    const { motionValue, position, poster: { src, ratio, height, parallaxFactor }, onReady, offset, isLast, ...newProps } = props;
 
     const jumpToValue = (val: number | string) => {
         if (!isLast && typeof(val) === "string") {
@@ -33,7 +40,7 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
     
     const translateX = useOffset(newRef, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
     const size = useMemo(() => `${Math.floor(height * 80)}vh`, [height]);
-    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio }), [height, ratio]);
+    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px + calc(min(25.6vh, 25vw)))` }), [height, ratio, offset, position]);
 
     // TODO: size when landscape rotation
     return (<div {...newProps} ref={newRef} style={style}>
@@ -69,6 +76,7 @@ export { posters };
 type PosterProps = {
     className: string,
     motionValue: MotionValue,
+    offset: number,
     onReady?: () => void,
     inheritedRef?: RefObject<HTMLDivElement>,
     isLast?: boolean,

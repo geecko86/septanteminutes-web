@@ -60,6 +60,8 @@ export default function Home(props: {
     const router = useRouter();
     const [isPresent, safeToRemove] = usePresence();
 
+    const firstAlbumImg = firstAlbum.current;
+
     useEffect(() => {
         if (window.Worker) {
             const myWorker = new Worker("/js/seasonFetcher.js");
@@ -162,9 +164,6 @@ export default function Home(props: {
     const [groundTexturesCount, setGroundTexturesCount] = useState(4);
     const [frontItemsCount, setFrontItemsCount] = useState(1);
 
-    const offset0_factor = 0.12;
-    const offset0 = useTransform(() => newScrollX.get() * offset0_factor);
-    const offset05 = useTransform(() => newScrollX.get() * offset0_factor * 1.25);
     const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset2 = useTransform(() => newScrollX.get() * 2.3 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
@@ -172,13 +171,8 @@ export default function Home(props: {
     const invisibleSeasonSeparators = useMemo(() => [...(seasons || [])].map((_, i) => {
         let dimensions = layer1.current?.children[i]?.children[0]?.getBoundingClientRect();
         let separator = Math.max(dimensions?.width || 1000, dimensions?.height || 1000, screenContentRatio);
-        if (i > 0 && isOldPhone) {
-            const childDimensions = layer1.current?.children[i - 1]?.children[0]?.getBoundingClientRect();
-            const previousSeparator = Math.max(childDimensions?.width || 1000, childDimensions?.height || 1000);
-            separator += Math.ceil(previousSeparator * offset0_factor / 2);
-        }
         return separator
-    }), [seasons, screenContentRatio, isOldPhone]);
+    }), [seasons, screenContentRatio]);
 
     const interceptAutoScroll = useCallback((e: MouseEvent) => {
         if (e.button == 1) {
@@ -420,7 +414,7 @@ export default function Home(props: {
     }, [newScrollX, scrollXAdditional])
 
     useEffect(() => {
-        if (firstAlbum.current) {
+        if (firstAlbumImg && !props.ready) {
             const artworkLoaded = new Promise<void>((resolve, reject) => {
                 const timeoutId = setTimeout(() => {
                     console.log("artwork timeout");
@@ -525,9 +519,7 @@ export default function Home(props: {
         return () => {
             observerRef.current?.disconnect();
         };
-    },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [isPresent, router.asPath, props.ready, props.onReady, firstAlbum.current]);
+    }, [isPresent, router.asPath, props.ready, props.onReady, firstAlbumImg, seasons]);
 
     useEffect(() => {
         setIsOldPhone(checkOldPhone());
@@ -562,15 +554,15 @@ export default function Home(props: {
                             <div className={styles.backwall} key={"backwall"}>
                                 <BackwallLight className={styles.backwall_light} motionValue={newScrollX} key="backwall_light" style={{ left: "-80vw" }} />
                                 <motion.div className={styles.backwall_paint} key={"backwall_paint"} />
-                                <motion.div className={styles.posters} key={"posters"} style={{ translateX: (isOldPhone || typeof (window) === "undefined") ? offset0 : "0px", translateZ: "0px", translateY: "-50%" }}>
+                                <motion.div className={styles.posters} key={"posters"} style={{ translateZ: "0px", translateY: "-50%" }}>
                                     {
-                                        seasons.map((season, i) => (
-                                            <React.Fragment key={season.name + "_invisible00_fragment"}>
-                                                <div key={season.name + "_invisible00"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px` }} />
-                                                <Poster ref={i == 0 ? firstPoster : undefined} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}_${invisibleSeasonSeparators[i]}`}
+                                        seasons.map((season, i) => {
+                                            const left = invisibleSeasonSeparators.slice(0, i + 1).reduce((sum, value) => sum + value, 0);
+                                            return (<React.Fragment key={season.name + "_invisible00_fragment"}>
+                                                <Poster ref={i == 0 ? firstPoster : undefined} offset={left} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}_${invisibleSeasonSeparators[i]}`}
                                                     poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
-                                            </React.Fragment>
-                                        ))
+                                            </React.Fragment>)
+                                        })
                                     }
                                 </motion.div>
                             </div>
@@ -584,7 +576,7 @@ export default function Home(props: {
                             </div>
                         </motion.div>
                         {
-                            !isMobileDevice && <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={isMobileDevice ? { ...(isOldPhone ? { translateX: offset05 } : { transform: "translateX(0px)" }) } : { transform: "translateX(0px)" }}>
+                            !isMobileDevice && <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ transform: "translateX(0px)" }}>
                                 {seasons.map((season, i) => (
                                     <React.Fragment key={season.name + "_invisible05_Fragment_"}>
                                         <div key={season.name + "_invisible05"} style={{ width: `calc((${invisibleSeasonSeparators[i]}px - (85vh / 4.5)) * 0.938842)` }} />

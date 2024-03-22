@@ -7,7 +7,6 @@ class MyDocument extends Document {
     return (
       <Html lang="fr">
         <Head>
-          <link rel="stylesheet" href={"/css/global.css"} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"

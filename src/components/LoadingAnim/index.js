@@ -5,14 +5,14 @@ import React from "react";
 import Head from 'next/head';
 import Image from "next/image";
 
-const Loader = (props) => {
+import Vinyl from "../../../public/img/vinyl_compressed.svg";
+import Monogram from "../../../public/img/sma_monogram.svg";
 
+const Loader = (props) => {
     return (
         <>
             <Head>
                 <link rel="preload" href="/img/SMA_sleeve.webp" as="image" />
-                <link rel="preload" href="/img/vinyl.svg" as="image" />
-                <link rel="preload" href="/img/sma_monogram.svg" as="image" />
                 <style>
                 {`@keyframes moveDisk {from { transform:translateX(0); }  to { transform: translateX(30%); }}`}
                 {`@keyframes moveSleeve { from {  transform: translateX(0); } to { transform: translateX(-30%); } }`}
@@ -46,13 +46,13 @@ const Loader = (props) => {
                     position: "absolute",
                     animation: "moveDisk 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards"
                 }}>
-                    <img loading="lazy" src="/img/vinyl.svg" alt="" style={{
+                    <Image src={Vinyl} fill alt="vinyl_loading" unoptimized style={{
+                        position: "absolute",
                         width: "100%",
                         height: "100%",
-                        position: "absolute",
                         filter: "drop-shadow(1vh 0.75vh 0.5vh rgba(0,0,0,0.3))"
                     }} />
-                    <img loading="lazy" src="/img/sma_monogram.svg" alt="" style={{
+                    <Image src={Monogram} alt="" unoptimized width={100} height={100} style={{
                         position: "absolute",
                         width: "26.6666%",
                         height: "26.6666%",
@@ -73,7 +73,7 @@ const Loader = (props) => {
                     }} />
                 </div>
                 <div style={{position: "absolute", height: "calc(min(30vh, 55vw))", width: "auto", aspectRatio: 1, display: "flex", flexDirection: "column", zIndex: 5, animation: "moveSleeve 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards" }}>
-                    <Image src="/img/SMA_sleeve.webp" fill={true} unoptimized loading="lazy" alt="sleeve_loading" style={{
+                    <Image src="/img/SMA_sleeve.webp" fill={true} unoptimized loading="eager" priority alt="sleeve_loading" style={{
                         overflow: "hidden",
                         boxShadow: "0.5vh 1vh 3vh rgba(0,0,0,0.3), -0.5vh 0px 3vh rgba(0,0,0,0.4)",                        
                     }} />
