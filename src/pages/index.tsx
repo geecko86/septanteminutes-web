@@ -46,6 +46,7 @@ export default function Home(props: {
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
     const [showSwiper, setShowSwiper] = useState(false);
+    const [firstPosterMotionValue, setFirstPosterMotionValue] = useState<MotionValue | undefined>(undefined);
     const [offset3_factor, setOffset3Factor] = useState<number>(0.5);
     const [isOldPhone, setIsOldPhone] = useState(true), [isMobileDevice, setIsMobileDevice] = useState(true);
 
@@ -68,7 +69,7 @@ export default function Home(props: {
             myWorker.onmessage = function(e) {
                 setSeasons(e.data);
             };
-            myWorker.postMessage(require("../utils/tempdata.js"));
+            myWorker.postMessage("");
         }
 
         return () => {
@@ -287,7 +288,7 @@ export default function Home(props: {
             window.removeEventListener('wheel', onWheel);
             cancelMomentumTracking();
         }
-    }, [scrollX, scrollXAdditional]);
+    }, [scrollX, scrollXAdditional, firstAlbumImg]);
 
     useEffect(() => {
         const rootElem = root.current;
@@ -550,19 +551,19 @@ export default function Home(props: {
                                 ))}
                             </div>
                             <div className={styles.backwall} key={"backwall"}>
-                                <BackwallLight className={styles.backwall_light} motionValue={newScrollX} key="backwall_light" style={{ left: "-80vw" }} />
                                 <motion.div className={styles.backwall_paint} key={"backwall_paint"} />
                                 <motion.div className={styles.posters} key={"posters"} style={{ translateZ: "0px", translateY: "-50%" }}>
                                     {
                                         seasons.map((season, i) => {
                                             const left = invisibleSeasonSeparators.slice(0, i + 1).reduce((sum, value) => sum + value, 0);
                                             return (<React.Fragment key={season.name + "_invisible00_fragment"}>
-                                                <Poster ref={i == 0 ? firstPoster : undefined} offset={left} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}_${invisibleSeasonSeparators[i]}`}
+                                                <Poster setFirstPosterMotionValue={setFirstPosterMotionValue} ref={i == 0 ? firstPoster : undefined} offset={left} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}_${invisibleSeasonSeparators[i]}`}
                                                     poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
                                             </React.Fragment>)
                                         })
                                     }
                                 </motion.div>
+                                <BackwallLight className={styles.backwall_light} key="backwall_light" offset={firstPosterMotionValue} />
                             </div>
 
                             <div className={styles.floor} key={"floor"}>

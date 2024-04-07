@@ -5,30 +5,33 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import useOffset from "../utils/ParallaxOffset";
+import { useTransform } from "framer-motion";
 import isOldPhone from "@/utils/mobileChecker";
+import { isMobile } from "react-device-detect";
 
 const ImageOffsetWrapperComponentOldPhone = (props) => {
-    const { position, motionValue, style, priority, offsetFactor, loading, src, sizes, ...newProps } = props;
+    const { position, motionValue, style, priority, offset, offsetFactor, loading, src, sizes, ...newProps } = props;
 
-    const translateX = useMemo(() => {
-        return `${47.5 * (Math.ceil((position || -1.8) / 1.8) + 1)}%`;
-    }, [position]);
+    const translateX = useTransform(motionValue, (value) => {
+        const numerator = value;
+        return `-${numerator / (home?.clientWidth || 3000) * 500}%`; // TODO: why 500? Should use clientwidth
+    });
 
     return (<div {...newProps}>
-        <motion.div style={{ ...style, position: "relative", translateX, translateZ: "4px", height: "100%", width: "100%" }}>
+        <motion.div style={{ ...style, position: "relative", translateX: offset || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
             <Image src={src} alt="" fill priority={!!priority} loading={loading || "lazy"} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
 
 const ImageOffsetWrapperComponentNewDevice = (props) => {
-    const { motionValue, src, offsetFactor, onReady, priority, sizes, loading, style, ...newProps } = props;
+    const { motionValue, src, offsetFactor, onReady, priority, offset, sizes, loading, style, ...newProps } = props;
     const ref = useRef(null);
 
-    const offset = useOffset(ref, motionValue, offsetFactor || 150, 0.9515, src, onReady);
+    const translateX = useOffset(ref, motionValue, offsetFactor || 150, 0.9515, src, onReady);
 
     return (<div {...newProps} ref={ref}>
-        <motion.div style={{ ...style, position: "relative", translateX: offset, translateZ: "4px", height: "100%", width: "100%" }}>
+        <motion.div style={{ ...style, position: "relative", translateX: offset || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
             <Image src={src} alt="" fill priority={!!priority} loading={loading || "lazy"} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
@@ -52,9 +55,9 @@ const ImageWrapperComponent = (props) => {
         return !!blurDataURL ? "blur" : "empty";
     }, [blurDataURL]);
 
-    return (<div {...otherProps} style={{ transform: "translateZ(4px)", ...style }} >
+    return (<motion.div {...otherProps} style={{ transform: "translateZ(4px)", ...style }} >
         <Image src={src} blurDataURL={blurDataURL} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
-    </div>)
+    </motion.div>)
 };
 
 const ImageWrapper = React.memo(ImageWrapperComponent);
@@ -119,6 +122,7 @@ export const Eggchair = (props) => {
 };
 
 export const BackwallLight = (props) => {
-    const comp = (<ImageOffsetWrapper offsetFactor={60} {...props} priority={true} loading="eager" src="https://framerusercontent.com/images/FsKB3GEHFAPqgBfbeEkGrIb6lA.png" sizes="461vw" />);
+    const { offset, ...newProps } = props;
+    const comp = (<ImageWrapper {...newProps} style={{translateX: offset}} priority={true} loading="eager" src="https://framerusercontent.com/images/t2tJdWNxSdl6oaN7xXaM0a9RHz4.png" sizes="250vh" />);
     return { ...comp, displayName: "BackwallLight" };
 }

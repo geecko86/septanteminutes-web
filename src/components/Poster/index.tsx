@@ -6,7 +6,7 @@ import isOldPhone from "../../utils/mobileChecker";
 import styles from "./poster.module.css";
 
 const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
-    const { motionValue, position, poster: { src, ratio, height }, offset, onReady, isLast, inheritedRef, ...newProps } = props;
+    const { motionValue, setFirstPosterMotionValue, position, poster: { src, ratio, height }, offset, onReady, isLast, inheritedRef, ...newProps } = props;
     
     const parentRef = useRef<HTMLDivElement>(null);
     const home = document.getElementById("home");
@@ -14,10 +14,14 @@ const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>(
     // const translateX = useMemo(() => `${55+5*position}%`, [position]);
     const translateX = useTransform(motionValue, (value) => {
         const numerator = value + offset * 0.9;
-        return `-${numerator / (home?.clientWidth || 3000) * 500}%`;
+        return `-${numerator / (home?.clientWidth || 3000) * 5 * (parentRef.current?.clientWidth || 0)}px`;
     });
     const size = useMemo(() => `${Math.floor(height * 80)}vmax`, [height]);
     const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + (var(--layer_1_gap) / 2) + ${offset}px + calc(min(25.6vh, 25vw)))` }), [height, ratio, offset, position]);
+
+    useEffect(() => {
+        if (position == 0 && setFirstPosterMotionValue) setFirstPosterMotionValue(translateX);
+    }, [position, setFirstPosterMotionValue, translateX]);
 
     // TODO: size when landscape rotation
     return (<div {...newProps} style={style} ref={parentRef}>
@@ -29,7 +33,7 @@ const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>(
 PosterComponentOldPhone.displayName = 'PosterComponentOldPhone';
 
 const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
-    const { motionValue, position, poster: { src, ratio, height, parallaxFactor }, onReady, offset, isLast, ...newProps } = props;
+    const { motionValue, setFirstPosterMotionValue, position, poster: { src, ratio, height, parallaxFactor }, onReady, offset, isLast, ...newProps } = props;
 
     const jumpToValue = (val: number | string) => {
         if (!isLast && typeof(val) === "string") {
@@ -41,6 +45,10 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
     const translateX = useOffset(newRef, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
     const size = useMemo(() => `${Math.floor(height * 80)}vh`, [height]);
     const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px + calc(min(25.6vh, 25vw)))` }), [height, ratio, offset, position]);
+
+    useEffect(() => {
+        if (position == 0 && setFirstPosterMotionValue) setFirstPosterMotionValue(translateX);
+    }, [position, setFirstPosterMotionValue, translateX]);
 
     // TODO: size when landscape rotation
     return (<div {...newProps} ref={newRef} style={style}>
@@ -79,6 +87,7 @@ type PosterProps = {
     offset: number,
     onReady?: () => void,
     inheritedRef?: RefObject<HTMLDivElement>,
+    setFirstPosterMotionValue: (val: MotionValue) => void,
     isLast?: boolean,
     position: number,
     poster: {

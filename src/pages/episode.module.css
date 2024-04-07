@@ -233,16 +233,6 @@ div:has(> .chair) {
 }
 
 
-.albums .playButton {
-  width: 50% !important;
-  height: 50% !important;
-  opacity: 0;
-  transform: translate(50%, -50%, 0px);
-  pointer-events: none;
-
-  bottom: 25% !important;
-}
-
 .albums .playButton img {
   will-change: unset !important;
 }
@@ -302,6 +292,17 @@ div:has(> .chair) {
   height: 100% !important;
   width: 100% !important;
   will-change: transform;
+}
+
+.albums > div.playButton:last-child {
+  width: 50% !important;
+  height: 50% !important;
+  opacity: 0;
+  left: 50%;
+  top: 50%;
+  right: unset;
+  translate: -50% -50% 0px;
+  pointer-events: none;
 }
 
 .postitnotes {

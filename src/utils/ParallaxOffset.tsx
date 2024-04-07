@@ -25,7 +25,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
 
   const computeTranslationX = useCallback(() => {
     const target = ref.current;
-    if (!target) return "0%";
+    if (!target) return "0px";
     const isRotated = window.innerHeight !== windowDim.height;
     const viewportEnd = windowDim.width;
     const targetRect = target.getBoundingClientRect();
@@ -38,18 +38,18 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
     // if (targetStart > 0 && targetStart < 1000 && src==="https://framerusercontent.com/images/p7a4OJaiiEBm2LbB08atc4nEjM.png") console.log(targetStart, viewportEnd);
     if (targetStart > windowDim.width) { 
       // if (src === "https://framerusercontent.com/images/hxRiihE2Zoimhej95EBT69kprc.png") console.log(targetStart, "-aaa-")
-      return `0%`;
+      return `0px`;
     }
 
     const adjustedCoeff = coeff * (windowDim.width / windowDim.height);
     // Calculate the progress percentage
     const newProgress =
       ((viewportEnd - targetStart) / (viewportEnd + Math.max(targetRect.width, targetRect.height)));
-    if (newProgress >= 1.6) {
-      return `${adjustedCoeff * -1.53}%`;
+    if (newProgress >= 2.7) {
+      return `${adjustedCoeff * -0.0153}px`;
     }
 
-    const output = `${Math.pow(newProgress * adjustedCoeff, pow)}%`;
+    const output = `${targetWidth * (Math.pow(newProgress * adjustedCoeff, pow) / 100)}px`;
     // const output = `${newProgress * adjustedCoeff}%`;
     return output;
   }, [ref, motionValue, coeff, pow, windowDim]);

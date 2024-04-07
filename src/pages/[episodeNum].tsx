@@ -26,8 +26,8 @@ import RecordPlayer from "../components/RecordPlayer";
 import VinylAlbum, { ShadowAlbum } from "../components/VinylAlbum";
 import NotebookOverlay from "../components/NotebookOverlay";
 import { hackAutoplay, usePlayback } from '../utils/PlayerContext';
-import data from "../utils/tempdata.js";
 import { isIOS, isMobile } from "react-device-detect";
+import { Episode } from "@/types/episode";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -40,14 +40,9 @@ export default function EpisodeTable(props: {
   ready: boolean,
   cleared: boolean
 }) {
-  const { episodes } = data;
   const router = useRouter();
   const [funqueue, _] = useState([] as (() => void)[]);
 
-  const [vinyls, __] = useState(Array.from(
-    { length: Object.keys(episodes).length },
-    (v, k) => episodes[(k + 1).toString() as key]
-  ));
   const [snapping, setSnapping] = useState(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [selectedPosition, setSelectedPosition] = useState(0);
@@ -58,6 +53,7 @@ export default function EpisodeTable(props: {
   const [overlayNotebookTranslation, setOverlayNotebookTranslation] = useState("left");
   const [displayedURL, setDisplayedURL] = useState("");
   const [episodeNumParam, setEpisodeNumParam] = useState(-1);
+  const [vinyls, setVinyls] = useState<Episode[]>([]);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
 
   const episodePage = useRef<HTMLDivElement>(null);
@@ -249,7 +245,8 @@ export default function EpisodeTable(props: {
         };        
       });
       const floorPromise = new Promise<void>((resolve, reject) => {
-        const floorPromise = mainRef.current?.querySelectorAll(`.${styles.floor} img`).forEach((el) => {
+        if (!vinyls.length) reject();
+        mainRef.current?.querySelectorAll(`.${styles.floor} img`).forEach((el) => {
           const timeoutId = setTimeout(resolve, 2500);
           const img = el as HTMLImageElement;
           if (img.complete) resolve();
@@ -263,7 +260,25 @@ export default function EpisodeTable(props: {
           };
         });
       });
-      Promise.all([selectedVinylPromise, floorPromise]).then(() => {
+      const vinylsFetchPromise = new Promise<void>((resolve, reject) => {
+        if (vinyls.length > 0) resolve();
+        else {
+          fetch('/js/data.json')
+            .then(response => {
+              if (!response.ok) throw new Error('Network response was not ok');
+              return response.json();
+            })
+            .then(data => {
+              setVinyls(data);
+              resolve();
+            })
+            .catch(error => {
+              console.error('There was a problem with the fetch operation:', error);
+              reject();
+            });
+        }
+      });
+      Promise.all([vinylsFetchPromise, selectedVinylPromise, floorPromise]).then(() => {
         console.log("All images loaded")
         if (!clear) props.onReady();
       });
@@ -272,7 +287,7 @@ export default function EpisodeTable(props: {
     return () => {
       clear = true;
     }
-  }, [selectedVinyl, props, mainRef]);
+  }, [selectedVinyl, props, mainRef, vinyls]);
 
   useEffect(() => {
     hasClickedNotebookRef.current = hasClickedNotebook;

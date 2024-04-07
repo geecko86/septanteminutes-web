@@ -82,20 +82,20 @@
 .backwall_paint {
     height: 100%;
     width: 100%;
-    background-color: #D8D8D8;
+    background-color: #e0e0e0;
 }
 
 .backwall_light {
     width: auto;
     height: 114.53%;
-    aspect-ratio: 3840/1100;
-    position: relative;
-    left: -65vw;
+    aspect-ratio: 3840/1336;
+    position: absolute;
+    left: 10vmin;
     top: -8.53%;
     object-fit: contain;
     contain: paint;
-    mix-blend-mode: multiply;
-    background-color: #d8d8d8;
+    mix-blend-mode: overlay;
+    opacity: 0.8;
 }
 
 .backwall_light > div {
@@ -277,6 +277,16 @@
         padding-top:  3rem;
         padding-bottom: calc(85vh / 8.2 + (85vh / 10 - 3rem));
         padding-bottom: calc(85svh / 8.2 + (85svh / 10 - 3rem));
+    }
+}
+
+@media screen and (max-height: 599px) {
+    .season_frame div[data-framer-name="Wall"] {
+        padding-top: 1rem;
+    }
+
+    .season_frame div[data-framer-name="Logo"] * {
+        position: relative !important;
     }
 }
 
@@ -722,7 +732,7 @@
     }
 }
 
-@media (max-height:699px) {
+@media screen and (max-height:699px) {
     .season_frame div[data-framer-name="LEGENDE"] {
         display: none;
     }
