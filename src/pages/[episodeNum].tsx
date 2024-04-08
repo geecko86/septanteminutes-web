@@ -69,9 +69,9 @@ export default function EpisodeTable(props: {
   const [isPresent, safeToRemove] = usePresence();
 
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
-    title: vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[2].trim(),
-    subtitle: `Avec ${vinyls[selectedEpisode].title.split(/\s(-|–)\s?/g)[0].trim()}`,
-    desc: vinyls[selectedEpisode].desc,
+    title: vinyls[selectedEpisode]?.title?.split(/\s(-|–)\s?/g)[2]?.trim(),
+    subtitle: `Avec ${vinyls[selectedEpisode]?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`,
+    desc: vinyls[selectedEpisode]?.desc,
     translateX: overlayNotebookTranslation,
   });
 
@@ -245,7 +245,6 @@ export default function EpisodeTable(props: {
         };        
       });
       const floorPromise = new Promise<void>((resolve, reject) => {
-        if (!vinyls.length) reject();
         mainRef.current?.querySelectorAll(`.${styles.floor} img`).forEach((el) => {
           const timeoutId = setTimeout(resolve, 2500);
           const img = el as HTMLImageElement;
@@ -260,25 +259,7 @@ export default function EpisodeTable(props: {
           };
         });
       });
-      const vinylsFetchPromise = new Promise<void>((resolve, reject) => {
-        if (vinyls.length > 0) resolve();
-        else {
-          fetch('/js/data.json')
-            .then(response => {
-              if (!response.ok) throw new Error('Network response was not ok');
-              return response.json();
-            })
-            .then(data => {
-              setVinyls(data);
-              resolve();
-            })
-            .catch(error => {
-              console.error('There was a problem with the fetch operation:', error);
-              reject();
-            });
-        }
-      });
-      Promise.all([vinylsFetchPromise, selectedVinylPromise, floorPromise]).then(() => {
+      Promise.all([selectedVinylPromise, floorPromise]).then(() => {
         console.log("All images loaded")
         if (!clear) props.onReady();
       });
@@ -287,7 +268,28 @@ export default function EpisodeTable(props: {
     return () => {
       clear = true;
     }
-  }, [selectedVinyl, props, mainRef, vinyls]);
+  }, [selectedVinyl, props, mainRef]);
+
+  useEffect(() => {
+    if (vinyls.length == 0) {
+          fetch('/js/data.json')
+            .then(response => {
+              if (!response.ok) throw new Error('Network response was not ok');
+              return response.json();
+            })
+            .then(data => {
+              setVinyls(
+                Array.from(
+                  { length: Object.keys(data.episodes).length },
+                  (v, k) => data.episodes[(k + 1).toString() as key]
+                )
+              );
+            })
+            .catch(error => {
+              console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+  }, [vinyls]);
 
   useEffect(() => {
     hasClickedNotebookRef.current = hasClickedNotebook;
@@ -423,7 +425,7 @@ export default function EpisodeTable(props: {
       }}>
         {cloneElement(notebookOverlayComponent, {})}
         <Head>
-          <title>{ playbackTitle ? `${ isPlaying ? "▶ " : ""}${playbackTitle}` : `Septante Minutes Avec ${vinyls[selectedEpisode]["title"]}` }</title>
+          <title>{ playbackTitle ? `${ isPlaying ? "▶ " : ""}${playbackTitle}` : `Septante Minutes Avec ${vinyls[selectedEpisode]?.title}` }</title>
         </Head>
         <motion.div
           className={styles.main}
@@ -496,7 +498,7 @@ export default function EpisodeTable(props: {
               <ImagedPostIt
                 className={[styles.postit, styles.download_postit].join(" ")}
                 title={"Télécharger"}
-                link={vinyls[selectedEpisode]["mp3"]}
+                link={vinyls[selectedEpisode]?.mp3}
                 separate={true}
               />
               <ImagedPostIt

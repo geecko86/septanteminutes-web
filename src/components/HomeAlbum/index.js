@@ -35,9 +35,9 @@ const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...
           height: "auto",
           width: "100%",
           aspectRatio: 1,
-          transslateY: 0
+          translateY: 0
         }}
-        animate={{ opacity: isHovered ? 1.0 : 0.95, translateY: isHovered ? "-10%" : 0 }}
+        animate={{ opacity: isHovered ? 1.0 : 0.95, translateY: isHovered ? "-10%" : "-0%" }}
       >
         {image && (
           <Image

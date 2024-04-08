@@ -1,6 +1,7 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Image from "next/image";
 
+import checkOldPhone from "@/utils/mobileChecker";
 import styles from "./season.module.css";
 
 const SeasonComponent = ({
@@ -13,6 +14,12 @@ const SeasonComponent = ({
 }) => {
     const arrayKeys = useMemo(() => [...Array(Math.max(1, Math.ceil((children?.length || 2) / 2 / 3.3))).keys()], [children]);
 
+    const [isOldPhone, setIsOldPhone] = useState(true);
+
+    useEffect(() => {
+        setIsOldPhone(checkOldPhone());
+    }, []);
+
     return (
         <div {...otherProps} className={[styles.season, styles.season_inside, otherProps.className || ""].join(" ")} tabIndex={0} style={{ ...style, display: "contents" }}>
             <div className={[styles.season_inside, styles.index_season_frame, className].join(" ")} style={{
@@ -21,11 +28,12 @@ const SeasonComponent = ({
                 opacity: 1,
                 minWidth: chair ? "inherit" : "unset"
             }}>
-                {!!chair && <div style={{
+                {!isOldPhone && <div style={{
                     height: "100%",
                     width: "100%",
                     position: "absolute",
                     display: "flex",
+                    background: "linear-gradient(rgba(255, 255, 255, 0.3), rgba(190, 189, 189, 0.3))",
                     overflow: "hidden"
                 }}>
                     {
@@ -48,7 +56,6 @@ const SeasonComponent = ({
                     }
                 </div>}
                 <div data-framer-name="Wall" style={{
-                    background: "linear-gradient(rgba(255, 255, 255, 0.3), rgba(190, 189, 189, 0.3))",
                     aspectRatio: true ? `max(665.17, 8.22 * 20 * ${Math.ceil((children?.length || 2) / 2)} + 8.22 * 7 * ${Math.ceil((children?.length || 2) / 2) - 1})/543` : "unset"
                     // 8.22 = svh, 20 = coeff, number of columns + number of gaps 
                 }}>

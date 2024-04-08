@@ -343,9 +343,9 @@
     width: 100% !important;
     aspect-ratio: unset !important;
     bottom: unset !important;
-    top: unset !important;
     object-fit: contain;
     inset: unset !important;
+    top: 0 !important;
 }
 
 .season_frame div[data-framer-name="Logo"] {
