@@ -57,7 +57,7 @@ export default function Home(props: {
     const resolveScrollRef = useRef<(() => void) | null>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
-    const { setPlaying, isPlaying, setAutoplay, autoplay, playbackTitle } = usePlayback();
+    const { setPlaying, isPlaying, setAutoplay, autoplay, playingEpisode } = usePlayback();
     const router = useRouter();
     const [isPresent, safeToRemove] = usePresence();
 
@@ -540,7 +540,7 @@ export default function Home(props: {
                     <motion.div className={styles.home} key={"home"} ref={home} tabIndex={0} id="home"
                         onKeyDown={handleKeysDown} style={{ translateX: newScrollX, translateZ: 0 }}>
                         <Head>
-                            <title>{playbackTitle ? `${isPlaying ? "▶ " : ""}${playbackTitle}` : "Septante Minutes Avec"}</title>
+                            <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : "Septante Minutes Avec"}</title>
                         </Head>
                         <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} >
                             <div className={styles.ceiling} key={"ceiling"}>

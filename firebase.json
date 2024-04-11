@@ -15,10 +15,52 @@
       }
     ],
     "headers": [{
-      "source": "**",
+      "source": "**/*.css",
       "headers": [{
         "key": "Cache-Control",
         "value": "max-age=31536000"
+      }]
+    }, {
+      "source": "**/*.webp",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=31536000"
+      }]
+    }, {
+      "source": "**/*.svg",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=31536000"
+      }]
+    }, {
+      "source": "**/*.png",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=31536000"
+      }]
+    }, {
+      "source": "**/*.ico",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=31536000"
+      }]
+    }, {
+      "source": "**/*.js",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=300"
+      }]
+    }, {
+      "source": "**/*.html",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=300"
+      }]
+    }, {
+      "source": "**/*.json",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=3600"
       }]
     }]
   }

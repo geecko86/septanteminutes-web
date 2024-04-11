@@ -90,7 +90,7 @@
     height: 114.53%;
     aspect-ratio: 3840/1336;
     position: absolute;
-    left: 10vmin;
+    left: -105vmin;
     top: -8.53%;
     object-fit: contain;
     contain: paint;

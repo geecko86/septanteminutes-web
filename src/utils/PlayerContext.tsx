@@ -108,23 +108,20 @@ const setupPlaySession = (newAudio: HTMLAudioElement, setPlaying: (arg0: SetStat
 
 export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const [isPlaying, setPlaying] = useState(false)
-    const [playbackMP3, setMP3] = useState("")
-    const [playbackTitle, setPlaybackTitle] = useState("")
-    const [playbackArtwork, setPlaybackArtwork] = useState("")
-    const [playbackNum, setPlaybackNum] = useState<number>(0)
+    const [playingEpisode, setPlayingEpisode] = useState<Episode | undefined>(undefined)
     const [status, setStatus] = useState<number>(0);
     const [autoplay, setAutoplay] = useState<Episode | undefined>(undefined);
     const audioRef = useRef<HTMLAudioElement>();
     const audio = audioRef.current;
 
    useEffect(() => {
-        if (navigator.mediaSession?.metadata?.title !== playbackTitle) {
+        if (navigator.mediaSession?.metadata?.title != playingEpisode?.title) {
             setupMetadata({
-                playbackTitle,
-                playbackArtwork,
+                playbackTitle: playingEpisode?.title!!,
+                playbackArtwork : playingEpisode?.img!!,
             });
         }
-    }, [playbackArtwork, playbackTitle]);
+    }, [playingEpisode]);
 
     useEffect(() => {
         if (audioRef.current) return;
@@ -140,9 +137,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
             setPlaying(true);
         };
         const onEnded = () => {
-            setMP3("");
-            setPlaybackTitle("");
-            setPlaybackArtwork("");
+            setPlayingEpisode(undefined)
             if (audioRef.current) {
                 audioRef.current.pause();
                 audioRef.current.currentTime = 0;
@@ -194,11 +189,11 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     }, []);
 
     useEffect(() => {
-        if (playbackMP3 && audio && audio.src !== playbackMP3) {
-            audio.src = playbackMP3;
+        if (playingEpisode?.mp3 && audio && audio.src !== playingEpisode.mp3) {
+            audio.src = playingEpisode.mp3;
             audio.load();
         }
-    }, [playbackMP3, audio]);
+    }, [playingEpisode?.mp3, audio]);
 
     useEffect(() => {
         if (!audio) {
@@ -208,8 +203,8 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
 
         if (isPlaying && audio.src && audio.readyState >= 2 && audio.canPlayType("audio/mpeg")) {
             audio.play().then(() => {
-                    if (!audio.src.startsWith("data:audio") && navigator.mediaSession?.metadata?.title !== playbackTitle) {
-                    setupMetadata({ playbackTitle, playbackArtwork });
+                if (!audio.src.startsWith("data:audio") && navigator.mediaSession?.metadata?.title != playingEpisode?.title) {
+                    setupMetadata({ playbackTitle: playingEpisode?.title!!, playbackArtwork: playingEpisode?.img!! });
                     setupPlaySession(audio, setPlaying);
                     updatePositionState(audio);
                 }
@@ -219,19 +214,13 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         } else if (!audio.paused) {
             audio.pause();
         }
-    }, [isPlaying, audio, playbackArtwork, playbackTitle, audio?.readyState]);
+    }, [isPlaying, audio, playingEpisode, audio?.readyState]);
 
     const playbackData: PlaybackContextData = {
         isPlaying: isPlaying,
         setPlaying: setPlaying,
-        playbackMP3: playbackMP3,
-        setPlaybackMP3: setMP3,
-        playbackTitle: playbackTitle,
-        setPlaybackTitle: setPlaybackTitle,
-        playbackArtwork: playbackArtwork,
-        setPlaybackArtwork: setPlaybackArtwork,
-        playbackNum: playbackNum,
-        setPlaybackNum: setPlaybackNum,
+        playingEpisode: playingEpisode,
+        setPlayingEpisode : setPlayingEpisode,
         status: status,
         setStatus: setStatus,
         autoplay: autoplay,
@@ -257,14 +246,8 @@ export const usePlayback = () => {
 export type PlaybackContextData = {
     isPlaying: boolean,
     setPlaying: (arg0: SetStateAction<boolean>) => void,
-    playbackMP3: string,
-    setPlaybackMP3: (arg0: SetStateAction<string>) => void,
-    playbackNum: number,
-    setPlaybackNum: (arg0: SetStateAction<number>) => void,
-    playbackTitle: string,
-    setPlaybackTitle: (arg0: SetStateAction<string>) => void,
-    playbackArtwork: string,
-    setPlaybackArtwork: (arg0: SetStateAction<string>) => void,
+    playingEpisode: Episode | undefined,
+    setPlayingEpisode: (arg0: SetStateAction<Episode | undefined>) => void,
     status: number,
     setStatus: (arg0: SetStateAction<number>) => void,
     autoplay: Episode | undefined,

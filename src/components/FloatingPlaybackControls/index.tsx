@@ -1,6 +1,6 @@
 'use client'
 
-import React, { SetStateAction, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'rc-slider';
 import Link from 'next/link'
 
@@ -32,9 +32,9 @@ const Controls = () => {
     const [progress, setProgress] = useState(0.0);
     const [showAudioElement, setShowAudioElement] = useState(false);
 
-    const { playbackMP3: mp3, audio: audio, playbackNum: num, playbackTitle: title, setPlaying, isPlaying, status } = usePlayback();
+    const { playingEpisode, audio, setPlaying, isPlaying, status } = usePlayback();
 
-    const active = !!mp3 && !!num && !!title;
+    const active = !!playingEpisode?.mp3 && !!playingEpisode?.num && !!playingEpisode?.title;
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
         if (e.keyCode == 32) {
@@ -91,12 +91,12 @@ const Controls = () => {
                 }}
             >
                 <div className={styles.content}>
-                    <Link scroll={false} href={`/${num}`} className={styles.text_section} onMouseEnter={() => {
+                    <Link scroll={false} href={`/${playingEpisode?.num}`} className={styles.text_section} onMouseEnter={() => {
                         setHovered(isPlaying);
                         if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                     }}>
-                        {active && <span className={styles.episode_number}>{`episode ${num}`}</span>}
-                        <span className={styles.guest_name}>{title.split(/\s(-|–)\s?/g)[0].trim()}</span>
+                        {active && <span className={styles.episode_number}>{`episode ${playingEpisode?.num}`}</span>}
+                        <span className={styles.guest_name}>{playingEpisode?.title.split(/\s(-|–)\s?/g)[0].trim()}</span>
                     </Link>
                     <div className={styles.progress_bar_section}>
                         {audio && audio.src && audio.duration ? (

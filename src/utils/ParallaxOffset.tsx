@@ -45,7 +45,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
     // Calculate the progress percentage
     const newProgress =
       ((viewportEnd - targetStart) / (viewportEnd + Math.max(targetRect.width, targetRect.height)));
-    if (newProgress >= 2.7) {
+    if (newProgress >= 1.6) {
       return `${adjustedCoeff * -0.0153}px`;
     }
 

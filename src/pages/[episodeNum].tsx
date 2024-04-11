@@ -63,15 +63,17 @@ export default function EpisodeTable(props: {
   const hasClickedNotebookRef = useRef(hasClickedNotebook);
   const hasClickedPlayRef = useRef(hasClickedPlay);
   const selectedVinyl = useRef<HTMLDivElement>(null);
-  const playbackMP3Ref = useRef("");
+  const playbackMP3Ref = useRef<string | undefined>("");
   const isPlayingRef = useRef(false);
 
   const [isPresent, safeToRemove] = usePresence();
+  const { setPlaying, setPlayingEpisode, isPlaying, playingEpisode, autoplay, status, audio } = usePlayback();
 
+  const descriptionEpisode = isPlayingRef.current ? playingEpisode : vinyls[selectedEpisode];
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
-    title: vinyls[selectedEpisode]?.title?.split(/\s(-|–)\s?/g)[2]?.trim(),
-    subtitle: `Avec ${vinyls[selectedEpisode]?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`,
-    desc: vinyls[selectedEpisode]?.desc,
+    title: descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[2]?.trim(),
+    subtitle: `Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`,
+    desc: descriptionEpisode?.desc,
     translateX: overlayNotebookTranslation,
   });
 
@@ -88,10 +90,8 @@ export default function EpisodeTable(props: {
     [scrollYProgress, vinyls.length]
   );
 
-  const { setPlaying, isPlaying, playbackMP3, setPlaybackMP3, playbackTitle, setPlaybackTitle, setPlaybackArtwork, setPlaybackNum, autoplay, status, audio } = usePlayback();
-
   isPlayingRef.current = isPlaying;
-  playbackMP3Ref.current = playbackMP3;
+  playbackMP3Ref.current = playingEpisode?.mp3;
 
   const doIdlePlayButtonAnimation = useCallback(() => {
     if (hasClickedPlayRef.current || playbackMP3Ref.current) return;
@@ -126,8 +126,8 @@ export default function EpisodeTable(props: {
   }, []);
 
   useEffect(() => {
-    playbackMP3Ref.current = playbackMP3;
-    if (!playbackMP3 || !props.ready) return;
+    playbackMP3Ref.current = playingEpisode?.mp3;
+    if (!playbackMP3Ref.current || !props.ready) return;
 
     const doNotebookIdleAnimation = () => {
       const notebookElement = document.getElementsByClassName(styles.notebook)[0];
@@ -158,7 +158,7 @@ export default function EpisodeTable(props: {
       clearTimeout(id);
       clearTimeout(idleAnimationTimeoutIdRef.current);
     }
-  }, [playbackMP3, props.ready]);
+  }, [playingEpisode?.mp3, props.ready]);
 
   useEffect(() => {
     if (displayedURL) {
@@ -380,17 +380,14 @@ export default function EpisodeTable(props: {
       return;
     }
     
-    if (playbackMP3 == vinyls[position].mp3) {
+    if (playingEpisode?.mp3 == vinyls[position].mp3) {
       console.log("same mp3");
       if (!autoplay) setPlaying(true);
       return;
     }
 
     const play = () => {
-      setPlaybackTitle(vinyls[selectedEpisode].title);
-      setPlaybackArtwork(vinyls[selectedEpisode].img);
-      setPlaybackMP3(vinyls[position].mp3);
-      setPlaybackNum(position + 1);
+      setPlayingEpisode(vinyls[selectedEpisode])
     };
 
     if (audio.src || !isIOS) {
@@ -425,7 +422,7 @@ export default function EpisodeTable(props: {
       }}>
         {cloneElement(notebookOverlayComponent, {})}
         <Head>
-          <title>{ playbackTitle ? `${ isPlaying ? "▶ " : ""}${playbackTitle}` : `Septante Minutes Avec ${vinyls[selectedEpisode]?.title}` }</title>
+          <title>{ playingEpisode?.title ? `${ isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${vinyls[selectedEpisode]?.title}` }</title>
         </Head>
         <motion.div
           className={styles.main}
@@ -472,7 +469,7 @@ export default function EpisodeTable(props: {
             { !isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
             { !isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
-              if (playbackMP3) {
+              if (playingEpisode?.mp3) {
                 setPlaying(!isPlaying);
               }
             }} />
