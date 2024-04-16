@@ -1,32 +1,33 @@
 "use client";
 
-import styles from "./album.module.css";
-
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, MouseEventHandler, ForwardedRef } from "react";
 import {
   motion,
   useTransform,
   useSpring,
   useMotionValueEvent,
+  MotionValue,
+  MotionStyle,
 } from "framer-motion";
 import Image from "next/image";
 import { useEventListener } from "usehooks-ts";
 
-const VinylAlbum = ({
-  position,
-  scrollYProgress,
-  image,
-  onLoad,
-  total,
-  inheritedRef,
-  episodeNumParam= -1,
-  mayAnimate = false,
-  alt = "",
-  type = "vinyl",
-  onSelect = () => {},
-  onMouseEnter = (e) => {},
-  onMouseLeave = (e) => {},
-}) => {
+import styles from "./album.module.css";
+
+const VinylAlbum = React.forwardRef(( {
+    position,
+    scrollYProgress,
+    image,
+    total,
+    mayAnimate = false,
+    alt = "",
+    type = "vinyl",
+    episodeNumParam = -1,
+    onSelect = () => {},
+    onLoad = () => {},
+    onMouseEnter = (_: any) => {},
+    onMouseLeave = (_: any) => {},
+  }: VinylProps, ref: ForwardedRef<HTMLImageElement>) => {
   const albumRotation = useSpring(0, {
     stiffness: 700,
     damping: 52,
@@ -67,7 +68,7 @@ const VinylAlbum = ({
   const [ignoreScroll, setIgnoreScroll] = useState(false);
   const [isMoving, setMoving] = useState(false);
   const [jump, setJump] = useState(true);
-  const [timeoutId, setTimeoutId] = useState(0);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
     if (episodeNumParam == -1) return;
@@ -78,7 +79,7 @@ const VinylAlbum = ({
     }
   }, [mayAnimate, episodeNumParam, position]);
 
-  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+  useMotionValueEvent(scrollYProgress, "change", (progress: number) => {
       if (position != 0 && !ignoreScroll) {
         if (jump) {
           albumRotation.jump(progress * (total - 1) * -25);
@@ -123,71 +124,91 @@ const VinylAlbum = ({
     translateY,
     rotateZ,
     zIndex: (type == "shadow" ? 1 : 0),
-    visibility: rotateZ.current == -25 ? "collapse" : "inherit",
+    visibility: rotateZ.get() == -25 ? "collapse" : "inherit",
   } : {};
 
   return type === "shadow" ? (
     <div className={styles.shadow_container} data-visibility={isHidden ? "hidden" : "visible"}>
       <motion.div
         className={`${styles.separate_shadow} ${shadowLevel}`}
-        style={style}
+        style={style as MotionStyle}
       />
     </div>
-  ) : (
-    <div
-      className={[styles.hover_container, isMoving ? styles.moving : ""].join(
-        " "
-      )}
-      data-visibility={isHidden ? "hidden" : "visible"}
-      hidden={isGone}
-    >
-      <motion.div
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        className={styles.album}
-        style={{ ...style }}
+    ) 
+  : (
+      <div
+        className={[styles.hover_container, isMoving ? styles.moving : ""].join(
+          " "
+        )}
+        data-visibility={isHidden ? "hidden" : "visible"}
+        hidden={isGone}
       >
-        <Image
-          src={image}
-          alt={alt}
-          fill={true}
-          ref={inheritedRef}
-          className={!loaded ? styles.image_loading : ""}
-          sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
-          onLoad={() => {
-            setLoadedComplete(true);
-            if (!isGone && onLoad) onLoad()
-          }}
-        />
-        <Image
-          src="https://framerusercontent.com/images/xASprVMQ8YKj6GHkS84CpZ7ElQ.png"
-          alt=""
-          fill={true}
-          priority={true}
-          className={styles.wrinkles}
-          sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
-        />
-      </motion.div>
-    </div>
-  );
-};
+        <motion.div
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          className={styles.album}
+          style={style as MotionStyle}
+        >
+          <Image
+            src={image}
+            alt={alt}
+            fill={true}
+            ref={ref}
+            className={!loaded ? styles.image_loading : ""}
+            sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
+            onLoad={() => {
+              setLoadedComplete(true);
+              if (!isGone && onLoad) onLoad()
+            }}
+          />
+          <Image
+            src="https://framerusercontent.com/images/xASprVMQ8YKj6GHkS84CpZ7ElQ.png"
+            alt=""
+            fill={true}
+            priority={true}
+            className={styles.wrinkles}
+            sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
+          />
+        </motion.div>
+      </div>);
+  }
+);
+VinylAlbum.displayName = "VinylAlbum";
 
-const ShadowAlbum = ({
-  position,
-  scrollYProgress,
-  image,
-  total,
-  mayAnimate = false,
-  type = "shadow",
-}) => {
-  return VinylAlbum({
+const ShadowAlbum = (props: VinylProps) => {
+  const {
     position,
     scrollYProgress,
     image,
     total,
-    mayAnimate,
-    type,
-  });
+    mayAnimate = false,
+    type = "shadow",
+  } = props;
+  return (
+    <VinylAlbum 
+      position={position}
+      scrollYProgress={scrollYProgress}
+      image={image}
+      total={total}
+      mayAnimate={mayAnimate}
+      type={type}
+    />
+  )
 };
+
+type VinylProps = {
+  position: number,
+  scrollYProgress: MotionValue,
+  image: string,
+  total: number,
+  mayAnimate: boolean,
+  type?: string,
+  onLoad?: () => void,
+  episodeNumParam?: number,
+  alt?: string,
+  onSelect?: () => void,
+  onMouseEnter?: MouseEventHandler<HTMLDivElement>,
+  onMouseLeave?: MouseEventHandler<HTMLDivElement>
+}
 
 export { VinylAlbum as default, ShadowAlbum };

@@ -55,6 +55,7 @@ export default function EpisodeTable(props: {
   const [episodeNumParam, setEpisodeNumParam] = useState(-1);
   const [vinyls, setVinyls] = useState<Episode[]>([]);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
+  const [selectedVinylRendered, setSelectedVinylRendered] = useState(false)
 
   const episodePage = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -62,7 +63,7 @@ export default function EpisodeTable(props: {
   const idleAnimationTimeoutIdRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const hasClickedNotebookRef = useRef(hasClickedNotebook);
   const hasClickedPlayRef = useRef(hasClickedPlay);
-  const selectedVinyl = useRef<HTMLDivElement>(null);
+  const selectedVinyl = useRef<HTMLImageElement>(null);
   const playbackMP3Ref = useRef<string | undefined>("");
   const isPlayingRef = useRef(false);
 
@@ -97,8 +98,8 @@ export default function EpisodeTable(props: {
     if (hasClickedPlayRef.current || playbackMP3Ref.current) return;
 
     animate([
-        [`.${styles.playButton}`, { opacity: 0.8 }, { ease: "easeOut", duration: 1 }],
-        [`.${styles.playButton}`, { opacity: 0 }, { ease: "easeIn", duration: 0.5 }]
+      [`.${styles.playButton}`, { opacity: 0.8 }, { ease: "easeOut", duration: 1 }],
+      [`.${styles.playButton}`, { opacity: 0 }, { ease: "easeIn", duration: 0.5 }]
     ]).then(() => {
       if (!hasClickedPlayRef.current && !playbackMP3Ref.current) {
         clearTimeout(idleAnimationTimeoutIdRef.current);
@@ -132,7 +133,7 @@ export default function EpisodeTable(props: {
     const doNotebookIdleAnimation = () => {
       const notebookElement = document.getElementsByClassName(styles.notebook)[0];
       if (hasClickedNotebookRef.current || !notebookElement) return;
-  
+
       const onFinished = () => {
         if (!hasClickedNotebookRef.current) {
           clearTimeout(idleAnimationTimeoutIdRef.current);
@@ -140,7 +141,7 @@ export default function EpisodeTable(props: {
           idleAnimationTimeoutIdRef.current = id;
         }
       };
-  
+
       if (!notebookElement?.matches(":hover")) {
         const notebookControls = animate([
           [`.${styles.notebook}`, { rotate: -6 }, { ease: "easeIn", duration: 0.2, at: "3" }],
@@ -224,6 +225,7 @@ export default function EpisodeTable(props: {
   useEffect(() => {
     let clear = false;
     if (selectedVinyl.current && mainRef.current) {
+      console.log("creating promises")
       const selectedVinylPromise = new Promise<void>((resolve, reject) => {
         const timeoutId = setTimeout(() => {
           console.log("Timeout on selected vinyl tag");
@@ -231,7 +233,7 @@ export default function EpisodeTable(props: {
         }, 7500);
         const img = selectedVinyl.current as HTMLImageElement;
         const oldOnload: (((e: Event) => any) | null) = img.onload;
-        if (img.complete) { 
+        if (img.complete) {
           clearTimeout(timeoutId);
           resolve();
         } else img.onload = (ev: Event) => {
@@ -242,7 +244,7 @@ export default function EpisodeTable(props: {
         };
         img.onerror = () => {
           reject(new Error('Failed to load selectde vinyl img'));
-        };        
+        };
       });
       const floorPromise = new Promise<void>((resolve, reject) => {
         mainRef.current?.querySelectorAll(`.${styles.floor} img`).forEach((el) => {
@@ -263,33 +265,37 @@ export default function EpisodeTable(props: {
         console.log("All images loaded")
         if (!clear) props.onReady();
       });
+      return () => {
+        clear = true;
+      }
+    } else {
+      const timeoutId = setTimeout(() => {
+        console.log("Timeout on selected vinyl tag");
+        if (!clear) props.onReady();
+      }, 7500);
+      return () => {
+        clearTimeout(timeoutId);
+        clear = true;
+      }
     }
 
-    return () => {
-      clear = true;
-    }
-  }, [selectedVinyl, props, mainRef]);
+  }, [selectedVinylRendered, selectedVinyl, props, mainRef]);
 
   useEffect(() => {
     if (vinyls.length == 0) {
-          fetch('/js/data.json')
-            .then(response => {
-              if (!response.ok) throw new Error('Network response was not ok');
-              return response.json();
-            })
-            .then(data => {
-              setVinyls(
-                Array.from(
-                  { length: Object.keys(data.episodes).length },
-                  (v, k) => data.episodes[(k + 1).toString() as key]
-                )
-              );
-            })
-            .catch(error => {
-              console.error('There was a problem with the fetch operation:', error);
-            });
+      if (window.Worker) {
+        const myWorker = new Worker("/js/vinylsFetcher.js");
+        myWorker.onmessage = function(e) {
+            const { data } = e;
+            setVinyls(data);
+        };
+        myWorker.postMessage("");
+        return () => {
+          myWorker.terminate();
         }
-  }, [vinyls]);
+      }
+    }
+  }, [vinyls?.length]);
 
   useEffect(() => {
     hasClickedNotebookRef.current = hasClickedNotebook;
@@ -333,7 +339,7 @@ export default function EpisodeTable(props: {
         if (selectedPosition == 0) return;
         scroll = () => {
           const el = episodePage.current?.children[selectedPosition];
-            episodePage.current?.scrollTo({
+          episodePage.current?.scrollTo({
             top: (el as HTMLElement)?.offsetTop,
             behavior: "instant"
           });
@@ -379,7 +385,7 @@ export default function EpisodeTable(props: {
       console.error("audio element not found!");
       return;
     }
-    
+
     if (playingEpisode?.mp3 == vinyls[position].mp3) {
       console.log("same mp3");
       if (!autoplay) setPlaying(true);
@@ -406,23 +412,23 @@ export default function EpisodeTable(props: {
 
   return (
     <motion.div
-            key="transition_loader"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: props.ready && !props.cleared && isPresent && router.pathname == "/[episodeNum]" ? 1 : 0 }}
-            transition={{ type: 'linear', duration: 0.25 }}
-            onUpdate={(latest: { opacity: number}) => {
-                if (latest.opacity === 0 && !isPresent && !!safeToRemove) safeToRemove();
-            }}
-            className="transition_loader" >
+      key="transition_loader"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: props.ready && !props.cleared && isPresent && router.pathname == "/[episodeNum]" ? 1 : 0 }}
+      transition={{ type: 'linear', duration: 0.25 }}
+      onUpdate={(latest: { opacity: number }) => {
+        if (latest.opacity === 0 && !isPresent && !!safeToRemove) safeToRemove();
+      }}
+      className="transition_loader" >
       <div ref={episodePage} style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          overflow: "auto",
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        overflow: "auto",
       }}>
         {cloneElement(notebookOverlayComponent, {})}
         <Head>
-          <title>{ playingEpisode?.title ? `${ isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${vinyls[selectedEpisode]?.title}` }</title>
+          <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${vinyls[selectedEpisode]?.title}`}</title>
         </Head>
         <motion.div
           className={styles.main}
@@ -450,7 +456,7 @@ export default function EpisodeTable(props: {
                 ))}
               </motion.div>
             </div>
-            { !isMobileDevice && <Headphones className={styles.headphones} />}
+            {!isMobileDevice && <Headphones className={styles.headphones} />}
             <Pen className={styles.pen} />
             <Notebook
               className={styles.notebook}
@@ -466,8 +472,8 @@ export default function EpisodeTable(props: {
                 setHasClickedNotebook(true)
               }}
             />
-            { !isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
-            { !isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
+            {!isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
+            {!isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
               if (playingEpisode?.mp3) {
                 setPlaying(!isPlaying);
@@ -480,7 +486,7 @@ export default function EpisodeTable(props: {
                 link={`/#${selectedEpisode + 1}`}
               />
               <ImagedPostIt
-                className={[styles.postit, styles.subscribe_postit].join(" ")}              
+                className={[styles.postit, styles.subscribe_postit].join(" ")}
                 ref={refs.setReference}
                 {...referenceProps}
                 onClick={(e: Event) => {
@@ -510,15 +516,16 @@ export default function EpisodeTable(props: {
               if (!audio) return;
               playEpisode(selectedEpisode);
             }}>
-              {vinyls.map((episode, index) => (
-                <VinylAlbum
+              {vinyls.map((episode, index) => {
+                return (<VinylAlbum
                   key={`vinyl_${episode.num}`}
-                  inheritedRef={index == selectedEpisode ? selectedVinyl : null}
+                  ref={index === selectedEpisode ? selectedVinyl : undefined}
                   image={episode["img"] || ""}
                   alt={episode["title"]}
                   total={vinyls.length}
                   position={index}
                   onLoad={() => {
+                    if (index === selectedEpisode) setSelectedVinylRendered(true);
                     if (!(isIOS && !audio?.src) && autoplay?.num == episode.num) {
                       console.log("autoplaying!");
                       playEpisode(index, true);
@@ -529,9 +536,11 @@ export default function EpisodeTable(props: {
                   scrollYProgress={scrollYProgress}
                   mayAnimate={mayAnimate}
                 />
-              ))}
-              <div className={styles.playButton} style={{opacity: 0}}>
-                { /* eslint-disable-next-line @next/next/no-img-element */ }
+                )
+              })
+              }
+              <div className={styles.playButton} style={{ opacity: 0 }}>
+                { /* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/img/play.svg" alt="Lancer la lecture" role="button" />
               </div>
             </motion.div>
