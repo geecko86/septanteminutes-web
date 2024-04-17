@@ -568,8 +568,8 @@ export default function Home(props: {
 
                             <div className={styles.floor} key={"floor"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`floor_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh", position: "relative" }}>
-                                        <Image loading="lazy" src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 4096 / 111, width: "auto", height: "11.5vh", position: "relative" }}>
+                                        <Image loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}
                             </div>

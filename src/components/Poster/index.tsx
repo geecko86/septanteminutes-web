@@ -72,7 +72,7 @@ const posters = [
     { src: "https://framerusercontent.com/images/iiwPEYtcgqr0GlVsNBXYW7X8.jpg", className: styles.akerman, height: 0.5, ratio: 337 / 296, parallaxFactor: 140 },
     { src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", className: styles.brel, height: 0.67, ratio: 337 / 448, parallaxFactor: 170 },
     { src: "https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg", className: styles.redford, height: 0.6, ratio: 582 / 397, parallaxFactor: 100 },
-    { src: "https://framerusercontent.com/images/cxdXYMrJgyhB94WZUd1jIzDpbtU.jpg", className: styles.cavell, height: 0.52, ratio: 2267 / 1704, parallaxFactor: 110 },
+    { src: "https://framerusercontent.com/images/vLmtQT4GleFmn9TgKABXXI9xNC8.jpg", className: styles.cavell, height: 0.52, ratio: 2267 / 1704, parallaxFactor: 110 },
     { src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", className: styles.congo, height: 0.67, ratio: 2267 / 1704, parallaxFactor: 130 },
     { src: "https://framerusercontent.com/images/WiTE1wYTrGK2zx2OVVRi5QGnFg.jpg", className: styles.walenbuiten, height: 0.6, ratio: 2267 / 1704, parallaxFactor: 130 },
     { src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", className: styles.stones, ratio: 1, height: 0.67, parallaxFactor: 140 },
