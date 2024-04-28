@@ -28,10 +28,10 @@ const ImageOffsetWrapperComponentNewDevice = (props) => {
     const { motionValue, src, offsetFactor, onReady, priority, offset, sizes, loading, style, ...newProps } = props;
     const ref = useRef(null);
 
-    const translateX = useOffset(ref, motionValue, offsetFactor || 150, 0.9515, src, onReady);
+    const translateX = useOffset(ref, motionValue, offsetFactor || 30, 0.9515, src, onReady);
 
     return (<div {...newProps} ref={ref}>
-        <motion.div style={{ ...style, position: "relative", translateX: offset || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
+        <motion.div style={{ ...style, position: "relative", translateX: translateX || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
             <Image src={src} alt="" fill priority={!!priority} loading={loading || "lazy"} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)

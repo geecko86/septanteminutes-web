@@ -52,7 +52,7 @@ export default function Home(props: {
 
     const hasMovedRef = useRef(false), hasFocusRef = useRef(true), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
-    const layer0 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef<HTMLDivElement>(null);
+    const layer0 = useRef<HTMLDivElement>(null), layer0_25 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef<HTMLDivElement>(null);
     const firstAlbum = useRef<HTMLImageElement>(null), firstPoster = useRef<HTMLImageElement>(null);
     const resolveScrollRef = useRef<(() => void) | null>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
@@ -97,12 +97,13 @@ export default function Home(props: {
 
             const width = home.current?.clientWidth || window.innerWidth;
             const textureWidth = (3618 / 858) * window.innerHeight;
-            setGroundTexturesCount(Math.ceil(width / textureWidth));
+            setGroundTexturesCount(Math.ceil(Math.ceil(width / textureWidth) * 1.3));
 
             const gap = Math.max(2.75 * window.innerWidth, 5.38 * window.innerHeight);
             const itemWidth = 0.8 * window.innerHeight;
             const totalWidthPerItem = itemWidth + gap;
             setFrontItemsCount(Math.ceil(width / totalWidthPerItem));
+            setDimensionWidth(window.innerWidth || 0);
         };
 
         window.addEventListener('resize', handleResize);
@@ -164,7 +165,11 @@ export default function Home(props: {
     const [lamps2Count, setLamps2Count] = useState<number>(() => getLampsCount(0.45));
     const [groundTexturesCount, setGroundTexturesCount] = useState(4);
     const [frontItemsCount, setFrontItemsCount] = useState(1);
+    const [dimensionWidth, setDimensionWidth] = useState(0);
 
+    const centerPosition = useTransform(() => `calc(${(newScrollX.get() / (home.current?.clientWidth || 100)) * -100}% + ${dimensionWidth/2}px)`);
+    const perspectiveOrigin = useTransform(() => `${centerPosition.get()} 11.5vh`);
+    const offsetFloor = useTransform(() => newScrollX.get() * 0.3012 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset2 = useTransform(() => newScrollX.get() * 2.3 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
@@ -565,14 +570,25 @@ export default function Home(props: {
                                 </motion.div>
                                 <BackwallLight className={styles.backwall_light} key="backwall_light" offset={firstPosterMotionValue} />
                             </div>
-
-                            <div className={styles.floor} key={"floor"}>
+                            <div key={"floor"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`floor_${i}`} style={{ aspectRatio: 4096 / 111, width: "auto", height: "11.5vh", position: "relative" }}>
-                                        <Image loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
-                                    </div>
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 4096 / 111, width: "auto", height: "11.5vh", position: "relative" }} />
                                 ))}
                             </div>
+                        </motion.div>
+                        <motion.div key="layer_0_25" ref={layer0_25} className={[styles.layer_0_25, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offsetFloor, width: "130%" }}  >
+                            <motion.div style={{scaleY: 0.29, transformOrigin: "bottom"}}>
+                                <motion.div style={{ height: "100%", perspective: "5vh", perspectiveOrigin: perspectiveOrigin }}>
+                                    <motion.div className={styles.floor} style={{ rotateX: "15deg", transformOrigin: "bottom", x: "-5%" }} key={"floor"}>
+                                        {[...Array(groundTexturesCount)].map((_, i) => (
+                                            <div key={`floor_${i}`} style={{ aspectRatio: 4096 / 111, width: "auto", height: "11.5vh", position: "relative" }}>
+                                                <Image loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
+                                            </div>
+                                        ))}
+                                    </motion.div>
+                                </motion.div>
+                            <motion.div style={{ background: "red", paddingRight: 0, width: "10px", zIndex: "999", position: "absolute", height: `${10/0.225}px`, bottom: `${11.5/0.225}vh`, left: centerPosition }} />
+                            </motion.div>
                         </motion.div>
                         {
                             !isMobileDevice && <motion.div key="layer_0_5" ref={layer0_5} className={[styles.layer_0_5, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ transform: "translateX(0px)" }}>
