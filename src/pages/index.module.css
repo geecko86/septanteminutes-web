@@ -130,8 +130,8 @@
 }
 
 .poster {
-    transform:  translateX(calc(-100vh)) !important;
-    transform:  translateX(calc(-100svh)) !important;
+    transform:  translateX(calc(-20vh)) !important;
+    transform:  translateX(calc(-20svh)) !important;
 }
 
 @supports (-webkit-hyphens:none) {
@@ -219,7 +219,7 @@
 .floor {
     position: absolute;
     display: flex;
-    width: 100%;
+    width: fit-content  ;
     height: 11.5vh;
     height: 11.5svh;
     bottom: 0;
@@ -253,8 +253,8 @@
 
 .floor > div {
     opacity: 0.7;
-    border-left: solid red 5px;
-    border-right: solid red 5px;
+    /* border-left: solid red 5px;
+    border-right: solid red 5px; */
 }
 
 /* Layer 1 */

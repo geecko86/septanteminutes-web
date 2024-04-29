@@ -49,7 +49,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
       return `${adjustedCoeff * -0.0153}px`;
     }
 
-    const output = `${targetWidth * (Math.pow(newProgress * adjustedCoeff, pow) / 100)}px`;
+    const output = `${(adjustedCoeff > 0 ? 1 : -1) * targetWidth * (Math.pow(newProgress * Math.abs(adjustedCoeff), pow) / 100)}px`;
     // const output = `${newProgress * adjustedCoeff}%`;
     return output;
   }, [ref, motionValue, coeff, pow, windowDim]);

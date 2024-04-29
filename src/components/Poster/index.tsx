@@ -42,7 +42,7 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
     };
     const newRef = useRef<HTMLDivElement>(null);
     
-    const translateX = useOffset(newRef, motionValue, parallaxFactor || 130, 1.0, src, onReady, jumpToValue);
+    const translateX = useOffset(newRef, motionValue, (parallaxFactor || 130) / 2.7, 1.0, src, onReady, jumpToValue);
     const size = useMemo(() => `${Math.floor(height * 80)}vh`, [height]);
     const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px + calc(min(25.6vh, 25vw)))` }), [height, ratio, offset, position]);
 

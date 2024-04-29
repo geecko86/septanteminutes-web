@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import checkOldPhone from "@/utils/mobileChecker";
 import styles from "./season.module.css";
+import { HomeChair } from "@/framer/ImageWrapper";
+import { motionValue } from "framer-motion";
 
 const SeasonComponent = ({
     chair,
@@ -10,6 +12,7 @@ const SeasonComponent = ({
     children,
     className,
     style,
+    motionValue,
     ...otherProps
 }) => {
     const arrayKeys = useMemo(() => [...Array(Math.max(1, Math.ceil((children?.length || 2) / 2 / 3.3))).keys()], [children]);
@@ -104,7 +107,7 @@ const SeasonComponent = ({
                 </div>
                 {chair ?
                     (<div className={styles.chair} data-framer-name="Chair" direction={chair === Chairs[0] || chair === Chairs[2] ? "front" : "side"}>
-                        <Image alt="" loading="lazy" className="chair_img" sizes="20svmin" src={chair} fill={true} style={{
+                        <HomeChair alt="" loading="lazy" className={styles.chair_img} motionValue={motionValue} src={chair} fill={true} style={{
                             position: "absolute",
                             objectFit: "contain",
                             aspectRatio: "unset"
