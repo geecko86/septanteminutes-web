@@ -80,6 +80,11 @@ export const Chair = (props) => {
     return { ...comp, displayName: "Chair" };
 };
 
+export const HomeChair = (props) => {
+    const comp = (<ImageOffsetWrapper offsetFactor={-50} sizes="50svh" {...props} src={props.src} />);
+    return { ...comp, displayName: "HomeChair" };
+};
+
 export const Pen = (props) => {
     const comp = (<ImageWrapper sizes="30svh" {...props} src="https://framerusercontent.com/assets/Fx6XFRFwE2EscXTGW81QBWrLYEs.webp" />);
     return { ...comp, displayName: "Pen" };

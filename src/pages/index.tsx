@@ -167,7 +167,7 @@ export default function Home(props: {
     const [frontItemsCount, setFrontItemsCount] = useState(1);
     const [dimensionWidth, setDimensionWidth] = useState(0);
 
-    const centerPosition = useTransform(() => `calc(${(newScrollX.get() / (home.current?.clientWidth || 100)) * -100}% + ${dimensionWidth/2}px)`);
+    const centerPosition = useTransform(() => `calc(${((isMobileDevice ? scrollX : newScrollX).get() / (home.current?.clientWidth || 100)) * (isMobileDevice ? 200 : -100)}% + ${dimensionWidth/2}px)`);
     const perspectiveOrigin = useTransform(() => `${centerPosition.get()} 11.5vh`);
     const offsetFloor = useTransform(() => newScrollX.get() * 0.3012 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
@@ -587,7 +587,6 @@ export default function Home(props: {
                                         ))}
                                     </motion.div>
                                 </motion.div>
-                            <motion.div style={{ background: "red", paddingRight: 0, width: "10px", zIndex: "999", position: "absolute", height: `${10/0.225}px`, bottom: `${11.5/0.225}vh`, left: centerPosition }} />
                             </motion.div>
                         </motion.div>
                         {
@@ -627,7 +626,7 @@ export default function Home(props: {
                         <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")}>
                             {
                                 seasons.map((season, i) => (
-                                    <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} chair={isMobileDevice ? null : Chairs[i % 4]} className={styles.season_frame}>
+                                    <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} motionValue={newScrollX} chair={isMobileDevice ? null : Chairs[i % 4]} className={styles.season_frame}>
                                         {season.episodes.slice().reverse().map((ep: Episode, j: number) => (
                                             <HomeAlbum id={`art_${ep.num}`} imageRef={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
                                                 onClick={(e: MouseEvent) => {
