@@ -31,6 +31,10 @@ fi
 
 npx -p node-firestore-import-export firestore-export -a septanteminutes-a0cde5efbc25.json -b public/js/data.json
 sed -i '' -E 's/^.{19}//; s/.$//; s/{}},"/{}},\n"/g' public/js/data.json
+
+git add public/js/data.json
+git commit -m "update data.json"
+
 exit
 
 # sed -i '' -E 's/^.{19}//; s/.$//' public/js/data.json

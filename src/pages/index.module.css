@@ -136,8 +136,8 @@
 
 @supports (-webkit-hyphens:none) {
     .poster {
-        transform:  translateX(calc(-100vh)) translateZ(0px) !important;
-        transform:  translateX(calc(-100svh)) translateZ(0px) !important;
+        transform:  translateX(calc(-20vh)) translateZ(0px) !important;
+        transform:  translateX(calc(-20svh)) translateZ(0px) !important;
     }
 }
 
@@ -227,7 +227,7 @@
 
 @supports (-webkit-hyphens:none) {
     .floor {
-        transform: translateZ(0px) !important;
+        transform: translateZ(0px);
     }
 }
 
@@ -520,7 +520,7 @@
 
 @supports (-webkit-hyphens:none) {
     .lamps_2 {
-        transform: translateZ(10px) !important;
+        transform: translateZ(10px);
     }
 }
 
