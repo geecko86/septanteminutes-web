@@ -7,10 +7,11 @@ import React, {
   cloneElement,
   FC,
 } from "react";
-import { useRouter } from "next/router";
 import { motion, useScroll, animate, useMotionValueEvent, usePresence } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
+import { BottomSheet } from 'react-spring-bottom-sheet'
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import type {
@@ -26,8 +27,9 @@ import RecordPlayer from "../components/RecordPlayer";
 import VinylAlbum, { ShadowAlbum } from "../components/VinylAlbum";
 import NotebookOverlay from "../components/NotebookOverlay";
 import { hackAutoplay, usePlayback } from '../utils/PlayerContext';
-import { isIOS, isMobile } from "react-device-detect";
+import { isChrome, isEdge, isFirefox, isIOS, isMobile, isOpera, isSafari } from "react-device-detect";
 import { Episode } from "@/types/episode";
+import Link from "next/link";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -56,6 +58,8 @@ export default function EpisodeTable(props: {
   const [vinyls, setVinyls] = useState<Episode[]>([]);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
   const [selectedVinylRendered, setSelectedVinylRendered] = useState(false)
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false)
+  const [browserName, setBrowserName] = useState("");
 
   const episodePage = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -124,6 +128,14 @@ export default function EpisodeTable(props: {
 
   useEffect(() => {
     setIsMobileDevice(isMobile);
+    if (isMobile) {
+      setBrowserName(isChrome ? "Chrome" :
+      isSafari ? "Safari" :
+      isEdge ? "Edge" :
+      isFirefox ? "Firefox" :
+      isOpera ? "Opera" :
+      "");
+    }
   }, []);
 
   useEffect(() => {
@@ -429,6 +441,7 @@ export default function EpisodeTable(props: {
         {cloneElement(notebookOverlayComponent, {})}
         <Head>
           <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${vinyls[selectedEpisode]?.title}`}</title>
+          { isMobile && <link rel="stylesheet" href="https://unpkg.com/react-spring-bottom-sheet/dist/style.css" crossOrigin="anonymous" /> }
         </Head>
         <motion.div
           className={styles.main}
@@ -467,8 +480,6 @@ export default function EpisodeTable(props: {
                   referenceProps.onClick(e);
                   setOverlayNotebookTranslation("left");
                 }
-              }}
-              action={() => {
                 setHasClickedNotebook(true)
               }}
             />
@@ -514,6 +525,10 @@ export default function EpisodeTable(props: {
             <motion.div className={styles.albums} onClick={() => {
               setHasClickedPlay(true);
               if (!audio) return;
+              if (isMobile) {
+                setBottomSheetOpen(true);
+                return
+              }
               playEpisode(selectedEpisode);
             }}>
               {vinyls.map((episode, index) => {
@@ -545,6 +560,26 @@ export default function EpisodeTable(props: {
               </div>
             </motion.div>
           </div>
+          {vinyls[selectedEpisode] && <BottomSheet className={styles.bottomSheet} open={bottomSheetOpen} onDismiss={() => setBottomSheetOpen(false)} header={
+            <h3>Écouter l'épisode sur…</h3>
+          }>
+            <div className={styles.bottomSheet}>
+              {[{ name: "Spotify", color: "#1DB954", link: vinyls[selectedEpisode].spotifyLink },
+              { name: "Apple Podcasts", color: "#872EC4", link: vinyls[selectedEpisode].appleLink, skip: !isIOS },
+              { name: browserName || "Ce navigateur", color: "rgb(42, 50, 54)", link: "." }
+              ].filter(i => !i.skip).map((service, i, array) => (
+                <div className={styles.bottomSheetRow} key={`bottomSheetRow_${service.name}`}>
+                  <img src={`/img/${i < array.length - 1 ? service.name.toLowerCase().replace(" ", "") : (browserName.toLowerCase() || "play")}.svg`} alt="Spotify Logo" />
+                  <strong>{service.name}</strong>
+                  <Link href={service.link}>
+                    <button tabIndex={i*10} className={styles.roundButton} style={{ backgroundColor: service.color, }} onClick={() => {
+                      setBottomSheetOpen(false);
+                    }}>{i < array.length - 1 ? "Ouvrir ↗" : "Continuer"}</button>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </BottomSheet>}
         </motion.div>
         {[...vinyls].reverse().map((v, i) => (
           <motion.div

@@ -55,7 +55,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return getLayout(
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
         <style>
           {`
           :root {
@@ -181,7 +181,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           `}
         </style>
       </Head>
-      <StrictMode>
+      {/* <StrictMode> */}
         <PlaybackProvider>
           <AnimatePresence mode="wait">
             <Component {...pageProps} key={Component.name} ready={loaded === pathname} onReady={() => {
@@ -192,7 +192,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             <FloatingPlaybackControls />
           </div>}
         </PlaybackProvider>
-      </StrictMode>
+      {/* </StrictMode> */}
       {showLoadingAnim ? <div id="globalLoader" style={loaded ? { opacity: 0, pointerEvents: "none", position: "fixed" } : { position: "fixed" }}>
         <LoadingAnim className={loaderClass} />
       </div> : null}
