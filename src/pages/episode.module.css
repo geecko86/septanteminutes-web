@@ -142,11 +142,6 @@ div:has(> .chair) {
   will-change: transform;
 }
 
-.notebook > div {
-  width: 100% !important;
-  height: 100% !important;
-}
-
 .notebook div[data-framer-component-type="RichTextContainer"] {
   width: 95% !important;
   left: 0 !important;
@@ -156,7 +151,8 @@ div:has(> .chair) {
 }
 
 .notebook p {
-  font-size: 25cqw !important;
+  font-size: 2cqw !important;
+  width: 95%;
   text-align: center !important;
   display: block;
 }
@@ -482,6 +478,65 @@ div:has(> .chair) {
 
 .postit.subscribe_postit div:has(> img) {
   overflow: visible !important;
+}
+
+.bottomSheet {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+
+.bottomSheet > .bottomSheetRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 3rem);
+  margin-bottom: 1rem;
+}
+
+.bottomSheet h3 {
+  text-align: center;
+}
+
+.bottomSheet strong {
+  margin-inline-start: 1rem;
+  margin-inline-end: auto;
+  font-size: 1rem;
+}
+
+.bottomSheet img {
+  height: 3.15rem;
+  width: 3.15rem;
+}
+
+.bottomSheet span, .bottomSheet strong, .bottomSheet h3, .bottomSheet button {
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-weight: 500;
+}
+
+.bottomSheet .roundButton {
+  border-radius: 999px;
+  border: none;
+  color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1rem 0.75rem;
+  width: calc(2rem + 9ch);
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  outline-offset: 0;
+  font-size: 1rem;
+}
+
+.bottomSheet .roundButton:focus {
+  outline: 0;
 }
 
 @media (((max-width: 1200px) and (orientation: portrait))) {

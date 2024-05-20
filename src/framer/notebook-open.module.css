@@ -35,6 +35,8 @@ div[ready="true"] .scrollTarget {}
     height: 19.23% !important;
     width: auto !important;
     aspect-ratio: 1;
+    cursor: pointer;
+    flex: 0 0 auto;
 }
 
 .stamp::after {
@@ -109,16 +111,31 @@ div[ready="true"] .scrollTarget {}
     -webkit-mask-composite: xor;
 }
 
+.apple_stamp {
+    top: 4px;
+}
+
 .apple_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#a655be, #a655be);
     mask-image: url("/img/applepodcasts.svg"), url("/img/stamp.svg");
     mask-size: 48%, 100%;
 }
 
+.spotify_stamp {
+    top: 13px;
+    left: 49%;
+    transform: translateX(-50%) rotate(1deg) translateZ(0px);
+}
+
 .spotify_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#55be86, #55be86);
     mask-image: url("/img/spotify.svg"), url("/img/stamp.svg");
     mask-size: 50%, 100%;
+}
+
+.pocketcasts_stamp {
+    right: 4px;
+    top: 5px;
 }
 
 .pocketcasts_stamp>div.stamp_logo::after {
@@ -130,6 +147,7 @@ div[ready="true"] .scrollTarget {}
 .youtube_stamp {
     right: 29.90% !important;
     top: 26% !important;
+    transform: rotate(3deg) translateZ(0px);
 }
 
 .youtube_stamp>div.stamp_logo::after {
@@ -139,6 +157,7 @@ div[ready="true"] .scrollTarget {}
 }
 
 .rss_stamp {
+    left: 14px;
     top: 26% !important;
 }
 
@@ -152,6 +171,7 @@ div[ready="true"] .scrollTarget {}
     position: absolute;
     bottom: 1%;
     left: 49%;
+    transform: translateX(-50%) rotate(-1deg) translateZ(0px);
 }
 
 .instagram_stamp>div.stamp_logo::after {
@@ -164,6 +184,7 @@ div[ready="true"] .scrollTarget {}
     position: absolute;
     bottom: 2%;
     left: 85%;
+    transform: translateX(-50%) rotate(2deg) translateZ(0px);
 }
 
 .facebook_stamp>div.stamp_logo::after {
@@ -176,6 +197,7 @@ div[ready="true"] .scrollTarget {}
     position: absolute;
     bottom: 3.5%;
     left: 15%;
+    transform: translateX(-50%) rotate(-3deg) translateZ(0px);
 }
 
 .twitter_stamp>div.stamp_logo::after {

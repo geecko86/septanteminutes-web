@@ -324,266 +324,79 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
               layoutDependency: layoutDependency,
               layoutId: "ZW17gGN7x",
               children: [
-                /*#__PURE__*/ _jsx(Link, {
-                  key: "apple-podcasts-stamp",
-                  href: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591",
-                  children: /*#__PURE__*/ _jsx(Image, {
-                    as: "a",
-                    className: `framer-vneoqq framer-bawjxc ${styles.apple_stamp} ${styles.stamp}`,
-                    layoutDependency: layoutDependency,
-                    layoutId: "W5kr0cdFs",
-                    style: {
-                      filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                      rotate: 0,
-                      WebkitFilter:
-                        "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                    },
-                    "aria-label": "Apple Podcasts",
-                    children: [
-                      _jsx(motion.div, {
-                        key: "inner-shadow-apple",
-                        className: styles.stamp_inner_shadow
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-paper-apple",
-                        className: styles.stamp_paper
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-logo-apple",
-                        className: styles.stamp_logo
-                      })
-                    ]
-                  }),
-                }),
-                /*#__PURE__*/ _jsx(Link, {
-                  key: "rss-stamp",
-                  href: "https://anchor.fm/s/b43f59a8/podcast/rss",
-                  children: /*#__PURE__*/ _jsx(Image, {
-                    as: "a",
-                    className: `framer-sw8xpb framer-bawjxc ${styles.rss_stamp} ${styles.stamp}`,
-                    layoutDependency: layoutDependency,
-                    layoutId: "CMl66vw1w",
-                    style: {
-                      filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                      rotate: -1,
-                      WebkitFilter:
-                        "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                    },
-                    
-                    "aria-label": "Flux RSS",
-                    children: [
-                      _jsx(motion.div, {
-                        key: "inner-shadow-rss",
-                        className: styles.stamp_inner_shadow
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-paper-rss",
-                        className: styles.stamp_paper
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-logo-rss",
-                        className: styles.stamp_logo
-                      })
-                    ]
-                  }),
-                }),
-                /*#__PURE__*/ _jsx(Link, {
-                  key: "spotify-stamp",
-                  href: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r",
-                  children: /*#__PURE__*/ _jsx(Image, {
-                    as: "a",
-                    className: `framer-13t9c6s framer-bawjxc ${styles.spotify_stamp} ${styles.stamp}`,
-                    layoutDependency: layoutDependency,
-                    layoutId: "Lyxjmilvm",
-                    style: {
-                      filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                      rotate: 1,
-                      WebkitFilter:
-                        "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                    },
-                    
-                    "aria-label": "Spotify",
-                    children: [
-                      _jsx(motion.div, {
-                        key: "inner-shadow-spotify",
-                        className: styles.stamp_inner_shadow
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-paper-spotify",
-                        className: styles.stamp_paper
-                      }),
-
-                      _jsx(motion.div, {
-                        key: "stamp-logo-spotify",
-                        className: styles.stamp_logo
-                      })
-                    ],
-                    transformTemplate: transformTemplate,
-                  }),
-                }),
-                /*#__PURE__*/ _jsx(Link, {
-                  key: "pocket-casts-stamp",
-                  href: "https://pca.st/A6sJ",
-                  children: /*#__PURE__*/ _jsx(Image, {
-                    as: "a",
-                    className: `framer-y9hbwq framer-bawjxc ${styles.pocketcasts_stamp} ${styles.stamp}`,
-                    layoutDependency: layoutDependency,
-                    layoutId: "CsI_GCZc4",
-                    style: {
-                      filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                      rotate: -3,
-                      WebkitFilter:
-                        "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                    },
-                    
-                    "aria-label": "Pocket Casts",
-                    children: [
-                      _jsx(motion.div, {
-                        key: "inner-shadow-pocketcasts",
-                        className: styles.stamp_inner_shadow
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-paper-pocketcasts",
-                        className: styles.stamp_paper
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-logo-pocketcasts",
-                        className: styles.stamp_logo
-                      })
-                    ]
-                  }),
-                }),
-                /*#__PURE__*/ _jsx(Link, {
-                  key: "youtube-stamp",
-                  href: "https://www.youtube.com/@septanteminutes",
-                  children: /*#__PURE__*/ _jsx(Image, {
-                    as: "a",
-                    className: `framer-1d6xbzh framer-bawjxc ${styles.youtube_stamp} ${styles.stamp}`,
-                    layoutDependency: layoutDependency,
-                    layoutId: "Sp89tdPUU",
-                    style: {
-                      filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                      rotate: 3,
-                      WebkitFilter:
-                        "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                    },
-                    
-                    "aria-label": "Page YouTube",
-                    children: [
-                      _jsx(motion.div, {
-                        key: "inner-shadow-youtube",
-                        className: styles.stamp_inner_shadow
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-paper-youtube",
-                        className: styles.stamp_paper
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-logo-youtube",
-                        className: styles.stamp_logo
-                      })
-                    ]
-                  }),
-                }),
-                /*#__PURE__*/ _jsx(Link, {
-                  key: "facebook-stamp",
-                  href: "https://www.facebook.com/SeptanteMinutesAvec",
-                  children: /*#__PURE__*/ _jsx(Image, {
-                    as: "a",
-                    className: `framer-bawjxc ${styles.facebook_stamp} ${styles.stamp}`,
-                    layoutDependency: layoutDependency,
-                    layoutId: "Lyxjmilvm",
-                    style: {
-                      filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                      rotate: 2,
-                      WebkitFilter:
-                        "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                    },
-                    
-                    "aria-label": "Page Facebook",
-                    transformTemplate: transformTemplate,
-                    children: [
-                      _jsx(motion.div, {
-                        key: "inner-shadow-Facebook",
-                        className: styles.stamp_inner_shadow
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-paper-Facebook",
-                        className: styles.stamp_paper
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-logo-Facebook",
-                        className: styles.stamp_logo
-                      })
-                    ]
-                  }),
-                }),
-                /*#__PURE__*/ _jsx(Link, {
-                  key: "twitter-stamp",
-                  href: "https://twitter.com/SeptanteMinutes",
-                  children: /*#__PURE__*/ _jsx(Image, {
-                    as: "a",
-                    className: `framer-bawjxc ${styles.twitter_stamp} ${styles.stamp}`,
-                    layoutDependency: layoutDependency,
-                    layoutId: "Lyxjmilvm",
-                    style: {
-                      filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                      rotate: -3,
-                      WebkitFilter:
-                        "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                    },
-                    
-                    "aria-label": "Page Twitter",
-                    transformTemplate: transformTemplate,
-                    children: [
-                      _jsx(motion.div, {
-                        key: "inner-shadow-Twitter",
-                        className: styles.stamp_inner_shadow
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-paper-Twitter",
-                        className: styles.stamp_paper
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-logo-Twitter",
-                        className: styles.stamp_logo
-                      })
-                    ]
-                  }),
-                }),
-                /*#__PURE__*/ _jsx(Link, {
-                  key: "instagram-stamp",
-                  href: "https://instagram.com/GuiHachez",
-                  children: /*#__PURE__*/ _jsx(Image, {
-                    as: "a",
-                    className: `framer-bawjxc ${styles.instagram_stamp} ${styles.stamp}`,
-                    layoutDependency: layoutDependency,
-                    layoutId: "Lyxjmilvm",
-                    style: {
-                      filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                      rotate: -1,
-                      WebkitFilter:
-                        "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                    },
-                    
-                    "aria-label": "Page Instagram",
-                    transformTemplate: transformTemplate,
-                    children: [
-                      _jsx(motion.div, {
-                        key: "inner-shadow-Instagram",
-                        className: styles.stamp_inner_shadow
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-paper-Instagram",
-                        className: styles.stamp_paper
-                      }),
-                      _jsx(motion.div, {
-                        key: "stamp-logo-Instagram",
-                        className: styles.stamp_logo
-                      })
-                    ]
-                  }),
-                }),
+                <a key="apple-podcasts-stamp" className={`framer-bawjxc ${styles.apple_stamp} ${styles.stamp}`}
+                href="https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591" style={{
+                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                  rotate: 0,
+                }}>
+                  <motion.div className={styles.stamp_inner_shadow} />
+                  <motion.div className={styles.stamp_paper} />
+                  <motion.div className={styles.stamp_logo} />
+                </a>,
+                <a key="rss-stamp" className={`framer-bawjxc ${styles.rss_stamp} ${styles.stamp}`}
+                href="https://anchor.fm/s/b43f59a8/podcast/rss" style={{
+                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                  rotate: -1,
+                }}>
+                  <motion.div className={styles.stamp_inner_shadow} />
+                  <motion.div className={styles.stamp_paper} />
+                  <motion.div className={styles.stamp_logo} />
+                </a>,
+                <a key="spotify-stamp" className={`framer-bawjxc ${styles.spotify_stamp} ${styles.stamp}`}
+                href="https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r" style={{
+                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                  rotate: 2,
+                }}>
+                  <motion.div className={styles.stamp_inner_shadow} />
+                  <motion.div className={styles.stamp_paper} />
+                  <motion.div className={styles.stamp_logo} />
+                </a>,
+                <a key="pocket-casts-stamp" className={`framer-bawjxc ${styles.pocketcasts_stamp} ${styles.stamp}`}
+                href="https://pca.st/A6sJ" style={{
+                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                  rotate: -3,
+                  transform: "rotate(-3deg) translateZ(0px)"
+                }}>
+                  <motion.div className={styles.stamp_inner_shadow} />
+                  <motion.div className={styles.stamp_paper} />
+                  <motion.div className={styles.stamp_logo} />
+                </a>,
+                <a key="youtube-stamp" className={`framer-bawjxc ${styles.youtube_stamp} ${styles.stamp}`}
+                href="https://www.youtube.com/channel/UC9J9Z9J9Z9J9Z9J9Z9J9Z9Q" style={{
+                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                  rotate: 2,
+                }}>
+                  <motion.div className={styles.stamp_inner_shadow} />
+                  <motion.div className={styles.stamp_paper} />
+                  <motion.div className={styles.stamp_logo} />
+                </a>,
+                <a key="facebook-stamp" className={`framer-bawjxc ${styles.facebook_stamp} ${styles.stamp}`}
+                href="https://www.facebook.com/SeptanteMinutesAvec" style={{
+                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                  rotate: 2,
+                }}>
+                  <motion.div className={styles.stamp_inner_shadow} />
+                  <motion.div className={styles.stamp_paper} />
+                  <motion.div className={styles.stamp_logo} />
+                </a>,
+                <a key="twitter-stamp" className={`framer-bawjxc ${styles.twitter_stamp} ${styles.stamp}`}
+                href="https://twitter.com/SeptanteMinutes" style={{
+                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                  rotate: -3,
+                }}>
+                    <motion.div className={styles.stamp_inner_shadow} />
+                    <motion.div className={styles.stamp_paper} />
+                    <motion.div className={styles.stamp_logo} />
+                </a>,
+                <a key="instagram-stamp" className={`framer-bawjxc ${styles.instagram_stamp} ${styles.stamp}`}
+                href="https://www.instagram.com/GuiHachez" style={{
+                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+                  rotate: -3,
+                }}>
+                    <motion.div className={styles.stamp_inner_shadow} />
+                    <motion.div className={styles.stamp_paper} />
+                    <motion.div className={styles.stamp_logo} />
+                  </a>,
               ],
             }),
           ],
