@@ -2,31 +2,19 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import {
   addFonts,
-  addPropertyControls,
-  ControlType,
   cx,
   Image,
   RichText,
-  useLocaleInfo,
   useVariantState,
   withCSS,
 } from "framer";
 import NextImage from "next/image";
 import Link from "next/link";
-import { LayoutGroup, motion, MotionConfigContext } from "framer-motion";
+import { motion } from "framer-motion";
 import * as React from "react";
 const enabledGestures = { aP1r6qEU4: { hover: true } };
 const cycleOrder = ["aP1r6qEU4"];
 const variantClassNames = { aP1r6qEU4: "framer-v-tgvrn3" };
-function addPropertyOverrides(overrides, ...variants) {
-  const nextOverrides = {};
-  variants === null || variants === void 0
-    ? void 0
-    : variants.forEach(
-      (variant) => variant && Object.assign(nextOverrides, overrides[variant])
-    );
-  return nextOverrides;
-}
 const transitions = {
   default: { damping: 60, delay: 0, mass: 1, stiffness: 500, type: "spring" },
 };
@@ -41,38 +29,14 @@ const toResponsiveImage = (value) => {
   return typeof value === "string" ? { src: value } : undefined;
 };
 const transformTemplate = (_, t) => `translateX(-50%) ${t}`;
-const Transition = ({ value, children }) => {
-  const config = React.useContext(MotionConfigContext);
-  const transition =
-    value !== null && value !== void 0 ? value : config.transition;
-  const contextValue = React.useMemo(
-    () => ({ ...config, transition }),
-    [config, transition]
-  );
-  return /*#__PURE__*/ _jsx(MotionConfigContext.Provider, {
-    value: contextValue,
-    children: children,
-  });
-};
+
 const getProps = ({ height, id, image, link, onClick, separate, logo, title, width, ...props }) => {
-  var ref, ref1, ref2;
+  var ref2;
   return {
     onClick,
     ...props,
     link: link,
     separate: separate,
-    dkre4FA5N:
-      (ref = title !== null && title !== void 0 ? title : props.dkre4FA5N) !==
-        null && ref !== void 0
-        ? ref
-        : "Page d'accueil",
-    fKpdeXn5p:
-      (ref1 = logo !== null && logo !== void 0 ? logo : props.fKpdeXn5p) !==
-        null && ref1 !== void 0
-        ? ref1
-        : {
-          src: ""
-        },
     XmvAL8ZsJ:
       (ref2 = image !== null && image !== void 0 ? image : props.XmvAL8ZsJ) !==
         null && ref2 !== void 0
@@ -84,13 +48,10 @@ const getProps = ({ height, id, image, link, onClick, separate, logo, title, wid
         },
   };
 };
-const createLayoutDependency = (props, variants) =>
-  variants.join("-") + props.layoutDependency;
 const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
   props,
   ref
 ) {
-  const { activeLocale } = useLocaleInfo();
   const {
     style,
     className,
@@ -105,13 +66,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
     ...restProps
   } = getProps(props);
   const {
-    baseVariant,
     classNames,
-    gestureVariant,
-    setGestureState,
-    setVariant,
-    transition,
-    variants,
   } = useVariantState({
     cycleOrder,
     defaultVariant: "aP1r6qEU4",
@@ -120,134 +75,64 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
     variant,
     variantClassNames,
   });
-  const layoutDependency = createLayoutDependency(props, variants);
-  const defaultLayoutId = React.useId();
-  return /*#__PURE__*/ _jsx(LayoutGroup, {
-    id: layoutId !== null && layoutId !== void 0 ? layoutId : defaultLayoutId,
-    children: /*#__PURE__*/ _jsx(motion.div, {
-      initial: variant,
-      animate: variants,
-      onTapStart: () => setGestureState({ isPressed: true }),
-      onTap: () => setGestureState({ isPressed: false }),
-      onTapCancel: () => setGestureState({ isPressed: false }),
-      className: cx("framer-C4Wjh", classNames),
-      style: { display: "contents" },
-      children: /*#__PURE__*/ _jsx(Transition, {
-        value: transition,
-        children: /*#__PURE__*/ _jsx(motion.div, {
-          ...restProps,
-          className: cx("framer-tgvrn3", className),
-          "data-framer-name": "Variant 1",
-          layoutDependency: layoutDependency,
-          layoutId: "aP1r6qEU4",
-          ref: ref,
-          style: { rotate: 0, ...style },
-          variants: { "aP1r6qEU4-hover": { rotate: 2 } },
-          ...addPropertyOverrides(
-            { "aP1r6qEU4-hover": { "data-framer-name": undefined } },
-            baseVariant,
-            gestureVariant
-          ),
-          children: _jsx(motion.div, {
-            ...restProps,
-            style: { display: "block" },
-            children: /*#__PURE__*/ _jsxs(motion.div, {
-              className: "framer-1tcxbxb",
-              "data-framer-name": "Post_it_3",
-              layoutDependency: layoutDependency,
-              layoutId: "OtZiM2zbM",
-              style: { rotate: 0 },
-              variants: { "aP1r6qEU4-hover": { rotate: 4 } },
-              children: [
-              /*#__PURE__*/ _jsx(NextImage, {
-                alt: "",
-                fill: true,
-                sizes: "10vmax",
-                ...toResponsiveImage(XmvAL8ZsJ),
-              }),
-              /*#__PURE__*/ _jsx(RichText, {
-                __fromCanvasComponent: true,
-                children: /*#__PURE__*/ _jsx(React.Fragment, {
-                  children: /*#__PURE__*/ _jsx(motion.p, {
-                    className: "framer-styles-preset-1sry874",
-                    "data-styles-preset": "aJJBLE7Pu",
-                    children: "Call to action"
-                  }),
-                }),
-                className: "framer-d1mgg1",
-                layoutDependency: layoutDependency,
-                layoutId: "k7T2_2D2u",
-                style: {
-                  "--framer-link-text-color": "rgb(0, 153, 255)",
-                  "--framer-link-text-decoration": "underline",
-                  "--framer-paragraph-spacing": "0px",
-                },
-                text: dkre4FA5N,
-                transformTemplate: transformTemplate,
-                verticalAlignment: "top",
-                withExternalLayout: true,
-                ...addPropertyOverrides(
-                  {
-                    "aP1r6qEU4-hover": {
-                      children: /*#__PURE__*/ _jsx(React.Fragment, {
-                        children: /*#__PURE__*/ _jsx(motion.p, {
-                          className: "framer-styles-preset-1sry874",
-                          "data-styles-preset": "aJJBLE7Pu",
-                          children: "Page d'accueil",
-                        }),
-                      }),
-                    },
-                  },
-                  baseVariant,
-                  gestureVariant
-                ),
-              }),
-              /*#__PURE__*/ _jsx(Image, {
-                as: "figure",
-                background: {
-                  alt: "",
-                  fit: "fill",
-                  intrinsicHeight: 900,
-                  intrinsicWidth: 1024,
-                  pixelHeight: 900,
-                  pixelWidth: 1024,
-                  sizes: "48px",
-                  ...toResponsiveImage(fKpdeXn5p),
-                },
-                className: "framer-95un7a",
-                "data-framer-name": "Logo",
-                layoutDependency: layoutDependency,
-                layoutId: "HJaWn5J9N",
-                style: {
-                  borderBottomLeftRadius: 2,
-                  borderBottomRightRadius: 2,
-                  borderTopLeftRadius: 2,
-                  borderTopRightRadius: 2,
-                  rotate: 180,
-                },
-                transformTemplate: transformTemplate,
-              }),
-              /*#__PURE__*/ _jsx(motion.div, {
-                  "data-framer-name": "hover_zone",
-                  onClick,
-                  onHoverStart: () => setGestureState({ isHovered: true }),
-                  onHoverEnd: () => setGestureState({ isHovered: false }),
-                  children : link ? (/*#__PURE__*/ _jsx(Link, {
-                    ...({ href: link, scroll: false, onClick: (e) => { } }),
-                    target: separate ? "_blank" : "",
-                  })) : null
-                })
-              ],
-            }),
-          }),
-        }),
-      })
-    }),
-  });
+  const [hovered, setHovered] = React.useState(false);
+
+  return (
+    <motion.div
+    className={cx("framer-C4Wjh", classNames)}
+    animate={{rotate: hovered ? 4 : 0, cursor: "pointer", ...style}}
+    transition={transitions.default}
+    onHoverStart={() => setHovered(true)}
+    onHoverEnd={() => setHovered(false)}
+    >
+      <div
+      className={cx("framer-tgvrn3", "framer-1tcxbxb", className)}
+      {...restProps}
+      ref={ref}
+      tabIndex="0"
+      onClick={onClick}
+      >
+        <NextImage key="img_postitIMG" alt="" fill sizes="10vmax" {...toResponsiveImage(XmvAL8ZsJ)} />
+        <Link href={link || "#"} style={{ width: "100%", height: "100%" }} scroll={false} target={separate ? "_blank" : ""}>
+        <RichText key="call-to-action_postitIMG" className="framer-d1mgg1"
+        style={{
+          "--framer-link-text-color": "rgb(0, 153, 255)",
+          "--framer-link-text-decoration": "underline",
+          "--framer-paragraph-spacing": "0px",
+          x: "-50%",
+        }}>
+          <>
+            <p className="framer-styles-preset-1sry874" data-styles-preset="aJJBLE7Pu">{props.title}</p>
+          </>
+        </RichText>
+        <Image key="logo_postitIMG" as="figure" background={{
+          alt: "",
+          fit: "fill",
+          intrinsicHeight: 900,
+          intrinsicWidth: 1024,
+          pixelHeight: 900,
+          pixelWidth: 1024,
+          sizes: "48px",
+          ...toResponsiveImage(fKpdeXn5p),
+        }}
+        alt=""
+        className="framer-95un7a"
+        style={{
+          borderBottomLeftRadius: 2,
+          borderBottomRightRadius: 2,
+          borderTopLeftRadius: 2,
+          borderTopRightRadius: 2,
+          rotate: 180,
+        }}
+        transformTemplate={transformTemplate} />
+        </Link>
+      </div>
+        </motion.div>)
 });
 const css = [
   '.framer-C4Wjh [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
+  ".framer-C4Wjh { /* display: contents; */ }",
   ".framer-C4Wjh .framer-14uv52q { display: block; }",
   ".framer-C4Wjh .framer-tgvrn3 { height: 140px; overflow: clip; position: relative; width: 140px; }",
   ".framer-C4Wjh .framer-1tcxbxb { aspect-ratio: 1 / 1; bottom: 0px; flex: none; height: 100%; left: 0px; position: absolute; width: var(--framer-aspect-ratio-supported, 140px); }",
@@ -267,46 +152,5 @@ const FramercdaGYJ9TI = withCSS(Component, css, "framer-C4Wjh");
 export default FramercdaGYJ9TI;
 FramercdaGYJ9TI.displayName = "Imaged Post It";
 FramercdaGYJ9TI.defaultProps = { height: 140, width: 140 };
-addPropertyControls(FramercdaGYJ9TI, {
-  XmvAL8ZsJ: {
-    __defaultAssetReference:
-      "data:framer/asset-reference,LrAyLk4UQNWCrqITOzynthhRv0U.webp?originalFilename=postit.webp&preferredSize=auto",
-    title: "Image",
-    type: ControlType.ResponsiveImage,
-  },
-  dkre4FA5N: {
-    defaultValue: "Page d'accueil",
-    displayTextArea: false,
-    title: "Title",
-    type: ControlType.String,
-  },
-  fKpdeXn5p: {
-    __defaultAssetReference:
-      "data:framer/asset-reference,sDqnG9UaEatxSUQPI6Gs2NL5kw.png?originalFilename=back_arrow.png&preferredSize=auto",
-    title: "Logo",
-    type: ControlType.ResponsiveImage,
-  },
-});
 addFonts(FramercdaGYJ9TI);
-export const __FramerMetadata__ = {
-  exports: {
-    default: {
-      type: "reactComponent",
-      name: "FramercdaGYJ9TI",
-      slots: [],
-      annotations: {
-        framerContractVersion: "1",
-        framerVariables:
-          '{"XmvAL8ZsJ":"image","dkre4FA5N":"title","fKpdeXn5p":"logo"}',
-        framerIntrinsicWidth: "140",
-        framerIntrinsicHeight: "140",
-        framerImmutableVariables: "false",
-        framerCanvasComponentVariantDetails:
-          '{"propertyName":"variant","data":{"default":{"layout":["fixed","fixed"]},"CLOrvHmWQ":{"layout":["fixed","fixed"]}}}',
-      },
-    },
-    Props: { type: "tsType", annotations: { framerContractVersion: "1" } },
-    __FramerMetadata__: { type: "variable" },
-  },
-};
 //# sourceMappingURL=./cdaGYJ9TI.map

@@ -2,13 +2,8 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import {
   addFonts,
-  addPropertyControls,
-  ControlType,
   cx,
-  Image,
-  Link,
   RichText,
-  useLocaleInfo,
   useVariantState,
   withCSS,
 } from "framer";
@@ -20,15 +15,6 @@ import styles from "./notebook-open.module.css";
 
 const cycleOrder = ["sFPu3J3Yn"];
 const variantClassNames = { sFPu3J3Yn: "framer-v-1i1477k" };
-function addPropertyOverrides(overrides, ...variants) {
-  const nextOverrides = {};
-  variants === null || variants === void 0
-    ? void 0
-    : variants.forEach(
-        (variant) => variant && Object.assign(nextOverrides, overrides[variant])
-      );
-  return nextOverrides;
-}
 const transitions = {
   default: { damping: 60, delay: 0, mass: 1, stiffness: 500, type: "spring" },
 };
@@ -41,20 +27,6 @@ const toResponsiveImage = (value) => {
     return value;
   }
   return typeof value === "string" ? { src: value } : undefined;
-};
-const transformTemplate = (_, t) => `translateX(-50%) ${t}`;
-const Transition = ({ value, children }) => {
-  const config = React.useContext(MotionConfigContext);
-  const transition =
-    value !== null && value !== void 0 ? value : config.transition;
-  const contextValue = React.useMemo(
-    () => ({ ...config, transition }),
-    [transition, config]
-  );
-  return /*#__PURE__*/ _jsx(MotionConfigContext.Provider, {
-    value: contextValue,
-    children: children,
-  });
 };
 const getProps = ({
   followPrompt,
@@ -114,7 +86,6 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
   props,
   ref
 ) {
-  const { activeLocale } = useLocaleInfo();
   const {
     style,
     className,
@@ -130,11 +101,8 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
     ...restProps
   } = getProps(props);
   const {
-    baseVariant,
     classNames,
-    gestureVariant,
     setGestureState,
-    setVariant,
     transition,
     variants,
   } = useVariantState({
@@ -158,9 +126,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
       onTapCancel: () => setGestureState({ isPressed: false }),
       className: cx("framer-N8Zts", classNames),
       style: { display: "contents" },
-      children: /*#__PURE__*/ _jsx(Transition, {
-        value: transition,
-        children: /*#__PURE__*/ _jsxs(motion.div, {
+      children: /*#__PURE__*/ _jsxs(motion.div, {
           ...restProps,
           className: cx("framer-1i1477k", className),
           "data-framer-name": "Variant 1",
@@ -324,7 +290,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
               layoutDependency: layoutDependency,
               layoutId: "ZW17gGN7x",
               children: [
-                <a key="apple-podcasts-stamp" className={`framer-bawjxc ${styles.apple_stamp} ${styles.stamp}`}
+                <a target="_blank" key="apple-podcasts-stamp" className={`framer-bawjxc ${styles.apple_stamp} ${styles.stamp}`}
                 href="https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591" style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: 0,
@@ -333,7 +299,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   <motion.div className={styles.stamp_paper} />
                   <motion.div className={styles.stamp_logo} />
                 </a>,
-                <a key="rss-stamp" className={`framer-bawjxc ${styles.rss_stamp} ${styles.stamp}`}
+                <a target="_blank" key="rss-stamp" className={`framer-bawjxc ${styles.rss_stamp} ${styles.stamp}`}
                 href="https://anchor.fm/s/b43f59a8/podcast/rss" style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: -1,
@@ -342,7 +308,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   <motion.div className={styles.stamp_paper} />
                   <motion.div className={styles.stamp_logo} />
                 </a>,
-                <a key="spotify-stamp" className={`framer-bawjxc ${styles.spotify_stamp} ${styles.stamp}`}
+                <a target="_blank" key="spotify-stamp" className={`framer-bawjxc ${styles.spotify_stamp} ${styles.stamp}`}
                 href="https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r" style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: 2,
@@ -351,7 +317,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   <motion.div className={styles.stamp_paper} />
                   <motion.div className={styles.stamp_logo} />
                 </a>,
-                <a key="pocket-casts-stamp" className={`framer-bawjxc ${styles.pocketcasts_stamp} ${styles.stamp}`}
+                <a target="_blank" key="pocket-casts-stamp" className={`framer-bawjxc ${styles.pocketcasts_stamp} ${styles.stamp}`}
                 href="https://pca.st/A6sJ" style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: -3,
@@ -361,7 +327,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   <motion.div className={styles.stamp_paper} />
                   <motion.div className={styles.stamp_logo} />
                 </a>,
-                <a key="youtube-stamp" className={`framer-bawjxc ${styles.youtube_stamp} ${styles.stamp}`}
+                <a target="_blank" key="youtube-stamp" className={`framer-bawjxc ${styles.youtube_stamp} ${styles.stamp}`}
                 href="https://www.youtube.com/channel/UC9J9Z9J9Z9J9Z9J9Z9J9Z9Q" style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: 2,
@@ -370,7 +336,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   <motion.div className={styles.stamp_paper} />
                   <motion.div className={styles.stamp_logo} />
                 </a>,
-                <a key="facebook-stamp" className={`framer-bawjxc ${styles.facebook_stamp} ${styles.stamp}`}
+                <a target="_blank" key="facebook-stamp" className={`framer-bawjxc ${styles.facebook_stamp} ${styles.stamp}`}
                 href="https://www.facebook.com/SeptanteMinutesAvec" style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: 2,
@@ -379,7 +345,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                   <motion.div className={styles.stamp_paper} />
                   <motion.div className={styles.stamp_logo} />
                 </a>,
-                <a key="twitter-stamp" className={`framer-bawjxc ${styles.twitter_stamp} ${styles.stamp}`}
+                <a target="_blank" key="twitter-stamp" className={`framer-bawjxc ${styles.twitter_stamp} ${styles.stamp}`}
                 href="https://twitter.com/SeptanteMinutes" style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: -3,
@@ -388,7 +354,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     <motion.div className={styles.stamp_paper} />
                     <motion.div className={styles.stamp_logo} />
                 </a>,
-                <a key="instagram-stamp" className={`framer-bawjxc ${styles.instagram_stamp} ${styles.stamp}`}
+                <a target="_blank" key="instagram-stamp" className={`framer-bawjxc ${styles.instagram_stamp} ${styles.stamp}`}
                 href="https://www.instagram.com/GuiHachez" style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: -3,
@@ -401,7 +367,6 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
             }),
           ],
         }),
-      }),
     }),
   });
 });
@@ -433,39 +398,6 @@ const css = [
 export default FramerZqJyeZxrx;
 FramerZqJyeZxrx.displayName = "NoteBook-Open";
 FramerZqJyeZxrx.defaultProps = { height: 533, width: 725 };
-addPropertyControls(FramerZqJyeZxrx, {
-  I94Rs1RIH: {
-    defaultValue:
-      "No one shall be subjected to arbitrary arrest, detention or exile. Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him. No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.",
-    displayTextArea: false,
-    title: "Text",
-    type: ControlType.String,
-  },
-  HGybZ8uLx: {
-    __defaultAssetReference:
-      "data:framer/asset-reference,hDECKuxjFOGsOLnfV2L8zeRNsuE.webp?originalFilename=yYJS4WsSdE8HHVqXY7DZVs3GZiM.webp&preferredSize=auto",
-    title: "Image",
-    type: ControlType.ResponsiveImage,
-  },
-  RI514VBvw: {
-    defaultValue: "This is The Title Of the Podcast",
-    displayTextArea: false,
-    title: "Title",
-    type: ControlType.String,
-  },
-  KBBmo6ff1: {
-    defaultValue: "avec Marco Rubio",
-    displayTextArea: false,
-    title: "Subtitle",
-    type: ControlType.String,
-  },
-  qSyYbDFAE: {
-    defaultValue: "Follow Us",
-    displayTextArea: false,
-    title: "followPrompt",
-    type: ControlType.String,
-  },
-});
 addFonts(FramerZqJyeZxrx, [
   {
     family: "Caveat",
@@ -488,25 +420,3 @@ addFonts(FramerZqJyeZxrx, [
     weight: "400",
   },
 ]);
-export const __FramerMetadata__ = {
-  exports: {
-    default: {
-      type: "reactComponent",
-      name: "FramerZqJyeZxrx",
-      slots: [],
-      annotations: {
-        framerImmutableVariables: "false",
-        framerIntrinsicHeight: "533",
-        framerVariables:
-          '{"I94Rs1RIH":"text","HGybZ8uLx":"image","RI514VBvw":"title","KBBmo6ff1":"subtitle","qSyYbDFAE":"followPrompt"}',
-        framerIntrinsicWidth: "725",
-        framerCanvasComponentVariantDetails:
-          '{"propertyName":"variant","data":{"default":{"layout":["fixed","fixed"]}}}',
-        framerContractVersion: "1",
-      },
-    },
-    Props: { type: "tsType", annotations: { framerContractVersion: "1" } },
-    __FramerMetadata__: { type: "variable" },
-  },
-};
-//# sourceMappingURL=./ZqJyeZxrx.map

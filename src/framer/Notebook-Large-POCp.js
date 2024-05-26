@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default React.forwardRef((props, ref) => {
+const NotebookLarge = React.forwardRef((props, ref) => {
   const [hovered, setHovered] = useState(false);
   
   return (
@@ -23,6 +23,7 @@ export default React.forwardRef((props, ref) => {
     >
       <Image
         src="https://framerusercontent.com/images/zLZpVcFd3TJlKbssFNQWljSjDo.png"
+        sizes={`(max-aspect-ratio: 4 / 3) and (min-aspect-ratio: 9.1 / 16) and (min-width: 875px) 51.7vw, ${0.55 * (73 / 2.0268)}vw`}
         alt="notebook"
         style={{
           position: "absolute",
@@ -58,3 +59,7 @@ export default React.forwardRef((props, ref) => {
     </motion.div>
   );
 });
+
+NotebookLarge.displayName = "NotebookLarge";
+
+export default NotebookLarge;
