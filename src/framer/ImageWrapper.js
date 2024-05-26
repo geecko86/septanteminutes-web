@@ -70,6 +70,13 @@ export const Headphones = (props) => {
     return { ...comp, displayName: "Headphones" };
 };
 
+export const Needle = (props) => {
+    const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/1cQdpjDMVfIHwcDhe6q9QrIAY.webp" sizes="35vh" style={{
+        filter: "drop-shadow(rgba(0, 0, 0, 0.33) 0px 1px 11px)"
+    }} />);
+    return { ...comp, displayName: "Needle" };
+};
+
 export const BellLamp = (props) => {
     const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/SM7LQLK7ePLJSfc9sOkU4yxHdo.png" sizes="30vh" />);
     return { ...comp, displayName: "BellLamp" };
@@ -81,7 +88,7 @@ export const Chair = (props) => {
 };
 
 export const HomeChair = (props) => {
-    const comp = (<ImageOffsetWrapper offsetFactor={-50} sizes="50svh" {...props} src={props.src} />);
+    const comp = (<ImageOffsetWrapper offsetFactor={-70} sizes="50svh" {...props} src={props.src} />);
     return { ...comp, displayName: "HomeChair" };
 };
 

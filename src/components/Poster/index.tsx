@@ -26,7 +26,7 @@ const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>(
     // TODO: size when landscape rotation
     return (<div {...newProps} style={style} ref={parentRef}>
         <motion.div style={{ position: "relative", translateX, translateZ: "0px", height: "100%", width: "100%" }}>
-          <Image alt="" ref={ref} src={src} quality={50} sizes={size} fill />
+          <Image alt="" priority ref={ref} src={src} quality={50} sizes={size} fill />
         </motion.div>
     </div>);
 });
@@ -53,7 +53,7 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
     // TODO: size when landscape rotation
     return (<div {...newProps} ref={newRef} style={style}>
         <motion.div style={{ position: "relative", translateX, translateZ: "0px", height: "100%", width: "100%" }}>
-          <Image alt="" ref={ref} src={props.poster.src} quality={50} sizes={size} fill />
+          <Image alt="" priority ref={ref} src={props.poster.src} quality={50} sizes={size} fill />
         </motion.div>
     </div>);
 });

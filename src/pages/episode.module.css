@@ -1,16 +1,16 @@
 .main {
-  margin-top:  -100vh;
-  margin-top:  -100svh;
-  height:  100vh;
-  height:  100svh;
+  margin-top: -100vh;
+  margin-top: -100svh;
+  height: 100vh;
+  height: 100svh;
   width: 100%;
   position: sticky;
   top: 0;
 }
 
 .section {
-  height:  100vh;
-  height:  100svh;
+  height: 100vh;
+  height: 100svh;
   width: 100%;
   pointer-events: none;
 }
@@ -19,7 +19,8 @@
   margin: 0;
 }
 
-.floor, .floor > img {
+.floor,
+.floor>img {
   height: 100%;
   width: 100%;
   display: flex;
@@ -43,8 +44,8 @@ div:has(> .chair) {
 
 .chair {
   position: absolute !important;
-  top:  calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50vh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.395) * 0.25)) !important;
-  top:  calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50svh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.395) * 0.25)) !important;
+  top: calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50vh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.395) * 0.25)) !important;
+  top: calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50svh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.395) * 0.25)) !important;
   left: calc(max(73vw, var(--tableMinWidth)) + (50vw - max(73vw/2, var(--tableMinWidth) / 2)) - max(75vw * 0.65, 320px) * 1.03) !important;
   object-fit: contain;
   aspect-ratio: 0.8129;
@@ -72,8 +73,8 @@ div:has(> .chair) {
 }
 
 .invisiblefill {
-  height:  100vh;
-  height:  100svh;
+  height: 100vh;
+  height: 100svh;
   width: 100vw;
   content: " ";
 }
@@ -85,10 +86,10 @@ div:has(> .chair) {
   width: 73vw;
   min-height: var(--tableMinHeight);
   min-width: var(--tableMinWidth);
-  max-height:  100vh;
-  max-height:  100svh;
-  max-width:  202.68vh;
-  max-width:  202.68svh;
+  max-height: 100vh;
+  max-height: 100svh;
+  max-width: 202.68vh;
+  max-width: 202.68svh;
   box-shadow: 0px 4px 128px 0px rgba(0, 0, 0, 0.25);
   background: radial-gradient(61.87275794553494% 61.87275794553494% at 44.76127579995074% 44.57884970692233%, #ffffff 0%, hsl(0, 0%, 87%) 100%);
   overflow: visible;
@@ -151,7 +152,7 @@ div:has(> .chair) {
 }
 
 .notebook p {
-  font-size: 2cqw !important;
+  font-size: 1.6cqw !important;
   width: 95%;
   text-align: center !important;
   display: block;
@@ -283,14 +284,14 @@ div:has(> .chair) {
   display: block !important;
 }
 
-.albums div > div,
+.albums div>div,
 .albums img {
   height: 100% !important;
   width: 100% !important;
   will-change: transform;
 }
 
-.albums > div.playButton:last-child {
+.albums>div.playButton:last-child {
   width: 50% !important;
   height: 50% !important;
   opacity: 0;
@@ -311,30 +312,31 @@ div:has(> .chair) {
   height: 22% !important;
 }
 
-.postitnotes *:nth-child(1) > .postit {
-  transform: rotate(-0deg) translate(2%, -9%) !important;
+.postitnotes *:nth-child(1)>.postit {
+  transform: rotate(-0deg) translate(2%, -9%);
 }
 
-.postitnotes *:nth-child(3) > .postit {
-  transform: rotate(-6deg) translate(-2%, -2%) !important;
+.postitnotes *:nth-child(3)>.postit {
+  transform: rotate(-6deg) translate(-2%, -2%);
 }
 
-.postitnotes div:nth-child(4) > .postit {
-  transform: rotate(6deg) translate(-4%, -5%) !important;
+.postitnotes div:nth-child(4)>.postit {
+  transform: rotate(6deg) translate(-4%, -5%);
 }
 
 .postit {
   scale: 1.5;
-  height: 100% !important;
-  width: 100% !important;
+  height: calc(round(up, 100% * 1.5, 1px) / 1.5) !important;
+  width: calc(round(up, 100% * 1.5, 1px) / 1.5) !important;
   clip-path: inset(23% 16% 25% 16.5%);
+  display: block;
 }
 
 .postit a {
   cursor: default;
 }
 
-.postit > div {
+.postit>div {
   will-change: transform;
 }
 
@@ -489,7 +491,7 @@ div:has(> .chair) {
   width: 100%;
 }
 
-.bottomSheet > .bottomSheetRow {
+.bottomSheet>.bottomSheetRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -512,7 +514,10 @@ div:has(> .chair) {
   width: 3.15rem;
 }
 
-.bottomSheet span, .bottomSheet strong, .bottomSheet h3, .bottomSheet button {
+.bottomSheet span,
+.bottomSheet strong,
+.bottomSheet h3,
+.bottomSheet button {
   font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   font-weight: 500;
 }
@@ -543,8 +548,8 @@ div:has(> .chair) {
   .main {
     height: 100%;
     width: 100vw;
-    --table_height:  90vmax;
-    --table_height:  90svmax;
+    --table_height: 90vmax;
+    --table_height: 90svmax;
   }
 
   .table {
@@ -556,15 +561,15 @@ div:has(> .chair) {
   }
 
   .chair {
-    left:  calc(var(--table_height) * 0.4933 + (50vmin - (75vmax * 0.4933) / 2) - ((var(--table_height) * 0.8 / 0.8129) * 0.24)) !important;
-    left:  calc(var(--table_height) * 0.4933 + (50svmin - (75svmax * 0.4933) / 2) - ((var(--table_height) * 0.8 / 0.8129) * 0.24)) !important;
+    left: calc(var(--table_height) * 0.4933 + (50vmin - (75vmax * 0.4933) / 2) - ((var(--table_height) * 0.8 / 0.8129) * 0.24)) !important;
+    left: calc(var(--table_height) * 0.4933 + (50svmin - (75svmax * 0.4933) / 2) - ((var(--table_height) * 0.8 / 0.8129) * 0.24)) !important;
     bottom: calc(var(--table_height) + (50vmax - 42.5vmax) - (75vmax * 0.8)) !important;
     bottom: calc(var(--table_height) + (50svmax - 42.5svmax) - (75svmax * 0.8)) !important;
     top: unset !important;
     aspect-ratio: 0.8129;
     height: auto !important;
-    width:  calc(75vmax * 0.8) !important;
-    width:  calc(75svmax * 0.8) !important;
+    width: calc(75vmax * 0.8) !important;
+    width: calc(75svmax * 0.8) !important;
     min-width: unset;
     transform: rotate(247deg);
   }
@@ -573,7 +578,7 @@ div:has(> .chair) {
     .chair {
       transform: rotate(247deg) translateZ(4px) !important;
     }
-}
+  }
 
   .notebook {
     height: auto !important;
@@ -585,17 +590,15 @@ div:has(> .chair) {
     clip-path: inset(15% 25% 15% 25%);
   }
 
-  .notebook > div {
-    height: 100% !important;
-    width: 100% !important;
+  .notebook>div {
   }
 
   .notebook>div>div {
     container-type: inline-size;
   }
 
-  .notebook>div>div>p {
-    font-size: 27.5cqw !important;
+  .notebook p {
+    font-size: 2.2cqh !important;
   }
 
   .pen {
@@ -647,13 +650,13 @@ div:has(> .chair) {
     grid-template-columns: repeat(2, 1fr);
     justify-content: flex-start;
     column-gap: 15%;
-    row-gap:  2vh !important;
-    row-gap:  2svh !important;
+    row-gap: 2vh !important;
+    row-gap: 2svh !important;
     row-gap: 0px !important;
     overflow: visible;
   }
 
-  .postitnotes > div {
+  .postitnotes>div {
     display: block !important;
   }
 
@@ -697,7 +700,8 @@ div:has(> .chair) {
     left: unset !important;
   }
 
-  .subscribe_postit, .contact_postit {
+  .subscribe_postit,
+  .contact_postit {
     display: block !important;
   }
 
@@ -717,10 +721,10 @@ div:has(> .chair) {
     left: 30% !important;
   }
 
-  .download_postit a > div {
+  .download_postit a>div {
     /* transform: translateX(-16%) !important; */
   }
-  
+
   .home_postit p {
     font-size: 81cqw !important;
   }
@@ -741,19 +745,19 @@ div:has(> .chair) {
     /* transform:translateX(-10%) !important; */
   }
 
-  .postitnotes *:nth-child(1) > .postit {
-    transform: rotate(0deg) translate(0%, 5%) !important;
+  .postitnotes *:nth-child(1)>.postit {
+    transform: rotate(0deg) translate(0%, 5%);
   }
 
-  .postitnotes *:nth-child(2) > .postit {
-    transform: rotate(-6deg) translate(0, 27.5%) !important;
+  .postitnotes *:nth-child(2)>.postit {
+    transform: rotate(-6deg) translate(0, 27.5%);
   }
 
-  .postitnotes div:nth-child(3) > .postit {
-    transform: rotate(6deg) translate(0%, -10%) !important;
+  .postitnotes div:nth-child(3)>.postit {
+    transform: rotate(6deg) translate(0%, -10%);
   }
 
-  .postitnotes div:nth-child(4) > .postit {
+  .postitnotes div:nth-child(4)>.postit {
     transform: unset !important;
   }
 }
@@ -779,5 +783,9 @@ div:has(> .chair) {
 @media (max-aspect-ratio: 4/3) and (min-aspect-ratio: 9.1/16) and (min-width: 875px) {
   .table {
     width: 94vw;
+  }
+
+  .notebook p {
+    font-size: 2cqw !important;
   }
 }
