@@ -1,5 +1,5 @@
-import React, { ReactElement, ReactNode, StrictMode, useEffect, useState } from 'react'
-import type { NextPage } from 'next'
+import React, { ReactElement, ReactNode, StrictMode, useCallback, useEffect, useState } from 'react'
+import type { NextComponentType, NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
@@ -12,14 +12,37 @@ import LoadingAnim from "../components/LoadingAnim"
 import styles from "./layout.module.css"
 import { isMobile } from 'react-device-detect'
 
-export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+export default function MyApp({ Component, pageProps, statusCode }: AppPropsWithLayout) {
 
   const [loaded, setLoaded] = useState("");
   const [showLoadingAnim, setShowLoadingAnim] = useState(true);
   const [loaderClass, setLoaderClass] = useState("vinyl_loading");
   const [isMobileDevice, setIsMobileDevice] = useState(true);
 
-  const { pathname } = useRouter();
+  const { pathname, events: routerEvents } = useRouter();
+
+  const onReady = useCallback(() => {
+    setLoaded(pathname);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handle404 = () => {
+      // Handle the error here
+      setLoaded("404");
+      console.error('404 - Page not found')
+    }
+
+    const handleRouteChange = async (url: string) => {
+      const response = await fetch(url)
+      if (response.status === 404) handle404()
+    }
+    if (statusCode === 404) handle404()
+
+    routerEvents.on('routeChangeStart', handleRouteChange)
+    return () => {
+      routerEvents.off('routeChangeStart', handleRouteChange)
+    }
+  }, [routerEvents, statusCode]);
 
   useEffect(() => {
     setIsMobileDevice(isMobile);
@@ -184,9 +207,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       {/* <StrictMode> */}
         <PlaybackProvider>
           <AnimatePresence mode="wait">
-            <Component {...pageProps} key={Component.name} ready={loaded === pathname} onReady={() => {
-              setLoaded(pathname);
-            }} />
+            <Component {...pageProps} key={Component.name} ready={loaded === pathname} onReady={onReady} />
           </AnimatePresence>
           {!isMobileDevice && <div className={styles.overlay} key="overlay">
             <FloatingPlaybackControls />
@@ -200,10 +221,31 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   )
 }
 
+MyApp.getInitialProps = async ({ Component, ctx }: { Component: NextComponentType; ctx: NextPageContext }) => {
+  let pageProps = {}
+  let statusCode = null
+
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx)
+  }
+
+  if (ctx.res) {
+    // If `ctx.res` is defined, we're on the server.
+    statusCode = ctx.res.statusCode
+  } else {
+    // If we're on the client, we can fetch the page's status.
+    const response = await fetch(window.location.href)
+    statusCode = response.status
+  }
+
+  return { pageProps, statusCode }
+}
+
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
 
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
+  Component: NextPageWithLayout,
+  statusCode: number
 }

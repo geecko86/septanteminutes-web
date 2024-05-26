@@ -1,0 +1,27 @@
+.spotlight {
+    position: absolute;
+    height: 16%;
+    width: 130%;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    animation: spotlight 2s ease .75s 1 forwards;
+}
+
+@media (min-width: 1024px) {
+    .spotlight {
+        width: 84%;
+    }
+}
+
+@keyframes spotlight {
+    0% {
+        opacity: 0;
+        transform: "translate(-72%, -62%) scale(0.5)",
+    }
+
+    100% {
+        opacity: 1;
+        transform: "translate(-50%,-40%) scale(1)",
+    }
+}
