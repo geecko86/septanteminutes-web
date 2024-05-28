@@ -66,6 +66,18 @@ const NotebookOverlay = ({ title = "", subtitle = "", desc = "", translateX = "l
                 duration: descVisible ? 0.4 : 0.4,
               });
               if (!descVisible) setReady(false);
+
+              if (descVisible) {
+                let scrollableDiv = document.getElementById('scrollTarget');
+                scrollableDiv.scrollTop = scrollableDiv.scrollHeight;
+                setTimeout(() => {
+                    // Animate the scroll back up
+                    scrollableDiv.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }, 200);
+              }
             }}
             onAnimationComplete={() => {
               if (descVisible) setReady(true);
