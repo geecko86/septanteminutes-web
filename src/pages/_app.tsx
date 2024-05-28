@@ -22,7 +22,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   const { pathname, events: routerEvents } = useRouter();
 
   const onReady = useCallback(() => {
-    setLoaded(pathname);
+    setLoaded(pathname)
   }, [pathname]);
 
   useEffect(() => {
@@ -206,8 +206,8 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
       </Head>
       {/* <StrictMode> */}
         <PlaybackProvider>
-          <AnimatePresence mode="wait">
-            <Component {...pageProps} key={Component.name} ready={loaded === pathname} onReady={onReady} />
+          <AnimatePresence mode='wait'>
+            <Component {...pageProps} key={Component.name} onReady={onReady} />
           </AnimatePresence>
           {!isMobileDevice && <div className={styles.overlay} key="overlay">
             <FloatingPlaybackControls />

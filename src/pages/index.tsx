@@ -29,7 +29,7 @@ import checkOldPhone from "@/utils/mobileChecker";
 
 export default function Home(props: {
     onReady: () => void,
-    ready: boolean
+    style: React.CSSProperties
 }) {
     const Season: FC<any> = Season_;
     const HomeAlbum: FC<any> = HomeAlbum_;
@@ -42,6 +42,7 @@ export default function Home(props: {
     const PlantE: FC<any> = PlantE_;
     const FrontColumn: FC<any> = FrontColumn_;
 
+    const [ready, setReady] = useState(false);
     const [seasons, setSeasons] = useState<Season[]>([]);
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
@@ -297,7 +298,7 @@ export default function Home(props: {
 
     useEffect(() => {
         const rootElem = root.current;
-        if (!props.ready || !rootElem || isMobile) return;
+        if (!ready || !rootElem || isMobile) return;
 
         const onHomeWheel = (e: WheelEvent) => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -403,7 +404,7 @@ export default function Home(props: {
             rootElem?.removeEventListener("wheel", onHomeWheel);
             rootElem?.removeEventListener("mousedown", interceptAutoScroll);
         }
-    }, [home, props.ready, scrollYAdditional, interceptAutoScroll, scrollXAdditional, newScrollX]);
+    }, [home, ready, scrollYAdditional, interceptAutoScroll, scrollXAdditional, newScrollX]);
 
     useEffect(() => {
         const motionValue = isMobile ? newScrollX : scrollXAdditional;
@@ -420,7 +421,7 @@ export default function Home(props: {
     }, [newScrollX, scrollXAdditional])
 
     useEffect(() => {
-        if (firstAlbum.current && !props.ready) {
+        if (firstAlbum.current && !ready) {
             const artworkLoaded = new Promise<void>((resolve, reject) => {
                 const timeoutId = setTimeout(() => {
                     console.log("artwork timeout");
@@ -505,9 +506,10 @@ export default function Home(props: {
                 }
                 console.log("waiting for promises", promisesList.length)
                 Promise.all(promisesList)
-                    .then(props.onReady)
-                    .then(() => { observerRef.current?.disconnect() })
-                    .then(() => { console.log(`all ${promisesList.length} promises resolved`) })
+                    .then(() => setReady(true))
+                    .then(isPresent ? props.onReady : () => { })
+                    .then(() => observerRef.current?.disconnect())
+                    .then(() => console.log(`all ${promisesList.length} promises resolved`))
                     .catch(console.error);
             }
 
@@ -523,7 +525,7 @@ export default function Home(props: {
         return () => {
             observerRef.current?.disconnect();
         };
-    }, [isPresent, router.asPath, props.ready, props.onReady, firstAlbumImg, seasons]);
+    }, [isPresent, router.asPath, ready, props.onReady, firstAlbumImg, seasons]);
 
     useEffect(() => {
         setIsOldPhone(checkOldPhone());
@@ -534,10 +536,14 @@ export default function Home(props: {
         <motion.div
             key="transition_loader"
             initial={{ opacity: 0 }}
-            animate={{ opacity: props.ready && isPresent && router.pathname === "/" ? 1 : 0 }}
+            animate={{ opacity: ready ? 1 : 0 }}
+            exit={{ opacity: 0 }}
             transition={{ type: 'linear', duration: 0.25 }}
-            onUpdate={(latest: { opacity: number }) => {
-                if (latest.opacity === 0 && !isPresent && !!safeToRemove) safeToRemove();
+            onAnimationComplete={() => {
+                if (!isPresent) safeToRemove();
+            }}
+            style={{
+                ...props.style
             }}
             className="transition_loader" >
             <div ref={subroot} className={styles.home_subroot} id="subroot" key={"home_subroot"}>
@@ -680,7 +686,10 @@ export default function Home(props: {
                                 behavior: "instant"
                             });
                         } else {
-                            scrollXAdditional.set(x);
+                            animate([[scrollXAdditional, x, {
+                                duration: 0.1,
+                                delay: 0
+                            }]]);
                         }
                         // console.log("scrolled", x);
                     }

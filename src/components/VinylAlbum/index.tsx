@@ -24,7 +24,7 @@ const VinylAlbum = React.forwardRef(( {
     type = "vinyl",
     episodeNumParam = -1,
     onSelect = () => {},
-    onLoad = () => {},
+    onLoad = () => {},
     onMouseEnter = (_: any) => {},
     onMouseLeave = (_: any) => {},
   }: VinylProps, ref: ForwardedRef<HTMLImageElement>) => {

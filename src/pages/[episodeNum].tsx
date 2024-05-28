@@ -39,12 +39,13 @@ const variants = {
 
 export default function EpisodeTable(props: {
   onReady: () => void,
-  ready: boolean,
+  previouslyLoaded: boolean,
   cleared: boolean
 }) {
   const router = useRouter();
   const [funqueue, _] = useState([] as (() => void)[]);
 
+  const [ready, setReady] = useState(false);
   const [snapping, setSnapping] = useState(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [selectedPosition, setSelectedPosition] = useState(0);
@@ -151,7 +152,7 @@ export default function EpisodeTable(props: {
 
   useEffect(() => {
     playbackMP3Ref.current = playingEpisode?.mp3;
-    if (!playbackMP3Ref.current || !props.ready) return;
+    if (!playbackMP3Ref.current || !ready) return;
 
     const doNotebookIdleAnimation = () => {
       const notebookElement = document.getElementsByClassName(styles.notebook)[0];
@@ -182,7 +183,7 @@ export default function EpisodeTable(props: {
       clearTimeout(id);
       clearTimeout(idleAnimationTimeoutIdRef.current);
     }
-  }, [playingEpisode?.mp3, props.ready]);
+  }, [playingEpisode?.mp3, ready]);
 
   useEffect(() => {
     if (displayedURL && !displayedURL.includes(router.asPath)) {
@@ -197,7 +198,7 @@ export default function EpisodeTable(props: {
   }, [router, displayedURL]);
 
   useEffect(() => {
-    if (!props.ready) return;
+    if (!ready) return;
 
     if (!hasClickedPlayRef.current && !isPlayingRef.current) { // if has never clicked Play Button and is not currently playing
       clearTimeout(idleAnimationTimeoutIdRef.current);
@@ -208,7 +209,7 @@ export default function EpisodeTable(props: {
     return () => {
       clearTimeout(idleAnimationTimeoutIdRef.current);
     }
-  }, [vinyls.length, props.ready, doIdlePlayButtonAnimation]);
+  }, [vinyls.length, ready, doIdlePlayButtonAnimation]);
 
   useEffect(() => {
     if (router.query.episodeNum) {
@@ -286,7 +287,10 @@ export default function EpisodeTable(props: {
       });
       Promise.all([selectedVinylPromise, floorPromise]).then(() => {
         console.log("All images loaded")
-        if (!clear) onReady();
+        if (!clear) { 
+          onReady();
+          setReady(true);
+        }
       });
       return () => {
         clear = true;
@@ -446,10 +450,11 @@ export default function EpisodeTable(props: {
     <motion.div
       key="transition_loader"
       initial={{ opacity: 0 }}
-      animate={{ opacity: props.ready && !props.cleared && isPresent && router.pathname == "/[episodeNum]" ? 1 : 0 }}
+      exit={{ opacity: 0 }}
+      animate={{ opacity: ready ? 1 : 0 }}
       transition={{ type: 'linear', duration: 0.25 }}
-      onUpdate={(latest: { opacity: number }) => {
-        if (latest.opacity === 0 && !isPresent && !!safeToRemove) safeToRemove();
+      onAnimationComplete={() => {
+        if (!isPresent) safeToRemove();
       }}
       className="transition_loader" >
       <div ref={episodePage} style={{

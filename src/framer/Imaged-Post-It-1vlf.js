@@ -79,55 +79,57 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
 
   return (
     <motion.div
-    className={cx("framer-C4Wjh", classNames)}
-    animate={{rotate: hovered ? 4 : 0, cursor: "pointer", ...style}}
-    transition={transitions.default}
-    onHoverStart={() => setHovered(true)}
-    onHoverEnd={() => setHovered(false)}
+      className={cx("framer-C4Wjh", classNames)}
+      animate={{ rotate: hovered ? 4 : 0, cursor: "pointer", ...style }}
+      transition={transitions.default}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
     >
       <div
-      className={cx("framer-tgvrn3", "framer-1tcxbxb", className)}
-      {...restProps}
-      ref={ref}
-      tabIndex="0"
-      onClick={onClick}
+        className={cx("framer-tgvrn3", "framer-1tcxbxb", className)}
+        {...restProps}
+        ref={ref}
+        tabIndex="0"
+        onClick={onClick}
       >
         <NextImage key="img_postitIMG" alt="" fill sizes="10vmax" {...toResponsiveImage(XmvAL8ZsJ)} />
-        <Link href={link || "#"} style={{ width: "100%", height: "100%" }} scroll={false} target={separate ? "_blank" : ""}>
-        <RichText key="call-to-action_postitIMG" className="framer-d1mgg1"
-        style={{
-          "--framer-link-text-color": "rgb(0, 153, 255)",
-          "--framer-link-text-decoration": "underline",
-          "--framer-paragraph-spacing": "0px",
-          x: "-50%",
-        }}>
-          <>
-            <p className="framer-styles-preset-1sry874" data-styles-preset="aJJBLE7Pu">{props.title}</p>
-          </>
-        </RichText>
-        <Image key="logo_postitIMG" as="figure" background={{
-          alt: "",
-          fit: "fill",
-          intrinsicHeight: 900,
-          intrinsicWidth: 1024,
-          pixelHeight: 900,
-          pixelWidth: 1024,
-          sizes: "48px",
-          ...toResponsiveImage(fKpdeXn5p),
-        }}
-        alt=""
-        className="framer-95un7a"
-        style={{
-          borderBottomLeftRadius: 2,
-          borderBottomRightRadius: 2,
-          borderTopLeftRadius: 2,
-          borderTopRightRadius: 2,
-          rotate: 180,
-        }}
-        transformTemplate={transformTemplate} />
+        <Link
+          href={link || "#"} style={{ width: "100%", height: "100%" }}
+          scroll={false} target={separate ? "_blank" : ""} >
+          <RichText key="call-to-action_postitIMG" className="framer-d1mgg1"
+            style={{
+              "--framer-link-text-color": "rgb(0, 153, 255)",
+              "--framer-link-text-decoration": "underline",
+              "--framer-paragraph-spacing": "0px",
+              x: "-50%",
+            }}>
+            <>
+              <p className="framer-styles-preset-1sry874" data-styles-preset="aJJBLE7Pu">{props.title}</p>
+            </>
+          </RichText>
+          <Image key="logo_postitIMG" as="figure" background={{
+            alt: "",
+            fit: "fill",
+            intrinsicHeight: 900,
+            intrinsicWidth: 1024,
+            pixelHeight: 900,
+            pixelWidth: 1024,
+            sizes: "48px",
+            ...toResponsiveImage(fKpdeXn5p),
+          }}
+            alt=""
+            className="framer-95un7a"
+            style={{
+              borderBottomLeftRadius: 2,
+              borderBottomRightRadius: 2,
+              borderTopLeftRadius: 2,
+              borderTopRightRadius: 2,
+              rotate: 180,
+            }}
+            transformTemplate={transformTemplate} />
         </Link>
       </div>
-        </motion.div>)
+    </motion.div>)
 });
 const css = [
   '.framer-C4Wjh [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
