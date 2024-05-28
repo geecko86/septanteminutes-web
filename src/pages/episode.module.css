@@ -312,22 +312,26 @@ div:has(> .chair) {
   height: 22% !important;
 }
 
-.postitnotes *:nth-child(1)>.postit {
-  transform: rotate(-0deg) translate(2%, -9%);
+.postitnotes > div {
+  flex: 1;
 }
 
-.postitnotes *:nth-child(3)>.postit {
-  transform: rotate(-6deg) translate(-2%, -2%);
+.postitnotes > *:nth-child(1) {
+  transform: rotate(-0deg) translate(3%, -13.5%);
 }
 
-.postitnotes div:nth-child(4)>.postit {
-  transform: rotate(6deg) translate(-4%, -5%);
+.postitnotes > *:nth-child(3) {
+  transform: rotate(-6deg) translate(-3%, -3%);
+}
+
+.postitnotes > div:nth-child(4) {
+  transform: rotate(6deg) translate(-6%, -7.5%);
 }
 
 .postit {
   scale: 1.5;
   height: calc(round(up, 100% * 1.5, 1px) / 1.5) !important;
-  width: calc(round(up, 100% * 1.5, 1px) / 1.5) !important;
+  /* width: calc(round(up, 100% * 1.5, 1px) / 1.5) !important; */
   clip-path: inset(23% 16% 25% 16.5%);
   display: block;
 }
@@ -338,6 +342,8 @@ div:has(> .chair) {
 
 .postit>div {
   will-change: transform;
+  width: 100%;
+  height: 100%;
 }
 
 .postit div[data-framer-component-type="RichTextContainer"] {
@@ -399,7 +405,7 @@ div:has(> .chair) {
   position: absolute;
 }
 
-.postit.subscribe_postit {
+.postitnotes > div:has(.postit.subscribe_postit), .postit.subscribe_postit {
   display: none;
 }
 
