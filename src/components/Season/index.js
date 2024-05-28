@@ -36,6 +36,7 @@ const SeasonComponent = ({
                     width: "100%",
                     position: "absolute",
                     display: "flex",
+                    pointerEvents: "none",
                     background: "linear-gradient(rgba(255, 255, 255, 0.3), rgba(190, 189, 189, 0.3))",
                     overflow: "hidden"
                 }}>

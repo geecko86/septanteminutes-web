@@ -384,6 +384,7 @@ div:has(> .chair) {
 
 .postit a {
   display: block;
+  position: relative;
   width: 100%;
   height: 100%;
   cursor: pointer;
