@@ -64,7 +64,6 @@ html *::-webkit-scrollbar {
 
 .transition_loader {
     pointer-events: initial !important;
-    background-color: white !important;
     position: sticky;
 }
 
@@ -114,6 +113,10 @@ html *::-webkit-scrollbar {
 @media (prefers-color-scheme: dark) and (pointer:coarse) {
     body {
         background-color: black;
+    }
+
+    .transition_loader {
+        background-color: #303030;
     }
 }
 

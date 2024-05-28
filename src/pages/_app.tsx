@@ -14,7 +14,9 @@ import { isMobile } from 'react-device-detect'
 
 export default function MyApp({ Component, pageProps, statusCode }: AppPropsWithLayout) {
 
-  const [loaded, setLoaded] = useState("");
+  const [loadedRoute, setLoaded] = useState("");
+  const [_, setDisplayedComponent] = useState(Component?.name);
+  const [componentHistory, setComponentHistory] = useState([Component?.name]);
   const [showLoadingAnim, setShowLoadingAnim] = useState(true);
   const [loaderClass, setLoaderClass] = useState("vinyl_loading");
   const [isMobileDevice, setIsMobileDevice] = useState(true);
@@ -24,6 +26,13 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   const onReady = useCallback(() => {
     setLoaded(pathname)
   }, [pathname]);
+
+  useEffect(() => {
+    setDisplayedComponent(displayedComponent => {
+      if (Component.name !== displayedComponent) setLoaded("");
+      return Component.name
+    });
+  }, [Component.name]);
 
   useEffect(() => {
     const handle404 = () => {
@@ -49,28 +58,25 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
     let timeoutId: (NodeJS.Timeout | undefined) = undefined;
     const loader = document.getElementById('globalLoader');
     if (loader) {
-      if (!loaded) {
+      if (!loadedRoute) {
         timeoutId = setTimeout(() => {
-          if (loader.className) {
             setLoaderClass("vinyl_loading");
             setShowLoadingAnim(true);
-          }
-        }, 100);
+        }, (componentHistory.length < 2 ? 0 : 500));
+        console.log(componentHistory, "componentHistory");
       } else {
         setLoaderClass("vinyl_loading vinyl_hidden");
-        timeoutId = setTimeout(() => {
-          if ("requestIdleCallback" in window) {
+        if ("requestIdleCallback" in window) {
             requestIdleCallback(() => {
               setShowLoadingAnim(false);
             });
-          } else setShowLoadingAnim(false);
-        }, 2000);
+          } else timeoutId = setTimeout(() => { setShowLoadingAnim(false) }, 100);
       }
       return () => {
         clearTimeout(timeoutId);
       };
     }
-  }, [loaded]);
+  }, [loadedRoute, componentHistory]);
 
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page)
@@ -147,7 +153,6 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         
         .transition_loader {
             pointer-events: initial !important;
-            background-color: white !important;
             position: sticky;
         }
         
@@ -198,6 +203,10 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
             body {
                 background-color: black;
             }
+
+            .transition_loader {
+                background-color: #303030;
+            }
         }
         
         @media screen and (min-width: 320px) and (max-width: 1200px) and (orientation: landscape) {}
@@ -206,7 +215,12 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
       </Head>
       {/* <StrictMode> */}
         <PlaybackProvider>
-          <AnimatePresence mode='wait'>
+          <AnimatePresence mode='wait' onExitComplete={() => {
+            setLoaded("");
+            setTimeout(() => {
+              if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
+            }, 300);
+          }}>
             <Component {...pageProps} key={Component.name} onReady={onReady} />
           </AnimatePresence>
           {!isMobileDevice && <div className={styles.overlay} key="overlay">
@@ -214,9 +228,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
           </div>}
         </PlaybackProvider>
       {/* </StrictMode> */}
-      {showLoadingAnim ? <div id="globalLoader" style={loaded ? { opacity: 0, pointerEvents: "none", position: "fixed" } : { position: "fixed" }}>
+      <div id="globalLoader" style={!showLoadingAnim ? { opacity: 0, pointerEvents: "none", position: "fixed" } : { position: "fixed" }}>
         <LoadingAnim className={loaderClass} />
-      </div> : null}
+      </div>
     </>
   )
 }
