@@ -290,80 +290,26 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
               layoutDependency: layoutDependency,
               layoutId: "ZW17gGN7x",
               children: [
-                <a target="_blank" key="apple-podcasts-stamp" className={`framer-bawjxc ${styles.apple_stamp} ${styles.stamp}`}
-                href="https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591" style={{
+                { key: "apple-podcasts-stamp", className: styles.apple_stamp, href: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591" }, 
+                { key: "rss-stamp", className: styles.rss_stamp, href: "https://anchor.fm/s/b43f59a8/podcast/rss" },
+                { key: "spotify-stamp", className: styles.spotify_stamp, href: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r" },
+                { key: "pocket-casts-stamp", className: styles.pocketcasts_stamp, href: "https://pca.st/A6sJ" },
+                { key: "youtube-stamp", className: styles.youtube_stamp, href: "https://www.youtube.com/@SeptanteMinutes" },
+                { key: "facebook-stamp", className: styles.facebook_stamp, href: "https://www.facebook.com/SeptanteMinutesAvec" },
+                { key: "twitter-stamp", className: styles.twitter_stamp, href: "https://twitter.com/SeptanteMinutes" },
+                { key: "instagram-stamp", className: styles.instagram_stamp, href: "https://www.instagram.com/SeptanteMinutes" },
+                { key: "tiktok-stamp", className: styles.tiktok_stamp, href: "https://tiktok.com/@guihachez" },                
+              ].map(({ key, className, href }) => (
+                <a target="_blank" key={key} className={`framer-bawjxc ${className} ${styles.stamp}`}
+                href={href} style={{
                   filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
                   rotate: 0,
                 }}>
                   <motion.div className={styles.stamp_inner_shadow} />
                   <motion.div className={styles.stamp_paper} />
                   <motion.div className={styles.stamp_logo} />
-                </a>,
-                <a target="_blank" key="rss-stamp" className={`framer-bawjxc ${styles.rss_stamp} ${styles.stamp}`}
-                href="https://anchor.fm/s/b43f59a8/podcast/rss" style={{
-                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                  rotate: -1,
-                }}>
-                  <motion.div className={styles.stamp_inner_shadow} />
-                  <motion.div className={styles.stamp_paper} />
-                  <motion.div className={styles.stamp_logo} />
-                </a>,
-                <a target="_blank" key="spotify-stamp" className={`framer-bawjxc ${styles.spotify_stamp} ${styles.stamp}`}
-                href="https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r" style={{
-                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                  rotate: 2,
-                }}>
-                  <motion.div className={styles.stamp_inner_shadow} />
-                  <motion.div className={styles.stamp_paper} />
-                  <motion.div className={styles.stamp_logo} />
-                </a>,
-                <a target="_blank" key="pocket-casts-stamp" className={`framer-bawjxc ${styles.pocketcasts_stamp} ${styles.stamp}`}
-                href="https://pca.st/A6sJ" style={{
-                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                  rotate: -3,
-                  transform: "rotate(-3deg) translateZ(0px)"
-                }}>
-                  <motion.div className={styles.stamp_inner_shadow} />
-                  <motion.div className={styles.stamp_paper} />
-                  <motion.div className={styles.stamp_logo} />
-                </a>,
-                <a target="_blank" key="youtube-stamp" className={`framer-bawjxc ${styles.youtube_stamp} ${styles.stamp}`}
-                href="https://www.youtube.com/channel/UC9J9Z9J9Z9J9Z9J9Z9J9Z9Q" style={{
-                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                  rotate: 2,
-                }}>
-                  <motion.div className={styles.stamp_inner_shadow} />
-                  <motion.div className={styles.stamp_paper} />
-                  <motion.div className={styles.stamp_logo} />
-                </a>,
-                <a target="_blank" key="facebook-stamp" className={`framer-bawjxc ${styles.facebook_stamp} ${styles.stamp}`}
-                href="https://www.facebook.com/SeptanteMinutesAvec" style={{
-                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                  rotate: 2,
-                }}>
-                  <motion.div className={styles.stamp_inner_shadow} />
-                  <motion.div className={styles.stamp_paper} />
-                  <motion.div className={styles.stamp_logo} />
-                </a>,
-                <a target="_blank" key="twitter-stamp" className={`framer-bawjxc ${styles.twitter_stamp} ${styles.stamp}`}
-                href="https://twitter.com/SeptanteMinutes" style={{
-                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                  rotate: -3,
-                }}>
-                    <motion.div className={styles.stamp_inner_shadow} />
-                    <motion.div className={styles.stamp_paper} />
-                    <motion.div className={styles.stamp_logo} />
-                </a>,
-                <a target="_blank" key="instagram-stamp" className={`framer-bawjxc ${styles.instagram_stamp} ${styles.stamp}`}
-                href="https://www.instagram.com/GuiHachez" style={{
-                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                  rotate: -3,
-                }}>
-                    <motion.div className={styles.stamp_inner_shadow} />
-                    <motion.div className={styles.stamp_paper} />
-                    <motion.div className={styles.stamp_logo} />
-                  </a>,
-              ],
+                </a>
+              ))
             }),
           ],
         }),

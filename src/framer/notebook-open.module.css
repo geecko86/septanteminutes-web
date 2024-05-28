@@ -169,8 +169,8 @@ div[ready="true"] .scrollTarget {}
 
 .instagram_stamp {
     position: absolute;
-    bottom: 1%;
-    left: 49%;
+    bottom: 22%;
+    left: 66%;
     transform: translateX(-50%) rotate(-1deg) translateZ(0px);
 }
 
@@ -180,10 +180,23 @@ div[ready="true"] .scrollTarget {}
     mask-size: 60%, 100%;
 }
 
+.tiktok_stamp {
+    position: absolute;
+    bottom: 0%;
+    left: 85%;
+    transform: translateX(-50%) rotate(1deg) translateZ(0px);
+}
+
+.tiktok_stamp>div.stamp_logo::after {
+    background-image: linear-gradient(#222, #111);
+    mask-image: url("/img/tiktok.svg"), url("/img/stamp.svg");
+    mask-size: 60%, 100%;
+}
+
 .facebook_stamp {
     position: absolute;
-    bottom: 2%;
-    left: 85%;
+    bottom: 0%;
+    left: 50%;
     transform: translateX(-50%) rotate(2deg) translateZ(0px);
 }
 
@@ -195,8 +208,8 @@ div[ready="true"] .scrollTarget {}
 
 .twitter_stamp {
     position: absolute;
-    bottom: 3.5%;
-    left: 15%;
+    bottom: 21%;
+    left: 30%;
     transform: translateX(-50%) rotate(-3deg) translateZ(0px);
 }
 
