@@ -40,10 +40,7 @@ export default function Custom404() {
                 <div className={["screen", styles.screen].join(" ")}>
                     <canvas id="canvas" className={["picture", styles.picture].join(" ")}></canvas>
                     <div className={["overlay", styles.overlay].join(" ")} />
-                    <div className={styles.textContainer} style={{
-                        opacity: visible ? 1 : 0,
-                        transition: "opacity 0.1s ease-in-out"
-                    }}>
+                    <div className={styles.textContainer}>
                         <h1>
                             404
                         </h1>
