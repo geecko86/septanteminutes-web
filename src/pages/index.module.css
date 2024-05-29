@@ -570,7 +570,7 @@
 
 @supports (-webkit-hyphens:none) {
     .layer_0, .layer_0 * { transform: translateZ(0px); }
-    .layer_1, .layer_1 * { transform: translateZ(5px) !important; }
+    .layer_1, .layer_1 * { transform: translateZ(5px); }
     .layer_2, .layer_2 * { transform: translateZ(10px); }
 }
 

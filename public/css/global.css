@@ -115,8 +115,8 @@ html *::-webkit-scrollbar {
         background-color: black;
     }
 
-    .transition_loader {
-        background-color: #303030;
+    #globalLoader, .transition_loader {
+        background-color: #303030 !important;
     }
 }
 
