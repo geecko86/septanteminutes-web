@@ -52,7 +52,7 @@ div:has(> .chair) {
   height: auto !important;
   width: calc(75vw * 0.8) !important;
   min-width: 320px;
-  transform: rotate(-23deg) translateZ(4px) !important;
+  transform: rotate(-23deg) !important;
 }
 
 
@@ -240,13 +240,11 @@ div:has(> .chair) {
   aspect-ratio: 1;
   height: auto !important;
   width: 94% !important;
-  transform: translateZ(0px);
 }
 
 .albums>div:nth-child(6n) {
   right: 0;
   top: calc(50.62500000000002% - 95% / 2);
-  transform: translateZ(0px);
 }
 
 .albums>div:nth-child(6n + 1) {
@@ -752,19 +750,19 @@ div:has(> .chair) {
     /* transform:translateX(-10%) !important; */
   }
 
-  .postitnotes *:nth-child(1)>.postit {
-    transform: rotate(0deg) translate(0%, 5%);
+  .postitnotes > div:nth-child(1) {
+    transform: rotate(3deg) translate(0%, 12%) !important;
   }
 
-  .postitnotes *:nth-child(2)>.postit {
+  .postitnotes > div:nth-child(2) {
     transform: rotate(-6deg) translate(0, 27.5%);
   }
 
-  .postitnotes div:nth-child(3)>.postit {
+  .postitnotes > div:nth-child(3) {
     transform: rotate(6deg) translate(0%, -10%);
   }
 
-  .postitnotes div:nth-child(4)>.postit {
+  .postitnotes > div:nth-child(4) {
     transform: unset !important;
   }
 }

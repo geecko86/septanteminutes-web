@@ -21,22 +21,22 @@ const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...
   return (
     <Link
       initial={variant}
-      onMouseOver={() => setHovered(true)}
-      onMouseOut={() => setHovered(false)}
       className={`framer-LFfFl ${className || ""}`}
       scroll={false} id={id} href={`/${num}`}
       onClick={onClick}
     >
       <motion.div
-        initial={false}
         className={styles.boxart}
+        onHoverStart={() => setHovered(true)}
+        onHoverEnd={() => setHovered(false)}
         transition={{ type: "spring", stiffness: 100, damping: 15, mass: 1 }}
         style={{
           height: "auto",
           width: "100%",
           aspectRatio: 1,
-          translateY: 0
+          translateZ: "0px"
         }}
+        initial={{ opacity: 0.95, translateY: "-0%" }}
         animate={{ opacity: isHovered ? 1.0 : 0.95, translateY: isHovered ? "-10%" : "-0%" }}
       >
         {image && (
