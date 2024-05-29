@@ -186,10 +186,10 @@ export default function EpisodeTable(props: {
   }, [playingEpisode?.mp3, ready]);
 
   useEffect(() => {
-    if (displayedURL && !displayedURL.includes(router.asPath)) {
+    if (displayedURL && !displayedURL.includes(router.asPath) && router.pathname == "/[episodeNum]") {
       const id = setTimeout(() => {
         router.replace(displayedURL, undefined, { scroll: false, shallow: true });
-      }, 600);
+      }, 200);
 
       return () => {
         clearTimeout(id);

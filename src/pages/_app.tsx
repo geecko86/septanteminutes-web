@@ -63,14 +63,13 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
             setLoaderClass("vinyl_loading");
             setShowLoadingAnim(true);
         }, (componentHistory.length < 2 ? 0 : 500));
-        console.log(componentHistory, "componentHistory");
       } else {
         setLoaderClass("vinyl_loading vinyl_hidden");
         if ("requestIdleCallback" in window) {
             requestIdleCallback(() => {
               setShowLoadingAnim(false);
             });
-          } else timeoutId = setTimeout(() => { setShowLoadingAnim(false) }, 100);
+        } else timeoutId = setTimeout(() => { setShowLoadingAnim(false) }, 100);
       }
       return () => {
         clearTimeout(timeoutId);
@@ -204,8 +203,8 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
                 background-color: black;
             }
 
-            .transition_loader {
-                background-color: #303030;
+            #globalLoader, .transition_loader {
+                background-color: #303030 !important;
             }
         }
         
