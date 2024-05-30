@@ -72,12 +72,15 @@ html *::-webkit-scrollbar {
     height: 100vh;
     height: 100svh;
     background-color: white;
-    opacity: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     top: 0;
     bottom: 1px;
+}
+
+#globalLoader {
+    opacity: 1;
     transition: opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000);
     transition-delay: 0.25s !important;
 }

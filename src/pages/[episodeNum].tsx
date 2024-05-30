@@ -453,8 +453,14 @@ export default function EpisodeTable(props: {
       exit={{ opacity: 0 }}
       animate={{ opacity: ready ? 1 : 0 }}
       transition={{ type: 'linear', duration: 0.25 }}
-      onAnimationComplete={() => {
-        if (!isPresent) safeToRemove();
+      onAnimationComplete={(animDef: { opacity: number }) => {
+        if (!isPresent && animDef.opacity === 0) {
+          setReady(false);
+          safeToRemove();
+        }
+
+        if (isPresent) console.log("[EpisodeTable] Component visible", animDef);
+        else console.log("[EpisodeTable] Component invisible", animDef);
       }}
       className="transition_loader" >
       <div ref={episodePage} style={{
@@ -564,6 +570,7 @@ export default function EpisodeTable(props: {
                   alt={episode["title"]}
                   total={vinyls.length}
                   position={index}
+                  priority={ready}
                   onLoad={() => onVinylLoad(episode, index)}
                   onSelect={scrollCallback}
                   episodeNumParam={episodeNumParam}

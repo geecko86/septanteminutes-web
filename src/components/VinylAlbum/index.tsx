@@ -17,10 +17,11 @@ import styles from "./album.module.css";
 const VinylAlbum = React.forwardRef(( {
     position,
     scrollYProgress,
-    image,
+    image = "",
     total,
     mayAnimate = false,
     alt = "",
+    priority = false,
     type = "vinyl",
     episodeNumParam = -1,
     onSelect = () => {},
@@ -68,7 +69,6 @@ const VinylAlbum = React.forwardRef(( {
   const [ignoreScroll, setIgnoreScroll] = useState(false);
   const [isMoving, setMoving] = useState(false);
   const [jump, setJump] = useState(true);
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
     if (episodeNumParam == -1) return;
@@ -96,11 +96,13 @@ const VinylAlbum = React.forwardRef(( {
 
   useEventListener("resize", () => {
     setIgnoreScroll(true);
-    if (timeoutId) clearTimeout(timeoutId);
-    const newId = setTimeout(() => {
+    const id = setTimeout(() => {
       setIgnoreScroll(false);
     }, 50);
-    setTimeoutId(newId);
+
+    return () => {
+      clearTimeout(id);
+    }
   });
 
   useMotionValueEvent(rotateZ, "change", (rotation) => {
@@ -154,6 +156,7 @@ const VinylAlbum = React.forwardRef(( {
             alt={alt}
             fill={true}
             ref={ref}
+            priority={priority}
             className={!loaded ? styles.image_loading : ""}
             sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
             onLoad={() => {
@@ -179,7 +182,6 @@ const ShadowAlbum = (props: VinylProps) => {
   const {
     position,
     scrollYProgress,
-    image,
     total,
     mayAnimate = false,
     type = "shadow",
@@ -188,7 +190,6 @@ const ShadowAlbum = (props: VinylProps) => {
     <VinylAlbum 
       position={position}
       scrollYProgress={scrollYProgress}
-      image={image}
       total={total}
       mayAnimate={mayAnimate}
       type={type}
@@ -198,8 +199,9 @@ const ShadowAlbum = (props: VinylProps) => {
 
 type VinylProps = {
   position: number,
+  priority?: boolean,
   scrollYProgress: MotionValue,
-  image: string,
+  image?: string,
   total: number,
   mayAnimate: boolean,
   type?: string,
