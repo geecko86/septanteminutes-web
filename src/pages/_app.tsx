@@ -60,9 +60,11 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
     if (loader) {
       if (!loadedRoute) {
         timeoutId = setTimeout(() => {
+          if (!loadedRoute) {
             setLoaderClass("vinyl_loading");
             setShowLoadingAnim(true);
-        }, (componentHistory.length < 2 ? 0 : 500));
+          }
+        }, componentHistory.length < 2 ? 0 : 500);
       } else {
         setLoaderClass("vinyl_loading vinyl_hidden");
         if ("requestIdleCallback" in window) {
@@ -153,23 +155,26 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         .transition_loader {
             pointer-events: initial !important;
             position: sticky;
-        }
-        
-        #globalLoader, .transition_loader {
+          }
+          
+          #globalLoader, .transition_loader {
             width: 100vw;
             height: 100vh;
             height: 100svh;
             background-color: white;
-            opacity: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             top: 0;
+          }
+
+          #globalLoader {
             bottom: 1px;
+            opacity: 1;
             transition: opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000);
             transition-delay: 0.25s !important;
-        }
-        
+          }
+          
         @media (pointer:coarse) and (orientation: portrait) {
             html,
             body,
@@ -216,9 +221,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         <PlaybackProvider>
           <AnimatePresence mode='wait' onExitComplete={() => {
             setLoaded("");
-            setTimeout(() => {
-              if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
-            }, 300);
+            if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
           }}>
             <Component {...pageProps} key={Component.name} onReady={onReady} />
           </AnimatePresence>

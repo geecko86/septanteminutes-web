@@ -539,8 +539,14 @@ export default function Home(props: {
             animate={{ opacity: ready ? 1 : 0 }}
             exit={{ opacity: 0 }}
             transition={{ type: 'linear', duration: 0.25 }}
-            onAnimationComplete={() => {
-                if (!isPresent) safeToRemove();
+            onAnimationComplete={(animDef: { opacity: number }) => {
+                if (!isPresent && animDef.opacity === 0) {
+                    setReady(false);
+                    safeToRemove();
+                }
+
+                if (isPresent) console.log("Home visible", animDef);
+                else console.log("Home invisible", animDef);
             }}
             style={{
                 ...props.style
