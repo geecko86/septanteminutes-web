@@ -24,6 +24,11 @@ div[ready="true"] .scrollTarget {}
     text-decoration: underline;
 }
 
+.scrollTarget span {
+    text-decoration: underline;
+    cursor: pointer
+}
+
 .subscribe {
     width: fit-content !important;
     right: 13.79% !important;
