@@ -69,7 +69,7 @@ const NotebookOverlay = ({ title = "", subtitle = "", desc = "", translateX = "l
 
               if (descVisible) {
                 let scrollableDiv = document.getElementById('scrollTarget');
-                scrollableDiv.scrollTop = scrollableDiv.scrollHeight;
+                scrollableDiv.scrollTop = Math.min(scrollableDiv.scrollHeight, scrollableDiv.clientHeight);
                 setTimeout(() => {
                     // Animate the scroll back up
                     scrollableDiv.scrollTo({
