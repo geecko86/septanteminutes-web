@@ -175,6 +175,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         newAudio.addEventListener("seeked", onPlaying, { passive: true });
 
         audioRef.current = newAudio;
+        (window as any).audioPlayer = audioRef;
 
         return () => {
             newAudio.removeEventListener('playing', onPlaying);
@@ -185,6 +186,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
             newAudio.removeEventListener("error", onError);
             newAudio.removeEventListener("seeked", onPlaying);
             audioRef.current = undefined;
+            (window as any).audioPlayer = undefined;
         }
     }, []);
 

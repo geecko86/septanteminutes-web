@@ -8,7 +8,8 @@ import {
   withCSS,
 } from "framer";
 import NextImage from "next/image";
-import { LayoutGroup, motion, MotionConfigContext } from "framer-motion";
+import Script from "next/script";
+import { LayoutGroup, motion } from "framer-motion";
 import * as React from "react";
 
 import styles from "./notebook-open.module.css";
@@ -49,13 +50,13 @@ const getProps = ({
         null && ref !== void 0
         ? ref
         : {
-            src: new URL(
-              "https://framerusercontent.com/images/yYJS4WsSdE8HHVqXY7DZVs3GZiM.jpg"
-              // "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698608146/framer/notebook_open.webp"
-            ).href,
-          },
-    I94Rs1RIH:
-      (ref1 = text !== null && text !== void 0 ? text : props.I94Rs1RIH) !==
+          src: new URL(
+            "https://framerusercontent.com/images/yYJS4WsSdE8HHVqXY7DZVs3GZiM.jpg"
+            // "https://res.cloudinary.com/dcodwkhcg/image/upload/v1698608146/framer/notebook_open.webp"
+          ).href,
+        },
+    desc:
+      (ref1 = text !== null && text !== void 0 ? text : props.desc) !==
         null && ref1 !== void 0
         ? ref1
         : "No one shall be subjected to arbitrary arrest, detention or exile. Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him. No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.",
@@ -91,7 +92,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
     className,
     layoutId,
     variant,
-    I94Rs1RIH,
+    desc,
     ready,
     toggleOverlay,
     HGybZ8uLx,
@@ -114,208 +115,223 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
   });
   const layoutDependency = createLayoutDependency(props, variants);
   const defaultLayoutId = React.useId();
-  return /*#__PURE__*/ _jsx(LayoutGroup, {
-    id: layoutId !== null && layoutId !== void 0 ? layoutId : defaultLayoutId,
-    children: /*#__PURE__*/ _jsx(motion.div, {
-      initial: variant,
-      animate: variants,
-      onHoverStart: () => setGestureState({ isHovered: true }),
-      onHoverEnd: () => setGestureState({ isHovered: false }),
-      onTapStart: () => setGestureState({ isPressed: true }),
-      onTap: () => setGestureState({ isPressed: false }),
-      onTapCancel: () => setGestureState({ isPressed: false }),
-      className: cx("framer-N8Zts", classNames),
-      style: { display: "contents" },
-      children: /*#__PURE__*/ _jsxs(motion.div, {
-          ...restProps,
-          className: cx("framer-1i1477k", className),
-          "data-framer-name": "Variant 1",
-          layoutDependency: layoutDependency,
-          layoutId: "sFPu3J3Yn",
-          ready: props.ready ? "true" : "false",
-          ref: ref,
-          style: { ...style },
-          children: [
+  return (<motion.div
+    initial={variant}
+    animate={variants}
+    onHoverStart={() => setGestureState({ isHovered: true })}
+    onHoverEnd={() => setGestureState({ isHovered: false })}
+    onTapStart={() => setGestureState({ isPressed: true })}
+    onTap={() => setGestureState({ isPressed: false })}
+    onTapCancel={() => setGestureState({ isPressed: false })}
+    className={cx("framer-N8Zts", classNames)}
+    style={{ display: "contents" }}
+  >
+    <Script id="goToTimestamp">
+      {`
+        function goToTimestamp(e) {
+          const audioElement = window.audioPlayer;
+          if (!audioElement) return;
+
+          const timestamp = e.getAttribute("data-timestamp");
+          const [hours, minutes, seconds] = timestamp.split(":").map(num => parseInt(num));
+          console.log(audioElement, timestamp);
+          audioElement.current.currentTime = hours * 3600 + minutes * 60 + seconds;
+        }
+      `}
+    </Script>
+    {_jsxs(motion.div, {
+      ...restProps,
+      className: cx("framer-1i1477k", className),
+      "data-framer-name": "Variant 1",
+      layoutDependency: layoutDependency,
+      layoutId: "sFPu3J3Yn",
+      ready: props.ready ? "true" : "false",
+      ref: ref,
+      style: { ...style },
+      children: [
             /*#__PURE__*/ _jsxs(NextImage, {
-              alt: "",
-              fill: true,
-              sizes: "(max-width: 1200px) 100vw, 34.5vw",
-              ...toResponsiveImage(HGybZ8uLx),
-            }),
+        alt: "",
+        fill: true,
+        sizes: "(max-width: 1200px) 100vw, 34.5vw",
+        ...toResponsiveImage(HGybZ8uLx),
+      }),
             /*#__PURE__*/ _jsxs(motion.div, {
-              className: "framer-1qal9rh",
-              layoutDependency: layoutDependency,
-              layoutId: "upoBCxi_q",
-              children: [
+        className: "framer-1qal9rh",
+        layoutDependency: layoutDependency,
+        layoutId: "upoBCxi_q",
+        children: [
                 /*#__PURE__*/ _jsxs(motion.div, {
-                  className: "framer-z9vgup",
-                  layoutDependency: layoutDependency,
-                  layoutId: "hKE4tKOIb",
-                  children: [
+          className: "framer-z9vgup",
+          layoutDependency: layoutDependency,
+          layoutId: "hKE4tKOIb",
+          children: [
                     /*#__PURE__*/ _jsx(RichText, {
-                      __fromCanvasComponent: true,
-                      children: /*#__PURE__*/ _jsx(React.Fragment, {
-                        children: /*#__PURE__*/ _jsx(motion.h1, {
-                          style: {
-                            "--font-selector": "R0Y7Q2F2ZWF0LTcwMA==",
-                            "--framer-font-family": '"Caveat", sans-serif',
-                            "--framer-font-size": "30px",
-                            "--framer-font-weight": "700",
-                            "--framer-text-color":
-                              "var(--extracted-gdpscs, rgb(38, 38, 38))",
-                          },
-                          children: "This is The Title Of the Podcast",
-                        }),
-                      }),
-                      className: "framer-ewqvqc",
-                      fonts: ["GF;Caveat-700"],
-                      layoutDependency: layoutDependency,
-                      layoutId: "fI1LvdMNi",
-                      style: {
-                        "--extracted-gdpscs": "rgb(38, 38, 38)",
-                        "--framer-link-text-color": "rgb(0, 153, 255)",
-                        "--framer-link-text-decoration": "underline",
-                        "--framer-paragraph-spacing": "0px",
-                      },
-                      text: RI514VBvw,
-                      verticalAlignment: "top",
-                      withExternalLayout: true,
-                    }),
-                    /*#__PURE__*/ _jsx(RichText, {
-                      __fromCanvasComponent: true,
-                      children: /*#__PURE__*/ _jsx(React.Fragment, {
-                        children: /*#__PURE__*/ _jsx(motion.h4, {
-                          style: {
-                            "--font-selector": "R0Y7Q2F2ZWF0LTcwMA==",
-                            "--framer-font-family": '"Caveat", sans-serif',
-                            "--framer-font-size": "14px",
-                            "--framer-font-weight": "700",
-                            "--framer-text-color":
-                              "var(--extracted-1eung3n, rgb(168, 87, 0))",
-                          },
-                          children: "avec Marco Rubio",
-                        }),
-                      }),
-                      className: "framer-1e605kk",
-                      fonts: ["GF;Caveat-700"],
-                      layoutDependency: layoutDependency,
-                      layoutId: "P4PLx6Ygh",
-                      style: {
-                        "--extracted-1eung3n": "rgb(168, 87, 0)",
-                        "--framer-link-text-color": "rgb(0, 153, 255)",
-                        "--framer-link-text-decoration": "underline",
-                        "--framer-paragraph-spacing": "0px",
-                      },
-                      text: KBBmo6ff1,
-                      verticalAlignment: "top",
-                      withExternalLayout: true,
-                    }),
-                  ],
-                }),
-                /*#__PURE__*/ _jsx(RichText, {
-                  __fromCanvasComponent: true,
-                  id: "scrollTarget",
-                  children: /*#__PURE__*/ _jsx(React.Fragment, {
-                    children: /*#__PURE__*/ _jsx(motion.p, {
-                      style: {
-                        "--font-selector": "R0Y7Q2F2ZWF0LXJlZ3VsYXI=",
-                        "--framer-font-family": '"Caveat", sans-serif',
-                        "--framer-font-size": "17px",
-                        "--framer-line-height": "1em",
-                        "--framer-text-color":
-                          "var(--extracted-r6o4lv, rgb(38, 38, 38))",
-                      },
-                      dangerouslySetInnerHTML: { __html: I94Rs1RIH.replace("<a ", "<a target=\"_blank\" ") },
-                    }),
-                  }),
-                  className: `framer-pdriv7 ${styles.scrollTarget}`,
-                  fonts: ["GF;Caveat-regular"],
-                  layoutDependency: layoutDependency,
-                  layoutId: "US6woX6iP",
-                  style: {
-                    "--extracted-r6o4lv": "rgb(38, 38, 38)",
-                    "--framer-link-text-color": "rgb(0, 153, 255)",
-                    "--framer-link-text-decoration": "underline",
-                    "--framer-paragraph-spacing": "0px",
-                  },
-                  text: I94Rs1RIH,
-                  verticalAlignment: "top",
-                  withExternalLayout: true,
-                }),
-              ],
-            }),
-            /*#__PURE__*/ _jsx(RichText, {
-              __fromCanvasComponent: true,
-              children: /*#__PURE__*/ _jsx(React.Fragment, {
-                children: /*#__PURE__*/ _jsx(motion.h5, {
-                  style: {
-                    "--font-selector": "R0Y7Q2F2ZWF0LXJlZ3VsYXI=",
-                    "--framer-font-family": '"Caveat", sans-serif',
-                    "--framer-font-size": "17px",
-                    "--framer-text-color":
-                      "var(--extracted-r6o4lv, rgb(38, 38, 38))",
-                  },
-                  className: styles.subscribe,
-                  children: "Abonnez-vous !",
-                }),
+            __fromCanvasComponent: true,
+            children: /*#__PURE__*/ _jsx(React.Fragment, {
+              children: /*#__PURE__*/ _jsx(motion.h1, {
+                style: {
+                  "--font-selector": "R0Y7Q2F2ZWF0LTcwMA==",
+                  "--framer-font-family": '"Caveat", sans-serif',
+                  "--framer-font-size": "30px",
+                  "--framer-font-weight": "700",
+                  "--framer-text-color":
+                    "var(--extracted-gdpscs, rgb(38, 38, 38))",
+                },
+                children: "This is The Title Of the Podcast",
               }),
-              className: `framer-1ij9ooc ${styles.subscribe}`,
-              fonts: ["GF;Caveat-regular"],
-              layoutDependency: layoutDependency,
-              layoutId: "QF_eW7RPb",
-              style: {
-                "--extracted-r6o4lv": "rgb(38, 38, 38)",
-                "--framer-link-text-color": "rgb(0, 153, 255)",
-                "--framer-link-text-decoration": "underline",
-                "--framer-paragraph-spacing": "0px",
-              },
-              text: qSyYbDFAE,
-              verticalAlignment: "top",
-              withExternalLayout: true,
             }),
-            /*#__PURE__*/ _jsxs(motion.div, {
-              className: styles.exit_cross,
-              onClick: () => {
-                if (props.toggleOverlay) props.toggleOverlay(false);
-              }
+            className: "framer-ewqvqc",
+            fonts: ["GF;Caveat-700"],
+            layoutDependency: layoutDependency,
+            layoutId: "fI1LvdMNi",
+            style: {
+              "--extracted-gdpscs": "rgb(38, 38, 38)",
+              "--framer-link-text-color": "rgb(0, 153, 255)",
+              "--framer-link-text-decoration": "underline",
+              "--framer-paragraph-spacing": "0px",
+            },
+            text: RI514VBvw,
+            verticalAlignment: "top",
+            withExternalLayout: true,
+          }),
+                    /*#__PURE__*/ _jsx(RichText, {
+            __fromCanvasComponent: true,
+            children: /*#__PURE__*/ _jsx(React.Fragment, {
+              children: /*#__PURE__*/ _jsx(motion.h4, {
+                style: {
+                  "--font-selector": "R0Y7Q2F2ZWF0LTcwMA==",
+                  "--framer-font-family": '"Caveat", sans-serif',
+                  "--framer-font-size": "14px",
+                  "--framer-font-weight": "700",
+                  "--framer-text-color":
+                    "var(--extracted-1eung3n, rgb(168, 87, 0))",
+                },
+                children: "avec Marco Rubio",
+              }),
             }),
-            /*#__PURE__*/ _jsxs(motion.div, {
-              className: [styles.exit_cross, styles.exit_cross_2].join(" "),
-              onClick: () => {
-                if (props.toggleOverlay) props.toggleOverlay(false);
-              }
-            }),
-            /*#__PURE__*/ _jsxs(motion.div, {
-              className: "framer-j4o6rv",
-              layoutDependency: layoutDependency,
-              layoutId: "ZW17gGN7x",
-              children: [
-                { key: "apple-podcasts-stamp", className: styles.apple_stamp, href: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591" }, 
-                { key: "rss-stamp", className: styles.rss_stamp, href: "https://anchor.fm/s/b43f59a8/podcast/rss" },
-                { key: "spotify-stamp", className: styles.spotify_stamp, href: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r" },
-                { key: "pocket-casts-stamp", className: styles.pocketcasts_stamp, href: "https://pca.st/A6sJ" },
-                { key: "youtube-stamp", className: styles.youtube_stamp, href: "https://www.youtube.com/@SeptanteMinutes" },
-                { key: "facebook-stamp", className: styles.facebook_stamp, href: "https://www.facebook.com/SeptanteMinutesAvec" },
-                { key: "twitter-stamp", className: styles.twitter_stamp, href: "https://twitter.com/SeptanteMinutes" },
-                { key: "instagram-stamp", className: styles.instagram_stamp, href: "https://www.instagram.com/SeptanteMinutes" },
-                { key: "tiktok-stamp", className: styles.tiktok_stamp, href: "https://tiktok.com/@guihachez" },                
-              ].map(({ key, className, href }) => (
-                <a target="_blank" key={key} className={`framer-bawjxc ${className} ${styles.stamp}`}
-                href={href} style={{
-                  filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
-                  rotate: 0,
-                }}>
-                  <motion.div className={styles.stamp_inner_shadow} />
-                  <motion.div className={styles.stamp_paper} />
-                  <motion.div className={styles.stamp_logo} />
-                </a>
-              ))
-            }),
+            className: "framer-1e605kk",
+            fonts: ["GF;Caveat-700"],
+            layoutDependency: layoutDependency,
+            layoutId: "P4PLx6Ygh",
+            style: {
+              "--extracted-1eung3n": "rgb(168, 87, 0)",
+              "--framer-link-text-color": "rgb(0, 153, 255)",
+              "--framer-link-text-decoration": "underline",
+              "--framer-paragraph-spacing": "0px",
+            },
+            text: KBBmo6ff1,
+            verticalAlignment: "top",
+            withExternalLayout: true,
+          }),
           ],
         }),
-    }),
-  });
+                /*#__PURE__*/ _jsx(RichText, {
+          __fromCanvasComponent: true,
+          id: "scrollTarget",
+          children: /*#__PURE__*/ _jsx(React.Fragment, {
+            children: /*#__PURE__*/ _jsx(motion.p, {
+              style: {
+                "--font-selector": "R0Y7Q2F2ZWF0LXJlZ3VsYXI=",
+                "--framer-font-family": '"Caveat", sans-serif',
+                "--framer-font-size": "17px",
+                "--framer-line-height": "1em",
+                "--framer-text-color":
+                  "var(--extracted-r6o4lv, rgb(38, 38, 38))",
+              },
+              dangerouslySetInnerHTML: {
+                __html: desc
+                  .replace(/\b(\d{2}:\d{2}:\d{2})\b/g, "<span onClick=\"goToTimestamp(this)\" data-timestamp=\"$1\">$1</span>")
+                  .replace("<a ", "<a target=\"_blank\" ")
+              },
+            }),
+          }),
+          className: `framer-pdriv7 ${styles.scrollTarget}`,
+          fonts: ["GF;Caveat-regular"],
+          layoutDependency: layoutDependency,
+          layoutId: "US6woX6iP",
+          style: {
+            "--extracted-r6o4lv": "rgb(38, 38, 38)",
+            "--framer-link-text-color": "rgb(0, 153, 255)",
+            "--framer-link-text-decoration": "underline",
+            "--framer-paragraph-spacing": "0px",
+          },
+          verticalAlignment: "top",
+          withExternalLayout: true,
+        }),
+        ],
+      }),
+            /*#__PURE__*/ _jsx(RichText, {
+        __fromCanvasComponent: true,
+        children: /*#__PURE__*/ _jsx(React.Fragment, {
+          children: /*#__PURE__*/ _jsx(motion.h5, {
+            style: {
+              "--font-selector": "R0Y7Q2F2ZWF0LXJlZ3VsYXI=",
+              "--framer-font-family": '"Caveat", sans-serif',
+              "--framer-font-size": "17px",
+              "--framer-text-color":
+                "var(--extracted-r6o4lv, rgb(38, 38, 38))",
+            },
+            className: styles.subscribe,
+            children: "Abonnez-vous !",
+          }),
+        }),
+        className: `framer-1ij9ooc ${styles.subscribe}`,
+        fonts: ["GF;Caveat-regular"],
+        layoutDependency: layoutDependency,
+        layoutId: "QF_eW7RPb",
+        style: {
+          "--extracted-r6o4lv": "rgb(38, 38, 38)",
+          "--framer-link-text-color": "rgb(0, 153, 255)",
+          "--framer-link-text-decoration": "underline",
+          "--framer-paragraph-spacing": "0px",
+        },
+        text: qSyYbDFAE,
+        verticalAlignment: "top",
+        withExternalLayout: true,
+      }),
+            /*#__PURE__*/ _jsxs(motion.div, {
+        className: styles.exit_cross,
+        onClick: () => {
+          if (props.toggleOverlay) props.toggleOverlay(false);
+        }
+      }),
+            /*#__PURE__*/ _jsxs(motion.div, {
+        className: [styles.exit_cross, styles.exit_cross_2].join(" "),
+        onClick: () => {
+          if (props.toggleOverlay) props.toggleOverlay(false);
+        }
+      }),
+            /*#__PURE__*/ _jsxs(motion.div, {
+        className: "framer-j4o6rv",
+        layoutDependency: layoutDependency,
+        layoutId: "ZW17gGN7x",
+        children: [
+          { key: "apple-podcasts-stamp", className: styles.apple_stamp, href: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591" },
+          { key: "rss-stamp", className: styles.rss_stamp, href: "https://anchor.fm/s/b43f59a8/podcast/rss" },
+          { key: "spotify-stamp", className: styles.spotify_stamp, href: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r" },
+          { key: "pocket-casts-stamp", className: styles.pocketcasts_stamp, href: "https://pca.st/A6sJ" },
+          { key: "youtube-stamp", className: styles.youtube_stamp, href: "https://www.youtube.com/@SeptanteMinutes" },
+          { key: "facebook-stamp", className: styles.facebook_stamp, href: "https://www.facebook.com/SeptanteMinutesAvec" },
+          { key: "twitter-stamp", className: styles.twitter_stamp, href: "https://twitter.com/SeptanteMinutes" },
+          { key: "instagram-stamp", className: styles.instagram_stamp, href: "https://www.instagram.com/SeptanteMinutes" },
+          { key: "tiktok-stamp", className: styles.tiktok_stamp, href: "https://tiktok.com/@guihachez" },
+        ].map(({ key, className, href }) => (
+          <a target="_blank" key={key} className={`framer-bawjxc ${className} ${styles.stamp}`}
+            href={href} style={{
+              filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
+              rotate: 0,
+            }}>
+            <motion.div className={styles.stamp_inner_shadow} />
+            <motion.div className={styles.stamp_paper} />
+            <motion.div className={styles.stamp_logo} />
+          </a>
+        ))
+      }),
+      ],
+    })};
+  </motion.div>);
 });
+
 const css = [
   '.framer-N8Zts [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
@@ -338,7 +354,7 @@ const css = [
  * @framerIntrinsicHeight 533
  * @framerIntrinsicWidth 725
  * @framerCanvasComponentVariantDetails {"propertyName":"variant","data":{"default":{"layout":["fixed","fixed"]}}}
- * @framerVariables {"I94Rs1RIH":"text","HGybZ8uLx":"image","RI514VBvw":"title","KBBmo6ff1":"subtitle","qSyYbDFAE":"followPrompt"}
+ * @framerVariables {"desc":"text","HGybZ8uLx":"image","RI514VBvw":"title","KBBmo6ff1":"subtitle","qSyYbDFAE":"followPrompt"}
  * @framerImmutableVariables false
  */ const FramerZqJyeZxrx = withCSS(Component, css, "framer-N8Zts");
 export default FramerZqJyeZxrx;
