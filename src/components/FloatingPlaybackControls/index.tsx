@@ -87,7 +87,7 @@ const Controls = () => {
                     if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                     setHoverTimeoutId(setTimeout(() => {
                         setHovered(false)
-                    }, 600));
+                    }, 5000));
                 }}
             >
                 <div className={styles.content}>
