@@ -575,7 +575,7 @@ export default function Home(props: {
                                             const left = invisibleSeasonSeparators.slice(0, i + 1).reduce((sum, value) => sum + value, 0);
                                             return (<React.Fragment key={season.name + "_invisible00_fragment"}>
                                                 <Poster setFirstPosterMotionValue={setFirstPosterMotionValue} ref={i == 0 ? firstPoster : undefined} offset={left} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}_${invisibleSeasonSeparators[i]}`}
-                                                    poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
+                                                    priority={ready || i == 0} poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
                                             </React.Fragment>)
                                         })
                                     }
@@ -673,7 +673,7 @@ export default function Home(props: {
                                     <React.Fragment key={`layer3_deco_${i}`}>
                                         { !isMobileDevice && (<FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
                                             pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date} blur={FrontPosters[i % 4].blurDataUrl}
-                                            onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />) }
+                                            priority={ready} onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />) }
                                         <PlantA2 key={`layer3_prop_${i}_PlantA2`} sizes="89svmin" className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                     </ React.Fragment>
                                 ))}

@@ -159,6 +159,7 @@ const VinylAlbum = React.forwardRef(( {
             priority={priority}
             className={!loaded ? styles.image_loading : ""}
             sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
+            quality={70}
             onLoad={() => {
               setLoadedComplete(true);
               if (!isGone && onLoad) onLoad()
@@ -169,6 +170,7 @@ const VinylAlbum = React.forwardRef(( {
             alt=""
             fill={true}
             priority={true}
+            quality={70}
             className={styles.wrinkles}
             sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
           />

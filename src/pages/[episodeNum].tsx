@@ -458,9 +458,6 @@ export default function EpisodeTable(props: {
           setReady(false);
           safeToRemove();
         }
-
-        if (isPresent) console.log("[EpisodeTable] Component visible", animDef);
-        else console.log("[EpisodeTable] Component invisible", animDef);
       }}
       className="transition_loader" >
       <div ref={episodePage} style={{
