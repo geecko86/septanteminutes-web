@@ -130,8 +130,8 @@
 }
 
 .poster {
-    transform:  translateX(calc(-20vh)) !important;
-    transform:  translateX(calc(-20svh)) !important;
+    transform:  translateX(calc(-20vh + min(25.6vh, 25vw))) !important;
+    transform:  translateX(calc(-20svh + min(25.6vh, 25vw))) !important;
 }
 
 @supports (-webkit-hyphens:none) {
@@ -253,6 +253,8 @@
 
 .floor > div {
     opacity: 0.7;
+    height: 11.5vh;
+    height: 11.5svh;
     /* border-left: solid red 5px;
     border-right: solid red 5px; */
 }
@@ -597,6 +599,28 @@
     width: 100%;
 }
 
+.layer_0_25 > div {
+    transform-origin: bottom;
+    transform: scaleY(0.29);
+}
+
+.layer_0_25 > div > div {
+    height: 100%;
+    perspective: 5vh;
+}
+
+.layer_0_25 .floor {
+    transform: rotateX(15deg) translateX(-5%);
+    transform-origin: bottom;
+}
+
+.layer_0_25 .floor > div {
+    position: relative;
+    height: 11.5vh;
+    width: auto;
+    aspect-ratio: calc(4096/111);
+}
+
 .layer_0_5 { /* back chairs and plants */ 
     display: flex;
     flex-direction: row;
@@ -732,8 +756,8 @@
     }
 
     .poster {
-        transform: translateX(-0vmin) translateZ(0px) !important;
-        transform: translateX(-0svmin) translateZ(0px) !important;
+        transform: translateX(min(25.6vmax, 25vmin)) translateZ(0px) !important;
+        transform: translateX(min(25.6svmax, 25svmin)) translateZ(0px) !important;
     }
 
     .lamps_1_5 {
@@ -798,7 +822,61 @@
         --layer_1_gap: 50svmax !important;
     }
 
+    .ceiling {
+        bottom: 88.5vmax;
+        bottom: 88.5svmax;
+    }
+
+    .ceiling::before, .ceiling::after {
+        height: 11.5vmax;
+        height: 11.5svmax;
+    }
+
+    .floor {
+        height: 11.5vmax;
+        height: 11.5svmax;
+    }
+
+    .floor::after, .floor::before {
+        height: 11.5vmax;
+        height: 11.5svmax;
+    }
+
+    .floor > div {
+        height: 11.5vmax;
+        height: 11.5svmax;
+    }
+
+    .layer_0_25 {
+        transform: scaleY(0.235);
+    }
+
+    .layer_0_25 > div {
+        transform-origin: bottom;
+        transform: scaleY(0.29);
+    }
+
+    .layer_0_25 > div > div {
+        height: 100%;
+        perspective: 5vmax;
+    }
+
+    .layer_0_25 .floor {
+        transform: rotateX(15deg) translateX(-5%);
+        transform-origin: bottom;
+    }
+
+    .layer_0_25 .floor > div {
+        position: relative;
+        height: 11.5vmax;
+        height: 11.5svmax;
+        width: auto;
+        aspect-ratio: calc(4096/111);
+    }
+
     .layer_3 {
+        height: 103vmax;
+        height: 103svmax;
         gap:  275vmax;
         gap:  275svmin;
         padding-left:  calc(100vmax - 44.5vmin);
@@ -806,8 +884,8 @@
     }
 
     .season_frame div[data-framer-name="Albums"] {
-        grid-template-columns:  repeat(auto-fill, 17.5vmax);
-        grid-template-columns:  repeat(auto-fill, 17.5svmax);
+        grid-template-columns:  repeat(auto-fill, 20vmax);
+        grid-template-columns:  repeat(auto-fill, 20svmax);
         gap:  7vmax;
         gap:  7svmax;
         row-gap:  calc(max(7vmax, 6rem));
@@ -836,13 +914,13 @@
     }
 
     .lamps_1_5 { /* ceiling lamps */ 
-        height:  27vmax;
-        height:  27svmax;
+        height:  27vmax !important;
+        height:  27svmax !important;
     }
 
     .lamps_2 { /* ceiling lamps front */ 
-        height:  85vmax;
-        height:  85svmax;
+        height:  85vmax !important;
+        height:  85svmax !important;
         top:  -34.5vmax;
         top:  -34.5svmax;
         left: calc(50vmax - var(--lamp-width)/2);
