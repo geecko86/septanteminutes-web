@@ -19,7 +19,7 @@ const ImageOffsetWrapperComponentOldPhone = (props) => {
 
     return (<div {...newProps}>
         <motion.div style={{ ...style, position: "relative", translateX: offset || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image src={src} alt="" fill priority={!!priority} loading={loading || "lazy"} sizes={sizes || "10vw"} />
+            <Image src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
@@ -32,7 +32,7 @@ const ImageOffsetWrapperComponentNewDevice = (props) => {
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ ...style, position: "relative", translateX: translateX || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image src={src} alt="" fill priority={!!priority} loading={loading || "lazy"} sizes={sizes || "10vw"} />
+            <Image src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };

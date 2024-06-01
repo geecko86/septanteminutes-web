@@ -17,7 +17,7 @@ const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>(
         return `-${numerator / (home?.clientWidth || 3000) * 5 * (parentRef.current?.clientWidth || 0)}px`;
     });
     const size = useMemo(() => `${Math.floor(height * 80)}vmax`, [height]);
-    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + (var(--layer_1_gap) / 2) + ${offset}px + calc(min(25.6vh, 25vw)))` }), [height, ratio, offset, position]);
+    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + (var(--layer_1_gap) / 2) + ${offset}px` }), [height, ratio, offset, position]);
 
     useEffect(() => {
         if (position == 0 && setFirstPosterMotionValue) setFirstPosterMotionValue(translateX);
@@ -44,7 +44,7 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
     
     const translateX = useOffset(newRef, motionValue, (parallaxFactor || 130) / 2.7, 1.0, src, onReady, jumpToValue);
     const size = useMemo(() => `${Math.floor(height * 80)}vh`, [height]);
-    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px + calc(min(25.6vh, 25vw)))` }), [height, ratio, offset, position]);
+    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px)` }), [height, ratio, offset, position]);
 
     useEffect(() => {
         if (position == 0 && setFirstPosterMotionValue) setFirstPosterMotionValue(translateX);

@@ -12,6 +12,7 @@ const SeasonComponent = ({
     children,
     className,
     style,
+    ready,
     motionValue,
     ...otherProps
 }) => {
@@ -108,7 +109,8 @@ const SeasonComponent = ({
                 </div>
                 {chair ?
                     (<div className={styles.chair} data-framer-name="Chair" direction={chair === Chairs[0] || chair === Chairs[2] ? "front" : "side"}>
-                        <HomeChair alt="" loading="lazy" className={styles.chair_img} motionValue={motionValue} src={chair} fill={true} style={{
+                        <HomeChair alt="" className={styles.chair_img} priority={ready}
+                        motionValue={motionValue} src={chair} fill={true} style={{
                             position: "absolute",
                             objectFit: "contain",
                             aspectRatio: "unset"
