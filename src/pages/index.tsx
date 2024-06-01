@@ -64,6 +64,10 @@ export default function Home(props: {
 
     const firstAlbumImg = firstAlbum.current;
 
+    function isMobileLandscape() {
+        return isMobile && window.innerWidth > window.innerHeight;
+    }
+
     useEffect(() => {
         if (window.Worker) {
             const myWorker = new Worker("/js/seasonFetcher.js");
@@ -91,7 +95,7 @@ export default function Home(props: {
 
     useEffect(() => {
         const handleResize = () => {
-            setRatio((home.current?.clientWidth || 1) / (window.innerWidth || 1)); // todo: handle screen rotation
+            setRatio((home.current?.clientWidth || 1) / ((isMobileLandscape() ? window.innerHeight : window.innerWidth) || 1)); // todo: handle screen rotation
             setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
             setLamps15Count(getLampsCount(0.27));
             setLamps2Count(getLampsCount(0.45));
@@ -104,7 +108,7 @@ export default function Home(props: {
             const itemWidth = 0.8 * window.innerHeight;
             const totalWidthPerItem = itemWidth + gap;
             setFrontItemsCount(Math.ceil(width / totalWidthPerItem));
-            setDimensionWidth(window.innerWidth || 0);
+            setDimensionWidth((isMobileLandscape() ? window.innerHeight : window.innerWidth) || 0);
         };
 
         window.addEventListener('resize', handleResize);
@@ -168,17 +172,20 @@ export default function Home(props: {
     const [frontItemsCount, setFrontItemsCount] = useState(1);
     const [dimensionWidth, setDimensionWidth] = useState(0);
 
-    const centerPosition = useTransform(() => `calc(${((isMobileDevice ? scrollX : newScrollX).get() / (home.current?.clientWidth || 100)) * (isMobileDevice ? 200 : -100)}% + ${dimensionWidth/2}px)`);
-    const perspectiveOrigin = useTransform(() => `${centerPosition.get()} 11.5vh`);
+    const centerPosition = useTransform(() => `calc(${((isMobileDevice ? (isMobileLandscape() ? scrollY : scrollX) : newScrollX).get() / (home.current?.clientWidth || 100)) * (isMobileDevice ? 200 : -100)}% + ${dimensionWidth/2}px)`);
+    const perspectiveOrigin = useTransform(() => `${centerPosition.get()} 11.5v${isMobileDevice && typeof(window) !== "undefined" && (window.innerWidth > window.innerHeight) ? "max" : "h"}`);
     const offsetFloor = useTransform(() => newScrollX.get() * 0.3012 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset2 = useTransform(() => newScrollX.get() * 2.3 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
 
-    const invisibleSeasonSeparators = useMemo(() => [...(seasons || [])].map((_, i) => {
+    let invisibleSeasonSeparators: number[];
+    invisibleSeasonSeparators = useMemo(() => [...(seasons || [])].map((_, i) => {
         let dimensions = layer1.current?.children[i]?.children[0]?.getBoundingClientRect();
+        if (!dimensions && invisibleSeasonSeparators?.length) return invisibleSeasonSeparators[i];
         let separator = Math.max(dimensions?.width || 1000, dimensions?.height || 1000, screenContentRatio);
         return separator
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [seasons, screenContentRatio]);
 
     const interceptAutoScroll = useCallback((e: MouseEvent) => {
@@ -187,6 +194,13 @@ export default function Home(props: {
             console.log(e)
         }
     }, []);
+
+    centerPosition.on("change", (val) => {
+        console.log("centerPosition", val);
+        console.log("perspectiveOrigin", perspectiveOrigin.get());
+    });
+
+
 
     const handleKeysDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
         const scroll = Math.floor(window.innerWidth * 0.06);
@@ -563,7 +577,7 @@ export default function Home(props: {
                             <div className={styles.ceiling} key={"ceiling"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
                                     <div key={`ceiling_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh", position: "relative" }}>
-                                        <Image loading="lazy" src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
+                                        <Image priority src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}
                             </div>
@@ -584,17 +598,17 @@ export default function Home(props: {
                             </div>
                             <div key={"floor"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`floor_${i}`} style={{ aspectRatio: 4096 / 111, width: "auto", height: "11.5vh", position: "relative" }} />
+                                    <div key={`floor_${i}`} style={{ aspectRatio: 4096 / 111, width: "auto", position: "relative" }} />
                                 ))}
                             </div>
                         </motion.div>
                         <motion.div key="layer_0_25" ref={layer0_25} className={[styles.layer_0_25, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offsetFloor, width: "130%" }}  >
-                            <motion.div style={{scaleY: 0.29, transformOrigin: "bottom"}}>
-                                <motion.div style={{ height: "100%", perspective: "5vh", perspectiveOrigin: perspectiveOrigin }}>
-                                    <motion.div className={styles.floor} style={{ rotateX: "15deg", transformOrigin: "bottom", x: "-5%" }} key={"floor"}>
+                            <motion.div>
+                                <motion.div style={{ perspectiveOrigin: perspectiveOrigin }}>
+                                    <motion.div className={styles.floor} key={"floor"}>
                                         {[...Array(groundTexturesCount)].map((_, i) => (
-                                            <div key={`floor_${i}`} style={{ aspectRatio: 4096 / 111, width: "auto", height: "11.5vh", position: "relative" }}>
-                                                <Image loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
+                                            <div key={`floor_${i}`}>
+                                                <Image loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes={ isMobile ? "422vmax" : "422vh"} />
                                             </div>
                                         ))}
                                     </motion.div>
@@ -638,7 +652,8 @@ export default function Home(props: {
                         <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")}>
                             {
                                 seasons.map((season, i) => (
-                                    <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} motionValue={newScrollX} chair={isMobileDevice || i == 0 ? null : Chairs[i % 4]} className={styles.season_frame}>
+                                    <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} ready={ready}
+                                    motionValue={newScrollX} chair={isMobileDevice || i == 0 ? null : Chairs[i % 4]} className={styles.season_frame}>
                                         {season.episodes.slice().reverse().map((ep: Episode, j: number) => (
                                             <HomeAlbum id={`art_${ep.num}`} imageRef={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
                                                 onClick={(e: MouseEvent) => {
