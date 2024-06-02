@@ -32,7 +32,7 @@ const ImageOffsetWrapperComponentNewDevice = (props) => {
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ ...style, position: "relative", translateX: translateX || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
+            <Image prior src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
@@ -83,7 +83,7 @@ export const BellLamp = (props) => {
 }
 
 export const Chair = (props) => {
-    const comp = (<ImageWrapper sizes="50vh" {...props} src="https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png" />);
+    const comp = (<ImageWrapper sizes="50vh" {...props} priority={true} src="https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png" />);
     return { ...comp, displayName: "Chair" };
 };
 
