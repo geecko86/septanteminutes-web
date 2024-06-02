@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 import styles from "./homealbum.module.css";
+import { isMobile } from "react-device-detect";
 
 const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...otherProps }) => {
   const [isHovered, setHovered] = useState(false);
@@ -27,7 +28,7 @@ const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...
     >
       <motion.div
         className={styles.boxart}
-        onHoverStart={() => setHovered(true)}
+        onHoverStart={() => setHovered(!isMobile)}
         onHoverEnd={() => setHovered(false)}
         transition={{ type: "spring", stiffness: 100, damping: 15, mass: 1 }}
         style={{

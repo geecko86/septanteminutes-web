@@ -197,7 +197,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
                     /*#__PURE__*/ _jsx(RichText, {
             __fromCanvasComponent: true,
             children: /*#__PURE__*/ _jsx(React.Fragment, {
-              children: /*#__PURE__*/ _jsx(motion.h4, {
+              children: /*#__PURE__*/ _jsx(motion.h2, {
                 style: {
                   "--font-selector": "R0Y7Q2F2ZWF0LTcwMA==",
                   "--framer-font-family": '"Caveat", sans-serif',
@@ -263,7 +263,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
             /*#__PURE__*/ _jsx(RichText, {
         __fromCanvasComponent: true,
         children: /*#__PURE__*/ _jsx(React.Fragment, {
-          children: /*#__PURE__*/ _jsx(motion.h5, {
+          children: /*#__PURE__*/ _jsx(motion.h3, {
             style: {
               "--font-selector": "R0Y7Q2F2ZWF0LXJlZ3VsYXI=",
               "--framer-font-family": '"Caveat", sans-serif',
@@ -317,7 +317,8 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
           { key: "tiktok-stamp", className: styles.tiktok_stamp, href: "https://tiktok.com/@guihachez" },
         ].map(({ key, className, href }) => (
           <a target="_blank" key={key} className={`framer-bawjxc ${className} ${styles.stamp}`}
-            href={href} style={{
+            href={href} aria-label={"Lien " + key.replace("-", " ").replace("stamp", "").trim()}
+            style={{
               filter: "drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.12))",
               rotate: 0,
             }}>
