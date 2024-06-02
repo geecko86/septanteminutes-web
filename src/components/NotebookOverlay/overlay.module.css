@@ -50,7 +50,7 @@
   opacity: 1 !important;
 }
 
-.openbook h1, .openbook h4, .openbook h5 {
+.openbook h1, .openbook h2, .openbook h3 {
   max-width: 35cqw !important;
   opacity: 1 !important;
 }
@@ -60,7 +60,7 @@
   font-size:  3.5svh !important;
 }
 
-.openbook h4 {
+.openbook h2 {
   font-size:  2.5vh !important;
   font-size:  2.5svh !important;
 }
@@ -71,7 +71,7 @@
   top: 4.5% !important
 }
 
-.openbook h5 {
+.openbook h3 {
   font-size:  3.3vh !important;
   font-size:  3.3svh !important;
 }
@@ -103,7 +103,7 @@
     transform: scale(2) translateX(-50%) !important;
   }
 
-  .openbook h1, .openbook h4, .openbook h5 {
+  .openbook h1, .openbook h2, .openbook h3 {
     max-width:  35vmin !important;
     max-width:  35svmin !important;
   }
@@ -112,11 +112,11 @@
     font-size: 1.9cqh !important;
   }
 
-  .openbook h4 {
+  .openbook h2 {
     font-size: 1.4cqh !important;
   }
 
-  .openbook h5 {
+  .openbook h3 {
     font-size: 2.2cqh !important;
   } 
 

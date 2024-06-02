@@ -296,12 +296,12 @@ div[ready="true"] .scrollTarget {}
 }
 
 @media (pointer:coarse) and (orientation: landscape) {
-    div:has(> .scrollTarget) *, h5.subscribe {
+    div:has(> .scrollTarget) *, h3.subscribe {
         font-size:  5.55vh !important;
         font-size:  5.55svh !important;
     }
 
-    h5.subscribe {
+    h3.subscribe {
         width: fit-content !important;
     }
 }
