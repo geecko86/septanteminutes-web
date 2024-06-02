@@ -195,13 +195,6 @@ export default function Home(props: {
         }
     }, []);
 
-    centerPosition.on("change", (val) => {
-        console.log("centerPosition", val);
-        console.log("perspectiveOrigin", perspectiveOrigin.get());
-    });
-
-
-
     const handleKeysDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
         const scroll = Math.floor(window.innerWidth * 0.06);
         if (e.keyCode >= 37 && e.keyCode <= 40) {

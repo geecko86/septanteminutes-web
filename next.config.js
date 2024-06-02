@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const withPWAInit = require("next-pwa");
+const { webpack } = require('next/dist/compiled/webpack/webpack');
+const fs = require('fs');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const withPWA = withPWAInit({
@@ -23,7 +25,7 @@ const NextConfig = {
     formats: ["image/webp"],
   },
   webpack: (
-    config
+    config, { buildId }
   ) => {
     if (!isProduction) return config;
 
@@ -47,7 +49,7 @@ const NextConfig = {
         },
       ],
     });
-    
+
     config.module.rules.push({
       test: /\.(svg|png)$/,
       use: {
@@ -57,6 +59,18 @@ const NextConfig = {
         },
       }
     });
+
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        BUILD_ID: JSON.stringify(buildId),
+      },
+    }),
+    function() {
+      fs.writeFileSync('public/api/buildId.txt', buildId);
+    }
+  );
+
     return config;
   }
 };
