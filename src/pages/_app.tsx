@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
 import { PlaybackProvider } from '../utils/PlayerContext'
+import useUpdateChecker from '../utils/updateChecker';
 import FloatingPlaybackControls from "../components/FloatingPlaybackControls"
 import LoadingAnim from "../components/LoadingAnim"
 
@@ -21,7 +22,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   const [loaderClass, setLoaderClass] = useState("vinyl_loading");
   const [isMobileDevice, setIsMobileDevice] = useState(true);
 
-  const { pathname, events: routerEvents } = useRouter();
+  const { pathname, events: routerEvents, replace: routerReplace } = useRouter();
 
   const onReady = useCallback(() => {
     setLoaded(pathname)
@@ -81,6 +82,23 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
 
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page)
+
+  useUpdateChecker(() => {
+    fetch(window.location.href, {
+        headers: {
+            Pragma: 'no-cache',
+            Expires: '-1',
+            'Cache-Control': 'no-cache',
+        },
+    });
+  });
+
+  useEffect(() => {
+    if (window.location.search && routerReplace) {
+      const newUrl = window.location.pathname;
+      routerReplace(newUrl, undefined, { shallow: true });
+    }
+  }, [routerReplace]);
 
   return getLayout(
     <>
