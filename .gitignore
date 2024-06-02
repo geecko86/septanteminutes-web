@@ -41,3 +41,6 @@ next-env.d.ts
 # ServiceWorker
 /public/sw*
 /public/worker*.js
+
+# build files
+buildId.txt

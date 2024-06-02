@@ -6,7 +6,11 @@ export default function loader(props) {
         return src.replace("http://", "https://").replace("/upload/", `/upload/c_scale,w_${width},f_webp,q_${quality || 100}/`) + `?id=${process.env.BUILD_ID || 0}`;
     else if (src.includes("framerusercontent.com"))
         return src.replace("http://", "https://").replace("/assets/", "/images/").replace(/(\.[a-z]{1,4})$/, `$1?scale-down-to=${width}&q=${quality || 75}&id=${process.env.BUILD_ID || 0}`);
-    else {
+    else if (src.startsWith("/img/SMA_sleeve")) {
+        if (width < 300) return "/img/SMA_sleeve_256.webp";
+        else if (width < 550) return "/img/SMA_sleeve_512.webp";
+        return "/img/SMA_sleeve.webp";
+    } else {
         if (src.includes("?")) return src + `&id=${process.env.BUILD_ID || 0}`;
         return src + `?id=${process.env.BUILD_ID || 0}`;
     }

@@ -250,43 +250,22 @@ export default function EpisodeTable(props: {
     let clear = false;
     if (selectedVinyl.current && mainRef.current) {
       console.log("creating promises")
-      const selectedVinylPromise = new Promise<void>((resolve, reject) => {
-        const timeoutId = setTimeout(() => {
-          console.log("Timeout on selected vinyl tag");
-          resolve();
-        }, 7500);
-        const img = selectedVinyl.current as HTMLImageElement;
-        const oldOnload: (((e: Event) => any) | null) = img.onload;
-        if (img.complete) {
-          clearTimeout(timeoutId);
-          resolve();
-        } else img.onload = (ev: Event) => {
-          clearTimeout(timeoutId);
-          console.log("Loaded selected vinyl tag")
-          resolve();
-          if (oldOnload) oldOnload(ev);
-        };
-        img.onerror = () => {
-          reject(new Error('Failed to load selectde vinyl img'));
-        };
-      });
-      const floorPromise = new Promise<void>((resolve, reject) => {
-        mainRef.current?.querySelectorAll(`.${styles.floor} img`).forEach((el) => {
-          const timeoutId = setTimeout(resolve, 2500);
+      const priorityImages = [...document.querySelectorAll('img[fetchpriority="high"]')].map((el: Element, i: number) => (
+        new Promise<void>((resolve, reject) => {
+          const timeoutId = setTimeout(resolve, 3000);
           const img = el as HTMLImageElement;
           if (img.complete) resolve();
           else img.onload = () => {
-            console.log("Loaded floor img")
             resolve();
             clearTimeout(timeoutId);
           };
           img.onerror = () => {
-            reject(new Error('Failed to load floor img'));
+            reject(new Error('Failed to load priority img ' + i));
           };
-        });
-      });
-      Promise.all([selectedVinylPromise, floorPromise]).then(() => {
-        console.log("All images loaded")
+        })
+      ));
+      Promise.all(priorityImages).then(() => {
+        console.log("All ", priorityImages.length, " images loaded")
         if (!clear) { 
           onReady();
           setReady(true);
