@@ -73,7 +73,7 @@ const Loader = (props) => {
                     }} />
                 </div>
                 <div style={{position: "absolute", height: "calc(min(30vh, 55vw) - 1px)", width: "auto", aspectRatio: 1, display: "flex", flexDirection: "column", zIndex: 5, animation: "moveSleeve 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards" }}>
-                    <Image src="/img/SMA_sleeve_256.webp" fill={true} loading="eager" priority alt="sleeve_loading" style={{
+                    <Image src="/img/SMA_sleeve_256.webp" sizes="15vh" fill={true} loading="eager" priority alt="Loading box" style={{
                         overflow: "hidden",
                         boxShadow: "0.5vh 1vh 3vh rgba(0,0,0,0.3), -0.5vh 0px 3vh rgba(0,0,0,0.4)",                        
                     }} />
