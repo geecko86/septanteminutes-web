@@ -311,10 +311,12 @@ export default function EpisodeTable(props: {
 
   const initialSectionScroll = useCallback((node: HTMLDivElement | null) => {
     if (node && node.offsetTop) {
-      episodePage.current?.scrollTo({
-        top: node.offsetTop,
-        behavior: "instant",
-      });
+      setTimeout(() => {
+        episodePage.current?.scrollTo({
+          top: node.offsetTop,
+          behavior: "instant",
+        });
+      }, 500);
       setSelectedEpisode(episodeNumParam);
       setSelectedPosition(vinyls.length - episodeNumParam);
     }
