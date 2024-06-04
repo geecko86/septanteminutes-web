@@ -1,4 +1,4 @@
-import React, { RefObject, useRef, useMemo, useState, useEffect, useCallback } from "react";
+import React, { RefObject, useRef, useMemo, useEffect } from "react";
 import { MotionValue, motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import useOffset from  "../../utils/ParallaxOffset";
