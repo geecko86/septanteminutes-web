@@ -710,8 +710,8 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding-left:  calc(100vw - 44.5vh);
-    padding-left:  calc(100vw - 44.5svh);
+    padding-left:  calc(100vmax - 44.5vh);
+    padding-left:  calc(100svmax - 44.5svh);
     gap: calc(max(275vw, 538vh));
     gap: calc(max(275vw, 538svh));
 
