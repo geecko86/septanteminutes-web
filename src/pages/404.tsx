@@ -9,6 +9,22 @@ import Link from "next/link";
 export default function Custom404() {
     const router = useRouter();
     const [visible, setVisible] = useState(true);
+    const [isOnline, setIsOnline] = useState(false);
+    
+    useEffect(() => {
+        setIsOnline(navigator.onLine);
+        
+        const onlineCallback = () => setIsOnline(true);
+        const offlineCallback = () => setIsOnline(false);
+
+        window.addEventListener("online", onlineCallback);
+        window.addEventListener("offline", offlineCallback);
+
+        return () => {
+            window.removeEventListener("online", onlineCallback);
+            window.removeEventListener("offline", offlineCallback);
+        };
+    }, []);
 
     useEffect(() => {
         const main = document.querySelector('main');
@@ -34,7 +50,7 @@ export default function Custom404() {
             transition: "opacity 0.15s ease-in-out 0.6s"
         }}>
             <Head>
-                <title>404 - Septante Minutes Avec Personne</title>
+                <title>{isOnline ? "404 - Septante Minutes Avec Personne" : "Septante Minutes sans internet"}</title>
             </Head>
             <main className={["scanlines", styles.scanlines].join(" ")}>
                 <div className={["screen", styles.screen].join(" ")}>
@@ -42,18 +58,36 @@ export default function Custom404() {
                     <div className={["overlay", styles.overlay].join(" ")} />
                     <div className={styles.textContainer}>
                         <h1>
-                            404
+                            {isOnline ? "404" : "Offline"}
                         </h1>
-                        <p>
+                        {isOnline ? <p>
                             Oei ! On dirait bien que le lien qu&apos;on vous a donné ne fonctionne pas.<br />
-                            Faut changer d&apos;ami, ket.<br /><br />
+                            Désolé, l&apos;épisode secret avec {firstNames[Math.floor(Math.random() * firstNames.length)]} n&apos;est pas ici.<br /><br />
                             <u onClick={leaving}><Link href="/">SeptanteMinutes.be</Link></u>
                             <br />
-                        </p>
+                        </p> : <p style={{textAlign: "justify"}}>
+                            {`Hors-ligne (adj.) : Désigne un appareil, un système ou une personne qui n'est pas connectée à Internet. Par exemple : vous.`}
+                            <br/><br/>
+                            <u onClick={leaving}><Link href="mailto:contact@septanteminutes.be">contact@SeptanteMinutes.be</Link></u>
+                            <br />
+                        </p>}
                     </div>
                     <Spotlight className={styles.spotlight} fill="white" />
                 </div>
             </main>
         </div>
     )
-}  
+}
+
+const firstNames = [
+    "Stromae",
+    "Angèle",
+    "Jean-Claude Van Damme",
+    "Amélie Nothomb",
+    "Cécile de France",
+    "Axelle Red",
+    "Matthias Schoenaerts",
+    "Lara Fabian",
+    "Benoît Poelvoorde",
+    "Virginie Efira"
+];
