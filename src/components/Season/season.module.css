@@ -24,7 +24,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 0px;
-    height: 720px;
+    height: 99%;
     justify-content: flex-start;
     overflow: visible;
     padding: 0px 0px 0px 0px;
@@ -223,6 +223,95 @@
     position: relative;
 }
 
+.presentationWall {
+    min-width: 52vh !important;
+    min-width: 52svh !important;
+}
+
+.presentationWall div[data-framer-name="LEGENDE"] {
+    position: absolute;
+    height: 2rem;
+    width: 100%;
+    justify-content: end;
+    left: unset !important;
+    right: calc(55svh / 10);
+}
+
+.presentationWall div[data-framer-name="LEGENDE"] a {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1;
+}
+
+.presentationWall div[data-framer-name="LEGENDE"] img {
+    filter: grayscale(100%) contrast(0) brightness(0.45);
+    cursor: pointer;
+    pointer-events: all;
+    width: 100%;
+    height: 100%;
+}
+
+.presentationWall div[data-framer-name="Wall"] {
+    /* height: 100%  !important; */
+    aspect-ratio: unset !important;
+    min-width: unset !important;
+    padding-left: calc(55svh / 10);
+    padding-right: calc(55svh / 10);
+}
+
+.presentationWallContents {
+    display: flex;
+    position: relative;
+    margin: 0px;
+    padding: calc(1.9rem + 1.6vh) 0px 0px 0px;
+    padding: calc(1.9rem + 1.6svh) 0px 0px 0px;
+    height: 100%;
+    width: auto;
+    gap: 3.5rem;
+}
+
+.presentationText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: auto;
+    height: 100%;
+    max-width: 200%;
+    border-top: 2.5px solid #000;
+    flex-grow: 1;
+}
+
+.presentationText img {
+    width: calc(100% - 3rem);
+    height: auto;
+    max-height: 8vh;
+    align-self: start;
+    padding-left: 0.2rem;
+    padding-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+p.presentationParagraph {
+    width: fit-content;
+    min-height: 12ch;
+    padding-top: 1ch;
+    padding-bottom: 1ch;
+    padding-left: 0.2rem;
+    border-top: 2.5px solid #000;
+    border-bottom: 2.5px solid #000;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    font-family: "Futura-Medium", "Jost", sans-serif;
+    overflow-y: clip;
+    text-align: justify;
+}
+
+.presentationWall img {
+    aspect-ratio: unset !important;
+}
+
 @supports (background: -webkit-named-image(i)) and (not (font-palette:dark)) {
 
     .season .season_inside,
@@ -255,7 +344,7 @@
         flex-direction: column;
         flex-wrap: nowrap;
         gap: 0px;
-        height: 720px;
+        height: 99%;
         justify-content: flex-start;
         overflow: visible;
         padding: 0px 0px 0px 0px;
