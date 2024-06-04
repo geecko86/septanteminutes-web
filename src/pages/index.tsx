@@ -7,7 +7,7 @@ import React, {
     useCallback,
     FC,
 } from "react";
-import { motion, useTransform, useMotionValue, useScroll, animate, useMotionValueEvent, AnimationPlaybackControls, useVelocity, MotionValue, usePresence } from "framer-motion";
+import { motion, useTransform, useMotionValue, useScroll, animate, AnimationPlaybackControls, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import { isMobile } from 'react-device-detect';
@@ -72,7 +72,7 @@ export default function Home(props: {
         if (window.Worker) {
             const myWorker = new Worker("/js/seasonFetcher.js");
             myWorker.onmessage = function(e) {
-                setSeasons(e.data);
+                setSeasons([ { name: "", episodes: [] }, ...e.data]);
             };
             myWorker.postMessage("");
         }
@@ -183,7 +183,7 @@ export default function Home(props: {
     invisibleSeasonSeparators = useMemo(() => [...(seasons || [])].map((_, i) => {
         let dimensions = layer1.current?.children[i]?.children[0]?.getBoundingClientRect();
         if (!dimensions && invisibleSeasonSeparators?.length) return invisibleSeasonSeparators[i];
-        let separator = Math.max(dimensions?.width || 1000, dimensions?.height || 1000, screenContentRatio);
+        let separator = dimensions?.width || 1000;
         return separator
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [seasons, screenContentRatio]);
@@ -428,28 +428,32 @@ export default function Home(props: {
     }, [newScrollX, scrollXAdditional])
 
     useEffect(() => {
-        if (firstAlbum.current && !ready) {
-            const artworkLoaded = new Promise<void>((resolve, reject) => {
-                const timeoutId = setTimeout(() => {
-                    console.log("artwork timeout");
-                    resolve();
-                }, 7500);
-                if (firstAlbum.current?.complete) {
-                    resolve();
-                    clearTimeout(timeoutId);
-                } else if (firstAlbum.current) {
-                    firstAlbum.current.onload = () => {
-                        console.log("artwork loaded");
-                        clearTimeout(timeoutId);
-                        resolve();
-                    };
-                    firstAlbum.current.onerror = () => {
-                        reject(new Error('Failed to load artwork'));
-                    };
-                }
-            });
+        if (!ready) {
+            const promisesList = [] as Promise<void>[];
 
-            const promisesList = [artworkLoaded];
+            if (firstAlbum.current) {
+                const artworkLoaded = new Promise<void>((resolve, reject) => {
+                    const timeoutId = setTimeout(() => {
+                        console.log("artwork timeout");
+                        resolve();
+                    }, 7500);
+                    if (firstAlbum.current?.complete) {
+                        resolve();
+                        clearTimeout(timeoutId);
+                    } else if (firstAlbum.current) {
+                        firstAlbum.current.onload = () => {
+                            console.log("artwork loaded");
+                            clearTimeout(timeoutId);
+                            resolve();
+                        };
+                        firstAlbum.current.onerror = () => {
+                            reject(new Error('Failed to load artwork'));
+                        };
+                    }
+                });
+
+                promisesList.push(artworkLoaded);
+            }
 
             const posters = layer0.current?.querySelectorAll(`.${styles.poster} img`);
             const plants = layer0_5.current?.querySelectorAll(`.${styles.plant} img`);
@@ -645,7 +649,7 @@ export default function Home(props: {
                         <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")}>
                             {
                                 seasons.map((season, i) => (
-                                    <Season key={`${season.name}_visible1`} seasonTitle={`SAISON ${season.name}`} ready={ready}
+                                    <Season key={`${season.name}_visible1`} seasonTitle={season.name} ready={ready} position={i}
                                     motionValue={newScrollX} chair={isMobileDevice || i == 0 ? null : Chairs[i % 4]} className={styles.season_frame}>
                                         {season.episodes.slice().reverse().map((ep: Episode, j: number) => (
                                             <HomeAlbum id={`art_${ep.num}`} imageRef={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
