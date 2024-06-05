@@ -35,8 +35,9 @@ const PresentationWallContents = () => {
                     ref={paragraphRef}
                     className={styles.presentationParagraph}
                     style={{
-                        maxWidth: overflowSize > 30 ? `${overflowSize}vw` : "auto",
+                        maxWidth: overflowSize > 30 ? `${overflowSize}vmax` : "auto",
                         inlineSize: overflowSize > 30 ? "max-content" : "auto",
+                        overflow: "hidden"
                     }}
                 >
                     <i>Guillaume Hachez (b. 1994)</i><br/><br/>
@@ -162,7 +163,7 @@ const SeasonComponent = (props: {
                             { name: "applepodcasts", link: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591?mt=2" },
                             { name: "pocketcasts", link: "https://pca.st/A6sJ" },
                             { name: "rss", link: "https://anchor.fm/s/b43f59a8/podcast/rss" }].map((item) => (
-                            <a key={item.name} href={item.link}>
+                            <a key={item.name} href={item.link} target="_blank">
                                 <Image src={`/img/${item.name}.svg`} unoptimized alt={item.name} width={16} height={16} />
                             </a>
                         )) }

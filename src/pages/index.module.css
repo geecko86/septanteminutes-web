@@ -791,6 +791,12 @@
     .layer_3 {
         gap: calc(max(550vw, 1068vh));
         gap: calc(max(550svw, 1068svh));
+
+        padding-left: 0;
+        padding-left: 0;
+
+        left: -44.5vh;
+        left: -44.5svh;
     }
 
     .posters {

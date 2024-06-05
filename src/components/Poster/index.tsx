@@ -6,7 +6,7 @@ import isOldPhone from "../../utils/mobileChecker";
 import styles from "./poster.module.css";
 
 const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
-    const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height }, offset, onReady, isLast, inheritedRef, ...newProps } = props;
+    const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height }, offset, onReady, isLast, ...newProps } = props;
     
     const parentRef = useRef<HTMLDivElement>(null);
     const home = document.getElementById("home");
@@ -87,7 +87,6 @@ type PosterProps = {
     offset: number,
     priority: boolean,
     onReady?: () => void,
-    inheritedRef?: RefObject<HTMLDivElement>,
     setFirstPosterMotionValue: (val: MotionValue) => void,
     isLast?: boolean,
     position: number,
