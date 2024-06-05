@@ -283,7 +283,7 @@
 }
 
 .presentationText img {
-    width: calc(100% - 3rem);
+    /* width: calc(100% - 3rem); */
     height: auto;
     max-height: 8vh;
     align-self: start;
