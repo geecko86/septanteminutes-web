@@ -6,15 +6,15 @@ import { Spotlight } from "../components/Spotlight";
 import styles from "./404.module.css"
 import Link from "next/link";
 
-export default function Custom404() {
+export default function Custom404(props: { offline ?: boolean }) {
     const router = useRouter();
     const [visible, setVisible] = useState(true);
-    const [isOnline, setIsOnline] = useState(false);
+    const [isOnline, setIsOnline] = useState(!(props.offline));
     
     useEffect(() => {
-        setIsOnline(navigator.onLine);
+        setIsOnline(navigator.onLine && !(props.offline));
         
-        const onlineCallback = () => setIsOnline(true);
+        const onlineCallback = () => setIsOnline(true && !(props.offline));
         const offlineCallback = () => setIsOnline(false);
 
         window.addEventListener("online", onlineCallback);
@@ -24,7 +24,7 @@ export default function Custom404() {
             window.removeEventListener("online", onlineCallback);
             window.removeEventListener("offline", offlineCallback);
         };
-    }, []);
+    }, [props.offline]);
 
     useEffect(() => {
         const main = document.querySelector('main');

@@ -1,12 +1,12 @@
 import React, { useMemo, useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import checkOldPhone from "@/utils/mobileChecker";
 import styles from "./season.module.css";
 import { HomeChair } from "@/framer/ImageWrapper";
 
 import { MotionValue } from "framer-motion";
-import { Link } from "framer";
 
 const PresentationWallContents = () => {
     const paragraphRef = React.useRef<HTMLParagraphElement>(null);
@@ -17,10 +17,15 @@ const PresentationWallContents = () => {
             const overflow = (paragraphRef.current?.scrollHeight || 0) > (paragraphRef.current?.clientHeight || 0);
             if (overflow) setOverflowSize(val => Math.min(val + 10, 80));
         });
-        if (paragraphRef.current) {
-            observer.observe(paragraphRef.current);
+
+        const resizeCallback = () => {
+            setOverflowSize(30);
         }
+        
+        if (paragraphRef.current) observer.observe(paragraphRef.current as Element);
+        window.addEventListener("resize", resizeCallback);
         return () => {
+            window.removeEventListener("resize", resizeCallback);
             observer.disconnect();
         };
     }, []);
@@ -87,6 +92,7 @@ const SeasonComponent = (props: {
                     position: "absolute",
                     display: "flex",
                     pointerEvents: "none",
+                    left: 0,
                     background: "linear-gradient(rgba(255, 255, 255, 0.3), rgba(190, 189, 189, 0.3))",
                     overflow: "hidden"
                 }}>
@@ -158,6 +164,7 @@ const SeasonComponent = (props: {
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>les plateformes</p>
                         </div>
                     </div> : <div className={styles.season_legende} data-framer-name="LEGENDE">
+                        <Link href="/faq" scroll={false}><h1>FAQ</h1></Link>
                         { [
                             { name: "spotify", link: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r"},
                             { name: "applepodcasts", link: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591?mt=2" },
