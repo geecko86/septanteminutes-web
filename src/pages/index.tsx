@@ -227,10 +227,11 @@ export default function Home(props: {
         let startX: number;
         let scrollLeft: number;
         let previousScrollX: number;
-        const limit = slider.clientWidth - window.innerWidth;
+        let limit = 0;
 
         const onMouseDown = (e: MouseEvent) => {
             isDown = true;
+            limit = slider.clientWidth - window.innerWidth;
             slider.classList.add(styles.grab);
             startX = e.pageX - scrollX.get();
             scrollLeft = scrollXAdditional.get();
@@ -260,6 +261,7 @@ export default function Home(props: {
                 previousScrollX = Math.min(scrollXAdditional.get(), limit);
             }, 200);
             velX = scrollXAdditional.get() - previousScrollX;
+            console.log(velX, scrollXAdditional.get(), previousScrollX, limit);
             if (velX < 0) console.log(velX, scrollXAdditional.get(), previousScrollX);
         };
 
@@ -352,6 +354,7 @@ export default function Home(props: {
                 setShowSwiper(false);
                 idleAnimRef.current?.stop();
             }
+            if (e.ctrlKey) return;
             e.preventDefault();
         };
 
