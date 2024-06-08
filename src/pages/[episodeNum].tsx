@@ -247,6 +247,8 @@ export default function EpisodeTable(props: {
   }, [episodePage, getCurrentPosition, vinyls.length, funqueue, scrollCallback]);
 
   useEffect(() => {
+    if (ready) return;
+
     let clear = false;
     if (selectedVinyl.current && mainRef.current) {
       console.log("creating promises")
@@ -285,7 +287,7 @@ export default function EpisodeTable(props: {
       }
     }
 
-  }, [selectedVinylRendered, selectedVinyl, mainRef, onReady]);
+  }, [selectedVinylRendered, selectedVinyl, mainRef, ready, onReady]);
 
   useEffect(() => {
     if (vinyls.length == 0) {
