@@ -40,7 +40,7 @@ const PresentationWallContents = () => {
                     ref={paragraphRef}
                     className={styles.presentationParagraph}
                     style={{
-                        maxWidth: overflowSize > 30 ? `${overflowSize}vmax` : "auto",
+                        maxWidth: overflowSize > 30 ? `${overflowSize}vmax` : "auto", // make sure this is ok?
                         inlineSize: overflowSize > 30 ? "max-content" : "auto",
                         overflow: "hidden"
                     }}
@@ -164,7 +164,7 @@ const SeasonComponent = (props: {
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>les plateformes</p>
                         </div>
                     </div> : <div className={styles.season_legende} data-framer-name="LEGENDE">
-                        <Link href="/faq" scroll={false}><h1>FAQ</h1></Link>
+                    <span><Link href="/faq" scroll={false}><h1>FAQ</h1></Link></span>
                         { [
                             { name: "spotify", link: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r"},
                             { name: "applepodcasts", link: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591?mt=2" },
