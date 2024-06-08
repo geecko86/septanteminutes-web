@@ -244,7 +244,6 @@
 .presentationWall div[data-framer-name="LEGENDE"] a {
     height: 100%;
     width: auto;
-    aspect-ratio: 1;
     cursor: pointer;
     pointer-events: all;
 }
@@ -256,8 +255,6 @@
     font-size: 2rem;
     line-height: 2rem;
     color: #393939;
-    cursor: pointer;
-    pointer-events: all;
     margin: 0;
     margin-right: auto;
     bottom: 2px;
@@ -270,11 +267,19 @@
 }
 
 .presentationWall div[data-framer-name="LEGENDE"] a, .presentationWall div[data-framer-name="LEGENDE"] h1 {
-    transition: 0.1s filter linear, 0.3s -webkit-filter linear;
+    transition: 0.2s filter cubic-bezier(0.25, 0.1, 0.25, 1), 0.2s -webkit-filter cubic-bezier(0.25, 0.1, 0.25, 1);
+    text-decoration: none;
+    width: fit-content;
+    display: block;
+}
+
+.presentationWall div[data-framer-name="LEGENDE"] span {
+    flex-grow: 1;
 }
 
 .presentationWall div[data-framer-name="LEGENDE"] a:hover, .presentationWall div[data-framer-name="LEGENDE"] h1:hover {
     filter: brightness(0.02);
+    transition: 0.7s filter cubic-bezier(0.25, 0.1, 0.25, 1), 0.7s -webkit-filter cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .presentationWall div[data-framer-name="Wall"] {
@@ -670,5 +675,37 @@ p.presentationParagraph {
         margin: 0px;
         margin-bottom: calc(4px / 2);
         margin-top: calc(4px / 2);
+    }
+}
+
+@media (pointer: coarse) and (orientation: landscape) {
+    .presentationWall {
+        min-width: 52vmax !important;
+        min-width: 52svmax !important;
+    }
+
+    .presentationWall div[data-framer-name="LEGENDE"] {
+        margin-left: calc(55vmax / 10);
+        margin-right: calc(55vmax / 10);
+        margin-left: calc(55svmax / 10);
+        margin-right: calc(55svmax / 10);
+    }
+    
+    .presentationWall div[data-framer-name="Wall"] {
+        padding-left: calc(55svmax / 10);
+        padding-right: calc(55svmax / 10);
+    }
+    .presentationText img {
+        max-height: 8vmax;
+    }
+}
+
+@media screen and (max-height: 699px) {
+    .presentationWall div[data-framer-name="LEGENDE"] {
+        display: flex;
+    }
+
+    .presentationWallContents {
+        padding: 0px;
     }
 }
