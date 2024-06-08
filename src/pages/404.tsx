@@ -10,6 +10,7 @@ export default function Custom404(props: { offline ?: boolean }) {
     const router = useRouter();
     const [visible, setVisible] = useState(true);
     const [isOnline, setIsOnline] = useState(!(props.offline));
+    const [randomName, setRandomName] = useState(firstNames[0]);
     
     useEffect(() => {
         setIsOnline(navigator.onLine && !(props.offline));
@@ -19,6 +20,8 @@ export default function Custom404(props: { offline ?: boolean }) {
 
         window.addEventListener("online", onlineCallback);
         window.addEventListener("offline", offlineCallback);
+
+        setRandomName(firstNames[Math.floor(Math.random() * firstNames.length)]);
 
         return () => {
             window.removeEventListener("online", onlineCallback);
@@ -62,7 +65,7 @@ export default function Custom404(props: { offline ?: boolean }) {
                         </h1>
                         {isOnline ? <p>
                             Oei ! On dirait bien que le lien qu&apos;on vous a donné ne fonctionne pas.<br />
-                            Désolé, l&apos;épisode secret avec {firstNames[Math.floor(Math.random() * firstNames.length)]} n&apos;est pas ici.<br /><br />
+                            Désolé, l&apos;épisode secret avec {randomName} n&apos;est pas ici.<br /><br />
                             <u onClick={leaving}><Link href="/">SeptanteMinutes.be</Link></u>
                             <br />
                         </p> : <p style={{textAlign: "justify"}}>
