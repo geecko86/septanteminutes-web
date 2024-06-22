@@ -39,7 +39,7 @@
 .openbook > div:nth-child(2) {
   width: 41.96% !important;
   left: 5.79% !important;
-  height: calc(111% - 3ch) !important;
+  height: 100% !important;
   justify-content: start;
   gap: 3ch !important;
   top: 4.5% !important;

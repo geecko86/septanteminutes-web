@@ -10,7 +10,7 @@ import * as React from "react";
 
 import styles from "./notebook-open.module.css";
 
-const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
+const Component = React.forwardRef(function NotebookOpen(
   props,
   ref
 ) {
@@ -48,66 +48,34 @@ const Component = /*#__PURE__*/ React.forwardRef(function NotebookOpen(
       <Image key="image" alt="" fill sizes="(max-width: 1200px) 100vw, 34.5vw" src="https://framerusercontent.com/images/yYJS4WsSdE8HHVqXY7DZVs3GZiM.jpg" />
       <motion.div key="left_page" className="left_page">
         <div key={"split_title"} className="title_subtitle_header">
-          <RichText key="episodeTitle" className="title_container" style={{
-            "--extracted-gdpscs": "rgb(38, 38, 38)",
-            "--framer-link-text-color": "rgb(0, 153, 255)",
-            "--framer-link-text-decoration": "underline",
-            "--framer-paragraph-spacing": "0px",
-          }} verticalAlignment="top" withExternalLayout __fromCanvasComponent id="episodeTitle">
-            <h1 style={{
-              "--font-selector": "R0Y7Q2F2ZWF0LTcwMA==",
-              "--framer-font-family": '"Caveat", sans-serif',
-              "--framer-font-size": "30px",
-              "--framer-font-weight": "700",
-              "--framer-text-color": "var(--extracted-gdpscs, rgb(38, 38, 38))",
-            }}>{title}</h1>
-          </RichText>
-          <RichText key="guestName" className="subtitle_container" style={{
-            "--extracted-1eung3n": "rgb(168, 87, 0)",
-            "--framer-link-text-color": "rgb(0, 153, 255)",
-            "--framer-link-text-decoration": "underline",
-            "--framer-paragraph-spacing": "0px",
-          }} verticalAlignment="top" withExternalLayout __fromCanvasComponent id="guestName">
-            <h2 style={{
-              "--font-selector": "R0Y7Q2F2ZWF0LTcwMA==",
-              "--framer-font-family": '"Caveat", sans-serif',
-              "--framer-font-size": "14px",
-              "--framer-font-weight": "700",
-              "--framer-text-color": "var(--extracted-1eung3n, rgb(168, 87, 0))",
-            }}>{subtitle}</h2>
-          </RichText>
+          <h1 className="title_container" data-framer-component-type="RichTextContainer" verticalAlignment="top" style={{
+            fontFamily: '"Caveat", sans-serif',
+            fontSize: "30px",
+            "--framer-font-weight": "700",
+            color: "var(--extracted-gdpscs, rgb(38, 38, 38))",
+          }}>{title}</h1>
+          <h2 className="subtitle_container" data-framer-component-type="RichTextContainer" style={{
+            fontFamily: '"Caveat", sans-serif',
+            fontSize: "14px",
+            "--framer-font-weight": "700",
+            color: "var(--extracted-1eung3n, rgb(168, 87, 0))",
+          }} verticalAlignment="top" id="guestName">{subtitle}</h2>
         </div>
-        <RichText key="scrollTarget" className={`${styles.scrollTarget} scroll_description`} style={{
-          "--extracted-r6o4lv": "rgb(38, 38, 38)",
-          "--framer-link-text-color": "rgb(0, 153, 255)",
-          "--framer-link-text-decoration": "underline",
-          "--framer-paragraph-spacing": "0px",
-        }} verticalAlignment="top" withExternalLayout __fromCanvasComponent id="scrollTarget">
-            <p style={{
-              "--font-selector": "R0Y7Q2F2ZWF0LXJlZ3VsYXI=",
-              "--framer-font-family": '"Caveat", sans-serif',
-              "--framer-font-size": "17px",
-              "--framer-line-height": "1em",
-              "--framer-text-color": "var(--extracted-r6o4lv, rgb(38, 38, 38))",
-            }} dangerouslySetInnerHTML={{ __html: desc.replace(/\b(\d{2}:\d{2}:\d{2})\b/g, "<span onClick=\"goToTimestamp(this)\" data-timestamp=\"$1\">$1</span>").replace("<a ", "<a target=\"_blank\" ") }} />
-        </RichText>
+        <p vdata-framer-component-type="RichTextContainer" className={`${styles.scrollTarget} scroll_description`} style={{
+          fontFamily: '"Caveat", sans-serif',
+          fontSize: "17px",
+          "--framer-line-height": "1.285em",
+          color: "var(--extracted-r6o4lv, rgb(38, 38, 38))",
+        }} id="scrollTarget" verticalAlignment="top" dangerouslySetInnerHTML={{ __html: desc.replace(/\b(\d{2}:\d{2}:\d{2})\b/g, "<span onClick=\"goToTimestamp(this)\" data-timestamp=\"$1\">$1</span>").replace("<a ", "<a target=\"_blank\" ") }} />
       </motion.div>
-      <RichText key="SubscribeCallToAction" className="subscribe_header" data-framer-component-type="RichTextContainer"
-        style={{
-          "--extracted-r6o4lv": "rgb(38, 38, 38)",
-          "--framer-link-text-color": "rgb(0, 153, 255)",
-          "--framer-link-text-decoration": "underline",
-          "--framer-paragraph-spacing": "0px",
-        }} verticalAlignment="top">
-          <h3 key="followPrompt" className={styles.subscribe} style={{
-            "--font-selector": "R0Y7Q2F2ZWF0LXJlZ3VsYXI=",
-            "--framer-font-family": '"Caveat", sans-serif',
-            "--framer-font-size": "17px",
-            "--framer-text-color": "var(--extracted-r6o4lv, rgb(38, 38, 38))",
-          }}>
-            Abonnez-vous !
-          </h3>
-      </RichText>
+      <h3 key="followPrompt" className={[styles.subscribe, "subscribe_header"].join(" ")} style={{
+        fontFamily: '"Caveat", sans-serif',
+        fontSize: "17px",
+        "--framer-font-weight": "400",
+        color: "var(--extracted-r6o4lv, rgb(38, 38, 38))",
+      }} data-framer-component-type="RichTextContainer" verticalAlignment="top">
+        Abonnez-vous !
+      </h3>
       <div className={[styles.exit_cross, styles.exit_cross_2].join(" ")}
         key="exit_cross"
         onClick={() => { if (props.toggleOverlay) props.toggleOverlay(false); }}
@@ -147,8 +115,8 @@ const css = [
   ".notebook_open .notebook_open_contents { height: 533px; position: relative; width: 725px; }",
   ".notebook_open .left_page { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 16px; height: min-content; justify-content: center; left: 42px; padding: 0px 0px 0px 0px; position: absolute; top: 49px; width: 297px; }",
   ".notebook_open .title_subtitle_header { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 4px; height: min-content; justify-content: center; padding: 0px 0px 0px 0px; position: relative; width: 297px; }",
-  ".notebook_open .title_container, .notebook_open .subtitle_container, .notebook_open .scroll_description { flex: none; height: auto; position: relative; white-space: pre-wrap; width: 100%; word-break: break-word; word-wrap: break-word; }",
-  ".notebook_open .subscribe_header { flex: none; height: auto; position: absolute; right: 100px; top: 49px; white-space: pre-wrap; width: 211px; word-break: break-word; word-wrap: break-word; }",
+  ".notebook_open .title_container, .notebook_open .subtitle_container, .notebook_open .scroll_description { flex: none; height: auto; position: relative; white-space: pre-wrap; width: 100%; word-break: break-word; word-wrap: break-word; line-height: var(--framer-line-height, 1.2em); text-decoration-skip-ink: none; font-weight: var(--framer-font-weight, 400); margin: 0; }",
+  ".notebook_open .subscribe_header { flex: none; height: auto; position: absolute; margin: 0; right: 100px; top: 49px; white-space: pre-wrap; width: 211px; word-break: break-word; word-wrap: break-word; width: 29.10% !important; right: 13.79% !important; top: 4.6% !important; font-weight: var(--framer-font-weight, 400); }",
   ".notebook_open .stamps { flex: none; height: 208px; position: absolute; right: 44px; top: 93px; width: 280px; }",
   "@supports (background: -webkit-named-image(i)) and (not (font-palette:dark)) { .notebook_open .left_page, .notebook_open .title_subtitle_header { gap: 0px; } .notebook_open .left_page > * { margin: 0px; margin-bottom: calc(16px / 2); margin-top: calc(16px / 2); } .notebook_open .left_page > :first-child, .notebook_open .title_subtitle_header > :first-child { margin-top: 0px; } .notebook_open .left_page > :last-child, .notebook_open .title_subtitle_header > :last-child { margin-bottom: 0px; } .notebook_open .title_subtitle_header > * { margin: 0px; margin-bottom: calc(4px / 2); margin-top: calc(4px / 2); } }",
 ];
