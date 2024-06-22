@@ -1,4 +1,6 @@
-div[ready="true"] .scrollTarget {}
+div[ready="true"] .scrollTarget > p:last-child {
+    padding-bottom: 2.35rem;
+}
 
 .scrollTarget {
     height: 75% !important;
@@ -9,10 +11,6 @@ div[ready="true"] .scrollTarget {}
 .scrollTarget * {
     font-size: 1.75cqh !important;
     margin: 0 !important;
-}
-
-.scrollTarget>p {
-    padding-bottom: 4rem !important;
 }
 
 .scrollTarget a {
