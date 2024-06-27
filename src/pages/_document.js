@@ -36,6 +36,16 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
+            href="https://fonts.googleapis.com/css?family=Special Elite"
+            as="style"
+          />
+          <link
+            rel="preload"
+            href="https://fonts.cdnfonts.com/css/typewriter-inked"
+            as="style"
+          />
+          <link
+            rel="preload"
             href="https://fonts.gstatic.com/s/caveat/v18/Wnz6HAc5bAfYB2Q7ZjYYiAzcPA.woff2"
             as="font"
             type="font/woff2" crossOrigin="anonymous"
@@ -54,7 +64,7 @@ class MyDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&family=Jost:wght@400&display=block"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&family=Jost:wght@400&family=Special Elite&display=block"
           />
           <link
             rel="stylesheet"

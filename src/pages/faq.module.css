@@ -1,8 +1,11 @@
 .faq {
+    padding-bottom: 6vh;
+    padding-top: 6vh;
 }
 
 .FAQ_background {
     position: fixed;
+    top: 0;
     background-image: url("/img/lens_bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -19,7 +22,6 @@
     position: absolute;
     width: 54rem;
     height: calc(100% - 6vh);
-    margin-top: 3vh;
     padding: 3rem;
     border-radius: 10px;
     background: #eee7d7;
@@ -36,18 +38,15 @@
     align-items: center;
 }
 
-.paper img {
-    opacity: 0.55;
-}
-
 .faqTitle {
     width: fit-content;
     height: fit-content;
+    align-self: center;
     background-color: #121212;
     padding: 0.5rem 2rem 0.5rem 2rem;
-    border-radius: 4px;
+    border-radius: 6px;
     opacity: 90%;
-    filter: blur(0.2px);
+    filter: blur(0.75px);
 }
 
 .faqTitle > h1 {
@@ -55,7 +54,7 @@
     font-family: "Futura condensed", "Jost", sans-serif;
     margin: 0;
     user-select: none;
-    font-size: 7cqh;
+    font-size: 8.3cqh;
     background: url(https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/614f353f1e11a6a7afdd8b74_6059a3e2b9ae6d2bd508685c_pt-texture-2.jpg); /* Set the backround image */
     background-clip: text;;
     -webkit-background-clip: text; /* clip the background to the text inside the tag*/
@@ -68,25 +67,60 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
-    margin-top: 12rem;
-    background: transparent;
-    filter: blur(0.5px);
+    filter: unset;
     z-index: 2;
-    min-height: unset !important;
+    min-height: 80vh !important;
+}
+
+.faqContents::before {
+    content: "";
+    position: absolute;
+    opacity: 0.55;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-image: url(https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/614f353f1e11a6a7afdd8b74_6059a3e2b9ae6d2bd508685c_pt-texture-2.jpg);
+    background-repeat: repeat;
+    background-size: auto;
+}
+
+.faqContents h2, .faqContents span{
+    filter: blur(0.5px);
 }
 
 .faqContents > h2 {
-    font-family: "Futura condensed", "Jost", sans-serif;
+    font-family: "Special Elite", serif;
     font-size: 1.6rem;
     color: #121212;
     margin: 0;
 }
 
 .faqContents > span {
-    font-family: "Futura condensed", "Jost", sans-serif;
+    font-family: "Special Elite", serif;
     font-size: 1.35rem;
     color: #121212;
     margin: 0;
-    align-self: flex-end;
-    text-align: end;
+    align-self: flex-start;
+    text-align: justify;
+}
+
+.faqContents a, .faqContents a:visited {
+    color: rgb(123, 63, 0);
+    text-decoration: none;
+}
+
+.faqContents a:hover {
+    text-decoration: underline;
+}
+
+.faqContents > *::-moz-selection {
+    background-color: unset !important;
+    color: unset !important;
+}
+
+.faqContents > *::selection {
+    background-color: unset !important;
+    color: unset !important;
 }
