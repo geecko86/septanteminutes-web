@@ -45,7 +45,7 @@ html *::-webkit-scrollbar {
     display: none;
 }
 
-*:not(div[role="dialog"] *)::-moz-selection {
+/* *:not(div[role="dialog"] *)::-moz-selection {
     background-color: transparent;
     color: #000;
 }
@@ -53,7 +53,7 @@ html *::-webkit-scrollbar {
 *:not(div[role="dialog"] *)::selection {
     background-color: transparent;
     color: #000;
-}
+} */
 
 * {
     /* backface-visibility: hidden !important;
