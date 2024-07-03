@@ -1,41 +1,24 @@
 .faq {
     padding-bottom: 6vh;
     padding-top: 6vh;
+    display: flex;
+    justify-content: center;
 }
 
 .FAQ_background {
     position: fixed;
-    top: 0;
-    background-image: url("/img/lens_bg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    height: 100vh;
+    top: -2vh;
+    object-fit: cover;
+    height: 105vh;
     width: 100vw;
 
-    filter: blur(5px);
+    filter: blur(0px);
     transform: scale(1.1);
+    transition: 1s 0.3s filter cubic-bezier(0.45,0.05,0.55,0.95);;
 }
 
-.paper {
-    position: absolute;
-    width: 54rem;
-    height: calc(100% - 6vh);
-    padding: 3rem;
-    border-radius: 10px;
-    background: #eee7d7;
-    background-repeat: repeat;
-    background-size: cover;
-    background-position: center;
-    contain: paint;
-    filter: blur(1px);
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.FAQ_background_ready {
+    filter: blur(4px);
 }
 
 .faqTitle {
@@ -47,6 +30,7 @@
     border-radius: 6px;
     opacity: 90%;
     filter: blur(0.75px);
+    margin-bottom: 1rem;
 }
 
 .faqTitle > h1 {
@@ -61,29 +45,81 @@
     -webkit-text-fill-color: transparent; /* make the text transparent so the background shows through */
 }
 
+.backButton {
+    position: absolute;
+    top: 3.2rem;
+    left: 3rem;
+    font-family: "Special Elite", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #121212 !important;
+}
+
+.faqContainer {
+    position:relative;
+    width: 54rem;
+    height: calc(100% - 6vh);
+    box-shadow: 0 0 0px 0px rgba(0,0,0,0.0);
+    opacity: 0.75;
+    transition: 0.45s opacity cubic-bezier(0.45,0.05,0.55,0.95), 0.45s 0.3s box-shadow cubic-bezier(0.39, 0.57, 0.56, 1), 0.75s transform cubic-bezier(0.39,0.57,0.56,1);
+}
+
+.faqReady {
+    opacity: 1;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.2);
+    transform: translateY(0%) !important;
+}
+
 .faqContents {
     display: flex;
-    position: relative;
+    position: absolute;
+    top: 0;
+    padding: 3rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
     filter: unset;
-    z-index: 2;
     min-height: 80vh !important;
 }
 
-.faqContents::before {
+.paper {
+    border-radius: 10px;
+    background-color: hsl(36 67% 92%);
+    contain: paint;
+    filter: blur(1.25px);
+}
+
+.paper::before {
     content: "";
     position: absolute;
-    opacity: 0.55;
+    opacity: 0.275;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-image: url(https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/614f353f1e11a6a7afdd8b74_6059a3e2b9ae6d2bd508685c_pt-texture-2.jpg);
+    background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg), black;;
     background-repeat: repeat;
+    background-blend-mode: luminosity;
     background-size: auto;
+}
+
+.tableOfContents {
+    display: grid;
+    display: none;
+    align-self: center;
+    font-family: "Special Elite", serif;
+    font-size: 1.1rem;
+    text-wrap: balance;
+    text-wrap: pretty;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    margin-bottom: 2rem;
+}
+
+.tableOfContents a {
+    margin: 0;
 }
 
 .faqContents h2, .faqContents span{
@@ -95,6 +131,9 @@
     font-size: 1.6rem;
     color: #121212;
     margin: 0;
+    text-wrap: balance;
+    text-wrap: pretty;
+    width: 95%;
 }
 
 .faqContents > span {
@@ -104,6 +143,10 @@
     margin: 0;
     align-self: flex-start;
     text-align: justify;
+}
+
+.faqContents ul {
+    margin: 0;
 }
 
 .faqContents a, .faqContents a:visited {
@@ -123,4 +166,55 @@
 .faqContents > *::selection {
     background-color: unset !important;
     color: unset !important;
+}
+
+@media (max-width: 1200px) {
+    .paper::before {
+        background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg?scale-down-to=900), black;;
+    }    
+}
+
+@media (max-width:800) {
+    .paper::before {
+        background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg?scale-down-to=600), black;;
+    }    
+}
+
+@media (pointer: coarse) {
+    .faq {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    .faqContainer {
+        width: 100vw;
+        left: 0;
+        transform: unset !important;
+    }
+
+    .faqTitle {
+        margin-bottom: 1rem;
+    }
+
+    .faqTitle > h1 {
+        font-size: calc(max(8.5cqh, 8.5cqw));
+    }
+
+    .faqContents > h2 {
+        font-size: 1.35rem;
+    }
+
+    .faqContents > span {
+        font-size: 1.25rem;
+    }
+
+    .FAQ_background {
+        display: none;
+    }
+}
+
+@media (pointer: coarse) and (orientation: portrait) {
+    .faqTitle {
+        margin-top: 8cqh;
+    }
 }
