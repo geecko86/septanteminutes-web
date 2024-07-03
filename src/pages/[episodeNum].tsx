@@ -451,7 +451,7 @@ export default function EpisodeTable(props: {
       }}>
         {cloneElement(notebookOverlayComponent, {})}
         <Head>
-          <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${vinyls[selectedEpisode]?.title}`}</title>
+          <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`}</title>
           { isMobile && <link rel="stylesheet" href="https://unpkg.com/react-spring-bottom-sheet/dist/style.css" crossOrigin="anonymous" /> }
         </Head>
         <motion.div

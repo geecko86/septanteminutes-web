@@ -576,7 +576,7 @@ div:has(> .chair) {
     width: calc(75vmax * 0.8) !important;
     width: calc(75svmax * 0.8) !important;
     min-width: unset;
-    transform: rotate(247deg);
+    transform: rotate(247deg) !important;
   }
 
   @supports (-webkit-hyphens:none) {
