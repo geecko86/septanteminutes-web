@@ -20,6 +20,7 @@ const Loader = (props) => {
                 {`.vinyl_loading {
                     opacity: 1;
                     transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+                    transition-delay: 0.35s;
                     position: absolute;
                     height: 30vh;
                     width: 50vh;
@@ -28,6 +29,7 @@ const Loader = (props) => {
                 }
                 .vinyl_loading.vinyl_hidden {
                     opacity: 0 !important;
+                    transition-delay: 0s;
                 }`}
                 </style>
             </Head>
