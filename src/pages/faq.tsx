@@ -10,14 +10,14 @@ const FAQPage = (props: { onReady: () => void }) => {
 
     const pageRef = useRef<HTMLDivElement>(null);
     const [pageHeight, setPageHeight] = useState(0);
-    const [letterReady, setLeatterReady] = useState(false);
+    const [letterReady, setLetterReady] = useState(false);
 
     const onReady = useCallback(() => {
         setTimeout(() => {
-            setLeatterReady(true);
-        }, 300);
-        props.onReady();
-    }, [setLeatterReady, props]);
+            setLetterReady(true);
+            props.onReady();
+        }, 100);
+    }, [setLetterReady, props]);
 
     useEffect(() => {
         setPageHeight(window.innerHeight)
@@ -32,7 +32,9 @@ const FAQPage = (props: { onReady: () => void }) => {
             <motion.div style={{ y: y, scale: 1.5 }}
                 className={[styles.FAQ_background, letterReady ? styles.FAQ_background_ready : ""].join(" ")}>
                 <Image src="https://framerusercontent.com/images/RknGrooeUApp9LVWNZzyBRfeOnk.jpg" alt="Background" fill onLoad={() => {
-                    onReady();
+                    setTimeout(() => {
+                        onReady();
+                    }, 300);
                 }} />
             </motion.div>
             <PaperSheet ready={letterReady} />
@@ -53,7 +55,9 @@ const PaperSheet = (props: { ready: boolean }) => {
 
     useEffect(() => {
         window.addEventListener('resize', resizeCallback);
-        resizeCallback();
+        setTimeout(() => {
+            resizeCallback();
+        }, 100);
         return () => {
             window.removeEventListener('resize', resizeCallback);
         };
@@ -61,7 +65,6 @@ const PaperSheet = (props: { ready: boolean }) => {
 
     useEffect(() => {
         const bottomSpan = getSpanClosestToViewportBottom();
-
     });
 
     return (
@@ -80,7 +83,7 @@ const PaperSheet = (props: { ready: boolean }) => {
                 <meta name="twitter:image" content="https://www.septanteminutes.be/faq" />
                 <link href="https://fonts.cdnfonts.com/css/typewriter-inked" rel="stylesheet" />
             </Head>
-            <motion.div className={[styles.faqContainer, props.ready ? styles.faqReady : ""].join(" ")} style={{ y: "2.15%" }}>
+            <motion.div className={`${styles.faqContainer} ${props.ready ? styles.faqReady : ""}`} style={{ y: "2.15%" }}>
                 <div className={styles.paper} style={{ height: paperHeight }} />
                 <div className={[styles.faqContents].join(" ")} ref={faqRef} >
                     <div className={styles.faqTitle}>

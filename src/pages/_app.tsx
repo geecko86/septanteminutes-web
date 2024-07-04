@@ -30,7 +30,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
 
   useEffect(() => {
     setDisplayedComponent(displayedComponent => {
-      if (Component.name !== displayedComponent) setLoaded("");
+      if (Component.name !== displayedComponent) { 
+        setLoaded("");
+      }
       return Component.name
     });
   }, [Component.name]);
@@ -189,8 +191,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
           #globalLoader {
             bottom: 1px;
             opacity: 1;
-            transition: opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000);
-            transition-delay: 0.25s !important;
+            transition: none;
           }
           
         @media (pointer:coarse) and (orientation: portrait) {
@@ -248,7 +249,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
           </div>}
         </PlaybackProvider>
       {/* </StrictMode> */}
-      <div id="globalLoader" style={!showLoadingAnim ? { opacity: 0, pointerEvents: "none", position: "fixed" } : { position: "fixed" }}>
+      <div id="globalLoader" style={(!showLoadingAnim && loadedRoute) ? { opacity: 0, pointerEvents: "none", position: "fixed", transition: "opacity 0.8s 0s cubic-bezier(0.390, 0.575, 0.565, 1.000)" } : { position: "fixed" }}>
         <LoadingAnim className={loaderClass} />
       </div>
     </>
