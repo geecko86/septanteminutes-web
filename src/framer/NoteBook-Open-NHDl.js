@@ -1,8 +1,4 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import {
-  RichText,
-  withCSS
-} from "framer";
 import Image from "next/image";
 import Script from "next/script";
 import { motion } from "framer-motion";
@@ -10,7 +6,7 @@ import * as React from "react";
 
 import styles from "./notebook-open.module.css";
 
-const Component = React.forwardRef(function NotebookOpen(
+const NotebookOpen = React.forwardRef(function NotebookOpen(
   props,
   ref
 ) {
@@ -21,14 +17,20 @@ const Component = React.forwardRef(function NotebookOpen(
     text: desc,
     ready,
     toggleOverlay,
+    date,
     title,
     subtitle,
     qSyYbDFAE,
     ...restProps
   } = props;
 
+  const pubDate = new Date(date);
+  const displayedDate = (pubDate.getUTCFullYear() != new Date().getUTCFullYear()) ?
+    pubDate.toLocaleDateString("fr-BE") :
+    pubDate.toLocaleDateString("fr-BE", { month: "long", day: "numeric" });
+  
   return (<motion.div
-    className="notebook_open"
+    className={styles.notebook_open}
     style={{ display: "contents" }}
   >
     <Script id="goToTimestamp">
@@ -44,33 +46,43 @@ const Component = React.forwardRef(function NotebookOpen(
         }
       `}
     </Script>
-    <div {...restProps} className={["notebook_open_contents", className].join(" ")} ready={props.ready ? "true" : "false"} ref={ref} style={{ ...style }} >
+    <div {...restProps} className={[styles.notebook_open_contents, className].join(" ")} ready={props.ready ? "true" : "false"} ref={ref} style={{ ...style }} >
       <Image key="image" alt="" fill sizes="(max-width: 1200px) 100vw, 34.5vw" src="https://framerusercontent.com/images/yYJS4WsSdE8HHVqXY7DZVs3GZiM.jpg" />
-      <motion.div key="left_page" className="left_page">
-        <div key={"split_title"} className="title_subtitle_header">
-          <h1 className="title_container" data-framer-component-type="RichTextContainer" verticalAlignment="top" style={{
+      <motion.div key="left_page" className={styles.left_page}>
+        <div key={"split_title"} className={styles.title_subtitle_header}>
+          <h1 className={styles.title_container} data-framer-component-type="RichTextContainer" verticalAlignment="top" style={{
             fontFamily: '"Caveat", sans-serif',
-            fontSize: "30px",
+            fontSize: "1.9rem",
             "--framer-font-weight": "700",
             color: "var(--extracted-gdpscs, rgb(38, 38, 38))",
           }}>{title}</h1>
-          <h2 className="subtitle_container" data-framer-component-type="RichTextContainer" style={{
+          <h2 className={styles.subtitle_container} data-framer-component-type="RichTextContainer" style={{
             fontFamily: '"Caveat", sans-serif',
-            fontSize: "14px",
+            fontSize: "0.875rem",
             "--framer-font-weight": "700",
             color: "var(--extracted-1eung3n, rgb(168, 87, 0))",
           }} verticalAlignment="top" id="guestName">{subtitle}</h2>
+          <h4 className={styles.date_container} data-framer-component-type="RichTextContainer" style={{
+            fontFamily: '"Caveat", sans-serif',
+            fontSize: "2.3svh",
+            lineHeight: "2.3svh",
+            position: "relative",
+            margin: "0px",
+            alignSelf: "center",
+            "--framer-font-weight": "700",
+            color: "var(--extracted-1eung3n, rgb(90, 90, 90))",
+          }} verticalAlignment="top" id="episode_date">{displayedDate}</h4>
         </div>
-        <p vdata-framer-component-type="RichTextContainer" className={`${styles.scrollTarget} scroll_description`} style={{
+        <p vdata-framer-component-type="RichTextContainer" className={`${styles.scrollTarget} ${styles.scroll_description}`} style={{
           fontFamily: '"Caveat", sans-serif',
-          fontSize: "17px",
+          fontSize: "1.06rem",
           "--framer-line-height": "1.285em",
           color: "var(--extracted-r6o4lv, rgb(38, 38, 38))",
         }} id="scrollTarget" verticalAlignment="top" dangerouslySetInnerHTML={{ __html: desc.replace(/\b(\d{2}:\d{2}:\d{2})\b/g, "<span onClick=\"goToTimestamp(this)\" data-timestamp=\"$1\">$1</span>").replace("<a ", "<a target=\"_blank\" ") }} />
       </motion.div>
-      <h3 key="followPrompt" className={[styles.subscribe, "subscribe_header"].join(" ")} style={{
+      <h3 key="followPrompt" className={[styles.subscribe, styles.subscribe_header].join(" ")} style={{
         fontFamily: '"Caveat", sans-serif',
-        fontSize: "17px",
+        fontSize: "1.06rem",
         "--framer-font-weight": "400",
         color: "var(--extracted-r6o4lv, rgb(38, 38, 38))",
       }} data-framer-component-type="RichTextContainer" verticalAlignment="top">
@@ -80,7 +92,11 @@ const Component = React.forwardRef(function NotebookOpen(
         key="exit_cross"
         onClick={() => { if (props.toggleOverlay) props.toggleOverlay(false); }}
       />
-      <div key="stamps" className="stamps">
+      <div className={[styles.exit_cross].join(" ")}
+        key="exit_cross"
+        onClick={() => { if (props.toggleOverlay) props.toggleOverlay(false); }}
+      />
+      <div key="stamps" className={styles.stamps}>
         {[
           { key: "apple-podcasts-stamp", className: styles.apple_stamp, href: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591" },
           { key: "rss-stamp", className: styles.rss_stamp, href: "https://anchor.fm/s/b43f59a8/podcast/rss" },
@@ -107,21 +123,6 @@ const Component = React.forwardRef(function NotebookOpen(
     </div>
   </motion.div>);
 });
-
-const css = [
-  '.notebook_open [data-border="true"]::after { content: ""; border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0); border-color: var(--border-color, none); border-style: var(--border-style, none); width: 100%; height: 100%; position: absolute; box-sizing: border-box; left: 0; top: 0; border-radius: inherit; pointer-events: none; }',
-  "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
-  ".notebook_open .stamp { display: block; }",
-  ".notebook_open .notebook_open_contents { height: 533px; position: relative; width: 725px; }",
-  ".notebook_open .left_page { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 16px; height: min-content; justify-content: center; left: 42px; padding: 0px 0px 0px 0px; position: absolute; top: 49px; width: 297px; }",
-  ".notebook_open .title_subtitle_header { align-content: center; align-items: center; display: flex; flex: none; flex-direction: column; flex-wrap: nowrap; gap: 4px; height: min-content; justify-content: center; padding: 0px 0px 0px 0px; position: relative; width: 297px; }",
-  ".notebook_open .title_container, .notebook_open .subtitle_container, .notebook_open .scroll_description { flex: none; height: auto; position: relative; white-space: pre-wrap; width: 100%; word-break: break-word; word-wrap: break-word; line-height: var(--framer-line-height, 1.2em); text-decoration-skip-ink: none; font-weight: var(--framer-font-weight, 400); margin: 0; }",
-  ".notebook_open .subscribe_header { flex: none; height: auto; position: absolute; margin: 0; right: 100px; top: 49px; white-space: pre-wrap; width: 211px; word-break: break-word; word-wrap: break-word; width: 29.10% !important; right: 13.79% !important; top: 4.6% !important; font-weight: var(--framer-font-weight, 400); }",
-  ".notebook_open .stamps { flex: none; height: 208px; position: absolute; right: 44px; top: 93px; width: 280px; }",
-  "@supports (background: -webkit-named-image(i)) and (not (font-palette:dark)) { .notebook_open .left_page, .notebook_open .title_subtitle_header { gap: 0px; } .notebook_open .left_page > * { margin: 0px; margin-bottom: calc(16px / 2); margin-top: calc(16px / 2); } .notebook_open .left_page > :first-child, .notebook_open .title_subtitle_header > :first-child { margin-top: 0px; } .notebook_open .left_page > :last-child, .notebook_open .title_subtitle_header > :last-child { margin-bottom: 0px; } .notebook_open .title_subtitle_header > * { margin: 0px; margin-bottom: calc(4px / 2); margin-top: calc(4px / 2); } }",
-];
-
-const NotebookOpen = withCSS(Component, css, "notebook_open");
 
 NotebookOpen.displayName = "NoteBook-Open";
 export default NotebookOpen;
