@@ -111,7 +111,7 @@ registerRoute(
     plugins: [
       new ExpirationPlugin({
         maxEntries: 32,
-        maxAgeSeconds: 86400,
+        maxAgeSeconds: 300,
         purgeOnQuotaError: !0,
       }),
     ],

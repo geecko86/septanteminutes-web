@@ -142,7 +142,7 @@ const PaperSheet = (props: { ready: boolean }) => {
                             <li>2 micros Shure SM7B avec pré-amplis FetHead</li>
                             <li>1 enregistreur Zoom H6</li>
                             <li>2 caméras BlackMagic Pocket Cinema 4K, objectifs à focale fixe 25mm F1.7</li>
-                            <li>Davinci Resolve Studio 19, Dehancer OFX pour la production des capsules</li>
+                            <li>Davinci Resolve Studio 19, Dehancer OFX pour la production vidéo</li>
                             <li>Abbey Road Plugins - Waves Audio</li>
                         </ul>
                     </span>
