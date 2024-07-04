@@ -1,4 +1,4 @@
-div[ready="true"] .scrollTarget > p:last-child {
+div[ready="true"] .scrollTarget>p:last-child {
     padding-bottom: 2.35rem;
 }
 
@@ -226,6 +226,142 @@ div[ready="true"] .scrollTarget > p:last-child {
     display: none;
 }
 
+.notebook_open [data-border="true"]::after {
+    content: "";
+    border-width: var(--border-top-width, 0) var(--border-right-width, 0) var(--border-bottom-width, 0) var(--border-left-width, 0);
+    border-color: var(--border-color, none);
+    border-style: var(--border-style, none);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.notebook_open .stamp {
+    display: block;
+}
+
+.notebook_open .notebook_open_contents {
+    height: 533px;
+    position: relative;
+    width: 725px;
+}
+
+.notebook_open .left_page {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+    height: min-content;
+    justify-content: center;
+    left: 42px;
+    padding: 0px 0px 0px 0px;
+    position: absolute;
+    top: 49px;
+    width: 297px;
+}
+
+.notebook_open .title_subtitle_header {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 4px;
+    height: min-content;
+    justify-content: center;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    width: 297px;
+}
+
+.notebook_open .title_container,
+.notebook_open .subtitle_container,
+.notebook_open .date_container,
+.notebook_open .scroll_description {
+    flex: none;
+    height: auto;
+    position: relative;
+    white-space: pre-wrap;
+    width: 100%;
+    word-break: break-word;
+    word-wrap: break-word;
+    line-height: var(--framer-line-height, 1.2em);
+    text-decoration-skip-ink: none;
+    font-weight: var(--framer-font-weight, 400);
+    margin: 0;
+}
+
+.notebook_open .subscribe_header {
+    flex: none;
+    height: auto;
+    position: absolute;
+    margin: 0;
+    right: 100px;
+    top: 49px;
+    white-space: pre-wrap;
+    width: 211px;
+    word-break: break-word;
+    word-wrap: break-word;
+    width: 29.10% !important;
+    right: 13.79% !important;
+    top: 4.6% !important;
+    font-weight: var(--framer-font-weight, 400);
+}
+
+.notebook_open .stamps {
+    flex: none;
+    height: 208px;
+    position: absolute;
+    right: 44px;
+    top: 93px;
+    width: 280px;
+}
+
+@media (max-width: 1200px) and (orientation: portrait) {
+    .date_container {
+        font-size: 1.4cqh !important;
+    }
+}
+
+@supports (background: -webkit-named-image(i)) and (not (font-palette:dark)) {
+
+    .notebook_open .left_page,
+    .notebook_open .title_subtitle_header {
+        gap: 0px;
+    }
+
+    .notebook_open .left_page>* {
+        margin: 0px;
+        margin-bottom: calc(16px / 2);
+        margin-top: calc(16px / 2);
+    }
+
+    .notebook_open .left_page> :first-child,
+    .notebook_open .title_subtitle_header> :first-child {
+        margin-top: 0px;
+    }
+
+    .notebook_open .left_page> :last-child,
+    .notebook_open .title_subtitle_header> :last-child {
+        margin-bottom: 0px;
+    }
+
+    .notebook_open .title_subtitle_header>* {
+        margin: 0px;
+        margin-bottom: calc(4px / 2);
+        margin-top: calc(4px / 2);
+    }
+}
+
 @media only screen and (min-width: 1200px) {
     .scrollTarget {
         overflow: -moz-scrollbars-vertical;
@@ -262,10 +398,10 @@ div[ready="true"] .scrollTarget > p:last-child {
     .exit_cross {
         position: absolute;
         top: 3.5%;
-        left:  calc((100vw - 8vh) / 2);
-        left:  calc((100vw - 8svh) / 2);
-        width:  2.75vh;
-        width:  2.75svh;
+        left: calc((100vw - 8vh) / 2);
+        left: calc((100vw - 8svh) / 2);
+        width: 2.75vh;
+        width: 2.75svh;
         height: auto;
         cursor: pointer;
         aspect-ratio: 1;
@@ -273,8 +409,8 @@ div[ready="true"] .scrollTarget > p:last-child {
     }
 
     .exit_cross_2 {
-        left:  calc((100vw - 4vh));
-        left:  calc((100vw - 4svh));
+        left: calc((100vw - 4vh));
+        left: calc((100vw - 4svh));
     }
 
     .exit_cross::before {
@@ -288,18 +424,26 @@ div[ready="true"] .scrollTarget > p:last-child {
 
 @media (orientation: landscape) {
     .scrollTarget * {
-        font-size:  2.55vh !important;
-        font-size:  2.55svh !important;
+        font-size: 2.55vh !important;
+        font-size: 2.55svh !important;
     }
 }
 
 @media (pointer:coarse) and (orientation: landscape) {
-    div:has(> .scrollTarget) *, h3.subscribe {
-        font-size:  5.55vh !important;
-        font-size:  5.55svh !important;
+
+    div:has(> .scrollTarget) *,
+    h3.subscribe {
+        font-size: 5.55vh !important;
+        font-size: 5.55svh !important;
     }
 
     h3.subscribe {
         width: fit-content !important;
+    }
+}
+
+@media (pointer:coarse) {
+    .scroll_description {
+        line-height: 0.82rem !important;
     }
 }

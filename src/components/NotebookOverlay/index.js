@@ -16,7 +16,7 @@ import { motion, animate, AnimatePresence } from "framer-motion";
 
 import NoteBookOpen from "../../framer/NoteBook-Open-NHDl.js";
 
-const NotebookOverlay = ({ title = "", subtitle = "", desc = "", translateX = "left" }) => {
+const NotebookOverlay = ({ title = "", subtitle = "", desc = "", date = "", translateX = "left" }) => {
   const [descVisible, setdescVisible] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -102,6 +102,7 @@ const NotebookOverlay = ({ title = "", subtitle = "", desc = "", translateX = "l
                 title={title}
                 subtitle={subtitle}
                 text={desc}
+                date={date}
                 ready={ready}
                 toggleOverlay={toggleOverlay}
                 onClick={() => {}}

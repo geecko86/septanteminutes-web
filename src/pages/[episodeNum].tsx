@@ -81,6 +81,7 @@ export default function EpisodeTable(props: {
     title: descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[2]?.trim(),
     subtitle: `Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`,
     desc: descriptionEpisode?.desc,
+    date: descriptionEpisode?.date,
     translateX: overlayNotebookTranslation,
   });
 
