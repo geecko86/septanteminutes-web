@@ -102,7 +102,8 @@ export default function EpisodeTable(props: {
   playbackMP3Ref.current = playingEpisode?.mp3;
 
   const doIdlePlayButtonAnimation = useCallback(() => {
-    if (hasClickedPlayRef.current || playbackMP3Ref.current) return;
+    const playClickCount = Number(localStorage.getItem("hasClickedPlay") || 0);
+    if (hasClickedPlayRef.current || playbackMP3Ref.current || playClickCount > 2) return;
 
     animate([
       [`.${styles.playButton}`, { opacity: 0.8 }, { ease: "easeOut", duration: 1 }],
@@ -112,6 +113,8 @@ export default function EpisodeTable(props: {
         clearTimeout(idleAnimationTimeoutIdRef.current);
         const id = setTimeout(doIdlePlayButtonAnimation, 6500);
         idleAnimationTimeoutIdRef.current = id;
+      } else {
+        localStorage.setItem("hasClickedPlay", (playClickCount + 1).toString());
       }
     });
   }, [playbackMP3Ref, hasClickedPlayRef]);
@@ -157,7 +160,8 @@ export default function EpisodeTable(props: {
 
     const doNotebookIdleAnimation = () => {
       const notebookElement = document.getElementsByClassName(styles.notebook)[0];
-      if (hasClickedNotebookRef.current || !notebookElement) return;
+      const clickedNotebookCount = Number(localStorage.getItem("hasClickedNotebook") || 0);
+      if (hasClickedNotebookRef.current || !notebookElement || clickedNotebookCount > 0) return;
 
       const onFinished = () => {
         if (!hasClickedNotebookRef.current) {
@@ -492,7 +496,9 @@ export default function EpisodeTable(props: {
                   referenceProps.onClick(e);
                   setOverlayNotebookTranslation("left");
                 }
-                setHasClickedNotebook(true)
+                setHasClickedNotebook(true);
+                const clickedNotebookCount = Number(localStorage.getItem("hasClickedNotebook") || 0);
+                if (clickedNotebookCount == 0) localStorage.setItem("hasClickedNotebook", (clickedNotebookCount + 1).toString());
               }}
             />
             {!isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
@@ -538,8 +544,16 @@ export default function EpisodeTable(props: {
               setHasClickedPlay(true);
               if (!audio) return;
               if (isMobile) {
-                setBottomSheetOpen(true);
-                return
+                const preferredService = sessionStorage.getItem("preferredService");
+                if (!preferredService) setBottomSheetOpen(true);
+                else if (preferredService == "Spotify") {
+                  window.open(vinyls[selectedEpisode].spotifyLink, "_blank");
+                } else if (preferredService == "Apple Podcasts") {
+                  window.open(vinyls[selectedEpisode].appleLink, "_blank");
+                } else {
+                  playEpisode(selectedEpisode);
+                }
+                return;
               }
               playEpisode(selectedEpisode);
             }}>
@@ -573,7 +587,7 @@ export default function EpisodeTable(props: {
             <div className={styles.bottomSheet}>
               {[{ name: "Spotify", color: "#1DB954", link: vinyls[selectedEpisode].spotifyLink },
               { name: "Apple Podcasts", color: "#872EC4", link: vinyls[selectedEpisode].appleLink, skip: !isIOS },
-              { name: browserName || "Ce navigateur", color: "rgb(42, 50, 54)", link: "." }
+              { name: browserName || "Ce navigateur", color: "rgb(42, 50, 54)", link: "#" }
               ].filter(i => !i.skip).map((service, i, array) => (
                 <div className={styles.bottomSheetRow} key={`bottomSheetRow_${service.name}`}>
                   { /* eslint-disable-next-line @next/next/no-img-element */}
@@ -582,6 +596,8 @@ export default function EpisodeTable(props: {
                   <Link href={service.link}>
                     <button tabIndex={i*10} className={styles.roundButton} style={{ backgroundColor: service.color, }} onClick={() => {
                       setBottomSheetOpen(false);
+                      sessionStorage.setItem("preferredService", service.name);
+                      if (service.link == "#") playEpisode(selectedEpisode);
                     }}>{i < array.length - 1 ? "Ouvrir ↗" : "Continuer"}</button>
                   </Link>
                 </div>
