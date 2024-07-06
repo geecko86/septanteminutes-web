@@ -373,7 +373,8 @@ export default function Home(props: {
         let swiperTimer: NodeJS.Timeout | undefined = undefined;
         const idleAnimAction = () => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-            if (!hasMovedRef.current) {
+            const hasMovedCount = Number(localStorage.getItem("hasMovedHome") || "0");
+            if (!hasMovedRef.current && hasMovedCount > 2){
                 if (!isTouchDevice && hasFocusRef.current && document.hasFocus()) {
                     const from = scrollXAdditional.get(), to = scrollXAdditional.get() + Math.floor(window.innerWidth / 11);
                     const anim = animate([[scrollXAdditional, to, {
@@ -399,6 +400,7 @@ export default function Home(props: {
                     setShowSwiper(true);
                 }
             } else {
+                if (hasMovedCount < 3) localStorage.setItem("hasMovedHome", (hasMovedCount + 1).toString());
                 clearInterval(swiperTimer);
             }
         };
