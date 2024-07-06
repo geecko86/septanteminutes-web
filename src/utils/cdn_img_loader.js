@@ -1,4 +1,4 @@
-'use client'
+
  
 export default function loader(props) {
     const { src, width, quality } = props;

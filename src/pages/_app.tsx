@@ -1,3 +1,5 @@
+"use client";
+
 import React, { ReactElement, ReactNode, StrictMode, useCallback, useEffect, useState } from 'react'
 import type { NextComponentType, NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'

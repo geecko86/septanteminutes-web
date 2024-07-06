@@ -1,4 +1,4 @@
-'use client';
+;
 
 import React, { useRef, useMemo } from "react";
 import Image from "next/image";
