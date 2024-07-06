@@ -454,6 +454,10 @@
     overflow: visible;
 }
 
+.season_frame div[data-framer-name="Albums"] * {
+    z-index: 6 !important;
+}
+
 .season_frame div[data-framer-name="Albums"] a:active {
     /* pointer-events: none; */
 }
