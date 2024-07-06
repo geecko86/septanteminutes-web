@@ -5,6 +5,7 @@ import styles from './faq.module.css';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { isMobile } from 'react-device-detect';
 
 const FAQPage = (props: { onReady: () => void }) => {
 
@@ -12,16 +13,20 @@ const FAQPage = (props: { onReady: () => void }) => {
     const [pageHeight, setPageHeight] = useState(0);
     const [letterReady, setLetterReady] = useState(false);
 
-    const onReady = useCallback(() => {
+    const onReady = useCallback((delay: number = 100) => {
         setTimeout(() => {
             setLetterReady(true);
             props.onReady();
-        }, 100);
+        }, delay);
     }, [setLetterReady, props]);
 
     useEffect(() => {
         setPageHeight(window.innerHeight)
     }, [setPageHeight]);
+
+    useEffect(() => {
+        if (isMobile) onReady(0);
+    });
 
     const { scrollYProgress } = useScroll();
     const yOffset = useTransform(scrollYProgress, [0, 1], [-pageHeight / 6.25, pageHeight / 6.25]);
