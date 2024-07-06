@@ -1,4 +1,4 @@
-'use client'
+
 
 import React, { useContext, createContext, SetStateAction, useState, useEffect, useRef } from "react";
 import loader from "../utils/cdn_img_loader";

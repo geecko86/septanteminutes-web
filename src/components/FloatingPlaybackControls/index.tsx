@@ -1,4 +1,4 @@
-'use client'
+
 
 import React, { useEffect, useState } from 'react';
 import Slider from 'rc-slider';

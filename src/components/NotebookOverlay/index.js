@@ -1,4 +1,4 @@
-"use client";
+;
 
 import styles from "./overlay.module.css";
 import { enterAnim, exitAnim } from "../../anim/notebook.js";
