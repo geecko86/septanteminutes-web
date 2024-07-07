@@ -151,7 +151,7 @@ const VinylAlbum = React.forwardRef(( {
           className={styles.album}
           style={style as MotionStyle}
         >
-          <Image
+          <Image draggable="false"
             src={image}
             alt={alt}
             fill={true}
@@ -165,7 +165,7 @@ const VinylAlbum = React.forwardRef(( {
               if (!isGone && onLoad) onLoad()
             }}
           />
-          <Image
+          <Image draggable="false"
             src="https://framerusercontent.com/images/xASprVMQ8YKj6GHkS84CpZ7ElQ.png"
             alt=""
             fill={true}

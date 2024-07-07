@@ -582,7 +582,7 @@ export default function Home(props: {
                             <div className={styles.ceiling} key={"ceiling"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
                                     <div key={`ceiling_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh", position: "relative" }}>
-                                        <Image priority src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
+                                        <Image draggable="false" priority src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}
                             </div>
@@ -613,7 +613,7 @@ export default function Home(props: {
                                     <motion.div className={styles.floor} key={"floor"}>
                                         {[...Array(groundTexturesCount)].map((_, i) => (
                                             <div key={`floor_${i}`}>
-                                                <Image loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes={ isMobile ? "422vmax" : "422vh"} />
+                                                <Image draggable="false" loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes={ isMobile ? "422vmax" : "422vh"} />
                                             </div>
                                         ))}
                                     </motion.div>

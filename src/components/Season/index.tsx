@@ -34,7 +34,7 @@ const PresentationWallContents = () => {
         <div className={styles.presentationWallContents}>
             <div className={styles.presentationText}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="Septante Minutes Avec" src="/img/sma_title.svg" />
+                <img draggable="false" alt="Septante Minutes Avec" src="/img/sma_title.svg" />
 
                 <p
                     ref={paragraphRef}
@@ -99,7 +99,7 @@ const SeasonComponent = (props: {
                     {
                         arrayKeys.map((i) => (
                             <div key={`season_${seasonTitle}_texture_${i}`} style={{ height: "100%", width: "auto", aspectRatio: 3 / 2, position: "relative" }}>
-                                <Image
+                                <Image draggable="false"
                                     alt="" fill={true}
                                     priority={true}
                                     className={styles.wall} sizes="90svh"
@@ -121,7 +121,7 @@ const SeasonComponent = (props: {
                 }}>
                     {!presentationWall && <div className={styles.header} key={`season_header_${seasonTitle}`} data-framer-name="Header">
                         <div className={styles.header_logo} data-framer-name="Logo">
-                            <Image
+                            <Image draggable="false"
                                 alt="Septante Minutes Avec" fill={true}
                                 className={styles.header_logo_img} sizes="128px"
                                 src="/img/sma_title.svg"
@@ -155,10 +155,10 @@ const SeasonComponent = (props: {
                             </div>
                     }
                     {!presentationWall ? <div className={styles.season_legende} data-framer-name="LEGENDE" style={{ opacity: 1 }}>
-                        <Image src="/img/side_A.svg" unoptimized alt="" loading="lazy" width={31} height={12} />
-                        <Image src="/img/45_rpm.svg" unoptimized alt="" loading="lazy" width={13} height={12} />
-                        <Image src="/img/stereo.svg" unoptimized alt="" loading="lazy" width={28} height={12} />
-                        <Image src="/img/import.svg" unoptimized alt="" loading="lazy" width={21} height={12} />
+                        <Image draggable="false" src="/img/side_A.svg" unoptimized alt="" loading="lazy" width={31} height={12} />
+                        <Image draggable="false" src="/img/45_rpm.svg" unoptimized alt="" loading="lazy" width={13} height={12} />
+                        <Image draggable="false" src="/img/stereo.svg" unoptimized alt="" loading="lazy" width={28} height={12} />
+                        <Image draggable="false" src="/img/import.svg" unoptimized alt="" loading="lazy" width={21} height={12} />
                         <div className={styles.richtextcontainer2} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", transform: "none", opacity: 1 }}>
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>Disponible sur toutes</p>
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>les plateformes</p>
@@ -172,7 +172,7 @@ const SeasonComponent = (props: {
                             { name: "instagram_black", link: "https://www.instagram.com/GuiHachez/" },
                             { name: "rss", link: "https://anchor.fm/s/b43f59a8/podcast/rss" }].map((item) => (
                             <a key={item.name} href={item.link} target="_blank">
-                                <Image src={`/img/${item.name}.svg`} unoptimized alt={item.name.split("_")[0]} width={16} height={16} />
+                                <Image draggable="false" src={`/img/${item.name}.svg`} unoptimized alt={item.name.split("_")[0]} width={16} height={16} />
                             </a>
                         )) }
                     </div>}

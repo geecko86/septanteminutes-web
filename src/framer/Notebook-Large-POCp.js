@@ -21,7 +21,7 @@ const NotebookLarge = React.forwardRef((props, ref) => {
         overflow: "clip"
       }}
     >
-      <Image
+      <Image draggable="false"
         src="https://framerusercontent.com/images/zLZpVcFd3TJlKbssFNQWljSjDo.png"
         sizes={`(max-aspect-ratio: 4 / 3) and (min-aspect-ratio: 9.1 / 16) and (min-width: 875px) 51.7vw, ${0.55 * (73 / 2.0268)}vw`}
         alt="notebook"

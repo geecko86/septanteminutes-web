@@ -36,7 +36,7 @@ const FAQPage = (props: { onReady: () => void }) => {
         <div className={styles.faq} ref={pageRef}>
             <motion.div style={{ y: y, scale: 1.5 }}
                 className={[styles.FAQ_background, letterReady ? styles.FAQ_background_ready : ""].join(" ")}>
-                <Image src="https://framerusercontent.com/images/RknGrooeUApp9LVWNZzyBRfeOnk.jpg" alt="Background" fill onLoad={() => {
+                <Image draggable="false" src="https://framerusercontent.com/images/RknGrooeUApp9LVWNZzyBRfeOnk.jpg" alt="Background" fill onLoad={() => {
                     setTimeout(() => {
                         onReady();
                     }, 300);
