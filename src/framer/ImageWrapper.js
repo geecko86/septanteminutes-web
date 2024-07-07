@@ -19,7 +19,7 @@ const ImageOffsetWrapperComponentOldPhone = (props) => {
 
     return (<div {...newProps}>
         <motion.div style={{ ...style, position: "relative", translateX: offset || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
+            <Image draggable="false" src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
@@ -32,7 +32,7 @@ const ImageOffsetWrapperComponentNewDevice = (props) => {
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ ...style, position: "relative", translateX: translateX || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image prior src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
+            <Image draggable="false" prior src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
@@ -56,7 +56,7 @@ const ImageWrapperComponent = (props) => {
     }, [blurDataURL]);
 
     return (<motion.div {...otherProps} style={{ transform: "translateZ(4px)", ...style }} >
-        <Image src={src} blurDataURL={blurDataURL} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
+        <Image draggable="false" src={src} blurDataURL={blurDataURL} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
     </motion.div>)
 };
 

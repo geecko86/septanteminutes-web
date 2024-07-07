@@ -47,7 +47,7 @@ const NotebookOpen = React.forwardRef(function NotebookOpen(
       `}
     </Script>
     <div {...restProps} className={[styles.notebook_open_contents, className].join(" ")} ready={props.ready ? "true" : "false"} ref={ref} style={{ ...style }} >
-      <Image key="image" alt="" fill sizes="(max-width: 1200px) 100vw, 34.5vw" src="https://framerusercontent.com/images/yYJS4WsSdE8HHVqXY7DZVs3GZiM.jpg" />
+      <Image draggable="false" key="image" alt="" fill sizes="(max-width: 1200px) 100vw, 34.5vw" src="https://framerusercontent.com/images/yYJS4WsSdE8HHVqXY7DZVs3GZiM.jpg" />
       <motion.div key="left_page" className={styles.left_page}>
         <div key={"split_title"} className={styles.title_subtitle_header}>
           <h1 className={styles.title_container} data-framer-component-type="RichTextContainer" verticalAlignment="top" style={{

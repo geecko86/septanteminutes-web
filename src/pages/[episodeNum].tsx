@@ -466,7 +466,7 @@ export default function EpisodeTable(props: {
           tabIndex={0}
         >
           <div className={styles.floor}>
-            <Image alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{ objectFit: "cover" }} fill />
+            <Image draggable="false" alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{ objectFit: "cover" }} fill />
             <Chair className={styles.chair} />
             <div className={styles.invisiblefill} />
           </div>
@@ -501,8 +501,8 @@ export default function EpisodeTable(props: {
                 if (clickedNotebookCount == 0) localStorage.setItem("hasClickedNotebook", (clickedNotebookCount + 1).toString());
               }}
             />
-            {!isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
-            {!isMobileDevice && <Image alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
+            {!isMobileDevice && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
+            {!isMobileDevice && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
               if (playingEpisode?.mp3) {
                 setPlaying(!isPlaying);
@@ -579,7 +579,7 @@ export default function EpisodeTable(props: {
               }
               <div className={styles.playButton} style={{ opacity: 0 }}>
                 { /* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/img/play.svg" alt="Lancer la lecture" role="button" />
+                <img draggable="false" src="/img/play.svg" alt="Lancer la lecture" role="button" />
               </div>
             </motion.div>
           </div>
@@ -593,7 +593,7 @@ export default function EpisodeTable(props: {
               ].filter(i => !i.skip).map((service, i, array) => (
                 <div className={styles.bottomSheetRow} key={`bottomSheetRow_${service.name}`}>
                   { /* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/img/${i < array.length - 1 ? service.name.toLowerCase().replace(" ", "") : (browserName.toLowerCase() || "play")}.svg`} alt="Spotify Logo" />
+                  <img draggable="false" src={`/img/${i < array.length - 1 ? service.name.toLowerCase().replace(" ", "") : (browserName.toLowerCase() || "play")}.svg`} alt={`${service.name} Logo`} />
                   <strong>{service.name}</strong>
                   <Link href={service.link}>
                     <button tabIndex={i*10} className={styles.roundButton} style={{ backgroundColor: service.color, }} onClick={() => {

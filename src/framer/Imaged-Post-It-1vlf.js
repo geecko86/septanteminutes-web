@@ -111,7 +111,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
                 <p className="framer-styles-preset-1sry874" data-styles-preset="aJJBLE7Pu">{props.title}</p>
               </>
             </RichText>
-            <Image key="logo_postitIMG" as="figure" background={{
+            <Image draggable="false" key="logo_postitIMG" as="figure" background={{
               alt: "",
               fit: "fill",
               intrinsicHeight: 900,
