@@ -363,6 +363,7 @@
 
 .season_frame div[data-framer-name="Header"] p {
     line-height: 1.15ch;
+    user-select: none;
 }
 
 .season_frame div[data-framer-name="Header"] div[data-framer-component-type="RichTextContainer"] {
@@ -580,6 +581,15 @@
     .layer_2, .layer_2 * { transform: translateZ(10px); }
 }
 
+.layer_0 *, .layer_0_25 *, .layer_0_5 *, .layer_1_5 *, .layer_2 *, .layer_3 * {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
 .layer_0 { /* wall, ceiling */
     padding-right: 15%;
     top: 0;
@@ -764,6 +774,18 @@
         transform: translateX(min(25.6svmax, 25svmin)) translateZ(0px) !important;
     }
 
+    .layer_0_25 { /* floor */
+        transform: translateZ(0px) !important;
+    }
+
+    .layer_0_25 > div {
+        transform: unset;
+    }
+
+    .layer_0_25 > div > div {
+        perspective: unset;
+    }
+
     .lamps_1_5 {
         gap: calc(175vmax - var(--lamp-width));
     }
@@ -857,10 +879,6 @@
         height: 11.5svmax;
     }
 
-    .layer_0_25 {
-        transform: scaleY(0.235);
-    }
-
     .layer_0_25 > div {
         transform-origin: bottom;
         transform: scaleY(0.29);
@@ -868,7 +886,6 @@
 
     .layer_0_25 > div > div {
         height: 100%;
-        perspective: 5vmax;
     }
 
     .layer_0_25 .floor {

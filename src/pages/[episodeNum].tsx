@@ -113,8 +113,6 @@ export default function EpisodeTable(props: {
         clearTimeout(idleAnimationTimeoutIdRef.current);
         const id = setTimeout(doIdlePlayButtonAnimation, 6500);
         idleAnimationTimeoutIdRef.current = id;
-      } else {
-        localStorage.setItem("hasClickedPlay", (playClickCount + 1).toString());
       }
     });
   }, [playbackMP3Ref, hasClickedPlayRef]);
@@ -388,6 +386,8 @@ export default function EpisodeTable(props: {
       case 13: // enter key
         playEpisode(selectedEpisode);
         setHasClickedPlay(true);
+        const playClickCount = Number(localStorage.getItem("hasClickedPlay") || 0);
+        if (playClickCount < 3) localStorage.setItem("hasClickedPlay", (playClickCount + 1).toString());
         break;
       default:
         return;
@@ -542,6 +542,8 @@ export default function EpisodeTable(props: {
             </div>
             <motion.div className={styles.albums} onClick={() => {
               setHasClickedPlay(true);
+              const playClickCount = Number(localStorage.getItem("hasClickedPlay") || 0);
+              if (playClickCount < 3) localStorage.setItem("hasClickedPlay", (playClickCount + 1).toString());
               if (!audio) return;
               if (isMobile) {
                 const preferredService = sessionStorage.getItem("preferredService");

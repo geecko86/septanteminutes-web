@@ -168,10 +168,11 @@ const SeasonComponent = (props: {
                         { [
                             { name: "spotify", link: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r"},
                             { name: "applepodcasts", link: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591?mt=2" },
-                            { name: "pocketcasts", link: "https://pca.st/A6sJ" },
+                            { name: "youtube", link: "https://www.youtube.com/@septanteminutes/videos" },
+                            { name: "instagram_black", link: "https://www.instagram.com/GuiHachez/" },
                             { name: "rss", link: "https://anchor.fm/s/b43f59a8/podcast/rss" }].map((item) => (
                             <a key={item.name} href={item.link} target="_blank">
-                                <Image src={`/img/${item.name}.svg`} unoptimized alt={item.name} width={16} height={16} />
+                                <Image src={`/img/${item.name}.svg`} unoptimized alt={item.name.split("_")[0]} width={16} height={16} />
                             </a>
                         )) }
                     </div>}

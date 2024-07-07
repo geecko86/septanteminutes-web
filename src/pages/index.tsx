@@ -251,9 +251,12 @@ export default function Home(props: {
 
         const onMouseMove = (e: MouseEvent) => {
             if (!isDown) return;
-            console.log("mouse move");
+            console.log("mouseGrab move");
             e.preventDefault();
-            hasMovedRef.current = true;
+            if (Math.abs(scrollXAdditional.get()) > 100) {
+                hasMovedRef.current = true;
+                idleAnimRef.current?.stop();
+            }
             const x = e.pageX - scrollX.get();
             const walk = (x - startX) * 2; //scroll-fast
             scrollXAdditional.set(Math.min(limit, scrollLeft - walk) || 0);
@@ -346,13 +349,13 @@ export default function Home(props: {
                 if (deltaX < 0 && scrollXAdditional.get() + deltaX < 0) scrollXAdditional.set(0);
                 return;
             } else {
-                hasMovedRef.current = true;
                 if (deltaY !== 0 && Math.abs(deltaY) > Math.abs(deltaX)) scrollYAdditional.set((scrollYAdditional.get() || 0) + deltaY);
                 else if (deltaX !== 0) scrollXAdditional.set((scrollXAdditional.get() || 0) + deltaX);
                 // console.log("moving through wheel", scrollXAdditional.get(), scrollYAdditional.get());
                 setColumnFocus(false);
                 setShowSwiper(false);
                 idleAnimRef.current?.stop();
+                hasMovedRef.current = true;
             }
             if (e.ctrlKey) return;
             e.preventDefault();
@@ -374,7 +377,7 @@ export default function Home(props: {
         const idleAnimAction = () => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             const hasMovedCount = Number(localStorage.getItem("hasMovedHome") || "0");
-            if (!hasMovedRef.current && hasMovedCount > 2){
+            if (!hasMovedRef.current && hasMovedCount <= 2) {
                 if (!isTouchDevice && hasFocusRef.current && document.hasFocus()) {
                     const from = scrollXAdditional.get(), to = scrollXAdditional.get() + Math.floor(window.innerWidth / 11);
                     const anim = animate([[scrollXAdditional, to, {
@@ -421,7 +424,7 @@ export default function Home(props: {
     useEffect(() => {
         const motionValue = isMobile ? newScrollX : scrollXAdditional;
         const unsub = motionValue.on("change", (val) => {
-            if (val < -3) {
+            if (Math.abs(val) > 50) {
                 hasMovedRef.current = true;
                 if (unsub) unsub();
             }
