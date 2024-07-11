@@ -25,8 +25,11 @@ const FAQPage = (props: { onReady: () => void }) => {
     }, [setPageHeight]);
 
     useEffect(() => {
-        if (isMobile) onReady(0);
-    });
+        if (isMobile) {
+            setLetterReady(true);
+            onReady(200);
+        }
+    }, [setLetterReady, onReady]);
 
     const { scrollYProgress } = useScroll();
     const yOffset = useTransform(scrollYProgress, [0, 1], [-pageHeight / 6.25, pageHeight / 6.25]);
@@ -55,14 +58,14 @@ const PaperSheet = (props: { ready: boolean }) => {
         if (faqRef.current) {
             setPaperHeight(faqRef.current.clientHeight);
         }
-        console.log("Resized")
+        console.log("d")
     }, [faqRef, setPaperHeight]);
 
     useEffect(() => {
         window.addEventListener('resize', resizeCallback);
         setTimeout(() => {
             resizeCallback();
-        }, 100);
+        }, 300);
         return () => {
             window.removeEventListener('resize', resizeCallback);
         };
@@ -135,7 +138,7 @@ const PaperSheet = (props: { ready: boolean }) => {
                     <h2 className={styles.question} id="q_suggest">{"Puis-je proposer un invité ou un sujet pour un futur épisode ?"}</h2>
                     <span className={styles.answer}>{"Oui ! Toute suggestion est la bienvenue."}</span>
 
-                    <h2 className={styles.question} id="q_desc">{"Où puis-je trouver les notes ou les ressources accompagnants chaque interview ?"}</h2>
+                    <h2 className={styles.question} id="q_desc">{"Où puis-je trouver les notes ou les ressources accompagnant chaque interview ?"}</h2>
                     <span className={styles.answer}>{"Que vous utilisiez une plateforme de podcasts, YouTube ou bien ce site web pour écouter Septante Minutes Avec, une description accompagne chaque épisode et vous propose ces informations ainsi qu'une liste de chapitres."}</span>
 
                     <h2 className={styles.question} id="q_video">{"Le podcast est-il disponible en transcription ou en vidéo ?"}</h2>

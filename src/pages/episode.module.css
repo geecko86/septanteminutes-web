@@ -557,6 +557,10 @@ div:has(> .chair) {
     --table_height: 90svmax;
   }
 
+  .floor > img {
+    height: 100lvh;;
+  }
+
   .table {
     aspect-ratio: 0.4933;
     width: auto !important;

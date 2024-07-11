@@ -633,6 +633,7 @@
     height: 11.5vh;
     width: auto;
     aspect-ratio: calc(4096/111);
+    transform: unset !important;
 }
 
 .layer_0_5 { /* back chairs and plants */ 
@@ -881,11 +882,12 @@
 
     .layer_0_25 > div {
         transform-origin: bottom;
-        transform: scaleY(0.29);
+        transform: unset;
     }
 
     .layer_0_25 > div > div {
         height: 100%;
+        perspective: unset;
     }
 
     .layer_0_25 .floor {
@@ -894,10 +896,8 @@
     }
 
     .layer_0_25 .floor > div {
-        position: relative;
         height: 11.5vmax;
         height: 11.5svmax;
-        width: auto;
         aspect-ratio: calc(4096/111);
     }
 
@@ -940,17 +940,20 @@
         min-width:  calc(784/720 * 85svmax);
     }
 
-    .lamps_1_5 { /* ceiling lamps */ 
+    .lamps_1_5 { /* ceiling lamps */
+        --lamp-width: calc(27vmin*0.8*(2233/2291));
         height:  27vmax !important;
         height:  27svmax !important;
+        left: calc(50vmin - var(--lamp-width)/2);
     }
 
     .lamps_2 { /* ceiling lamps front */ 
+        --lamp-width: calc(85vmin*0.8*(2233/2291));
         height:  85vmax !important;
         height:  85svmax !important;
         top:  -34.5vmax;
         top:  -34.5svmax;
-        left: calc(50vmax - var(--lamp-width)/2);
+        left: calc(50vmin - var(--lamp-width)/2);
     }
 
     .front_column {

@@ -222,6 +222,10 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
                 overflow-y: unset;
                 overflow-x: unset;
             }
+
+            #globalLoader, .transition_loader {
+                height: 99.85svh;
+            }
         }
         
         @media (prefers-color-scheme: dark) and (pointer:coarse) {
