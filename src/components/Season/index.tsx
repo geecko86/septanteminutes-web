@@ -171,7 +171,7 @@ const SeasonComponent = (props: {
                             { name: "youtube", link: "https://www.youtube.com/@septanteminutes/videos" },
                             { name: "instagram_black", link: "https://www.instagram.com/GuiHachez/" },
                             { name: "rss", link: "https://anchor.fm/s/b43f59a8/podcast/rss" }].map((item) => (
-                            <a key={item.name} href={item.link} target="_blank">
+                            <a key={item.name} href={item.link} target="_blank" style={item.name.endsWith("_black") ? { aspectRatio: 1, transform: "scale(1.23)" } : {}}>
                                 <Image draggable="false" src={`/img/${item.name}.svg`} unoptimized alt={item.name.split("_")[0]} width={16} height={16} />
                             </a>
                         )) }

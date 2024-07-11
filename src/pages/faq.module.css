@@ -58,7 +58,8 @@
 .faqContainer {
     position:relative;
     width: 54rem;
-    height: calc(100% - 6vh);
+    min-height: calc(100% - 6vh);
+    height: fit-content;
     box-shadow: 0 0 0px 0px rgba(0,0,0,0.0);
     opacity: 0.75;
     transition: 0.45s opacity cubic-bezier(0.45,0.05,0.55,0.95), 0.45s 0.3s box-shadow cubic-bezier(0.39, 0.57, 0.56, 1), 0.75s transform cubic-bezier(0.39,0.57,0.56,1);
@@ -143,6 +144,8 @@
     margin: 0;
     align-self: flex-start;
     text-align: justify;
+    text-wrap: balance;
+    text-wrap: pretty;
 }
 
 .faqContents ul {
@@ -171,12 +174,14 @@
 @media (max-width: 1200px) {
     .paper::before {
         background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg?scale-down-to=900), black;;
+        background-repeat: repeat;
     }    
 }
 
 @media (max-width:800) {
     .paper::before {
         background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg?scale-down-to=600), black;;
+        background-repeat: repeat;
     }    
 }
 
@@ -186,6 +191,19 @@
         padding-top: 0;
         height: 100%;
         overflow-y: scroll;
+    }
+
+    .faqContents {
+        padding: 2rem;
+    }
+
+    .faqContents > h2 {
+        width: 100%;
+    }
+    
+    .backButton {
+        left: 2rem;
+        top: 2rem;
     }
 
     .paper {
