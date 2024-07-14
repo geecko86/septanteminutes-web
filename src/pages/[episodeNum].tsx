@@ -51,6 +51,7 @@ export default function EpisodeTable(props: {
   const [selectedPosition, setSelectedPosition] = useState(0);
   const [mayAnimate, setMayAnimate] = useState(false);
   const [isMobileDevice, setIsMobileDevice] = useState(true);
+  const [isPortrait, setIsPortrait] = useState(false);
   const [hasClickedNotebook, setHasClickedNotebook] = useState(false);
   const [hasClickedPlay, setHasClickedPlay] = useState(false);
   const [overlayNotebookTranslation, setOverlayNotebookTranslation] = useState("left");
@@ -102,8 +103,8 @@ export default function EpisodeTable(props: {
   playbackMP3Ref.current = playingEpisode?.mp3;
 
   const doIdlePlayButtonAnimation = useCallback(() => {
-    const playClickCount = Number(localStorage.getItem("hasClickedPlay") || 0);
-    if (hasClickedPlayRef.current || playbackMP3Ref.current || playClickCount > 2) return;
+    // const playClickCount = Number(localStorage.getItem("hasClickedPlay") || 0);
+    if (hasClickedPlayRef.current || playbackMP3Ref.current) return;
 
     animate([
       [`.${styles.playButton}`, { opacity: 0.8 }, { ease: "easeOut", duration: 1 }],
@@ -149,6 +150,7 @@ export default function EpisodeTable(props: {
       isFirefox ? "Firefox" :
       isOpera ? "Opera" :
       "");
+      setIsPortrait(window.innerHeight > window.innerWidth);
     }
   }, []);
 
@@ -198,7 +200,22 @@ export default function EpisodeTable(props: {
         clearTimeout(id);
       }
     }
-  }, [router, displayedURL]);
+
+    router.beforePopState(({ as }) => {
+      if (as === "/") {
+        const targetUrl = `/#${selectedEpisode + 1}`;
+        requestAnimationFrame(() => {
+          router.replace(targetUrl, undefined, { scroll: false, shallow: true });
+        });
+        return false;
+      }
+      return true;
+    });
+    
+    return () => {
+      router.beforePopState(() => true);
+    }
+  }, [router, displayedURL, selectedEpisode]);
 
   useEffect(() => {
     if (!ready) return;
@@ -335,7 +352,7 @@ export default function EpisodeTable(props: {
     }
   });
 
-  useEventListener("resize", () => {
+  useEventListener("resize", (e) => {
     if (timeoutId) clearTimeout(timeoutId);
     const newId = setTimeout(() => {
       const destination = selectedPosition * (episodePage.current?.clientHeight || 0);
@@ -343,6 +360,7 @@ export default function EpisodeTable(props: {
       episodePage.current?.scroll({ top: destination, behavior: "instant" });
     }, 300);
     setTimeoutId(newId);
+    setIsPortrait(window.innerHeight > window.innerWidth);
   });
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -467,7 +485,7 @@ export default function EpisodeTable(props: {
         >
           <div className={styles.floor}>
             <Image draggable="false" alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{ objectFit: "cover" }} fill />
-            <Chair className={styles.chair} />
+            { !(isMobileDevice && !isPortrait) && <Chair className={styles.chair} />}
             <div className={styles.invisiblefill} />
           </div>
           <div className={styles.table}>
@@ -485,7 +503,7 @@ export default function EpisodeTable(props: {
                 ))}
               </motion.div>
             </div>
-            {!isMobileDevice && <Headphones className={styles.headphones} />}
+            {!(isMobileDevice && isPortrait) && <Headphones className={styles.headphones} />}
             <Pen className={styles.pen} />
             <Notebook
               className={styles.notebook}
@@ -501,8 +519,8 @@ export default function EpisodeTable(props: {
                 if (clickedNotebookCount == 0) localStorage.setItem("hasClickedNotebook", (clickedNotebookCount + 1).toString());
               }}
             />
-            {!isMobileDevice && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
-            {!isMobileDevice && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
+            {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
+            {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
               if (playingEpisode?.mp3) {
                 setPlaying(!isPlaying);

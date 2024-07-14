@@ -13,15 +13,12 @@ const NotebookOpen = React.forwardRef(function NotebookOpen(
   const {
     style,
     className,
-    layoutId,
     text: desc,
     ready,
     toggleOverlay,
     date,
     title,
     subtitle,
-    qSyYbDFAE,
-    ...restProps
   } = props;
 
   const pubDate = new Date(date);
@@ -46,11 +43,11 @@ const NotebookOpen = React.forwardRef(function NotebookOpen(
         }
       `}
     </Script>
-    <div {...restProps} className={[styles.notebook_open_contents, className].join(" ")} ready={props.ready ? "true" : "false"} ref={ref} style={{ ...style }} >
+    <div className={[styles.notebook_open_contents, className].join(" ")} ready={ready ? "true" : "false"} ref={ref} style={{ ...style }} >
       <Image draggable="false" key="image" alt="" fill sizes="(max-width: 1200px) 100vw, 34.5vw" src="https://framerusercontent.com/images/yYJS4WsSdE8HHVqXY7DZVs3GZiM.jpg" />
       <motion.div key="left_page" className={styles.left_page}>
         <div key={"split_title"} className={styles.title_subtitle_header}>
-          <h1 className={styles.title_container} data-framer-component-type="RichTextContainer" verticalAlignment="top" style={{
+          <h1 className={styles.title_container} data-framer-component-type="RichTextContainer" style={{
             fontFamily: '"Caveat", sans-serif',
             fontSize: "1.9rem",
             "--framer-font-weight": "700",
@@ -60,41 +57,34 @@ const NotebookOpen = React.forwardRef(function NotebookOpen(
             fontFamily: '"Caveat", sans-serif',
             fontSize: "0.875rem",
             "--framer-font-weight": "700",
+            display: "block",
             color: "var(--extracted-1eung3n, rgb(168, 87, 0))",
-          }} verticalAlignment="top" id="guestName">{subtitle}</h2>
-          <h4 className={styles.date_container} data-framer-component-type="RichTextContainer" style={{
-            fontFamily: '"Caveat", sans-serif',
-            fontSize: "2.3svh",
-            lineHeight: "2.3svh",
-            position: "relative",
-            margin: "0px",
-            alignSelf: "center",
-            "--framer-font-weight": "700",
+          }}  id="guestName">{subtitle}<span style={{
             color: "var(--extracted-1eung3n, rgb(90, 90, 90))",
-          }} verticalAlignment="top" id="episode_date">{displayedDate}</h4>
+          }}> {displayedDate}</span></h2>
         </div>
         <p vdata-framer-component-type="RichTextContainer" className={`${styles.scrollTarget} ${styles.scroll_description}`} style={{
           fontFamily: '"Caveat", sans-serif',
           fontSize: "1.06rem",
           "--framer-line-height": "1.285em",
           color: "var(--extracted-r6o4lv, rgb(38, 38, 38))",
-        }} id="scrollTarget" verticalAlignment="top" dangerouslySetInnerHTML={{ __html: desc.replace(/\b(\d{2}:\d{2}:\d{2})\b/g, "<span onClick=\"goToTimestamp(this)\" data-timestamp=\"$1\">$1</span>").replace("<a ", "<a target=\"_blank\" ") }} />
+        }} id="scrollTarget"  dangerouslySetInnerHTML={{ __html: desc.replace(/\b(\d{2}:\d{2}:\d{2})\b/g, "<span onClick=\"goToTimestamp(this)\" data-timestamp=\"$1\">$1</span>").replace(/<a /g, "<a target=\"_blank\" ") }} />
       </motion.div>
       <h3 key="followPrompt" className={[styles.subscribe, styles.subscribe_header].join(" ")} style={{
         fontFamily: '"Caveat", sans-serif',
         fontSize: "1.06rem",
         "--framer-font-weight": "400",
         color: "var(--extracted-r6o4lv, rgb(38, 38, 38))",
-      }} data-framer-component-type="RichTextContainer" verticalAlignment="top">
+      }} data-framer-component-type="RichTextContainer" >
         Abonnez-vous !
       </h3>
       <div className={[styles.exit_cross, styles.exit_cross_2].join(" ")}
-        key="exit_cross"
-        onClick={() => { if (props.toggleOverlay) props.toggleOverlay(false); }}
+        key="exit_cross_2"
+        onClick={() => { if (toggleOverlay) toggleOverlay(false); }}
       />
       <div className={[styles.exit_cross].join(" ")}
         key="exit_cross"
-        onClick={() => { if (props.toggleOverlay) props.toggleOverlay(false); }}
+        onClick={() => { if (toggleOverlay) toggleOverlay(false); }}
       />
       <div key="stamps" className={styles.stamps}>
         {[

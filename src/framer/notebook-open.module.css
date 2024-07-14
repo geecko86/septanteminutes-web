@@ -270,17 +270,18 @@ div[ready="true"] .scrollTarget>p:last-child {
 
 .notebook_open .title_subtitle_header {
     align-content: center;
-    align-items: center;
     display: flex;
     flex: none;
+    align-self: baseline;
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 4px;
     height: min-content;
     justify-content: center;
     padding: 0px 0px 0px 0px;
+    left: calc(-0.5*max(1cqw, 1.3cqh));
     position: relative;
-    width: 297px;
+    width: 100%;
 }
 
 .notebook_open .title_container,
@@ -419,6 +420,11 @@ div[ready="true"] .scrollTarget>p:last-child {
         width: 100%;
         height: 100%;
         background-image: url("/img/X.svg");
+    }
+
+    .notebook_open .title_container {
+        max-width: calc(100% - 2.75vh);
+        max-width: calc(100% - 2.75svh);
     }
 }
 

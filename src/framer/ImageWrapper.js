@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import useOffset from "../utils/ParallaxOffset";
 import { useTransform } from "framer-motion";
 import isOldPhone from "@/utils/mobileChecker";
-import { isMobile } from "react-device-detect";
 
 const ImageOffsetWrapperComponentOldPhone = (props) => {
     const { position, motionValue, style, priority, offset, offsetFactor, loading, src, sizes, ...newProps } = props;
@@ -32,7 +31,7 @@ const ImageOffsetWrapperComponentNewDevice = (props) => {
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ ...style, position: "relative", translateX: translateX || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image draggable="false" prior src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
+            <Image draggable="false" src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };

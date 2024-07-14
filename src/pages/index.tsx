@@ -173,7 +173,7 @@ export default function Home(props: {
     const [dimensionWidth, setDimensionWidth] = useState(0);
 
     const centerPosition = useTransform(() => `calc(${((isMobileDevice ? (isMobileLandscape() ? scrollY : scrollX) : newScrollX).get() / (home.current?.clientWidth || 100)) * (isMobileDevice ? 200 : -100)}% + ${dimensionWidth/2}px)`);
-    const perspectiveOrigin = useTransform(() => `${centerPosition.get()} 11.5v${isMobileDevice && typeof(window) !== "undefined" && (window.innerWidth > window.innerHeight) ? "max" : "h"}`);
+    const perspectiveOrigin = useTransform(() => `${centerPosition.get()} 11.5v${isMobileLandscape() ? "max" : "h"}`);
     const offsetFloor = useTransform(() => newScrollX.get() * 0.3012 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset2 = useTransform(() => newScrollX.get() * 2.3 * (navigator.maxTouchPoints > 0 ? 2 : 1));
