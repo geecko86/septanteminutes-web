@@ -180,7 +180,7 @@ const SeasonComponent = (props: {
                 {chair ?
                     (<div className={styles.chair} data-framer-name="Chair" >
                         <HomeChair alt="" className={styles.chair_img} priority={ready}
-                            motionValue={motionValue} src={chair} fill={true} style={{
+                            motionValue={motionValue} src={chair} style={{
                                 position: "absolute",
                                 objectFit: "contain",
                                 aspectRatio: "unset"

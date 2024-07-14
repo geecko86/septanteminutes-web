@@ -46,12 +46,10 @@
 }
 
 .openbook > div:nth-child(2) > div {
-  width: 100% !important;
   opacity: 1 !important;
 }
 
 .openbook h1, .openbook h2, .openbook h3, .openbook h4 {
-  max-width: 35cqw !important;
   opacity: 1 !important;
 }
 
@@ -101,11 +99,6 @@
 
   .openbook.page_right {
     transform: scale(2) translateX(-50%) !important;
-  }
-
-  .openbook h1, .openbook h2, .openbook h3 {
-    max-width:  35vmin !important;
-    max-width:  35svmin !important;
   }
 
   .openbook h1 {
