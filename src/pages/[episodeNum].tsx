@@ -181,7 +181,7 @@ export default function EpisodeTable(props: {
     };
 
     clearTimeout(idleAnimationTimeoutIdRef.current);
-    const id = setTimeout(doNotebookIdleAnimation, 100);
+    const id = setTimeout(doNotebookIdleAnimation, 1000);
     idleAnimationTimeoutIdRef.current = id;
 
     return () => {
@@ -218,7 +218,7 @@ export default function EpisodeTable(props: {
   }, [router, displayedURL, selectedEpisode]);
 
   useEffect(() => {
-    if (!ready) return;
+    if (!ready || autoplay) return;
 
     if (!hasClickedPlayRef.current && !isPlayingRef.current) { // if has never clicked Play Button and is not currently playing
       clearTimeout(idleAnimationTimeoutIdRef.current);
@@ -229,7 +229,7 @@ export default function EpisodeTable(props: {
     return () => {
       clearTimeout(idleAnimationTimeoutIdRef.current);
     }
-  }, [vinyls.length, ready, doIdlePlayButtonAnimation]);
+  }, [vinyls.length, ready, doIdlePlayButtonAnimation, autoplay]);
 
   useEffect(() => {
     if (router.query.episodeNum) {

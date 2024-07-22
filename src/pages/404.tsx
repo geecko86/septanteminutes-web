@@ -86,11 +86,11 @@ const firstNames = [
     "Stromae",
     "Angèle",
     "Jean-Claude Van Damme",
-    "Amélie Nothomb",
+    "Philippe de Belgique",
     "Cécile de France",
     "Axelle Red",
     "Matthias Schoenaerts",
-    "Lara Fabian",
+    "Mathilde d'Udekem d'Acoz",
     "Benoît Poelvoorde",
     "Virginie Efira"
 ];

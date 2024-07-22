@@ -3,9 +3,11 @@ div[ready="true"] .scrollTarget>p:last-child {
 }
 
 .scrollTarget {
-    height: 75% !important;
+    flex: 1 !important;
     overflow-y: scroll;
     padding-right: calc(max(1cqw, 1.3cqh));
+    mask-image: linear-gradient(180deg, transparent 0%, black 10%);
+    padding-top: 3ch;
 }
 
 .scrollTarget * {
