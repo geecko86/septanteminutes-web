@@ -775,7 +775,7 @@ div:has(> .chair) {
   .main {
     height: 100%;
     width: 100vw;
-    --table_height: 100lvmin !important;
+    --table_height: 100svmin !important;
   }
 
   .table {

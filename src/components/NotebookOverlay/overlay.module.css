@@ -41,7 +41,7 @@
   left: 5.79% !important;
   height: 100% !important;
   justify-content: start;
-  gap: 3ch !important;
+  gap: 0ch !important;
   top: 4.5% !important;
 }
 
@@ -115,7 +115,6 @@
 
   .openbook > div:nth-child(2) {
     height: calc(110% - 1.5ch) !important;
-    gap: 1.5ch !important;
   }
 }
 

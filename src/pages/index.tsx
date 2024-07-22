@@ -663,7 +663,7 @@ export default function Home(props: {
                                             <HomeAlbum id={`art_${ep.num}`} imageRef={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
                                                 onClick={(e: MouseEvent) => {
                                                     if (e.button != 0) return;
-                                                    if (process.env.NODE_ENV === 'production') setAutoplay(ep);
+                                                    if (process.env.NODE_ENV === 'production' || true) setAutoplay(ep);
                                                 }} />
                                         ))}
                                     </Season>
