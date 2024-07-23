@@ -1,6 +1,6 @@
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Slider from 'rc-slider';
 import Link from 'next/link'
 
@@ -68,11 +68,22 @@ const Controls = () => {
             if (audio) setProgress(audio.currentTime)
         };
 
+        const playstateCallback = () => {
+            if (audio) setPlaying(audio?.paused === false);
+        };
+
         progressCallback();
 
         (audio as HTMLAudioElement).addEventListener("timeupdate", progressCallback, { passive: true });
-        return () => { (audio as HTMLAudioElement).removeEventListener("timeupdate", progressCallback) }
-    }, [audio, audio?.paused]);
+        (audio as HTMLAudioElement).addEventListener("play", playstateCallback, { passive: true });
+        (audio as HTMLAudioElement).addEventListener("pause", playstateCallback, { passive: true });
+
+        return () => {
+            (audio as HTMLAudioElement).removeEventListener("timeupdate", progressCallback);
+            (audio as HTMLAudioElement).removeEventListener("play", playstateCallback);
+            (audio as HTMLAudioElement).removeEventListener("pause", playstateCallback);
+        }
+    }, [audio, audio?.paused, setPlaying]);
 
     let formattedProgress = "", formattedDuration = "";
     if (audio?.duration) {
@@ -88,6 +99,10 @@ const Controls = () => {
                     setHoverTimeoutId(setTimeout(() => {
                         setHovered(false)
                     }, 5000));
+                }}
+                onMouseEnter={() => {
+                    setHovered(isPlaying);
+                    if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                 }}
             >
                 <div className={styles.content}>
@@ -123,14 +138,14 @@ const Controls = () => {
                             </>
                         ) : null}
                     </div>
+                    { audio ? <VolumeControls audio={audio} /> : null}
                     <div className={styles.separator} style={{ imageRendering: "pixelated", fill: "black", opacity: 1 }} />
-                    <div className={styles.end_section}>
+                    <div className={styles.end_section} onClick={() => {
+                        if (status >= 3 && active) setPlaying((playing) => !playing);
+                    }}>
                         {
                             active && (status < 3 ? (<MaterialSpinningLoader />) :
-                                (<div className={styles.playButton} style={{ imageRendering: "pixelated" }}
-                                    onClick={() => {
-                                        setPlaying((playing) => !playing);
-                                    }}>
+                                (<div className={styles.playButton} style={{ imageRendering: "pixelated" }}>
                                     <svg className={[styles.playButton_svg, isPlaying ? styles.playing : styles.paused].join(" ")}>
                                         <line x1="0%" y1="93%" x2="0%" y2="7%" className={[styles.playButtonBar, styles.playButtonBar_left].join(" ")} strokeLinecap="round" />
                                         <line x1="1%" y1="6%" x2="65%" y2="50%" className={[styles.playButtonBar, styles.playButtonBar_top].join(" ")} strokeLinecap="round" />
@@ -147,6 +162,79 @@ const Controls = () => {
     );
 
 };
+
+const VolumeControls = ({ audio }: { audio: HTMLAudioElement }) => {
+    const [volume, setVolume] = useState(1.0);
+    const [muted, setMuted] = useState(false);
+    const [showSlider, setShowSlider] = useState(false);
+
+    useEffect(() => {
+        if (audio && (audio.volume !== volume || audio.muted !== muted)) {
+            audio.volume = volume;
+            audio.muted = muted;
+        }
+    }, [audio, volume, muted]);
+
+    const volumeChangeCallback = useCallback(() => {
+        setVolume(audio.volume);
+        setMuted(audio.muted)
+    }, [audio]);
+
+    useEffect(() => {
+        if (audio) {
+            audio.addEventListener("volumechange", volumeChangeCallback, { passive: true });
+            return () => {
+                audio.removeEventListener("volumechange", volumeChangeCallback);
+            }
+        }
+    }, [audio, volumeChangeCallback]);
+
+    const handleMuteToggle = () => {
+        if (volume < 0.01 && !muted) {
+            setVolume(1);
+            return;
+        }
+        setMuted((muted) => !muted);
+    };
+
+    const handleVolumeChange = (value: number | number[]) => {
+        console.log(value);
+        const val = (typeof value === "number" ? value : value[0]);
+        if (val > 0.01) setMuted(false);
+        setVolume(val);
+    };
+
+    return (
+        <div
+            className={styles.volume_section}
+            onMouseEnter={() => setShowSlider(true)}
+            onMouseLeave={() => setShowSlider(false)}
+        >
+            { /* eslint-disable-next-line @next/next/no-img-element */ }
+            <img
+                src={`/img/${muted || volume < 0.01 ? "muted" : (volume >= 0.5 ? "volume_high" : "volume_low")}.svg`}
+                alt=""
+                onClick={handleMuteToggle}
+            />
+            <div className={[styles.volume_slider, showSlider ? "" : styles.volume_slider_hidden].join(" ")}>
+                <Slider
+                    min={0}
+                    max={1}
+                    value={muted ? 0.0 : volume}
+                    step={0.01}
+                    styles={{
+                        rail: railStyle,
+                        handle: handleStyle,
+                        track: trackStyle
+                    }}
+                    vertical
+                    keyboard={false}
+                    onChange={(val) => handleVolumeChange(val)}
+                />
+            </div>
+        </div>
+    );
+}
 
 const formatTime = (progress: number) => {
     const hours = Math.floor(progress / 3600);

@@ -270,19 +270,21 @@ export default function EpisodeTable(props: {
     if (ready) return;
 
     let clear = false;
-    if (selectedVinyl.current && mainRef.current) {
+    if (selectedVinyl.current && mainRef.current && mainRef.current.querySelectorAll('img[fetchpriority="high"]').length > 0) {
       console.log("creating promises")
       const priorityImages = [...document.querySelectorAll('img[fetchpriority="high"]')].map((el: Element, i: number) => (
         new Promise<void>((resolve, reject) => {
           const timeoutId = setTimeout(resolve, 3000);
           const img = el as HTMLImageElement;
-          if (img.complete) resolve();
-          else img.onload = () => {
+          const finish = () => {
             resolve();
             clearTimeout(timeoutId);
-          };
+          }
+          if (img.complete) finish();
+          else img.onload = finish;
           img.onerror = () => {
-            reject(new Error('Failed to load priority img ' + i));
+            console.error(new Error('Failed to load priority img ' + i));
+            finish();
           };
         })
       ));
@@ -300,7 +302,7 @@ export default function EpisodeTable(props: {
       const timeoutId = setTimeout(() => {
         console.log("Timeout on selected vinyl tag");
         if (!clear) onReady();
-      }, 7500);
+      }, 4500);
       return () => {
         clearTimeout(timeoutId);
         clear = true;
@@ -613,7 +615,7 @@ export default function EpisodeTable(props: {
                   { /* eslint-disable-next-line @next/next/no-img-element */}
                   <img draggable="false" src={`/img/${i < array.length - 1 ? service.name.toLowerCase().replace(" ", "") : (browserName.toLowerCase() || "play")}.svg`} alt={`${service.name} Logo`} />
                   <strong>{service.name}</strong>
-                  <Link href={service.link}>
+                  <Link target="_blank" href={service.link}>
                     <button tabIndex={i*10} className={styles.roundButton} style={{ backgroundColor: service.color, }} onClick={() => {
                       setBottomSheetOpen(false);
                       sessionStorage.setItem("preferredService", service.name);

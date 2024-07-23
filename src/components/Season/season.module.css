@@ -234,7 +234,7 @@
 
 .presentationWall div[data-framer-name="LEGENDE"] {
     position: absolute;
-    height: 2rem;
+    height: 1.5rem;
     width: auto;
     justify-content: end;
     left: 0 !important;
@@ -256,8 +256,8 @@
     position: relative;
     font-family: "Oswald", sans-serif;
     height: 100%;
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 1.5rem;
+    line-height: 100%;
     color: #393939;
     margin: 0;
     margin-right: auto;
@@ -322,8 +322,8 @@
     max-height: 8vh;
     align-self: start;
     padding-left: 0.2rem;
-    padding-top: 1rem;
-    margin-bottom: 2rem;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 p.presentationParagraph {
@@ -333,8 +333,8 @@ p.presentationParagraph {
     padding-bottom: 1ch;
     padding-left: 0.2rem;
     padding-right: 0.5ch;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0px solid #000;
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
@@ -344,6 +344,7 @@ p.presentationParagraph {
 }
 
 .presentationWall img {
+    width: 26ch;
     aspect-ratio: unset !important;
 }
 

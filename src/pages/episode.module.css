@@ -599,9 +599,6 @@ div:has(> .chair) {
     clip-path: inset(15% 25% 15% 25%);
   }
 
-  .notebook>div {
-  }
-
   .notebook>div>div {
     container-type: inline-size;
   }
@@ -730,9 +727,9 @@ div:has(> .chair) {
     left: 30% !important;
   }
 
-  .download_postit a>div {
-    /* transform: translateX(-16%) !important; */
-  }
+  /* .download_postit a>div {
+    transform: translateX(-16%) !important;
+  } */
 
   .home_postit p {
     font-size: 81cqw !important;
@@ -750,9 +747,9 @@ div:has(> .chair) {
     font-size: 60cqw !important;
   }
 
-  .postit a {
-    /* transform:translateX(-10%) !important; */
-  }
+  /* .postit a {
+    transform:translateX(-10%) !important;
+  } */
 
   .postitnotes > div:nth-child(1) {
     transform: rotate(3deg) translate(0%, 12%) !important;

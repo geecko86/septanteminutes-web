@@ -14,22 +14,30 @@
 
     filter: blur(0px);
     transform: scale(1.1);
-    transition: 1s 0.3s filter cubic-bezier(0.45,0.05,0.55,0.95);;
+    transition: 1s 0.3s filter cubic-bezier(0.45,0.05,0.55,0.95);
 }
 
 .FAQ_background_ready {
-    filter: blur(4px);
+    filter: blur(2px);
+}
+
+.faqTitleBlur {
+    height: fit-content;
+    width: auto;
+    aspect-ratio: 2.77;
+    align-self: center;
+    filter: blur(0.5px);
 }
 
 .faqTitleMask {
     mask-image: url(/img/rubber_stamp.webp);
     mask-size: calc((232/354)*100%) calc(8.5cqh + 2.4rem);
     mask-position: calc(50% - 0.1rem) 0px;
-    aspect-ratio: 2.77;
     align-self: center;
     height: fit-content;
-    width: auto;
+    width: 100%;
     display: flex;
+    font-size: 4.1cqh;
     justify-content: center;
 }
 
@@ -42,7 +50,6 @@
     padding: 0.5rem 2rem 0.5rem 2rem;
     border-radius: 2rem;
     opacity: 90%;
-    filter: blur(0.75px);
     margin-bottom: 1rem;
 }
 
@@ -51,7 +58,6 @@
     font-family: "Futura condensed", "Jost", sans-serif;
     margin: 0;
     user-select: none;
-    font-size: 8.3cqh;
     line-height: 8.6cqh;
     background: url(https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/614f353f1e11a6a7afdd8b74_6059a3e2b9ae6d2bd508685c_pt-texture-2.jpg); /* Set the backround image */
     background-clip: text;
@@ -210,12 +216,23 @@
         transform: unset !important;
     }
 
+    .faqTitleBlur {
+        width: calc(100vw - 4rem);
+        aspect-ratio: unset;
+    }
+
+    .faqTitleMask {
+        font-size: calc(max(4.1cqh, 4.1cqw));
+        mask-size: calc(8ch + 4rem + 1.4rem) calc(max(9cqh, 9cqw) + 2.4rem);
+        mask-position: calc(50% - 0.1rem) 0;
+    }
+
     .faqTitle {
         margin-bottom: 1rem;
     }
 
     .faqTitle > h1 {
-        font-size: calc(max(8.5cqh, 8.5cqw));
+        line-height: max(8.6cqh, 8.6cqw);
     }
 
     .faqContents > h2 {
@@ -234,5 +251,9 @@
 @media (pointer: coarse) and (orientation: portrait) {
     .faqTitle {
         margin-top: 8cqh;
+    }
+
+    .faqTitleMask {
+        mask-position: calc(50% - 0.1rem) 8cqh;
     }
 }

@@ -39,7 +39,7 @@ const FAQPage = (props: { onReady: () => void }) => {
         <div className={styles.faq} ref={pageRef}>
             <motion.div style={{ y: y, scale: 1.5 }}
                 className={[styles.FAQ_background, letterReady ? styles.FAQ_background_ready : ""].join(" ")}>
-                <Image draggable="false" src="https://framerusercontent.com/images/aNUgxhjpJn8ABbPbEHUMMGXs.jpg" alt="Background" fill onLoad={() => {
+                <Image draggable="false" src="https://framerusercontent.com/images/U96v1PGAZqRKlDY2kIjgaRNkIY.jpg" alt="Background" fill onLoad={() => {
                     setTimeout(() => {
                         onReady();
                     }, 300);
@@ -94,19 +94,21 @@ const PaperSheet = (props: { ready: boolean }) => {
             <motion.div className={`${styles.faqContainer} ${props.ready ? styles.faqReady : ""}`} style={{ y: "2.15%" }}>
                 <div className={styles.paper} style={{ height: paperHeight }} />
                 <div className={[styles.faqContents].join(" ")} ref={faqRef} >
-                    <div className={styles.faqTitleMask}>
-                        <div className={styles.faqTitle}>
-                            <h1>FAQ</h1>
+                    <div className={styles.faqTitleBlur}>
+                        <div className={styles.faqTitleMask}>
+                            <div className={styles.faqTitle}>
+                                <h1>FAQ</h1>
+                            </div>
                         </div>
                     </div>
                     <Link className={styles.backButton} href="/">
                         {"< Retour"}
                     </Link>
-                    <h2 className={styles.question} id="q_0">{"En quoi consiste « Septante Minutes Avec » ?"}</h2>
+                    <h2 className={styles.question} id="q_0">En quoi consiste «&nbsp;Septante&nbsp;Minutes&nbsp;Avec&nbsp;»&nbsp;?</h2>
                     <span className={styles.answer}>{"Septante Minutes Avec est un podcast belge proposant des interviews approfondies sur des sujets de société, culturels ou politiques. Les personnalités invitées peuvent être issues des sphères académiques, politiques, militantes ou simplement les porte-voix d'une cause. Pami les thématiques abordées, on retrouve la politique belge et internationale, la santé mentale, le journalisme, le féminisme, la neurodiversité, et bien plus encore."}</span>
 
                     <h2 className={styles.question} id="q_1">{"Qui est derrière ce podcast ?"}</h2>
-                    <span className={styles.answer}>{"Guillaume Hachez (1994) est un journaliste belge, animateur de Septante Minutes Avec. Il n'est cependant pas journaliste professionnel et ce podcast reste pour lui un hobby. Autiste et TDAH, il revendique ouvertement sa différence et défend une conscientisation accrue de ces enjeux."}</span>
+                    <span className={styles.answer}>{"Guillaume Hachez est un journaliste belge, animateur de Septante Minutes Avec. Il n'est cependant pas journaliste professionnel et vit de son activité de développeur informatique en freelance. Ce podcast reste pour lui un hobby. Autiste et TDAH, il revendique ouvertement sa différence et défend une conscientisation accrue de ces enjeux."}</span>
 
                     <h2 className={styles.question} id="q_2">{"Quel est le format de l'émission ?"}</h2>
                     <span className={styles.answer}>{"Chaque épisode dure entre 70 et 90 minutes, sans coupure publicitaire. L'émission est enregistrée en une seule prise et puis montée. Les interviews sont le plus souvent enregistrées en personne sur le lieu de travail ou au domicile de l'invité·e. Lorsque c'est nécessaire, elles sont enregistrées à distance. Pour éviter de mettre les invités sous presison, il y a toujours un montage avant la publication."}</span>
