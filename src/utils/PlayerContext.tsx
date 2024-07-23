@@ -147,9 +147,11 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         const onError = (ev: Event) => {
             console.error(ev, audioRef.current?.src);
             try {
-                audioRef.current?.load();
+                audioRef.current?.play();
             } catch (err) {
-                console.error(err);
+                if (err instanceof DOMException && audioRef.current?.src?.endsWith("mp3"))
+                    audioRef.current?.load();
+                else console.error(err);
             }
         };
     

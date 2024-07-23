@@ -17,6 +17,7 @@
   top: 50%;
   left: 50%;
   will-change: transform;
+  transform-origin: inherit;
   -webkit-transform-origin: 50%  51%;
   -webkit-font-smoothing: subpixel-antialiased;
 }

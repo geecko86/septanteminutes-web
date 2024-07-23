@@ -459,15 +459,16 @@
     z-index: 6 !important;
 }
 
-.season_frame div[data-framer-name="Albums"] a:active {
-    /* pointer-events: none; */
-}
+/* .season_frame div[data-framer-name="Albums"] a:active {
+    pointer-events: none;
+} */
 
 .season_frame div[data-framer-name="Albums"] > a p {
     white-space: pre-wrap;
     overflow: clip;
     text-overflow: ellipsis;
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     min-height: 6ch;

@@ -17,7 +17,7 @@ import { isMobile } from 'react-device-detect'
 
 export default function MyApp({ Component, pageProps, statusCode }: AppPropsWithLayout) {
 
-  const [loadedRoute, setLoaded] = useState("");
+  const [loadedRoute, setLooaded] = useState("");
   const [_, setDisplayedComponent] = useState(Component?.name);
   const [componentHistory, setComponentHistory] = useState([Component?.name]);
   const [showLoadingAnim, setShowLoadingAnim] = useState(true);
@@ -26,13 +26,18 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
 
   const { pathname, events: routerEvents, replace: routerReplace } = useRouter();
 
+  const setLoaded = (route: string) => {
+    console.log("Loaded route: ", route);
+    setLooaded(route);
+  }
+
   const onReady = useCallback(() => {
     setLoaded(pathname)
   }, [pathname]);
 
   useEffect(() => {
     setDisplayedComponent(displayedComponent => {
-      if (Component.name !== displayedComponent) { 
+      if (Component.name !== displayedComponent && !Component.name.includes("404") && !displayedComponent.includes("404")) { 
         setLoaded("");
       }
       return Component.name
@@ -245,7 +250,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
       {/* <StrictMode> */}
         <PlaybackProvider>
           <AnimatePresence mode='wait' onExitComplete={() => {
-            setLoaded("");
+            if (!loadedRoute.includes("404")) setLoaded("");
             if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
           }}>
             <Component {...pageProps} key={Component.name} onReady={onReady} />

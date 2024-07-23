@@ -45,7 +45,7 @@ const PresentationWallContents = () => {
                         overflow: "hidden"
                     }}
                 >
-                    <i>Guillaume Hachez (b. 1994)</i><br/><br/>
+                    <span>Guillaume Hachez (b. 1994)</span><br/><br/>
                     <strong>Podcast politique bimensuel belge</strong>, 2018<br/><br/>
                     Disponible sur toutes les plateformes, il propose des interviews approfondies avec des invités issus du monde académique, politique, et culturel. Les épisodes explorent un large éventail de sujets de société, de la géopolitique à la neurodiversité, en passant par la technologie et le féminisme, le plus souvent avec une perspective belge ou internationale.<br/><br/>
                     <b>Septante Minutes Avec</b> vous fait repenser le monde, une conversation à la fois.
