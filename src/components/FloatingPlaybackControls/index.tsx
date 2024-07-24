@@ -164,8 +164,8 @@ const Controls = () => {
 };
 
 const VolumeControls = ({ audio }: { audio: HTMLAudioElement }) => {
-    const [volume, setVolume] = useState(1.0);
-    const [muted, setMuted] = useState(false);
+    const [volume, setVolume] = useState(localStorage.getItem("volume") ? parseFloat(localStorage.getItem("volume") || "1.0") : 1.0);
+    const [muted, setMuted] = useState(localStorage.getItem("muted") === "true");
     const [showSlider, setShowSlider] = useState(false);
 
     useEffect(() => {
@@ -178,6 +178,8 @@ const VolumeControls = ({ audio }: { audio: HTMLAudioElement }) => {
     const volumeChangeCallback = useCallback(() => {
         setVolume(audio.volume);
         setMuted(audio.muted)
+        localStorage.setItem("volume", String(audio.volume));
+        localStorage.setItem("muted", String(audio.muted));
     }, [audio]);
 
     useEffect(() => {

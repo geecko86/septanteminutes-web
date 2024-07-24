@@ -149,8 +149,10 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
             try {
                 audioRef.current?.play();
             } catch (err) {
-                if (err instanceof DOMException && audioRef.current?.src?.endsWith("mp3"))
-                    audioRef.current?.load();
+                if (err instanceof DOMException && audioRef.current) {
+                    audioRef.current.src = playingEpisode?.mp3 || "";
+                    audioRef.current.load();
+                }
                 else console.error(err);
             }
         };
