@@ -36,8 +36,8 @@ div.shadow24 {
     transform: rotate(0deg) translateZ(0px);
 }
 
-.hover_container:not(.moving):hover {
-    transform: rotate(-3deg) translate(0px);
+.hover_container:nth-last-child(-1n + 2 of :not([data-visibility="hidden"])):not(.moving):hover {
+    transform: rotate(3deg) translate(0px);
 }
 
 @supports (-webkit-hyphens:none) {

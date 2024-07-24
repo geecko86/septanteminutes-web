@@ -89,7 +89,6 @@ const PaperSheet = (props: { ready: boolean }) => {
                 <meta name="twitter:title" content="FAQ - Septante Minutes Avec" />
                 <meta name="twitter:description" content="FAQ de l'émission Septante Minutes Avec" />
                 <meta name="twitter:image" content="https://www.septanteminutes.be/faq" />
-                <link href="https://fonts.cdnfonts.com/css/typewriter-inked" rel="stylesheet" />
             </Head>
             <motion.div className={`${styles.faqContainer} ${props.ready ? styles.faqReady : ""}`} style={{ y: "2.15%" }}>
                 <div className={styles.paper} style={{ height: paperHeight }} />
