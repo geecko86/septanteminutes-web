@@ -32,8 +32,24 @@ fi
 npx -p node-firestore-import-export firestore-export -a septanteminutes-a0cde5efbc25.json -b public/js/data.json
 sed -i '' -E 's/^.{19}//; s/.$//; s/{}},"/{}},\n"/g' public/js/data.json
 
+item_count=$(jq '.episodes | length' public/js/data.json)
+rewrites=""
+
+for ((i=1; i<=item_count; i++)); do
+    rewrites+="{ \"source\": \"/$i\", \"destination\": \"/$i.html\" }, "
+done
+rewrites="${rewrites%,}"
+rewrites=$'\\n      '+$rewrites
+
+sed -i '' '/1.html/d' firebase.json
+sed -i '' -E "s#\"rewrites\": \[#\"rewrites\": [$rewrites_formatted#" firebase.json
+
+echo "EPISODES_COUNT=$item_count" > .env
+
+git add .env
 git add public/js/data.json
-git commit -m "update data.json"
+git add firebase.json
+git commit -m "update data.json, .env and firebase.json"
 
 exit
 

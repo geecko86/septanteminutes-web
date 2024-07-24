@@ -653,7 +653,8 @@ export default function EpisodeTable(props: {
 type key = "1" | "2"; // Etc.
 
 export const getStaticPaths = (async () => {
-  const paths = Array.from(Array(199).keys()).map((i) => ({
+  const count = Number(process.env.EPISODES_COUNT);
+  const paths = Array.from(Array(count).keys()).map((i) => ({
     params: { episodeNum: `${i + 1}` },
   }));
   return {
