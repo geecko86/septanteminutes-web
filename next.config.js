@@ -62,9 +62,7 @@ const NextConfig = {
 
   config.plugins.push(
     new webpack.DefinePlugin({
-      'process.env': {
-        BUILD_ID: JSON.stringify(buildId),
-      },
+      'process.env.BUILD_ID': JSON.stringify(buildId),
     }),
     function() {
       fs.writeFileSync('public/api/buildId.txt', buildId);
