@@ -10,7 +10,8 @@
     top: -2vh;
     object-fit: cover;
     height: 105vh;
-    width: 100vw;
+    min-width: 100vw;
+    aspect-ratio: 1.68;
 
     filter: blur(0px);
     transform: scale(1.1);
@@ -65,7 +66,7 @@
     margin: 0;
     user-select: none;
     line-height: 8.6cqh;
-    background: url(https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/614f353f1e11a6a7afdd8b74_6059a3e2b9ae6d2bd508685c_pt-texture-2.jpg); /* Set the backround image */
+    background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg);
     background-clip: text;
 }
 
@@ -123,7 +124,7 @@
     height: 100%;
     width: 100%;
     z-index: -1;
-    background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg), black;;
+    background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg?scale-down-to=1600), black;;
     background-repeat: repeat;
     background-blend-mode: luminosity;
     background-size: auto;

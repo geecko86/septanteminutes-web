@@ -41,11 +41,6 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.cdnfonts.com/css/typewriter-inked"
-            as="style"
-          />
-          <link
-            rel="preload"
             href="https://fonts.gstatic.com/s/caveat/v18/Wnz6HAc5bAfYB2Q7ZjYYiAzcPA.woff2"
             as="font"
             type="font/woff2" crossOrigin="anonymous"
