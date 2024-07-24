@@ -41,6 +41,12 @@
     justify-content: center;
 }
 
+@supports (-webkit-hyphens:none) {
+    .faqTitleMask {
+        mask-size: 100% calc(8.5cqh + 2.4rem);
+    }
+}
+
 .faqTitle {
     width: fit-content;
     height: fit-content;
@@ -121,6 +127,17 @@
     background-repeat: repeat;
     background-blend-mode: luminosity;
     background-size: auto;
+}
+
+@supports (-webkit-hyphens:none) {
+    .paper::before {
+        background-size: cover;
+    }
+    
+    .paper::after {
+        content: "";
+        backdrop-filter: blur(1.25px);
+    }
 }
 
 .tableOfContents a {
