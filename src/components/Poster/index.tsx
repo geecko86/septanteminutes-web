@@ -33,7 +33,7 @@ const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>(
 PosterComponentOldPhone.displayName = 'PosterComponentOldPhone';
 
 const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
-    const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height, parallaxFactor }, onReady, offset, isLast, ...newProps } = props;
+    const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height, parallaxFactor, leftOffset }, onReady, offset, isLast, ...newProps } = props;
 
     const jumpToValue = (val: number | string) => {
         if (!isLast && typeof(val) === "string") {
@@ -44,7 +44,7 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
     
     const translateX = useOffset(newRef, motionValue, (parallaxFactor || 130) / 2.7, 1.0, src, onReady, jumpToValue);
     const size = useMemo(() => `${Math.floor(height * 80)}vh`, [height]);
-    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px)` }), [height, ratio, offset, position]);
+    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px - ${((leftOffset || 0.0)) * 100}%)` }), [height, ratio, offset, position, leftOffset]);
 
     useEffect(() => {
         if (position == 0 && setFirstPosterMotionValue) setFirstPosterMotionValue(translateX);
@@ -73,7 +73,7 @@ const posters = [
     { src: "https://framerusercontent.com/images/HSI69fi5yZ7EAlWBALNdz3stGI.jpg", className: styles.brel, height: 0.67, ratio: 337 / 448, parallaxFactor: 170 },
     { src: "https://framerusercontent.com/images/onpDPhhlUWDWDTFRwQ8urTPOXQs.jpg", className: styles.redford, height: 0.6, ratio: 582 / 397, parallaxFactor: 100 },
     { src: "https://framerusercontent.com/images/vLmtQT4GleFmn9TgKABXXI9xNC8.jpg", className: styles.cavell, height: 0.52, ratio: 2267 / 1704, parallaxFactor: 110 },
-    { src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", className: styles.congo, height: 0.67, ratio: 2267 / 1704, parallaxFactor: 130 },
+    { src: "https://framerusercontent.com/images/smcypGnQ7zED6TKSxE9PpqKBMxQ.jpg", className: styles.congo, height: 0.67, ratio: 2267 / 1704, parallaxFactor: 130, leftOffset: 0.01 },
     { src: "https://framerusercontent.com/images/WiTE1wYTrGK2zx2OVVRi5QGnFg.jpg", className: styles.walenbuiten, height: 0.6, ratio: 2267 / 1704, parallaxFactor: 130 },
     { src: "https://framerusercontent.com/images/8euSsKe0GIbfmDH50p4BA8Enozw.jpg", className: styles.stones, ratio: 1, height: 0.67, parallaxFactor: 140 },
 ];
@@ -94,6 +94,7 @@ type PosterProps = {
         src: string,
         height: number,
         ratio: number,
+        leftOffset?: number,
         parallaxFactor?: number
     }
 };
