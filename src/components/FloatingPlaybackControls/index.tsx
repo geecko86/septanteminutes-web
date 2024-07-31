@@ -3,8 +3,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Slider from 'rc-slider';
 import Link from 'next/link'
+import dynamic from 'next/dynamic';
 
-import MaterialSpinningLoader from "../MaterialSpinningLoader";
 import { usePlayback, hackAutoplay } from '../../utils/PlayerContext';
 
 import 'rc-slider/assets/index.css';
@@ -13,10 +13,12 @@ import { isIOS } from 'react-device-detect';
 
 const railStyle = {
     backgroundColor: "rgba(0, 0, 0, 0.35)",
+    borderRadius: "8px"
 };
 
 const trackStyle = {
-    backgroundColor: "rgba(0, 0, 0, 0.7)"
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    borderRadius: "8px" 
 };
 
 const handleStyle = {
@@ -24,6 +26,8 @@ const handleStyle = {
     border: "none",
     display: "none"
 };
+
+const MaterialSpinningLoader = dynamic(() => import("../MaterialSpinningLoader"));
 
 const Controls = () => {
 
@@ -91,6 +95,11 @@ const Controls = () => {
         formattedDuration = formatTime(audio.duration);
     }
 
+    const expandPlayer=() => {
+        setHovered(isPlaying);
+        if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
+    };
+
     return (
         <>
             <div className={[styles.frame, active ? styles.active : styles.hidden, hovered && status >= 3 ? styles.hovered : ""].join(" ")} tabIndex={0} onKeyDown={handleKeyPress}
@@ -99,10 +108,6 @@ const Controls = () => {
                     setHoverTimeoutId(setTimeout(() => {
                         setHovered(false)
                     }, 5000));
-                }}
-                onMouseEnter={() => {
-                    setHovered(isPlaying);
-                    if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                 }}
             >
                 <div className={styles.content}>
@@ -113,7 +118,7 @@ const Controls = () => {
                         {active && <span className={styles.episode_number}>{`episode ${playingEpisode?.num}`}</span>}
                         <span className={styles.guest_name}>{playingEpisode?.title.split(/\s(-|–)\s?/g)[0].trim()}</span>
                     </Link>
-                    <div className={styles.progress_bar_section}>
+                    <div className={styles.progress_bar_section} onMouseEnter={expandPlayer}>
                         {audio && audio.src && audio.duration ? (
                             <>
                                 <Slider
@@ -138,8 +143,8 @@ const Controls = () => {
                             </>
                         ) : null}
                     </div>
-                    { audio ? <VolumeControls audio={audio} /> : null}
-                    <div className={styles.separator} style={{ imageRendering: "pixelated", fill: "black", opacity: 1 }} />
+                    { audio ? <VolumeControls audio={audio} onMouseEnter={expandPlayer} /> : null}
+                    <div className={styles.separator} style={{ imageRendering: "pixelated", opacity: 1 }} />
                     <div className={styles.end_section} onClick={() => {
                         if (status >= 3 && active) setPlaying((playing) => !playing);
                     }}>
@@ -147,9 +152,9 @@ const Controls = () => {
                             active && (status < 3 ? (<MaterialSpinningLoader />) :
                                 (<div className={styles.playButton} style={{ imageRendering: "pixelated" }}>
                                     <svg className={[styles.playButton_svg, isPlaying ? styles.playing : styles.paused].join(" ")}>
-                                        <line x1="0%" y1="93%" x2="0%" y2="7%" className={[styles.playButtonBar, styles.playButtonBar_left].join(" ")} strokeLinecap="round" />
-                                        <line x1="1%" y1="6%" x2="65%" y2="50%" className={[styles.playButtonBar, styles.playButtonBar_top].join(" ")} strokeLinecap="round" />
-                                        <line x1="1%" y1="94%" x2="65%" y2="50%" className={[styles.playButtonBar, styles.playButtonBar_bottom].join(" ")} strokeLinecap="round" />
+                                        <line x1="0%" y1="95%" x2="0%" y2="2.5%" className={[styles.playButtonBar, styles.playButtonBar_left].join(" ")} strokeLinecap="round" />
+                                        <line x1="1%" y1="0%" x2="65%" y2="45%" className={[styles.playButtonBar, styles.playButtonBar_top].join(" ")} strokeLinecap="round" />
+                                        <line x1="1%" y1="97.5%" x2="65%" y2="52.5%" className={[styles.playButtonBar, styles.playButtonBar_bottom].join(" ")} strokeLinecap="round" />
                                     </svg>
                                 </div>)
                             )
@@ -163,10 +168,11 @@ const Controls = () => {
 
 };
 
-const VolumeControls = ({ audio }: { audio: HTMLAudioElement }) => {
+const VolumeControls = ({ audio, onMouseEnter }: { audio: HTMLAudioElement, onMouseEnter: () => void }) => {
     const [volume, setVolume] = useState(localStorage.getItem("volume") ? parseFloat(localStorage.getItem("volume") || "1.0") : 1.0);
     const [muted, setMuted] = useState(localStorage.getItem("muted") === "true");
     const [showSlider, setShowSlider] = useState(false);
+    const [clipSlider, setClipSlider] = useState(true);
 
     useEffect(() => {
         if (audio && (audio.volume !== volume || audio.muted !== muted)) {
@@ -208,9 +214,16 @@ const VolumeControls = ({ audio }: { audio: HTMLAudioElement }) => {
 
     return (
         <div
-            className={styles.volume_section}
-            onMouseEnter={() => setShowSlider(true)}
-            onMouseLeave={() => setShowSlider(false)}
+            className={[styles.volume_section, clipSlider ? styles.slider_clipped : ""].join(" ")}
+            onMouseLeave={() => {
+                setShowSlider(false)
+                setTimeout(() => setClipSlider(true), 300);
+            }}
+            onMouseEnter={() => {
+                setClipSlider(false);
+                setShowSlider(true);
+                onMouseEnter();
+            }}
         >
             { /* eslint-disable-next-line @next/next/no-img-element */ }
             <img

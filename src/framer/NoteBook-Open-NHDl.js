@@ -1,8 +1,7 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import Image from "next/image";
 import Script from "next/script";
 import { motion } from "framer-motion";
-import * as React from "react";
+import React from "react";
 
 import styles from "./notebook-open.module.css";
 

@@ -245,6 +245,11 @@
     right: 0;
 }
 
+.presentationWall .player_visible[data-framer-name="LEGENDE"] {
+    bottom: calc(max(12vh, 96px));
+    bottom: calc(max(12svh, 96px));
+}
+
 .presentationWall div[data-framer-name="LEGENDE"] a {
     height: 100%;
     width: auto;

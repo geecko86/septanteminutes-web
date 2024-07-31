@@ -1,6 +1,7 @@
 
 
 import React, { useContext, createContext, SetStateAction, useState, useEffect, useRef } from "react";
+
 import loader from "../utils/cdn_img_loader";
 import type { Episode } from "../types/episode";
 
@@ -112,6 +113,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const [status, setStatus] = useState<number>(0);
     const [autoplay, setAutoplay] = useState<Episode | undefined>(undefined);
     const audioRef = useRef<HTMLAudioElement>();
+    const playingEpisodeRef = useRef<Episode | undefined>(playingEpisode);
     const audio = audioRef.current;
 
    useEffect(() => {
@@ -121,6 +123,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
                 playbackArtwork : playingEpisode?.img!!,
             });
         }
+        playingEpisodeRef.current = playingEpisode;
     }, [playingEpisode]);
 
     useEffect(() => {
@@ -150,7 +153,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
                 audioRef.current?.play();
             } catch (err) {
                 if (err instanceof DOMException && audioRef.current) {
-                    audioRef.current.src = playingEpisode?.mp3 || "";
+                    audioRef.current.src = playingEpisodeRef.current?.mp3 || "";
                     audioRef.current.load();
                 }
                 else console.error(err);

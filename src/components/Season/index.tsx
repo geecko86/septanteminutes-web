@@ -1,12 +1,14 @@
 import React, { useMemo, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 import checkOldPhone from "@/utils/mobileChecker";
 import styles from "./season.module.css";
-import { HomeChair } from "@/framer/ImageWrapper";
 
 import { MotionValue } from "framer-motion";
+
+const HomeChair = dynamic(() => import("@/framer/ImageWrapper").then((mod) => mod.HomeChair), { ssr: false });
 
 const PresentationWallContents = () => {
     const paragraphRef = React.useRef<HTMLParagraphElement>(null);
@@ -46,7 +48,7 @@ const PresentationWallContents = () => {
                     }}
                 >
                     <span>Guillaume Hachez (b. 1994)</span><br/><br/>
-                    <strong>Podcast politique bimensuel belge</strong>, 2018<br/><br/>
+                    <strong>Podcast politique bimensuel belge</strong>,&nbsp;2018<br/><br/>
                     Disponible sur toutes les plateformes, il propose des interviews approfondies avec des invités issus du monde académique, politique, et culturel. Les épisodes explorent un large éventail de sujets de société, de la géopolitique à la neurodiversité, en passant par la technologie et le féminisme, le plus souvent avec une perspective belge ou internationale.<br/><br/>
                     <b>Septante Minutes Avec</b> vous fait repenser le monde, une conversation à la fois.
                 </p>
@@ -63,10 +65,11 @@ const SeasonComponent = (props: {
     style: React.CSSProperties,
     ready: boolean,
     position: number,
+    playerVisible: boolean,
     motionValue: MotionValue
 }) => {
 
-    const { chair, seasonTitle, children, className, style, ready, position, motionValue, ...otherProps } = props;
+    const { chair, seasonTitle, children, playerVisible, className, style, ready, position, motionValue, ...otherProps } = props;
 
     const arrayKeys = useMemo(() => [...Array(Math.max(1, Math.ceil((children?.length || 2) / 2 / 3.3))).keys()], [children]);
 
@@ -163,7 +166,7 @@ const SeasonComponent = (props: {
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>Disponible sur toutes</p>
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>les plateformes</p>
                         </div>
-                    </div> : <div className={styles.season_legende} data-framer-name="LEGENDE">
+                    </div> : <div className={[styles.season_legende, playerVisible ? styles.player_visible : ""].join(" ")} data-framer-name="LEGENDE">
                     <span><Link href="/faq" scroll={false}><h1>FAQ</h1></Link></span>
                         { [
                             { name: "spotify", link: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r"},

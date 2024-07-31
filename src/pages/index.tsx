@@ -20,7 +20,7 @@ import { usePlayback } from '../utils/PlayerContext';
 import HomeAlbum_ from "../components/HomeAlbum";
 import { BellLamp as BellLamp_, Plant0 as PlantA_, Eggchair as Eggchair_, Plant1 as PlantB_, Plant2 as PlantA2_, Plant3 as PlantD_, Plant4 as PlantE_, BackwallLight } from "../framer/ImageWrapper.js";
 
-import ScrollToAnchor, { getEpisodeNum as getTargetEpisodeNum } from "../utils/scroll_to_anchor"
+import ScrollToAnchor from "../utils/scroll_to_anchor"
 import Head from "next/head";
 
 import type { Episode, Season } from "../types/episode";
@@ -58,7 +58,7 @@ export default function Home(props: {
     const resolveScrollRef = useRef<(() => void) | null>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
-    const { setPlaying, isPlaying, setAutoplay, autoplay, playingEpisode } = usePlayback();
+    const { setPlaying, isPlaying, setAutoplay, playingEpisode } = usePlayback();
     const router = useRouter();
     const [isPresent, safeToRemove] = usePresence();
 
@@ -194,6 +194,12 @@ export default function Home(props: {
             console.log(e)
         }
     }, []);
+
+    const isPlayerVisible = useCallback(() => {
+        if (isMobile) return false;
+        const active = playingEpisode && playingEpisode.mp3 && playingEpisode.num && playingEpisode.title;
+        return !!active;
+    }, [playingEpisode]);
 
     const handleKeysDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
         const scroll = Math.floor(window.innerWidth * 0.06);
@@ -657,7 +663,7 @@ export default function Home(props: {
                         <motion.div key="layer_1" ref={layer1} className={[styles.layer_1, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")}>
                             {
                                 seasons.map((season, i) => (
-                                    <Season key={`${season.name}_visible1`} seasonTitle={season.name} ready={ready} position={i}
+                                    <Season key={`${season.name}_visible1`} seasonTitle={season.name} ready={ready} position={i} playerVisible={isPlayerVisible()}
                                     motionValue={newScrollX} chair={isMobileDevice || i == 0 ? null : Chairs[i % 4]} className={styles.season_frame}>
                                         {season.episodes.slice().reverse().map((ep: Episode, j: number) => (
                                             <HomeAlbum id={`art_${ep.num}`} imageRef={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}

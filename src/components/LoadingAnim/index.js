@@ -7,6 +7,7 @@ import Image from "next/image";
 
 import Vinyl from "../../../public/img/vinyl_compressed.svg";
 import Monogram from "../../../public/img/sma_monogram.svg";
+import { isMobile } from "react-device-detect";
 
 const Loader = (props) => {
     return (
@@ -33,7 +34,7 @@ const Loader = (props) => {
                 }`}
                 </style>
             </Head>
-            <div className={props.className} style={{
+            { !isMobile && <div className={props.className} style={{
                 placeSelf: "center",
                 display: "flex",
                 alignItems: "center",
@@ -48,13 +49,13 @@ const Loader = (props) => {
                     position: "absolute",
                     animation: "moveDisk 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards"
                 }}>
-                    <Image draggable="false" src={Vinyl} fill alt="vinyl_loading" unoptimized style={{
+                    <Image draggable="false" src={Vinyl} fill alt="vinyl_loading" loading="eager" priority unoptimized style={{
                         position: "absolute",
                         width: "100%",
                         height: "100%",
                         filter: "drop-shadow(1vh 0.75vh 0.5vh rgba(0,0,0,0.3))"
                     }} />
-                    <Image draggable="false" src={Monogram} alt="" unoptimized width={100} height={100} style={{
+                    <Image draggable="false" src={Monogram} alt="" loading="eager" priority unoptimized width={100} height={100} style={{
                         position: "absolute",
                         width: "26.6666%",
                         height: "26.6666%",
@@ -80,7 +81,7 @@ const Loader = (props) => {
                         boxShadow: "0.5vh 1vh 3vh rgba(0,0,0,0.3), -0.5vh 0px 3vh rgba(0,0,0,0.4)",                        
                     }} />
                 </div>
-            </div>
+            </div> }
         </>
     )
 };

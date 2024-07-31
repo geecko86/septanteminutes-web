@@ -1,19 +1,21 @@
 "use client";
 
-import React, { ReactElement, ReactNode, StrictMode, useCallback, useEffect, useState } from 'react'
+import React, { ReactElement, ReactNode, useCallback, useEffect, useState } from 'react'
 import type { NextComponentType, NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
 import { PlaybackProvider } from '../utils/PlayerContext'
 import useUpdateChecker from '../utils/updateChecker';
-import FloatingPlaybackControls from "../components/FloatingPlaybackControls"
-import LoadingAnim from "../components/LoadingAnim"
 
 import styles from "./layout.module.css"
 import { isMobile } from 'react-device-detect'
+
+const FloatingPlaybackControls = dynamic(() => import('../components/FloatingPlaybackControls'), { ssr: false });
+const LoadingAnim = dynamic(() => import('../components/LoadingAnim'), { ssr: false });
 
 export default function MyApp({ Component, pageProps, statusCode }: AppPropsWithLayout) {
 
@@ -68,7 +70,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
     let timeoutId: (NodeJS.Timeout | undefined) = undefined;
     const loader = document.getElementById('globalLoader');
     if (loader) {
-      if (!loadedRoute) {
+      if (!loadedRoute && !isMobile) {
         timeoutId = setTimeout(() => {
           if (!loadedRoute) {
             setLoaderClass("vinyl_loading");
@@ -88,6 +90,14 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
       };
     }
   }, [loadedRoute, componentHistory]);
+
+  useEffect(() => {
+    if (isMobile && !loadedRoute) {
+      setLoaderClass("vinyl_loading vinyl_hidden");
+      setShowLoadingAnim(false);
+      setLoaded("/");
+    }
+  }, [loadedRoute]);
 
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page)
@@ -112,7 +122,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   return getLayout(
     <>
       <Head>
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"></meta>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=5.0,user-scalable=yes"></meta>
         <style>
           {`
           :root {
@@ -261,7 +271,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         </PlaybackProvider>
       {/* </StrictMode> */}
       <div id="globalLoader" style={(!showLoadingAnim && loadedRoute) ? { opacity: 0, pointerEvents: "none", position: "fixed", transition: "opacity 0.8s 0s cubic-bezier(0.390, 0.575, 0.565, 1.000)" } : { position: "fixed" }}>
-        <LoadingAnim className={loaderClass} />
+        { !isMobileDevice && <LoadingAnim className={loaderClass} /> }
       </div>
     </>
   )
