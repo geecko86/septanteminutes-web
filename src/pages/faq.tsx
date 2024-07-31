@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, usePresence } from 'framer-motion';
 
 import styles from './faq.module.css';
 import Head from 'next/head';
@@ -12,6 +12,7 @@ const FAQPage = (props: { onReady: () => void }) => {
     const pageRef = useRef<HTMLDivElement>(null);
     const [pageHeight, setPageHeight] = useState(0);
     const [letterReady, setLetterReady] = useState(false);
+    const [isPresent, safeToRemove] = usePresence();
 
     const onReady = useCallback((delay: number = 100) => {
         setTimeout(() => {
@@ -36,7 +37,17 @@ const FAQPage = (props: { onReady: () => void }) => {
     const y = useTransform(yOffset, (value) => -Math.floor(value));
 
     return (
-        <div className={styles.faq} ref={pageRef}>
+        <motion.div
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: 'linear', duration: 0.25 }}
+        onAnimationComplete={(animDef: { opacity: number }) => {
+            if (!isPresent && animDef.opacity === 0) {
+                safeToRemove();
+            }
+        }}
+        className={styles.faq} ref={pageRef}>
             <motion.div style={{ y: y, scale: 1.5 }}
                 className={[styles.FAQ_background, letterReady ? styles.FAQ_background_ready : ""].join(" ")}>
                 <Image draggable="false" src="https://framerusercontent.com/images/U96v1PGAZqRKlDY2kIjgaRNkIY.jpg" alt="Background" fill onLoad={() => {
@@ -46,7 +57,7 @@ const FAQPage = (props: { onReady: () => void }) => {
                 }} />
             </motion.div>
             <PaperSheet ready={letterReady} />
-        </div>
+        </motion.div>
     );
 };
 

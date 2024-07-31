@@ -26,7 +26,7 @@
     overflow: visible;
     pointer-events: all !important;
 
-    transition: transform .3s ease-in-out, width .3s ease-in-out;
+    transition: transform .3s cubic-bezier(0.45,0.05,0.55,0.95), width .3s ease-in-out;
 }
 
 .frame.active {
@@ -95,7 +95,7 @@
 
 .text_section span {
     font-family: var(--font-family, Inter, Inter Placeholder, sans-serif);
-    color: black;
+    color: #363636;
     overflow: clip;
     text-transform: uppercase;
     text-overflow: ellipsis;
@@ -171,6 +171,13 @@
     display: flex;
 }
 
+.volume_section.slider_clipped {
+    overflow-y: clip;
+}
+.volume_section {
+    overflow-y: visible;
+}
+
 .volume_section img {
     height: calc(0.27 * var(--computed-height));
     width: auto;
@@ -215,7 +222,7 @@
     height: 66.666%;
     width: 2px;
     flex-grow: 0;
-    background-color: black;
+    background-color: #363636;
 }
 
 /* .frame.hovered .separator {
@@ -280,27 +287,30 @@ svg.playButton_svg {
     transition-property: transform stroke-width;
     transition-duration: 0.3s;
     transform-origin: center;
-    stroke: black;
+    stroke: #363636;
     stroke-width: 10%;
 }
 
 .playButtonBar_left {}
 
-.playButtonBar_bottom,
+.playButtonBar_bottom {
+    transform-origin: bottom center;
+}
+
 .playButtonBar_top {
-    transform-origin: 50%;
+    transform-origin: top center;
 }
 
 .playing .playButtonBar {
     stroke-width: 15%;
 }
 
-.playing .playButtonBar_bottom {
-    transform: scaleY(0.58) translateY(15%) translateX(-10%) rotate(-55.5deg);
+.playing .playButtonBar_top {
+    transform: scaleY(0.6) translateY(41%) translateX(31%) rotate(54.85deg);
 }
 
-.playing .playButtonBar_top {
-    transform: scaleY(0.58) translateY(-15%) translateX(-10%) rotate(55.5deg);
+.playing .playButtonBar_bottom {
+    transform: scaleY(0.6) translateY(-41%) translateX(33%) rotate(-54.85deg);
 }
 
 @media (pointer:coarse) {

@@ -58,6 +58,18 @@ class MyDocument extends Document {
             type="font/woff" crossOrigin="anonymous"
           />
           <link
+            rel="preload"
+            href="/img/vinyl_compressed.svg"
+            as="image"
+            type="image/svg+xml"
+          />
+          <link
+            rel="preload"
+            href="/img/sma_monogram.svg"
+            as="image"
+            type="image/svg+xml"
+          />
+          <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&family=Jost:wght@400;700&display=block"
           />

@@ -10,8 +10,9 @@ import React, {
 import { motion, useScroll, animate, useMotionValueEvent, usePresence } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
-import { BottomSheet } from 'react-spring-bottom-sheet'
 import { useRouter } from "next/router";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
 import type {
@@ -19,7 +20,7 @@ import type {
   GetStaticPaths,
 } from 'next';
 
-import { Pen as Pen_, Chair as Chair_, Headphones as Headphones_ } from "../framer/ImageWrapper";
+import { Pen as Pen_ } from "../framer/ImageWrapper";
 import Notebook_ from "../framer/Notebook-Large-POCp.js";
 import ImagedPostIt_ from "../framer/Imaged-Post-It-1vlf.js";
 
@@ -29,13 +30,6 @@ import NotebookOverlay from "../components/NotebookOverlay";
 import { hackAutoplay, usePlayback } from '../utils/PlayerContext';
 import { isChrome, isEdge, isFirefox, isIOS, isMobile, isOpera, isSafari } from "react-device-detect";
 import { Episode } from "@/types/episode";
-import Link from "next/link";
-
-const variants = {
-  hidden: { opacity: 0 },
-  enter: { opacity: 1 },
-  exit: { opacity: 0 },
-};
 
 export default function EpisodeTable(props: {
   onReady: () => void,
@@ -415,7 +409,6 @@ export default function EpisodeTable(props: {
     e.preventDefault();
   };
 
-
   const playEpisode = useCallback((position: number, autoplay: boolean = false) => {
     if (!audio) {
       console.error("audio element not found!");
@@ -448,18 +441,20 @@ export default function EpisodeTable(props: {
     }
   }, [selectedEpisode, audio?.src, autoplay?.num, playEpisode]);
 
-  const Chair: FC<any> = Chair_;
   const Notebook: FC<any> = Notebook_;
   const Pen: FC<any> = Pen_;
-  const Headphones: FC<any> = Headphones_;
   const ImagedPostIt: FC<any> = ImagedPostIt_;
+
+  const BottomSheet = dynamic(import("react-spring-bottom-sheet").then(mod => mod.BottomSheet), { ssr: false });
+  const Headphones = dynamic(import("../framer/ImageWrapper.js").then(mod => mod.Headphones), { ssr: false });
+  const Chair = dynamic(import("../framer/ImageWrapper.js").then(mod => mod.Chair), { ssr: false });
 
   return (
     <motion.div
       key="transition_loader"
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 0.01 }}
       exit={{ opacity: 0 }}
-      animate={{ opacity: ready ? 1 : 0 }}
+      animate={{ opacity: ready ? 1 : 0.01 }}
       transition={{ type: 'linear', duration: 0.25 }}
       onAnimationComplete={(animDef: { opacity: number }) => {
         if (!isPresent && animDef.opacity === 0) {
@@ -532,11 +527,13 @@ export default function EpisodeTable(props: {
               <ImagedPostIt
                 className={[styles.postit, styles.home_postit].join(" ")}
                 title={"Accueil"}
+                src="/img/back.svg"
                 link={`/#${selectedEpisode + 1}`}
               />
               <ImagedPostIt
                 className={[styles.postit, styles.subscribe_postit].join(" ")}
                 ref={refs.setReference}
+                src="/img/subscribe.svg"
                 {...referenceProps}
                 onClick={(e: Event) => {
                   if (typeof referenceProps?.onClick === 'function') {
@@ -550,12 +547,14 @@ export default function EpisodeTable(props: {
               <ImagedPostIt
                 className={[styles.postit, styles.download_postit].join(" ")}
                 title={"Télécharger"}
+                src="/img/download.svg"
                 link={vinyls[selectedEpisode]?.mp3}
                 separate={true}
               />
               <ImagedPostIt
                 className={[styles.postit, styles.contact_postit].join(" ")}
                 title={"Contact"}
+                src="/img/email4b.svg"
                 link="mailto:contact@septanteminutes.be"
                 separate={true}
               />
@@ -603,7 +602,7 @@ export default function EpisodeTable(props: {
               </div>
             </motion.div>
           </div>
-          {vinyls[selectedEpisode] && <BottomSheet className={styles.bottomSheet} open={bottomSheetOpen} onDismiss={() => setBottomSheetOpen(false)} header={
+          {vinyls[selectedEpisode] && isMobileDevice && <BottomSheet className={styles.bottomSheet} open={bottomSheetOpen} onDismiss={() => setBottomSheetOpen(false)} header={
             <h3>{"Écouter l'épisode sur…"}</h3>
           }>
             <div className={styles.bottomSheet}>
@@ -648,7 +647,7 @@ export default function EpisodeTable(props: {
       </div>
     </motion.div>
   );
-}
+};
 
 type key = "1" | "2"; // Etc.
 

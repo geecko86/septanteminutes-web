@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import useOffset from "../utils/ParallaxOffset";
 import { useTransform } from "framer-motion";
 import isOldPhone from "@/utils/mobileChecker";
+import { isMobile } from "react-device-detect";
 
 const ImageOffsetWrapperComponentOldPhone = (props) => {
     const { position, motionValue, style, priority, offset, offsetFactor, loading, src, sizes, ...newProps } = props;
@@ -18,7 +19,7 @@ const ImageOffsetWrapperComponentOldPhone = (props) => {
 
     return (<div {...newProps}>
         <motion.div style={{ ...style, position: "relative", translateX: offset || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image draggable="false" src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
+            <Image draggable="false" src={src} alt="" fill loading={priority ? "eager" : "lazy"} priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
@@ -31,7 +32,7 @@ const ImageOffsetWrapperComponentNewDevice = (props) => {
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ ...style, position: "relative", translateX: translateX || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image draggable="false" src={src} alt="" fill priority={!!priority} sizes={sizes || "10vw"} />
+            <Image draggable="false" src={src} alt="" fill loading={priority ? "eager" : "lazy"} priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
@@ -55,7 +56,7 @@ const ImageWrapperComponent = (props) => {
     }, [blurDataURL]);
 
     return (<motion.div {...otherProps} style={{ transform: "translateZ(4px)", ...style }} >
-        <Image draggable="false" src={src} blurDataURL={blurDataURL} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
+        <Image draggable="false" src={src} blurDataURL={blurDataURL} loading={priority ? "eager" : "lazy"} priority={!!priority} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
     </motion.div>)
 };
 
@@ -82,7 +83,7 @@ export const BellLamp = (props) => {
 }
 
 export const Chair = (props) => {
-    const comp = (<ImageWrapper sizes="50vh" {...props} priority={true} src="https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png" />);
+    const comp = (<ImageWrapper sizes={isMobile ? "25vh" : "50vh"} {...props} priority={false} src="https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png" />);
     return { ...comp, displayName: "Chair" };
 };
 
@@ -92,12 +93,12 @@ export const HomeChair = (props) => {
 };
 
 export const Pen = (props) => {
-    const comp = (<ImageWrapper sizes="30vh" {...props} src="https://framerusercontent.com/assets/Fx6XFRFwE2EscXTGW81QBWrLYEs.webp" />);
+    const comp = (<ImageWrapper sizes="30vh" {...props} priority={false} src="https://framerusercontent.com/assets/Fx6XFRFwE2EscXTGW81QBWrLYEs.webp" />);
     return { ...comp, displayName: "Pen" };
 };
 
 export const Vinyl_Base = (props) => {
-    const comp = (<ImageWrapper sizes="30vh" {...props} src="https://framerusercontent.com/images/FagAAtLngco0ruyleiYmdGuaE8.webp" />);
+    const comp = (<ImageWrapper sizes="(pointer:coarse) and (orientation: portrait) 25vw, 30vh" {...props} src="https://framerusercontent.com/images/FagAAtLngco0ruyleiYmdGuaE8.webp" />);
     return { ...comp, displayName: "VinylBase" };
 }
 
@@ -134,6 +135,6 @@ export const Eggchair = (props) => {
 
 export const BackwallLight = (props) => {
     const { offset, ...newProps } = props;
-    const comp = (<ImageWrapper {...newProps} style={{translateX: offset}} priority={true} loading="eager" src="https://framerusercontent.com/images/t2tJdWNxSdl6oaN7xXaM0a9RHz4.png" sizes="250vh" />);
+    const comp = (<ImageWrapper {...newProps} style={{translateX: offset || 0}} priority={true} loading="eager" src="https://framerusercontent.com/images/t2tJdWNxSdl6oaN7xXaM0a9RHz4.png" sizes="250vh" />);
     return { ...comp, displayName: "BackwallLight" };
 }
