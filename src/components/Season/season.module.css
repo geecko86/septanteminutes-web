@@ -331,22 +331,46 @@
     margin-bottom: 1rem;
 }
 
-p.presentationParagraph {
+.presentationParagraph {
     width: fit-content;
     min-height: 12ch;
-    padding-top: 1ch;
-    padding-bottom: 1ch;
+    padding-top: 0.9ch;
+    padding-bottom: 0.9ch;
     padding-left: 0.2rem;
     padding-right: 0.5ch;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 0px solid #000;
+    font-family: "Futura-Medium", "Jost", sans-serif !important;
+    overflow-y: clip;
+}
+
+.presentationParagraph > h1 {
+    text-align: left;
+    word-break: keep-all;
+    overflow-wrap: unset;
+    hyphens: none;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    margin-bottom: 0;
+    margin-top: 1.9ch;
+    padding: 0;
+    font-weight: normal;
+    text-wrap: unset !important;
+}
+
+.presentationParagraph > p {
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
-    font-family: "Futura-Medium", "Jost", sans-serif;
-    overflow-y: clip;
     text-align: justify;
+    text-wrap: balance;
+    text-wrap: pretty;
+    font-size: 1rem;
+    margin-top: 1.9ch;
+    line-height: 1.2rem;
+    font-family: "Futura-Medium", "Jost", sans-serif !important;
 }
+
 
 .presentationWall img {
     width: 26ch;

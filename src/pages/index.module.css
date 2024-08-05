@@ -87,11 +87,11 @@
 
 .backwall_light {
     width: auto;
-    height: 114.53%;
-    aspect-ratio: 3840/1336;
+    height: 117%;
+    aspect-ratio: 2853/2561;
     position: absolute;
-    left: -105vmin;
-    top: -8.53%;
+    top: -7vh;
+    left: -42vh;
     object-fit: contain;
     contain: paint;
     mix-blend-mode: overlay;
@@ -101,10 +101,6 @@
 .backwall_light > div {
     left:  -100vh;
     left:  -100svh;
-}
-
-.backwall_light img {
-    width: 190% !important;
 }
 
 .posters {

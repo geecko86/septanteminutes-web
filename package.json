@@ -17,7 +17,6 @@
     "@types/react-dom": "18.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
-    "framer": "^2.4.1",
     "framer-motion": "^11.2.10",
     "history-throttled": "^1.0.1",
     "next": "14.2.5",
@@ -39,10 +38,10 @@
     "workbox-strategies": "^7.1.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.5",
     "@svgr/webpack": "^8.1.0",
     "css-loader": "6.11.0",
     "file-loader": "^6.2.0",
-    "@next/bundle-analyzer": "^14.2.5",
     "style-loader": "3.3.4",
     "svg-url-loader": "^8.0.0"
   },

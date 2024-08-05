@@ -38,7 +38,7 @@ const PresentationWallContents = () => {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img draggable="false" alt="Septante Minutes Avec" src="/img/sma_title.svg" />
 
-                <p
+                <div
                     ref={paragraphRef}
                     className={styles.presentationParagraph}
                     style={{
@@ -47,11 +47,11 @@ const PresentationWallContents = () => {
                         overflow: "hidden"
                     }}
                 >
-                    <span>Guillaume Hachez (b. 1994)</span><br/><br/>
-                    <strong>Podcast politique bimensuel belge</strong>,&nbsp;2018<br/><br/>
-                    Disponible sur toutes les plateformes, il propose des interviews approfondies avec des invités issus du monde académique, politique, et culturel. Les épisodes explorent un large éventail de sujets de société, de la géopolitique à la neurodiversité, en passant par la technologie et le féminisme, le plus souvent avec une perspective belge ou internationale.<br/><br/>
-                    <b>Septante Minutes Avec</b> vous fait repenser le monde, une conversation à la fois.
-                </p>
+                    <span>Guillaume Hachez (b. 1994)</span>
+                    <h1><strong>Podcast politique bimensuel belge</strong>,&nbsp;2018</h1>
+                    <p>Disponible sur toutes les plateformes, il propose des interviews approfondies avec des invités issus du monde académique, politique, et culturel. Les épisodes explorent un large éventail de sujets de société, de la géopolitique à la neurodiversité, en passant par la technologie et le féminisme, le plus souvent avec une perspective belge ou internationale.<br/><br/>
+                    <b>Septante Minutes Avec</b> vous fait repenser le monde, une conversation à la fois.</p>
+                </div>
             </div>
         </div>
     );
@@ -105,7 +105,8 @@ const SeasonComponent = (props: {
                                 <Image draggable="false"
                                     alt="" fill={true}
                                     priority={true}
-                                    className={styles.wall} sizes="90svh"
+                                    className={styles.wall} sizes="90vh"
+                                    quality={50}
                                     src="https://framerusercontent.com/images/hxXL2jKccfg84wL6UdchMdB312c.jpg"
                                     style={{
                                         aspectRatio: 3 / 2,
