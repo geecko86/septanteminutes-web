@@ -71,7 +71,7 @@ export const Headphones = (props) => {
 };
 
 export const Needle = (props) => {
-    const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/1cQdpjDMVfIHwcDhe6q9QrIAY.webp" sizes="35vh" style={{
+    const comp = (<ImageWrapper {...props} src="https://framerusercontent.com/images/1cQdpjDMVfIHwcDhe6q9QrIAY.webp" sizes="(max-width: 1200px) 33vw, 35vh" style={{
         filter: "drop-shadow(rgba(0, 0, 0, 0.33) 0px 1px 11px)"
     }} />);
     return { ...comp, displayName: "Needle" };
@@ -114,7 +114,7 @@ export const Plant1 = (props) => { // Spark
 
 export const Plant2 = (props) => { // Frontblur
     const blurData = "data:image/webp;base64,UklGRnIEAABXRUJQVlA4WAoAAAAwAAAAFwAAFwAASUNDUKACAAAAAAKgbGNtcwRAAABtbnRyUkdCIFhZWiAH6AACABEAFQAxABBhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1kZXNjAAABIAAAAEBjcHJ0AAABYAAAADZ3dHB0AAABmAAAABRjaGFkAAABrAAAACxyWFlaAAAB2AAAABRiWFlaAAAB7AAAABRnWFlaAAACAAAAABRyVFJDAAACFAAAACBnVFJDAAACFAAAACBiVFJDAAACFAAAACBjaHJtAAACNAAAACRkbW5kAAACWAAAACRkbWRkAAACfAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACQAAAAcAEcASQBNAFAAIABiAHUAaQBsAHQALQBpAG4AIABzAFIARwBCbWx1YwAAAAAAAAABAAAADGVuVVMAAAAaAAAAHABQAHUAYgBsAGkAYwAgAEQAbwBtAGEAaQBuAABYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMQgAABd7///MlAAAHkwAA/ZD///uh///9ogAAA9wAAMBuWFlaIAAAAAAAAG+gAAA49QAAA5BYWVogAAAAAAAAJJ8AAA+EAAC2xFhZWiAAAAAAAABilwAAt4cAABjZcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltjaHJtAAAAAAADAAAAAKPXAABUfAAATM0AAJmaAAAmZwAAD1xtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAEcASQBNAFBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJBTFBIzgAAAAGAZG3b8eZNatu2R9bMxg5sa2pjlNMN2B5lB12DbbsNn/p7lxARE0D/NAkI1CFOx+ZNmTNLmFxxOZVvIGTe1r2r/VAseojoFCzsb2uhvBgzEZCYDp4qAMV9t7MAWU0cAsDjuqdAYOuZ5ofmvs/ifxLHDfw6lmD5PyqR/zakQ4Jh0y/ABz4qhcglKlrWoWg2IXEJmSck6xGrnS8xJ+px5epyhbpxBdjzeDWOjjR6caSdKz7O0zgyboHbDI6YHWAnhsNmCViy4TCIra0K1/sHVlA4INYAAADwBQCdASoYABgAPjEUiEKiISEYDAQAIAMEsoBdioAXZzvIX+9IqwL/XkVF94bwk7ehSXnOxsySgAD+/qAXhOAqsbk2ZQvFBGBmeHCrxM/dU6Avlzn9of/2vkuyoH1SYA1wWjBVrbHzg0wTywMRIJTNDjNsD/ozgtz6TJv+PIT9079dAbmB+DPYTSZaJo8jX7P++wla91Y+6jc70y0GHr5B+Fu+P4lhpvNE9r3YBn3KvsdZZSY8Qtjy571c5s8/3/gf5G5ckj8m0FVghO2e4tgO9/ExgAAA";
-    const comp = (<ImageWrapper sizes={"89vmin"} placeholder="blur" blurDataURL={blurData} {...props} src="https://framerusercontent.com/images/lFUB6zkoI3fsnsa3UYKcdXQVhE.png" />);
+    const comp = (<ImageWrapper sizes={"89vmin"} placeholder="blur" blurDataURL={blurData} {...props} priority src="https://framerusercontent.com/images/lFUB6zkoI3fsnsa3UYKcdXQVhE.png" />);
     return { ...comp, displayName: "Plant2" };
 };
 
@@ -135,6 +135,6 @@ export const Eggchair = (props) => {
 
 export const BackwallLight = (props) => {
     const { offset, ...newProps } = props;
-    const comp = (<ImageWrapper {...newProps} style={{translateX: offset || 0}} priority={true} loading="eager" src="https://framerusercontent.com/images/t2tJdWNxSdl6oaN7xXaM0a9RHz4.png" sizes="250vh" />);
+    const comp = (<ImageWrapper {...newProps} style={{translateX: offset || 0}} priority={true} loading="eager" src="https://framerusercontent.com/images/nrc6Kp2HXcr2ppbsl4XQtHFx0tY.png" sizes="50vh" />);
     return { ...comp, displayName: "BackwallLight" };
 }

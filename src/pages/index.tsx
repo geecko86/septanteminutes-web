@@ -53,7 +53,7 @@ export default function Home(props: {
 
     const hasMovedRef = useRef(false), hasFocusRef = useRef(true), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
-    const layer0 = useRef<HTMLDivElement>(null), layer0_25 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef(null), layer3 = useRef<HTMLDivElement>(null);
+    const layer0 = useRef<HTMLDivElement>(null), layer0_25 = useRef<HTMLDivElement>(null), layer0_5 = useRef<HTMLDivElement>(null), layer1 = useRef<HTMLDivElement>(null), layer1_5 = useRef(null), layer2 = useRef<HTMLDivElement>(null), layer3 = useRef<HTMLDivElement>(null);
     const firstAlbum = useRef<HTMLImageElement>(null), firstPoster = useRef<HTMLImageElement>(null);
     const resolveScrollRef = useRef<(() => void) | null>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
@@ -442,7 +442,7 @@ export default function Home(props: {
     }, [newScrollX, scrollXAdditional])
 
     useEffect(() => {
-        if (!ready) {
+        if (!ready && isMobileDevice === isMobile && seasons.length > 0) {
             const promisesList = [] as Promise<void>[];
 
             if (firstAlbum.current) {
@@ -473,8 +473,9 @@ export default function Home(props: {
             const plants = layer0_5.current?.querySelectorAll(`.${styles.plant} img`);
             const eggchairs = layer0_5.current?.querySelectorAll(`.${styles.eggchair} img`);
             const frontPlants = layer3.current?.querySelectorAll(`.${styles.plant_front} img`);
+            const lamps = layer2.current?.querySelectorAll(`.${styles.lamp} img`);
 
-            const furniture = [...(eggchairs || []), ...(frontPlants || []), ...(plants || [])];
+            const furniture = [...(eggchairs || []), ...(frontPlants || []), ...(plants || []), ...(lamps || [])];
 
             if (furniture || posters) {
                 observerRef.current = new IntersectionObserver((entries) => {
@@ -550,7 +551,7 @@ export default function Home(props: {
         return () => {
             observerRef.current?.disconnect();
         };
-    }, [isPresent, router.asPath, ready, props.onReady, firstAlbumImg, seasons]);
+    }, [isPresent, router.asPath, ready, props.onReady, firstAlbumImg, seasons, isMobileDevice]);
 
     useEffect(() => {
         setIsOldPhone(checkOldPhone());

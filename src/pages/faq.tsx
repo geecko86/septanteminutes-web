@@ -1,36 +1,35 @@
 import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { motion, useScroll, useTransform, usePresence } from 'framer-motion';
 
-import styles from './faq.module.css';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { isMobile } from 'react-device-detect';
+
+import useImageLoader from "../utils/ImageLoader";
+import styles from './faq.module.css';
 
 const FAQPage = (props: { onReady: () => void }) => {
 
     const pageRef = useRef<HTMLDivElement>(null);
     const [pageHeight, setPageHeight] = useState(0);
     const [letterReady, setLetterReady] = useState(false);
+    const [backgroundReady, setBackgroundReady] = useState(false);
     const [isPresent, safeToRemove] = usePresence();
 
-    const onReady = useCallback((delay: number = 100) => {
-        setTimeout(() => {
-            setLetterReady(true);
-            props.onReady();
-        }, delay);
+    const onReady = useCallback(() => {
+        setLetterReady(true);
+        props.onReady();
     }, [setLetterReady, props]);
 
     useEffect(() => {
         setPageHeight(window.innerHeight)
     }, [setPageHeight]);
 
+    const maskLoaded = useImageLoader("/img/rubber_stamp.webp");
+
     useEffect(() => {
-        if (isMobile) {
-            setLetterReady(true);
-            onReady(200);
-        }
-    }, [setLetterReady, onReady]);
+        if (isPresent && maskLoaded && backgroundReady) onReady();
+    }, [setLetterReady, onReady, isPresent, maskLoaded, backgroundReady]);
 
     const { scrollYProgress } = useScroll();
     const yOffset = useTransform(scrollYProgress, [0, 1], [-pageHeight / 6.25, pageHeight / 6.25]);
@@ -45,6 +44,7 @@ const FAQPage = (props: { onReady: () => void }) => {
         onAnimationComplete={(animDef: { opacity: number }) => {
             if (!isPresent && animDef.opacity === 0) {
                 safeToRemove();
+                setLetterReady(false);
             }
         }}
         className={styles.faq} ref={pageRef}>
@@ -52,7 +52,7 @@ const FAQPage = (props: { onReady: () => void }) => {
                 className={[styles.FAQ_background, letterReady ? styles.FAQ_background_ready : ""].join(" ")}>
                 <Image draggable="false" src="https://framerusercontent.com/images/U96v1PGAZqRKlDY2kIjgaRNkIY.jpg" alt="Background" fill onLoad={() => {
                     setTimeout(() => {
-                        onReady();
+                        setBackgroundReady(true);
                     }, 300);
                 }} />
             </motion.div>

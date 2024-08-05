@@ -1,15 +1,27 @@
 
 
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useEffect } from "react";
 import Head from 'next/head';
-import Image from "next/image";
-
-import Vinyl from "../../../public/img/vinyl_compressed.svg";
-import Monogram from "../../../public/img/sma_monogram.svg";
-import { isMobile } from "react-device-detect";
+import NextImage from "next/image";
 
 const Loader = (props) => {
+
+    const [assetloaded, setAssetLoaded] = React.useState(false);
+
+    useEffect(() => {
+        const img = new Image();
+        img.priority = true;
+        img.loading = "eager";
+        img.src = "/img/SMA_sleeve_256.webp";
+        console.log("Loading anim: image loading");
+        img.onload = () => {
+            setAssetLoaded(true)
+            console.log("Loading anim: image loaded");
+        };
+        if (img.complete) setAssetLoaded(true);
+    }, []);
+
     return (
         <>
             <Head>
@@ -34,7 +46,7 @@ const Loader = (props) => {
                 }`}
                 </style>
             </Head>
-            { !isMobile && <div className={props.className} style={{
+            {assetloaded && <div className={props.className} style={{
                 placeSelf: "center",
                 display: "flex",
                 alignItems: "center",
@@ -49,13 +61,13 @@ const Loader = (props) => {
                     position: "absolute",
                     animation: "moveDisk 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards"
                 }}>
-                    <Image draggable="false" src={Vinyl} fill alt="vinyl_loading" loading="eager" priority unoptimized style={{
+                    <NextImage draggable="false" src={"/img/vinyl_compressed.svg"} fill alt="vinyl_loading" loading="eager" priority unoptimized style={{
                         position: "absolute",
                         width: "100%",
                         height: "100%",
                         filter: "drop-shadow(1vh 0.75vh 0.5vh rgba(0,0,0,0.3))"
                     }} />
-                    <Image draggable="false" src={Monogram} alt="" loading="eager" priority unoptimized width={100} height={100} style={{
+                    <NextImage draggable="false" src={"/img/sma_monogram.svg"} alt="" loading="eager" priority unoptimized width={100} height={100} style={{
                         position: "absolute",
                         width: "26.6666%",
                         height: "26.6666%",
@@ -76,12 +88,12 @@ const Loader = (props) => {
                     }} />
                 </div>
                 <div style={{position: "absolute", height: "calc(min(30vh, 55vw) - 1px)", width: "auto", aspectRatio: 1, display: "flex", flexDirection: "column", zIndex: 5, animation: "moveSleeve 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards" }}>
-                    <Image draggable="false" src="/img/SMA_sleeve_256.webp" sizes="15vh" fill={true} loading="eager" priority alt="Loading box" style={{
+                    <NextImage draggable="false" src="/img/SMA_sleeve_256.webp" sizes="15vh" fill={true} loading="eager" priority alt="Loading box" style={{
                         overflow: "hidden",
                         boxShadow: "0.5vh 1vh 3vh rgba(0,0,0,0.3), -0.5vh 0px 3vh rgba(0,0,0,0.4)",                        
                     }} />
                 </div>
-            </div> }
+            </div>}
         </>
     )
 };

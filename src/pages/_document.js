@@ -36,11 +36,6 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.googleapis.com/css?family=Special Elite"
-            as="style"
-          />
-          <link
-            rel="preload"
             href="https://fonts.gstatic.com/s/caveat/v18/Wnz6HAc5bAfYB2Q7ZjYYiAzcPA.woff2"
             as="font"
             type="font/woff2" crossOrigin="anonymous"
@@ -82,13 +77,13 @@ class MyDocument extends Document {
             href="https://fonts.cdnfonts.com/css/futura-condensed-extra"
           />
 
-          <meta name="application-name" content="PWA App" />
+          <meta name="application-name" content="Septante Minutes Avec" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
             content="default"
           />
-          <meta name="apple-mobile-web-app-title" content="PWA App" />
+          <meta name="apple-mobile-web-app-title" content="Septante Minutes Avec" />
           <meta
             name="description"
             content="Septante Minutes Avec est un podcast belge couvrant des sujets de société."
@@ -133,7 +128,7 @@ class MyDocument extends Document {
             property="og:description"
             content="Podcast belge couvrant des sujets de société"
           />
-          <meta property="og:site_name" content="PWA App" />
+          <meta property="og:site_name" content="Septante Minutes Avec" />
           <meta property="og:url" content="https://www.septanteminutes.be" />
           <meta
             property="og:image"

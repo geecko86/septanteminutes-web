@@ -13,6 +13,7 @@ import Image from "next/image";
 import { useEventListener } from "usehooks-ts";
 
 import styles from "./album.module.css";
+import { isMobile } from "react-device-detect";
 
 const VinylAlbum = React.forwardRef(( {
     position,
@@ -159,7 +160,7 @@ const VinylAlbum = React.forwardRef(( {
             priority={priority}
             className={!loaded ? styles.image_loading : ""}
             sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
-            quality={70}
+            quality={isMobile ? 30 : 70}
             onLoad={() => {
               setLoadedComplete(true);
               if (!isGone && onLoad) onLoad()
@@ -169,8 +170,8 @@ const VinylAlbum = React.forwardRef(( {
             src="https://framerusercontent.com/images/xASprVMQ8YKj6GHkS84CpZ7ElQ.png"
             alt=""
             fill={true}
-            priority={true}
-            quality={70}
+            priority={priority}
+            quality={40}
             className={styles.wrinkles}
             sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
           />

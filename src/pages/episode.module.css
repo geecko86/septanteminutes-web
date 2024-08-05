@@ -412,7 +412,7 @@ div:has(> .chair) {
 
 .postit.download_postit div[data-framer-component-type="RichTextContainer"] {
   top: 55% !important;
-  left: 49% !important;
+  left: 28% !important;
 }
 
 .download_postit p {
@@ -431,7 +431,7 @@ div:has(> .chair) {
 
 .postit.contact_postit div[data-framer-component-type="RichTextContainer"] {
   top: 53% !important;
-  left: 49% !important;
+  left: 28% !important;
 }
 
 .contact_postit p {
@@ -450,7 +450,7 @@ div:has(> .chair) {
 
 .postit.home_postit div[data-framer-component-type="RichTextContainer"] {
   top: 53% !important;
-  left: 49% !important;
+  left: 28% !important;
 }
 
 .home_postit p {
@@ -557,7 +557,8 @@ div:has(> .chair) {
   }
 
   .floor > img {
-    height: 100lvh;;
+    height: 100vh;
+    height: 100lvh;
   }
 
   .table {
@@ -708,7 +709,7 @@ div:has(> .chair) {
 
   .postit.home_postit div[data-framer-component-type="RichTextContainer"] {
     top: 56% !important;
-    right: 24% !important;
+    right: 44% !important;
     left: unset !important;
   }
 
@@ -719,18 +720,18 @@ div:has(> .chair) {
 
   .postit.subscribe_postit div[data-framer-component-type="RichTextContainer"] {
     top: 62% !important;
-    right: 30% !important;
+    right: 50% !important;
     left: unset !important;
   }
 
   .postit.download_postit div[data-framer-component-type="RichTextContainer"] {
     top: 62% !important;
-    left: 25% !important;
+    left: 7% !important;
   }
 
   .postit.contact_postit div[data-framer-component-type="RichTextContainer"] {
-    top: 52% !important;
-    left: 30% !important;
+    top: 56% !important;
+    left: 8% !important;
   }
 
   /* .download_postit a>div {
