@@ -13,6 +13,7 @@
   height: 100svh;
   width: 100%;
   pointer-events: none;
+  overflow: clip;
 }
 
 .section p {

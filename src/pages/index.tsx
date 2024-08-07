@@ -1,4 +1,3 @@
-import styles from "./index.module.css";
 import React, {
     useState,
     useRef,
@@ -9,47 +8,57 @@ import React, {
 } from "react";
 import { motion, useTransform, useMotionValue, useScroll, animate, AnimationPlaybackControls, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useRouter } from 'next/router';
 import { isMobile } from 'react-device-detect';
 
-import SwipeAnim from "../components/SwipeAnim";
 import Season_, { Chairs } from "../components/Season";
-import FrontColumn_, { FrontPosters } from "../components/FrontColumn";
 import { usePlayback } from '../utils/PlayerContext';
 
 import HomeAlbum_ from "../components/HomeAlbum";
-import { BellLamp as BellLamp_, Plant0 as PlantA_, Eggchair as Eggchair_, Plant1 as PlantB_, Plant2 as PlantA2_, Plant3 as PlantD_, Plant4 as PlantE_, BackwallLight } from "../framer/ImageWrapper.js";
+import { BellLamp as BellLamp_, Plant2 as PlantA2_, BackwallLight } from "../framer/ImageWrapper.js";
+
+const PlantA = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant0), { ssr: false });
+const Eggchair = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Eggchair), { ssr: false });
+const PlantB = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant1), { ssr: false });
+const PlantD = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant2), { ssr: false });
+const PlantE = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant3), { ssr: false });
 
 import ScrollToAnchor from "../utils/scroll_to_anchor"
 import Head from "next/head";
 
 import type { Episode, Season } from "../types/episode";
 import Poster, { posters } from "@/components/Poster";
-import checkOldPhone from "@/utils/mobileChecker";
+// import checkOldPhone from "@/utils/mobileChecker";
+
+import styles from "./index.module.css";
+import { NextSeo } from "next-seo";
+import { GetStaticProps } from "next";
+
+const SwipeAnim = dynamic(() => import("../components/SwipeAnim"), { ssr: false });
+const FrontColumn = dynamic(() => import("../components/FrontColumn"), { ssr: false });
 
 export default function Home(props: {
+    seasons: Season[],
     onReady: () => void,
     style: React.CSSProperties
 }) {
     const Season: FC<any> = Season_;
     const HomeAlbum: FC<any> = HomeAlbum_;
     const BellLamp: FC<any> = BellLamp_;
-    const Eggchair: FC<any> = Eggchair_;
-    const PlantA: FC<any> = PlantA_;
     const PlantA2: FC<any> = PlantA2_;
-    const PlantB: FC<any> = PlantB_;
-    const PlantD: FC<any> = PlantD_;
-    const PlantE: FC<any> = PlantE_;
-    const FrontColumn: FC<any> = FrontColumn_;
 
     const [ready, setReady] = useState(false);
-    const [seasons, setSeasons] = useState<Season[]>([]);
+    const [seasons, setSeasons] = useState<Season[]>(props.seasons);
+    const [frontPosters, setFrontPosters] = useState<any[]>([]);
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
     const [showSwiper, setShowSwiper] = useState(false);
     const [firstPosterMotionValue, setFirstPosterMotionValue] = useState<MotionValue | undefined>(undefined);
     const [offset3_factor, setOffset3Factor] = useState<number>(0.5);
-    const [isOldPhone, setIsOldPhone] = useState(true), [isMobileDevice, setIsMobileDevice] = useState(true);
+    // const [isOldPhone, setIsOldPhone] = useState(true)
+    const [isMobileDevice, setIsMobileDevice] = useState(true);
+    const [isTouchDevice, setIsTouchDevice] = useState(true);
 
     const hasMovedRef = useRef(false), hasFocusRef = useRef(true), showSwiperRef = useRef(showSwiper), idleAnimRef = useRef<AnimationPlaybackControls | undefined>(undefined);
     const home = useRef<HTMLDivElement>(null), root = useRef<HTMLDivElement>(null), subroot = useRef<HTMLDivElement>(null);
@@ -71,8 +80,8 @@ export default function Home(props: {
     useEffect(() => {
         if (window.Worker) {
             const myWorker = new Worker("/js/seasonFetcher.js");
-            myWorker.onmessage = function(e) {
-                setSeasons([ { name: "", episodes: [] }, ...e.data]);
+            myWorker.onmessage = function (e) {
+                setSeasons([{ name: "", episodes: [] }, ...e.data]);
             };
             myWorker.postMessage("");
         }
@@ -127,7 +136,6 @@ export default function Home(props: {
 
         let limit = (home.current?.clientWidth || 0) > window.innerWidth ?
             (home.current?.clientWidth || window.innerWidth) - window.innerWidth : 0;
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
         const scrollSum = scrollX.get() + scrollY.get() + (scrollXAdditional.get() || 0) + scrollYAdditional.get();
         // console.log("useTransform newScrollX", scrollSum, scrollX.get(), scrollY.get(), scrollXAdditional.get(), scrollYAdditional.get());
@@ -172,7 +180,7 @@ export default function Home(props: {
     const [frontItemsCount, setFrontItemsCount] = useState(1);
     const [dimensionWidth, setDimensionWidth] = useState(0);
 
-    const centerPosition = useTransform(() => `calc(${((isMobileDevice ? (isMobileLandscape() ? scrollY : scrollX) : newScrollX).get() / (home.current?.clientWidth || 100)) * (isMobileDevice ? 200 : -100)}% + ${dimensionWidth/2}px)`);
+    const centerPosition = useTransform(() => `calc(${((isMobileDevice ? (isMobileLandscape() ? scrollY : scrollX) : newScrollX).get() / (home.current?.clientWidth || 100)) * (isMobileDevice ? 200 : -100)}% + ${dimensionWidth / 2}px)`);
     const perspectiveOrigin = useTransform(() => `${centerPosition.get()} 11.5v${isMobileLandscape() ? "max" : "h"}`);
     const offsetFloor = useTransform(() => newScrollX.get() * 0.3012 * (navigator.maxTouchPoints > 0 ? 2 : 1));
     const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
@@ -185,7 +193,7 @@ export default function Home(props: {
         if (!dimensions && invisibleSeasonSeparators?.length) return invisibleSeasonSeparators[i];
         let separator = dimensions?.width || 1000;
         return separator
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [seasons, screenContentRatio]);
 
     const interceptAutoScroll = useCallback((e: MouseEvent) => {
@@ -319,7 +327,6 @@ export default function Home(props: {
         if (!ready || !rootElem || isMobile) return;
 
         const onHomeWheel = (e: WheelEvent) => {
-            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             if (e.stopImmediatePropagation) e.stopImmediatePropagation();
             // console.log("wheel", e.deltaX, e.deltaY, e.deltaZ, isTouchDevice);
             if (isTouchDevice) {
@@ -381,7 +388,6 @@ export default function Home(props: {
         rootElem?.addEventListener("mousedown", interceptAutoScroll, { passive: false });
         let swiperTimer: NodeJS.Timeout | undefined = undefined;
         const idleAnimAction = () => {
-            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             const hasMovedCount = Number(localStorage.getItem("hasMovedHome") || "0");
             if (!hasMovedRef.current && hasMovedCount <= 2) {
                 if (!isTouchDevice && hasFocusRef.current && document.hasFocus()) {
@@ -425,7 +431,7 @@ export default function Home(props: {
             rootElem?.removeEventListener("wheel", onHomeWheel);
             rootElem?.removeEventListener("mousedown", interceptAutoScroll);
         }
-    }, [home, ready, scrollYAdditional, interceptAutoScroll, scrollXAdditional, newScrollX]);
+    }, [home, ready, scrollYAdditional, isTouchDevice, interceptAutoScroll, scrollXAdditional, newScrollX]);
 
     useEffect(() => {
         const motionValue = isMobile ? newScrollX : scrollXAdditional;
@@ -450,7 +456,7 @@ export default function Home(props: {
                     const timeoutId = setTimeout(() => {
                         console.log("artwork timeout");
                         resolve();
-                    }, 7500);
+                    }, 3000);
                     if (firstAlbum.current?.complete) {
                         resolve();
                         clearTimeout(timeoutId);
@@ -484,7 +490,7 @@ export default function Home(props: {
                             const img = entry.target as HTMLImageElement;
                             // console.log(img.src, "intersecting");
                             const imgLoaded = new Promise<void>((resolve, reject) => {
-                                const timeoutId = setTimeout(resolve, 7500);
+                                const timeoutId = setTimeout(resolve, 3000);
                                 const type = [...(posters || [])]?.includes(img) ? "poster" : "plant";
                                 if (!img.complete) {
                                     console.log(`waiting for ${type} img`)
@@ -554,15 +560,22 @@ export default function Home(props: {
     }, [isPresent, router.asPath, ready, props.onReady, firstAlbumImg, seasons, isMobileDevice]);
 
     useEffect(() => {
-        setIsOldPhone(checkOldPhone());
+        // setIsOldPhone(checkOldPhone());
         setIsMobileDevice(isMobile);
+        setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+        if (!isMobile) {
+                import ("../components/FrontColumn").then((mod) => {
+                const posters = mod.FrontPosters;
+                setFrontPosters(posters);
+            });
+        }
     }, []);
 
     return (
         <motion.div
             key="transition_loader"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: ready ? 1 : 0 }}
+            initial={{ opacity: 0.001 }}
+            animate={{ opacity: ready ? 1 : 0.001 }}
             exit={{ opacity: 0 }}
             transition={{ type: 'linear', duration: 0.25 }}
             onAnimationComplete={(animDef: { opacity: number }) => {
@@ -578,6 +591,29 @@ export default function Home(props: {
                 ...props.style
             }}
             className="transition_loader" >
+            <NextSeo
+                title={`Septante Minutes Avec`}
+                description="Podcast politique belge, couvrant les sujets de sociétés. Des questions de genre à la neurodiversité, en passant par la technologie et la géopolitique."
+                openGraph={{
+                    url: `https://www.septanteminutes.be`,
+                    title: `Septante Minutes Avec`,
+                    description: "Podcast politique belge, couvrant les sujets de sociétés. Des questions de genre à la neurodiversité, en passant par la technologie et la géopolitique.",
+                    locale: "fr_BE",
+                    images: [{
+                        url: "https://res.cloudinary.com/dcodwkhcg/image/upload/v1722887962/opengraph.jpg",
+                        width: 2048,
+                        height: 2048,
+                        alt: `Logo Septante Minutes Avec`
+                    }
+                    ],
+                    siteName: "Septante Minutes Avec",
+                }}
+                twitter={{
+                    handle: "@SeptanteMinutes",
+                    site: "@SeptanteMinutes",
+                    cardType: "summary_large_image",
+                }}
+            />
             <div ref={subroot} className={styles.home_subroot} id="subroot" key={"home_subroot"}>
                 <div ref={root} className={styles.home_root} key={"home_root"}>
                     <motion.div className={styles.home} key={"home"} ref={home} tabIndex={0} id="home"
@@ -620,7 +656,7 @@ export default function Home(props: {
                                     <motion.div className={styles.floor} key={"floor"}>
                                         {[...Array(groundTexturesCount)].map((_, i) => (
                                             <div key={`floor_${i}`}>
-                                                <Image draggable="false" loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes={ isMobile ? "422vmax" : "422vh"} />
+                                                <Image draggable="false" loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes={isMobile ? "422vmax" : "422vh"} />
                                             </div>
                                         ))}
                                     </motion.div>
@@ -665,7 +701,7 @@ export default function Home(props: {
                             {
                                 seasons.map((season, i) => (
                                     <Season key={`${season.name}_visible1`} seasonTitle={season.name} ready={ready} position={i} playerVisible={isPlayerVisible()}
-                                    motionValue={newScrollX} chair={isMobileDevice || i == 0 ? null : Chairs[i % 4]} className={styles.season_frame}>
+                                        motionValue={newScrollX} chair={isMobileDevice || i == 0 ? null : Chairs[i % 4]} className={styles.season_frame}>
                                         {season.episodes.slice().reverse().map((ep: Episode, j: number) => (
                                             <HomeAlbum id={`art_${ep.num}`} imageRef={((i == 0 && j == 0 && !router.asPath.includes("#")) || router.asPath.split("#")[1] === ep.num) ? firstAlbum : null} guest={ep.title} key={`${ep.num}_visible1`} image={ep.img} num={ep.num}
                                                 onClick={(e: MouseEvent) => {
@@ -694,23 +730,22 @@ export default function Home(props: {
                             ))}
                         </motion.div>
                         <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
-                            <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, translateZ: "20px" }}>
+                            {frontPosters.length && <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, translateZ: "20px" }}>
                                 <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                 {[...Array(frontItemsCount)].map((_, i: number) => (
                                     <React.Fragment key={`layer3_deco_${i}`}>
-                                        { !isMobileDevice && (<FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
-                                            pic={FrontPosters[i % 4].img} subtitle={FrontPosters[i % 4].text} ratio={FrontPosters[i % 4].ratio} date={FrontPosters[i % 4].date} blur={FrontPosters[i % 4].blurDataUrl}
-                                            priority={ready} onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />) }
+                                        {!isMobileDevice && (<FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
+                                            pic={frontPosters[i % 4].img} subtitle={frontPosters[i % 4].text} ratio={frontPosters[i % 4].ratio} date={frontPosters[i % 4].date} blur={frontPosters[i % 4].blurDataUrl}
+                                            priority={ready} onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />)}
                                         <PlantA2 key={`layer3_prop_${i}_PlantA2`} sizes="89svmin" className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                     </ React.Fragment>
                                 ))}
-                            </motion.div>
+                            </motion.div>}
                         </div>
-                        <SwipeAnim play={showSwiper} className={styles.swipe_anim} key={"swipe_anim"} />
+                        { !isTouchDevice && <SwipeAnim play={showSwiper} className={styles.swipe_anim} key={"swipe_anim"} />}
                     </motion.div>
                 </div>
                 <ScrollToAnchor move={(x: number) => {
-                    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
                     if (x > 0) {
                         x = Math.min(x, (home.current?.clientWidth || window.innerWidth) - window.innerWidth);
                         if (isTouchDevice) {
@@ -733,3 +768,22 @@ export default function Home(props: {
         </motion.div>
     );
 }
+
+export const getStaticProps = (async (_) => {
+    const mod = await import("@/../public/js/data.json");
+    const { episodes } = mod;
+
+    const vinyls = Array.from(
+        { length: Object.keys(episodes).length },
+        (v, k) => episodes[(k + 1).toString() as key]
+    );
+    const seasons = [...new Set(vinyls.map(v => v.season))].map(season => ({
+        name: season,
+        episodes: vinyls.filter(ep => ep.season === season)
+    }));
+  
+    return { props: { seasons } }
+  }) satisfies GetStaticProps<{
+  }>;
+
+  type key = "1" | "2"; // etc

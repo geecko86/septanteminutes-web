@@ -6,11 +6,13 @@ import { Spotlight } from "../components/Spotlight";
 import styles from "./404.module.css"
 import Link from "next/link";
 
-export default function Custom404(props: { offline ?: boolean }) {
+export default function Custom404(props: { offline ?: boolean, errorCode ?: number }) {
     const router = useRouter();
     const [visible, setVisible] = useState(true);
     const [isOnline, setIsOnline] = useState(!(props.offline));
     const [randomName, setRandomName] = useState(firstNames[0]);
+
+    const errorCode = `${props.errorCode || 404}`;
     
     useEffect(() => {
         setIsOnline(navigator.onLine && !(props.offline));
@@ -53,7 +55,7 @@ export default function Custom404(props: { offline ?: boolean }) {
             transition: "opacity 0.15s ease-in-out 0.6s"
         }}>
             <Head>
-                <title>{isOnline ? "404 - Septante Minutes Avec Personne" : "Septante Minutes sans internet"}</title>
+                <title>{isOnline ? `${errorCode} - Septante Minutes Avec Personne` : "Septante Minutes sans internet"}</title>
             </Head>
             <main className={["scanlines", styles.scanlines].join(" ")}>
                 <div className={["screen", styles.screen].join(" ")}>
@@ -61,19 +63,24 @@ export default function Custom404(props: { offline ?: boolean }) {
                     <div className={["overlay", styles.overlay].join(" ")} />
                     <div className={styles.textContainer}>
                         <h1>
-                            {isOnline ? "404" : "Offline"}
+                            {isOnline ? errorCode : "Offline"}
                         </h1>
-                        {isOnline ? <p>
+                        {isOnline && errorCode === "404" ? <p>
                             Oei ! On dirait bien que le lien qu&apos;on vous a donné ne fonctionne pas.<br />
                             Désolé, l&apos;épisode secret avec {randomName} n&apos;est pas ici.<br /><br />
                             <u onClick={leaving}><Link href="/">SeptanteMinutes.be</Link></u>
                             <br />
-                        </p> : <p style={{textAlign: "justify"}}>
+                        </p> : !isOnline ? (<p style={{textAlign: "justify"}}>
                             {`Hors-ligne (adj.) : Désigne un appareil, un système ou une personne qui n'est pas connectée à Internet. Par exemple : vous.`}
                             <br/><br/>
                             <u onClick={leaving}><Link href="mailto:contact@septanteminutes.be">contact@SeptanteMinutes.be</Link></u>
                             <br />
-                        </p>}
+                        </p>) : (<p style={{textAlign: "justify"}}>
+                            {`Une erreur est survenue. Ce n'est pas normal. Mais c'est pas grave, on va s'en sortir ensemble. Vous pouvez nous contacter à l'adresse ci-dessous :`}
+                            <br/><br/>
+                            <u onClick={leaving}><Link href="mailto:contact@septanteminutes.be">contact@SeptanteMinutes.be</Link></u>
+                            <br />
+                        </p>)}
                     </div>
                     <Spotlight className={styles.spotlight} fill="white" />
                 </div>

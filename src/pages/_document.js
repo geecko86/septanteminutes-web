@@ -77,6 +77,7 @@ class MyDocument extends Document {
             href="https://fonts.cdnfonts.com/css/futura-condensed-extra"
           />
 
+          <meta name="google" content="notranslate" />
           <meta name="application-name" content="Septante Minutes Avec" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
@@ -107,33 +108,8 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/img/icon.svg" color="#5bbad5" />
           <link rel="shortcut icon" href="/favicon.ico" />
 
-          <meta
-            name="twitter:card"
-            content="Podcast belge couvrant des sujets de société"
-          />
-          <meta name="twitter:url" content="https://www.septanteminutes.be" />
-          <meta name="twitter:title" content="Septante Minutes Avec" />
-          <meta
-            name="twitter:description"
-            content="Podcast belge couvrant des sujets de société"
-          />
-          <meta
-            name="twitter:image"
-            content="https://www.septanteminutes.be/img/192.png"
-          />
           <meta name="twitter:creator" content="@GuiHachez" />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="Septante Minutes Avec" />
-          <meta
-            property="og:description"
-            content="Podcast belge couvrant des sujets de société"
-          />
-          <meta property="og:site_name" content="Septante Minutes Avec" />
-          <meta property="og:url" content="https://www.septanteminutes.be" />
-          <meta
-            property="og:image"
-            content="https://www.septanteminutes.be/img/192.png"
-          />
 
           <meta name="theme-color" media="(prefers-color-scheme: light)" content="lightgray" />
           <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />

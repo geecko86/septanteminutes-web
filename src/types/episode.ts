@@ -6,6 +6,7 @@ export type Episode = {
     season: string,
     appleLink: string,
     desc: string,
+    descText?: string,
     num: string,
     date: string
 };
