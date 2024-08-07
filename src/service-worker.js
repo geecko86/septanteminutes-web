@@ -64,7 +64,7 @@ registerRoute(
 // TODO do cache framer assets
 registerRoute(
   /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
-  new NetworkOnly({
+  new CacheFirst({
     cacheName: 'static-image-assets',
     plugins: [
       new ExpirationPlugin({
@@ -126,22 +126,6 @@ registerRoute(
     plugins: [
       new ExpirationPlugin({
         maxEntries: 16,
-        maxAgeSeconds: 86400,
-        purgeOnQuotaError: !0,
-      }),
-    ],
-  }),
-  'GET'
-);
-// TODO remove?
-registerRoute(
-  /.*/i,
-  new NetworkFirst({
-    cacheName: 'others',
-    networkTimeoutSeconds: 10,
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 32,
         maxAgeSeconds: 86400,
         purgeOnQuotaError: !0,
       }),

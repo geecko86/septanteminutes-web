@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NextPageContext } from 'next';
 
 import NotFoundPage from "./404"
@@ -6,6 +6,7 @@ import NotFoundPage from "./404"
 
 interface ErrorProps {
   statusCode: number;
+  onReady: () => void;
 }
 
 class ErrorPage extends React.Component<ErrorProps> {
@@ -15,15 +16,13 @@ class ErrorPage extends React.Component<ErrorProps> {
   }
   
   render() {
+    this.props.onReady();
+    
     if (this.props.statusCode === 404) {
         return <NotFoundPage />;
     }
 
-    return (
-      <div>
-        <h1>Erreur {this.props.statusCode}</h1>
-      </div>
-    );
+    return <NotFoundPage errorCode={this.props.statusCode || 500} />;
   }
 }
 

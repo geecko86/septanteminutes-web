@@ -33,16 +33,6 @@ npx -p node-firestore-import-export firestore-export -a septanteminutes-a0cde5ef
 sed -i '' -E 's/^.{19}//; s/.$//; s/{}},"/{}},\n"/g' public/js/data.json
 
 item_count=$(jq '.episodes | length' public/js/data.json)
-rewrites=""
-
-for ((i=1; i<=item_count; i++)); do
-    rewrites+="{ \"source\": \"/$i\", \"destination\": \"/$i.html\" }, "
-done
-rewrites="${rewrites%,}"
-rewrites=$'\\n      '+$rewrites
-
-sed -i '' '/1.html/d' firebase.json
-sed -i '' -E "s#\"rewrites\": \[#\"rewrites\": [$rewrites_formatted#" firebase.json
 
 echo "EPISODES_COUNT=$item_count" > .env
 

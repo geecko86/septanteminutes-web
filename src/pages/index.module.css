@@ -398,7 +398,7 @@
     bottom: calc(100%/11.56);
     right:  calc(85vh/9);
     right:  calc(85svh/9);
-    left: initial !important;
+    left: initial;
     justify-content: end;
 }
 

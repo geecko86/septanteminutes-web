@@ -234,15 +234,15 @@
 
 .presentationWall div[data-framer-name="LEGENDE"] {
     position: absolute;
-    height: 1.5rem;
-    width: auto;
+    height: 1.5rem !important;
+    width: 100%;
     justify-content: end;
     left: 0 !important;
     margin-left: calc(55vh / 10);
     margin-right: calc(55vh / 10);
     margin-left: calc(55svh / 10);
     margin-right: calc(55svh / 10);
-    right: 0;
+    right: 0 !important;
 }
 
 .presentationWall .player_visible[data-framer-name="LEGENDE"] {
@@ -295,8 +295,10 @@
     /* height: 100%  !important; */
     aspect-ratio: unset !important;
     min-width: unset !important;
-    padding-left: calc(55svh / 10);
-    padding-right: calc(55svh / 10);
+    padding-bottom: unset !important;
+    padding-top: calc(85svh / 8.2) !important;
+    padding-left: calc(55svh / 10) !important;
+    padding-right: calc(55svh / 10) !important;
 }
 
 .presentationWallContents {

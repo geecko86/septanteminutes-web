@@ -1,4 +1,3 @@
-import styles from "./episode.module.css";
 import React, {
   useState,
   useRef,
@@ -10,6 +9,7 @@ import React, {
 import { motion, useScroll, animate, useMotionValueEvent, usePresence } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
+import { NextSeo } from 'next-seo';
 import { useRouter } from "next/router";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -20,21 +20,25 @@ import type {
   GetStaticPaths,
 } from 'next';
 
-import { Pen as Pen_ } from "../framer/ImageWrapper";
-import Notebook_ from "../framer/Notebook-Large-POCp.js";
-import ImagedPostIt_ from "../framer/Imaged-Post-It-1vlf.js";
+import { Pen as Pen_ } from "../../framer/ImageWrapper.js";
+import Notebook_ from "../../framer/Notebook-Large-POCp.js";
+import ImagedPostIt_ from "../../framer/Imaged-Post-It-1vlf.js";
 
-import RecordPlayer from "../components/RecordPlayer";
-import VinylAlbum, { ShadowAlbum } from "../components/VinylAlbum";
-import NotebookOverlay from "../components/NotebookOverlay";
-import { hackAutoplay, usePlayback } from '../utils/PlayerContext';
+import RecordPlayer from "../../components/RecordPlayer/index.js";
+import VinylAlbum, { ShadowAlbum } from "../../components/VinylAlbum";
+import NotebookOverlay from "../../components/NotebookOverlay/index.js";
+import { hackAutoplay, usePlayback } from '../../utils/PlayerContext';
+import normalizeString from "@/utils/normalizeStr";
 import { isChrome, isEdge, isFirefox, isIOS, isMobile, isOpera, isSafari } from "react-device-detect";
 import { Episode } from "@/types/episode";
+
+import styles from "./episode.module.css";
 
 export default function EpisodeTable(props: {
   onReady: () => void,
   previouslyLoaded: boolean,
-  cleared: boolean
+  cleared: boolean,
+  episode: Episode,
 }) {
   const router = useRouter();
   const [funqueue, _] = useState([] as (() => void)[]);
@@ -71,7 +75,7 @@ export default function EpisodeTable(props: {
   const [isPresent, safeToRemove] = usePresence();
   const { setPlaying, setPlayingEpisode, isPlaying, playingEpisode, autoplay, status, audio } = usePlayback();
 
-  const descriptionEpisode = isPlayingRef.current ? playingEpisode : vinyls[selectedEpisode];
+  const descriptionEpisode: Episode = (isPlayingRef.current ? playingEpisode : vinyls[selectedEpisode]) || props.episode;
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
     title: descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[2]?.trim(),
     subtitle: `Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`,
@@ -270,7 +274,7 @@ export default function EpisodeTable(props: {
     if (selectedVinyl.current && mainRef.current && mainRef.current.querySelector('img[fetchpriority="high"]')) {
       console.log("creating promises")
       const priorityImagesPromises = [...document.querySelectorAll('img[fetchpriority="high"]')].map((el: Element, i: number) => (
-        new Promise<void>((resolve, reject) => {
+        new Promise<void>((resolve, _) => {
           const timeoutId = setTimeout(resolve, 3000);
           const img = el as HTMLImageElement;
           const finish = () => {
@@ -449,15 +453,15 @@ export default function EpisodeTable(props: {
   const ImagedPostIt: FC<any> = ImagedPostIt_;
 
   const BottomSheet = React.useMemo(() => dynamic(() => import("react-spring-bottom-sheet").then(mod => mod.BottomSheet), { ssr: false }), []);
-  const Headphones = React.useMemo(() => dynamic(() => import("../framer/ImageWrapper.js").then(mod => mod.Headphones), { ssr: false }), []);
-  const Chair = React.useMemo(() => dynamic(() => import("../framer/ImageWrapper.js").then(mod => mod.Chair), { ssr: false }), []);
+  const Headphones = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Headphones), { ssr: false }), []);
+  const Chair = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Chair), { ssr: false }), []);
 
   return (
     <motion.div
       key="transition_loader"
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 0.001 }}
       exit={{ opacity: 0 }}
-      animate={{ opacity: ready ? 1 : 0 }}
+      animate={{ opacity: ready ? 1 : 0.001 }}
       transition={{ type: 'linear', duration: 0.25 }}
       onAnimationComplete={(animDef: { opacity: number }) => {
         if (!isPresent && animDef.opacity === 0) {
@@ -477,6 +481,31 @@ export default function EpisodeTable(props: {
           <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`}</title>
           { isMobile && <link rel="stylesheet" href="https://unpkg.com/react-spring-bottom-sheet/dist/style.css" crossOrigin="anonymous" /> }
         </Head>
+        <NextSeo
+          title={`Septante Minutes Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`}
+          description={descriptionEpisode?.descText}
+          canonical={`https://www.septanteminutes.be/podcast/interview/${descriptionEpisode.num}-${normalizeString(descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim())}`}
+          openGraph={{
+            url: `https://www.septanteminutes.be/${descriptionEpisode.num}`,
+            title: `Septante Minutes Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`,
+            description: descriptionEpisode?.descText,
+            locale: "fr_BE",
+            images: [
+              {
+                url: descriptionEpisode?.img || "",
+                width: 2048,
+                height: 2048,
+                alt: descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()
+              }
+            ],
+            siteName: "Septante Minutes Avec",
+          }}
+          twitter={{
+            handle: "@GuiHachez",
+            site: "@SeptanteMinutes",
+            cardType: "summary_large_image",
+          }}
+        />
         <motion.div
           className={styles.main}
           ref={mainRef}
@@ -642,9 +671,11 @@ export default function EpisodeTable(props: {
               }
             }}
           >
-            {(!process.env.NODE_ENV || process.env.NODE_ENV === 'development') && (
-              <p>{`${i}__________episode#${v.num}: ${v.title}`}</p>
-            )}
+            {(v.num === descriptionEpisode.num) && <>
+              <h1>Septante Minutes Avec {v.title}</h1>
+              <h2>Description</h2>
+              <p dangerouslySetInnerHTML={{ __html: props.episode.desc }} />
+            </>}
           </motion.div>
         ))}
       </div>
@@ -657,7 +688,7 @@ type key = "1" | "2"; // Etc.
 export const getStaticPaths = (async () => {
   const count = Number(process.env.EPISODES_COUNT);
   const paths = Array.from(Array(count).keys()).map((i) => ({
-    params: { episodeNum: `${i + 1}` },
+    params: { episodeNum: `${i + 1}`, episodePage: "index" },
   }));
   return {
     paths: paths,
@@ -666,6 +697,13 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths
 
 export const getStaticProps = (async (context) => {
-  return { props: {} }
+  const { episodeNum } = (context.params as any);
+  const mod = await import("../../../public/js/data.json");
+  const episode: Episode = mod.episodes[`${episodeNum}` as key];
+  const { JSDOM } = require("jsdom");
+  episode.descText = new JSDOM(episode.desc).window.document.querySelector("*").textContent || "";
+  episode.descText = episode.descText?.split(/(\nRéférence|\n0)/i)[0].slice(0, 198).trim() + "…";
+
+  return { props: { episode } }
 }) satisfies GetStaticProps<{
 }>;

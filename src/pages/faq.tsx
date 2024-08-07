@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 import useImageLoader from "../utils/ImageLoader";
 import styles from './faq.module.css';
+import { isMobile } from 'react-device-detect';
 
 const FAQPage = (props: { onReady: () => void }) => {
 
@@ -14,6 +15,7 @@ const FAQPage = (props: { onReady: () => void }) => {
     const [pageHeight, setPageHeight] = useState(0);
     const [letterReady, setLetterReady] = useState(false);
     const [backgroundReady, setBackgroundReady] = useState(false);
+    const [isMobileDevice, setIsMobileDevice] = useState(false);
     const [isPresent, safeToRemove] = usePresence();
 
     const onReady = useCallback(() => {
@@ -23,12 +25,13 @@ const FAQPage = (props: { onReady: () => void }) => {
 
     useEffect(() => {
         setPageHeight(window.innerHeight)
-    }, [setPageHeight]);
+        setIsMobileDevice(isMobile);
+    }, []);
 
     const maskLoaded = useImageLoader("/img/rubber_stamp.webp");
 
     useEffect(() => {
-        if (isPresent && maskLoaded && backgroundReady) onReady();
+        if (isPresent && maskLoaded && (isMobile || backgroundReady)) onReady();
     }, [setLetterReady, onReady, isPresent, maskLoaded, backgroundReady]);
 
     const { scrollYProgress } = useScroll();
@@ -37,9 +40,9 @@ const FAQPage = (props: { onReady: () => void }) => {
 
     return (
         <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0.001 }}
         exit={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: letterReady ? 1 : 0.001 }}
         transition={{ type: 'linear', duration: 0.25 }}
         onAnimationComplete={(animDef: { opacity: number }) => {
             if (!isPresent && animDef.opacity === 0) {
@@ -50,11 +53,11 @@ const FAQPage = (props: { onReady: () => void }) => {
         className={styles.faq} ref={pageRef}>
             <motion.div style={{ y: y, scale: 1.5 }}
                 className={[styles.FAQ_background, letterReady ? styles.FAQ_background_ready : ""].join(" ")}>
-                <Image draggable="false" src="https://framerusercontent.com/images/U96v1PGAZqRKlDY2kIjgaRNkIY.jpg" alt="Background" fill onLoad={() => {
+                { !isMobileDevice && <Image draggable="false" src="https://framerusercontent.com/images/U96v1PGAZqRKlDY2kIjgaRNkIY.jpg" alt="Background" fill onLoad={() => {
                     setTimeout(() => {
                         setBackgroundReady(true);
                     }, 300);
-                }} />
+                }} />}
             </motion.div>
             <PaperSheet ready={letterReady} />
         </motion.div>
@@ -90,16 +93,15 @@ const PaperSheet = (props: { ready: boolean }) => {
         <>
             <Head>
                 <title>FAQ - Septante Minutes Avec</title>
-                <meta name="description" content="FAQ de l'émission Septante Minutes Avec" />
+                <meta name="description" content="FAQ du podcast Septante Minutes Avec" />
                 <meta property="og:title" content="FAQ - Septante Minutes Avec" />
-                <meta property="og:description" content="FAQ de l'émission Septante Minutes Avec" />
-                <meta property="og:image" content="/img/SMA_sleeve_256.webp" />
+                <meta property="og:description" content="FAQ du podcast Septante Minutes Avec" />
+                <meta property="og:image" content="https://res.cloudinary.com/dcodwkhcg/image/upload/v1722887962/opengraph.jpg" />
                 <meta property="og:url" content="https://www.septanteminutes.be/faq" />
+                <meta property="og:site_name" content="Septante Minutes Avec" />
+                <meta property="og:locale" content="fr_BE" />
                 <meta property="og:type" content="website" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="FAQ - Septante Minutes Avec" />
-                <meta name="twitter:description" content="FAQ de l'émission Septante Minutes Avec" />
-                <meta name="twitter:image" content="https://www.septanteminutes.be/faq" />
             </Head>
             <motion.div className={`${styles.faqContainer} ${props.ready ? styles.faqReady : ""}`} style={{ y: "2.15%" }}>
                 <div className={styles.paper} style={{ height: paperHeight }} />
@@ -177,7 +179,7 @@ const PaperSheet = (props: { ready: boolean }) => {
                     <span className={styles.answer}>{"L'identité visuelle de Septante Minutes Avec a été réalisée par le très talentueux "}<a href="https://www.jnkk.design">Jerry Nkumu</a>.</span>
 
                     <h2 className={styles.question} id="q_web">{"Qui a réalisé ce site web ?"}</h2>
-                    <span className={styles.answer}>{"Le site a été codé entièrement par Guillaume Hachez sur base du fabuleux design de "}<a href="https://www.jnkk.design">Jerry Nkumu</a>.</span>
+                    <span className={styles.answer}>{"Le site a été codé entièrement par Guillaume Hachez sur base du fabuleux design de "}<a href="https://www.jnkk.design">Jerry Nkumu</a>. {"Aucun outil, aucun CRM n'a été utilisé, tout a été codé à la main en NextJS."}</span>
                 </div>
             </motion.div>
         </>
