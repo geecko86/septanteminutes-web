@@ -49,7 +49,7 @@ export default function Home(props: {
     const PlantA2: FC<any> = PlantA2_;
 
     const [ready, setReady] = useState(false);
-    const [seasons, setSeasons] = useState<Season[]>(props.seasons);
+    const [seasons, setSeasons] = useState<Season[]>(props.seasons || []);
     const [frontPosters, setFrontPosters] = useState<any[]>([]);
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
