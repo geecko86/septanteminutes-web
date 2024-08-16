@@ -276,15 +276,12 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
           <AnimatePresence mode='wait' onExitComplete={() => {
             if (!loadedRoute.includes("404")) setLoaded("");
             if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
-            console.log("exit complete");
-            console.log("Loaded route: ", loadedRoute);
-            console.log("Component history: ", componentHistory);
           }}>
             <Component {...pageProps} key={Component.name} onReady={onReady} />
           </AnimatePresence>
-          {!isMobileDevice && <div className={styles.overlay} key="overlay">
+          <div className={styles.overlay} key="overlay">
             <FloatingPlaybackControls />
-          </div>}
+          </div>
         </PlaybackProvider>
       {/* </StrictMode> */}
       { !loadingAnimGone && <div id="globalLoader" style={(!showLoadingAnim && loadedRoute) ? { opacity: 0, pointerEvents: "none", position: "fixed", transition: "opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000)" } : { position: "fixed" }}>

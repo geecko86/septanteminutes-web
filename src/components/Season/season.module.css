@@ -63,6 +63,10 @@
     .season .season_legende {
         display: none !important;
     }
+
+    .presentationWall .season_legende {
+        display: inherit !important;
+    }
 }
 
 .season .chair_img {
@@ -371,6 +375,10 @@ div[data-framer-name="Wall"].player_visible {
     margin-top: 1.9ch;
     line-height: 1.2rem;
     font-family: "Futura-Medium", "Jost", sans-Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif !important;
+}
+
+.presentationParagraph > p:last-child {
+    text-align: left;
 }
 
 

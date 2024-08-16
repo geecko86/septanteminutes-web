@@ -5,6 +5,10 @@
     justify-content: center;
 }
 
+:has(.faq) {
+    overflow-x: clip;
+}
+
 .FAQ_background {
     position: fixed;
     top: -2vh;

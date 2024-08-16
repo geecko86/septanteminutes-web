@@ -44,3 +44,6 @@ next-env.d.ts
 
 # build files
 buildId.txt
+
+# framer backup
+/framerbackup
