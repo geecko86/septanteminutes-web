@@ -1,7 +1,7 @@
 .home_subroot {
-    display: grid;
+    /* display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; */
     position: static;
     min-height:  100vh;
     min-height:  100svh;
@@ -17,7 +17,7 @@
     min-height:  100svh;
     width: fit-content;
     height: auto;
-    aspect-ratio: 1;
+    /* aspect-ratio: 1; */
     top: 0;
     left: 0;
 }
@@ -96,11 +96,6 @@
     contain: paint;
     mix-blend-mode: overlay;
     opacity: 0.8;
-}
-
-.backwall_light > div {
-    left:  -100vh;
-    left:  -100svh;
 }
 
 .posters {
@@ -489,7 +484,7 @@
 }
 
 .season_frame div[data-framer-name="Albums"] > a span:last-child {
-    font-family: "Futura-Medium", "Jost", sans-serif;
+    font-family: "Futura-Medium", "Jost", Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
     font-weight: 400;
 }
 
@@ -558,12 +553,6 @@
     transition: filter 0.8s ease-out 0.5s;
 }
 
-@supports (-webkit-hyphens:none) {
-    .front_column {
-        transform: translateY(-12%) translateZ(20px) !important;
-    }
-}
-
 .front_column.blur8 {
     filter: blur(8px);
     transition: filter 0.4s ease-out 0.25s;
@@ -603,6 +592,9 @@
 .layer_0_25 { /* floor */
     transform-origin: bottom;
     transform: scaleY(0.235);
+    overflow: clip;
+    content: paint;
+    transition: width 1.0s cubic-bezier(0.45,0.05,0.55,0.95);
 }
 
 .layer_0_25, .layer_0_25 > * {
@@ -804,7 +796,7 @@
     }
 }
 
-@media screen and (max-height:699px) {
+@media screen and ((max-height:699px) and (orientation:portrait)) or ((max-width: 699px) and (orientation:landscape)) {
     .season_frame div[data-framer-name="LEGENDE"] {
         display: none;
     }
@@ -829,6 +821,12 @@
 
     .posters {
         padding:  unset !important;
+    }
+}
+
+@media only screen and (width:412px) and (height:823px) {
+    .backwall_light > * {
+        display: none;
     }
 }
 

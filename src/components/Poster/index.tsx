@@ -14,10 +14,10 @@ const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>(
     // const translateX = useMemo(() => `${55+5*position}%`, [position]);
     const translateX = useTransform(motionValue, (value) => {
         const numerator = value + offset * 0.9;
-        return `-${numerator / (home?.clientWidth || 3000) * 5 * (parentRef.current?.clientWidth || 0)}px`;
+        return `${-Math.abs(numerator / (home?.clientWidth || 3000) * 5 * (parentRef.current?.clientWidth || 0))}px`;
     });
-    const size = useMemo(() => `${Math.floor(height * 80)}vmax`, [height]);
-    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + (var(--layer_1_gap) / 2) + ${offset}px` }), [height, ratio, offset, position]);
+    const size = useMemo(() => `${Math.floor(height * 80 * (ratio < 1 ? ratio : 1))}vh`, [height, ratio]);
+    const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px + (var(--layer_1_gap) / 2)` }), [height, ratio, offset, position]);
 
     useEffect(() => {
         if (position == 0 && setFirstPosterMotionValue) setFirstPosterMotionValue(translateX);
@@ -43,7 +43,7 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
     const newRef = useRef<HTMLDivElement>(null);
     
     const translateX = useOffset(newRef, motionValue, (parallaxFactor || 130) / 2.7, 1.0, src, onReady, jumpToValue);
-    const size = useMemo(() => `${Math.floor(height * 80)}vh`, [height]);
+    const size = useMemo(() => `${Math.floor(height * 65 * (ratio < 1 ? ratio : 1))}vh`, [height, ratio]);
     const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px - ${((leftOffset || 0.0)) * 100}%)` }), [height, ratio, offset, position, leftOffset]);
 
     useEffect(() => {
@@ -60,7 +60,13 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
 PosterComponentNewDevice.displayName = 'PosterComponentNewDevice';
 
 const PosterComponent = React.forwardRef((props: PosterProps, ref: React.ForwardedRef<HTMLImageElement>) => {
-    return isOldPhone() ? (<PosterComponentOldPhone {...props} />) : (<PosterComponentNewDevice ref={ref} {...props} />);
+    const [isOldDevice, setIsOldDevice] = React.useState(false);
+
+    useEffect(() => {
+        setIsOldDevice(isOldPhone());
+    }, []);
+
+    return isOldDevice ? (<PosterComponentOldPhone {...props} />) : (<PosterComponentNewDevice ref={ref} {...props} />);
 });
 
 PosterComponent.displayName = 'PosterComponent';

@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/google-font-preconnect */
-/* eslint-disable @next/next/google-font-display */
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
@@ -7,32 +6,27 @@ class MyDocument extends Document {
     return (
       <Html lang="fr">
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link rel="preconnect" href="https://fonts.cdnfonts.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.cdnfonts.com"
-            crossOrigin="anonymous"
-          />
+          <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="" key="preconnect_fonts_googleapis" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" key="preconnect_fonts_gstatic" />
+          <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="" key="preconnect_cdnfonts" />
+          <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" key="preconnect_cloudinary" />
+          <link rel="preconnect" href="https://framerusercontent.com" crossOrigin="" key="preconnect_framerusercontent" />
+          <link rel="dns-prefetch" href="https://fonts.googleapis.com" crossOrigin="" key="prefetch_fonts_googleapis" />
+          <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossOrigin="" key="prefetch_fonts_gstatic" />
+          <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" crossOrigin="" key="prefetch_cdnfonts" />
+          <link rel="dns-prefetch" href="https://framerusercontent.com" crossOrigin="" key="prefetch_framerusercontent"/>
+          <link rel="dns-prefetch" href="https://res.cloudinary.com" crossOrigin="" key="prefetch_cloudinary" />
+
           <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&family=Jost:wght@400;700&display=block"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Futura&family=Oswald:wght@600&family=Jost:wght@400;700;900&display=swap"
             as="style"
           />
           <link
-            rel="preload"
-            href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699618189/fonts/radwave.css"
-            as="style"
-          />
-          <link
-            rel="preload"
-            href="https://fonts.cdnfonts.com/css/futura-condensed-extra"
-            as="style"
+              rel="preload"
+              href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699617997/fonts/radwave.woff2"
+              as="font"
+              type="font/woff2" crossOrigin="anonymous"
           />
           <link
             rel="preload"
@@ -42,13 +36,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699617997/fonts/radwave.woff2"
-            as="font"
-            type="font/woff" crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="https://fonts.cdnfonts.com/s/92636/Futura Condensed Extra Bold.woff"
+            href="https://fonts.cdnfonts.com/s/92636/Futura%20Condensed%20Extra%20Bold.woff"
             as="font"
             type="font/woff" crossOrigin="anonymous"
           />
@@ -60,21 +48,18 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
+            href="/img/SMA_sleeve_256.webp"
+            as="image"
+            type="image/webp" />
+          <link
+            rel="preload"
             href="/img/sma_monogram.svg"
             as="image"
             type="image/svg+xml"
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Radwave&family=Futura&family=Oswald:wght@600&family=Jost:wght@400;700&display=block"
-          />
-          <link
-            rel="stylesheet"
-            href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699618189/fonts/radwave.css"
-          />
-          <link
-            rel="stylesheet"
-            href="https://fonts.cdnfonts.com/css/futura-condensed-extra"
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter&family=Futura&family=Oswald:wght@600&family=Jost:wght@400;700;900&display=swap"
           />
 
           <meta name="google" content="notranslate" />
@@ -98,13 +83,14 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#2B5797" />
           <meta name="msapplication-tap-highlight" content="no" />
           <meta name="theme-color" content="#000000" />
+          <meta name="color-scheme" content="light" />
 
-          <link rel="apple-touch-icon" href="/apple-touch-icon" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <link rel="apple-touch-icon" sizes="192x192" href="/img/192.png" />
           <link rel="apple-touch-icon" sizes="256x256" href="/img/256.png" />
           <link rel="apple-touch-icon" sizes="512x512" href="/img/512.png" />
 
-          <link rel="manifest" href="/manifest.json" />
+          <link rel="manifest" href={`/manifest.json?v=${process.env.BUILD_ID || 0}`} />
           <link rel="mask-icon" href="/img/icon.svg" color="#5bbad5" />
           <link rel="shortcut icon" href="/favicon.ico" />
 

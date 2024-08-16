@@ -12,8 +12,8 @@ import LoadingAnim from '../components/LoadingAnim'
 import { PlaybackProvider } from '../utils/PlayerContext'
 import useUpdateChecker from '../utils/updateChecker';
 
-import styles from "./layout.module.css"
 import { isMobile } from 'react-device-detect'
+import styles from "./layout.module.css"
 
 const FloatingPlaybackControls = dynamic(() => import('../components/FloatingPlaybackControls'), { ssr: false });
 
@@ -23,6 +23,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   const [_, setDisplayedComponent] = useState(Component?.name);
   const [componentHistory, setComponentHistory] = useState([Component?.name]);
   const [showLoadingAnim, setShowLoadingAnim] = useState(true);
+  const [loadingAnimGone, setLoadingAnimGone] = useState(false);
   const [loaderClass, setLoaderClass] = useState("vinyl_loading");
   const [isMobileDevice, setIsMobileDevice] = useState(true);
 
@@ -38,6 +39,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   }, [pathname]);
 
   useEffect(() => {
+    console.log(Component.name);
     setDisplayedComponent(displayedComponent => {
       if (Component.name !== displayedComponent && !Component.name.includes("404") && !displayedComponent.includes("404")) { 
         setLoaded("");
@@ -71,6 +73,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
     const loader = document.getElementById('globalLoader');
     if (loader) {
       if (!loadedRoute) {
+        setLoadingAnimGone(false);
         timeoutId = setTimeout(() => {
           if (!loadedRoute) {
             setLoaderClass("vinyl_loading");
@@ -84,6 +87,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
               setShowLoadingAnim(false);
             });
         } else timeoutId = setTimeout(() => { setShowLoadingAnim(false) }, 100);
+        setTimeout(() => {
+          setLoadingAnimGone(true);
+        }, 800);
       }
       return () => {
         clearTimeout(timeoutId);
@@ -117,6 +123,21 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=5.0,user-scalable=yes,interactive-widget=resizes-content" />
         <style>
           {`
+          @font-face {
+              font-family: 'Futura Condensed Extra';
+              font-style: normal;
+              font-weight: 700;
+              src: local('Futura Condensed Extra'),
+                  url('https://fonts.cdnfonts.com/s/92636/Futura%20Condensed%20Extra%20Bold.woff') format('woff');
+              font-display: swap;
+          }
+          @font-face{
+              font-family:radwave demo;
+              font-style:normal;
+              font-weight:400;
+              font-display: swap;
+              src:local('Radwave'),url(https://res.cloudinary.com/dcodwkhcg/raw/upload/v1699617997/fonts/radwave.woff2) format('woff2')
+          }
           :root {
             --tableMinHeight: 390px;
             --tableMinWidth: 790px;
@@ -126,14 +147,12 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         @media screen and (min-height: 1081px) and (max-height: 1440px) {
             :root {
                 font-size: 22px;
-                /* Adjust root font size for large screens */
             }
         }
         
         @media screen and (min-height: 1441px) and (max-height: 2000px) {
             :root {
                 font-size: 24px;
-                /* Adjust root font size for larger screens */
             }
         }
         
@@ -158,6 +177,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         html, body, #__next {
             height: 100vh !important;
             height: 100svh !important;
+            width: 100vw !important;
+            position: absolute;
+            top: 0 !important;
         }
         
         html *::-webkit-scrollbar {
@@ -254,6 +276,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
           <AnimatePresence mode='wait' onExitComplete={() => {
             if (!loadedRoute.includes("404")) setLoaded("");
             if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
+            console.log("exit complete");
+            console.log("Loaded route: ", loadedRoute);
+            console.log("Component history: ", componentHistory);
           }}>
             <Component {...pageProps} key={Component.name} onReady={onReady} />
           </AnimatePresence>
@@ -262,9 +287,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
           </div>}
         </PlaybackProvider>
       {/* </StrictMode> */}
-      <div id="globalLoader" style={(!showLoadingAnim && loadedRoute) ? { opacity: 0, pointerEvents: "none", position: "fixed", transition: "opacity 0.8s 0s cubic-bezier(0.390, 0.575, 0.565, 1.000)" } : { position: "fixed" }}>
+      { !loadingAnimGone && <div id="globalLoader" style={(!showLoadingAnim && loadedRoute) ? { opacity: 0, pointerEvents: "none", position: "fixed", transition: "opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000)" } : { position: "fixed" }}>
         <LoadingAnim className={loaderClass} />
-      </div>
+      </div> }
     </>
   )
 }

@@ -1,6 +1,6 @@
 {
   "name": "septanteminutes-web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -42,10 +42,16 @@
     "@next/bundle-analyzer": "^14.2.5",
     "@svgr/webpack": "^8.1.0",
     "css-loader": "6.11.0",
+    "cssnano": "^7.0.5",
     "file-loader": "^6.2.0",
+    "html-minifier-terser": "^7.2.0",
     "jsdom": "^24.1.1",
+    "postcss-loader": "^8.1.1",
     "style-loader": "3.3.4",
-    "svg-url-loader": "^8.0.0"
+    "svg-url-loader": "^8.0.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "web-vitals": "^4.2.3",
+    "webpack": "^5.93.0"
   },
   "resolutions": {
     "css-loader": "6.11.0",

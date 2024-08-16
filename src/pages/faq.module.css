@@ -31,15 +31,26 @@
 }
 
 .faqTitleMask {
-    mask-image: url(/img/rubber_stamp.webp);
+    /* mask-image: url(/img/rubber_stamp.webp); */
     mask-size: calc((232/354)*100%) calc(8.5cqh + 2.4rem);
+    mask-size: calc((234/354)*100%) calc((4.385rem*2) + -1.7rem);
     mask-position: calc(50% - 0.1rem) 0px;
     align-self: center;
     height: fit-content;
     width: 100%;
     display: flex;
-    font-size: 4.1cqh;
     justify-content: center;
+}
+
+.faqTitleMask::after {
+    /* content: ""; */
+    position: absolute;
+    top: 0;
+    font-size: 4.385rem;
+    width: calc(4.3ch + 4rem + 1.4rem);
+    height: calc((4.385rem) + 1.4rem);
+    background-image: url(/img/rubber_stamp.webp);
+    background-size: contain;
 }
 
 @supports (-webkit-hyphens:none) {
@@ -62,10 +73,12 @@
 
 .faqTitle > h1 {
     color: #b73a37;
-    font-family: "Futura condensed", "Jost", sans-serif;
+    font-family: Jost, sans-serif;
     margin: 0;
     user-select: none;
-    line-height: 8.6cqh;
+    line-height: 1.05;
+    font-size: 4.385rem;
+    font-weight: 700;
     background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg);
     background-clip: text;
 }
@@ -74,20 +87,27 @@
     position: absolute;
     top: 3.2rem;
     left: 3rem;
-    font-family: "Futura-Medium", "Jost", serif;
+    font-family: "Futura-Medium", "Jost", Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
+    line-height: 1.47;
     color: rgb(18 18 18 / 88%) !important;
 }
 
 .faqContainer {
     position:relative;
+    display: grid;
     width: 54rem;
     min-height: calc(100% - 6vh);
     height: fit-content;
     box-shadow: 0 0 0px 0px rgba(0,0,0,0.0);
     opacity: 0.75;
     transition: 0.45s opacity cubic-bezier(0.45,0.05,0.55,0.95), 0.45s 0.3s box-shadow cubic-bezier(0.39, 0.57, 0.56, 1), 0.75s transform cubic-bezier(0.39,0.57,0.56,1);
+}
+
+.faqContainer > * {
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .faqReady {
@@ -98,8 +118,6 @@
 
 .faqContents {
     display: flex;
-    position: absolute;
-    top: 0;
     padding: 3rem;
     flex-direction: column;
     align-items: flex-start;
@@ -132,7 +150,9 @@
 
 @supports (-webkit-hyphens:none) {
     .paper::before {
-        background-size: cover;
+        z-index: unset;
+        mix-blend-mode: luminosity;
+        background-blend-mode: unset;
     }
     
     .paper::after {
@@ -155,19 +175,19 @@
 
 .faqContents > h2 {
     font-family: "Oswald", sans-serif;
+    /* line-height: 1.47; */
     font-size: 1.6rem;
-    width: 95%;
+    margin-inline-end: 5%;
+    transition: font-size 0.32s ease-out;
 }
 
 .faqContents > span {
-    font-family: "Futura Condensed", "Jost", sans-serif;
+    font-family: Jost, Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    /* line-height: 1.4; */
     font-size: 1.35rem;
     align-self: flex-start;
     text-wrap: pretty;
-}
-
-.faqContents ul {
-    margin: 0;
+    transition: font-size 0.32s ease-out;
 }
 
 .faqContents a, .faqContents a:visited {
@@ -193,14 +213,14 @@
     .paper::before {
         background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg?scale-down-to=900), black;;
         background-repeat: repeat;
-    }    
+    }
 }
 
 @media (max-width:800) {
     .paper::before {
         background: url(https://framerusercontent.com/images/wey20Oh4D1flVO5T4XT24fWRuo.jpg?scale-down-to=600), black;;
         background-repeat: repeat;
-    }    
+    }
 }
 
 @media (pointer: coarse) {
@@ -240,8 +260,9 @@
     }
 
     .faqTitleMask {
-        font-size: calc(max(4.1cqh, 4.1cqw));
-        mask-size: calc(8ch + 4rem + 1.4rem) calc(max(9cqh, 9cqw) + 2.4rem);
+        font-size: 4.385rem;
+        font-weight: 700;
+        mask-size: calc(4ch + 4rem + 1.4rem) calc(max(8.6cqh, 8.6cqw) + 2.4rem);
         mask-position: calc(50% - 0.1rem) 0;
     }
 
@@ -272,6 +293,8 @@
     }
 
     .faqTitleMask {
+        font-size: 4.385rem;
         mask-position: calc(50% - 0.1rem) 8cqh;
+        mask-size: calc(4ch + 4rem + 1.4rem) calc(max(9cqh, 9cqw) + 2.4rem);
     }
 }

@@ -21,8 +21,8 @@ import { BellLamp as BellLamp_, Plant2 as PlantA2_, BackwallLight } from "../fra
 const PlantA = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant0), { ssr: false });
 const Eggchair = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Eggchair), { ssr: false });
 const PlantB = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant1), { ssr: false });
-const PlantD = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant2), { ssr: false });
-const PlantE = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant3), { ssr: false });
+const PlantD = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant3), { ssr: false });
+const PlantE = dynamic(() => import("../framer/ImageWrapper").then(mod => mod.Plant4), { ssr: false });
 
 import ScrollToAnchor from "../utils/scroll_to_anchor"
 import Head from "next/head";
@@ -54,6 +54,7 @@ export default function Home(props: {
     const [screenContentRatio, setRatio] = useState(1);
     const [columnFocus, setColumnFocus] = useState(false);
     const [showSwiper, setShowSwiper] = useState(false);
+    const [onTheMove, setOnTheMove] = useState(false);
     const [firstPosterMotionValue, setFirstPosterMotionValue] = useState<MotionValue | undefined>(undefined);
     const [offset3_factor, setOffset3Factor] = useState<number>(0.5);
     // const [isOldPhone, setIsOldPhone] = useState(true)
@@ -78,18 +79,23 @@ export default function Home(props: {
     }
 
     useEffect(() => {
-        if (window.Worker) {
-            const myWorker = new Worker("/js/seasonFetcher.js");
-            myWorker.onmessage = function (e) {
-                setSeasons([{ name: "", episodes: [] }, ...e.data]);
-            };
-            myWorker.postMessage("");
+        let timeout: NodeJS.Timeout;
+        if (window.Worker && ready && seasons.length <=  5) {
+            timeout = setTimeout(() => {
+                console.log("fetching seasons");
+                const myWorker = new Worker("/js/seasonFetcher.js");
+                myWorker.onmessage = function (e) {
+                    requestAnimationFrame(() => setSeasons([{ name: "", episodes: [] }, ...e.data]));
+                    localStorage.setItem('seasons', JSON.stringify(e.data));
+                };
+                myWorker.postMessage(localStorage.getItem('seasons') || '[]');
+            }, onTheMove || router.asPath.includes("#") ? 0 : 12000);
         }
 
         return () => {
-            setSeasons([]);
+            clearTimeout(timeout);
         };
-    }, []);
+    }, [ready, onTheMove, router.asPath, seasons.length]);
 
     const getLampsCount = useCallback((factor: number) => {
         if (!home.current) return 0;
@@ -126,7 +132,7 @@ export default function Home(props: {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [home.current?.clientWidth, getLampsCount]);
+    }, [home.current?.clientWidth, getLampsCount, seasons.length]);
 
     const { scrollX, scrollY } = useScroll();
     const scrollXAdditional = useMotionValue(0);
@@ -438,7 +444,10 @@ export default function Home(props: {
         const unsub = motionValue.on("change", (val) => {
             if (Math.abs(val) > 50) {
                 hasMovedRef.current = true;
-                if (unsub) unsub();
+                if (Math.abs(val) > 1000) {
+                    setOnTheMove(true);
+                    if (unsub) unsub();
+                }
             }
         });
 
@@ -574,9 +583,9 @@ export default function Home(props: {
     return (
         <motion.div
             key="transition_loader"
-            initial={{ opacity: 0.001 }}
-            animate={{ opacity: ready ? 1 : 0.001 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0.001, visibility: 'hidden' }}
+            animate={{ opacity: ready ? 1 : 0.001, visibility: 'visible' }}
+            exit={{ opacity: 0, visibility: 'hidden' }}
             transition={{ type: 'linear', duration: 0.25 }}
             onAnimationComplete={(animDef: { opacity: number }) => {
                 if (!isPresent && animDef.opacity === 0) {
@@ -625,7 +634,7 @@ export default function Home(props: {
                             <div className={styles.ceiling} key={"ceiling"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
                                     <div key={`ceiling_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh", position: "relative" }}>
-                                        <Image draggable="false" priority src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
+                                        <Image draggable="false" loading={isMobileDevice ? "lazy" : "eager"} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}
                             </div>
@@ -637,17 +646,12 @@ export default function Home(props: {
                                             const left = invisibleSeasonSeparators.slice(0, i + 1).reduce((sum, value) => sum + value, 0);
                                             return (<React.Fragment key={season.name + "_invisible00_fragment"}>
                                                 <Poster setFirstPosterMotionValue={setFirstPosterMotionValue} ref={i == 0 ? firstPoster : undefined} offset={left} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}_${invisibleSeasonSeparators[i]}`}
-                                                    priority={ready || i == 0} poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
+                                                    priority={!isMobileDevice && (ready || i == 0)} poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
                                             </React.Fragment>)
                                         })
                                     }
                                 </motion.div>
                                 <BackwallLight className={styles.backwall_light} key="backwall_light" offset={firstPosterMotionValue} />
-                            </div>
-                            <div key={"floor"}>
-                                {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`floor_${i}`} style={{ aspectRatio: 4096 / 111, width: "auto", position: "relative" }} />
-                                ))}
                             </div>
                         </motion.div>
                         <motion.div key="layer_0_25" ref={layer0_25} className={[styles.layer_0_25, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} style={{ translateX: offsetFloor, width: "130%" }}  >
@@ -656,7 +660,7 @@ export default function Home(props: {
                                     <motion.div className={styles.floor} key={"floor"}>
                                         {[...Array(groundTexturesCount)].map((_, i) => (
                                             <div key={`floor_${i}`}>
-                                                <Image draggable="false" loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes={isMobile ? "422vmax" : "422vh"} />
+                                                <Image draggable="false" loading="lazy" src="https://framerusercontent.com/images/WJ4GoOiClG5Vma3Y4Hi0CrGffag.jpg" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes={isMobileDevice ? "100vmax" : "100vh"} />
                                             </div>
                                         ))}
                                     </motion.div>
@@ -730,14 +734,14 @@ export default function Home(props: {
                             ))}
                         </motion.div>
                         <div key="layer_3" className={[styles.layer, styles.layer_3_wrapper].join(" ")}>
-                            {frontPosters.length && <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, translateZ: "20px" }}>
+                            {frontPosters.length > 0 && <motion.div ref={layer3} className={[styles.layer_3, styles.layer].join(" ")} style={{ translateX: offset3, translateZ: "20px" }}>
                                 <PlantA2 key={`layer3_prop_-1_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                 {[...Array(frontItemsCount)].map((_, i: number) => (
                                     <React.Fragment key={`layer3_deco_${i}`}>
                                         {!isMobileDevice && (<FrontColumn key={`layer3_prop_${i}_FrontColumn`} className={[styles.front_column, columnFocus ? "" : styles.blur8].join(" ")}
                                             pic={frontPosters[i % 4].img} subtitle={frontPosters[i % 4].text} ratio={frontPosters[i % 4].ratio} date={frontPosters[i % 4].date} blur={frontPosters[i % 4].blurDataUrl}
                                             priority={ready} onMouseMove={() => { setColumnFocus(true) }} onMouseLeave={() => { setColumnFocus(false) }} />)}
-                                        <PlantA2 key={`layer3_prop_${i}_PlantA2`} sizes="89svmin" className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
+                                        <PlantA2 key={`layer3_prop_${i}_PlantA2`} className={[styles.plant_front, columnFocus ? styles.blurReady : styles.blur8].join(" ")} />
                                     </ React.Fragment>
                                 ))}
                             </motion.div>}
@@ -781,8 +785,9 @@ export const getStaticProps = (async (_) => {
         name: season,
         episodes: vinyls.filter(ep => ep.season === season)
     }));
+    seasons.reverse();
   
-    return { props: { seasons } }
+    return { props: { seasons: [{ name: "", episodes: [] }, ...(seasons.slice(0, 3)) ]} }
   }) satisfies GetStaticProps<{
   }>;
 

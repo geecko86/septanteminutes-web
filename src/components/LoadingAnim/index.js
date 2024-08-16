@@ -1,31 +1,23 @@
 
 
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Head from 'next/head';
 import NextImage from "next/image";
 
 const Loader = (props) => {
 
     const [assetloaded, setAssetLoaded] = React.useState(false);
+    const sleeveImg = useRef(null);
 
     useEffect(() => {
-        const img = new Image();
-        img.priority = true;
-        img.loading = "eager";
-        img.src = "/img/SMA_sleeve_256.webp";
-        console.log("Loading anim: image loading");
-        img.onload = () => {
-            setAssetLoaded(true)
-            console.log("Loading anim: image loaded");
-        };
-        if (img.complete) setAssetLoaded(true);
-    }, []);
+        const img = sleeveImg.current;
+        if (img && img.complete) setAssetLoaded(true);
+    }, [sleeveImg]);
 
     return (
         <>
             <Head>
-                <link rel="preload" href="/img/SMA_sleeve_256.webp" as="image" />
                 <style>
                 {`@keyframes moveDisk {from { transform:translateX(0); }  to { transform: translateX(30%); }}`}
                 {`@keyframes moveSleeve { from {  transform: translateX(0); } to { transform: translateX(-30%); } }`}
@@ -46,13 +38,14 @@ const Loader = (props) => {
                 }`}
                 </style>
             </Head>
-            {assetloaded && <div className={props.className} style={{
+            <div className={props.className} style={{
                 placeSelf: "center",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 width: "54%",
-                height: "54%"
+                height: "54%",
+                visibility: !assetloaded ? "hidden" : "visible",
             }}>
                 <div style={{
                     width: "calc(min(30vh, 55vw))",
@@ -88,12 +81,16 @@ const Loader = (props) => {
                     }} />
                 </div>
                 <div style={{position: "absolute", height: "calc(min(30vh, 55vw) - 1px)", width: "auto", aspectRatio: 1, display: "flex", flexDirection: "column", zIndex: 5, animation: "moveSleeve 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards" }}>
-                    <NextImage draggable="false" src="/img/SMA_sleeve_256.webp" sizes="15vh" fill={true} loading="eager" priority alt="Loading box" style={{
+                    <NextImage draggable="false" ref={sleeveImg}
+                    src="/img/SMA_sleeve_256.webp" sizes="15vh" fill={true}
+                    loading="eager" priority alt="Loading box"
+                    onLoad={() => setAssetLoaded(true)}
+                    style={{
                         overflow: "hidden",
                         boxShadow: "0.5vh 1vh 3vh rgba(0,0,0,0.3), -0.5vh 0px 3vh rgba(0,0,0,0.4)",                        
                     }} />
                 </div>
-            </div>}
+            </div>
         </>
     )
 };
