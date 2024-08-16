@@ -640,20 +640,24 @@ export default function EpisodeTable(props: {
               {[{ name: "Spotify", color: "#1DB954", link: vinyls[selectedEpisode].spotifyLink },
               { name: "Apple Podcasts", color: "#872EC4", link: vinyls[selectedEpisode].appleLink, skip: !isIOS },
               { name: browserName || "Ce navigateur", color: "rgb(42, 50, 54)", link: "#" }
-              ].filter(i => !i.skip).map((service, i, array) => (
-                <div className={styles.bottomSheetRow} key={`bottomSheetRow_${service.name}`}>
+              ].filter(i => !i.skip).map((service, i, array) => {
+                const button = (
+                  <button tabIndex={i*10} className={styles.roundButton} style={{ backgroundColor: service.color, }} onClick={() => {
+                    setBottomSheetOpen(false);
+                    sessionStorage.setItem("preferredService", service.name);
+                    if (service.link == "#") playEpisode(selectedEpisode);
+                  }}>{i < array.length - 1 ? "Ouvrir ↗" : "Continuer"}</button>
+                );
+                return (<div className={styles.bottomSheetRow} key={`bottomSheetRow_${service.name}`}>
                   { /* eslint-disable-next-line @next/next/no-img-element */}
                   <img draggable="false" src={`/img/${i < array.length - 1 ? service.name.toLowerCase().replace(" ", "") : (browserName.toLowerCase() || "play")}.svg`} alt={`${service.name} Logo`} />
                   <strong>{service.name}</strong>
+                  {service.link == "#" ? button : 
                   <Link target="_blank" href={service.link}>
-                    <button tabIndex={i*10} className={styles.roundButton} style={{ backgroundColor: service.color, }} onClick={() => {
-                      setBottomSheetOpen(false);
-                      sessionStorage.setItem("preferredService", service.name);
-                      if (service.link == "#") playEpisode(selectedEpisode);
-                    }}>{i < array.length - 1 ? "Ouvrir ↗" : "Continuer"}</button>
-                  </Link>
-                </div>
-              ))}
+                    {button}
+                  </Link>}
+                </div>)
+              })}
             </div>
           </BottomSheet>}
         </motion.div>

@@ -17,7 +17,7 @@ const PresentationWallContents = () => {
     useEffect(() => {
         const observer = new ResizeObserver((_) => {
             const overflow = (paragraphRef.current?.scrollHeight || 0) > (paragraphRef.current?.clientHeight || 0);
-            if (overflow) setOverflowSize(val => Math.min(val + 10, 80));
+            if (overflow) setOverflowSize(val => Math.min(val + 10, 120));
         });
 
         const resizeCallback = () => {
