@@ -272,14 +272,13 @@ export default function EpisodeTable(props: {
 
     let clear = false;
     if (selectedVinyl.current && mainRef.current && mainRef.current.querySelector('img[fetchpriority="high"]')) {
-      console.log("creating promises")
-      const priorityImagesPromises = [...document.querySelectorAll('img[fetchpriority="high"]')].map((el: Element, i: number) => (
+      const priorityImages = document.querySelectorAll('img[fetchpriority="high"]');
+      console.log(`creating ${priorityImages.length} promises`)
+      const priorityImagesPromises = [...priorityImages].map((el: Element, i: number) => (
         new Promise<void>((resolve, _) => {
-          const timeoutId = setTimeout(resolve, 3000);
           const img = el as HTMLImageElement;
           const finish = () => {
             resolve();
-            clearTimeout(timeoutId);
           }
           if (img.complete) finish();
           else img.onload = finish;
@@ -299,12 +298,12 @@ export default function EpisodeTable(props: {
     }
 
     const timeoutId = setTimeout(() => {
-      console.log("Timeout on selected vinyl tag");
+      console.log("Timeout on priority images");
       if (!clear && !ready) { 
         onReady();
         setReady(true);
       }
-    }, 4500);
+    }, 3200);
 
     return () => {
       clearTimeout(timeoutId);
@@ -513,7 +512,7 @@ export default function EpisodeTable(props: {
           tabIndex={0}
         >
           <div className={styles.floor}>
-            <Image draggable="false" alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{ objectFit: "cover" }} fill />
+            <Image draggable="false" alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="60vw" style={{ objectFit: "cover" }} fill />
             { !(isMobileDevice && !isPortrait) && <Chair className={styles.chair} />}
             <div className={styles.invisiblefill} />
           </div>
@@ -548,7 +547,7 @@ export default function EpisodeTable(props: {
                 if (clickedNotebookCount == 0) localStorage.setItem("hasClickedNotebook", (clickedNotebookCount + 1).toString());
               }}
             />
-            {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="23.47vmax" className={styles.phone} />}
+            {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="(orientation:portrait) 13vh, 13vw" className={styles.phone} />}
             {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
               if (playingEpisode?.mp3) {
@@ -672,9 +671,9 @@ export default function EpisodeTable(props: {
             }}
           >
             {(v.num === descriptionEpisode.num) && <>
-              <h1>Septante Minutes Avec {v.title}</h1>
+              <h1>Septante Minutes Avec {descriptionEpisode.title}</h1>
               <h2>Description</h2>
-              <p dangerouslySetInnerHTML={{ __html: props.episode.desc }} />
+              <p dangerouslySetInnerHTML={{ __html: descriptionEpisode.desc }} />
             </>}
           </motion.div>
         ))}
@@ -688,7 +687,7 @@ type key = "1" | "2"; // Etc.
 export const getStaticPaths = (async () => {
   const count = Number(process.env.EPISODES_COUNT);
   const paths = Array.from(Array(count).keys()).map((i) => ({
-    params: { episodeNum: `${i + 1}`, episodePage: "index" },
+    params: { episodeNum: `${i + 1}` },
   }));
   return {
     paths: paths,
@@ -697,11 +696,15 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths
 
 export const getStaticProps = (async (context) => {
+  function stripHtmlTags(html: string): string {
+    return html.replace(/<\/?[^>]+(>|$)/g, "").replace(/\n/g, " ");
+  }
+
   const { episodeNum } = (context.params as any);
-  const mod = await import("../../../public/js/data.json");
+  const mod = await import("@/../public/js/data.json");
   const episode: Episode = mod.episodes[`${episodeNum}` as key];
-  const { JSDOM } = require("jsdom");
-  episode.descText = new JSDOM(episode.desc).window.document.querySelector("*").textContent || "";
+
+  episode.descText = stripHtmlTags(episode.desc) || "";
   episode.descText = episode.descText?.split(/(\nRéférence|\n0)/i)[0].slice(0, 198).trim() + "…";
 
   return { props: { episode } }

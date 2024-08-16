@@ -10,7 +10,8 @@
     position: sticky;
     visibility: hidden;
     left: var(--controls-margin);
-    top: 100%;
+    top: 85%;
+    bottom: 0;
     transform: translateX(calc(-1 * var(--controls-margin) - var(--computed-width))) translateY(calc(-1 * var(--controls-margin)));
 
     border-radius: 8px;
@@ -267,7 +268,7 @@
 
 .end_section .playButton {
     height: calc(0.2176 * var(--computed-height));
-    width: auto;
+    width: 22%;
     aspect-ratio: 0.76;
     cursor: pointer;
 }

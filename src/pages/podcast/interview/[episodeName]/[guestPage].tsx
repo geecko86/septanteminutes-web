@@ -1,6 +1,6 @@
 import React from 'react';
 
-import EpisodePage from "@/pages/[episodeNum]/[episodePage]";
+import EpisodePage from "@/pages/[episodeNum]";
 import normalizeString from "@/utils/normalizeStr";
 
 import type {
@@ -40,12 +40,16 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths
 
 export const getStaticProps = (async (context) => {
+    function stripHtmlTags(html: string): string {
+        return html.replace(/<\/?[^>]+(>|$)/g, "").replace(/\n/g, " ");
+    }
+
     const { episodeName } = (context.params as any);
     const episodeNum = episodeName.split("-")[0];
     const mod = await import("@/../public/js/data.json");
-    const episode: Episode = mod.episodes[episodeNum as key];
-    const { JSDOM } = require("jsdom");
-    episode.descText = new JSDOM(episode.desc).window.document.querySelector("*").textContent || "";
+    const episode: Episode = mod.episodes[`${episodeNum}` as key];
+
+    episode.descText = stripHtmlTags(episode.desc) || "";
     episode.descText = episode.descText?.split(/(\nRéférence|\n0)/i)[0].slice(0, 198) + "…";
 
     return { props: { episode } }

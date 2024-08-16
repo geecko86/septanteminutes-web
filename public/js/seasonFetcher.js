@@ -1,4 +1,8 @@
-onmessage = function (_) {
+onmessage = function (localStorageString) {
+    const localSeasons = JSON.parse(localStorageString.data);
+    if (localSeasons && localSeasons.length > 3) { 
+        this.postMessage(localSeasons);
+    }
     fetch('/api/buildId.txt', {
         headers: {
             Pragma: 'no-cache',
@@ -31,18 +35,12 @@ onmessage = function (_) {
                     name: season,
                     episodes: vinyls.filter(ep => ep.season === season)
                 }));
-                postMessage([...seasons].reverse());
+                const output = [...seasons].reverse();
+                postMessage(output);
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
-                postMessage([]);
+                if (!localSeasons) postMessage([]);
             });
     });
 }
-
-// function getTimestamp() {
-//     const now = new Date();
-//     const diff = now - new Date(now.getFullYear(), 0, 0);
-//     const day = Math.floor(diff / (1000 * 60 * 60 * 24));
-//     return `${day}_${now.getHours()}_${Math.ceil(now.getMinutes() / 5)}`;
-// }

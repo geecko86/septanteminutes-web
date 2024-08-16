@@ -233,26 +233,16 @@
 }
 
 .presentationWall div[data-framer-name="LEGENDE"] {
-    position: absolute;
+    position: static !important;
     height: 1.5rem !important;
-    width: 100%;
+    width: 100% !important;
     justify-content: end;
-    left: 0 !important;
-    margin-left: calc(55vh / 10);
-    margin-right: calc(55vh / 10);
-    margin-left: calc(55svh / 10);
-    margin-right: calc(55svh / 10);
-    right: 0 !important;
 }
 
-.presentationWall .player_visible[data-framer-name="LEGENDE"] {
-    bottom: calc(max(12vh, 96px));
-    bottom: calc(max(12svh, 96px));
-}
-
-.presentationWall div[data-framer-name="LEGENDE"] a {
-    height: 100%;
-    width: auto;
+.presentationWall div[data-framer-name="LEGENDE"] > a {
+    height: inherit;
+    width: auto !important;
+    aspect-ratio: 1;
     cursor: pointer;
     pointer-events: all;
 }
@@ -292,13 +282,23 @@
 }
 
 .presentationWall div[data-framer-name="Wall"] {
-    /* height: 100%  !important; */
+    height: 100% !important;
+    max-height: calc(98% - 1.5rem - (85svh/8.2 + 1.9rem + 1.65svh)) !important;
+    /* max-height: 75%  !important; */
     aspect-ratio: unset !important;
     min-width: unset !important;
     padding-bottom: unset !important;
     padding-top: calc(85svh / 8.2) !important;
+    padding-left: calc(55vh / 10) !important;
     padding-left: calc(55svh / 10) !important;
+    padding-right: calc(55vh / 10) !important;
     padding-right: calc(55svh / 10) !important;
+    justify-content: space-between !important;
+    flex-wrap: unset !important;
+}
+
+div[data-framer-name="Wall"].player_visible {
+    height: calc(85% - max(12vh, 96px)) !important;
 }
 
 .presentationWallContents {
@@ -342,7 +342,7 @@
     padding-right: 0.5ch;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 0px solid #000;
-    font-family: "Futura-Medium", "Jost", sans-serif !important;
+    font-family: "Futura-Medium", "Jost", Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif !important;
     overflow-y: clip;
 }
 
@@ -370,7 +370,7 @@
     font-size: 1rem;
     margin-top: 1.9ch;
     line-height: 1.2rem;
-    font-family: "Futura-Medium", "Jost", sans-serif !important;
+    font-family: "Futura-Medium", "Jost", sans-Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif !important;
 }
 
 
@@ -718,18 +718,16 @@
     .presentationWall {
         min-width: 52vmax !important;
         min-width: 52svmax !important;
+        /* max-width: 100vmin; */
     }
 
     .presentationWall div[data-framer-name="LEGENDE"] {
-        margin-left: calc(55vmax / 10);
-        margin-right: calc(55vmax / 10);
-        margin-left: calc(55svmax / 10);
-        margin-right: calc(55svmax / 10);
+        width: 100% !important;
     }
     
     .presentationWall div[data-framer-name="Wall"] {
-        padding-left: calc(55svmax / 10);
-        padding-right: calc(55svmax / 10);
+        padding-left: calc(55svmax / 10) !important;
+        padding-right: calc(55svmax / 10) !important;
     }
     .presentationText img {
         max-height: 8vmax;

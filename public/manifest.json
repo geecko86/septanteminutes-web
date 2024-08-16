@@ -1,9 +1,10 @@
 {
     "theme_color": "#303030",
     "background_color": "#FFF",
-    "display": "fullscreen",
+    "display_override": ["standalone", "fullscreen"],
+    "display": "minimal-ui",
     "orientation": "portrait",
-    "scope": "/",
+    "scope": "https://beta.septanteminutes.be/",
     "start_url": "/",
     "name": "Septante Minutes Avec",
     "short_name": "Septante Minutes",

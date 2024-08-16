@@ -105,7 +105,7 @@ const SeasonComponent = (props: {
                                 <Image draggable="false"
                                     alt="" fill={true}
                                     priority={true}
-                                    className={styles.wall} sizes="90vh"
+                                    className={styles.wall} sizes="(orientation:portrait) 30vh, 66vh"
                                     quality={50}
                                     src="https://framerusercontent.com/images/hxXL2jKccfg84wL6UdchMdB312c.jpg"
                                     style={{
@@ -119,7 +119,9 @@ const SeasonComponent = (props: {
                         ))
                     }
                 </div>}
-                <div data-framer-name="Wall" style={{
+                <div data-framer-name="Wall"
+                    className={playerVisible && presentationWall ? styles.player_visible : ""}
+                    style={{
                     aspectRatio: true ? `max(665.17, 8.22 * 20 * ${Math.ceil((children?.length || 2) / 2)} + 8.22 * 7 * ${Math.ceil((children?.length || 2) / 2) - 1})/543` : "unset"
                     // 8.22 = svh, 20 = coeff, number of columns + number of gaps 
                 }}>
@@ -167,7 +169,7 @@ const SeasonComponent = (props: {
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>Disponible sur toutes</p>
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>les plateformes</p>
                         </div>
-                    </div> : <div className={[styles.season_legende, playerVisible ? styles.player_visible : ""].join(" ")} data-framer-name="LEGENDE">
+                    </div> : <div className={[styles.season_legende].join(" ")} data-framer-name="LEGENDE">
                     <span><Link href="/faq" scroll={false}><h1>FAQ</h1></Link></span>
                         { [
                             { name: "spotify", link: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r"},
@@ -175,7 +177,7 @@ const SeasonComponent = (props: {
                             { name: "youtube", link: "https://www.youtube.com/@septanteminutes/videos" },
                             { name: "instagram_black", link: "https://www.instagram.com/GuiHachez/" },
                             { name: "rss", link: "https://anchor.fm/s/b43f59a8/podcast/rss" }].map((item) => (
-                            <a key={item.name} href={item.link} target="_blank" style={item.name.endsWith("_black") ? { aspectRatio: 1, transform: "scale(1.23)" } : {}}>
+                            <a key={item.name} href={item.link} target="_blank" style={item.name.endsWith("_black") ? { aspectRatio: 1, transform: "scale(1.23)", height: "inherit" } : {}}>
                                 <Image draggable="false" src={`/img/${item.name}.svg`} unoptimized alt={item.name.split("_")[0]} width={16} height={16} />
                             </a>
                         )) }

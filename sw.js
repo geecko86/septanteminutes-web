@@ -163,6 +163,36 @@ registerRoute(
   'GET'
 );
 
+registerRoute(
+  /^https:\/\/res\.cloudinary\.com\//i,
+  new CacheFirst({
+    cacheName: 'cloudinary-assets',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 500,
+        maxAgeSeconds: 31536000, // 1 year in seconds
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+
+registerRoute(
+  /^https:\/\/framerusercontent\.com\/images\//i,
+  new CacheFirst({
+    cacheName: 'framer-assets',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 500,
+        maxAgeSeconds: 31536000, // 1 year in seconds
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+
 // following lines gives you control of the offline fallback strategies
 // https://developers.google.com/web/tools/workbox/guides/advanced-recipes#comprehensive_fallbacks
 

@@ -17,6 +17,14 @@
         "destination": "/faq.html"
       },
       {
+        "source": "/feed",
+        "destination": "/rss.xml"
+      },
+      {
+        "source": "/rss",
+        "destination": "/rss.xml"
+      },
+      {
         "source": "**",
         "destination": "/404.html"
       }
