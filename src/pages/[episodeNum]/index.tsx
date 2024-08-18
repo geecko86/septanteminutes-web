@@ -27,6 +27,7 @@ import ImagedPostIt_ from "../../framer/Imaged-Post-It-1vlf.js";
 import RecordPlayer from "../../components/RecordPlayer/index.js";
 import VinylAlbum, { ShadowAlbum } from "../../components/VinylAlbum";
 import NotebookOverlay from "../../components/NotebookOverlay/index.js";
+import MaterialSpinningLoader from "../../components/MaterialSpinningLoader/index.js";
 import { hackAutoplay, usePlayback } from '../../utils/PlayerContext';
 import normalizeString from "@/utils/normalizeStr";
 import { isChrome, isEdge, isFirefox, isIOS, isMobile, isOpera, isSafari } from "react-device-detect";
@@ -631,6 +632,11 @@ export default function EpisodeTable(props: {
                 { /* eslint-disable-next-line @next/next/no-img-element */}
                 <img draggable="false" src="/img/play.svg" alt="Lancer la lecture" role="button" />
               </div>
+              {
+                isMobile && !!audio && audio.src && audio?.readyState < 3 && <div className={styles.loading}>
+                  <MaterialSpinningLoader huge white />
+                </div>
+              }
             </motion.div>
           </div>
           {vinyls[selectedEpisode] && isMobileDevice && <BottomSheet className={styles.bottomSheet} open={bottomSheetOpen} onDismiss={() => setBottomSheetOpen(false)} header={

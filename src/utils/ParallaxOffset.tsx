@@ -1,9 +1,11 @@
 import { MotionValue, useTransform } from "framer-motion";
 import { RefObject, useEffect, useCallback, useState } from "react";
+import { isMobile } from "react-device-detect";
 
 const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
 
   const [windowDim, setWindowDim] = useState({ width: 0, height: 0 });
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
 
   useEffect(() => {
     const subroot: HTMLDivElement | undefined = document.getElementById("subroot") as HTMLDivElement;
@@ -17,6 +19,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
 
     handleResize();
     window.addEventListener('resize', handleResize, { passive: true });
+    setIsMobileDevice(isMobile);
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -41,7 +44,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
       return `0px`;
     }
 
-    const adjustedCoeff = coeff * (windowDim.width / windowDim.height);
+    const adjustedCoeff = coeff * (isMobileDevice ? (windowDim.width / windowDim.height) : (16/9));
     // Calculate the progress percentage
     const newProgress =
       ((viewportEnd - targetStart) / (viewportEnd + Math.max(targetRect.width, targetRect.height)));
@@ -52,7 +55,7 @@ const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coe
     const output = `${(adjustedCoeff > 0 ? 1 : -1) * targetWidth * (Math.pow(newProgress * Math.abs(adjustedCoeff), pow) / 100)}px`;
     // const output = `${newProgress * adjustedCoeff}%`;
     return output;
-  }, [ref, motionValue, coeff, pow, windowDim]);
+  }, [ref, motionValue, coeff, isMobileDevice, pow, windowDim]);
 
   useEffect(() => {
     // Define limit

@@ -31,7 +31,7 @@ const ImageOffsetWrapperComponentNewDevice = (props) => {
     const translateX = useOffset(ref, motionValue, offsetFactor || 30, 0.9515, src, onReady);
 
     return (<div {...newProps} ref={ref}>
-        <motion.div style={{ ...style, position: "relative", translateX: translateX || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
+        <motion.div style={{ ...style, position: "relative", translateX: translateX, translateZ: "4px", height: "100%", width: "100%" }}>
             <Image draggable="false" src={src} alt="" fill loading={priority ? "eager" : "lazy"} priority={!!priority} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)

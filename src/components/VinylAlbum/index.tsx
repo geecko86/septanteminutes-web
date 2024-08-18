@@ -55,7 +55,7 @@ const VinylAlbum = React.forwardRef(( {
   const translateX = useTransform(
     albumXOffset,
     [(total - position - 1) * -500 - 25, (total - position - 1 + 1) * -500],
-    ["0%", "-266%"]
+    ["-0vw", "-50vw"]
   );
   const translateY = useTransform(
     albumYOffset,

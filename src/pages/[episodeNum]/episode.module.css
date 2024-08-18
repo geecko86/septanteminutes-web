@@ -39,10 +39,6 @@
   position: absolute !important;
 }
 
-div:has(> .chair) {
-  position: relative;
-}
-
 .chair {
   position: absolute !important;
   top: calc(max(73vw / 2.0268, var(--tableMinHeight)) + (50vh - max(73vw / 2.0268, var(--tableMinHeight)) / 2) - ((max(75vw * 0.54, 320px) / 0.395) * 0.142)) !important;
@@ -51,7 +47,7 @@ div:has(> .chair) {
   object-fit: contain;
   aspect-ratio: 1;
   height: auto !important;
-  width: calc(75vw * 0.8) !important;
+  width: calc(max(75vw * 0.8, 75vh)) !important;
   min-width: 320px;
   transform: rotate(-23deg) !important;
 }
@@ -114,11 +110,6 @@ div:has(> .chair) {
   user-drag: none;
 }
 
-.table div:has(>img[data-nimg="fill"]) {
-  position: relative;
-  overflow: clip;
-}
-
 .table p {
   margin: 0 !important;
 }
@@ -145,15 +136,11 @@ div:has(> .chair) {
 }
 
 .notebook div[data-framer-component-type="RichTextContainer"] {
-  width: 95% !important;
-  left: 0 !important;
-  top: 0 !important;
-  transform: unset !important;
   container-type: inline-size;
 }
 
 .notebook p {
-  font-size: 1.6cqw !important;
+  font-size: 24.5cqw !important;
   width: 95%;
   text-align: center !important;
   display: block;
@@ -169,6 +156,7 @@ div:has(> .chair) {
   top: inherit !important;
   pointer-events: none;
   transform: rotate(-2.5deg) !important;
+  overflow: clip;
 }
 
 .player {
@@ -177,6 +165,7 @@ div:has(> .chair) {
   right: 3%;
   width: 38.9% !important;
   height: 62% !important;
+  overflow: clip;
 }
 
 .headphones {
@@ -188,6 +177,7 @@ div:has(> .chair) {
   top: -3.2% !important;
   transform: rotate(7deg);
   transform-origin: center;
+  overflow: clip;
 }
 
 .camera {
@@ -290,7 +280,7 @@ div:has(> .chair) {
   will-change: transform;
 }
 
-.albums>div.playButton:last-child {
+.albums>div.playButton, .albums>div.loading {
   width: 50% !important;
   height: 50% !important;
   opacity: 0;
@@ -299,6 +289,10 @@ div:has(> .chair) {
   right: unset;
   translate: -50% -50% 0px;
   pointer-events: none;
+}
+
+.albums>div.loading {
+  opacity: 0.8;
 }
 
 .postitnotes {
@@ -333,6 +327,8 @@ div:has(> .chair) {
   /* width: calc(round(up, 100% * 1.5, 1px) / 1.5) !important; */
   clip-path: inset(23% 16% 25% 16.5%);
   display: block;
+  position: relative;
+  overflow: clip;
 }
 
 .postit a {
@@ -407,7 +403,11 @@ div:has(> .chair) {
   position: absolute;
 }
 
-.postitnotes > div:has(.postit.subscribe_postit), .postit.subscribe_postit {
+.postitnotes > div:has(.postit.subscribe_postit) {
+  display: none;
+}
+
+.postit.subscribe_postit {
   display: none;
 }
 
@@ -481,10 +481,6 @@ div:has(> .chair) {
 
 .subscribe_postit div[data-framer-name="hover_zone"] {
   cursor: pointer;
-}
-
-.postit.subscribe_postit div:has(> img) {
-  overflow: visible !important;
 }
 
 .bottomSheet {
@@ -675,10 +671,6 @@ div:has(> .chair) {
     clip-path: none !important;
   }
 
-  .postit.home_postit div:has(> img) {
-    overflow: visible !important;
-  }
-
   .postit div[data-framer-name="hover_zone"] {
     display: block;
     height: 87%;
@@ -744,7 +736,7 @@ div:has(> .chair) {
   }
 
   .subscribe_postit p {
-    font-size: 62cqw !important;
+    font-size: 60.5cqw !important;
   }
 
   .contact_postit p {
@@ -752,7 +744,7 @@ div:has(> .chair) {
   }
 
   .download_postit p {
-    font-size: 60cqw !important;
+    font-size: 58.5cqw !important;
   }
 
   /* .postit a {
@@ -803,8 +795,20 @@ div:has(> .chair) {
   .table {
     width: 94vw;
   }
-
-  .notebook p {
-    font-size: 2cqw !important;
-  }
 }
+
+@media (min-aspect-ratio: 2) {
+  .table {
+    max-height: 75vh;
+    max-height: 75svh;
+    max-width: calc(75vh*2.0268) !important;
+    max-width: calc(75svh*2.0268) !important;
+  }
+
+  .chair {
+    max-width: calc(60vh*2.0268) !important;
+    max-width: calc(60svh*2.0268) !important;
+    left: calc(50% - 30vb) !important;
+    left: calc(50% - 30svb) !important;
+  }
+} 

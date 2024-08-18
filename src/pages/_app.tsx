@@ -11,8 +11,9 @@ import { AnimatePresence } from 'framer-motion'
 import LoadingAnim from '../components/LoadingAnim'
 import { PlaybackProvider } from '../utils/PlayerContext'
 import useUpdateChecker from '../utils/updateChecker';
+import useBrowserCheck from '../utils/browserCheck';
 
-import { isMobile } from 'react-device-detect'
+import { browserName, browserVersion, engineVersion, isChrome, isChromium, isMobile, isSamsungBrowser } from 'react-device-detect'
 import styles from "./layout.module.css"
 
 const FloatingPlaybackControls = dynamic(() => import('../components/FloatingPlaybackControls'), { ssr: false });
@@ -41,7 +42,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   useEffect(() => {
     console.log(Component.name);
     setDisplayedComponent(displayedComponent => {
-      if (Component.name !== displayedComponent && !Component.name.includes("404") && !displayedComponent.includes("404")) { 
+      if (Component.name !== displayedComponent && !Component.name.includes("404") && !displayedComponent.includes("404")) {
         setLoaded("");
       }
       return Component.name
@@ -83,9 +84,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
       } else {
         setLoaderClass("vinyl_loading vinyl_hidden");
         if ("requestIdleCallback" in window) {
-            requestIdleCallback(() => {
-              setShowLoadingAnim(false);
-            });
+          requestIdleCallback(() => {
+            setShowLoadingAnim(false);
+          });
         } else timeoutId = setTimeout(() => { setShowLoadingAnim(false) }, 100);
         setTimeout(() => {
           setLoadingAnimGone(true);
@@ -102,13 +103,15 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
 
   useUpdateChecker(() => {
     fetch(window.location.href, {
-        headers: {
-            Pragma: 'no-cache',
-            Expires: '-1',
-            'Cache-Control': 'no-cache',
-        },
+      headers: {
+        Pragma: 'no-cache',
+        Expires: '-1',
+        'Cache-Control': 'no-cache',
+      },
     });
   });
+
+  useBrowserCheck();
 
   useEffect(() => {
     if (window.location.search && routerReplace) {
@@ -206,9 +209,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         .transition_loader {
             pointer-events: initial !important;
             position: sticky;
-          }
+        }
           
-          #globalLoader, .transition_loader {
+        #globalLoader, .transition_loader {
             width: 100vw;
             height: 100vh;
             height: 100svh;
@@ -217,13 +220,13 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
             align-items: center;
             justify-content: center;
             top: 0;
-          }
+        }
 
-          #globalLoader {
+        #globalLoader {
             bottom: 1px;
             opacity: 1;
             transition: none;
-          }
+        }
           
         @media (pointer:coarse) and (orientation: portrait) {
             html,
@@ -234,7 +237,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
             }
         
             #__next {
-                overflow-y: clip;
+                ${ /chromium|chrome/i.test(navigator.userAgent) && parseInt(engineVersion, 10) < 125 ? "overflow-y: hidden;" : "overflow-x: clip" }
                 overflow-x: unset;
             }
         }
@@ -272,21 +275,21 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         </style>
       </Head>
       {/* <StrictMode> */}
-        <PlaybackProvider>
-          <AnimatePresence mode='wait' onExitComplete={() => {
-            if (!loadedRoute.includes("404")) setLoaded("");
-            if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
-          }}>
-            <Component {...pageProps} key={Component.name} onReady={onReady} />
-          </AnimatePresence>
-          <div className={styles.overlay} key="overlay">
-            <FloatingPlaybackControls />
-          </div>
-        </PlaybackProvider>
+      <PlaybackProvider>
+        <AnimatePresence mode='wait' onExitComplete={() => {
+          if (!loadedRoute.includes("404")) setLoaded("");
+          if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
+        }}>
+          <Component {...pageProps} key={Component.name} onReady={onReady} />
+        </AnimatePresence>
+        <div className={styles.overlay} key="overlay">
+          <FloatingPlaybackControls />
+        </div>
+      </PlaybackProvider>
       {/* </StrictMode> */}
-      { !loadingAnimGone && <div id="globalLoader" style={(!showLoadingAnim && loadedRoute) ? { opacity: 0, pointerEvents: "none", position: "fixed", transition: "opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000)" } : { position: "fixed" }}>
+      {!loadingAnimGone && <div id="globalLoader" style={(!showLoadingAnim && loadedRoute) ? { opacity: 0, pointerEvents: "none", position: "fixed", transition: "opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000)" } : { position: "fixed" }}>
         <LoadingAnim className={loaderClass} />
-      </div> }
+      </div>}
     </>
   )
 }
