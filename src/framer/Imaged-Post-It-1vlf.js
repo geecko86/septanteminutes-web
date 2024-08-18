@@ -25,7 +25,7 @@ const css = [
   "@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }",
   ".framer-C4Wjh { /* display: contents; */ }",
   ".framer-C4Wjh .framer-14uv52q { display: block; }",
-  ".framer-C4Wjh .framer-tgvrn3 { height: 140px; overflow: clip; position: relative; width: 140px; }",
+  ".framer-C4Wjh .framer-tgvrn3 { height: 140px; overflow: clip; position: relative !important; width: 140px; }",
   ".framer-C4Wjh .framer-1tcxbxb { aspect-ratio: 1 / 1; bottom: 0px; flex: none; height: 100%; left: 0px; position: absolute; width: var(--framer-aspect-ratio-supported, 140px); }",
   ".framer-C4Wjh .framer-d1mgg1 { flex: none; height: auto; left: 50%; position: absolute; top: 38px; white-space: pre; width: auto; }",
   ".framer-C4Wjh .framer-v-tgvrn3 .framer-tgvrn3 { cursor: pointer; }",

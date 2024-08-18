@@ -7,7 +7,7 @@ div[ready="true"] .scrollTarget>p:last-child {
     overflow-y: scroll;
     padding-right: calc(max(1cqw, 1.3cqh));
     mask-image: linear-gradient(180deg, transparent 0%, black 10%);
-    padding-top: 3ch;
+    padding-top: 9%;
 }
 
 .scrollTarget * {
@@ -439,7 +439,7 @@ div[ready="true"] .scrollTarget>p:last-child {
 
 @media (pointer:coarse) and (orientation: landscape) {
 
-    div:has(> .scrollTarget) *,
+    .left_page *,
     h3.subscribe {
         font-size: 5.55vh !important;
         font-size: 5.55svh !important;

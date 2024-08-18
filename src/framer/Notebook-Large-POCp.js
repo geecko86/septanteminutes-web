@@ -42,6 +42,7 @@ const NotebookLarge = React.forwardRef((props, ref) => {
           top: "36.6938%",
           width: "32%"
         }}
+        data-framer-component-type="RichTextContainer"
       >
         <p
           style={{

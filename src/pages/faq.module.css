@@ -96,6 +96,7 @@
     font-weight: 700;
     line-height: 1.47;
     color: rgb(18 18 18 / 88%) !important;
+    filter: blur(0.5px);
 }
 
 .faqContainer {

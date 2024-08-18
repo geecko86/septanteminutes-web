@@ -1,4 +1,4 @@
-import React, { RefObject, useRef, useMemo, useEffect } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { MotionValue, motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import useOffset from  "../../utils/ParallaxOffset";
@@ -7,7 +7,7 @@ import styles from "./poster.module.css";
 
 const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
     const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height }, offset, onReady, isLast, ...newProps } = props;
-    
+
     const parentRef = useRef<HTMLDivElement>(null);
     const home = document.getElementById("home");
 
@@ -41,7 +41,7 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
         }
     };
     const newRef = useRef<HTMLDivElement>(null);
-    
+
     const translateX = useOffset(newRef, motionValue, (parallaxFactor || 130) / 2.7, 1.0, src, onReady, jumpToValue);
     const size = useMemo(() => `${Math.floor(height * 65 * (ratio < 1 ? ratio : 1))}vh`, [height, ratio]);
     const style = useMemo(() => ({ height: `${height * 100}%`, width: "auto", aspectRatio: ratio, left: `calc(${position} * var(--layer_1_gap) + ${offset}px - ${((leftOffset || 0.0)) * 100}%)` }), [height, ratio, offset, position, leftOffset]);
