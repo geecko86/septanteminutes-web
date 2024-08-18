@@ -234,15 +234,15 @@ export default function EpisodeTable(props: {
   }, [vinyls.length, ready, doIdlePlayButtonAnimation, autoplay]);
 
   useEffect(() => {
-    if (router.query.episodeNum) {
-      const selectedEp = Math.min(Number(router.query.episodeNum) - 1, vinyls.length - 1);
+    const selectedEp = Math.min(Number(router?.query?.episodeNum || props.episode.num) - 1, vinyls.length - 1);
+    if (selectedEp) {
       setEpisodeNumParam(selectedEp);
       setSelectedEpisode(selectedEp);
     } else if (!episodeNumParam) {
       setEpisodeNumParam(vinyls.length - 1);
       setSelectedEpisode(vinyls.length - 1);
     }
-  }, [router.query.episodeNum, vinyls.length, episodeNumParam]);
+  }, [router.query.episodeNum, props.episode.num, vinyls.length, episodeNumParam]);
 
   useEffect(() => {
     const element = episodePage.current;

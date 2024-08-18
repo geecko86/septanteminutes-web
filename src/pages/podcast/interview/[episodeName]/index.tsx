@@ -28,7 +28,6 @@ export const getStaticPaths = (async () => {
         return {
             params: {
                 episodeName: `${episode.num}-${guestName}`,
-                guestPage: "index"
             }
         }
     });
@@ -52,6 +51,6 @@ export const getStaticProps = (async (context) => {
     episode.descText = stripHtmlTags(episode.desc) || "";
     episode.descText = episode.descText?.split(/(\nRéférence|\n0)/i)[0].slice(0, 198) + "…";
 
-    return { props: { episode } }
+    return { props: { episode, episodeNum } }
 }) satisfies GetStaticProps<{
 }>;
