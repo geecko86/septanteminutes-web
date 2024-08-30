@@ -40,8 +40,8 @@ export async function GET() {
             <title>${escapeXml(title)}</title>
             <link>${EXTERNAL_DATA_URL}/podcast/interview/${num}-${normalizeString(title.split(/\s(-|–)\s?/g)[0]?.trim())}</link>
             <description><![CDATA[\n${desc}\n]]></description>
-            ${img ? `<enclosure url="${img}" type="image/jpeg" />` : ''}
-            ${img ? `<itunes:image href="${img}"/>` : ''}
+            ${img ? `<enclosure url="${img.replace("/upload/", `/upload/c_scale,w_${200},f_webp,q_${70}/`) + `?id=${process.env.BUILD_ID || 0}`}" type="image/jpeg" />` : ''}
+            ${img ? `<itunes:image href="${img.replace("/upload/", `/upload/c_scale,w_${200},f_webp,q_${70}/`) + `?id=${process.env.BUILD_ID || 0}`}"/>` : ''}
             ${num ? `<itunes:episode>${num}</itunes:episode>` : ''}
             ${mp3 ? `<enclosure url="${mp3}" type="audio/mpeg" />` : ''}
             <pubDate>${date}</pubDate>
