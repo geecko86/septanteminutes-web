@@ -629,6 +629,16 @@ export default function Home(props: {
                         onKeyDown={handleKeysDown} style={{ translateX: newScrollX, translateZ: 0 }}>
                         <Head>
                             <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : "Septante Minutes Avec"}</title>
+                            <script type="application/ld+json">
+                                {`
+                                {
+                                "@context" : "https://schema.org",
+                                "@type" : "WebSite",
+                                "name" : "Septante Minutes Avec",
+                                "url" : "https://www.septanteminutes.be/"
+                                }
+                                `}
+                            </script>
                         </Head>
                         <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} >
                             <div className={styles.ceiling} key={"ceiling"}>
