@@ -38,6 +38,13 @@ import { GetStaticProps } from "next";
 const SwipeAnim = dynamic(() => import("../components/SwipeAnim"), { ssr: false });
 const FrontColumn = dynamic(() => import("../components/FrontColumn"), { ssr: false });
 
+const structuredObject = JSON.stringify({
+    "@context" : "https://schema.org",
+    "@type" : "WebSite",
+    name : "Septante Minutes Avec",
+    url : "https://www.septanteminutes.be/"
+});
+
 export default function Home(props: {
     seasons: Season[],
     onReady: () => void,
@@ -629,17 +636,8 @@ export default function Home(props: {
                         onKeyDown={handleKeysDown} style={{ translateX: newScrollX, translateZ: 0 }}>
                         <Head>
                             <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : "Septante Minutes Avec"}</title>
-                            <script type="application/ld+json">
-                                {`
-                                {
-                                "@context" : "https://schema.org",
-                                "@type" : "WebSite",
-                                "name" : "Septante Minutes Avec",
-                                "url" : "https://www.septanteminutes.be/"
-                                }
-                                `}
-                            </script>
-                        </Head>
+                            <script type='application/ld+json' dangerouslySetInnerHTML={ { __html: structuredObject}} />
+                            </Head>
                         <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} >
                             <div className={styles.ceiling} key={"ceiling"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
