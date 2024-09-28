@@ -169,11 +169,11 @@ export default function EpisodeTable(props: {
     setIsMobileDevice(isMobile);
     if (isMobile) {
       setBrowserName(isChrome ? "Chrome" :
-      isSafari ? "Safari" :
       isEdge ? "Edge" :
       isFirefox ? "Firefox" :
       isOpera ? "Opera" :
-      "");
+      isIOS || isSafari ? "Safari" :
+      "Chrome");
       setIsPortrait(window.innerHeight > window.innerWidth);
     }
   }, []);
