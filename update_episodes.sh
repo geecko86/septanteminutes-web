@@ -29,10 +29,30 @@ if [ $retry_count -eq $max_retries ]; then
     exit -1
 fi
 
+sleep 70
+
 npx -p node-firestore-import-export firestore-export -a septanteminutes-a0cde5efbc25.json -b public/js/data.json
 sed -i '' -E 's/^.{19}//; s/.$//; s/{}},"/{}},\n"/g' public/js/data.json
 
 item_count=$(jq '.episodes | length' public/js/data.json)
+
+# Read the current value of EPISODES_COUNT from .env if it exists
+if [ -f .env ]; then
+    current_count=$(grep -oP '(?<=EPISODES_COUNT=)\d+' .env)
+else
+    current_count=0
+fi
+
+# Check if the current count is different from the new item count
+if ! [[ "$item_count" =~ ^[0-9]+$ ]] || [ "$item_count" -le 0 ]; then
+    echo "Invalid item count: $item_count. Exiting."
+    exit 1
+fi
+
+if [ "$current_count" -eq "$item_count" ]; then
+    echo "EPISODES_COUNT is the same as the current count. No update needed."
+    exit 0
+fi
 
 echo "EPISODES_COUNT=$item_count" > .env
 
@@ -42,5 +62,3 @@ git add firebase.json
 git commit -m "update data.json, .env and firebase.json"
 
 exit
-
-# sed -i '' -E 's/^.{19}//; s/.$//' public/js/data.json
