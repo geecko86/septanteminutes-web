@@ -6,7 +6,7 @@ import { Spotlight } from "../components/Spotlight";
 import styles from "./404.module.css"
 import Link from "next/link";
 
-export default function Custom404(props: { offline ?: boolean, errorCode ?: number }) {
+export default function Custom404(props: { offline ?: boolean, errorCode ?: number, error ?: Error }) {
     const router = useRouter();
     const [visible, setVisible] = useState(true);
     const [isOnline, setIsOnline] = useState(!(props.offline));
@@ -49,6 +49,8 @@ export default function Custom404(props: { offline ?: boolean, errorCode ?: numb
         }, 800);
     };
 
+    if (props.error) console.error(props.error)
+
     return (
         <div className={styles.container} style={{
             opacity: visible ? 1 : 0,
@@ -79,6 +81,7 @@ export default function Custom404(props: { offline ?: boolean, errorCode ?: numb
                             {`Une erreur est survenue. Ce n'est pas normal. Mais c'est pas grave, on va s'en sortir ensemble. Vous pouvez nous contacter à l'adresse ci-dessous :`}
                             <br/><br/>
                             <u onClick={leaving}><Link href="mailto:contact@septanteminutes.be">contact@SeptanteMinutes.be</Link></u>
+                            {/* { props.error ? <><br/><br/><i>{props.error.toString()}</i></> : null } */}
                             <br />
                         </p>)}
                     </div>
