@@ -17,6 +17,7 @@ export const hackAutoplay = async (audio: HTMLAudioElement) => {
 };
 
 const setupMetadata = (playbackData: { playbackTitle: string, playbackArtwork: string }) => {
+    if (!navigator.mediaSession) return;
     if ('metadata' in navigator.mediaSession && playbackData.playbackArtwork) {
         navigator.mediaSession.metadata = new MediaMetadata(playbackData.playbackTitle ? {
             title: playbackData.playbackTitle,
@@ -31,7 +32,7 @@ const setupMetadata = (playbackData: { playbackTitle: string, playbackArtwork: s
 };
 
 const updatePositionState = (audio: HTMLAudioElement) => {
-    if ('setPositionState' in navigator.mediaSession) {
+    if (navigator.mediaSession && 'setPositionState' in navigator.mediaSession) {
         navigator.mediaSession.setPositionState({
             duration: audio.duration,
             playbackRate: audio.playbackRate,
@@ -41,6 +42,7 @@ const updatePositionState = (audio: HTMLAudioElement) => {
 };
 
 const setupPlaySession = (newAudio: HTMLAudioElement, setPlaying: (arg0: SetStateAction<boolean>) => void) => {
+    if (!navigator.mediaSession) return;
     const actionHandlers = [
         [
             "play",
@@ -162,11 +164,13 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         };
     
         const onPlaying = () => {
+            if (!navigator.mediaSession) return
             navigator.mediaSession.playbackState = 'playing';
             setStatus(4);
         };
     
         const onPause = () => {
+            if (!navigator.mediaSession) return
             navigator.mediaSession.playbackState = 'paused';
         };
     
