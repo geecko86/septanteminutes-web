@@ -38,7 +38,7 @@ item_count=$(jq '.episodes | length' public/js/data.json)
 
 # Read the current value of EPISODES_COUNT from .env if it exists
 if [ -f .env ]; then
-    current_count=$(grep -oP '(?<=EPISODES_COUNT=)\d+' .env)
+    current_count=$(grep 'EPISODES_COUNT=' .env | sed 's/EPISODES_COUNT=//')
 else
     current_count=0
 fi
