@@ -49,12 +49,12 @@ if ! [[ "$item_count" =~ ^[0-9]+$ ]] || [ "$item_count" -le 0 ]; then
     exit 1
 fi
 
+echo "EPISODES_COUNT=$item_count" > .env
+
 if [ "$current_count" -eq "$item_count" ]; then
     echo "EPISODES_COUNT is the same as the current count. No update needed."
     exit 0
 fi
-
-echo "EPISODES_COUNT=$item_count" > .env
 
 git add .env
 git add public/js/data.json
