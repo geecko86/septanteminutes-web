@@ -6,7 +6,7 @@ var canvas = document.getElementById('canvas'),
 
 // Set canvas size
 canvas.width = ww / 3;
-canvas.height = (ww * 0.5625) / 3;
+canvas.height = (window.innerHeight / window.innerWidth) * canvas.width;
 
 // Generate CRT noise
 function snow(ctx) {
