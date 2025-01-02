@@ -61,4 +61,6 @@ git add public/js/data.json
 git add firebase.json
 git commit -m "update data.json, .env and firebase.json"
 
+yarn build && firebase --project septanteminutes deploy
+
 exit
