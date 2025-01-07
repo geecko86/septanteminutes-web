@@ -56,10 +56,13 @@ if [ "$current_count" -eq "$item_count" ]; then
     exit 0
 fi
 
+git pull origin main
+
 git add .env
 git add public/js/data.json
 git add firebase.json
 git commit -m "update data.json, .env and firebase.json"
+git push origin main
 
 yarn build && firebase --project septanteminutes deploy
 
