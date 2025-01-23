@@ -34,6 +34,8 @@ sleep 70
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 
+git pull origin main
+
 npx -p node-firestore-import-export firestore-export -a septanteminutes-a0cde5efbc25.json -b public/js/data.json
 sed -E 's/^.{19}//; s/.$//; s/\{\}\},"/\{\}\},\'$'\n\"/g' public/js/data.json > /tmp/data.json && mv /tmp/data.json public/js/data.json
 
@@ -58,8 +60,6 @@ if [ "$current_count" -eq "$item_count" ]; then
     echo "EPISODES_COUNT is the same as the current count. No update needed."
     exit 0
 fi
-
-git pull origin main
 
 git add .env
 git add public/js/data.json
