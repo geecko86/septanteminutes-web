@@ -42,7 +42,8 @@ const structuredObject = JSON.stringify({
     "@context" : "https://schema.org",
     "@type" : "WebSite",
     name : "Septante Minutes Avec",
-    url : "https://www.septanteminutes.be/"
+    url : "https://www.septanteminutes.be/",
+    Image : "https://res.cloudinary.com/dcodwkhcg/image/upload/v1722887962/avatar.jpg",
 });
 
 export default function Home(props: {

@@ -97,6 +97,9 @@ class MyDocument extends Document {
           <meta name="twitter:creator" content="@GuiHachez" />
           <meta property="og:type" content="website" />
 
+          <meta property="og:image" content="https://res.cloudinary.com/dcodwkhcg/image/upload/v1722887962/avatar.jpg" />
+          <meta property="og:image:alt" content="Logo Septante Minutes Avec" />
+
           <meta name="theme-color" media="(prefers-color-scheme: light)" content="lightgray" />
           <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
 
