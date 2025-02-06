@@ -16,6 +16,7 @@ next.lock/
 
 # production
 /build
+septanteminutes-*.json
 
 # misc
 .DS_Store
