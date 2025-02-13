@@ -11,8 +11,7 @@ const generateSiteMap = (episodes) => {
         </url>
         <url>
           <loc>${EXTERNAL_DATA_URL}/faq</loc>
-        </url>
-        ${episodes.map(({ num, title }) => `
+        </url>${episodes.map(({ num, title }) => `
         <url>
           <loc>${EXTERNAL_DATA_URL}/podcast/interview/${num}-${normalizeString(title.split(/\s(-|–)\s?/g)[0]?.trim())}</loc>
         </url>`).join('')}

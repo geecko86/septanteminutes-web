@@ -82,7 +82,14 @@
                                 <xsl:value-of select="position()"/>
                             </xsl:variable>
                             <td class="pa3 tc b bb b--silver">
-                                <xsl:value-of select="$pno"/>
+                                <xsl:choose>
+                                    <xsl:when test="$pno &lt; 3">
+                                        <xsl:text> </xsl:text>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="$pno - 2"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </td>
                             <td class="pa3 b bb b--silver">
                                 <a href="{$loc}" class="link blue">
@@ -132,7 +139,14 @@
                                 <xsl:value-of select="position()"/>
                             </xsl:variable>
                             <td class="pa3 tc b bb b--silver">
-                                <xsl:value-of select="$pno"/>
+                                <xsl:choose>
+                                    <xsl:when test="$pno &lt; 3">
+                                        <xsl:text> </xsl:text>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="$pno - 2"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </td>
                             <td class="pa3 bb b--silver">
                                 <p>
