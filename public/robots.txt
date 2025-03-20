@@ -1,5 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /podcast/interview/[episodeName]
 
 # Disallow undesired bots
 User-agent: 5emeRue
