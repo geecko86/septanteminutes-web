@@ -8,6 +8,7 @@ fetch_content() {
 
 # Main script
 retry_count=0
+success_count=0
 max_retries=3
 
 while [ $retry_count -lt $max_retries ]; do
@@ -20,7 +21,15 @@ while [ $retry_count -lt $max_retries ]; do
         ((retry_count++))
     else
         echo "Content fetched successfully."
-        break
+        ((success_count++))
+        if [ $success_count -eq 1 ]; then
+            echo "Doing it one more time in 70s"
+            sleep 70
+            ((retry_count++))
+            ((max_retries++))
+        else
+            break
+        fi
     fi
 done
 
@@ -28,8 +37,6 @@ if [ $retry_count -eq $max_retries ]; then
     echo "Maximum retries reached. Failed to fetch content."
     exit -1
 fi
-
-sleep 70
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
