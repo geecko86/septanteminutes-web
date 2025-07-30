@@ -93,7 +93,7 @@ const NotebookOpen = React.forwardRef(function NotebookOpen(
           { key: "pocket-casts-stamp", className: styles.pocketcasts_stamp, href: "https://pca.st/A6sJ" },
           { key: "youtube-stamp", className: styles.youtube_stamp, href: "https://www.youtube.com/@SeptanteMinutes" },
           { key: "facebook-stamp", className: styles.facebook_stamp, href: "https://www.facebook.com/SeptanteMinutesAvec" },
-          { key: "twitter-stamp", className: styles.twitter_stamp, href: "https://twitter.com/SeptanteMinutes" },
+          { key: "twitter-stamp", className: styles.bluesky_stamp, href: "https://bsky.app/profile/guillaume.hachez.pro" },
           { key: "instagram-stamp", className: styles.instagram_stamp, href: "https://www.instagram.com/SeptanteMinutes" },
           { key: "tiktok-stamp", className: styles.tiktok_stamp, href: "https://tiktok.com/@guihachez" },
         ].map(({ key, className, href }) => (

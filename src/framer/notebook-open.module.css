@@ -211,16 +211,16 @@ div[ready="true"] .scrollTarget>p:last-child {
     mask-size: 60%, 100%;
 }
 
-.twitter_stamp {
+.bluesky_stamp {
     position: absolute;
     bottom: 21%;
     left: 30%;
     transform: translateX(-50%) rotate(-3deg) translateZ(0px);
 }
 
-.twitter_stamp>div.stamp_logo::after {
+.bluesky_stamp>div.stamp_logo::after {
     background-image: linear-gradient(#1DA1F2, #1DA1F2);
-    mask-image: url("/img/twitter.svg"), url("/img/stamp.svg");
+    mask-image: url("/img/bluesky.svg"), url("/img/stamp.svg");
     mask-size: 62%, 100%;
 }
 
