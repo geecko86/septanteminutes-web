@@ -462,7 +462,7 @@ export default function EpisodeTable(props: {
       initial={{ opacity: 0.001 }}
       exit={{ opacity: 0 }}
       animate={{ opacity: ready ? 1 : 0.001 }}
-      transition={{ type: 'linear', duration: 0.25 }}
+      transition={{ type: 'tween', duration: 0.25 }}
       onAnimationComplete={(animDef: { opacity: number }) => {
         if (!isPresent && animDef.opacity === 0) {
           setReady(false);

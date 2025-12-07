@@ -2,7 +2,7 @@ import { MotionValue, useTransform } from "framer-motion";
 import { RefObject, useEffect, useCallback, useState } from "react";
 import { isMobile } from "react-device-detect";
 
-const useOffset = (ref: RefObject<HTMLDivElement>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
+const useOffset = (ref: RefObject<HTMLDivElement | null>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
 
   const [windowDim, setWindowDim] = useState({ width: 0, height: 0 });
   const [isMobileDevice, setIsMobileDevice] = useState(false);

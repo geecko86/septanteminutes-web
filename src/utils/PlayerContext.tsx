@@ -114,7 +114,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const [playingEpisode, setPlayingEpisode] = useState<Episode | undefined>(undefined)
     const [status, setStatus] = useState<number>(0);
     const [autoplay, setAutoplay] = useState<Episode | undefined>(undefined);
-    const audioRef = useRef<HTMLAudioElement>();
+    const audioRef = useRef<HTMLAudioElement | undefined>(undefined);
     const playingEpisodeRef = useRef<Episode | undefined>(playingEpisode);
     const audio = audioRef.current;
 

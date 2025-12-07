@@ -418,7 +418,7 @@ export default function Home(props: {
                         delay: 0.25
                     }]]);
                     idleAnimRef.current = anim;
-                    idleAnimRef.current.then(() => {
+                    idleAnimRef.current.finished.then(() => {
                         hasMovedRef.current = false;
                         setShowSwiper(false);
                     });
@@ -594,7 +594,7 @@ export default function Home(props: {
             initial={{ opacity: 0.001, visibility: 'hidden' }}
             animate={{ opacity: ready ? 1 : 0.001, visibility: 'visible' }}
             exit={{ opacity: 0, visibility: 'hidden' }}
-            transition={{ type: 'linear', duration: 0.25 }}
+            transition={{ type: 'tween', duration: 0.25 }}
             onAnimationComplete={(animDef: { opacity: number }) => {
                 if (!isPresent && animDef.opacity === 0) {
                     setReady(false);
