@@ -1,6 +1,5 @@
 import { MotionValue, useTransform } from "framer-motion";
 import { RefObject, useEffect, useCallback, useState } from "react";
-import { isMobile } from "react-device-detect";
 
 const useOffset = (ref: RefObject<HTMLDivElement | null>, motionValue: MotionValue, coeff: number = 130, pow: number = 1.0, src: string = "", onReady?: () => void, jumpToValue?: (val: number | string) => void) => {
 
@@ -19,7 +18,9 @@ const useOffset = (ref: RefObject<HTMLDivElement | null>, motionValue: MotionVal
 
     handleResize();
     window.addEventListener('resize', handleResize, { passive: true });
-    setIsMobileDevice(isMobile);
+    // Detect mobile client-side via pointer capability — avoids a module-scope
+    // navigator read that would break static export builds.
+    setIsMobileDevice(window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0);
 
     return () => {
       window.removeEventListener('resize', handleResize);

@@ -4,7 +4,6 @@ import React, {
   useEffect,
   useCallback,
   cloneElement,
-  FC,
 } from "react";
 import { motion, useScroll, animate, useMotionValueEvent, usePresence } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
@@ -30,10 +29,20 @@ import NotebookOverlay from "../../components/NotebookOverlay/index.js";
 import MaterialSpinningLoader from "../../components/MaterialSpinningLoader/index.js";
 import { hackAutoplay, usePlayback } from '../../utils/PlayerContext';
 import normalizeString from "@/utils/normalizeStr";
-import { isChrome, isEdge, isFirefox, isIOS, isMobile, isOpera, isSafari } from "react-device-detect";
+import { stripHtmlTags } from "@/utils/stripHtml";
+import { getGuestName, getEpisodeTopic } from "@/utils/episodeTitle";
 import { Episode } from "@/types/episode";
 
 import styles from "./episode.module.css";
+
+// Named constants for timeouts used throughout this page.
+// Using names instead of bare numbers makes intent clear and prevents
+// accidental mismatches when the same value appears in multiple places.
+const PRIORITY_IMAGE_TIMEOUT_MS = 3200;   // max wait for fetchpriority images before declaring ready
+const IDLE_PLAY_BUTTON_DELAY_MS = 2500;   // delay before the play-button idle animation starts
+const IDLE_PLAY_BUTTON_REPEAT_MS = 6500;  // how often the idle animation repeats
+const NOTEBOOK_IDLE_INITIAL_MS = 1000;    // initial delay before the notebook idle wobble
+const NOTEBOOK_IDLE_REPEAT_MS = 3750;     // how often the notebook wobble repeats
 
 export default function EpisodeTable(props: {
   onReady: () => void,
@@ -42,7 +51,7 @@ export default function EpisodeTable(props: {
   episode: Episode,
 }) {
   const router = useRouter();
-  const [funqueue, _] = useState([] as (() => void)[]);
+  const [pendingScrollActions, _] = useState([] as (() => void)[]);
 
   const [ready, setReady] = useState(false);
   const [snapping, setSnapping] = useState(false);
@@ -50,6 +59,7 @@ export default function EpisodeTable(props: {
   const [selectedPosition, setSelectedPosition] = useState(0);
   const [mayAnimate, setMayAnimate] = useState(false);
   const [isMobileDevice, setIsMobileDevice] = useState(true);
+  const [isIOSDevice, setIsIOSDevice] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
   const [hasClickedNotebook, setHasClickedNotebook] = useState(false);
   const [hasClickedPlay, setHasClickedPlay] = useState(false);
@@ -78,8 +88,8 @@ export default function EpisodeTable(props: {
 
   const descriptionEpisode: Episode = (isPlayingRef.current ? playingEpisode : vinyls[selectedEpisode]) || props.episode;
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
-    title: descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[2]?.trim(),
-    subtitle: `Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`,
+    title: getEpisodeTopic(descriptionEpisode?.title),
+    subtitle: `Avec ${getGuestName(descriptionEpisode?.title)}`,
     desc: descriptionEpisode?.desc,
     date: descriptionEpisode?.date,
     translateX: overlayNotebookTranslation,
@@ -111,7 +121,7 @@ export default function EpisodeTable(props: {
     ]).then(() => {
       if (!hasClickedPlayRef.current && !playbackMP3Ref.current) {
         clearTimeout(idleAnimationTimeoutIdRef.current);
-        const id = setTimeout(doIdlePlayButtonAnimation, 6500);
+        const id = setTimeout(doIdlePlayButtonAnimation, IDLE_PLAY_BUTTON_REPEAT_MS);
         idleAnimationTimeoutIdRef.current = id;
       }
     });
@@ -127,7 +137,7 @@ export default function EpisodeTable(props: {
       const onFinished = () => {
         if (!hasClickedNotebookRef.current) {
           clearTimeout(idleAnimationTimeoutIdRef.current);
-          const id = setTimeout(doNotebookIdleAnimation, 3750);
+          const id = setTimeout(doNotebookIdleAnimation, NOTEBOOK_IDLE_REPEAT_MS);
           idleAnimationTimeoutIdRef.current = id;
         }
       };
@@ -144,8 +154,8 @@ export default function EpisodeTable(props: {
 
   const scrollCallback = useCallback(() => {
     setSnapping(false);
-    if (funqueue.length && typeof window != "undefined") {
-      (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)((funqueue.shift() as () => void))
+    if (pendingScrollActions.length && typeof window != "undefined") {
+      (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)((pendingScrollActions.shift() as () => void))
     }
     const currentPosition = getCurrentPosition();
     const currentEpisode = vinyls.length - currentPosition - 1;
@@ -153,7 +163,7 @@ export default function EpisodeTable(props: {
     setSelectedEpisode(currentEpisode);
     const newUrl = `${window.location.origin}/${currentEpisode + 1}`;
     setDisplayedURL(newUrl);
-  }, [funqueue, getCurrentPosition, vinyls.length]);
+  }, [pendingScrollActions, getCurrentPosition, vinyls.length]);
   
   const onReady = useCallback(() => {
     if (onReadyRef.current) {
@@ -166,14 +176,23 @@ export default function EpisodeTable(props: {
   }, [props.onReady]);
   
   useEffect(() => {
-    setIsMobileDevice(isMobile);
-    if (isMobile) {
-      setBrowserName(isChrome ? "Chrome" :
-      isEdge ? "Edge" :
-      isFirefox ? "Firefox" :
-      isOpera ? "Opera" :
-      isIOS || isSafari ? "Safari" :
-      "Chrome");
+    // All UA/feature detection runs inside this effect so it never executes
+    // during static export (where navigator and window don't exist).
+    const mobile = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+    setIsMobileDevice(mobile);
+    const ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    setIsIOSDevice(ios);
+    if (mobile) {
+      // Inline UA sniffing replaces the react-device-detect module-scope reads.
+      // Order matters: Edge and Opera both include "Chrome" in their UA strings,
+      // so they must be checked before the generic Chrome pattern.
+      const ua = navigator.userAgent;
+      const name = /Edg/.test(ua) ? "Edge"
+        : /OPR|Opera/.test(ua) ? "Opera"
+        : /Firefox/.test(ua) ? "Firefox"
+        : /iPhone|iPad|iPod/.test(ua) || (/Safari/.test(ua) && !/Chrome/.test(ua)) ? "Safari"
+        : "Chrome";
+      setBrowserName(name);
       setIsPortrait(window.innerHeight > window.innerWidth);
     }
   }, []);
@@ -183,7 +202,7 @@ export default function EpisodeTable(props: {
     if (!playbackMP3Ref.current || !ready) return;
 
     clearTimeout(idleAnimationTimeoutIdRef.current);
-    const id = setTimeout(doNotebookIdleAnimation, 1000);
+    const id = setTimeout(doNotebookIdleAnimation, NOTEBOOK_IDLE_INITIAL_MS);
     idleAnimationTimeoutIdRef.current = id;
 
     return () => {
@@ -224,7 +243,7 @@ export default function EpisodeTable(props: {
 
     if (!hasClickedPlayRef.current && !isPlayingRef.current) { // if has never clicked Play Button and is not currently playing
       clearTimeout(idleAnimationTimeoutIdRef.current);
-      const id = setTimeout(doIdlePlayButtonAnimation, 2500);
+      const id = setTimeout(doIdlePlayButtonAnimation, IDLE_PLAY_BUTTON_DELAY_MS);
       idleAnimationTimeoutIdRef.current = id;
     };
 
@@ -266,7 +285,7 @@ export default function EpisodeTable(props: {
 
       return unbind
     }
-  }, [episodePage, getCurrentPosition, vinyls.length, funqueue, scrollCallback]);
+  }, [episodePage, getCurrentPosition, vinyls.length, pendingScrollActions, scrollCallback]);
 
   useEffect(() => {
     if (ready) return;
@@ -304,7 +323,7 @@ export default function EpisodeTable(props: {
         onReady();
         setReady(true);
       }
-    }, 3200);
+    }, PRIORITY_IMAGE_TIMEOUT_MS);
 
     return () => {
       clearTimeout(timeoutId);
@@ -381,7 +400,7 @@ export default function EpisodeTable(props: {
         };
         if (snapping) {
           console.log("STUCK!");
-          if (funqueue.length == 0) funqueue.push(scroll);
+          if (pendingScrollActions.length == 0) pendingScrollActions.push(scroll);
         }
         else scroll();
         break;
@@ -397,7 +416,7 @@ export default function EpisodeTable(props: {
         };
         if (snapping) {
           console.log("STUCK!");
-          if (funqueue.length == 0) funqueue.push(scroll);
+          if (pendingScrollActions.length == 0) pendingScrollActions.push(scroll);
         }
         else scroll();
         break;
@@ -432,25 +451,29 @@ export default function EpisodeTable(props: {
       setPlayingEpisode(vinyls[selectedEpisode])
     };
 
-    if (audio.src || !isIOS) {
+    if (audio.src || !isIOSDevice) {
       setPlaying(false);
       play();
     } else {
       hackAutoplay(audio).then(play);
     }
-  }, [audio, playingEpisode, vinyls, selectedEpisode, setPlayingEpisode, setPlaying]);
+  }, [isIOSDevice, audio, playingEpisode, vinyls, selectedEpisode, setPlayingEpisode, setPlaying]);
 
   const onVinylLoad = useCallback((episode: Episode, index: number) => {
     if (index === selectedEpisode) setSelectedVinylRendered(true);
-    if (!(isIOS && !audio?.src) && autoplay?.num == episode.num) {
+    if (!(isIOSDevice && !audio?.src) && autoplay?.num == episode.num) {
       console.log("autoplaying!");
       playEpisode(index, true);
     }
-  }, [selectedEpisode, audio?.src, autoplay?.num, playEpisode]);
+  }, [isIOSDevice, selectedEpisode, audio?.src, autoplay?.num, playEpisode]);
 
-  const Notebook: FC<any> = Notebook_;
-  const Pen: FC<any> = Pen_;
-  const ImagedPostIt: FC<any> = ImagedPostIt_;
+  // FC<any> annotation is needed because the ambient .d.ts wildcard pattern
+  // for framer JS modules does not resolve reliably with TypeScript's bundler
+  // module resolution. The d.ts in src/framer/types.d.ts documents the exports
+  // for reference; these local aliases apply the type at the usage site.
+  const Notebook: React.FC<any> = Notebook_;
+  const Pen: React.FC<any> = Pen_;
+  const ImagedPostIt: React.FC<any> = ImagedPostIt_;
 
   const BottomSheet = React.useMemo(() => dynamic(() => import("react-spring-bottom-sheet").then(mod => mod.BottomSheet), { ssr: false }), []);
   const Headphones = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Headphones), { ssr: false }), []);
@@ -478,16 +501,16 @@ export default function EpisodeTable(props: {
       }}>
         {cloneElement(notebookOverlayComponent, {})}
         <Head>
-          <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`}</title>
-          { isMobile && <link rel="stylesheet" href="https://unpkg.com/react-spring-bottom-sheet/dist/style.css" crossOrigin="anonymous" /> }
+          <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`}</title>
+          { isMobileDevice && <link rel="stylesheet" href="https://unpkg.com/react-spring-bottom-sheet/dist/style.css" crossOrigin="anonymous" /> }
         </Head>
         <NextSeo
-          title={`Septante Minutes Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`}
+          title={`Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`}
           description={descriptionEpisode?.descText}
-          canonical={`https://www.septanteminutes.be/podcast/interview/${descriptionEpisode.num}-${normalizeString(descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim())}`}
+          canonical={`https://www.septanteminutes.be/podcast/interview/${descriptionEpisode.num}-${normalizeString(getGuestName(descriptionEpisode?.title))}`}
           openGraph={{
             url: `https://www.septanteminutes.be/${descriptionEpisode.num}`,
-            title: `Septante Minutes Avec ${descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()}`,
+            title: `Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`,
             description: descriptionEpisode?.descText,
             locale: "fr_BE",
             images: [
@@ -495,7 +518,7 @@ export default function EpisodeTable(props: {
                 url: descriptionEpisode?.img || "",
                 width: 2048,
                 height: 2048,
-                alt: descriptionEpisode?.title?.split(/\s(-|–)\s?/g)[0]?.trim()
+                alt: getGuestName(descriptionEpisode?.title)
               }
             ],
             siteName: "Septante Minutes Avec",
@@ -596,7 +619,7 @@ export default function EpisodeTable(props: {
               const playClickCount = Number(localStorage.getItem("hasClickedPlay") || 0);
               if (playClickCount < 3) localStorage.setItem("hasClickedPlay", (playClickCount + 1).toString());
               if (!audio) return;
-              if (isMobile) {
+              if (isMobileDevice) {
                 const preferredService = sessionStorage.getItem("preferredService");
                 if (!preferredService) setBottomSheetOpen(true);
                 else if (preferredService == "Spotify") {
@@ -633,7 +656,7 @@ export default function EpisodeTable(props: {
                 <img draggable="false" src="/img/play.svg" alt="Lancer la lecture" role="button" />
               </div>
               {
-                isMobile && !!audio && audio.src && audio?.readyState < 3 && <div className={styles.loading}>
+                isMobileDevice && !!audio && audio.src && audio?.readyState < 3 && <div className={styles.loading}>
                   <MaterialSpinningLoader huge white />
                 </div>
               }
@@ -644,7 +667,7 @@ export default function EpisodeTable(props: {
           }>
             <div className={styles.bottomSheet}>
               {[{ name: "Spotify", color: "#1DB954", link: vinyls[selectedEpisode].spotifyLink },
-              { name: "Apple Podcasts", color: "#872EC4", link: vinyls[selectedEpisode].appleLink, skip: !isIOS },
+              { name: "Apple Podcasts", color: "#872EC4", link: vinyls[selectedEpisode].appleLink, skip: !isIOSDevice },
               { name: browserName || "Ce navigateur", color: "rgb(42, 50, 54)", link: "#" }
               ].filter(i => !i.skip).map((service, i, array) => {
                 const button = (
@@ -692,8 +715,6 @@ export default function EpisodeTable(props: {
   );
 };
 
-type key = "1" | "2"; // Etc.
-
 export const getStaticPaths = (async () => {
   const count = Number(process.env.EPISODES_COUNT);
   const paths = Array.from(Array(count).keys()).map((i) => ({
@@ -706,13 +727,9 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths
 
 export const getStaticProps = (async (context) => {
-  function stripHtmlTags(html: string): string {
-    return html.replace(/<\/?[^>]+(>|$)/g, "").replace(/\n/g, " ");
-  }
-
-  const { episodeNum } = (context.params as any);
+  const { episodeNum } = context.params as { episodeNum: string };
   const mod = await import("@/../public/js/data.json");
-  const episode: Episode = mod.episodes[`${episodeNum}` as key];
+  const episode: Episode = (mod.episodes as Record<string, Episode>)[`${episodeNum}`];
 
   episode.descText = stripHtmlTags(episode.desc) || "";
   episode.descText = episode.descText?.split(/(\nRéférence|\n0)/i)[0].slice(0, 198).trim() + "…";

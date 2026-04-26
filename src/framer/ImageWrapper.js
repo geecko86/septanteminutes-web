@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import useOffset from "../utils/ParallaxOffset";
 import { useTransform } from "framer-motion";
 import isOldPhone from "@/utils/mobileChecker";
-import { isMobile } from "react-device-detect";
 
 const ImageOffsetWrapperComponentOldPhone = (props) => {
     const { position, motionValue, style, priority, offset, offsetFactor, loading, src, sizes, ...newProps } = props;
@@ -83,7 +82,12 @@ export const BellLamp = (props) => {
 }
 
 export const Chair = (props) => {
-    const comp = (<ImageWrapper sizes={isMobile ? "25vh" : "50vh"} {...props} priority={!isMobile} src="https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png" />);
+    // Read touch capability at render time on the client only.
+    // ImageWrapper.js is always used inside dynamic(() => ..., { ssr: false })
+    // or in components that only render client-side, so typeof window is safe here.
+    const isMobileDevice = typeof window !== "undefined" &&
+        (window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0);
+    const comp = (<ImageWrapper sizes={isMobileDevice ? "25vh" : "50vh"} {...props} priority={!isMobileDevice} src="https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png" />);
     return { ...comp, displayName: "Chair" };
 };
 

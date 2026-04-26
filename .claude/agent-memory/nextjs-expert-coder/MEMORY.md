@@ -1,0 +1,4 @@
+- [Project Stack & Architecture](project_stack.md) — Next.js 15.5, Pages Router, static export, Firebase, yarn, node 22
+- [Project Code Conventions](project_conventions.md) — util locations, framer FC<any> aliases, episode title helpers, scroll queue naming, parallax constants
+- [ESLint rule availability](feedback_eslint_rules.md) — @typescript-eslint rules are NOT configured; avoid disable comments for them
+- [Yarn engine check workaround](feedback_yarn_engines.md) — Homebrew node (v25) breaks engine check; .yarnrc ignore-engines true is the fix

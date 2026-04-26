@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 import styles from "./homealbum.module.css";
-import { isMobile } from "react-device-detect";
 
 const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...otherProps }) => {
   const [isHovered, setHovered] = useState(false);
@@ -28,7 +27,12 @@ const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...
     >
       <motion.div
         className={styles.boxart}
-        onHoverStart={() => setHovered(!isMobile)}
+        onHoverStart={() => {
+          // Only trigger hover state on non-touch devices. We check at event
+          // time so the read always happens client-side, never during SSR.
+          const isTouch = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+          setHovered(!isTouch);
+        }}
         onHoverEnd={() => setHovered(false)}
         transition={{ type: "spring", stiffness: 100, damping: 15, mass: 1 }}
         style={{

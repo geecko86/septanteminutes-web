@@ -46,7 +46,7 @@ div.shadow24 {
     }
 }
 
-.hover_container.moving {
+.hover_container[data-moving="true"] {
     pointer-events: none;
 }
 

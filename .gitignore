@@ -26,8 +26,6 @@ septanteminutes-*.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-yarn.lock
-package-lock.json
 
 # local env files
 .env*.local

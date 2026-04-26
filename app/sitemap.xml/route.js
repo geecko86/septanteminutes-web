@@ -1,6 +1,9 @@
 // app/sitemap.xml/route.js
 
-const EXTERNAL_DATA_URL = 'https://www.septanteminutes.be'; // Replace with your actual URL
+import normalizeString from '../../src/utils/normalizeStr';
+import { getGuestName } from '../../src/utils/episodeTitle';
+
+const EXTERNAL_DATA_URL = 'https://www.septanteminutes.be';
 
 const generateSiteMap = (episodes) => {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -13,23 +16,12 @@ const generateSiteMap = (episodes) => {
           <loc>${EXTERNAL_DATA_URL}/faq</loc>
         </url>${episodes.map(({ num, title }) => `
         <url>
-          <loc>${EXTERNAL_DATA_URL}/podcast/interview/${num}-${normalizeString(title.split(/\s(-|–)\s?/g)[0]?.trim())}</loc>
+          <loc>${EXTERNAL_DATA_URL}/podcast/interview/${num}-${normalizeString(getGuestName(title))}</loc>
         </url>`).join('')}
     </urlset>`;
   return xml;
 }
 
-function normalizeString(str) {
-  return str
-    .normalize('NFD') // Decompose accented characters
-    .replace(/[\u0300-\u036f]/g, '') // Remove diacritical marks
-    .toLowerCase() // Convert to lowercase
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except hyphens
-    .replace(/\-\-+/g, '-') // Replace multiple hyphens with a single hyphen
-    .replace(/^-+/, '') // Trim hyphens from the start
-    .replace(/-+$/, ''); // Trim hyphens from the end
-}
 
 export async function GET() {
   const data = await import("../../public/js/data.json");

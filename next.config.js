@@ -1,5 +1,18 @@
-/** @type {import('next').NextConfig} */
-const withPWAInit = require("next-pwa");
+/**
+ * Next.js config for septanteminutes.be — fully static export to Firebase Hosting.
+ *
+ * Notable customizations:
+ * - PWA via @ducanh2912/next-pwa using InjectManifest mode (custom sw.js source).
+ * - Custom CSS pipeline (style-loader/css-loader/postcss-loader/cssnano) to
+ *   inline + minify CSS modules; localIdentName uses 5-char hashes for size.
+ * - HtmlMinifier hook in webpack's emit phase (collapses whitespace, removes
+ *   comments) — runs only in production builds.
+ * - splitChunks tuned to keep the framework chunk separate from large libs.
+ * - ANALYZE=true switches to @next/bundle-analyzer instead of PWA wrapping.
+ *
+ * @type {import('next').NextConfig}
+ */
+const withPWAInit = require("@ducanh2912/next-pwa").default;
 const TerserPlugin = require('terser-webpack-plugin');
 const { webpack } = require('next/dist/compiled/webpack/webpack');
 const HtmlMinifier = require('html-minifier-terser');
@@ -12,7 +25,6 @@ const withWrapper = (process.env.ANALYZE === 'true') ? require('@next/bundle-ana
   dest: "public",
   swSrc: "sw.js",
   register: true,
-  skipWaiting: true,
   disable: process.env.NODE_ENV === 'development'
 });
 
@@ -20,7 +32,7 @@ const NextConfig = {
   experimental: {
     optimizePackageImports: ["typescript", "framer", "framer-motion", "eslint", "@floating-ui/react", "react-dom"]
   },
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: false,
   trailingSlash: true,
   output: "export",
   compiler: {
@@ -29,7 +41,7 @@ const NextConfig = {
   },
   images: {
     loader: "custom",
-    loaderFile: "src/utils/cdn_img_loader.js",
+    loaderFile: "src/utils/cdn_img_loader.ts",
     formats: ["image/webp"],
     imageSizes: [128, 256, 384, 480, 560],
   },

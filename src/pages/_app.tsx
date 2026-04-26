@@ -1,5 +1,3 @@
-"use client";
-
 import React, { ReactElement, ReactNode, useCallback, useEffect, useState } from 'react'
 import type { NextComponentType, NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
@@ -13,37 +11,35 @@ import { PlaybackProvider } from '../utils/PlayerContext'
 import useUpdateChecker from '../utils/updateChecker';
 import useBrowserCheck from '../utils/browserCheck';
 
-import { browserName, browserVersion, engineVersion, isChrome, isChromium, isMobile, isSamsungBrowser } from 'react-device-detect'
 import styles from "./layout.module.css"
 
 const FloatingPlaybackControls = dynamic(() => import('../components/FloatingPlaybackControls'), { ssr: false });
 
 export default function MyApp({ Component, pageProps, statusCode }: AppPropsWithLayout) {
 
-  const [loadedRoute, setLooaded] = useState("");
+  const [loadedRoute, setLoaded] = useState("");
   const [_, setDisplayedComponent] = useState(Component?.name);
   const [componentHistory, setComponentHistory] = useState([Component?.name]);
   const [showLoadingAnim, setShowLoadingAnim] = useState(true);
   const [loadingAnimGone, setLoadingAnimGone] = useState(false);
   const [loaderClass, setLoaderClass] = useState("vinyl_loading");
-  const [isMobileDevice, setIsMobileDevice] = useState(true);
 
   const { pathname, events: routerEvents, replace: routerReplace } = useRouter();
 
-  const setLoaded = (route: string) => {
+  const logAndSetLoaded = (route: string) => {
     console.log("Loaded route: ", route);
-    setLooaded(route);
+    setLoaded(route);
   }
 
   const onReady = useCallback(() => {
-    setLoaded(pathname)
+    logAndSetLoaded(pathname)
   }, [pathname]);
 
   useEffect(() => {
     console.log(Component.name);
     setDisplayedComponent(displayedComponent => {
       if (Component.name !== displayedComponent && !Component.name.includes("404") && !displayedComponent.includes("404")) {
-        setLoaded("");
+        logAndSetLoaded("");
       }
       return Component.name
     });
@@ -52,7 +48,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   useEffect(() => {
     const handle404 = () => {
       // Handle the error here
-      setLoaded("404");
+      logAndSetLoaded("404");
       console.error('404 - Page not found')
     }
 
@@ -69,7 +65,6 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   }, [routerEvents, statusCode]);
 
   useEffect(() => {
-    setIsMobileDevice(isMobile);
     let timeoutId: (NodeJS.Timeout | undefined) = undefined;
     const loader = document.getElementById('globalLoader');
     if (loader) {
@@ -112,6 +107,22 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   });
 
   useBrowserCheck();
+
+  useEffect(() => {
+    // Apply a legacy overflow workaround for old Chromium (<125) on mobile
+    // portrait. We check UA client-side so this never runs during static export.
+    const isCoarsePortrait =
+      window.matchMedia('(pointer: coarse) and (orientation: portrait)').matches;
+    if (isCoarsePortrait) {
+      const ua = navigator.userAgent;
+      const chromeMatch = ua.match(/Chrome\/(\d+)/);
+      const isOldChromium = chromeMatch && parseInt(chromeMatch[1], 10) < 125;
+      const nextEl = document.getElementById('__next');
+      if (nextEl) {
+        nextEl.style.overflowY = isOldChromium ? 'hidden' : '';
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (window.location.search && routerReplace) {
@@ -235,9 +246,9 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
                 height: 100vh !important;
                 height: 100svh !important;
             }
-        
+
             #__next {
-                ${ /chromium|chrome/i.test(navigator.userAgent) && parseInt(engineVersion, 10) < 125 ? "overflow-y: hidden;" : "overflow-x: clip" }
+                overflow-x: clip;
                 overflow-x: unset;
             }
         }
@@ -277,7 +288,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
       {/* <StrictMode> */}
       <PlaybackProvider>
         <AnimatePresence mode='wait' onExitComplete={() => {
-          if (!loadedRoute.includes("404")) setLoaded("");
+          if (!loadedRoute.includes("404")) logAndSetLoaded("");
           if (!componentHistory.includes(Component.name)) setComponentHistory([...componentHistory, Component.name]);
         }}>
           <Component {...pageProps} key={Component.name} onReady={onReady} />

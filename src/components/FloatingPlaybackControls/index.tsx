@@ -9,7 +9,7 @@ import { usePlayback, hackAutoplay } from '../../utils/PlayerContext';
 
 import 'rc-slider/assets/index.css';
 import styles from "./controls.module.css";
-import { isIOS } from 'react-device-detect';
+
 
 const railStyle = {
     backgroundColor: "rgba(0, 0, 0, 0.35)",
@@ -48,10 +48,14 @@ const Controls = () => {
     };
 
     useEffect(() => {
+        // Detect iOS client-side so the check never runs during static export.
+        const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
         setShowAudioElement(isIOS);
     }, []);
 
     useEffect(() => {
+        // Same inline iOS check — avoids a module-scope navigator read.
+        const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
         if (!isIOS) return;
         var callback : (ev: Event) => void;
         callback = (_: Event) => {

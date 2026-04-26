@@ -75,15 +75,14 @@ registerRoute(
     }),
     'GET'
   );
-// disable image cache, so we could observe the placeholder image when offline
 registerRoute(
   /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
-  new NetworkOnly({
+  new StaleWhileRevalidate({
     cacheName: 'artwork-assets',
     plugins: [
       new ExpirationPlugin({
-        maxEntries: 64,
-        maxAgeSeconds: 86400,
+        maxEntries: 100,
+        maxAgeSeconds: 7 * 24 * 60 * 60,
         purgeOnQuotaError: !0,
       }),
     ],

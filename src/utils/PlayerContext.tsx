@@ -1,12 +1,25 @@
-
+/**
+ * Audio playback context for the podcast player.
+ * Wraps a single shared HTMLAudioElement, syncs MediaSession metadata
+ * (lock-screen / Bluetooth controls), and provides play/pause/seek state
+ * to any subtree via the usePlayback() hook.
+ */
 
 import React, { useContext, createContext, SetStateAction, useState, useEffect, useRef } from "react";
+
+declare global {
+  interface Window {
+    /** Exposed in development only — lets DevTools inspect the audio element. */
+    audioPlayer?: React.RefObject<HTMLAudioElement | undefined>;
+  }
+}
 
 import loader from "../utils/cdn_img_loader";
 import type { Episode } from "../types/episode";
 
 const PlayerContext = createContext<PlaybackContextData | undefined>(undefined);
 
+// Silent base64 MPEG to pre-unlock the audio context before a user gesture (standard mobile autoplay workaround)
 export const hackAutoplay = async (audio: HTMLAudioElement) => {
     if (audio && !audio.src) {
         audio.muted = false;
@@ -27,7 +40,7 @@ const setupMetadata = (playbackData: { playbackTitle: string, playbackArtwork: s
                 { src: loader({ src: playbackData.playbackArtwork, width: 512, quality: 85 }), sizes: '512x512', type: 'image/png' }
             ] : []
         } : {});
-        console.log("metadata set", playbackData.playbackArtwork, playbackData.playbackTitle);
+        if (process.env.NODE_ENV !== 'production') console.log("metadata set", playbackData.playbackArtwork, playbackData.playbackTitle);
     }
 };
 
@@ -120,10 +133,12 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
 
    useEffect(() => {
         if (navigator.mediaSession?.metadata?.title != playingEpisode?.title) {
-            setupMetadata({
-                playbackTitle: playingEpisode?.title!!,
-                playbackArtwork : playingEpisode?.img!!,
-            });
+            if (playingEpisode?.title && playingEpisode?.img) {
+                setupMetadata({
+                    playbackTitle: playingEpisode.title,
+                    playbackArtwork: playingEpisode.img,
+                });
+            }
         }
         playingEpisodeRef.current = playingEpisode;
     }, [playingEpisode]);
@@ -187,7 +202,9 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         newAudio.addEventListener("seeked", onPlaying, { passive: true });
 
         audioRef.current = newAudio;
-        (window as any).audioPlayer = audioRef;
+        if (process.env.NODE_ENV !== 'production') {
+            window.audioPlayer = audioRef;
+        }
 
         return () => {
             newAudio.removeEventListener('playing', onPlaying);
@@ -198,7 +215,9 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
             newAudio.removeEventListener("error", onError);
             newAudio.removeEventListener("seeked", onPlaying);
             audioRef.current = undefined;
-            (window as any).audioPlayer = undefined;
+            if (process.env.NODE_ENV !== 'production') {
+                window.audioPlayer = undefined;
+            }
         }
     }, []);
 
@@ -218,7 +237,9 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         if (isPlaying && audio.src && audio.readyState >= 2 && audio.canPlayType("audio/mpeg")) {
             audio.play().then(() => {
                 if (!audio.src.startsWith("data:audio") && navigator.mediaSession?.metadata?.title != playingEpisode?.title) {
-                    setupMetadata({ playbackTitle: playingEpisode?.title!!, playbackArtwork: playingEpisode?.img!! });
+                    if (playingEpisode?.title && playingEpisode?.img) {
+                        setupMetadata({ playbackTitle: playingEpisode.title, playbackArtwork: playingEpisode.img });
+                    }
                     setupPlaySession(audio, setPlaying);
                     updatePositionState(audio);
                 }

@@ -2,6 +2,8 @@ import React from 'react';
 
 import EpisodePage from "@/pages/[episodeNum]";
 import normalizeString from "@/utils/normalizeStr";
+import { stripHtmlTags } from "@/utils/stripHtml";
+import { getGuestName } from "@/utils/episodeTitle";
 
 import type {
     GetStaticProps,
@@ -16,14 +18,12 @@ export default function GuestPage(props: any) {
     );
 };
 
-type key = "1" | "2"; // Etc.
-
 export const getStaticPaths = (async () => {
     const count = Number(process.env.EPISODES_COUNT);
     const paths = Array.from(Array(count).keys()).map(async (i) => {
         const mod = await import("@/../public/js/data.json");
-        const episode: Episode = mod.episodes[`${i + 1}` as key];
-        const guestName = normalizeString(episode.title?.split(/\s(-|–)\s?/g)[0]?.trim());
+        const episode: Episode = (mod.episodes as Record<string, Episode>)[`${i + 1}`];
+        const guestName = normalizeString(getGuestName(episode.title));
                 
         return {
             params: {
@@ -39,14 +39,10 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths
 
 export const getStaticProps = (async (context) => {
-    function stripHtmlTags(html: string): string {
-        return html.replace(/<\/?[^>]+(>|$)/g, "").replace(/\n/g, " ");
-    }
-
-    const { episodeName } = (context.params as any);
+    const { episodeName } = context.params as { episodeName: string };
     const episodeNum = episodeName.split("-")[0];
     const mod = await import("@/../public/js/data.json");
-    const episode: Episode = mod.episodes[`${episodeNum}` as key];
+    const episode: Episode = (mod.episodes as Record<string, Episode>)[`${episodeNum}`];
 
     episode.descText = stripHtmlTags(episode.desc) || "";
     episode.descText = episode.descText?.split(/(\nRéférence|\n0)/i)[0].slice(0, 198) + "…";

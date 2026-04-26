@@ -4,8 +4,8 @@ import { motion, useScroll, useTransform, usePresence } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { isMobile } from 'react-device-detect';
 import { onCLS } from 'web-vitals';
+import { useMobileDevice } from '../utils/useMobileDevice';
 
 import useImageLoader from "../utils/ImageLoader";
 import styles from './faq.module.css';
@@ -16,7 +16,7 @@ const FAQPage = (props: { onReady: () => void }) => {
     const [letterReady, setLetterReady] = useState(false);
     const [backgroundReady, setBackgroundReady] = useState(false);
     const [fontsLoaded, setFontsLoaded] = useState(false);
-    const [isMobileDevice, setIsMobileDevice] = useState(false);
+    const isMobileDevice = useMobileDevice();
     const [isPresent, safeToRemove] = usePresence();
 
     const onReady = useCallback(() => {
@@ -25,8 +25,7 @@ const FAQPage = (props: { onReady: () => void }) => {
     }, [setLetterReady, props]);
 
     useEffect(() => {
-        setIsMobileDevice(isMobile);
-        onCLS(console.log);
+        if (process.env.NODE_ENV !== 'production') onCLS(console.log);
 
         const onFontsLoaded = () => { setFontsLoaded(true); };
         if (document.fonts.status === 'loaded') onFontsLoaded();
@@ -42,7 +41,7 @@ const FAQPage = (props: { onReady: () => void }) => {
     }, [onReady]);
 
     useEffect(() => {
-        if (isPresent && maskLoaded && fontsLoaded && (isMobile || backgroundReady)) onReady();
+        if (isPresent && maskLoaded && fontsLoaded && (isMobileDevice || backgroundReady)) onReady();
     }, [setLetterReady, onReady, isPresent, fontsLoaded, maskLoaded, backgroundReady]);
 
     const { scrollYProgress } = useScroll();

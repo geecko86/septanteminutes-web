@@ -1,6 +1,18 @@
 ;
 
-import React, { useState, useEffect, MouseEventHandler, ForwardedRef } from "react";
+/**
+ * VinylAlbum renders the spinning vinyl artwork on the episode page.
+ *
+ * Performance note: visibility, "moving" status, and shadow level are written
+ * directly to the DOM via refs (className / dataset / hidden attribute) inside
+ * the useMotionValueEvent callback, NOT via React state. The episode page mounts
+ * 30+ VinylAlbums all subscribed to the same scrollYProgress; routing those
+ * scroll-frequency updates through React caused dozens of re-renders per frame.
+ * Direct DOM mutation eliminates that. See album.module.css for the matching
+ * [data-moving="true"] / [data-visibility="hidden"] selectors.
+ */
+
+import React, { useState, useEffect, useRef, MouseEventHandler, ForwardedRef } from "react";
 import {
   motion,
   useTransform,
@@ -13,7 +25,6 @@ import Image from "next/image";
 import { useEventListener } from "usehooks-ts";
 
 import styles from "./album.module.css";
-import { isMobile } from "react-device-detect";
 
 const VinylAlbum = React.forwardRef(( {
     position,
@@ -63,42 +74,69 @@ const VinylAlbum = React.forwardRef(( {
     ["0%", "-66%"]
   );
 
-  const [isHidden, setHidden] = useState(position > episodeNumParam);
+  // `loaded` still drives a className on the Image, so it stays as state.
   const [loaded, setLoadedComplete] = useState(false);
-  const [isGone, setGone] = useState(false);
-  const [shadowLevel, setShadowLevel] = useState("");
-  const [ignoreScroll, setIgnoreScroll] = useState(false);
-  const [isMoving, setMoving] = useState(false);
-  const [jump, setJump] = useState(true);
 
+  // `ignoreScroll` is read inside the scroll event callback — a ref is
+  // sufficient here too since we never need a re-render when it changes.
+  const ignoreScrollRef = useRef(false);
+
+  // `jump` controls a one-shot behaviour inside the scroll callback.
+  // No re-render is needed so we keep it as a ref.
+  const jumpRef = useRef(true);
+
+  // --- Refs for DOM nodes whose visual state is mutated directly on every
+  //     animation frame, bypassing React's render cycle entirely. ---
+
+  // The outer wrapper div for the vinyl (non-shadow) variant.
+  // We toggle `hidden`, `data-visibility`, and the `moving` data-attribute on it.
+  const hoverContainerRef = useRef<HTMLDivElement>(null);
+
+  // The shadow div — we toggle its className to change the box-shadow level.
+  const shadowDivRef = useRef<HTMLDivElement>(null);
+
+  // The outer wrapper for the shadow variant — same data-visibility toggle.
+  const shadowContainerRef = useRef<HTMLDivElement>(null);
+
+  // Initial visibility: set data-visibility immediately on mount so the element
+  // starts in the right state before any scroll event fires.
+  const initiallyHidden = position > episodeNumParam;
+
+  // This effect mirrors the old useEffect that drove `setHidden`. It now writes
+  // directly to the DOM node instead of going through state.
   useEffect(() => {
     if (episodeNumParam == -1) return;
-    if (!mayAnimate) {
-      if (position <= episodeNumParam) setHidden(false);
-    } else {
-      setHidden(((position > episodeNumParam || episodeNumParam == -1)));
+
+    const isHidden = mayAnimate
+      ? position > episodeNumParam || episodeNumParam == -1
+      : position > episodeNumParam;
+
+    const target = type === "shadow" ? shadowContainerRef.current : hoverContainerRef.current;
+    if (target) {
+      target.dataset.visibility = isHidden ? "hidden" : "visible";
     }
-  }, [mayAnimate, episodeNumParam, position]);
+  }, [mayAnimate, episodeNumParam, position, type]);
 
   useMotionValueEvent(scrollYProgress, "change", (progress: number) => {
-      if (position != 0 && !ignoreScroll) {
-        if (jump) {
-          albumRotation.jump(progress * (total - 1) * -25);
-          albumYOffset.jump(progress * (total - 1) * -200);
-          albumXOffset.jump(progress * (total - 1) * -500);
-          setJump(false);
-          return;
-        }
-        albumRotation.set(progress * (total - 1) * -25);
-        albumYOffset.set(progress * (total - 1) * -200);
-        albumXOffset.set(progress * (total - 1) * -500);
+    if (position != 0 && !ignoreScrollRef.current) {
+      if (jumpRef.current) {
+        albumRotation.jump(progress * (total - 1) * -25);
+        albumYOffset.jump(progress * (total - 1) * -200);
+        albumXOffset.jump(progress * (total - 1) * -500);
+        jumpRef.current = false;
+        return;
       }
+      albumRotation.set(progress * (total - 1) * -25);
+      albumYOffset.set(progress * (total - 1) * -200);
+      albumXOffset.set(progress * (total - 1) * -500);
+    }
   });
 
   useEventListener("resize", () => {
-    setIgnoreScroll(true);
+    // Pause scroll handling during resize to avoid visual glitches.
+    ignoreScrollRef.current = true;
     const id = setTimeout(() => {
-      setIgnoreScroll(false);
+      ignoreScrollRef.current = false;
     }, 50);
 
     return () => {
@@ -106,20 +144,41 @@ const VinylAlbum = React.forwardRef(( {
     }
   });
 
+  // This is the hot path: fires on every animation frame during scroll.
+  // We write directly to DOM refs — no setState, no React re-render.
   useMotionValueEvent(rotateZ, "change", (rotation) => {
-    if (mayAnimate) {
-      setGone(rotation < -24);
-      setHidden(rotation < -24);
+    if (type === "shadow") {
+      // Pick the right shadow class based on rotation angle.
+      // Writing className directly skips React's reconciler entirely.
+      const shadowEl = shadowDivRef.current;
+      if (shadowEl) {
+        const shadowClass =
+          rotation >= -25 && rotation < -7
+            ? styles.shadow24
+            : rotation < -1
+            ? styles.shadow8
+            : "";
+        shadowEl.className = `${styles.separate_shadow}${shadowClass ? " " + shadowClass : ""}`;
+      }
+    } else {
+      const el = hoverContainerRef.current;
+      if (el) {
+        const gone = mayAnimate && rotation < -24;
+
+        // `hidden` attribute hides the element from layout and accessibility tree —
+        // same effect as the old `hidden={isGone}` JSX prop.
+        el.hidden = gone;
+
+        // data-visibility feeds the CSS selector that controls opacity/visibility.
+        el.dataset.visibility = gone ? "hidden" : "visible";
+
+        // data-moving drives pointer-events: none via an attribute selector in CSS
+        // (replaces the `.moving` className toggle).
+        el.dataset.moving = rotation < 0 ? "true" : "false";
+      }
     }
-    setShadowLevel(
-      rotation >= -25 && rotation < -7
-        ? styles.shadow24
-        : rotation < -1
-        ? styles.shadow8
-        : ""
-    );
-    setMoving(rotation < 0);
-    if (rotation == -25) onSelect(); // Somehow fixes the issue of resizing the window but how...?
+
+    if (rotation == -25) onSelect();
   });
 
   const style = mayAnimate ? {
@@ -131,20 +190,27 @@ const VinylAlbum = React.forwardRef(( {
   } : {};
 
   return type === "shadow" ? (
-    <div className={styles.shadow_container} data-visibility={isHidden ? "hidden" : "visible"}>
+    // Use ref so the effect above can write data-visibility without setState.
+    <div
+      ref={shadowContainerRef}
+      className={styles.shadow_container}
+      data-visibility={initiallyHidden ? "hidden" : "visible"}
+    >
       <motion.div
-        className={`${styles.separate_shadow} ${shadowLevel}`}
+        ref={shadowDivRef}
+        className={styles.separate_shadow}
         style={style as MotionStyle}
       />
     </div>
-    ) 
+    )
   : (
+      // `data-moving` replaces the `.moving` className toggle.
+      // Initial values mirror what the old state initialised to.
       <div
-        className={[styles.hover_container, isMoving ? styles.moving : ""].join(
-          " "
-        )}
-        data-visibility={isHidden ? "hidden" : "visible"}
-        hidden={isGone}
+        ref={hoverContainerRef}
+        className={styles.hover_container}
+        data-visibility={initiallyHidden ? "hidden" : "visible"}
+        data-moving="false"
       >
         <motion.div
           onMouseEnter={onMouseEnter}
@@ -160,10 +226,15 @@ const VinylAlbum = React.forwardRef(( {
             priority={priority}
             className={!loaded ? styles.image_loading : ""}
             sizes="(max-width: 481px) 50vw,(min-width: 482px) 20vw, 20vw"
-            quality={isMobile ? 30 : 70}
+            quality={
+              // Pick a lower quality on touch/mobile screens to save bandwidth.
+              // Evaluated client-side at render time — safe in a Client Component.
+              (typeof window !== "undefined" && (window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0)) ? 30 : 70
+            }
             onLoad={() => {
               setLoadedComplete(true);
-              if (!isGone && onLoad) onLoad()
+              // Read hidden state directly from the DOM node — no isGone state needed.
+              if (!hoverContainerRef.current?.hidden && onLoad) onLoad();
             }}
           />
           <Image draggable="false"
@@ -190,7 +261,7 @@ const ShadowAlbum = (props: VinylProps) => {
     type = "shadow",
   } = props;
   return (
-    <VinylAlbum 
+    <VinylAlbum
       position={position}
       scrollYProgress={scrollYProgress}
       total={total}

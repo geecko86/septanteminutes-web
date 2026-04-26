@@ -2,15 +2,13 @@ import React, {
     useState,
     useRef,
     useEffect,
-    useMemo,
+    useLayoutEffect,
     useCallback,
-    FC,
 } from "react";
 import { motion, useTransform, useMotionValue, useScroll, animate, AnimationPlaybackControls, MotionValue, usePresence } from "framer-motion";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from 'next/router';
-import { isMobile } from 'react-device-detect';
 
 import Season_, { Chairs } from "../components/Season";
 import { usePlayback } from '../utils/PlayerContext';
@@ -29,7 +27,6 @@ import Head from "next/head";
 
 import type { Episode, Season } from "../types/episode";
 import Poster, { posters } from "@/components/Poster";
-// import checkOldPhone from "@/utils/mobileChecker";
 
 import styles from "./index.module.css";
 import { NextSeo } from "next-seo";
@@ -37,6 +34,24 @@ import { GetStaticProps } from "next";
 
 const SwipeAnim = dynamic(() => import("../components/SwipeAnim"), { ssr: false });
 const FrontColumn = dynamic(() => import("../components/FrontColumn"), { ssr: false });
+
+// Parallax speed multipliers for each scene layer.
+// Each layer scrolls at a different rate relative to the camera scroll (newScrollX),
+// creating the illusion of depth. Higher = faster = closer to the viewer.
+const FLOOR_PARALLAX_FACTOR = 0.3012;
+const LAYER_1_5_PARALLAX_FACTOR = 1.15;
+const LAYER_2_PARALLAX_FACTOR = 2.3;
+
+// Lamp-count calculation uses the lamp's width as a fraction of the viewport height.
+const LAMP_FACTOR_LAYER_1_5 = 0.27;
+const LAMP_FACTOR_LAYER_2 = 0.45;
+
+// How long to wait before fetching all seasons (deferred to avoid blocking LCP).
+const SEASON_FETCH_DELAY_MS = 12000;
+
+// Idle swipe animation: starts after INITIAL_DELAY and repeats every REPEAT ms.
+const IDLE_SWIPE_INITIAL_DELAY_MS = 1750;
+const IDLE_SWIPE_REPEAT_MS = 3500;
 
 const structuredObject = JSON.stringify({
     "@context" : "https://schema.org",
@@ -51,10 +66,12 @@ export default function Home(props: {
     onReady: () => void,
     style: React.CSSProperties
 }) {
-    const Season: FC<any> = Season_;
-    const HomeAlbum: FC<any> = HomeAlbum_;
-    const BellLamp: FC<any> = BellLamp_;
-    const PlantA2: FC<any> = PlantA2_;
+    // FC<any> annotation needed — the ambient .d.ts wildcard does not match
+    // relative imports under TypeScript bundler resolution. See src/framer/types.d.ts.
+    const Season: React.FC<any> = Season_;
+    const HomeAlbum: React.FC<any> = HomeAlbum_;
+    const BellLamp: React.FC<any> = BellLamp_;
+    const PlantA2: React.FC<any> = PlantA2_;
 
     const [ready, setReady] = useState(false);
     const [seasons, setSeasons] = useState<Season[]>(props.seasons || []);
@@ -64,8 +81,7 @@ export default function Home(props: {
     const [showSwiper, setShowSwiper] = useState(false);
     const [onTheMove, setOnTheMove] = useState(false);
     const [firstPosterMotionValue, setFirstPosterMotionValue] = useState<MotionValue | undefined>(undefined);
-    const [offset3_factor, setOffset3Factor] = useState<number>(0.5);
-    // const [isOldPhone, setIsOldPhone] = useState(true)
+    const [offset3Factor, setOffset3Factor] = useState<number>(0.5);
     const [isMobileDevice, setIsMobileDevice] = useState(true);
     const [isTouchDevice, setIsTouchDevice] = useState(true);
 
@@ -83,7 +99,12 @@ export default function Home(props: {
     const firstAlbumImg = firstAlbum.current;
 
     function isMobileLandscape() {
-        return isMobile && window.innerWidth > window.innerHeight;
+        // Use local state (set from UA check in the init useEffect) rather than
+        // the module-scope react-device-detect value, which is wrong during SSR.
+        // Guard window access — this can be called from useTransform callbacks
+        // which now run server-side in newer framer-motion/Next.js versions.
+        if (typeof window === "undefined") return false;
+        return isMobileDevice && window.innerWidth > window.innerHeight;
     }
 
     useEffect(() => {
@@ -97,7 +118,7 @@ export default function Home(props: {
                     localStorage.setItem('seasons', JSON.stringify(e.data));
                 };
                 myWorker.postMessage(localStorage.getItem('seasons') || '[]');
-            }, onTheMove || router.asPath.includes("#") ? 0 : 12000);
+            }, onTheMove || router.asPath.includes("#") ? 0 : SEASON_FETCH_DELAY_MS);
         }
 
         return () => {
@@ -120,8 +141,8 @@ export default function Home(props: {
         const handleResize = () => {
             setRatio((home.current?.clientWidth || 1) / ((isMobileLandscape() ? window.innerHeight : window.innerWidth) || 1)); // todo: handle screen rotation
             setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
-            setLamps15Count(getLampsCount(0.27));
-            setLamps2Count(getLampsCount(0.45));
+            setLamps15Count(getLampsCount(LAMP_FACTOR_LAYER_1_5));
+            setLamps2Count(getLampsCount(LAMP_FACTOR_LAYER_2));
 
             const width = home.current?.clientWidth || window.innerWidth;
             const textureWidth = (3618 / 858) * window.innerHeight;
@@ -188,27 +209,37 @@ export default function Home(props: {
         return output;
     });
 
-    const [lamps15Count, setLamps15Count] = useState<number>(() => getLampsCount(0.27));
-    const [lamps2Count, setLamps2Count] = useState<number>(() => getLampsCount(0.45));
+    const [lamps15Count, setLamps15Count] = useState<number>(() => getLampsCount(LAMP_FACTOR_LAYER_1_5));
+    const [lamps2Count, setLamps2Count] = useState<number>(() => getLampsCount(LAMP_FACTOR_LAYER_2));
     const [groundTexturesCount, setGroundTexturesCount] = useState(4);
     const [frontItemsCount, setFrontItemsCount] = useState(1);
     const [dimensionWidth, setDimensionWidth] = useState(0);
 
     const centerPosition = useTransform(() => `calc(${((isMobileDevice ? (isMobileLandscape() ? scrollY : scrollX) : newScrollX).get() / (home.current?.clientWidth || 100)) * (isMobileDevice ? 200 : -100)}% + ${dimensionWidth / 2}px)`);
     const perspectiveOrigin = useTransform(() => `${centerPosition.get()} 11.5v${isMobileLandscape() ? "max" : "h"}`);
-    const offsetFloor = useTransform(() => newScrollX.get() * 0.3012 * (navigator.maxTouchPoints > 0 ? 2 : 1));
-    const offset15 = useTransform(() => newScrollX.get() * 1.15 * (navigator.maxTouchPoints > 0 ? 2 : 1));
-    const offset2 = useTransform(() => newScrollX.get() * 2.3 * (navigator.maxTouchPoints > 0 ? 2 : 1));
-    const offset3 = useTransform(() => newScrollX.get() * offset3_factor);
+    // Use isTouchDevice state (set client-side in useEffect) instead of
+    // navigator.maxTouchPoints directly — useTransform callbacks now run server-side
+    // in newer framer-motion/Next.js, so we can't access navigator here safely.
+    const offsetFloor = useTransform(() => newScrollX.get() * FLOOR_PARALLAX_FACTOR * (isTouchDevice ? 2 : 1));
+    const offset15 = useTransform(() => newScrollX.get() * LAYER_1_5_PARALLAX_FACTOR * (isTouchDevice ? 2 : 1));
+    const offset2 = useTransform(() => newScrollX.get() * LAYER_2_PARALLAX_FACTOR * (isTouchDevice ? 2 : 1));
+    const offset3 = useTransform(() => newScrollX.get() * offset3Factor);
 
-    let invisibleSeasonSeparators: number[];
-    invisibleSeasonSeparators = useMemo(() => [...(seasons || [])].map((_, i) => {
-        let dimensions = layer1.current?.children[i]?.children[0]?.getBoundingClientRect();
-        if (!dimensions && invisibleSeasonSeparators?.length) return invisibleSeasonSeparators[i];
-        let separator = dimensions?.width || 1000;
-        return separator
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }), [seasons, screenContentRatio]);
+    const [invisibleSeasonSeparators, setInvisibleSeasonSeparators] = useState<number[]>([]);
+
+    useLayoutEffect(() => {
+        const measure = () => {
+            setInvisibleSeasonSeparators(
+                [...(seasons || [])].map((_, i) =>
+                    layer1.current?.children[i]?.children[0]?.getBoundingClientRect()?.width || 1000
+                )
+            );
+        };
+        measure();
+        const observer = new ResizeObserver(measure);
+        if (layer1.current) observer.observe(layer1.current);
+        return () => observer.disconnect();
+    }, [seasons]);
 
     const interceptAutoScroll = useCallback((e: MouseEvent) => {
         if (e.button == 1) {
@@ -218,10 +249,10 @@ export default function Home(props: {
     }, []);
 
     const isPlayerVisible = useCallback(() => {
-        if (isMobile) return false;
+        if (isMobileDevice) return false;
         const active = playingEpisode && playingEpisode.mp3 && playingEpisode.num && playingEpisode.title;
         return !!active;
-    }, [playingEpisode]);
+    }, [isMobileDevice, playingEpisode]);
 
     const handleKeysDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
         const scroll = Math.floor(window.innerWidth * 0.06);
@@ -250,7 +281,7 @@ export default function Home(props: {
 
     useEffect(() => {
         const slider = home.current;
-        if (!slider || isMobile) return;
+        if (!slider || isMobileDevice) return;
         let isDown = false;
         let startX: number;
         let scrollLeft: number;
@@ -334,11 +365,11 @@ export default function Home(props: {
             window.removeEventListener('wheel', onWheel);
             cancelMomentumTracking();
         }
-    }, [scrollX, scrollXAdditional, firstAlbumImg]);
+    }, [isMobileDevice, scrollX, scrollXAdditional, firstAlbumImg]);
 
     useEffect(() => {
         const rootElem = root.current;
-        if (!ready || !rootElem || isMobile) return;
+        if (!ready || !rootElem || isMobileDevice) return;
 
         const onHomeWheel = (e: WheelEvent) => {
             if (e.stopImmediatePropagation) e.stopImmediatePropagation();
@@ -435,8 +466,8 @@ export default function Home(props: {
         };
         swiperTimer = setTimeout(() => {
             idleAnimAction();
-            swiperTimer = setInterval(idleAnimAction, 3500);
-        }, 1750);
+            swiperTimer = setInterval(idleAnimAction, IDLE_SWIPE_REPEAT_MS);
+        }, IDLE_SWIPE_INITIAL_DELAY_MS);
         home.current?.focus();
         return () => {
             clearInterval(swiperTimer);
@@ -445,10 +476,10 @@ export default function Home(props: {
             rootElem?.removeEventListener("wheel", onHomeWheel);
             rootElem?.removeEventListener("mousedown", interceptAutoScroll);
         }
-    }, [home, ready, scrollYAdditional, isTouchDevice, interceptAutoScroll, scrollXAdditional, newScrollX]);
+    }, [home, ready, isMobileDevice, scrollYAdditional, isTouchDevice, interceptAutoScroll, scrollXAdditional, newScrollX]);
 
     useEffect(() => {
-        const motionValue = isMobile ? newScrollX : scrollXAdditional;
+        const motionValue = isMobileDevice ? newScrollX : scrollXAdditional;
         const unsub = motionValue.on("change", (val) => {
             if (Math.abs(val) > 50) {
                 hasMovedRef.current = true;
@@ -462,10 +493,10 @@ export default function Home(props: {
         return () => {
             unsub();
         }
-    }, [newScrollX, scrollXAdditional])
+    }, [isMobileDevice, newScrollX, scrollXAdditional])
 
     useEffect(() => {
-        if (!ready && isMobileDevice === isMobile && seasons.length > 0) {
+        if (!ready && seasons.length > 0) {
             const promisesList = [] as Promise<void>[];
 
             if (firstAlbum.current) {
@@ -577,10 +608,12 @@ export default function Home(props: {
     }, [isPresent, router.asPath, ready, props.onReady, firstAlbumImg, seasons, isMobileDevice]);
 
     useEffect(() => {
-        // setIsOldPhone(checkOldPhone());
-        setIsMobileDevice(isMobile);
+        // Detect mobile and touch capabilities entirely client-side so these
+        // checks never run during static export (where navigator doesn't exist).
+        const mobile = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+        setIsMobileDevice(mobile);
         setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-        if (!isMobile) {
+        if (!mobile) {
                 import ("../components/FrontColumn").then((mod) => {
                 const posters = mod.FrontPosters;
                 setFrontPosters(posters);
@@ -786,9 +819,10 @@ export const getStaticProps = (async (_) => {
     const mod = await import("@/../public/js/data.json");
     const { episodes } = mod;
 
+    const eps = episodes as Record<string, Episode>;
     const vinyls = Array.from(
         { length: Object.keys(episodes).length },
-        (v, k) => episodes[(k + 1).toString() as key]
+        (_, k) => eps[(k + 1).toString()]
     );
     const seasons = [...new Set(vinyls.map(v => v.season))].map(season => ({
         name: season,
@@ -800,4 +834,3 @@ export const getStaticProps = (async (_) => {
   }) satisfies GetStaticProps<{
   }>;
 
-  type key = "1" | "2"; // etc
