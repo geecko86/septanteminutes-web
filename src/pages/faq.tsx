@@ -41,8 +41,9 @@ const FAQPage = (props: { onReady: () => void }) => {
     }, [onReady]);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: onReady is a callback prop that signals the parent to lift state; calling it in an effect is the correct pattern
         if (isPresent && maskLoaded && fontsLoaded && (isMobileDevice || backgroundReady)) onReady();
-    }, [setLetterReady, onReady, isPresent, fontsLoaded, maskLoaded, backgroundReady]);
+    }, [setLetterReady, onReady, isPresent, fontsLoaded, maskLoaded, backgroundReady, isMobileDevice]);
 
     const { scrollYProgress } = useScroll();
     const yOffset = useTransform(scrollYProgress, [0, 1], [-((!backgroundReady ? 1000 : window.innerHeight) / 6.25), (!backgroundReady ? 1000 : window.innerHeight) / 6.25]);

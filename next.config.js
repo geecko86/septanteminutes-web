@@ -29,8 +29,16 @@ const withWrapper = (process.env.ANALYZE === 'true') ? require('@next/bundle-ana
 });
 
 const NextConfig = {
+  // Next 16 infers workspace root from lockfile location. Since there is a
+  // stray yarn.lock at $HOME, it would pick that directory and look for pages
+  // in the wrong place. Explicitly pin root to this project directory so page
+  // discovery, Turbopack, and workspace resolution all point at the right spot.
+  turbopack: {
+    root: __dirname,
+  },
+  transpilePackages: ['scroll-snap'],
   experimental: {
-    optimizePackageImports: ["typescript", "framer", "framer-motion", "eslint", "@floating-ui/react", "react-dom"]
+    optimizePackageImports: ["framer-motion", "@floating-ui/react"]
   },
   productionBrowserSourceMaps: false,
   trailingSlash: true,
@@ -46,50 +54,125 @@ const NextConfig = {
     imageSizes: [128, 256, 384, 480, 560],
   },
   webpack: (
-    config, { buildId }
+    config, { buildId, isServer }
   ) => {
+    // scroll-snap@5 ships with "type":"module" in its package.json, which makes
+    // webpack try to parse it as an ES module. Two problems arise:
+    //
+    // 1. CLIENT: The UMD dist file is not an ES module — aliasing to the UMD
+    //    file and marking it `javascript/auto` tells webpack to treat it as
+    //    CommonJS, avoiding ESM-parse errors in the browser bundle.
+    //
+    // 2. SERVER: The UMD IIFE runs `t.scrollSnap = e()` where t is
+    //    `self ?? this`. In strict-mode Node.js `this` is undefined at module
+    //    top-level, so the assignment throws immediately on import.
+    //    Since createScrollSnap is only ever called inside a useEffect (browser
+    //    only), the server bundle just needs a safe no-op stub.
+    // scroll-snap@5 ships with "type":"module" in its package.json, which causes
+    // webpack to externalize it as a dynamic ESM import rather than bundling it.
+    // Two problems arise from this:
+    //
+    // 1. CLIENT: The UMD dist file is not an ES module. We alias to the UMD file
+    //    and mark it `javascript/auto` so webpack treats it as CommonJS. We also
+    //    remove any existing externals entry for scroll-snap so it gets bundled.
+    //
+    // 2. SERVER: The UMD IIFE runs `t.scrollSnap = e()` where `t` resolves to
+    //    `self ?? this`. In strict-mode Node.js, `this` is undefined at module
+    //    top-level, so the assignment throws at import time. Since createScrollSnap
+    //    is only ever called inside a useEffect (browser-only), the server just
+    //    needs a safe no-op stub. We use a webpack `externals` function to intercept
+    //    `scroll-snap` at resolution time and point it at the local stub.
+    if (isServer) {
+      // Intercept the scroll-snap module at the externals level (before alias runs)
+      // and replace it with our CommonJS stub. This prevents the UMD IIFE from
+      // executing in Node.js where `this` is undefined in strict mode.
+      const stubPath = require.resolve('./src/utils/scroll-snap-stub.js');
+      const existingExternals = config.externals || [];
+      config.externals = [
+        // Our interceptor runs first: if the request is for scroll-snap, resolve
+        // to the local stub instead of letting Node/webpack find the ESM package.
+        ({ request }, callback) => {
+          if (request === 'scroll-snap') {
+            // `commonjs2` tells webpack this is a CommonJS module that exports
+            // via `module.exports`. The path must be absolute so Node can find it.
+            return callback(null, `commonjs2 ${stubPath}`);
+          }
+          callback();
+        },
+        // Preserve all existing externals (Next.js adds its own entries here).
+        ...(Array.isArray(existingExternals) ? existingExternals : [existingExternals]),
+      ];
+    } else {
+      // On the client, alias scroll-snap to the pre-compiled UMD file and mark
+      // it javascript/auto so webpack treats it as CommonJS, not ESM.
+      config.resolve.alias = {
+        ...(config.resolve.alias || {}),
+        'scroll-snap': require.resolve('scroll-snap/dist/scroll-snap.min.js'),
+      };
+      config.module.rules.push({
+        test: require.resolve('scroll-snap/dist/scroll-snap.min.js'),
+        type: 'javascript/auto', // treat as CommonJS, not ES module
+      });
+    }
+
     if (!isProduction) return config;
 
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: 'style-loader',
-          options: {
-            injectType: 'styleTag',
+    // The CSS module options shared between client and server compilations.
+    // css-loader resolves class name locals (e.g. styles.leuven → a 5-char hash string)
+    // so that importing a CSS module in JS always yields a plain object, not undefined.
+    const cssLoaderOptions = {
+      url: false,
+      importLoaders: 1,
+      modules: {
+        mode: 'local',
+        localIdentName: '[hash:base64:5]',
+        getLocalIdent: (context, localIdentName, localName) => (
+          localName.includes('rc-') ? localName : null
+        ),
+      },
+    };
+
+    if (isServer) {
+      // On the server (static page data collection) we only need the class-name
+      // mapping that css-loader produces — there is no DOM to inject a <style> tag
+      // into. style-loader is a browser-only loader and its export is `undefined`
+      // on the server, which would make `styles.leuven` throw at runtime.
+      config.module.rules.push({
+        test: /\.css$/,
+        use: [
+          { loader: 'css-loader', options: cssLoaderOptions },
+        ],
+      });
+    } else {
+      // On the client we run the full pipeline: css-loader resolves class names,
+      // postcss/cssnano minifies, and style-loader injects the final CSS into a
+      // <style> tag in the browser.
+      config.module.rules.push({
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: { injectType: 'styleTag' },
           },
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            url: false,
-            importLoaders: 1,
-            modules: {
-              mode: 'local',
-              localIdentName: '[hash:base64:5]',
-              getLocalIdent: (context, localIdentName, localName) => (
-                localName.includes('rc-') ? localName : null
-              ),
+          { loader: 'css-loader', options: cssLoaderOptions },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('cssnano')({
+                    preset: 'default',
+                    discardComments: { removeAll: true },
+                    reduceIdents: true,
+                    discardUnused: true,
+                  }),
+                ],
+              },
             },
           },
-        },
-        {
-          loader: 'postcss-loader', // Adding postcss-loader to ensure additional minification steps
-          options: {
-            postcssOptions: {
-              plugins: [
-                require('cssnano')({
-                  preset: 'default',
-                  discardComments: { removeAll: true },
-                  reduceIdents: true,
-                  discardUnused: true
-                }),
-              ],
-            },
-          },
-        }
-      ],
-    });
+        ],
+      });
+    }
 
 
     const terserMinimizer = new TerserPlugin({

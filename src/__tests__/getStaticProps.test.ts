@@ -38,11 +38,11 @@ vi.mock('../components/RecordPlayer/index.js', () => ({ default: () => null }));
 vi.mock('../components/VinylAlbum', () => ({ default: () => null, ShadowAlbum: () => null }));
 vi.mock('../components/NotebookOverlay/index.js', () => ({ default: () => ({ notebookOverlayComponent: null, referenceProps: {}, refs: {} }) }));
 vi.mock('../components/MaterialSpinningLoader/index.js', () => ({ default: () => null }));
+vi.mock('../components/MobileServiceSheet', () => ({ default: () => null }));
 vi.mock('../utils/PlayerContext', () => ({
   hackAutoplay: () => Promise.resolve(),
   usePlayback: () => ({ setPlaying: () => {}, setPlayingEpisode: () => {}, isPlaying: false, playingEpisode: undefined, autoplay: undefined, status: 0, audio: undefined }),
 }));
-vi.mock('react-spring-bottom-sheet', () => ({ BottomSheet: () => null }));
 
 // ---------------------------------------------------------------------------
 // Now we can safely import the real getStaticPaths / getStaticProps functions.

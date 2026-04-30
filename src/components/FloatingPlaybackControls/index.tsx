@@ -50,6 +50,7 @@ const Controls = () => {
     useEffect(() => {
         // Detect iOS client-side so the check never runs during static export.
         const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: SSR-safe one-shot iOS detection on mount
         setShowAudioElement(isIOS);
     }, []);
 
@@ -138,6 +139,7 @@ const Controls = () => {
                                     keyboard={false}
                                     onChange={(value) => {
                                         const val = (typeof value === "number" ? value : value[0]);
+                                        // eslint-disable-next-line react-hooks/immutability -- intentional: mutating HTMLMediaElement.currentTime to seek the audio playback position
                                         audio.currentTime = val;
                                         setProgress(val);
                                     }}
@@ -180,6 +182,7 @@ const VolumeControls = ({ audio, onMouseEnter }: { audio: HTMLAudioElement, onMo
 
     useEffect(() => {
         if (audio && (audio.volume !== volume || audio.muted !== muted)) {
+            // eslint-disable-next-line react-hooks/immutability -- intentional: mutating HTMLMediaElement.volume/muted to sync audio state with React state
             audio.volume = volume;
             audio.muted = muted;
         }

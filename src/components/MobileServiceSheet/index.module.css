@@ -1,0 +1,35 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 100;
+  touch-action: none;
+}
+
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  z-index: 101;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  touch-action: none;
+}
+
+.header {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.body {
+  padding: 12px 0;
+}

@@ -1,7 +1,7 @@
-// app/sitemap.xml/route.js
+// src/app/sitemap.xml/route.js
 
-import normalizeString from '../../src/utils/normalizeStr';
-import { getGuestName } from '../../src/utils/episodeTitle';
+import normalizeString from '../../utils/normalizeStr';
+import { getGuestName } from '../../utils/episodeTitle';
 
 const EXTERNAL_DATA_URL = 'https://www.septanteminutes.be';
 
@@ -24,7 +24,7 @@ const generateSiteMap = (episodes) => {
 
 
 export async function GET() {
-  const data = await import("../../public/js/data.json");
+  const data = await import("../../../public/js/data.json");
   const episodes = Object.keys(data.episodes)
     .filter(key => /^\d+$/.test(key))
     .map((i) => (data.episodes[i]));

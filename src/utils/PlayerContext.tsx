@@ -129,6 +129,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
     const [autoplay, setAutoplay] = useState<Episode | undefined>(undefined);
     const audioRef = useRef<HTMLAudioElement | undefined>(undefined);
     const playingEpisodeRef = useRef<Episode | undefined>(playingEpisode);
+    // eslint-disable-next-line react-hooks/refs -- intentional: audio element is stored in a ref and accessed during render to populate context; this component manages it as a stable singleton
     const audio = audioRef.current;
 
    useEffect(() => {
@@ -230,6 +231,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
 
     useEffect(() => {
         if (!audio) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: guards against stale isPlaying when audio element is not yet available
             if (isPlaying) setPlaying(false);
             return;
         }
@@ -249,8 +251,10 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
         } else if (!audio.paused) {
             audio.pause();
         }
+    // eslint-disable-next-line react-hooks/refs -- intentional: audio?.readyState in dep array ensures re-run when HTMLMediaElement load state changes
     }, [isPlaying, audio, playingEpisode, audio?.readyState]);
 
+    /* eslint-disable react-hooks/refs -- audio is derived from audioRef.current and passed through context; consumers need the element to attach event listeners */
     const playbackData: PlaybackContextData = {
         isPlaying: isPlaying,
         setPlaying: setPlaying,
@@ -268,6 +272,7 @@ export const PlaybackProvider = ({ children }: PlaybackProviderProps) => {
             {children}
         </PlayerContext.Provider>
     );
+    /* eslint-enable react-hooks/refs */
 }
 
 export const usePlayback = () => {

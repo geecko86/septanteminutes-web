@@ -1,6 +1,4 @@
 
-
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useRef } from "react";
 import Head from 'next/head';
 import NextImage from "next/image";

@@ -15,8 +15,9 @@ export default function Custom404(props: { offline ?: boolean, errorCode ?: numb
     const errorCode = `${props.errorCode || 404}`;
     
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: initializes online state and random name from browser APIs on mount
         setIsOnline(navigator.onLine && !(props.offline));
-        
+
         const onlineCallback = () => setIsOnline(true && !(props.offline));
         const offlineCallback = () => setIsOnline(false);
 

@@ -37,6 +37,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
 
   useEffect(() => {
     console.log(Component.name);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: route-change handler updates displayed component and resets loaded state
     setDisplayedComponent(displayedComponent => {
       if (Component.name !== displayedComponent && !Component.name.includes("404") && !displayedComponent.includes("404")) {
         logAndSetLoaded("");
@@ -69,6 +70,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
     const loader = document.getElementById('globalLoader');
     if (loader) {
       if (!loadedRoute) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: synchronously resets loading visibility when route is not yet loaded
         setLoadingAnimGone(false);
         timeoutId = setTimeout(() => {
           if (!loadedRoute) {

@@ -76,6 +76,7 @@ const SeasonComponent = (props: {
     const [isOldPhone, setIsOldPhone] = useState(true);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: SSR-safe one-shot device capability detection on mount
         setIsOldPhone(checkOldPhone());
     }, []);
 

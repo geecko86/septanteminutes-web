@@ -3,7 +3,10 @@
     "allow": [
       "Skill(update-config)",
       "Bash(yarn)",
-      "Bash(yarn *)"
+      "Bash(yarn *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:registry.npmjs.org)"
     ]
   }
 }

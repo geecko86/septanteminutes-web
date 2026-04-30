@@ -796,7 +796,7 @@
     }
 }
 
-@media screen and ((max-height:699px) and (orientation:portrait)) or ((max-width: 699px) and (orientation:landscape)) {
+@media screen and (max-height: 699px) and (orientation: portrait), screen and (max-width: 699px) and (orientation: landscape) {
     .season_frame div[data-framer-name="LEGENDE"] {
         display: none;
     }

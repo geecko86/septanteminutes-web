@@ -31,7 +31,7 @@ const css = [
   ".framer-C4Wjh .framer-v-tgvrn3 .framer-tgvrn3 { cursor: pointer; }",
 ];
 
-const getProps = ({ height, id, image, link, onClick, separate, logo, title, width, ...props }) => {
+const getProps = ({ height = 140, width = 140, id, image, link, onClick, separate, logo, title, ...props }) => {
   var ref2;
   return {
     onClick,
@@ -125,5 +125,4 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
 });
 
 Component.displayName = "Imaged Post It";
-Component.defaultProps = { height: 140, width: 140 };
 export default Component;

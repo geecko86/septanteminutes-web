@@ -12,6 +12,7 @@ const useImageLoader = (src: string): boolean => {
     const img = new Image();
     img.src = src;
     img.onload = () => setLoaded(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: synchronous fast-path for already-cached images
     if (img.complete) setLoaded(true);
   }, [src]);
 

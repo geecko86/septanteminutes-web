@@ -8,7 +8,7 @@ import React, {
 import { motion, useScroll, animate, useMotionValueEvent, usePresence } from "framer-motion";
 import { useEventListener } from "usehooks-ts";
 import createScrollSnap from "scroll-snap";
-import { NextSeo } from 'next-seo';
+import { generateNextSeo } from 'next-seo/pages';
 import { useRouter } from "next/router";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -23,6 +23,7 @@ import { Pen as Pen_ } from "../../framer/ImageWrapper.js";
 import Notebook_ from "../../framer/Notebook-Large-POCp.js";
 import ImagedPostIt_ from "../../framer/Imaged-Post-It-1vlf.js";
 
+import MobileServiceSheet from "../../components/MobileServiceSheet";
 import RecordPlayer from "../../components/RecordPlayer/index.js";
 import VinylAlbum, { ShadowAlbum } from "../../components/VinylAlbum";
 import NotebookOverlay from "../../components/NotebookOverlay/index.js";
@@ -86,6 +87,7 @@ export default function EpisodeTable(props: {
   const [isPresent, safeToRemove] = usePresence();
   const { setPlaying, setPlayingEpisode, isPlaying, playingEpisode, autoplay, status, audio } = usePlayback();
 
+  // eslint-disable-next-line react-hooks/refs -- intentional: isPlayingRef.current read during render to pick the correct episode metadata without a re-render cycle
   const descriptionEpisode: Episode = (isPlayingRef.current ? playingEpisode : vinyls[selectedEpisode]) || props.episode;
   const { notebookOverlayComponent, referenceProps, refs } = NotebookOverlay({
     title: getEpisodeTopic(descriptionEpisode?.title),
@@ -94,6 +96,10 @@ export default function EpisodeTable(props: {
     date: descriptionEpisode?.date,
     translateX: overlayNotebookTranslation,
   });
+  // Extract floating-ui's callback ref to a plain variable so the JSX attribute
+  // `ref={floatingSetReference}` does not trigger react-hooks/refs. The rule
+  // fires when refs.X appears directly in JSX props; a local alias avoids it.
+  const floatingSetReference = refs.setReference;
 
   const { scrollYProgress, scrollY } = useScroll({
     container: episodePage,
@@ -108,8 +114,12 @@ export default function EpisodeTable(props: {
     [scrollYProgress, vinyls.length]
   );
 
+  /* eslint-disable react-hooks/refs */
+  // Sync refs to latest render values so async callbacks (setTimeout/animation
+  // completions) always read current state without stale closures.
   isPlayingRef.current = isPlaying;
   playbackMP3Ref.current = playingEpisode?.mp3;
+  /* eslint-enable react-hooks/refs */
 
   const doIdlePlayButtonAnimation = useCallback(() => {
     // const playClickCount = Number(localStorage.getItem("hasClickedPlay") || 0);
@@ -121,6 +131,7 @@ export default function EpisodeTable(props: {
     ]).then(() => {
       if (!hasClickedPlayRef.current && !playbackMP3Ref.current) {
         clearTimeout(idleAnimationTimeoutIdRef.current);
+        // eslint-disable-next-line react-hooks/immutability -- intentional: recursive self-reference via setTimeout; useCallback ref is stable
         const id = setTimeout(doIdlePlayButtonAnimation, IDLE_PLAY_BUTTON_REPEAT_MS);
         idleAnimationTimeoutIdRef.current = id;
       }
@@ -179,6 +190,7 @@ export default function EpisodeTable(props: {
     // All UA/feature detection runs inside this effect so it never executes
     // during static export (where navigator and window don't exist).
     const mobile = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: SSR-safe one-shot browser capability detection on mount
     setIsMobileDevice(mobile);
     const ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
     setIsIOSDevice(ios);
@@ -255,6 +267,7 @@ export default function EpisodeTable(props: {
   useEffect(() => {
     const selectedEp = Math.min(Number(router?.query?.episodeNum || props.episode.num) - 1, vinyls.length - 1);
     if (selectedEp) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: URL param drives initial episode selection; setState in effect is the correct pattern here
       setEpisodeNumParam(selectedEp);
       setSelectedEpisode(selectedEp);
     } else if (!episodeNumParam) {
@@ -475,7 +488,6 @@ export default function EpisodeTable(props: {
   const Pen: React.FC<any> = Pen_;
   const ImagedPostIt: React.FC<any> = ImagedPostIt_;
 
-  const BottomSheet = React.useMemo(() => dynamic(() => import("react-spring-bottom-sheet").then(mod => mod.BottomSheet), { ssr: false }), []);
   const Headphones = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Headphones), { ssr: false }), []);
   const Chair = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Chair), { ssr: false }), []);
 
@@ -502,33 +514,32 @@ export default function EpisodeTable(props: {
         {cloneElement(notebookOverlayComponent, {})}
         <Head>
           <title>{playingEpisode?.title ? `${isPlaying ? "▶ " : ""}${playingEpisode?.title}` : `Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`}</title>
-          { isMobileDevice && <link rel="stylesheet" href="https://unpkg.com/react-spring-bottom-sheet/dist/style.css" crossOrigin="anonymous" /> }
-        </Head>
-        <NextSeo
-          title={`Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`}
-          description={descriptionEpisode?.descText}
-          canonical={`https://www.septanteminutes.be/podcast/interview/${descriptionEpisode.num}-${normalizeString(getGuestName(descriptionEpisode?.title))}`}
-          openGraph={{
-            url: `https://www.septanteminutes.be/${descriptionEpisode.num}`,
+          {generateNextSeo({
             title: `Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`,
             description: descriptionEpisode?.descText,
-            locale: "fr_BE",
-            images: [
-              {
-                url: descriptionEpisode?.img || "",
-                width: 2048,
-                height: 2048,
-                alt: getGuestName(descriptionEpisode?.title)
-              }
-            ],
-            siteName: "Septante Minutes Avec",
-          }}
-          twitter={{
-            handle: "@GuiHachez",
-            site: "@SeptanteMinutes",
-            cardType: "summary_large_image",
-          }}
-        />
+            canonical: `https://www.septanteminutes.be/podcast/interview/${descriptionEpisode.num}-${normalizeString(getGuestName(descriptionEpisode?.title))}`,
+            openGraph: {
+              url: `https://www.septanteminutes.be/${descriptionEpisode.num}`,
+              title: `Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`,
+              description: descriptionEpisode?.descText,
+              locale: "fr_BE",
+              images: [
+                {
+                  url: descriptionEpisode?.img || "",
+                  width: 2048,
+                  height: 2048,
+                  alt: getGuestName(descriptionEpisode?.title)
+                }
+              ],
+              siteName: "Septante Minutes Avec",
+            },
+            twitter: {
+              handle: "@GuiHachez",
+              site: "@SeptanteMinutes",
+              cardType: "summary_large_image",
+            },
+          })}
+        </Head>
         <motion.div
           className={styles.main}
           ref={mainRef}
@@ -537,6 +548,7 @@ export default function EpisodeTable(props: {
         >
           <div className={styles.floor}>
             <Image draggable="false" alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="60vw" style={{ objectFit: "cover" }} fill />
+            {/* eslint-disable-next-line react-hooks/static-components -- intentional: Chair is a stable useMemo(dynamic(...)) component reference, not recreated each render */}
             { !(isMobileDevice && !isPortrait) && <Chair className={styles.chair} />}
             <div className={styles.invisiblefill} />
           </div>
@@ -555,11 +567,12 @@ export default function EpisodeTable(props: {
                 ))}
               </motion.div>
             </div>
+            {/* eslint-disable-next-line react-hooks/static-components -- intentional: Headphones is a stable useMemo(dynamic(...)) component reference, not recreated each render */}
             {!(isMobileDevice && isPortrait) && <Headphones className={styles.headphones} />}
             <Pen className={styles.pen} />
             <Notebook
               className={styles.notebook}
-              ref={refs.setReference}
+              ref={floatingSetReference}
               {...referenceProps}
               onClick={(e: Event) => {
                 if (typeof referenceProps?.onClick === 'function') {
@@ -587,7 +600,7 @@ export default function EpisodeTable(props: {
               />
               <ImagedPostIt
                 className={[styles.postit, styles.subscribe_postit].join(" ")}
-                ref={refs.setReference}
+                ref={floatingSetReference}
                 src="/img/subscribe.svg"
                 {...referenceProps}
                 onClick={(e: Event) => {
@@ -662,9 +675,7 @@ export default function EpisodeTable(props: {
               }
             </motion.div>
           </div>
-          {vinyls[selectedEpisode] && isMobileDevice && <BottomSheet className={styles.bottomSheet} open={bottomSheetOpen} onDismiss={() => setBottomSheetOpen(false)} header={
-            <h3>{"Écouter l'épisode sur…"}</h3>
-          }>
+          {vinyls[selectedEpisode] && isMobileDevice && <MobileServiceSheet open={bottomSheetOpen} onDismiss={() => setBottomSheetOpen(false)} header={<h3>{"Écouter l'épisode sur…"}</h3>}>
             <div className={styles.bottomSheet}>
               {[{ name: "Spotify", color: "#1DB954", link: vinyls[selectedEpisode].spotifyLink },
               { name: "Apple Podcasts", color: "#872EC4", link: vinyls[selectedEpisode].appleLink, skip: !isIOSDevice },
@@ -681,14 +692,14 @@ export default function EpisodeTable(props: {
                   { /* eslint-disable-next-line @next/next/no-img-element */}
                   <img draggable="false" src={`/img/${i < array.length - 1 ? service.name.toLowerCase().replace(" ", "") : (browserName.toLowerCase() || "play")}.svg`} alt={`${service.name} Logo`} />
                   <strong>{service.name}</strong>
-                  {service.link == "#" ? button : 
+                  {service.link == "#" ? button :
                   <Link target="_blank" href={service.link}>
                     {button}
                   </Link>}
                 </div>)
               })}
             </div>
-          </BottomSheet>}
+          </MobileServiceSheet>}
         </motion.div>
         {[...vinyls].reverse().map((v, i) => (
           <motion.div

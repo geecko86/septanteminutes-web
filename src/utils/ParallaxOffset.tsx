@@ -20,6 +20,7 @@ const useOffset = (ref: RefObject<HTMLDivElement | null>, motionValue: MotionVal
     window.addEventListener('resize', handleResize, { passive: true });
     // Detect mobile client-side via pointer capability — avoids a module-scope
     // navigator read that would break static export builds.
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: SSR-safe one-shot browser capability detection on mount
     setIsMobileDevice(window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0);
 
     return () => {

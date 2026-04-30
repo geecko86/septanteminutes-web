@@ -4,7 +4,8 @@ description: File naming, util patterns, TypeScript style, and framer component 
 type: project
 ---
 
-**Utils:** All in `src/utils/`. Now all TypeScript (`.ts` / `.tsx`). Key utils:
+**Utils:** All in `src/utils/`. Now all TypeScript (`.ts` / `.tsx`). Key utils (includes one JS stub):
+- `scroll-snap-stub.js` — CommonJS no-op for server-side webpack externals (scroll-snap@5 crashes in Node.js)
 - `episodeTitle.ts` — `getGuestName()` / `getEpisodeTopic()` extract parts from "Guest - Topic" titles
 - `buildId.ts` — `withBuildId(url)` appends `?id=BUILD_ID` cache-buster
 - `cdn_img_loader.ts` — Next.js custom image loader (cloudinary, framerusercontent, local)

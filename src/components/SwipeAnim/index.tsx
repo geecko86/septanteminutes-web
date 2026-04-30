@@ -56,6 +56,7 @@ export default function IdleSwipeAnim(props: { play: boolean, className: string 
         ];
 
         if (play && !anim) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: stores animation controls object in state to allow cancel on unmount
             setAnim(animate(sequence as any, {
                 ease: "easeInOut",
                 repeat: Infinity,

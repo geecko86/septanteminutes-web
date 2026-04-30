@@ -29,7 +29,7 @@ import type { Episode, Season } from "../types/episode";
 import Poster, { posters } from "@/components/Poster";
 
 import styles from "./index.module.css";
-import { NextSeo } from "next-seo";
+import { generateNextSeo } from "next-seo/pages";
 import { GetStaticProps } from "next";
 
 const SwipeAnim = dynamic(() => import("../components/SwipeAnim"), { ssr: false });
@@ -96,6 +96,7 @@ export default function Home(props: {
     const router = useRouter();
     const [isPresent, safeToRemove] = usePresence();
 
+    // eslint-disable-next-line react-hooks/refs -- intentional: ref snapshot used in effect dep arrays to track when the firstAlbum DOM node is attached
     const firstAlbumImg = firstAlbum.current;
 
     function isMobileLandscape() {
@@ -141,6 +142,10 @@ export default function Home(props: {
         const handleResize = () => {
             setRatio((home.current?.clientWidth || 1) / ((isMobileLandscape() ? window.innerHeight : window.innerWidth) || 1)); // todo: handle screen rotation
             setOffset3Factor((window.innerHeight <= window.innerWidth) ? 2 : Math.round(2 + (1.5 * (window.innerHeight / window.innerWidth))));
+            // The state declarations for lamps/ground/front/dimension are below
+            // in source order but their setters are stable references — hoisting
+            // them into this effect closure is safe and correct React.
+            /* eslint-disable react-hooks/immutability */
             setLamps15Count(getLampsCount(LAMP_FACTOR_LAYER_1_5));
             setLamps2Count(getLampsCount(LAMP_FACTOR_LAYER_2));
 
@@ -153,6 +158,7 @@ export default function Home(props: {
             const totalWidthPerItem = itemWidth + gap;
             setFrontItemsCount(Math.ceil(width / totalWidthPerItem));
             setDimensionWidth((isMobileLandscape() ? window.innerHeight : window.innerWidth) || 0);
+            /* eslint-enable react-hooks/immutability */
         };
 
         window.addEventListener('resize', handleResize);
@@ -161,6 +167,7 @@ export default function Home(props: {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
+    // eslint-disable-next-line react-hooks/refs -- intentional: home.current?.clientWidth in dep array re-runs resize handler when the home element width changes
     }, [home.current?.clientWidth, getLampsCount, seasons.length]);
 
     const { scrollX, scrollY } = useScroll();
@@ -195,6 +202,7 @@ export default function Home(props: {
             });
             scrollXAdditional.set(0);
             scrollYAdditional.set(0);
+            // eslint-disable-next-line react-hooks/immutability -- intentional: self-referential MotionValue; newScrollX is declared in the same scope and the typeof guard prevents TDZ access
             return typeof (newScrollX) !== "undefined" ? Math.floor(newScrollX.get() / 2) : 0;
         } else if (scrollSum > limit) {
             console.log("Overscroll", scrollSum, scrollX.get(), scrollY.get(), limit, scrollSum - limit);
@@ -209,7 +217,9 @@ export default function Home(props: {
         return output;
     });
 
+    // eslint-disable-next-line react-hooks/refs -- intentional: getLampsCount reads home.current in the useState initializer; this is a one-time setup call, not a render-cycle dependency
     const [lamps15Count, setLamps15Count] = useState<number>(() => getLampsCount(LAMP_FACTOR_LAYER_1_5));
+    // eslint-disable-next-line react-hooks/refs -- intentional: same as above for layer 2 lamps
     const [lamps2Count, setLamps2Count] = useState<number>(() => getLampsCount(LAMP_FACTOR_LAYER_2));
     const [groundTexturesCount, setGroundTexturesCount] = useState(4);
     const [frontItemsCount, setFrontItemsCount] = useState(1);
@@ -611,6 +621,7 @@ export default function Home(props: {
         // Detect mobile and touch capabilities entirely client-side so these
         // checks never run during static export (where navigator doesn't exist).
         const mobile = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: SSR-safe one-shot mobile/touch detection on mount
         setIsMobileDevice(mobile);
         setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
         if (!mobile) {
@@ -641,29 +652,30 @@ export default function Home(props: {
                 ...props.style
             }}
             className="transition_loader" >
-            <NextSeo
-                title={`Septante Minutes Avec`}
-                description="Podcast politique belge, couvrant les sujets de sociétés. Des questions de genre à la neurodiversité, en passant par la technologie et la géopolitique."
-                openGraph={{
-                    url: `https://www.septanteminutes.be`,
+            <Head>
+                {generateNextSeo({
                     title: `Septante Minutes Avec`,
                     description: "Podcast politique belge, couvrant les sujets de sociétés. Des questions de genre à la neurodiversité, en passant par la technologie et la géopolitique.",
-                    locale: "fr_BE",
-                    images: [{
-                        url: "https://res.cloudinary.com/dcodwkhcg/image/upload/v1722887962/opengraph.jpg",
-                        width: 2048,
-                        height: 2048,
-                        alt: `Logo Septante Minutes Avec`
-                    }
-                    ],
-                    siteName: "Septante Minutes Avec",
-                }}
-                twitter={{
-                    handle: "@SeptanteMinutes",
-                    site: "@SeptanteMinutes",
-                    cardType: "summary_large_image",
-                }}
-            />
+                    openGraph: {
+                        url: `https://www.septanteminutes.be`,
+                        title: `Septante Minutes Avec`,
+                        description: "Podcast politique belge, couvrant les sujets de sociétés. Des questions de genre à la neurodiversité, en passant par la technologie et la géopolitique.",
+                        locale: "fr_BE",
+                        images: [{
+                            url: "https://res.cloudinary.com/dcodwkhcg/image/upload/v1722887962/opengraph.jpg",
+                            width: 2048,
+                            height: 2048,
+                            alt: `Logo Septante Minutes Avec`
+                        }],
+                        siteName: "Septante Minutes Avec",
+                    },
+                    twitter: {
+                        handle: "@SeptanteMinutes",
+                        site: "@SeptanteMinutes",
+                        cardType: "summary_large_image",
+                    },
+                })}
+            </Head>
             <div ref={subroot} className={styles.home_subroot} id="subroot" key={"home_subroot"}>
                 <div ref={root} className={styles.home_root} key={"home_root"}>
                     <motion.div className={styles.home} key={"home"} ref={home} tabIndex={0} id="home"
