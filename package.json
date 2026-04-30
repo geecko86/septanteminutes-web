@@ -59,10 +59,30 @@
     "css-loader": "7.1.4",
     "style-loader": "4.0.0",
     "postcss": ">=8.5.10",
-    "zod": ">=3.22.3"
+    "zod": ">=3.22.3",
+    "rollup": ">=2.80.0",
+    "flatted": ">=3.4.2",
+    "minimatch": ">=3.1.2",
+    "serialize-javascript": ">=7.0.5",
+    "svgo": ">=4.0.1",
+    "picomatch": ">=2.3.2",
+    "brace-expansion": ">=2.0.3",
+    "ajv": ">=8.18.0",
+    "js-yaml": ">=4.1.1",
+    "lodash": ">=4.17.23"
   },
   "overrides": {
     "postcss": ">=8.5.10",
-    "zod": ">=3.22.3"
+    "zod": ">=3.22.3",
+    "rollup": ">=2.80.0",
+    "flatted": ">=3.4.2",
+    "minimatch": ">=3.1.2",
+    "serialize-javascript": ">=7.0.5",
+    "svgo": ">=4.0.1",
+    "picomatch": ">=2.3.2",
+    "brace-expansion": ">=2.0.3",
+    "ajv": ">=8.18.0",
+    "js-yaml": ">=4.1.1",
+    "lodash": ">=4.17.23"
   }
 }
