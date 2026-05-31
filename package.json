@@ -18,7 +18,7 @@
     "@ducanh2912/next-pwa": "^10.2.9",
     "@floating-ui/react": "0.27.14",
     "framer-motion": "^12.38.0",
-    "next": "^16.2.4",
+    "next": "^16.2.6",
     "next-seo": "^7.2.0",
     "rc-slider": "^11.1.9",
     "react": "^19.2.5",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
-    "@next/bundle-analyzer": "^16.2.4",
+    "@next/bundle-analyzer": "^16.2.6",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^25.6.0",
@@ -44,7 +44,7 @@
     "css-loader": "^7.1.4",
     "cssnano": "^7.1.0",
     "eslint": "^9.0.0",
-    "eslint-config-next": "^16.2.4",
+    "eslint-config-next": "^16.2.6",
     "html-minifier-terser": "^7.2.0",
     "jsdom": "^29.0.2",
     "postcss-loader": "^8.1.1",
@@ -66,10 +66,12 @@
     "serialize-javascript": ">=7.0.5",
     "svgo": ">=4.0.1",
     "picomatch": ">=2.3.2",
-    "brace-expansion": ">=2.0.3",
+    "brace-expansion": ">=5.0.6",
     "ajv": ">=8.18.0",
     "js-yaml": ">=4.1.1",
-    "lodash": ">=4.17.23"
+    "lodash": ">=4.17.23",
+    "fast-uri": ">=3.1.1",
+    "@babel/plugin-transform-modules-systemjs": ">=7.29.4"
   },
   "overrides": {
     "postcss": ">=8.5.10",
@@ -80,9 +82,11 @@
     "serialize-javascript": ">=7.0.5",
     "svgo": ">=4.0.1",
     "picomatch": ">=2.3.2",
-    "brace-expansion": ">=2.0.3",
+    "brace-expansion": ">=5.0.6",
     "ajv": ">=8.18.0",
     "js-yaml": ">=4.1.1",
-    "lodash": ">=4.17.23"
+    "lodash": ">=4.17.23",
+    "fast-uri": ">=3.1.1",
+    "@babel/plugin-transform-modules-systemjs": ">=7.29.4"
   }
 }
