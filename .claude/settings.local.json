@@ -6,7 +6,8 @@
       "Bash(yarn *)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:www.npmjs.com)",
-      "WebFetch(domain:registry.npmjs.org)"
+      "WebFetch(domain:registry.npmjs.org)",
+      "WebSearch"
     ]
   }
 }
