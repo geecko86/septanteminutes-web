@@ -144,7 +144,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
               font-style: normal;
               font-weight: 700;
               src: local('Futura Condensed Extra'),
-                  url('https://fonts.cdnfonts.com/s/92636/Futura%20Condensed%20Extra%20Bold.woff') format('woff');
+                  url('https://res.cloudinary.com/dcodwkhcg/raw/upload/v1780275965/fonts/futura-condensed-extra-bold_ymgni2.woff2') format('woff2');
               font-display: swap;
           }
           @font-face{
