@@ -34,7 +34,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1780275965/fonts/futura-condensed-extra-bold_ymgni2.woff2"
+            href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1780276542/fonts/ulteriora-condensed-extra-bold_ymgni2.woff2"
             as="font"
             type="font/woff2" crossOrigin="anonymous"
           />
