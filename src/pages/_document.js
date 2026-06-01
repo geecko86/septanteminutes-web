@@ -8,10 +8,12 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="" key="preconnect_fonts_googleapis" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" key="preconnect_fonts_gstatic" />
+          <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="" key="preconnect_cdnfonts" />
           <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" key="preconnect_cloudinary" />
           <link rel="preconnect" href="https://framerusercontent.com" crossOrigin="" key="preconnect_framerusercontent" />
           <link rel="dns-prefetch" href="https://fonts.googleapis.com" crossOrigin="" key="prefetch_fonts_googleapis" />
           <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossOrigin="" key="prefetch_fonts_gstatic" />
+          <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" crossOrigin="" key="prefetch_cdnfonts" />
           <link rel="dns-prefetch" href="https://framerusercontent.com" crossOrigin="" key="prefetch_framerusercontent"/>
           <link rel="dns-prefetch" href="https://res.cloudinary.com" crossOrigin="" key="prefetch_cloudinary" />
 
@@ -34,9 +36,9 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="/fonts/futura-condensed-extra-bold.woff2"
+            href="https://fonts.cdnfonts.com/s/92636/Futura%20Condensed%20Extra%20Bold.woff"
             as="font"
-            type="font/woff2" crossOrigin="anonymous"
+            type="font/woff" crossOrigin="anonymous"
           />
           <link
             rel="preload"
