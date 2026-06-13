@@ -7,7 +7,12 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:www.npmjs.com)",
       "WebFetch(domain:registry.npmjs.org)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(curl -sI \"https://fonts.cdnfonts.com/s/92636/Futura%20Condensed%20Extra%20Bold.woff\")",
+      "Bash(curl -sL \"https://fonts.cdnfonts.com/s/92636/Futura%20Condensed%20Extra%20Bold.woff\" -o /tmp/futura.woff)",
+      "Bash(echo \"exit: $?\")",
+      "Read(//tmp/**)",
+      "Bash(/tmp/fonttools-venv/bin/python3 *)"
     ]
   }
 }
