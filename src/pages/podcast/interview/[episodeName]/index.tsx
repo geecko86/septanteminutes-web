@@ -47,6 +47,14 @@ export const getStaticProps = (async (context) => {
     episode.descText = stripHtmlTags(episode.desc) || "";
     episode.descText = episode.descText?.split(/(\nRéférence|\n0)/i)[0].slice(0, 198) + "…";
 
-    return { props: { episode, episodeNum } }
+    // Check whether a transcript JSON exists so a crawlable VTT link can be
+    // baked into the static HTML at build time (same pattern as [episodeNum]).
+    const { existsSync } = await import("fs");
+    const { join } = await import("path");
+    const transcriptAvailableStatic = existsSync(
+        join(process.cwd(), "public", "transcripts", `${episodeNum}.vtt`)
+    );
+
+    return { props: { episode, episodeNum, transcriptAvailableStatic } }
 }) satisfies GetStaticProps<{
 }>;
