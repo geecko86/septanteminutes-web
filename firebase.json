@@ -84,6 +84,15 @@
         "value": "max-age=300"
       }]
     }, {
+      "source": "**/*.vtt",
+      "headers": [{
+        "key": "Content-Type",
+        "value": "text/vtt; charset=utf-8"
+      }, {
+        "key": "Cache-Control",
+        "value": "max-age=300"
+      }]
+    }, {
       "source": "**/buildId.txt",
       "headers": [{
         "key": "Cache-Control",
