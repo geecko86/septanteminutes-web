@@ -39,6 +39,7 @@ import {
 import { usePlayback, hackAutoplay } from '../../utils/PlayerContext';
 import { useTranscript } from '../../utils/useTranscript';
 import { useCurrentSegment } from '../../utils/useCurrentSegment';
+import { useCurrentWord } from '../../utils/useCurrentWord';
 import { getGuestName, getEpisodeTopic } from '../../utils/episodeTitle';
 import type { Episode } from '../../types/episode';
 import TranscriptList from './TranscriptList';
@@ -159,6 +160,12 @@ export default function TranscriptInsert({
   const activeIndex = useCurrentSegment(
     audio,
     transcript?.segments ?? [],
+    syncEnabled
+  );
+
+  const activeWordIndex = useCurrentWord(
+    audio ?? null,
+    transcript?.segments[activeIndex] ?? null,
     syncEnabled
   );
 
@@ -516,6 +523,7 @@ export default function TranscriptInsert({
         loading={open && !transcriptReady}
         error={transcriptError}
         activeIndex={activeIndex}
+        activeWordIndex={activeWordIndex}
         following={following}
         onSeek={handleSeek}
         onUserScroll={handleUserScroll}

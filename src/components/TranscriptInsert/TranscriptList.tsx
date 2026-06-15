@@ -99,6 +99,8 @@ type SegmentRowProps = {
   showSpeaker: boolean;
   /** Whether this segment is currently being spoken (highlighted). */
   isActive: boolean;
+  /** Index of the currently active word within this segment (-1 = none / row not active). */
+  activeWordIndex: number;
   /** Callback when the user clicks the timestamp to seek. */
   onSeek: (time: number) => void;
 };
@@ -110,7 +112,7 @@ type SegmentRowProps = {
  * scrollIntoView via its data-segment-id attribute instead of a ref.
  */
 const SegmentRow = React.memo(
-  function SegmentRow({ segment, speakerName, showSpeaker, isActive, onSeek }: SegmentRowProps) {
+  function SegmentRow({ segment, speakerName, showSpeaker, isActive, activeWordIndex, onSeek }: SegmentRowProps) {
     // Typewriter misregistration: ~half the rows shift by a hair (translate
     // only — sub-degree text rotation antialiases to mush). Deterministic
     // from the segment id, so memo-safe and stable across renders.
@@ -156,7 +158,20 @@ const SegmentRow = React.memo(
             ...(showSpeaker ? undefined : { gridRow: '1 / span 2', alignSelf: 'baseline' }),
           }}
         >
-          <span className={styles.linePaper}>{segment.text}</span>
+          {isActive && activeWordIndex >= 0 && segment.words?.length ? (
+            // Word-by-word highlighting: each word is a span; the active one
+            // gets a gold chip. Trailing space inside the span preserves wrapping.
+            <span className={styles.linePaper}>
+              {segment.words.map((word, wi) => (
+                <span
+                  key={wi}
+                  className={wi === activeWordIndex ? styles.wordActive : undefined}
+                >{word[0]}{' '}</span>
+              ))}
+            </span>
+          ) : (
+            <span className={styles.linePaper}>{segment.text}</span>
+          )}
         </p>
       </li>
     );
@@ -175,6 +190,8 @@ type TranscriptListProps = {
   error: string | null;
   /** Index of the currently active segment (-1 = none). */
   activeIndex: number;
+  /** Index of the currently active word within the active segment (-1 = none). */
+  activeWordIndex: number;
   /** Whether auto-follow (scroll to active) is enabled. */
   following: boolean;
   /** Called when the user clicks a timestamp button. */
@@ -194,6 +211,7 @@ export default function TranscriptList({
   loading,
   error,
   activeIndex,
+  activeWordIndex,
   following,
   onSeek,
   onUserScroll,
@@ -369,6 +387,7 @@ export default function TranscriptList({
                   speakerName={speakerName}
                   showSpeaker={showSpeaker}
                   isActive={i === activeIndex}
+                  activeWordIndex={i === activeIndex ? activeWordIndex : -1}
                   onSeek={onSeek}
                 />
               );

@@ -1006,3 +1006,10 @@
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
+
+.wordActive {
+  background-color: rgba(198, 162, 72, 0.45);
+  border-radius: 2px;
+  padding: 0 2px;
+  margin: 0 -2px;
+}
