@@ -491,29 +491,16 @@ export default function TranscriptInsert({
             {isMobileDevice && playingEpisode?.num === episode.num && <PlaybackChip />}
             {/* Download of the hosted transcript file (the same VTT the
                 podcast apps receive via the RSS feed) */}
-            <a
-              className={styles.downloadButton}
-              href={`/transcripts/${episode.num}.vtt`}
-              download={`septante-minutes-${episode.num}-transcription.vtt`}
-              aria-label="Télécharger la transcription"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/img/download.svg" alt="" draggable={false} width={44} height={44} />
-            </a>
-            {/* Mobile only: close cross. Desktop has no X — Escape and
-                clicking outside dismiss (and the lifted playbar covers
-                playback), keeping the sheet free of UI chrome. */}
-            {isMobileDevice && (
-              <button
-                className={styles.closeCross}
-                onClick={handleDismiss}
-                type="button"
-                aria-label="Fermer la transcription"
+            {!isMobileDevice && (
+              <a
+                className={styles.downloadButton}
+                href={`/transcripts/${episode.num}.vtt`}
+                download={`septante-minutes-${episode.num}-transcription.vtt`}
+                aria-label="Télécharger la transcription"
               >
-                {/* Same hand-drawn ink cross as the notebook overlay's mobile exit */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/img/X.svg" alt="" draggable={false} width={26} height={26} />
-              </button>
+                <img src="/img/download_press.svg" alt="" draggable={false} width={44} height={44} />
+              </a>
             )}
           </div>
         </div>
@@ -536,6 +523,10 @@ export default function TranscriptInsert({
         onRetry={retry}
         syncEnabled={syncEnabled}
       />
+
+      {/* Tear-off perforation divider above the colophon (its own element so
+          the footer's soft-print text blur keeps the holes crisp). */}
+      <div aria-hidden="true" className={styles.tearLine} />
 
       {/* Printed colophon footer */}
       <footer className={styles.footer}>
