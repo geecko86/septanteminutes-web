@@ -99,19 +99,78 @@
   overflow: hidden;
   position: relative;
   color: #1a1610;
+
+  /* -----------------------------------------------------------------------
+     EXPERIMENTAL (2026-06-13): real die-cut tear-line perforation.
+     A CSS mask punches a row of transparent holes THROUGH the opaque sheet
+     so the #000c backdrop (.backdropFill, painted behind the sheet) shows
+     through them as genuine dark voids — not faux emboss dots.
+
+     Recipe (verified in headless Chrome 149):
+       layer 1 = solid linear-gradient(#fff,#fff)  → whole sheet VISIBLE
+       layer 2 = tiled radial-gradient circles      → the holes to remove
+       composite: subtract (std) / xor (-webkit-)   → "visible everywhere
+                                                        EXCEPT the circles"
+     Layer ORDER matters: base FIRST, holes SECOND. (Holes-first + source-out
+     collapses the whole sheet to near-nothing — see the prototype notes.)
+
+     Critical findings from the standalone repro (all PASS in Chrome 149):
+       • The heavy .sheetDesktop box-shadow SURVIVES the mask (no wrapper
+         element needed) as long as the mask base layer is opaque.
+       • The centre-fold .sheet::after pseudo still paints (it sits in the
+         masked region, mid-sheet, far from the bottom hole band).
+       • clip-path (the open/close morph's animated inset()) and mask are
+         independent properties and compose cleanly — the morph still works.
+
+     The holes are anchored to the BOTTOM at --perf-offset so they land on
+     the .tearLine strip (just above the footer). Because the footer wraps to
+     two lines on narrow screens, --perf-offset is overridden per breakpoint
+     (.sheetMobile, below). The radial tile is 14×16 with the circle at cy=8;
+     mask Y `100% - var(--perf-offset) + 8px` centres the circle row at
+     --perf-offset from the sheet's (border-box) bottom.
+
+     If this proves not worth shipping, deleting THIS block + the --perf-offset
+     line on .sheetMobile + reverting .tearLine restores the faux version. */
+  --perf-offset: 45px;
+  -webkit-mask-image: linear-gradient(#fff, #fff),
+    radial-gradient(circle at 7px 8px, #000 2.6px, transparent 3px);
+  -webkit-mask-size: 100% 100%, 14px 16px;
+  -webkit-mask-repeat: no-repeat, repeat-x;
+  -webkit-mask-position: center, left calc(100% - var(--perf-offset) + 8px);
+  -webkit-mask-composite: xor;
+  mask-image: linear-gradient(#fff, #fff),
+    radial-gradient(circle at 7px 8px, #000 2.6px, transparent 3px);
+  mask-size: 100% 100%, 14px 16px;
+  mask-repeat: no-repeat, repeat-x;
+  mask-position: center, left calc(100% - var(--perf-offset) + 8px);
+  mask-composite: subtract;
 }
 
 /* Center fold: the insert was folded to fit the sleeve. Painted ABOVE the
-   content at low opacity — a real crease crosses the print, and the faint
-   sheen over glyphs reads physically correct. */
+   content so the crease crosses the print. Modelled as an EMBOSS rather than
+   a drawn line so it doesn't read like the row dividers: the paper bows into
+   a faint shadow on the approach, a bright ridge catches the light, a darker
+   valley sits just under it, then it eases back to flat. */
 .sheet::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
-  top: 58%;
-  height: 2px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.28), rgba(0, 0, 0, 0.1));
+  top: 50%;
+  height: 5rem;
+  /* A hand-folded sheet is never square to the page — tilt the crease a hair
+     off level (relative to the sheet's own edges) so it reads as imperfect. */
+  transform: translateY(-50%) rotate(-0.4deg);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 249, 240, 0.04) 35%,
+    rgba(255, 249, 240, 0.2) 49%,
+    rgba(0, 0, 0, 0.12) 50%,
+    rgba(0, 0, 0, 0.09) 51%,
+    rgba(0, 0, 0, 0.03) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
   pointer-events: none;
   z-index: 3;
 }
@@ -156,6 +215,12 @@
      pixel-harsh edges (real-life-object rule, no app-like rounded cards). */
   border-radius: 3px 3px 0 0;
   padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* EXPERIMENTAL: the colophon footer wraps to TWO lines on phone widths, so
+     the tear line sits higher than on desktop — push the punched holes up to
+     match it, plus the safe-area inset (the mask anchors to the border-box
+     bottom, which includes that padding, while the footer floats above it). */
+  --perf-offset: calc(62px + env(safe-area-inset-bottom, 0px));
 }
 
 /* =========================================================================
@@ -172,6 +237,11 @@
 .peek {
   user-select: none;
   -webkit-user-select: none;
+  caret-color: transparent;
+}
+
+/* Footer text is selectable (it's prose), but suppress the caret on click. */
+.footer {
   caret-color: transparent;
 }
 
@@ -272,6 +342,7 @@
 .headerActions {
   flex-shrink: 0;
   display: flex;
+  align-self: center;
   align-items: center;
   gap: 0.5rem;
 }
@@ -298,6 +369,21 @@
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* A hair of blur takes the digital crispness off the printed glyph — same
+   soft-print treatment the FAQ page uses (filter: blur(0.5px) there).
+   Safari rounds sub-pixel blur up to 1px on composited layers, so skip it
+   there (the crisp glyph is fine on Safari). */
+.downloadButton img {
+  filter: blur(.35px);
+}
+
+@supports (-webkit-hyphens: none) {
+  .downloadButton img {
+    filter: none;
+  }
+}
+
 
 /* Hand-drawn ink cross — same X.svg the notebook overlay uses to close */
 .closeCross {
@@ -361,7 +447,7 @@
   overscroll-behavior: contain;
   /* pan-y lets the browser handle vertical scroll natively (not hijacked) */
   touch-action: pan-y;
-  padding: 0 1.5rem 1rem;
+  padding: 0 1.5rem 1.5rem;
   position: relative;
   /* scrollbar-width: none hides the bar on FF without hiding scrollability */
   scrollbar-width: none;
@@ -403,13 +489,81 @@
   border-bottom: none;
 }
 
-/* Active / currently-speaking segment — gold marker highlight */
+/* Active / currently-speaking segment — gold marker highlight.
+
+   The gold swipe lives on a ::before layer, NOT on the row itself — masking the
+   row would clip the TEXT at the torn edges (a full-width line's last glyph got
+   nibbled by the right end). The ::before sits BEHIND the row content via
+   `isolation: isolate` + `z-index: -1`, so the organic mask only ever cuts the
+   gold field, never the words.
+
+   The field: one continuous gold-washed paper, same recipe as the sheet
+   (#EDE7D9 base + paper texture multiplied) with the marker gold (#C6A248 @ .32)
+   composited NORMALLY on top — the active row reads as the same sheet, just
+   gold-washed. It's opaque, so it occludes the ink layer across the whole row.
+
+   The mask is the original hand-swiped marker blob (gentle wavy top/bottom +
+   torn left/right ends), stretched to the layer (preserveAspectRatio none), so
+   the swipe is erratic on ALL sides. Because the strips are transparent (below),
+   nothing cuts rectangular notches around the timestamp or speaker. */
 .segmentRowActive {
-  /* Hand-swiped marker stroke: ragged ends, slightly wavy spine */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpath fill='%23C6A248' fill-opacity='.32' d='M4 3 L2 8 L4.5 13 L1.5 18 L5 21.5 Q60 23.5 100 23 Q150 23.5 195 21 L198.5 17 L196 11.5 L198 6 L194 2.5 Q140 1 100 1.5 Q55 .5 4 3 Z'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  --line-paper: #E4D8B9;
+  position: relative;
+  isolation: isolate;
+}
+
+.segmentRowActive::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-color: #EDE7D9;
+  background-image:
+    linear-gradient(rgba(198, 162, 72, 0.32), rgba(198, 162, 72, 0.32)),
+    var(--paper-texture);
+  background-size: 100% 100%, 512px auto;
+  background-repeat: no-repeat, repeat;
+  background-blend-mode: normal, multiply;
+
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M4 3 L2 8 L4.5 13 L1.5 18 L5 21.5 Q60 23.5 100 23 Q150 23.5 195 21 L198.5 17 L196 11.5 L198 6 L194 2.5 Q140 1 100 1.5 Q55 .5 4 3 Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M4 3 L2 8 L4.5 13 L1.5 18 L5 21.5 Q60 23.5 100 23 Q150 23.5 195 21 L198.5 17 L196 11.5 L198 6 L194 2.5 Q140 1 100 1.5 Q55 .5 4 3 Z'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+/* On the active row the row itself is now an opaque gold-washed sheet, so the
+   per-strip occlusion fills are redundant — and were the source of the stepped
+   outline (they hugged their own text, leaving paper showing in the gaps).
+   Make them TRANSPARENT so the single continuous row field shows through
+   uniformly across words and gaps alike. The row's opacity still knocks out
+   the ink layer, so occlusion is preserved. */
+.segmentRowActive .linePaper,
+.segmentRowActive .timestamp,
+.segmentRowActive .speaker {
+  background-color: transparent;
+  background-image: none;
+}
+
+/* ==========================================================================
+   Ink-style text elements: soft-print blur. Safari rounds sub-pixel blur up
+   to 1px on GPU-composited layers (transforms, masks), so the guard targets
+   non-Safari only; Safari gets crisp text which is perfectly acceptable.
+   ========================================================================= */
+
+.timestamp, .speaker, .segmentText, .headerLabel, .headerTitle, .headerSubtitle, .footer {
+  filter: blur(.35px);
+}
+
+@supports (-webkit-hyphens: none) {
+  .timestamp, .speaker, .segmentText, .headerLabel, .headerTitle, .headerSubtitle, .footer {
+    filter: none;
+    text-shadow: 0 0 0.85px currentColor;;
+  }
 }
 
 /* =========================================================================
@@ -544,13 +698,33 @@
    ========================================================================= */
 .footer {
   flex-shrink: 0;
-  padding: 0.6rem 1.5rem;
-  border-top: 1px solid rgba(26, 22, 16, 0.12);
+  padding: 0.7rem 1.5rem 0.6rem;
   font-size: 0.72rem;
   color: rgba(26, 22, 16, 0.65);
   text-align: center;
   letter-spacing: 0.04em;
   line-height: 1.4;
+}
+
+/* Tear-off perforation — the tear line's RIM, drawn ON TOP of the real holes.
+   The dark recess is no longer faux: the .sheet mask punches an actual
+   transparent circle at this same y (14×16 tile, circle at cy=8), so the
+   #000c backdrop shows through as a true void. This element now only paints
+   the LIT edge that sells the 3D die-cut — a bright lower-rim crescent
+   wrapping the bottom of each real hole — over a faint scored valley (the
+   full-width gradient). It's its OWN element (sibling before <footer>) so the
+   footer's soft-print blur leaves the rim crisp.
+   EXPERIMENTAL (2026-06-13): aligned to the masked holes; rim ellipse sits a
+   hair below the hole centre so it reads as light catching the punched edge. */
+.tearLine {
+  flex-shrink: 0;
+  height: 9px;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9'%3E%3Cellipse cx='7' cy='2' rx='3.2' ry='3.2' fill='%23ffffff' opacity='.5'/%3E%3C/svg%3E"),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.06) 50%, rgba(0, 0, 0, 0) 100%);
+  background-repeat: repeat-x, no-repeat;
+  background-position: center, center;
+  background-size: 14px 9px, 100% 3px;
 }
 
 /* =========================================================================
@@ -566,28 +740,36 @@
   right: 0;
   margin-inline: auto;
   width: fit-content;
-  /* A typed paper scrap, not an app pill */
-  background-color: #EDE7D9;
-  background-image: var(--paper-texture);
-  background-size: 512px auto;
-  background-blend-mode: multiply;
-  color: #1a1610;
+  /* Negative-space stamp: a thick block of ink with the label knocked out to
+     the paper colour, so the type reads as the ABSENCE of ink (letterpress
+     reverse), not painted text. */
+  background-color: #1a1610;
+  color: #EDE7D9;
   font-family: inherit;
   font-size: 0.88rem;
-  border: 1.5px solid rgba(26, 22, 16, 0.8);
+  font-weight: 700;
+  border: none;
   border-radius: 2px;
-  padding: 0.45rem 0.9rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   white-space: nowrap;
   pointer-events: auto;
   z-index: 10;
-  letter-spacing: 0.03em;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.04em;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
   transition: background-color 0.15s;
+  filter: blur(.35px);
+}
+
+@supports (-webkit-hyphens: none) {
+  .followPill {
+    filter: none;
+    text-shadow: 0 0 0.85px currentColor;;
+  }
 }
 
 .followPill:hover {
-  background-color: #E4DECE;
+  background-color: #2c2620;
 }
 
 /* =========================================================================
@@ -675,9 +857,9 @@
     /* Messy ink splatters — all in the always-visible bottom band of the
        strip (the top of the face hides under the sleeves), on the far edges
        so the centered label stays legible */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M8.2 1.6c2-1.2 4.4-.3 5.4 1.3.9 1.4 3.1.9 3.5 2.6.4 1.6-1.4 2.4-1.6 4-.2 1.6 1.2 3.4-.3 4.4-1.6 1.1-3.3-.7-5.1-.5-1.7.2-3.2 1.5-4.5.5-1.4-1-.4-2.7-1-4.2C4 8.2 2.1 7.6 2.4 5.9 2.7 4.2 4.7 4.4 5.9 3.4c.8-.7 1.4-1.3 2.3-1.8z'/%3E%3Ccircle cx='16.4' cy='3.0' r='0.7' fill='%231a1610' fill-opacity='.65'/%3E%3Ccircle cx='2.2' cy='14.8' r='0.55' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%231a1610' fill-opacity='.80' d='M8.2 1.6c2-1.2 4.4-.3 5.4 1.3.9 1.4 3.1.9 3.5 2.6.4 1.6-1.4 2.4-1.6 4-.2 1.6 1.2 3.4-.3 4.4-1.6 1.1-3.3-.7-5.1-.5-1.7.2-3.2 1.5-4.5.5-1.4-1-.4-2.7-1-4.2C4 8.2 2.1 7.6 2.4 5.9 2.7 4.2 4.7 4.4 5.9 3.4c.8-.7 1.4-1.3 2.3-1.8z'/%3E%3Ccircle cx='16.4' cy='3.0' r='0.7' fill='%231a1610' fill-opacity='.80'/%3E%3Ccircle cx='2.2' cy='14.8' r='0.55' fill='%231a1610' fill-opacity='.80'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath fill='%231a1610' fill-opacity='.80' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.80'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath fill='%231a1610' fill-opacity='.80' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.80'/%3E%3C/svg%3E"),
     /* Horizontal fold crease across the strip (highlight over shadow) */
     linear-gradient(
       to bottom,
@@ -741,13 +923,20 @@
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
   position: relative;
   z-index: 4;
-  padding: 0 0.5rem 0.45rem;
+  padding: 0 0 0.25rem;
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;
   text-align: center;
   line-height: 1.2;
+  filter: blur(.35px);
   white-space: nowrap;
+}
+@supports (-webkit-hyphens: none) {
+  .peekLabel {
+    filter: none;
+    text-shadow: 0 0 0.85px currentColor;;
+  }
 }
 
 /* =========================================================================
@@ -781,9 +970,9 @@
   -webkit-user-select: none;
 }
 
-.inkA { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M8.2 1.6c2-1.2 4.4-.3 5.4 1.3.9 1.4 3.1.9 3.5 2.6.4 1.6-1.4 2.4-1.6 4-.2 1.6 1.2 3.4-.3 4.4-1.6 1.1-3.3-.7-5.1-.5-1.7.2-3.2 1.5-4.5.5-1.4-1-.4-2.7-1-4.2C4 8.2 2.1 7.6 2.4 5.9 2.7 4.2 4.7 4.4 5.9 3.4c.8-.7 1.4-1.3 2.3-1.8z'/%3E%3Ccircle cx='16.4' cy='3.0' r='0.7' fill='%231a1610' fill-opacity='.65'/%3E%3Ccircle cx='2.2' cy='14.8' r='0.55' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"); }
-.inkB { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 19'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"); }
-.inkC { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 13'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M4.6 1.2c1.3-.7 2.9 0 3.6 1.2.6 1 .1 2.3.7 3.3.5.9 1.9 1.3 1.7 2.4-.2 1.2-1.7 1.2-2.6 1.9-.8.6-1.3 1.8-2.4 1.7-1.2 0-1.7-1.3-2.2-2.3-.4-.9-1.3-1.7-1.1-2.7.2-1 1.3-1.4 1.8-2.3.4-.8-.4-2.4.5-3.2z'/%3E%3Ccircle cx='9.8' cy='9.4' r='0.5' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"); }
+.inkA { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath fill='%231a1610' fill-opacity='.80' d='M8.2 1.6c2-1.2 4.4-.3 5.4 1.3.9 1.4 3.1.9 3.5 2.6.4 1.6-1.4 2.4-1.6 4-.2 1.6 1.2 3.4-.3 4.4-1.6 1.1-3.3-.7-5.1-.5-1.7.2-3.2 1.5-4.5.5-1.4-1-.4-2.7-1-4.2C4 8.2 2.1 7.6 2.4 5.9 2.7 4.2 4.7 4.4 5.9 3.4c.8-.7 1.4-1.3 2.3-1.8z'/%3E%3Ccircle cx='16.4' cy='3.0' r='0.7' fill='%231a1610' fill-opacity='.80'/%3E%3Ccircle cx='2.2' cy='14.8' r='0.55' fill='%231a1610' fill-opacity='.80'/%3E%3C/svg%3E"); }
+.inkB { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 19'%3E%3Cpath fill='%231a1610' fill-opacity='.80' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.80'/%3E%3C/svg%3E"); }
+.inkC { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 13'%3E%3Cpath fill='%231a1610' fill-opacity='.80' d='M4.6 1.2c1.3-.7 2.9 0 3.6 1.2.6 1 .1 2.3.7 3.3.5.9 1.9 1.3 1.7 2.4-.2 1.2-1.7 1.2-2.6 1.9-.8.6-1.3 1.8-2.4 1.7-1.2 0-1.7-1.3-2.2-2.3-.4-.9-1.3-1.7-1.1-2.7.2-1 1.3-1.4 1.8-2.3.4-.8-.4-2.4.5-3.2z'/%3E%3Ccircle cx='9.8' cy='9.4' r='0.5' fill='%231a1610' fill-opacity='.80'/%3E%3C/svg%3E"); }
 
 /* Full-content wrapper inside the scroller — the ink layer fills it
    absolutely, so the stains scroll natively with the text. */

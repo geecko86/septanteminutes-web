@@ -13,7 +13,7 @@
  * - No virtualization needed for 200-400 rows with content-visibility.
  */
 
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useRef, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import MaterialSpinningLoader from '../MaterialSpinningLoader/index.js';
 import type { Transcript, TranscriptSegment } from '../../types/transcript';
@@ -69,7 +69,7 @@ function buildInkSpots(segmentCount: number): InkSpot[] {
   const spots: InkSpot[] = [];
   for (let i = 0; i < count; i++) {
     const h = inkHash(i * 7 + 3);
-    const size = 7 + ((h >>> 7) % 8); // 7-14px
+    const size = Math.round((7 + ((h >>> 7) % 8)) * 1.8); // 13-25px
     const rotate = -90 + ((h >>> 11) % 180);
     spots.push({
       key: i,
@@ -249,12 +249,25 @@ export default function TranscriptList({
     if (!following) lastScrolledIndex.current = -1;
   }, [following]);
 
-  // Auto-resume: when follow is suspended and the highlighted line comes back
-  // into (almost full) view — the user scrolled back to it, or playback
-  // caught up with where they are reading — resume following so the pill
-  // disappears on its own.
+  // While follow is suspended, watch the active line's *actual* visibility.
+  // This drives BOTH the pill and the auto-resume. Gating the pill on real
+  // off-screen-ness (not merely !following) is what makes it appear reliably:
+  // a slow scroll that suspends follow but keeps the line in view shows no
+  // pill; the moment the line leaves view the pill appears, at any scroll speed.
+  const [activeOffscreen, setActiveOffscreen] = useState(false);
+  // True once the active line has gone off-screen during the current
+  // suspension — guards auto-resume so the observer's initial in-view reading
+  // can't cancel the suspension the instant the user starts scrolling.
+  const wasOffscreenRef = useRef(false);
+
   useEffect(() => {
-    if (following || activeIndex < 0) return;
+    if (following || activeIndex < 0) {
+      // No setState here (the pill is gated on !following, so the value is
+      // moot while following is on); the observer below re-reads the real
+      // visibility the moment follow suspends. Just clear the resume guard.
+      wasOffscreenRef.current = false;
+      return;
+    }
     const segmentId = transcript?.segments[activeIndex]?.id;
     const root = bodyRef.current;
     if (segmentId === undefined || !root) return;
@@ -263,11 +276,18 @@ export default function TranscriptList({
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries.some((entry) => entry.intersectionRatio >= 0.85)) {
+        const ratio = entries[entries.length - 1].intersectionRatio;
+        const offscreen = ratio < 0.5;
+        setActiveOffscreen(offscreen);
+        if (offscreen) {
+          wasOffscreenRef.current = true;
+        } else if (ratio >= 0.85 && wasOffscreenRef.current) {
+          // The line returned to view after the user had scrolled away (or
+          // playback caught up to where they're reading) — resume auto-follow.
           onResumeFollow();
         }
       },
-      { root, threshold: 0.85 }
+      { root, threshold: [0, 0.5, 0.85, 1] }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -359,15 +379,15 @@ export default function TranscriptList({
 
       {/* "Reprendre le suivi" pill — shown when playback is active but following paused */}
       <AnimatePresence>
-        {syncEnabled && !following && (
+        {syncEnabled && !following && activeOffscreen && (
           <motion.button
             key="follow-pill"
             className={styles.followPill}
             // The paper scrap's slight tilt lives in the motion targets:
             // Framer owns this element's transform (it animates y).
-            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8, rotate: -1.2 }}
-            animate={{ opacity: 1, y: 0, rotate: -1.2 }}
-            exit={{ opacity: 0, y: prefersReducedMotion ? 0 : 8, rotate: -1.2 }}
+            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8, rotate: -0.7 }}
+            animate={{ opacity: 1, y: 0, rotate: -0.7 }}
+            exit={{ opacity: 0, y: prefersReducedMotion ? 0 : 8, rotate: -0.7 }}
             transition={
               prefersReducedMotion
                 ? { duration: 0.01 }
@@ -376,7 +396,7 @@ export default function TranscriptList({
             onClick={onResumeFollow}
             type="button"
           >
-            Reprendre le suivi ↓
+            Reprendre le suivi
           </motion.button>
         )}
       </AnimatePresence>
