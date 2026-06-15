@@ -19,7 +19,7 @@ import { TRANSCRIPTS_DIR, AUDIO_CACHE_DIR, ASR_CACHE_DIR, SCHEMA_VERSION, resolv
 import { loadEpisodes, resolveSelection, hasTranscript } from './transcribe/episodes.mjs';
 import { downloadAudio } from './transcribe/download.mjs';
 import { transcribeAudio } from './transcribe/asr.mjs';
-import { buildSegments, mergePhantomSpeakers } from './transcribe/segments.mjs';
+import { buildSegments, mergePhantomSpeakers, alignWordsToText } from './transcribe/segments.mjs';
 import { detectBackend, getResolvedModel } from './transcribe/llm.mjs';
 import { postProcess } from './transcribe/postprocess.mjs';
 import { transcriptToVtt } from './transcribe/vtt.mjs';
@@ -194,7 +194,7 @@ async function enrichWordsRun(episodes) {
       for (const segment of transcript.segments) {
         const rebuilt = rebuiltById.get(segment.id);
         if (rebuilt?.words) {
-          segment.words = rebuilt.words;
+          segment.words = alignWordsToText(segment.text, rebuilt.words);
           patched += 1;
         }
       }

@@ -87,6 +87,54 @@ export function mergePhantomSpeakers(words, threshold = 0.02) {
   });
 }
 
+/**
+ * Aligns corrected text tokens to raw ASR word timestamps.
+ * Returns [[correctedToken, startSec, endSec], ...] — same shape as segment.words
+ * but with display text taken from the Claude-corrected segment instead of the
+ * raw ASR, so disfluencies removed by Claude never appear in the word highlight.
+ *
+ * Strategy: greedy forward scan. For each corrected token, search ahead up to
+ * WINDOW ASR words for a normalised match (lowercase, no punctuation). On a hit,
+ * advance the ASR cursor past it. On a miss (Claude added/merged a word), borrow
+ * the previous matched word's end timestamp as a zero-duration placeholder.
+ *
+ * @param {string} correctedText  - Claude-corrected segment text.
+ * @param {[string, number, number][]} asrWords - Raw ASR word tuples [text, start, end].
+ * @returns {[string, number, number][]}
+ */
+export function alignWordsToText(correctedText, asrWords) {
+  const tokens = correctedText.match(/\S+/g) ?? [];
+  const norm = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+  const WINDOW = 10;
+
+  const result = [];
+  let asrIdx = 0;
+
+  for (const token of tokens) {
+    const tokenNorm = norm(token);
+    if (!tokenNorm) continue;
+
+    let matchIdx = -1;
+    for (let i = asrIdx; i < Math.min(asrIdx + WINDOW, asrWords.length); i++) {
+      if (norm(asrWords[i][0]) === tokenNorm) {
+        matchIdx = i;
+        break;
+      }
+    }
+
+    if (matchIdx >= 0) {
+      result.push([token, asrWords[matchIdx][1], asrWords[matchIdx][2]]);
+      asrIdx = matchIdx + 1;
+    } else {
+      // No ASR match — use the previous word's end time as a zero-duration placeholder.
+      const t = result.at(-1)?.[2] ?? asrWords[0]?.[1] ?? 0;
+      result.push([token, t, t]);
+    }
+  }
+
+  return result;
+}
+
 // --- internals -------------------------------------------------------------
 
 /**
