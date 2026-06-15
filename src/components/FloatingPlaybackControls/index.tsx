@@ -107,7 +107,7 @@ const Controls = () => {
 
     return (
         <>
-            <div className={[styles.frame, active ? styles.active : styles.hidden, hovered && status >= 3 ? styles.hovered : ""].join(" ")} tabIndex={0} onKeyDown={handleKeyPress}
+            <div id="floating-playback-controls" className={[styles.frame, active ? styles.active : styles.hidden, hovered && status >= 3 ? styles.hovered : ""].join(" ")} tabIndex={0} onKeyDown={handleKeyPress}
                 onMouseLeave={() => {
                     if (hoverTimeoutId) clearTimeout(hoverTimeoutId);
                     setHoverTimeoutId(setTimeout(() => {

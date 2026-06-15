@@ -68,9 +68,14 @@ if [ "$current_count" -eq "$item_count" ]; then
     exit 0
 fi
 
+# Transcripts are generated offline: after a new episode lands, run
+# `yarn transcribe --all --missing`, review the output and commit it.
+echo "Reminder: new episode detected -> run 'yarn transcribe --all --missing', review public/transcripts/, then commit."
+
 git add .env
 git add public/js/data.json
 git add firebase.json
+git add public/transcripts
 git commit -m "update data.json, .env and firebase.json"
 git push origin main
 

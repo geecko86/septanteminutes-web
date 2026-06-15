@@ -1,0 +1,819 @@
+/* =========================================================================
+   Courier Prime — typewriter/print face for the transcript insert.
+   Two @font-face blocks per weight: latin-ext first (has é è à ç œ « »),
+   then the basic latin subset as a fallback. Both use font-display:swap
+   so text renders immediately in the system font while the WOFF2 downloads.
+   ========================================================================= */
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/CourierPrime-Regular-LatinExt.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/CourierPrime-Regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/CourierPrime-Bold-LatinExt.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/CourierPrime-Bold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* =========================================================================
+   Backdrop (FloatingOverlay)
+   ========================================================================= */
+.backdrop {
+  /* Layout container only — the visible scrim is .backdropFill (a motion
+     layer that fades with enter/exit). Top-anchored so the desktop sheet's
+     bottom edge clears the lifted playbar (bottom-left, ~17svh tall
+     envelope: 5svh margin + 12svh height). */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4vh;
+  padding-top: 4svh;
+  z-index: 200;
+}
+
+.backdropFill {
+  position: absolute;
+  inset: 0;
+  /* Same scrim as the notebook overlay (#000c) — the two overlays share one
+     atmosphere. */
+  background: #000c;
+  pointer-events: none;
+}
+
+/* =========================================================================
+   Insert sheet — shared base styles
+   (desktop centered panel + mobile bottom sheet share these)
+   ========================================================================= */
+.sheet {
+  /* -----------------------------------------------------------------------
+     Real paper texture: ambientCG "Paper001" (CC0), seamless tile,
+     multiply-blended over the cream base so it inherits our palette.
+     Alternative with more fiber character: /img/insert_paper_b.jpg
+     ("Paper002") — swap the filename to compare.
+     ----------------------------------------------------------------------- */
+  --paper-texture: url('/img/insert_paper_a.jpg');
+  background-color: #EDE7D9;
+  background-image: var(--paper-texture);
+  background-size: 512px auto;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+
+  /* Text MUST be selectable inside the overlay; _app.tsx suppresses ::selection
+     everywhere else. The dialog role + user-select:text combo re-enables it. */
+  user-select: text;
+  -webkit-user-select: text;
+
+  /* Typewriter font for the entire sheet — never the system stack */
+  font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  color: #1a1610;
+}
+
+/* Center fold: the insert was folded to fit the sleeve. Painted ABOVE the
+   content at low opacity — a real crease crosses the print, and the faint
+   sheen over glyphs reads physically correct. */
+.sheet::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 58%;
+  height: 2px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.28), rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* =========================================================================
+   Desktop sheet — centred paper panel
+   ========================================================================= */
+.sheetDesktop {
+  composes: sheet;
+
+  width: min(46rem, 92vw);
+  /* 4svh top padding + 76svh height leaves >=20svh clear below — above the
+     playbar's ~17svh envelope at any window size. */
+  max-height: 76vh;
+  max-height: min(76dvh, 76svh);
+  min-height: 40vh;
+  border-radius: 2px;
+
+  /* Physical-object feel: slight tilt + heavy paper drop shadow */
+  transform: rotate(-0.5deg);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.22),
+    0 10px 28px rgba(0, 0, 0, 0.28),
+    0 28px 72px rgba(0, 0, 0, 0.2),
+    /* Left edge shadow for printed-page depth */
+    inset 4px 0 12px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================================================
+   Mobile bottom sheet
+   ========================================================================= */
+.sheetMobile {
+  composes: sheet;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 86svh;
+  height: 86dvh;
+  /* Paper sheets have sharp corners — keep just enough rounding to avoid
+     pixel-harsh edges (real-life-object rule, no app-like rounded cards). */
+  border-radius: 3px 3px 0 0;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* =========================================================================
+   Interactive controls opt OUT of the sheet's user-select: text — otherwise
+   Chromium shows a lingering blinking caret when they're clicked (focusable
+   element inside selectable content). The transcript text stays selectable.
+   ========================================================================= */
+.timestamp,
+.closeCross,
+.downloadButton,
+.playbackChip,
+.followPill,
+.grabHandle,
+.peek {
+  user-select: none;
+  -webkit-user-select: none;
+  caret-color: transparent;
+}
+
+/* =========================================================================
+   The ink-layer occlusion strips (.linePaper and the timestamp/speaker
+   boxes) must carry the SAME texture treatment as the sheet — a flat cream
+   fill reads as a light rectangle against the multiply-textured paper.
+   Tile alignment doesn't matter: the speckle is stochastic.
+   ========================================================================= */
+.linePaper,
+.timestamp,
+.speaker {
+  background-image: var(--paper-texture);
+  background-size: 512px auto;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}
+
+/* =========================================================================
+   Grab handle (mobile only)
+   ========================================================================= */
+.grabHandle {
+  /* The drag-to-dismiss handle. Clicking/dragging here starts the gesture.
+     Minimum touch target 44px tall (WCAG 2.5.8). */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  flex-shrink: 0;
+  cursor: grab;
+  touch-action: none; /* drag gesture owned by Framer, not the browser */
+}
+
+.grabHandle::before {
+  content: '';
+  width: 40px;
+  height: 4px;
+  background: rgba(26, 22, 16, 0.25);
+  border-radius: 2px;
+}
+
+.grabHandle:active {
+  cursor: grabbing;
+}
+
+/* =========================================================================
+   Printed header — episode info typeset like an LP sleeve
+   ========================================================================= */
+.header {
+  padding: 1.25rem 1.5rem 0.35rem;
+  flex-shrink: 0;
+}
+
+/* A literally typed rule of hyphens instead of a CSS border */
+.typedRule {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.78rem;
+  line-height: 1;
+  letter-spacing: 0.3em;
+  color: rgba(26, 22, 16, 0.4);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-top: 0.5rem;
+}
+
+.headerLabel {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(26, 22, 16, 0.65);
+  margin: 0 0 0.25rem;
+  font-weight: 400;
+}
+
+.headerTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.15rem;
+  line-height: 1.2;
+}
+
+.headerSubtitle {
+  font-size: 0.95rem;
+  margin: 0;
+  color: rgba(26, 22, 16, 0.65);
+  line-height: 1.3;
+}
+
+/* Close button row */
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.headerActions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Download of the transcript VTT — same icon as the « Télécharger » post-it */
+.downloadButton {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+.downloadButton:hover,
+.downloadButton:focus-visible {
+  opacity: 1;
+}
+
+.downloadButton:focus-visible {
+  outline: 2px solid rgba(26, 22, 16, 0.5);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Hand-drawn ink cross — same X.svg the notebook overlay uses to close */
+.closeCross {
+  /* Minimum 44×44 touch target */
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+.closeCross:hover,
+.closeCross:focus-visible {
+  opacity: 1;
+}
+
+.closeCross:focus-visible {
+  outline: 2px solid rgba(26, 22, 16, 0.5);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Printed play/pause + elapsed time (mobile sheet — no playbar on touch) */
+.playbackChip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.3rem 0.7rem;
+  background: none;
+  border: 1.5px solid rgba(26, 22, 16, 0.55);
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  color: #1a1610;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+}
+
+.playbackChip:focus-visible {
+  outline: 2px solid rgba(26, 22, 16, 0.4);
+  outline-offset: 2px;
+}
+
+/* =========================================================================
+   Scrollable transcript body
+   ========================================================================= */
+.body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  /* pan-y lets the browser handle vertical scroll natively (not hijacked) */
+  touch-action: pan-y;
+  padding: 0 1.5rem 1rem;
+  position: relative;
+  /* scrollbar-width: none hides the bar on FF without hiding scrollability */
+  scrollbar-width: none;
+}
+
+.body::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================================
+   Transcript list
+   ========================================================================= */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================================
+   Segment row
+   ========================================================================= */
+.segmentRow {
+  display: grid;
+  /* timestamp | text */
+  grid-template-columns: 4.3rem 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(26, 22, 16, 0.07);
+  /* NO content-visibility here: the .linePaper strips occlude the ink layer,
+     so they must paint even for far-offscreen rows — deferred painting made
+     stains visibly pop out/vanish as rows entered the render proximity. */
+  transition: background-color 0.2s ease;
+}
+
+.segmentRow:last-child {
+  border-bottom: none;
+}
+
+/* Active / currently-speaking segment — gold marker highlight */
+.segmentRowActive {
+  /* Hand-swiped marker stroke: ragged ends, slightly wavy spine */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpath fill='%23C6A248' fill-opacity='.32' d='M4 3 L2 8 L4.5 13 L1.5 18 L5 21.5 Q60 23.5 100 23 Q150 23.5 195 21 L198.5 17 L196 11.5 L198 6 L194 2.5 Q140 1 100 1.5 Q55 .5 4 3 Z'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  --line-paper: #E4D8B9;
+}
+
+/* =========================================================================
+   Timestamp button (click-to-seek)
+   ========================================================================= */
+.timestamp {
+  /* Occludes the ink layer where the digits sit (see .linePaper) */
+  background-color: var(--line-paper, #EDE7D9);
+  /* Monospaced numbers ensure column alignment doesn't jump.
+     Type metrics (size/line-height) match .speaker exactly and both items
+     use align-self: baseline so the grid row shares one text baseline.
+     The visual box hugs the text — the 44px touch target is provided
+     invisibly by the ::before pseudo-element. */
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  /* Bichrome typewriter ribbon: times in faded red (5.3:1 on the paper) */
+  color: #A23B2E;
+  border: none;
+  padding: 0.1rem 0.25rem;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: right;
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: end;
+  align-self: baseline;
+  display: inline-block;
+  position: relative;
+  line-height: 1.4;
+  transition: color 0.15s;
+}
+
+/* Invisible 44x44 touch target (pseudo boxes are part of the hit area) */
+.timestamp::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 44px);
+  height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+.timestamp:hover {
+  color: #7E2B20;
+}
+
+.timestamp:focus-visible {
+  color: #7E2B20;
+  outline: 1px solid rgba(198, 162, 72, 0.6);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* =========================================================================
+   Speaker byline — printed in small caps like an interview transcript
+   ========================================================================= */
+.speaker {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: baseline;
+  /* Occludes the ink layer where the name sits */
+  background-color: var(--line-paper, #EDE7D9);
+  width: fit-content;
+  padding-right: 0.2em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(26, 22, 16, 0.7);
+  margin: 0 0 0.15rem;
+  line-height: 1.4;
+}
+
+/* =========================================================================
+   Spoken text
+   ========================================================================= */
+.segmentText {
+  grid-row: 2;
+  grid-column: 2;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 70ch;
+  word-wrap: break-word;
+}
+
+/* =========================================================================
+   Loading & error states
+   ========================================================================= */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex: 1;
+  padding: 2rem;
+  color: rgba(26, 22, 16, 0.7);
+  font-size: 0.95rem;
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: rgba(26, 22, 16, 0.65);
+  font-size: 0.95rem;
+}
+
+.retryButton {
+  background: none;
+  border: 1px solid rgba(26, 22, 16, 0.3);
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  color: rgba(26, 22, 16, 0.7);
+  transition: background 0.15s;
+}
+
+.retryButton:hover {
+  background: rgba(26, 22, 16, 0.08);
+}
+
+/* =========================================================================
+   Footer colophon — printed disclaimer style
+   ========================================================================= */
+.footer {
+  flex-shrink: 0;
+  padding: 0.6rem 1.5rem;
+  border-top: 1px solid rgba(26, 22, 16, 0.12);
+  font-size: 0.72rem;
+  color: rgba(26, 22, 16, 0.65);
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+/* =========================================================================
+   "Reprendre le suivi" pill (follow resume)
+   ========================================================================= */
+.followPill {
+  position: absolute;
+  /* Clears the footer disclaimer ("Transcription générée automatiquement…") */
+  bottom: 3.5rem;
+  /* Centered via auto margins, NOT translateX(-50%): Framer Motion owns this
+     element's transform (it animates y + the scrap's slight tilt). */
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
+  /* A typed paper scrap, not an app pill */
+  background-color: #EDE7D9;
+  background-image: var(--paper-texture);
+  background-size: 512px auto;
+  background-blend-mode: multiply;
+  color: #1a1610;
+  font-family: inherit;
+  font-size: 0.88rem;
+  border: 1.5px solid rgba(26, 22, 16, 0.8);
+  border-radius: 2px;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  pointer-events: auto;
+  z-index: 10;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.15s;
+}
+
+.followPill:hover {
+  background-color: #E4DECE;
+}
+
+/* =========================================================================
+   InsertPeek — in-scene peeking paper edge on the vinyl sleeve
+   ========================================================================= */
+.peek {
+  position: absolute;
+  /* A small STACK of sheets at the bottom of the album pile: the button is
+     an unclipped positioning container (the sheets + contact shadow extend
+     beyond the main face's clip). Rendered as the first child of .albums
+     (z-index 0, earlier DOM) so the sleeves paint over the stack's top.
+     No CSS transform here: Framer Motion owns it (tilt + slide-out hover). */
+  bottom: -9%;
+  left: 12%;
+  width: 68%;
+  height: 32%;
+  z-index: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* Grounding contact shadow — the stack sits ON the table, not floating */
+.peek::before {
+  content: '';
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: -9px;
+  height: 16px;
+  background: radial-gradient(50% 50% at 50% 52%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 72%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Under-sheets: staggered tints/rotations/edges behind the main face */
+.peekSheetB,
+.peekSheetC {
+  position: absolute;
+  pointer-events: none;
+  background-image: url('/img/insert_paper_a.jpg');
+  background-size: 340px auto;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}
+
+.peekSheetB {
+  left: -3%;
+  right: 4%;
+  top: 5%;
+  bottom: -7px;
+  background-color: #E2DAC6;
+  clip-path: polygon(1% 1.6%, 52% 0%, 99.2% 2.4%, 100% 97%, 40% 100%, 0% 97.4%);
+  transform: rotate(1.4deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+  z-index: 1;
+}
+
+.peekSheetC {
+  left: 8%;
+  right: -2%;
+  top: 12%;
+  bottom: 2px;
+  background-color: #D8CFB8;
+  clip-path: polygon(0% 2.8%, 45% 0.8%, 100% 1.2%, 98.8% 98%, 58% 100%, 1.4% 99%);
+  transform: rotate(-2.6deg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+  z-index: 2;
+}
+
+/* Main face — carries the texture, stains, crease, clip and sleeve shadow */
+.peekFace {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background-image:
+    /* Messy ink splatters — all in the always-visible bottom band of the
+       strip (the top of the face hides under the sleeves), on the far edges
+       so the centered label stays legible */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M8.2 1.6c2-1.2 4.4-.3 5.4 1.3.9 1.4 3.1.9 3.5 2.6.4 1.6-1.4 2.4-1.6 4-.2 1.6 1.2 3.4-.3 4.4-1.6 1.1-3.3-.7-5.1-.5-1.7.2-3.2 1.5-4.5.5-1.4-1-.4-2.7-1-4.2C4 8.2 2.1 7.6 2.4 5.9 2.7 4.2 4.7 4.4 5.9 3.4c.8-.7 1.4-1.3 2.3-1.8z'/%3E%3Ccircle cx='16.4' cy='3.0' r='0.7' fill='%231a1610' fill-opacity='.65'/%3E%3Ccircle cx='2.2' cy='14.8' r='0.55' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"),
+    /* Horizontal fold crease across the strip (highlight over shadow) */
+    linear-gradient(
+      to bottom,
+      transparent 44%,
+      rgba(255, 255, 255, 0.3) 44%,
+      rgba(255, 255, 255, 0.3) calc(44% + 1px),
+      rgba(0, 0, 0, 0.1) calc(44% + 1px),
+      rgba(0, 0, 0, 0.1) calc(44% + 2px),
+      transparent calc(44% + 2px)
+    ),
+    /* Real paper tile (ambientCG Paper001, CC0), multiplied with the edge
+       shading gradient below it */
+    url('/img/insert_paper_a.jpg'),
+    linear-gradient(to bottom, #EDE7D9 0%, #E5DDC9 72%, #CFC6AE 100%);
+  background-position: 94% 90%, 6% 80%, 84% 70%, 0 0, 0 0, 0 0;
+  background-size: 10px 10px, 6px 8px, 7px 9px, auto, 340px auto, auto;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat, no-repeat;
+  background-blend-mode: normal, normal, normal, normal, multiply, normal;
+  /* Imperfect, hand-cut paper edges (slight corner jitter) */
+  clip-path: polygon(0% 3%, 38% 0.6%, 99% 1.8%, 100% 96%, 55% 100%, 1.2% 98%);
+  /* Paper-depth edges + the album stack's contact shadow pressing on the
+     sheet where it slides under */
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.18),
+    inset 0 14px 12px -8px rgba(0, 0, 0, 0.28),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08),
+    inset 1px 0 0 rgba(0, 0, 0, 0.05),
+    inset -1px 0 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Dog-ear: the bottom-right corner bent forward, lying on the face */
+.peekFace::after {
+  content: '';
+  position: absolute;
+  right: 1.5%;
+  bottom: 3%;
+  width: 9%;
+  height: 22%;
+  min-width: 12px;
+  min-height: 12px;
+  background: linear-gradient(225deg, #C9C0A8 0%, #D9D2BF 55%, #E2DBC9 100%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+
+.peek:focus-visible {
+  outline: 2px solid rgba(198, 162, 72, 0.7);
+  outline-offset: 2px;
+}
+
+/* Printed label on the visible bottom strip of the sheet */
+.peekLabel {
+  font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #1a1610;
+  text-transform: uppercase;
+  /* Letterpress deboss into the paper */
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  position: relative;
+  z-index: 4;
+  padding: 0 0.5rem 0.45rem;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* =========================================================================
+   SEO-only hidden link (screen-reader accessible, not visible)
+   ========================================================================= */
+.seoLink {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================================
+   Ink stains — small DOM elements seeded per segment, placed only in zones
+   that layout guarantees text-free: trailing a segment's last line (inline),
+   or under the timestamp (grid column 1 / row 2). pointer-events/user-select
+   off: purely decorative.
+   ========================================================================= */
+.ink {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.inkA { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M8.2 1.6c2-1.2 4.4-.3 5.4 1.3.9 1.4 3.1.9 3.5 2.6.4 1.6-1.4 2.4-1.6 4-.2 1.6 1.2 3.4-.3 4.4-1.6 1.1-3.3-.7-5.1-.5-1.7.2-3.2 1.5-4.5.5-1.4-1-.4-2.7-1-4.2C4 8.2 2.1 7.6 2.4 5.9 2.7 4.2 4.7 4.4 5.9 3.4c.8-.7 1.4-1.3 2.3-1.8z'/%3E%3Ccircle cx='16.4' cy='3.0' r='0.7' fill='%231a1610' fill-opacity='.65'/%3E%3Ccircle cx='2.2' cy='14.8' r='0.55' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"); }
+.inkB { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 19'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M5.8 1.4c1.7-.9 3.8.1 4.4 1.9.5 1.5-.6 2.9-.2 4.4.4 1.4 2 2.2 1.7 3.8-.3 1.7-2.2 2-3.2 3.3-.9 1.2-.9 3.3-2.4 3.6-1.6.3-2.5-1.6-2.7-3.2-.2-1.3.9-2.5.7-3.8C3.9 10 2.5 9.2 2.4 7.7c-.1-1.6 1-2.9 1.9-4.2.5-.8.7-1.6 1.5-2.1z'/%3E%3Ccircle cx='11.6' cy='3.4' r='0.6' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"); }
+.inkC { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 13'%3E%3Cpath fill='%231a1610' fill-opacity='.65' d='M4.6 1.2c1.3-.7 2.9 0 3.6 1.2.6 1 .1 2.3.7 3.3.5.9 1.9 1.3 1.7 2.4-.2 1.2-1.7 1.2-2.6 1.9-.8.6-1.3 1.8-2.4 1.7-1.2 0-1.7-1.3-2.2-2.3-.4-.9-1.3-1.7-1.1-2.7.2-1 1.3-1.4 1.8-2.3.4-.8-.4-2.4.5-3.2z'/%3E%3Ccircle cx='9.8' cy='9.4' r='0.5' fill='%231a1610' fill-opacity='.65'/%3E%3C/svg%3E"); }
+
+/* Full-content wrapper inside the scroller — the ink layer fills it
+   absolutely, so the stains scroll natively with the text. */
+.scrollContent {
+  position: relative;
+}
+
+.inkLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.inkSpot {
+  composes: ink;
+  position: absolute;
+}
+
+/* The "mask": each text line fragment carries an opaque paper background
+   that occludes the ink layer beneath it — a stain under a sentence is
+   knocked out exactly along the line box, but stays visible in the gaps,
+   margins and ragged line-ends around it. Active rows blend the gold
+   highlight into the strip so the marker effect still reads through. */
+.linePaper {
+  background-color: var(--line-paper, #EDE7D9);
+  padding: 0.06em 0.15em;
+  margin: -0.06em -0.15em;
+  border-radius: 1px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}

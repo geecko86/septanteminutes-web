@@ -33,6 +33,8 @@ import normalizeString from "@/utils/normalizeStr";
 import { stripHtmlTags } from "@/utils/stripHtml";
 import { getGuestName, getEpisodeTopic } from "@/utils/episodeTitle";
 import { Episode } from "@/types/episode";
+import InsertPeek from "../../components/TranscriptInsert/InsertPeek";
+import { useTranscriptIndex } from "../../utils/useTranscript";
 
 import styles from "./episode.module.css";
 
@@ -50,6 +52,7 @@ export default function EpisodeTable(props: {
   previouslyLoaded: boolean,
   cleared: boolean,
   episode: Episode,
+  transcriptAvailableStatic?: boolean,
 }) {
   const router = useRouter();
   const [pendingScrollActions, _] = useState([] as (() => void)[]);
@@ -72,6 +75,27 @@ export default function EpisodeTable(props: {
   const [selectedVinylRendered, setSelectedVinylRendered] = useState(false)
   const [bottomSheetOpen, setBottomSheetOpen] = useState(false)
   const [browserName, setBrowserName] = useState("");
+  const [transcriptOpen, setTranscriptOpen] = useState(false);
+  // transcriptMounted latches to true once opened so the dynamic chunk doesn't
+  // unmount/remount between open/close cycles (avoids re-fetching the JSON).
+  const [transcriptMounted, setTranscriptMounted] = useState(false);
+
+  // Manifest fetch — determines which episodes show the InsertPeek button.
+  const { index: transcriptIndex, ready: transcriptIndexReady } = useTranscriptIndex();
+
+  // While the transcript overlay is open, lock the page's scroll-snap
+  // container. Cmd+F matches text in the hidden description sections behind
+  // the overlay; without this lock, find-in-page scrolls the container and
+  // the snap logic silently changes the selected episode.
+  useEffect(() => {
+    const el = episodePage.current;
+    if (!transcriptOpen || !el) return;
+    const previousOverflowY = el.style.overflowY;
+    el.style.overflowY = 'hidden';
+    return () => {
+      el.style.overflowY = previousOverflowY;
+    };
+  }, [transcriptOpen]);
 
   const episodePage = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -491,6 +515,11 @@ export default function EpisodeTable(props: {
   const Headphones = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Headphones), { ssr: false }), []);
   const Chair = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Chair), { ssr: false }), []);
 
+  const TranscriptInsertOverlay = React.useMemo(() => dynamic(() => import("../../components/TranscriptInsert"), { ssr: false }), []);
+
+  // Whether the current description episode has an available transcript.
+  const transcriptAvailable = transcriptIndexReady && (transcriptIndex?.has(descriptionEpisode.num) ?? false);
+
   return (
     <motion.div
       key="transition_loader"
@@ -646,6 +675,19 @@ export default function EpisodeTable(props: {
               }
               playEpisode(selectedEpisode);
             }}>
+              {/* InsertPeek — opaque paper sheet at the BOTTOM of the album pile.
+                  Rendered FIRST (earlier DOM sibling, z-index 0) so the sleeves
+                  (same z-index, later DOM) paint over its top — only the bottom
+                  strip sticks out below the pile.
+                  Only shown when the displayed episode has a transcript available. */}
+              <InsertPeek
+                transcriptAvailable={transcriptAvailable}
+                ready={ready}
+                onOpen={() => {
+                  setTranscriptMounted(true);
+                  setTranscriptOpen(true);
+                }}
+              />
               {vinyls.map((episode, index) => {
                 return (<VinylAlbum
                   key={`vinyl_${episode.num}`}
@@ -675,6 +717,20 @@ export default function EpisodeTable(props: {
               }
             </motion.div>
           </div>
+          {/* Transcript overlay — lazy-loaded, mounted once open (latch pattern).
+              Rendered as a sibling of MobileServiceSheet, outside the table/albums tree,
+              so it portals to body level without z-index conflicts.
+              Do NOT reuse MobileServiceSheet: its touch-action:none breaks list scrolling. */}
+          {transcriptMounted && (
+            // eslint-disable-next-line react-hooks/static-components -- intentional: TranscriptInsertOverlay is a stable useMemo(dynamic(...)) reference
+            <TranscriptInsertOverlay
+              open={transcriptOpen}
+              onDismiss={() => setTranscriptOpen(false)}
+              episode={descriptionEpisode}
+              isMobileDevice={isMobileDevice}
+              isIOSDevice={isIOSDevice}
+            />
+          )}
           {vinyls[selectedEpisode] && isMobileDevice && <MobileServiceSheet open={bottomSheetOpen} onDismiss={() => setBottomSheetOpen(false)} header={<h3>{"Écouter l'épisode sur…"}</h3>}>
             <div className={styles.bottomSheet}>
               {[{ name: "Spotify", color: "#1DB954", link: vinyls[selectedEpisode].spotifyLink },
@@ -718,6 +774,14 @@ export default function EpisodeTable(props: {
               <h1>Septante Minutes Avec {descriptionEpisode.title}</h1>
               <h2>Description</h2>
               <p dangerouslySetInnerHTML={{ __html: descriptionEpisode.desc }} />
+              {/* Crawlable transcript link — visually hidden, for SEO and podcast apps.
+                  Uses the static prop for the initial episode (baked into HTML at build time)
+                  and the runtime transcriptAvailable for episodes scrolled to. */}
+              {(transcriptAvailable || (v.num === props.episode.num && props.transcriptAvailableStatic)) && (
+                <a href={`/transcripts/${v.num}.vtt`} style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+                  Transcription de l&apos;épisode {v.num}
+                </a>
+              )}
             </>}
           </motion.div>
         ))}
@@ -745,6 +809,15 @@ export const getStaticProps = (async (context) => {
   episode.descText = stripHtmlTags(episode.desc) || "";
   episode.descText = episode.descText?.split(/(\nRéférence|\n0)/i)[0].slice(0, 198).trim() + "…";
 
-  return { props: { episode } }
+  // Check whether a transcript VTT exists for this episode so getStaticProps
+  // can bake a crawlable link into the static HTML.
+  // fs is tree-shaken out of the client bundle by Next.js — safe to use here.
+  const { existsSync } = await import("fs");
+  const { join } = await import("path");
+  const transcriptAvailableStatic = existsSync(
+    join(process.cwd(), "public", "transcripts", `${episodeNum}.vtt`)
+  );
+
+  return { props: { episode, transcriptAvailableStatic } }
 }) satisfies GetStaticProps<{
 }>;

@@ -18,6 +18,10 @@ export default defineConfig({
     // Tests that need a real DOM (React components, window APIs) opt in with
     // the // @vitest-environment jsdom directive at the top of their file.
     environment: 'node',
-    include: ['src/**/*.test.{ts,js,tsx}', 'app/**/*.test.{ts,js,tsx}'],
+    include: [
+      'src/**/*.test.{ts,js,tsx}',
+      'app/**/*.test.{ts,js,tsx}',
+      'scripts/**/*.test.{ts,js,mjs}',
+    ],
   },
 });

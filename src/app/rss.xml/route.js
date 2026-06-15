@@ -3,6 +3,7 @@
 import normalizeString from '../../utils/normalizeStr';
 import { getGuestName } from '../../utils/episodeTitle';
 import { withBuildId } from '../../utils/buildId';
+import transcriptManifest from '../../../public/transcripts/manifest.json';
 
 const EXTERNAL_DATA_URL = 'https://www.septanteminutes.be';
 
@@ -36,6 +37,7 @@ export async function GET() {
             ${img ? `<itunes:image href="${withBuildId(img.replace("/upload/", `/upload/c_scale,w_${200},f_webp,q_${70}/`))}"/>` : ''}
             ${num ? `<itunes:episode>${num}</itunes:episode>` : ''}
             ${mp3 ? `<enclosure url="${mp3}" type="audio/mpeg" />` : ''}
+            ${transcriptManifest.episodes.includes(num) ? `<podcast:transcript url="${EXTERNAL_DATA_URL}/transcripts/${num}.vtt" type="text/vtt" language="fr"/>` : ''}
             <pubDate>${date}</pubDate>
           </item>
         `).join('')}
