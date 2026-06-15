@@ -307,13 +307,20 @@ export default function EpisodeTable(props: {
         element as HTMLDivElement,
         {
           snapDestinationY: "100%",
-          timeout: 0,
-          duration: 0,
+          // scroll-snap v5 honors literal 0 here (v4 coerced falsy values to
+          // its 100ms/300ms defaults). 0 makes the snap fire mid-gesture and
+          // teleport, yanking slow scrolls back — keep the v4-effective values.
+          timeout: 100,
+          duration: 300,
           easing: t => {
             setSnapping(true);
             return (--t) * t * t + 1;
           },
           threshold: 0.49,
+          // This page owns arrow-key navigation (handleKeyPress); v5's built-in
+          // keyboard handler (new, default true) would double-handle arrows and
+          // set tabindex on the scroll container.
+          enableKeyboard: false,
         },
         scrollCallback
       );
