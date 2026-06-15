@@ -1,0 +1,2141 @@
+WEBVTT
+
+0
+00:00:00.300 --> 00:00:21.760
+<v Guillaume Hachez>Salut, moi c'est Guillaume Hachez. Vous écoutez Septante Minutes Avec. Allez, hello tout le monde, l'épisode que je vous promets depuis, je crois, six mois, quelque chose comme ça, est enfin là.
+
+1
+00:00:21.820 --> 00:00:28.080
+<v Guillaume Hachez>On parle avec Jean-Marc Jancovici de transition énergétique, d'énergie renouvelable, de nucléaire, de politique européenne, tout ça, tout ça, tout ça.
+
+2
+00:00:28.540 --> 00:00:37.700
+<v Guillaume Hachez>J'espère que ça vous plaira. Le son n'est pas d'hyper bonne qualité, j'en suis désolé. La pièce dans laquelle Jean-Marc était installé a beaucoup de réverbe.
+
+3
+00:00:37.800 --> 00:00:47.620
+<v Guillaume Hachez>J'ai mis en place tout ce que je pouvais pour minimiser les dégâts. Je pense que ça reste largement écoutable. Et enfin, l'épisode est un poil plus court que ce dont vous avez l'habitude,
+
+4
+00:00:48.180 --> 00:00:55.780
+<v Guillaume Hachez>un peu plus d'une heure en tout, puisque comme vous le savez, Jean-Marc Jancovici est quelqu'un d'hyper occupé avec toutes ses différentes activités, différentes fonctions
+
+5
+00:00:56.500 --> 00:00:58.320
+<v Guillaume Hachez>au Conseil pour le climat, etc., etc.
+
+6
+00:00:59.360 --> 00:01:06.780
+<v Guillaume Hachez>Allez, c'est parti. J'ai aujourd'hui le plaisir de recevoir Jean-Marc Jancovici. Bonjour Jean-Marc.
+
+7
+00:01:07.100 --> 00:01:07.460
+<v Jean-Marc Jancovici>Bonjour.
+
+8
+00:01:08.140 --> 00:01:16.600
+<v Guillaume Hachez>Jean-Marc, vous êtes ingénieur, expert en matière d'énergie et de climat. Vous êtes entre autres choses enseignant vacataire à l'École nationale supérieure des mines de Paris.
+
+9
+00:01:17.060 --> 00:01:25.960
+<v Guillaume Hachez>Vous êtes conférencier, auteur de nombreux livres au sujet du réchauffement climatique et de l'énergie. Vous êtes aussi cofondateur de la boîte de consultants Carbone 4 et du think tank The Shift Project.
+
+10
+00:01:26.020 --> 00:01:33.520
+<v Guillaume Hachez>Et enfin, surtout, vous vous déplacez exclusivement en transports publics et vous mangez relativement peu de viande, principalement du poulet ou du porc.
+
+11
+00:01:33.920 --> 00:01:35.920
+<v Guillaume Hachez>Est-ce que j'ai oublié quelque chose ?
+
+12
+00:01:36.040 --> 00:01:38.100
+<v Jean-Marc Jancovici>Bah écoutez, on va dire que ça ira pour le moment.
+
+13
+00:01:39.080 --> 00:01:49.480
+<v Guillaume Hachez>Alors, on va discuter ensemble des sujets qui sont les vôtres, donc principalement les questions liées à la transition énergétique, à la décroissance, au nucléaire et ainsi de suite.
+
+14
+00:01:49.510 --> 00:01:55.960
+<v Guillaume Hachez>Pour commencer doucement et pour toucher un sujet d'actualité récente, donc je ne l'ai pas dit, mais vous êtes français.
+
+15
+00:01:56.540 --> 00:02:05.380
+<v Guillaume Hachez>On a eu récemment les primaires au Parti écologiste, Parti Europe Écologie Les Verts en France. Est-ce que vous vous retrouvez dans le programme mené par Yannick Jadot ?
+
+16
+00:02:05.420 --> 00:02:13.400
+<v Jean-Marc Jancovici>Donc la réponse, c'est que je n'ai pas lu dans le détail les propositions de Yannick Jadot, donc je ne sais pas exactement ce avec quoi je serais d'accord et ce avec quoi je ne suis pas d'accord.
+
+17
+00:02:14.100 --> 00:02:20.380
+<v Guillaume Hachez>Mh. Mais c'est tout à votre honneur. J'avoue que je n'ai pas lu non plus le programme de Yannick Jadot étant donné que ce n'est pas mon pays.
+
+18
+00:02:20.840 --> 00:02:31.660
+<v Guillaume Hachez>Mais je posais la question en fait de manière un petit peu astucieuse parce que je pense avoir compris que malgré, voilà, votre engagement concernant les questions climatiques, les questions, voilà, liées à la question énergétique,
+
+19
+00:02:32.420 --> 00:02:37.140
+<v Guillaume Hachez>je pense avoir compris que vous êtes relativement en décalage avec les partis verts en Europe.
+
+20
+00:02:37.240 --> 00:02:38.340
+<v Guillaume Hachez>Est-ce que je dis une bêtise ?
+
+21
+00:02:38.420 --> 00:02:45.260
+<v Jean-Marc Jancovici>Ça dépend sur quoi. D'après ce que j'ai compris, y a deux sujets sur lesquels je peux classiquement être en décalage avec les Verts.
+
+22
+00:02:46.020 --> 00:02:56.060
+<v Jean-Marc Jancovici>Le premier est celui de la croissance. Y a un certain nombre de candidats verts qui sont dans une optique de ce qu'on appelle classiquement la croissance verte.
+
+23
+00:02:56.740 --> 00:03:05.020
+<v Jean-Marc Jancovici>C'est-à-dire que, en gros, ils considèrent qu'on peut se retrouver dans une situation dans laquelle on a à la fois résolu nos problèmes et globalement plus de moyens économiques,
+
+24
+00:03:05.880 --> 00:03:14.600
+<v Jean-Marc Jancovici>pour traiter tous les problèmes que nous avons en ce bas monde, les problèmes de justice sociale, les problèmes d'accès à ceci ou à cela.
+
+25
+00:03:14.720 --> 00:03:26.700
+<v Jean-Marc Jancovici>Voilà. On va dire où la réponse est classiquement donnée sous forme économique. Et puis, il y a un deuxième sujet sur lequel je suis facilement en décalage aussi, qui est la question du nucléaire.
+
+26
+00:03:27.380 --> 00:03:29.180
+<v Jean-Marc Jancovici>Alors après, là, on parle des Verts français,
+
+27
+00:03:29.660 --> 00:03:38.060
+<v Jean-Marc Jancovici>c'est plus ou moins vrai dans les autres pays européens. Par exemple, les Verts finlandais, je sais pas où ils en sont sur la croissance, mais par contre, ils ont dit que le nucléaire, ça leur allait bien.
+
+28
+00:03:39.540 --> 00:03:51.820
+<v Jean-Marc Jancovici>En Grande-Bretagne, y a pas de Parti vert, enfin y a pas de Parti vert significatif, parce qu'au fond, l'environnement est déjà traité de façon relativement sérieuse par les partis de gouvernement.
+
+29
+00:03:52.520 --> 00:04:01.440
+<v Jean-Marc Jancovici>Y a en particulier un consensus très fort en Grande-Bretagne sur le fait qu'il faut décarboner. Et y a également un consensus assez fort dans le pays sur le fait qu'il faut le faire de manière pragmatique
+
+30
+00:04:01.980 --> 00:04:06.280
+<v Jean-Marc Jancovici>et donc que si le nucléaire tombe du bon côté de la barrière, ben ma foi, on prend le nucléaire.
+
+31
+00:04:06.300 --> 00:04:12.000
+<v Jean-Marc Jancovici>C'est pas vraiment un clivage partisan qui illustre les différences d'appréciation qu'on peut avoir sur ce sujet.
+
+32
+00:04:12.840 --> 00:04:20.660
+<v Jean-Marc Jancovici>Voilà, donc ça dépend où on regarde en Europe. Si on regarde l'Allemagne, c'est évident qu'en Allemagne, les Verts sont très antinucléaires.
+
+33
+00:04:21.240 --> 00:04:28.860
+<v Jean-Marc Jancovici>J'avoue ne pas savoir où ils se tiennent sur la question de la croissance. Voilà, donc ça va dépendre de où vous regardez en Europe.
+
+34
+00:04:28.880 --> 00:04:36.480
+<v Jean-Marc Jancovici>Et si vous regardez au sein même des Verts français, à la primaire, ils étaient pas tous d'accord sur le nucléaire et ils étaient pas tous d'accord sur la croissance.
+
+35
+00:04:36.740 --> 00:04:47.760
+<v Guillaume Hachez>Oui, bah oui. D'où le besoin d'une primaire. Et donc, vous parliez du Royaume-Uni. Ils ont justement annoncé très récemment que le nucléaire serait au centre de leur projet, au cœur de leur projet en ce qui concerne donc la,
+
+36
+00:04:48.540 --> 00:04:50.240
+<v Guillaume Hachez>le, voilà, la décarbonation
+
+37
+00:04:51.140 --> 00:04:52.480
+<v Guillaume Hachez>de l'énergie au Royaume-Uni.
+
+38
+00:04:53.080 --> 00:05:00.260
+<v Guillaume Hachez>Une autre question qui m'intéresse puisque donc, je fais un léger détour très temporaire par la situation politique en France.
+
+39
+00:05:00.900 --> 00:05:05.620
+<v Guillaume Hachez>Je trouve intéressant que dans votre livre, dans vos livres, puisque j'ai eu l'occasion de lire
+
+40
+00:05:06.280 --> 00:05:11.060
+<v Guillaume Hachez>celui que vous avez publié en 2015, Dormez tranquilles jusqu'en 2100, vous faites un lien très intéressant
+
+41
+00:05:11.640 --> 00:05:20.100
+<v Guillaume Hachez>entre la montée qu'on a pu voir un peu partout en Occident, de des politiques d'extrême droite, que ce soit Donald Trump,
+
+42
+00:05:20.900 --> 00:05:25.660
+<v Guillaume Hachez>voilà, la question des gilets jaunes en France, la montée du Front national et ainsi de suite.
+
+43
+00:05:26.020 --> 00:05:34.260
+<v Guillaume Hachez>Vous faites un lien entre ces situations-là et en fait, la question des limites physiques de notre planète.
+
+44
+00:05:34.500 --> 00:05:35.380
+<v Guillaume Hachez>Est-ce que vous pouvez nous en parler ?
+
+45
+00:05:36.360 --> 00:05:38.240
+<v Jean-Marc Jancovici>Alors, la raison pour laquelle je fais ce lien,
+
+46
+00:05:39.360 --> 00:05:52.160
+<v Jean-Marc Jancovici>c'est que, quand vous regardez la façon dont s'organise notre monde économique, vous vous rendez compte qu'en fait, l'économie est un vaste système de transformation de ressources naturelles.
+
+47
+00:05:52.200 --> 00:06:00.880
+<v Jean-Marc Jancovici>C'est ça qu'on appelle la production économique. Et par ailleurs, l'économie est ainsi faite que la somme des revenus des uns, c'est la somme de la production des autres.
+
+48
+00:06:01.820 --> 00:06:08.140
+<v Jean-Marc Jancovici>Dit autrement, les revenus que nous pouvons distribuer, c'est en fait la production qui a été créée.
+
+49
+00:06:09.580 --> 00:06:19.760
+<v Jean-Marc Jancovici>Dans un monde dans lequel on a accès plus facilement à l'énergie, c'est-à-dire en fait à la capacité de mobiliser des machines pour travailler à notre service, parce qu'en fait, c'est ça l'énergie hein.
+
+50
+00:06:19.800 --> 00:06:26.840
+<v Jean-Marc Jancovici>Le pétrole, ça se met dans une voiture, ça se met dans un tractopelle, ça se met dans un avion, ça se met dans un bateau, ça se met dans un groupe électrogène.
+
+51
+00:06:26.850 --> 00:06:38.320
+<v Jean-Marc Jancovici>L'électricité, ça se met dans une presse à emboutir, ça se met dans un laminoir, ça se met dans une usine chimique, ça se met dans une machine à, je n'en sais rien moi, à tréfiler du plastique.
+
+52
+00:06:38.440 --> 00:06:43.280
+<v Jean-Marc Jancovici>Enfin bref, donc l'énergie, en fait, c'est ce qui sert à faire fonctionner des machines.
+
+53
+00:06:44.200 --> 00:06:50.439
+<v Jean-Marc Jancovici>Et donc dans un monde avec plus d'énergie, vous faites fonctionner plus de machines et donc vous augmentez la production et donc vous augmentez la distribution.
+
+54
+00:06:50.480 --> 00:06:51.300
+<v Jean-Marc Jancovici>Vous augmentez les revenus.
+
+55
+00:06:52.640 --> 00:07:01.400
+<v Jean-Marc Jancovici>Les revenus exprimés en termes matériels. C'est-à-dire, vous avez plus de mètres carrés, vous avez plus de moyens pour vous déplacer, vous avez plus à manger, vous avez plus d'objets à acheter et vous avez plus de smartphones à regarder.
+
+56
+00:07:02.700 --> 00:07:13.020
+<v Jean-Marc Jancovici>À partir du moment où vous avez une contraction énergétique, c'est-à-dire un approvisionnement énergétique qui se met à baisser, à ce moment, vous avez la production qui se met à en souffrir.
+
+57
+00:07:14.500 --> 00:07:22.500
+<v Jean-Marc Jancovici>Et si cette contraction de la production, absolue ou relative, c'est-à-dire simplement, elle augmente moins vite que la population, par exemple,
+
+58
+00:07:23.420 --> 00:07:30.660
+<v Jean-Marc Jancovici>a lieu, à ce moment, vous avez une fraction de la population qui doit se mettre à se passer de quelque chose.
+
+59
+00:07:30.720 --> 00:07:40.480
+<v Jean-Marc Jancovici>À ce moment, vous avez deux options : ou bien tout le monde se passe d'un petit quelque chose, ou bien ceux qui sont les mieux placés dans la société s'accrochent mieux que les autres à ce qu'ils ont,
+
+60
+00:07:41.280 --> 00:07:47.880
+<v Jean-Marc Jancovici>parce qu'ils ont plus de moyens, parce qu'ils ont des meilleurs syndicats, parce qu'ils sont riches et qu'ils ont le pouvoir, parce que enfin peu importe.
+
+61
+00:07:48.740 --> 00:07:56.940
+<v Jean-Marc Jancovici>Ils s'accrochent plus à ce qui-- et à ce moment, ceux qui s'accrochent pas bien perdent proportionnellement beaucoup plus que leur part, puisque les autres ont rien perdu.
+
+62
+00:07:57.990 --> 00:08:00.860
+<v Jean-Marc Jancovici>Donc, dans une contraction énergétique subie,
+
+63
+00:08:02.140 --> 00:08:06.840
+<v Jean-Marc Jancovici>vous avez un risque qu'une partie de la population
+
+64
+00:08:07.700 --> 00:08:21.260
+<v Jean-Marc Jancovici>se retrouve soudain privée de beaucoup, souffre beaucoup plus proportionnellement que les autres et qui sont empathiques ceux qui ont le moins les moyens de s'accrocher, de se battre, pour conserver une fraction de ce qu'ils ont.
+
+65
+00:08:22.180 --> 00:08:29.320
+<v Jean-Marc Jancovici>Alors, il se trouve que si la décrue énergétique est due au pétrole, c'est-à-dire qu'on est en manque de pétrole, à ce moment, il se passe deux choses.
+
+66
+00:08:29.330 --> 00:08:36.440
+<v Jean-Marc Jancovici>D'une part, ce que je viens d'expliquer sur l'énergie s'applique, c'est-à-dire que vous avez un ralentissement, voire une décrue du système productif.
+
+67
+00:08:37.120 --> 00:08:46.840
+<v Jean-Marc Jancovici>En Europe, d'une manière générale, on a eu une stagnation. En Espagne, en Italie, on a eu carrément une décrue. Dans le monde, globalement, on a eu un ralentissement, tout ça depuis 2006.
+
+68
+00:08:48.140 --> 00:08:58.020
+<v Jean-Marc Jancovici>Et les gens qui dépendent par ailleurs très fortement du pétrole pour se déplacer, c'est-à-dire les gens qui habitent dans la diagonale du vide ou dans les grandes banlieues, loin de tout, à ce moment, ils sont soumis à la double peine.
+
+69
+00:08:58.430 --> 00:09:05.620
+<v Jean-Marc Jancovici>D'une part, ils subissent une économie qui ralentit et donc ils ont plus de difficultés qu'avant à conserver un travail ou à en trouver un.
+
+70
+00:09:06.580 --> 00:09:15.700
+<v Jean-Marc Jancovici>Et d'autre part, ils ont des coûts de transport qui-- enfin, ou un transport qui devient moins facilement accessible, parce que le pétrole se raréfiant, ben ça veut dire moins de moyens de transport globalement.
+
+71
+00:09:16.640 --> 00:09:22.920
+<v Jean-Marc Jancovici>Et ce sont les gens qui sont dans ces endroits-là qui ont proportionnellement à leurs revenus les dépenses de transport les plus élevées.
+
+72
+00:09:23.880 --> 00:09:36.080
+<v Jean-Marc Jancovici>Et c'est effectivement ce qu'on a vu avec le phénomène gilet jaune. Et c'est dans ces zones-là aussi que vous voyez globalement monter la déshérence et l'appétence pour les votes un peu musclés, on va dire.
+
+73
+00:09:36.940 --> 00:09:43.520
+<v Jean-Marc Jancovici>Voilà, enfin pour les partis un peu musclés. Donc y a un lien direct pour moi, dans ma vision du monde-
+
+74
+00:09:43.700 --> 00:09:43.840
+<v Guillaume Hachez>Mmh
+
+75
+00:09:44.040 --> 00:09:47.360
+<v Jean-Marc Jancovici>...entre la contraction énergétique subie quand elle vient du pétrole,
+
+76
+00:09:48.880 --> 00:09:55.170
+<v Jean-Marc Jancovici>ce qui nous arrive encore une fois en Europe depuis 2008, on en parlera peut-être, et l'émergence
+
+77
+00:09:55.960 --> 00:10:08.840
+<v Jean-Marc Jancovici>d'une fraction croissante dans la population de gens qui ne savent plus trop ce qui leur arrive et qui ont envie de se jeter dans les bras de gens qui leur promettent monts et merveilles sans en avoir, soit dit en passant, la moindre capacité.
+
+78
+00:10:09.160 --> 00:10:20.640
+<v Guillaume Hachez>Oui, oui, oui. Donc, on partait collectivement du principe que la croissance serait éternelle. Elle ne l'est pas. Et donc y a tout ce segment de la population qui est particulièrement fragilisé.
+
+79
+00:10:20.760 --> 00:10:30.680
+<v Guillaume Hachez>Donc, vous parliez de personnes dans les banlieues. Cet électorat-là est fragilisé et susceptible de faire ce que vous appeliez un vote plus musclé.
+
+80
+00:10:30.720 --> 00:10:43.320
+<v Guillaume Hachez>Vous avez évoqué tout à l'heure la question de la décroissance. Juste avant ça, puisqu'on parlait de système économique, il y a relativement souvent dans la bouche, et on sait évidemment que,
+
+81
+00:10:44.500 --> 00:10:49.040
+<v Guillaume Hachez>les activistes écologistes sont très fragmentés, très divisés dans leur vision du monde, mais il y a,
+
+82
+00:10:49.540 --> 00:10:59.660
+<v Guillaume Hachez>je trouve, relativement souvent dans la bouche des militants écologistes l'idée que le capitalisme n'est pas le système qui nous permettra de sortir de la boucle infernale du réchauffement climatique.
+
+83
+00:11:00.360 --> 00:11:08.280
+<v Guillaume Hachez>Est-ce que vous partagez cette vision ? Est-ce que vous êtes vous-même un anticapitaliste ou est-ce que vous restez fidèle à un idéal libéral traditionnel ?
+
+84
+00:11:08.440 --> 00:11:10.060
+<v Jean-Marc Jancovici>Alors, je ne suis ni l'un ni l'autre.
+
+85
+00:11:11.060 --> 00:11:20.520
+<v Jean-Marc Jancovici>C'est-à-dire que je ne pense pas, malheureusement, qu'il y ait un lien univoque entre le capitalisme et la prédation de l'environnement,
+
+86
+00:11:21.480 --> 00:11:28.860
+<v Jean-Marc Jancovici>puisque quand vous regardez le régime non capitaliste qui a eu lieu chez les Soviétiques, il a été tout à fait prédateur de l'environnement.
+
+87
+00:11:29.740 --> 00:11:39.460
+<v Jean-Marc Jancovici>Et lorsque la Chine a entamé son redémarrage industriel il y a vingt ans, elle était d'un capitalisme quand même assez limité.
+
+88
+00:11:40.180 --> 00:11:52.960
+<v Jean-Marc Jancovici>Donc l'idée que le capitalisme est consubstantiel à la prédation, pardon, de l'environnement et que sans capitalisme, on arrête de saloper l'environnement est une idée qui me paraît malheureusement ne pas correspondre
+
+89
+00:11:53.520 --> 00:11:54.960
+<v Jean-Marc Jancovici>à ce qui peut s'observer dans le monde.
+
+90
+00:11:56.040 --> 00:12:02.580
+<v Jean-Marc Jancovici>Si on en revient à des ouvrages qui sont des ouvrages qui portent plus sur la nature humaine, indépendamment du système politique
+
+91
+00:12:03.100 --> 00:12:10.130
+<v Jean-Marc Jancovici>dans lequel cette nature s'exprime, on a malheureusement affaire à des traits comportementaux de notre espèce, notre espèce qui sont plus profonds
+
+92
+00:12:10.676 --> 00:12:16.216
+<v Jean-Marc Jancovici>et plus primitifs que le système politique dans lequel nous vivons, ce qui est une très mauvaise nouvelle parce que je préférerais de très loin
+
+93
+00:12:16.876 --> 00:12:21.836
+<v Jean-Marc Jancovici>que le problème soit exclusivement associé à un système politique dont il suffirait de se débarrasser.
+
+94
+00:12:22.856 --> 00:12:35.396
+<v Jean-Marc Jancovici>Je pense malheureusement que le problème, il est plus profond, il est plus ancestral. Du reste, on a bien vu, dans la Russie dite communiste que en fait la notion de propriété n'avait pas complètement disparu.
+
+95
+00:12:36.256 --> 00:12:42.196
+<v Jean-Marc Jancovici>Par exemple, votre conjoint, il était pas en libre accès pour tout le monde. Donc y a un certain nombre-- Oui.
+
+96
+00:12:42.895 --> 00:12:43.856
+<v Guillaume Hachez>Oui, j'ai bien compris.
+
+97
+00:12:44.316 --> 00:12:50.936
+<v Jean-Marc Jancovici>L'accès restreint restait une réalité. Donc y a des domaines dans lesquels on l'a limité, mais ça restait quand même une réalité.
+
+98
+00:12:51.496 --> 00:12:55.475
+<v Jean-Marc Jancovici>Et puis une partie des dirigeants soviétiques étaient vraiment dans le : « Faites ce que je dis, pas ce que je fais », quoi.
+
+99
+00:12:55.756 --> 00:12:55.936
+<v Guillaume Hachez>Mmh-mmh.
+
+100
+00:12:55.956 --> 00:13:06.276
+<v Jean-Marc Jancovici>Donc en fait, l'idée qu'on va accumuler, c'est quelque chose qui est presque génétique chez nous, malheureusement.
+
+101
+00:13:07.056 --> 00:13:13.716
+<v Jean-Marc Jancovici>Y a un homme qui a publié deux bouquins assez intéressants, qui s'appelle Sébastien Bohler, y a quelques mois.
+
+102
+00:13:14.436 --> 00:13:19.786
+<v Jean-Marc Jancovici>Le premier bouquin s'appelle Le bug humain, pardon. Et le deuxième bouquin s'appelle : « Où est le sens ?
+
+103
+00:13:20.736 --> 00:13:23.916
+<v Jean-Marc Jancovici>» Et en fait, il explique qu'on a un certain nombre de comportements primitifs, alors,
+
+104
+00:13:24.676 --> 00:13:29.056
+<v Jean-Marc Jancovici>que lui attribue à une structure cérébrale, mais à la limite, ça, pour moi, c'est secondaire dans le propos,
+
+105
+00:13:29.716 --> 00:13:37.436
+<v Jean-Marc Jancovici>un certain nombre de traits de comportements primitifs, qui sont manger, se reproduire, accumuler de l'information, accumuler du pouvoir, etc.
+
+106
+00:13:38.456 --> 00:13:47.116
+<v Jean-Marc Jancovici>Et en fait, il explique également qu'on a besoin d'autres sentiments ou d'autres choses, notamment se rassurer. Et le patrimoine est quelque chose qui rassure.
+
+107
+00:13:47.596 --> 00:13:56.376
+<v Jean-Marc Jancovici>Et donc c'est lié-- Alors, si on n'a pas de patrimoine, on peut se rassurer avec une position dans la société qui fait qu'on a extrêmement confiance.
+
+108
+00:13:57.296 --> 00:14:07.495
+<v Jean-Marc Jancovici>Et du reste, on le voit bien, y a un certain nombre de gens en France qui choisissent la fonction publique, donc ils ont moins de patrimoine que les autres, parce que c'est compliqué de s'enrichir en étant employé des postes.
+
+109
+00:14:07.896 --> 00:14:14.936
+<v Jean-Marc Jancovici>Mais ils ont en échange de ça une sécurité qui leur provient de leur statut. Et on voit bien du reste qu'ils y sont très attachés.
+
+110
+00:14:15.696 --> 00:14:22.696
+<v Jean-Marc Jancovici>Donc, c'est des pulsions qui sont assez primitives, ces affaires-là. Et y a pas de raison qu'elles disparaissent simplement parce que le système politique change.
+
+111
+00:14:23.026 --> 00:14:23.256
+<v Guillaume Hachez>Mmh.
+
+112
+00:14:23.496 --> 00:14:28.476
+<v Jean-Marc Jancovici>Alors, est-ce qu'il faut se débarrasser du capitalisme pour régler les problèmes d'environnement ? J'ai envie de dire, il vaudrait mieux pas,
+
+113
+00:14:29.216 --> 00:14:36.336
+<v Jean-Marc Jancovici>parce que le capitalisme correspond par ailleurs à une forme d'expression de traits de comportement qui sont
+
+114
+00:14:37.376 --> 00:14:38.776
+<v Jean-Marc Jancovici>profondément ancrés en nous.
+
+115
+00:14:38.816 --> 00:14:44.416
+<v Jean-Marc Jancovici>Maintenant, est-ce que ça veut dire que le capitalisme tel que nous l'avons actuellement est satisfaisant ? Sûrement pas.
+
+116
+00:14:45.136 --> 00:14:56.016
+<v Jean-Marc Jancovici>Dans les choses, moi, qui me semblent à modifier dans le système tel que nous l'avons aujourd'hui, alors y a un premier trait qui moi me tarabuste un peu, qui est la financiarisation de l'économie.
+
+117
+00:14:56.596 --> 00:15:11.396
+<v Jean-Marc Jancovici>Parce que la financiarisation crée des couches supplémentaires entre le détenteur du capital, qui est in fine un épargnant planqué quelque part au milieu du Midwest, ou du Devon, qui construit sa retraite par capitalisation.
+
+118
+00:15:11.436 --> 00:15:21.285
+<v Jean-Marc Jancovici>Vous savez, les fonds de pension, c'est exactement ça, hein, c'est ce qui permet aux gens d'avoir une retraite. Donc entre cet épargnant qui est planqué quelque part et l'entreprise dans laquelle il y a un manager,
+
+119
+00:15:21.776 --> 00:15:27.036
+<v Jean-Marc Jancovici>vous avez mis tellement d'intermédiaires que vous avez supprimé toute empathie possible entre l'actionnaire et le salarié.
+
+120
+00:15:27.956 --> 00:15:33.636
+<v Jean-Marc Jancovici>En fait, le seul interlocuteur du salarié est devenu un représentant des actionnaires et pas l'actionnaire en direct.
+
+121
+00:15:34.636 --> 00:15:44.696
+<v Jean-Marc Jancovici>Ce représentant des actionnaires, par ailleurs, il a souvent des mécanismes pervers d'incitation. Typiquement, les stock options, pour moi, c'est un mécanisme pervers, c'est-à-dire un mécanisme par lequel vous
+
+122
+00:15:44.856 --> 00:15:48.676
+<v Jean-Marc Jancovici>pouvez acquérir une partie du capital d'une entreprise en fonction de sa performance boursière
+
+123
+00:15:49.076 --> 00:15:51.796
+<v Jean-Marc Jancovici>et non pas en fonction d'autres indicateurs de succès de l'entreprise.
+
+124
+00:15:52.356 --> 00:15:59.996
+<v Jean-Marc Jancovici>Ça me paraît ne pas être une bonne manière d'inciter les managers à se préoccuper du sort des gens qui travaillent avec eux.
+
+125
+00:16:00.396 --> 00:16:01.756
+<v Jean-Marc Jancovici>Ça ne me paraît pas non plus être une
+
+126
+00:16:02.376 --> 00:16:07.636
+<v Jean-Marc Jancovici>bonne manière d'inciter le manager à se préoccuper des externalités environnementales, parce qu'en première approximation,
+
+127
+00:16:08.236 --> 00:16:14.156
+<v Jean-Marc Jancovici>dès que vous commencez à tenir compte d'une externalité environnementale, vous avez une charge supplémentaire dans votre compte de résultat et vous dégradez le résultat.
+
+128
+00:16:15.056 --> 00:16:20.976
+<v Jean-Marc Jancovici>Alors, je dis bien, c'est en première approximation, c'est pas exactement aussi simple que ça. Y a des domaines dans lesquels y a des opportunités, mais quand même,
+
+129
+00:16:21.656 --> 00:16:24.716
+<v Jean-Marc Jancovici>pour faire les choses dans les bons ordres de grandeur, souvent, vous allez devoir rajouter des charges.
+
+130
+00:16:25.696 --> 00:16:38.316
+<v Jean-Marc Jancovici>Donc, y a une réforme à faire, à mon avis, dans le capitalisme, une réforme assez profonde, dans laquelle il faut définanciariser une partie de l'économie.
+
+131
+00:16:39.196 --> 00:16:46.316
+<v Jean-Marc Jancovici>On confond souvent en fait le capitalisme avec les multinationales. Mais mon maraîcher, au marché, c'est un capitaliste.
+
+132
+00:16:46.996 --> 00:16:52.876
+<v Jean-Marc Jancovici>Mon plombier, c'est un capitaliste. Et du reste, moi, je suis un capitaliste. Carbone 4 est une entreprise capitaliste.
+
+133
+00:16:53.896 --> 00:17:00.736
+<v Guillaume Hachez>C'est intéressant parce que j'ai posé la question, donc, en voulant tendre petit à petit vers la question de,
+
+134
+00:17:01.476 --> 00:17:07.876
+<v Guillaume Hachez>voilà, notre système économique est quand même largement basé sur l'idée, voilà, on en revient à cette question d'un idéal de croissance éternelle.
+
+135
+00:17:08.496 --> 00:17:16.995
+<v Guillaume Hachez>Donc, je voulais tendre à ça, mais c'est intéressant que vous répondiez en disant finalement, en centrant votre réponse sur la question de la propriété privée et en expliquant que,
+
+136
+00:17:17.616 --> 00:17:21.596
+<v Guillaume Hachez>voilà, le capitalisme en lui-même n'est pas forcément corrompu, mais il est à réformer.
+
+137
+00:17:22.296 --> 00:17:30.056
+<v Jean-Marc Jancovici>Bah, la corruption existe toujours. Le régime soviétique était profondément corrompu aussi. Le régime khmer a été profondément corrompu.
+
+138
+00:17:30.176 --> 00:17:35.356
+<v Jean-Marc Jancovici>Donc la corruption, malheureusement, c'est un travers de la nature humaine qui peut s'exprimer dans plein de contextes différents.
+
+139
+00:17:35.916 --> 00:17:38.436
+<v Jean-Marc Jancovici>Si c'était simplement lié au capitalisme, ça serait beau.
+
+140
+00:17:38.516 --> 00:17:38.836
+<v Guillaume Hachez>Mh, mh, mh.
+
+141
+00:17:39.296 --> 00:17:45.096
+<v Jean-Marc Jancovici>Encore une fois, ça me plairait. Moi, j'ai pas de problème avec ça. Malheureusement, je pense que c'est plus compliqué que ça.
+
+142
+00:17:45.296 --> 00:17:53.116
+<v Guillaume Hachez>Mais alors donc, touchons alors enfin au sujet auquel je voulais arriver : la décroissance, un nom qu'on entend beaucoup et qui fait peur à certains.
+
+143
+00:17:53.736 --> 00:18:03.376
+<v Guillaume Hachez>On a notamment entre la publication de votre livre, donc, « Dormez tranquilles jusqu'en 2100 », paru en 2015, et aujourd'hui, il s'est passé un petit détail dans l'histoire, une petite pandémie,
+
+144
+00:18:03.976 --> 00:18:10.286
+<v Guillaume Hachez>que beaucoup ont choisi de pointer du doigt comme étant un exemple de la décroissance et en expliquant que c'est
+
+145
+00:18:11.464 --> 00:18:17.884
+<v Guillaume Hachez>bah voilà, le chaos social, que c'est intenable, que c'est absolument insupportable, 350 millions de chômeurs en plus, etc., etc.
+
+146
+00:18:18.184 --> 00:18:24.964
+<v Guillaume Hachez>Des entreprises qui ont fait faillite, beaucoup de souffrance sociale. Et vous restez, malgré ça, un partisan de la décroissance.
+
+147
+00:18:25.344 --> 00:18:29.204
+<v Guillaume Hachez>Alors expliquez-nous, est-ce que ces analystes ont tort ?
+
+148
+00:18:29.344 --> 00:18:31.184
+<v Jean-Marc Jancovici>Ils ont tort de quoi ?
+
+149
+00:18:32.044 --> 00:18:34.764
+<v Guillaume Hachez>Tort de dire que c'est une souffrance sociale et que c'est insupportable.
+
+150
+00:18:35.564 --> 00:18:37.844
+<v Jean-Marc Jancovici>Ils ont raison de dire que ça sera une difficulté.
+
+151
+00:18:37.884 --> 00:18:38.964
+<v Guillaume Hachez>Oui.
+
+152
+00:18:39.064 --> 00:18:47.304
+<v Jean-Marc Jancovici>Ils ont tort de penser qu'on va pouvoir l'éviter. Donc à partir du moment où on peut pas l'éviter, mais que c'est une difficulté, on a intérêt à anticiper.
+
+153
+00:18:48.104 --> 00:18:51.564
+<v Jean-Marc Jancovici>Parce que, en fait, beaucoup de gens qui débattent de ce sujet,
+
+154
+00:18:53.324 --> 00:19:01.134
+<v Jean-Marc Jancovici>ils concluent la discussion de la manière-- pardon, beaucoup de gens qui disent : « La décroissance est une souffrance » concluent de la façon suivante, ils disent : « Puisque c'est une souffrance, on va l'éviter. »
+
+155
+00:19:01.224 --> 00:19:01.564
+<v Guillaume Hachez>C'est ça.
+
+156
+00:19:01.984 --> 00:19:09.004
+<v Jean-Marc Jancovici>Moi, je dis non, malheureusement, on va pas pouvoir l'éviter. Vous savez, en ce qui concerne votre taille, elle est croissante de 0 à 20 ans.
+
+157
+00:19:09.704 --> 00:19:18.024
+<v Jean-Marc Jancovici>Ensuite, pendant quelques dizaines d'années, elle est stable, puis à un moment, elle diminue. Bon, et penser que vous allez pouvoir éviter ça, c'est vous leurrer.
+
+158
+00:19:19.084 --> 00:19:27.284
+<v Jean-Marc Jancovici>Vous pouvez bien le vivre, vous pouvez faire ce qu'il faut pour que ça diminue le moins vite possible, etc., mais vous pouvez juste pas l'éviter.
+
+159
+00:19:27.304 --> 00:19:35.084
+<v Jean-Marc Jancovici>Là, c'est exactement pareil. En ce qui concerne la décroissance, à venir du système physique dans lequel nous sommes, qui s'appelle l'économie productive, malheureusement, on pourra pas l'éviter.
+
+160
+00:19:35.364 --> 00:19:46.164
+<v Jean-Marc Jancovici>Donc la question, c'est : à partir du moment où on le sait, comment est-ce qu'on fait pour gérer du mieux possible quelque chose qui va nous tomber dessus de toute façon et qui, en Europe, est déjà là pour partie ?
+
+161
+00:19:46.224 --> 00:20:00.504
+<v Jean-Marc Jancovici>C'est-à-dire que pour renvoyer à la discussion qu'on avait tout à l'heure sur là où s'exprime le vote protestataire, c'est-à-dire là où il y a eu les gilets jaunes, etc., en fait, c'est déjà un effet de la décrue énergétique.
+
+162
+00:20:00.564 --> 00:20:09.684
+<v Jean-Marc Jancovici>Alors moi, je l'appelle décrue énergétique, mais d'aucuns, d'autres pourraient l'appeler décroissance. Depuis 2007, l'Europe n'a pas retrouvé la vraie croissance.
+
+163
+00:20:10.224 --> 00:20:19.664
+<v Jean-Marc Jancovici>Elle a trouvé une croissance qui est faite de bouts de ficelle et d'artefacts comptables. Mais en fait, la vraie croissance, celle des mètres carrés qu'on construit, celle des tonnes qu'on charge dans les camions,
+
+164
+00:20:20.224 --> 00:20:25.424
+<v Jean-Marc Jancovici>celle de la quantité d'objets que peut se payer une personne
+
+165
+00:20:26.404 --> 00:20:31.924
+<v Jean-Marc Jancovici>ordinaire, j'ai envie de dire, eh bien tout ça n'a pas augmenté, voire baissé.
+
+166
+00:20:32.704 --> 00:20:41.364
+<v Jean-Marc Jancovici>Donc l'idée qu'on a encore de la croissance, en fait, c'est une idée largement artificielle. Sinon, on n'aurait pas tous ces gens qui seraient en train de se précipiter dans les bras,
+
+167
+00:20:41.924 --> 00:20:44.724
+<v Jean-Marc Jancovici>d'un certain nombre de candidats plus ou moins bien inspirés.
+
+168
+00:20:45.324 --> 00:20:53.024
+<v Jean-Marc Jancovici>Donc, on a une croissance qui est largement artificielle et qui est faite d'artefacts comptables, pour une bonne partie, et nourrie à la dette.
+
+169
+00:20:53.404 --> 00:20:53.533
+<v Guillaume Hachez>Mmh.
+
+170
+00:20:53.954 --> 00:21:01.924
+<v Jean-Marc Jancovici>Mais la vraie croissance, celle qu'on avait avant les chocs pétroliers, celle qu'on avait encore à petite vitesse après, y en a plus.
+
+171
+00:21:02.344 --> 00:21:02.844
+<v Guillaume Hachez>Oui.
+
+172
+00:21:02.884 --> 00:21:10.384
+<v Jean-Marc Jancovici>Donc le problème est déjà là. Et aujourd'hui, dire : « Mais on ne peut pas accepter la décroissance parce que ça va créer des difficultés sociales.
+
+173
+00:21:10.394 --> 00:21:16.724
+<v Jean-Marc Jancovici>» Oui, ça va créer des difficultés sociales, c'est absolument évident. En tout cas, les plus grandes difficultés seront créées si on se voile la face,
+
+174
+00:21:17.544 --> 00:21:21.924
+<v Jean-Marc Jancovici>et si on tape des pieds par terre en disant : « Je veux pas », alors que de toute façon, le problème, on va devoir le gérer.
+
+175
+00:21:22.444 --> 00:21:27.174
+<v Guillaume Hachez>Vous parliez il y a un instant donc du fait que nous, nous sommes dans une économie productiviste. Certains,
+
+176
+00:21:27.584 --> 00:21:36.284
+<v Guillaume Hachez>et je sais pas ce qu'il faut en penser, mais je pense par exemple à Bertrand Piccard, qui est conseiller spécial de la Commission européenne et attaché au commissaire chargé du futur de l'Europe,
+
+177
+00:21:36.844 --> 00:21:41.964
+<v Guillaume Hachez>explique qu'il faut passer de cette économie productiviste à une économie où on vend de l'efficace.
+
+178
+00:21:42.084 --> 00:21:49.004
+<v Guillaume Hachez>Donc, une croissance où on crée des emplois et on fait du profit en remplaçant ce qui pollue par ce qui protège l'environnement.
+
+179
+00:21:49.784 --> 00:21:53.984
+<v Guillaume Hachez>Est-ce que ça vous semble crédible comme, ce pitch-là ?
+
+180
+00:21:53.994 --> 00:21:56.624
+<v Jean-Marc Jancovici>Bah, c'est la notion de croissance verte ou j'ai mal compris ?
+
+181
+00:21:56.684 --> 00:21:59.744
+<v Guillaume Hachez>C'est, je pense que c'est exactement ça, oui.
+
+182
+00:21:59.824 --> 00:22:06.784
+<v Jean-Marc Jancovici>Alors, l'idée de la croissance verte, c'est qu'on va pouvoir remplacer la croissance qui engendre des ennuis par une croissance qui n'engendre pas d'ennuis.
+
+183
+00:22:07.904 --> 00:22:10.563
+<v Jean-Marc Jancovici>Malheureusement, je n'y crois pas trop.
+
+184
+00:22:11.344 --> 00:22:16.364
+<v Jean-Marc Jancovici>Je n'y crois pas trop parce que quand vous regardez depuis un siècle et demi, on n'a pas arrêté d'avoir de la croissance,
+
+185
+00:22:17.084 --> 00:22:23.424
+<v Jean-Marc Jancovici>on n'a pas arrêté d'avoir de l'innovation technique et on n'a pas arrêté d'avoir des problèmes environnementaux qui, globalement, ont cru.
+
+186
+00:22:24.584 --> 00:22:31.684
+<v Jean-Marc Jancovici>Il y a quelques petits problèmes environnementaux qu'on a réussi, qu'on a réussi, pardon, à résoudre. Par exemple, le soufre dans les carburants.
+
+187
+00:22:32.404 --> 00:22:39.184
+<v Jean-Marc Jancovici>Donc maintenant, on désulfure les carburants. Par exemple, j'en sais rien, moi, le bruit à certains endroits, on met des murs antibruit.
+
+188
+00:22:39.564 --> 00:22:48.484
+<v Jean-Marc Jancovici>Mais ça se fait toujours au détriment d'une autre nuisance qu'on a augmentée. La désulfuration des carburants, ça augmente les émissions de CO2 des raffineries.
+
+189
+00:22:48.544 --> 00:22:52.184
+<v Jean-Marc Jancovici>Les murs antibruit, ça augmente les émissions de CO2 des cimenteries et des aciéries.
+
+190
+00:22:53.204 --> 00:23:01.044
+<v Jean-Marc Jancovici>Éventuellement, ça augmente le trafic parce qu'une fois qu'on a décidé que les voitures pouvaient passer en grande quantité parce que ça gênait plus les riverains, du coup, il y a encore plus de voitures qui passent.
+
+191
+00:23:01.624 --> 00:23:11.044
+<v Jean-Marc Jancovici>Donc, l'idée qu'on peut régler tous les problèmes d'un coup dans un monde dans lequel l'activité physique augmente est malheureusement un leurre.
+
+192
+00:23:11.684 --> 00:23:19.744
+<v Jean-Marc Jancovici>En gros, ce qu'on appelle la pollution et ce qu'on appelle les inconvénients environnementaux, c'est les sous-produits indésirables de notre activité qui s'expriment en termes de flux physiques.
+
+193
+00:23:20.524 --> 00:23:28.084
+<v Jean-Marc Jancovici>La croissance, c'est l'augmentation de ces flux physiques. Et augmenter la production, en fait, c'est augmenter les flux physiques.
+
+194
+00:23:28.924 --> 00:23:33.944
+<v Jean-Marc Jancovici>Et la pollution, en premier, au premier ordre, c'est les sous-produits indésirables des flux physiques que nous créons.
+
+195
+00:23:35.244 --> 00:23:41.704
+<v Jean-Marc Jancovici>Donc il y a certaines pollutions qu'on arrive à régler, mais au détriment, encore une fois, d'autres pollutions qui augmentent.
+
+196
+00:23:42.524 --> 00:23:51.724
+<v Jean-Marc Jancovici>L'idée qu'on pourrait augmenter les flux physiques et baisser d'un seul coup, d'un seul, la totalité des nuisances associées à ces flux physiques est malheureusement un leurre.
+
+197
+00:23:52.684 --> 00:23:58.084
+<v Jean-Marc Jancovici>La seule manière de baisser simultanément la totalité des nuisances venant des flux physiques, c'est de baisser les flux physiques.
+
+198
+00:23:58.784 --> 00:24:05.724
+<v Guillaume Hachez>Et que pensez-vous de l'idée de miser alors sur des flux physiques, mais qui ne seraient pas des émissions de CO2 ?
+
+199
+00:24:05.764 --> 00:24:09.084
+<v Guillaume Hachez>Moi, je pense par exemple aux énergies renouvelables.
+
+200
+00:24:09.764 --> 00:24:15.004
+<v Jean-Marc Jancovici>Bah les énergies renouvelables, quand vous recourez aux nouvelles énergies renouvelables, par exemple l'éolien et le solaire
+
+201
+00:24:16.132 --> 00:24:22.592
+<v Jean-Marc Jancovici>Vous augmentez significativement certaines nuisances par rapport aux énergies préexistantes, notamment l'emprise au sol,
+
+202
+00:24:24.072 --> 00:24:28.272
+<v Jean-Marc Jancovici>notamment la quantité de métal dont vous avez besoin pour faire un kilowattheure.
+
+203
+00:24:28.832 --> 00:24:29.012
+<v Guillaume Hachez>Mmm-hmm.
+
+204
+00:24:30.492 --> 00:24:45.072
+<v Jean-Marc Jancovici>Donc, vous avez un-- il faut à peu près mille fois plus de surface pour faire des kilowattheures solaires que pour faire des kilowattheures avec une source électrique concentrée, que ce soit du nucléaire, du charbon, du gaz.
+
+205
+00:24:47.232 --> 00:24:54.452
+<v Jean-Marc Jancovici>Il faut dix à cent fois plus de métal par kilowattheure quand vous faites du solaire ou de l'éolien que quand vous prenez une source concentrée.
+
+206
+00:24:56.152 --> 00:25:05.432
+<v Jean-Marc Jancovici>Donc, l'inconvénient sur le CO₂, on l'a reporté sur d'autres inconvénients qu'on peut considérer comme étant plus graves ou moins graves.
+
+207
+00:25:05.492 --> 00:25:12.332
+<v Jean-Marc Jancovici>Ça dépend des-- c'est une affaire d'appréciation, cette affaire-là, hein, c'est pas une vérité scientifique. Donc y a beaucoup de gens qui vont vous dire : « C'est moins grave.
+
+208
+00:25:13.002 --> 00:25:19.971
+<v Jean-Marc Jancovici>» Y a des gens qui vont vous dire : « C'est plus grave. » Et puis y a des gens qui vont vous dire : « Ça dépend. » Et puis y a des gens qui vont vous dire : « On a encore une autre alternative qui est de mettre
+
+209
+00:25:20.112 --> 00:25:22.772
+<v Jean-Marc Jancovici>moins d'éoliennes et de faire beaucoup plus d'économies d'électricité.
+
+210
+00:25:23.322 --> 00:25:27.652
+<v Jean-Marc Jancovici>» Et puis y a des gens qui vont vous dire : « On peut mettre moins d'éoliennes et plus de nucléaire et des économies d'électricité.
+
+211
+00:25:28.042 --> 00:25:31.512
+<v Jean-Marc Jancovici>» Voilà, vous voyez donc en fait, à un moment, on n'a pas une seule
+
+212
+00:25:32.512 --> 00:25:43.292
+<v Jean-Marc Jancovici>solution à notre disposition. Par contre, quand vous regardez les limites physiques qui sont liées au fait de faire autrement, vous n'avez jamais de situation dans laquelle il n'y en a pas.
+
+213
+00:25:43.352 --> 00:25:50.712
+<v Jean-Marc Jancovici>Simplement, vous les avez déplacées, elles portent sur autre chose, avec des limites et des inconvénients qui s'expriment de façon différente.
+
+214
+00:25:50.792 --> 00:25:56.112
+<v Jean-Marc Jancovici>Ça ne veut pas dire qu'ils sont impossibles de choisir, mais ça veut dire que vous choisissez la nature de vos inconvénients.
+
+215
+00:25:56.752 --> 00:26:04.492
+<v Guillaume Hachez>Mmm-hmm. Et donc les inconvénients des énergies renouvelables, ce serait entre autres choses la non-permanence de la productivité.
+
+216
+00:26:04.972 --> 00:26:10.792
+<v Jean-Marc Jancovici>Ça dépend des énergies renouvelables. Si vous avez l'hydroélectricité, vous avez tout à fait une permanence de la production, sauf s'il se met à faire vraiment trop sec.
+
+217
+00:26:11.112 --> 00:26:17.352
+<v Jean-Marc Jancovici>Donc vous avez un aléa à ce moment-là. Si vous utilisez la biomasse pour faire de la chaleur, vous n'avez pas de problème de pilotage.
+
+218
+00:26:18.772 --> 00:26:19.992
+<v Jean-Marc Jancovici>Par contre, vous avez un problème de surface,
+
+219
+00:26:20.632 --> 00:26:32.092
+<v Jean-Marc Jancovici>nécessaire pour faire pousser la biomasse qui va vous servir. Si vous utilisez la pompe à chaleur, c'est-à-dire la géothermie basse température, là, vous avez un sujet qui est la disponibilité de
+
+220
+00:26:32.732 --> 00:26:35.092
+<v Jean-Marc Jancovici>l'électricité pour faire fonctionner le dispositif.
+
+221
+00:26:36.242 --> 00:26:41.292
+<v Jean-Marc Jancovici>'Fin voilà, vous avez-- donc y a des choses qui sont mieux que d'autres de mon point de vue. Donc je ne dis pas qu'on ne peut pas faire d'arbitrage.
+
+222
+00:26:41.732 --> 00:26:48.952
+<v Jean-Marc Jancovici>Par contre, l'idée qu'on peut faire des arbitrages qui font gagner, qui ne font perdre sur aucun tableau, malheureusement, c'est rare.
+
+223
+00:26:49.392 --> 00:26:50.832
+<v Guillaume Hachez>Et donc, entre autres choses, le
+
+224
+00:26:51.752 --> 00:26:56.172
+<v Guillaume Hachez>coût de production, par exemple, en ce qui concerne donc le solaire et l'éolien,
+
+225
+00:26:56.932 --> 00:27:06.092
+<v Guillaume Hachez>il faut non seulement produire cette électricité, donc vous avez évoqué la question des métaux nécessaires, mais également la stocker dans les batteries, également la distribuer,
+
+226
+00:27:06.772 --> 00:27:10.672
+<v Guillaume Hachez>ce qui présente des limites en elles-mêmes.
+
+227
+00:27:10.892 --> 00:27:17.692
+<v Jean-Marc Jancovici>Aujourd'hui, quand vous regardez, alors un ordre de grandeur, quand vous regardez l'ensemble de la puissance de production dans le monde,
+
+228
+00:27:19.172 --> 00:27:30.512
+<v Jean-Marc Jancovici>donc la totalité des dispositifs qui produisent de l'électricité, la puissance installée, donc là-dedans, vous avez charbon, gaz, un peu de pétrole, nucléaire, hydroélectricité, éolien, solaire, géothermie, enfin tout,
+
+229
+00:27:31.852 --> 00:27:36.912
+<v Jean-Marc Jancovici>vous avez un peu plus de sept mille milliards de watts, sept mille gigawatts installés.
+
+230
+00:27:37.712 --> 00:27:49.312
+<v Jean-Marc Jancovici>Là-dedans, en face de ça, vous avez une puissance de stockage, donc des appareils qui sont susceptibles d'absorber de l'électricité quand il y en a de disponible pour la restituer plus tard, qui est de l'ordre de cent cinquante gigawatts.
+
+231
+00:27:49.352 --> 00:27:58.352
+<v Jean-Marc Jancovici>Donc, vous avez sept mille de production, cent cinquante de stockage. Dans ce stockage, vous avez moins de 1 % qui est des batteries.
+
+232
+00:27:58.772 --> 00:28:06.632
+<v Jean-Marc Jancovici>99 %, c'est ce qu'on appelle des barrages réversibles, des stations de pompage, du STEP. Alors, dans le plat pays qui est le vôtre, y en a pas beaucoup.
+
+233
+00:28:06.712 --> 00:28:07.412
+<v Guillaume Hachez>Mmm-hmm, effectivement.
+
+234
+00:28:07.422 --> 00:28:08.432
+<v Jean-Marc Jancovici>Pour ça, il faut avoir des montagnes.
+
+235
+00:28:09.052 --> 00:28:09.532
+<v Guillaume Hachez>Oui, c'est ça.
+
+236
+00:28:09.561 --> 00:28:16.832
+<v Jean-Marc Jancovici>Par contre, dans le pays un peu moins plat qui est le mien, vous en avez dans les Alpes, vous en avez dans le Massif central, vous en avez également en Suisse.
+
+237
+00:28:17.872 --> 00:28:21.732
+<v Jean-Marc Jancovici>Et donc c'est des barrages dans lesquels on pompe l'eau dans le réservoir d'altitude,
+
+238
+00:28:22.332 --> 00:28:34.192
+<v Jean-Marc Jancovici>quand il y a de l'électricité en excès sur le réseau, typiquement la nuit, et on turbine l'eau vers un réservoir en aval, mais où on laisse l'eau pour la repomper la nuit, quand vous avez besoin de produire de l'électricité.
+
+239
+00:28:34.312 --> 00:28:41.312
+<v Jean-Marc Jancovici>Voilà, ça s'appelle des stations de pompage. Eh bien, ces stations de pompage font 99 % de la puissance de stockage dans le monde aujourd'hui,
+
+240
+00:28:42.012 --> 00:28:46.832
+<v Jean-Marc Jancovici>par rapport à la puissance de production qui-- et cette puissance de stockage, c'est 2 % de la puissance de production.
+
+241
+00:28:47.412 --> 00:28:55.332
+<v Jean-Marc Jancovici>Donc aujourd'hui, les batteries, c'est moins de 1 %, de 2 % de la puissance de production. Donc, il va se passer un temps avant qu'on ait suffisamment de batteries.
+
+242
+00:28:55.372 --> 00:29:04.332
+<v Jean-Marc Jancovici>En fait, on n'en aura jamais. Personne de sérieux n'envisage qu'on stocke sur batterie, qu'on compense avec des batteries l'intermittence liée à beaucoup d'éolien et beaucoup de solaire.
+
+243
+00:29:04.372 --> 00:29:09.492
+<v Jean-Marc Jancovici>Ce qui veut dire qu'en pratique, il se passerait ce que votre plat pays a décidé de faire, c'est-à-dire des centrales à gaz.
+
+244
+00:29:09.572 --> 00:29:12.392
+<v Jean-Marc Jancovici>Et c'est quand même un comble, pardonnez-moi de le dire, que--
+
+245
+00:29:13.192 --> 00:29:22.412
+<v Jean-Marc Jancovici>et je considère que si la Commission n'était pas allemande donc anti-nucléaire, en voyant ce genre de truc, elle devrait nous coller une énorme prune, en disant, 'fin voilà, on est sérieux ou on ne l'est pas.
+
+246
+00:29:22.872 --> 00:29:27.452
+<v Jean-Marc Jancovici>Si on dit qu'on baisse les émissions de CO₂, c'est juste inconcevable de les réaugmenter.
+
+247
+00:29:27.512 --> 00:29:39.212
+<v Guillaume Hachez>On en reparlera. J'ai presque envie de réagir maintenant. Je pense que l'idée derrière ces constructions de ces centrales à gaz, c'est, je pense, le fait que, donc on va couper normalement d'ici quatre ans,
+
+248
+00:29:39.832 --> 00:29:42.212
+<v Guillaume Hachez>les quatre centrales nucléaires qui sont installées,
+
+249
+00:29:42.912 --> 00:29:54.432
+<v Guillaume Hachez>et que donc, plutôt que de se baser sur le réseau électrique européen et d'importer de l'électricité à l'étranger, qui serait alors principalement produite sur base de charbon,
+
+250
+00:29:54.972 --> 00:29:58.942
+<v Guillaume Hachez>l'idée, c'est de dire : « Mais on va faire le moindre mal et on va se baser sur le gaz. »
+
+251
+00:29:58.972 --> 00:30:02.792
+<v Jean-Marc Jancovici>Oui, oui. L'idée, c'est plutôt que de te couper deux jambes, je t'en coupe qu'une, comme ça, c'est quand même vachement mieux.
+
+252
+00:30:02.832 --> 00:30:05.792
+<v Guillaume Hachez>Voilà, voilà, ça reste problématique, mais on est bien d'accord.
+
+253
+00:30:05.832 --> 00:30:12.312
+<v Jean-Marc Jancovici>Ça reste, pardonnez-moi, mais ça reste un-- 'fin, je dis suffisamment de mal de mon propre gouvernement pour être capable de temps en temps de dire du mal de celui des autres.
+
+254
+00:30:12.372 --> 00:30:13.852
+<v Jean-Marc Jancovici>Ça reste un problème de Sherlock, ce truc.
+
+255
+00:30:15.220 --> 00:30:25.240
+<v Guillaume Hachez>Voilà, mais je ne dirais pas le contraire. Après, c'est un débat qui fait rage, et qui dépasse largement mon domaine d'expertise, mais j'ai tendance à vous donner raison.
+
+256
+00:30:25.740 --> 00:30:31.040
+<v Guillaume Hachez>Pour revenir sur, donc vous parliez il y a un instant des structures de pompage dans vos montagnes,
+
+257
+00:30:31.860 --> 00:30:43.400
+<v Guillaume Hachez>pour revenir sur les nouvelles technologies qu'on a vu apparaître ces dernières années, j'ai notamment pu entendre parler de ces technologies qui pompaient du CO2 dans l'atmosphère-
+
+258
+00:30:43.680 --> 00:30:44.040
+<v Jean-Marc Jancovici>Ah, oui
+
+259
+00:30:44.400 --> 00:30:55.360
+<v Guillaume Hachez>...et qui les stockaient. Donc l'idée de dire : « Mais on va finalement inverser la donne. Le-- plus-- on va non seulement baisser nos émissions, mais on va aller chercher le CO2 qui est déjà dans l'atmosphère et on va le
+
+260
+00:30:56.080 --> 00:30:58.820
+<v Guillaume Hachez>stocker sur Terre.
+
+261
+00:30:59.290 --> 00:31:03.260
+<v Guillaume Hachez>» Est-ce que c'est un projet d'avenir ? Parce que certains y croient fermement.
+
+262
+00:31:03.700 --> 00:31:14.300
+<v Jean-Marc Jancovici>J'ai fait un petit calcul. Y a un projet de cette nature qui a été mis en œuvre en Islande. Alors, ça se présente sous forme d'une espèce de gros tuyau d'aspiration.
+
+263
+00:31:14.360 --> 00:31:20.880
+<v Jean-Marc Jancovici>Là, on aspire l'air et puis l'air passe sur un produit spécial qui, entre guillemets, capture le CO2.
+
+264
+00:31:21.660 --> 00:31:31.320
+<v Jean-Marc Jancovici>Et puis derrière, ce produit spécial, on lui fait recracher le CO2 quand il est dans une enceinte confinée, où il recrache uniquement du CO2, puisque le reste, il l'a laissé passer.
+
+265
+00:31:32.400 --> 00:31:42.640
+<v Jean-Marc Jancovici>On peut à ce moment enfouir sous terre. Alors, le rendement de cette affaire est très mauvais. En Islande, où l'électricité est quasiment totalement décarbonée-
+
+266
+00:31:42.980 --> 00:31:43.200
+<v Guillaume Hachez>Mmm-hmm
+
+267
+00:31:43.800 --> 00:31:53.960
+<v Jean-Marc Jancovici>...il faut-- vous réussissez à capturer plus de CO2 dans l'air que vous n'en émettez à travers la production électrique islandaise.
+
+268
+00:31:54.260 --> 00:32:00.980
+<v Jean-Marc Jancovici>Mais en fait, c'est parce que l'électricité est quasiment totalement décarbonée. Si on utilisait le même procédé dans le monde,
+
+269
+00:32:02.660 --> 00:32:12.340
+<v Jean-Marc Jancovici>en moyenne mondiale, avec les réseaux électriques existants, ça cracherait plus de CO2 dans l'air pour faire l'électricité permettant au dispositif d'opérer que de CO2 capturé par le dispositif.
+
+270
+00:32:13.240 --> 00:32:29.020
+<v Jean-Marc Jancovici>Donc c'est fondamentalement une mauvaise idée. Et si on voulait reprendre chaque année la totalité des émissions humaines de CO2 dans l'air avec ce genre de procédé, il faudrait que ce genre de procédé utilise six fois l'électricité mondiale.
+
+271
+00:32:29.360 --> 00:32:37.200
+<v Guillaume Hachez>Je pense qu'il s'agit pas tellement de compenser les émissions qui ont lieu, mais surtout celles qui ont déjà eu lieu, celles du passé, si on veut-
+
+272
+00:32:37.260 --> 00:32:52.860
+<v Jean-Marc Jancovici>Oui, mais vous voyez bien que si on doit, dans le futur, avoir énormément d'électricité décarbonée pour, petit a, remplacer les combustibles fossiles et, petit b, en plus pomper le CO2 qui se trouve dans l'air.
+
+273
+00:32:54.080 --> 00:32:57.520
+<v Jean-Marc Jancovici>En fait, si vous faites les ordres de grandeur sur la production électrique, vous y êtes absolument pas.
+
+274
+00:32:58.000 --> 00:33:04.140
+<v Jean-Marc Jancovici>Sans compter qu'il y a un truc qu'on n'a pas dit tout à l'heure sur les dispositifs de production d'électricité renouvelable, c'est qu'aujourd'hui, c'est compétitif
+
+275
+00:33:04.960 --> 00:33:08.780
+<v Jean-Marc Jancovici>parce que ça dépend d'un monde qui est dopé aux combustibles fossiles.
+
+276
+00:33:10.300 --> 00:33:16.020
+<v Jean-Marc Jancovici>Ce monde dopé aux combustibles fossiles vous permet d'extraire des métaux dans toutes les mines du monde avec des énormes tractopelles,
+
+277
+00:33:16.680 --> 00:33:27.060
+<v Jean-Marc Jancovici>vous permet d'assurer la métallurgie de base, vous permet de transporter depuis la Chine, où sont faits tous les panneaux solaires, par gros porte-conteneurs, les panneaux en question, enfin, les cellules photovoltaïques en question,
+
+278
+00:33:27.900 --> 00:33:40.880
+<v Jean-Marc Jancovici>vous permet d'extraire, au fin fond du Chili, le cuivre qui va servir dans les câblages électriques, vous permet, grâce au gaz, de faire le ciment qui va vous permettre de faire les gros plots, pardon, etc., etc.
+
+279
+00:33:41.280 --> 00:33:49.460
+<v Jean-Marc Jancovici>Donc, aujourd'hui, la fabrication de ces dispositifs bénéficie de la formidable productivité que les combustibles fossiles ont apporté à l'économie en général.
+
+280
+00:33:50.350 --> 00:33:54.820
+<v Jean-Marc Jancovici>Le jour où vous devez extraire du cuivre des mines chiliennes avec juste des éoliennes et des panneaux solaires
+
+281
+00:33:55.840 --> 00:34:02.260
+<v Jean-Marc Jancovici>et faire les transports internationaux avec juste des éoliennes et des panneaux solaires, on reparlera de la compétitivité des énergies renouvelables.
+
+282
+00:34:03.700 --> 00:34:11.780
+<v Jean-Marc Jancovici>C'est absolument évident que le prix d'aujourd'hui n'est en rien prédictif de la facilité à les déployer dans le monde de demain où il n'y aura plus de combustibles fossiles.
+
+283
+00:34:12.000 --> 00:34:21.440
+<v Guillaume Hachez>Donc du coup, tout dépend finalement de sources d'énergie qui seraient complètement émancipées des combustibles fossiles.
+
+284
+00:34:21.460 --> 00:34:27.920
+<v Jean-Marc Jancovici>Sans combustibles fossiles, il va falloir continuer à pouvoir faire de la métallurgie, de la chimie, etc., pour fabriquer des éoliennes et des panneaux solaires. Donc c'est-
+
+285
+00:34:28.260 --> 00:34:28.680
+<v Guillaume Hachez>Mmm
+
+286
+00:34:28.700 --> 00:34:39.400
+<v Jean-Marc Jancovici>Ce qui veut dire que dans un monde qui sera pauvre en énergie, la quantité de métal dont on aura besoin pour produire un kilowattheure deviendra un facteur très très fortement discriminant.
+
+287
+00:34:39.840 --> 00:34:49.240
+<v Jean-Marc Jancovici>Et à ce jeu-là, le nucléaire, et dans une moindre mesure, les barrages, sont considérablement plus intéressants que les éoliennes et les panneaux solaires.
+
+288
+00:34:50.000 --> 00:34:58.000
+<v Guillaume Hachez>Mmm. Est-ce que vous voyez d'autres développements technologiques, d'autres révolutions qui sont sur le point de venir ou qui sont en train de se passer ?
+
+289
+00:34:58.010 --> 00:35:02.140
+<v Jean-Marc Jancovici>Non, de toute façon, les échelles de temps sont trop courtes maintenant pour qu'on fasse avec les développements technologiques de demain.
+
+290
+00:35:02.180 --> 00:35:04.100
+<v Jean-Marc Jancovici>Il faut faire avec les développements technologiques d'hier.
+
+291
+00:35:04.700 --> 00:35:12.580
+<v Jean-Marc Jancovici>Quand vous êtes dans un bateau qui voit venir la tempête, vous commencez pas à vous poser la question de savoir ce que vous pourriez faire, la prochaine fois que vous allez passer chez le voilier.
+
+292
+00:35:12.860 --> 00:35:13.040
+<v Guillaume Hachez>Mmm.
+
+293
+00:35:13.360 --> 00:35:20.280
+<v Jean-Marc Jancovici>Vous vous posez la question de ce que vous pouvez faire avec les voiles que vous avez déjà en soute et le gouvernail que vous avez déjà sur le bateau et le jeu de cartes que vous avez déjà sur le bateau.
+
+294
+00:35:20.320 --> 00:35:22.800
+<v Jean-Marc Jancovici>Voilà, c'est avec ça que vous vous posez la question de savoir ce que vous allez faire.
+
+295
+00:35:22.980 --> 00:35:23.400
+<v Guillaume Hachez>Mmm.
+
+296
+00:35:23.460 --> 00:35:32.540
+<v Jean-Marc Jancovici>Là, c'est exactement pareil. La baisse des émissions, on va devoir la gérer avec les moyens du bord. Et les moyens du bord n'incluent pas des avancées techniques qui arriveront dans 20 ans.
+
+297
+00:35:33.540 --> 00:35:39.820
+<v Jean-Marc Jancovici>Ça inclut de prolonger éventuellement des efforts qu'on démarre aujourd'hui avec des moyens qui arriveront dans 20 ans. Ça, oui.
+
+298
+00:35:39.860 --> 00:35:45.230
+<v Jean-Marc Jancovici>Par contre, ça, il faut absolument pas qu'on attende ce qui va arriver dans 20 ans pour démarrer. Sinon, on est morts.
+
+299
+00:35:46.340 --> 00:35:51.800
+<v Guillaume Hachez>On aura l'occasion de parler de fusion nucléaire un peu plus tard dans l'émission et de ITER en France notamment.
+
+300
+00:35:52.340 --> 00:36:00.700
+<v Guillaume Hachez>Mais pour revenir donc, puisque on n'a pas clôturé cette question-là, la question de la décroissance, vous parliez de se préparer à une décroissance qui est inévitable.
+
+301
+00:36:00.780 --> 00:36:04.820
+<v Guillaume Hachez>Alors, je vous pose la question : qu'est-ce que ça signifie se préparer à la décroissance ?
+
+302
+00:36:04.940 --> 00:36:15.840
+<v Jean-Marc Jancovici>Ça veut dire par exemple qu'il faut qu'on reconfigure notre système de transport pour dépendre moins de moyens individuels qui pèsent une tonne ou une tonne et demie par personne transportée
+
+303
+00:36:17.024 --> 00:36:27.044
+<v Jean-Marc Jancovici>et plus soit de moyens individuels légers, vélo à assistance électrique, scooter, soit de modes qui pèsent effectivement un peu lourd, mais à ce moment qu'on partage mieux.
+
+304
+00:36:27.184 --> 00:36:31.884
+<v Jean-Marc Jancovici>Donc ça veut dire qu'au lieu d'avoir une voiture par ménage, vous avez une voiture pour trois ménages ou une voiture pour quatre ménages.
+
+305
+00:36:32.324 --> 00:36:37.604
+<v Jean-Marc Jancovici>Ça veut dire qu'on prend plus souvent les transports en commun. Ça veut dire qu'on raccourcit la portée des déplacements.
+
+306
+00:36:38.104 --> 00:36:46.504
+<v Jean-Marc Jancovici>Voilà ce que c'est de gérer en pratique la sobriété ou ce que d'aucuns appellent la décroissance.
+
+307
+00:36:47.124 --> 00:36:54.523
+<v Jean-Marc Jancovici>Ça veut dire que sur le plan agricole, vous produisez moins et par contre avec un cahier des charges environnemental qui est plus exigeant.
+
+308
+00:36:55.884 --> 00:37:07.784
+<v Jean-Marc Jancovici>Ça veut dire que vous aurez moins d'objets de toute nature à disposition. Donc par exemple, la variété de la quantité de stylos que j'ai actuellement dans le,
+
+309
+00:37:09.114 --> 00:37:17.744
+<v Jean-Marc Jancovici>dans le pot à stylo qui est juste devant moi sur le bureau, eh bien au lieu d'en avoir 25 espèces différentes, on se contentera de 15 ou de 10.
+
+310
+00:37:18.084 --> 00:37:21.944
+<v Guillaume Hachez>Moins de compétition sur tous les marchés, moins de différentes sortes de smartphones, etc.
+
+311
+00:37:22.104 --> 00:37:29.624
+<v Jean-Marc Jancovici>La compétition, elle aboutit à la multiplication des flux de prélèvement et de transformation.
+
+312
+00:37:29.664 --> 00:37:29.774
+<v Guillaume Hachez>Mmm-hmm.
+
+313
+00:37:30.484 --> 00:37:31.094
+<v Jean-Marc Jancovici>Bon alors, peut-être qu'on n'a
+
+314
+00:37:31.164 --> 00:37:40.264
+<v Jean-Marc Jancovici>pas tous envie de vivre dans un monde dans lequel il n'y a qu'une seule espèce de stylo. Encore que moi, j'ai grandi dans ce monde-là et j'ai pas-- 'fin, je veux dire, à l'époque, on avait des stylos Bic, y avait des stylos Bic bleus, des stylos Bic noirs.
+
+315
+00:37:40.304 --> 00:37:41.064
+<v Guillaume Hachez>Vous avez survécu.
+
+316
+00:37:41.624 --> 00:37:45.164
+<v Jean-Marc Jancovici>Oui, c'est ça, j'ai survécu et j'ai pas l'impression que j'ai été très malheureux à cause de ça.
+
+317
+00:37:45.204 --> 00:37:47.744
+<v Guillaume Hachez>Bon, c'est un exemple un brin simpliste, mais on comprend l'idée.
+
+318
+00:37:48.044 --> 00:38:01.604
+<v Jean-Marc Jancovici>Donc on va avoir-- alors c'est exactement pareil dans le logement. Le logement, on va avoir besoin de mieux mutualiser, éventuellement d'accepter des surfaces un peu plus petites par personne, etc.
+
+319
+00:38:02.644 --> 00:38:09.634
+<v Jean-Marc Jancovici>Ça va être le cas dans l'industrie, j'en ai parlé, et les transports, j'en ai parlé. Voilà, et en gros, c'est ça que ça veut dire,
+
+320
+00:38:09.904 --> 00:38:10.004
+<v Guillaume Hachez>Mmm-hmm
+
+321
+00:38:10.304 --> 00:38:14.024
+<v Jean-Marc Jancovici>...la sobriété. Ça veut dire qu'on va devoir être heureux avec quand même un peu moins de trucs.
+
+322
+00:38:14.584 --> 00:38:24.924
+<v Guillaume Hachez>Oui, vous avez cité effectivement les axes principaux. En ce qui concerne donc la façon dont c'est reçu par la population, si on prend simplement l'exemple des transports, donc
+
+323
+00:38:25.664 --> 00:38:33.444
+<v Guillaume Hachez>l'idée de se déplacer principalement en transports en commun plutôt que d'acheter chacun sa petite voiture personnelle.
+
+324
+00:38:34.144 --> 00:38:40.944
+<v Guillaume Hachez>Pour info, par exemple, en Belgique, on est de manière générale très client, et je ne m'inclus pas là-dedans, mais des voitures de société.
+
+325
+00:38:41.044 --> 00:38:49.324
+<v Guillaume Hachez>Donc c'est extrêmement courant en Belgique d'avoir sa petite voiture de société perso. Y a une forme de standing social qui est associé à ça, par exemple.
+
+326
+00:38:49.664 --> 00:38:57.644
+<v Guillaume Hachez>Ou alors si je prends l'exemple des stylos, le fait d'avoir un beau stylo qui se démarque des autres ou un beau téléphone qui se démarque des autres, y a une forme de standing social.
+
+327
+00:38:57.904 --> 00:39:11.844
+<v Guillaume Hachez>Les plus privilégiés y sont très attachés. Est-ce que ça ne représente pas un challenge significatif que d'expliquer à ces populations très attachées à leur standing social que, ben il va falloir un peu laisser tomber tout ça ?
+
+328
+00:39:11.904 --> 00:39:21.644
+<v Jean-Marc Jancovici>Si, bien sûr. Et du reste, là encore, dans le livre dont je parlais tout à l'heure, « Là où est le sens » de Sébastien Bohler, ce dernier explique que de grimper dans la hiérarchie est une pulsion fondamentale de notre espèce.
+
+329
+00:39:22.684 --> 00:39:29.244
+<v Jean-Marc Jancovici>Donc ça veut dire que l'idée qu'on devrait supprimer les envies d'acquérir du statut, ça, c'est une chimère, c'est même pas la peine d'essayer.
+
+330
+00:39:30.284 --> 00:39:37.404
+<v Jean-Marc Jancovici>Ce qu'il faut faire, c'est essayer de déplacer cette envie d'acquérir du statut sur des choses qui sont moins prédatrices pour l'environnement.
+
+331
+00:39:38.644 --> 00:39:47.424
+<v Jean-Marc Jancovici>Par exemple, le savoir, par exemple l'expérience, par exemple, j'en sais rien, moi, la capacité à bien s'occuper des autres.
+
+332
+00:39:47.544 --> 00:39:53.644
+<v Jean-Marc Jancovici>J'en sais rien, il faut qu'on trouve-- après tout, l'abbé Pierre, il a acquis son statut sur le fait qu'il s'occupait des pauvres.
+
+333
+00:39:53.744 --> 00:39:59.284
+<v Jean-Marc Jancovici>Donc peut-être qu'il faut arriver, par exemple, le fait de trouver quelque chose qui est utile à la collectivité.
+
+334
+00:39:59.304 --> 00:40:04.744
+<v Jean-Marc Jancovici>Vous avez des chercheurs qui acquièrent leur statut de par le fait qu'ils ont fait des découvertes pour lesquelles on leur est reconnaissant.
+
+335
+00:40:05.304 --> 00:40:17.004
+<v Jean-Marc Jancovici>Donc, il va falloir qu'on accepte de déplacer la quête du statut sur des choses qui sont moins matérielles, sachant bien évidemment que cette quête du statut, on ne la supprimera pas puisque ça fait partie de nos pulsions fondamentales.
+
+336
+00:40:17.764 --> 00:40:23.684
+<v Guillaume Hachez>L'analyse de certains, les prédictions de certains, c'est qu'on arrive ici aux limites de la démocratie
+
+337
+00:40:24.444 --> 00:40:33.144
+<v Guillaume Hachez>et qu'à un moment donné, pour imposer ces changements-là, il sera peut-être sans doute nécessaire de passer à des régimes
+
+338
+00:40:34.004 --> 00:40:35.964
+<v Guillaume Hachez>moins permissifs.
+
+339
+00:40:36.824 --> 00:40:40.064
+<v Guillaume Hachez>Est-ce que vous suivez ce raisonnement-là ?
+
+340
+00:40:40.124 --> 00:40:53.864
+<v Jean-Marc Jancovici>Alors oui, je le suis tout à fait. Malheureusement, c'est pour partie fondé. Alors, je vais essayer, avant d'être perçu comme le suppôt de la dictature, de préciser un peu ce que j'évoque.
+
+341
+00:40:53.944 --> 00:40:55.404
+<v Guillaume Hachez>Vous n'êtes pas tombé dans mon piège.
+
+342
+00:40:56.504 --> 00:41:04.664
+<v Jean-Marc Jancovici>Quel que soit le régime, on a toujours considéré qu'il était légitime de se fixer des limites à la liberté individuelle.
+
+343
+00:41:05.824 --> 00:41:14.364
+<v Jean-Marc Jancovici>Par exemple, si vous m'énervez beaucoup avec les questions que vous me posez, je n'ai pas le droit, c'est une limite à ma liberté individuelle, de venir en Belgique et de vous taper dessus,
+
+344
+00:41:14.764 --> 00:41:17.204
+<v Jean-Marc Jancovici>ou de vous planter un tournevis dans la fesse gauche.
+
+345
+00:41:17.654 --> 00:41:19.864
+<v Jean-Marc Jancovici>Voilà, la loi interdit que je fasse ce genre de choses.
+
+346
+00:41:19.924 --> 00:41:22.423
+<v Guillaume Hachez>On ne peut pas crier au feu dans une salle de cinéma non plus.
+
+347
+00:41:22.804 --> 00:41:26.704
+<v Jean-Marc Jancovici>Voilà, par exemple. Donc y a un certain-- et pourtant, on est en démocratie.
+
+348
+00:41:26.754 --> 00:41:27.124
+<v Guillaume Hachez>C'est ça.
+
+349
+00:41:27.864 --> 00:41:35.324
+<v Jean-Marc Jancovici>Donc la question, avant même la question du régime politique, la question est celle de l'acceptation collective qu'on se mette des contraintes qu'on n'avait pas avant et qu'on les respecte.
+
+350
+00:41:36.484 --> 00:41:38.764
+<v Jean-Marc Jancovici>Alors, est-ce que ça veut dire nécessairement la dictature ou pas
+
+351
+00:41:39.304 --> 00:41:50.624
+<v Jean-Marc Jancovici>? Mon souhait, évidemment, est que ça ne soit pas la dictature, que ce soit des contraintes qu'on accepte collectivement et que justement, ça soit des effets de normes sociales et de statuts qui nous poussent à bien nous comporter.
+
+352
+00:41:51.304 --> 00:41:59.984
+<v Jean-Marc Jancovici>Parce que la norme sociale et le statut verront d'un très mauvais œil qu'on fasse des choses qui sont dégradantes pour la planète.
+
+353
+00:42:00.144 --> 00:42:03.224
+<v Jean-Marc Jancovici>Aujourd'hui, vous avez des chaussures trouées, on vous regarde comme si vous étiez
+
+354
+00:42:04.104 --> 00:42:05.184
+<v Jean-Marc Jancovici>pas à votre place.
+
+355
+00:42:05.954 --> 00:42:12.424
+<v Jean-Marc Jancovici>Peut-être que demain, si on regarde quelqu'un qui a une Rolex comme s'il était pas à sa place, ben finalement, on n'a pas besoin--
+
+356
+00:42:13.104 --> 00:42:23.144
+<v Jean-Marc Jancovici>si la norme sociale nous conduit à dire : « Ça, c'est pas bien », peut-être que ça suffit quelque part à ce que globalement, ça oriente un certain nombre de comportements.
+
+357
+00:42:24.172 --> 00:42:30.632
+<v Jean-Marc Jancovici>À un moment, faut quand même accepter la contrainte. On peut l'accepter en démocratie. Par exemple, en France, vous avez des limitations de vitesse sur les routes.
+
+358
+00:42:30.672 --> 00:42:44.822
+<v Jean-Marc Jancovici>Bon, vous avez quelques personnes qui les respectent pas, mais il est socialement accepté que ces limitations existent et il est socialement accepté, même si les gens qui en sont victimes ronchonnent, que ceux qui les dépassent se fassent attraper et payent.
+
+359
+00:42:45.212 --> 00:42:48.972
+<v Jean-Marc Jancovici>D'accord ? On ne pleure pas sur leur sort en général, c'est plutôt l'inverse.
+
+360
+00:42:50.172 --> 00:42:58.532
+<v Jean-Marc Jancovici>Donc là, en matière de-- alors là, vous allez me dire, c'est des exemples un peu anecdotiques au regard de la restriction plus générale de liberté que ça occasionnerait
+
+361
+00:42:59.132 --> 00:43:04.052
+<v Jean-Marc Jancovici>de lutter contre le changement climatique, puisque c'est justement les combustibles fossiles qui nous ont fourni l'essentiel de notre liberté.
+
+362
+00:43:04.692 --> 00:43:07.352
+<v Jean-Marc Jancovici>Ça nous a fourni la liberté d'acheter tout ce qui nous passe par la tête,
+
+363
+00:43:07.852 --> 00:43:16.992
+<v Jean-Marc Jancovici>ça nous a fourni la liberté de nous déplacer facilement, ça nous a fourni la liberté d'habiter un logement plus grand, ça nous a fourni la liberté de manger plus de viande.
+
+364
+00:43:17.372 --> 00:43:22.282
+<v Jean-Marc Jancovici>Alors là-dedans, y a des libertés qui seront faciles à, enfin, comment dire, probablement faciles à, entre guillemets, abandonner.
+
+365
+00:43:22.282 --> 00:43:30.332
+<v Jean-Marc Jancovici>Par exemple, sur la viande, le mouvement est déjà en train de s'opérer un peu dans le sens inverse. Et du reste, pas pour des raisons climatiques, à mon avis, les déterminants étaient ailleurs.
+
+366
+00:43:30.452 --> 00:43:36.372
+<v Jean-Marc Jancovici>En ce qui concerne les déplacements, ça va être plus compliqué parce que l'homme est un animal, donc il se déplace et on aime bien se déplacer.
+
+367
+00:43:36.912 --> 00:43:43.672
+<v Jean-Marc Jancovici>Donc entraver notre liberté de mouvement est un truc qu'on n'aime pas trop. Peut-être qu'on peut y arriver quand même, je ne sais pas.
+
+368
+00:43:44.352 --> 00:43:52.092
+<v Jean-Marc Jancovici>En ce qui concerne le logement, là, c'est clair que y a peu de gens qui préfèrent habiter dans une pièce plus petite plutôt qu'une pièce plus grande.
+
+369
+00:43:52.512 --> 00:44:01.572
+<v Jean-Marc Jancovici>Encore que si c'est beaucoup mieux situé, ben finalement, ça peut être un arbitrage que les gens acceptent.
+
+370
+00:44:01.972 --> 00:44:11.332
+<v Jean-Marc Jancovici>Donc la question de savoir ce qu'on est prêt et pas prêt à accepter-- vous voyez, à une époque, il y a eu un homme qui s'appelait Orwell, qui a écrit un bouquin qui s'appelait 1984.
+
+371
+00:44:11.352 --> 00:44:12.032
+<v Jean-Marc Jancovici>Je sais pas si vous l'avez lu.
+
+372
+00:44:12.772 --> 00:44:14.852
+<v Guillaume Hachez>Je ne l'ai pas lu, mais j'en ai certainement entendu parler.
+
+373
+00:44:15.312 --> 00:44:31.012
+<v Jean-Marc Jancovici>Lui, il voyait la surveillance constante de la population, le fait qu'elle vive dans un état semi-asservi et l'apparition d'une langue qui ne voulait plus rien dire, qu'il appelait la novlangue, dans le bloc communiste.
+
+374
+00:44:31.032 --> 00:44:39.472
+<v Jean-Marc Jancovici>Où est-ce que c'est arrivé, cette histoire ? En Occident. Internet, c'est la soumission librement consentie. Vous êtes pisté partout, je--
+
+375
+00:44:39.732 --> 00:44:40.021
+<v Guillaume Hachez>Mmh
+
+376
+00:44:40.112 --> 00:44:48.652
+<v Jean-Marc Jancovici>...vous donnez vos trucs absolument partout. Vous vous mettez de vous-même dans des systèmes dont vous devenez totalement dépendant, les réseaux sociaux, etc.
+
+377
+00:44:49.752 --> 00:45:02.412
+<v Jean-Marc Jancovici>Et on assiste aujourd'hui à l'émergence aussi d'une espèce de novlangue dans laquelle, par exemple, les amis sur Facebook, ça veut dire quoi d'avoir 3000 amis ?
+
+378
+00:45:02.512 --> 00:45:07.652
+<v Jean-Marc Jancovici>Personne n'a 3000 amis, ça existe pas. Déjà, si vous en avez 10, c'est bien. Si vous en avez 20, c'est bien, voilà.
+
+379
+00:45:07.672 --> 00:45:12.272
+<v Jean-Marc Jancovici>Enfin, je veux dire, ça existe pas 3000 amis. Donc, vous voyez bien, ça, c'est de la novlangue pure et dure.
+
+380
+00:45:13.232 --> 00:45:22.432
+<v Jean-Marc Jancovici>Donc vous voyez bien que ce qu'Orwell craignait pour, enfin, là où il voyait le mal, c'est-à-dire chez les autres, en fait, le mal est arrivé spontanément.
+
+381
+00:45:22.832 --> 00:45:26.752
+<v Jean-Marc Jancovici>Et là où je voulais en venir, c'est qu'il est arrivé de façon totalement librement consentie.
+
+382
+00:45:27.672 --> 00:45:35.732
+<v Jean-Marc Jancovici>À aucun moment, y a eu un régime dictatorial qui nous a mis un revolver sur la tempe et qui nous a dit : « Inscris-toi sur Facebook, fais ceci, fais cela.
+
+383
+00:45:36.772 --> 00:45:49.412
+<v Jean-Marc Jancovici>» Donc à partir du moment où on est capable de faire ce genre de choses de façon totalement consentie, alors peut-être qu'on peut se prendre à rêver d'y arriver pour de bonnes raisons, de façon totalement consentie aussi.
+
+384
+00:45:49.692 --> 00:46:00.872
+<v Guillaume Hachez>Vous évoquiez il y a un instant donc l'aspect primaire, l'aspect fondamental dans nos fonctionnements humains, de, voilà, ces limites, le fait de vouloir accumuler, le fait d'avoir un certain,
+
+385
+00:46:02.192 --> 00:46:03.852
+<v Guillaume Hachez>un certain court-termisme.
+
+386
+00:46:03.872 --> 00:46:08.352
+<v Guillaume Hachez>Enfin, toute une série de limites dans le livre que vous citiez et que je n'ai malheureusement pas lu.
+
+387
+00:46:08.912 --> 00:46:22.512
+<v Guillaume Hachez>Certains ont une approche beaucoup plus pessimiste de dire : « Mais si le problème est fondamentalement, primairement humain, est-ce qu'une solution, ce ne serait pas de s'attaquer à la question de la surpopulation ?
+
+388
+00:46:22.521 --> 00:46:27.452
+<v Guillaume Hachez>» Et dire : « Ben on est trop nombreux sur Terre, y a trop d'humains. Le problème, c'est les humains. Il faudrait empêcher les gens de se reproduire.
+
+389
+00:46:27.902 --> 00:46:36.732
+<v Guillaume Hachez>» Qu'est-ce que vous pensez de cette approche ? Puisque dans certains graphiques, ce qu'on voit parfois, c'est : « Ah, si vous prenez le bus plutôt que la voiture, si vous consommez local plutôt que
+
+390
+00:46:37.132 --> 00:46:38.592
+<v Guillaume Hachez>d'importer de la nourriture, etc.,
+
+391
+00:46:39.252 --> 00:46:42.232
+<v Guillaume Hachez>vous baissez d'autant votre production de CO2.
+
+392
+00:46:42.482 --> 00:46:48.172
+<v Guillaume Hachez>» Et puis on voit à la toute fin : « Si vous n'avez pas d'enfants. » Et là, on voit que le graphique est
+
+393
+00:46:48.772 --> 00:46:55.512
+<v Guillaume Hachez>significativement plus important et qu'en fait, c'est le mieux qu'on puisse faire selon ce graphique pour la planète, c'est de ne pas se reproduire.
+
+394
+00:46:56.152 --> 00:46:59.412
+<v Guillaume Hachez>Alors finalement, est-ce qu'il faut encourager les gens à ne pas se reproduire ?
+
+395
+00:46:59.472 --> 00:47:14.232
+<v Jean-Marc Jancovici>Alors, ce qui est sûr, y a deux choses qui sont sûres. La première, c'est que sur une planète qui fait désespérément 13 000 kilomètres de diamètre, plus on est nombreux, plus on doit partager avec les autres.
+
+396
+00:47:15.152 --> 00:47:23.792
+<v Jean-Marc Jancovici>Et à un moment, le partage devient tellement difficile que la situation devient vraiment problématique. Par exemple, plus on est nombreux, plus on doit partager avec les autres la terre cultivable.
+
+397
+00:47:24.792 --> 00:47:31.192
+<v Jean-Marc Jancovici>Alors, pour le moment, pardon, pour le moment, la terre cultivable, elle a pas été--
+
+398
+00:47:32.972 --> 00:47:45.772
+<v Jean-Marc Jancovici>elle nous a pas empêchés de nous nourrir, mais il faut savoir qu'on est passé de 1,6 à 0,6 hectare par personne, si ma mémoire est bonne, en l'espace de 50 ans avec la croissance démographique.
+
+399
+00:47:47.372 --> 00:47:53.152
+<v Jean-Marc Jancovici>Alors aujourd'hui, ça pose pas de problème parce qu'on a les tracteurs et les engrais qui rendent cette surface beaucoup plus productive que celle qu'on avait avant.
+
+400
+00:47:53.652 --> 00:48:05.232
+<v Jean-Marc Jancovici>Les tracteurs, les engrais, les phytosanitaires. Si un jour, on a moins de tracteurs parce que c'est du pétrole, moins d'engrais parce que c'est du gaz et moins de phytosanitaires parce que c'est du pétrole, comment ça se passe ?
+
+401
+00:48:05.252 --> 00:48:13.412
+<v Jean-Marc Jancovici>Ben je sais pas trop. Donc la crainte de Malthus, pour moi, le fondement théorique existe toujours.
+
+402
+00:48:14.012 --> 00:48:18.592
+<v Jean-Marc Jancovici>C'est pas parce que pour le moment, tout va bien, comme dit l'autre, qu'il y a pas de sujet pour plus tard.
+
+403
+00:48:19.952 --> 00:48:28.962
+<v Jean-Marc Jancovici>Vous savez, pour le moment, tout va bien, c'est ce que peut se dire quelqu'un qui se jette du sommet d'une tour de 50 étages et, au moment où il passe le 20e étage, il peut se dire : « Pour le moment, tout va bien ».
+
+404
+00:48:29.132 --> 00:48:29.292
+<v Guillaume Hachez>Mmh-mmh.
+
+405
+00:48:30.700 --> 00:48:38.070
+<v Jean-Marc Jancovici>Donc-- mais il est clair que, pour moi, on va probablement avoir un sujet lié à la taille de la population,
+
+406
+00:48:38.740 --> 00:48:45.100
+<v Jean-Marc Jancovici>parce que la quantité de choses qu'on consomme par personne, même à huit milliards, même à supposer que ça n'augmente pas,
+
+407
+00:48:46.160 --> 00:48:49.780
+<v Jean-Marc Jancovici>difficilement compatible avec un certain nombre de choses que la Terre peut supporter sur le long terme.
+
+408
+00:48:50.240 --> 00:48:56.500
+<v Jean-Marc Jancovici>C'est-à-dire les placards sont pas assez remplis pour qu'on puisse continuer comme aujourd'hui pendant encore très très longtemps à huit milliards.
+
+409
+00:48:56.560 --> 00:49:04.179
+<v Jean-Marc Jancovici>Sans même parler que les Africains se mettent à vivre comme des Américains, juste avec la consommation incluse. Maintenant, une fois que j'ai dit ça, j'ai tout dit et j'ai rien dit.
+
+410
+00:49:04.620 --> 00:49:10.900
+<v Jean-Marc Jancovici>Parce que qu'est-ce qu'on fait ? On envoie des bombes atomiques partout ? On fait des armes biologiques ?
+
+411
+00:49:10.980 --> 00:49:24.040
+<v Jean-Marc Jancovici>Ben y a pas grand-chose à faire. Donc la seule-- effectivement, se poser la question de : est-ce qu'on peut faire des choses sur la politique de natalité qui ne soient pas des choses coercitives ?
+
+412
+00:49:24.080 --> 00:49:33.060
+<v Jean-Marc Jancovici>Oui, c'est une bonne question. Dans les choses qui peuvent être faites, y a notamment-- alors, y a deux sous-ensembles, j'ai envie de dire.
+
+413
+00:49:33.100 --> 00:49:42.500
+<v Jean-Marc Jancovici>Y a les pays dits industrialisés et puis y a ceux qui ne le sont pas. Dans ceux qui ne le sont pas, souvent, il y a des démographies qui sont encore très rapidement croissantes.
+
+414
+00:49:43.800 --> 00:49:50.220
+<v Jean-Marc Jancovici>Dans ces pays-là, tout ce qu'on peut faire pour aider les femmes qui n'ont pas envie d'avoir des enfants à ne pas en avoir, est bon à prendre.
+
+415
+00:49:50.940 --> 00:49:55.120
+<v Jean-Marc Jancovici>Parce que vous avez un certain nombre de femmes qui ont pas envie, ou qui pourraient ne pas avoir envie.
+
+416
+00:49:55.580 --> 00:49:59.620
+<v Guillaume Hachez>Mh. Donc plus d'éducation, plus de droits pour les femmes, baisse de la reproduction, c'est bon pour le climat.
+
+417
+00:49:59.880 --> 00:50:03.940
+<v Jean-Marc Jancovici>L'éducation, enfin ce que les Anglais appellent empowerment, la--
+
+418
+00:50:04.020 --> 00:50:06.060
+<v Guillaume Hachez>Empowerment en français novlangue.
+
+419
+00:50:06.100 --> 00:50:13.560
+<v Jean-Marc Jancovici>J'aime pas du tout cette expression. Moi, je préfère utiliser une périphrase. Donc tout ce qui est une meilleure maîtrise de leur destin par les femmes,
+
+420
+00:50:14.360 --> 00:50:19.160
+<v Jean-Marc Jancovici>est quelque chose qui évidemment, là, qui rejoint la cause climatique de façon directe.
+
+421
+00:50:20.360 --> 00:50:27.250
+<v Jean-Marc Jancovici>L'accès aux moyens de contraception, l'éducation et puis les structures de mutualisation
+
+422
+00:50:28.860 --> 00:50:35.060
+<v Jean-Marc Jancovici>de l'aide. Quand vous n'avez pas de structure de mutualisation de l'aide, en gros, vous comptez sur votre propre famille pour vous aider si ça va pas bien.
+
+423
+00:50:36.080 --> 00:50:39.940
+<v Jean-Marc Jancovici>Donc plus la famille est grande et plus vous vous dites qu'il y aura bien quelqu'un qui va vous aider si jamais ça va pas bien.
+
+424
+00:50:40.459 --> 00:50:49.980
+<v Jean-Marc Jancovici>À partir du moment où vous avez une sécurité sociale, des régimes de retraite, etc., ça devient moins vrai. Et à ce moment, vous pouvez vous reposer sur la collectivité alors qu'avant, vous pouviez pas le faire.
+
+425
+00:50:51.100 --> 00:51:03.040
+<v Jean-Marc Jancovici>Donc là, y a des sujets qui sont à creuser. Dans les pays occidentaux, c'est clair qu'on a aussi un sujet de natalité, puisque vous avez un certain nombre de pays où la démographie continue de croître.
+
+426
+00:51:03.920 --> 00:51:11.140
+<v Jean-Marc Jancovici>Et là, y a une vraie-- enfin, c'est des questions difficiles, parce qu'elle peut croître soit par immigration, soit par natalité endémique.
+
+427
+00:51:11.200 --> 00:51:22.420
+<v Jean-Marc Jancovici>Dans les deux cas de figure, c'est pas la même réflexion qu'il faut avoir. Sur l'immigration, l'idéal, c'est de faire en sorte que les gens qui émigrent n'aient pas envie de le faire et qu'on arrive à stabiliser la situation
+
+428
+00:51:23.260 --> 00:51:24.760
+<v Jean-Marc Jancovici>du côté des pays d'émigration.
+
+429
+00:51:24.780 --> 00:51:33.500
+<v Jean-Marc Jancovici>Mais ça renvoie souvent à ce que j'ai dit juste avant avec une population qui croît rapidement. Et puis des différences d'accès aux services qui sont des différences importantes.
+
+430
+00:51:33.540 --> 00:51:38.779
+<v Jean-Marc Jancovici>Et si vraiment, on a envie que la situation s'équilibre un peu mieux, il faut que les pays occidentaux acceptent de donner.
+
+431
+00:51:39.300 --> 00:51:47.180
+<v Jean-Marc Jancovici>Donc voilà, mais ce qui est sûr, c'est qu'aujourd'hui, alors j'ai envie de dire, le débat n'est pas au niveau auquel il devrait être pour traiter de cette question.
+
+432
+00:51:47.800 --> 00:51:55.060
+<v Jean-Marc Jancovici>Soit c'est fait avec des propos simplistes, soit c'est fait avec des propos qui sont émotionnellement excessifs--
+
+433
+00:51:55.580 --> 00:51:55.840
+<v Guillaume Hachez>Mh.
+
+434
+00:51:56.160 --> 00:51:56.970
+<v Jean-Marc Jancovici>Et donc pas audibles,
+
+435
+00:51:57.760 --> 00:52:00.220
+<v Jean-Marc Jancovici>soit c'est fait en niant le problème.
+
+436
+00:52:00.980 --> 00:52:10.800
+<v Jean-Marc Jancovici>Aucune de ces attitudes ou aucune de ces manières de rentrer dans le problème ne sont bonnes, mais ça reste un débat très très difficile parce que ça touche à quelque chose qui nous touche aux tripes, hein, cette de se reproduire.
+
+437
+00:52:10.980 --> 00:52:16.920
+<v Guillaume Hachez>Du coup, je ne vais pas vous poser une question simpliste pour vous demander si nos auditeurs doivent se reproduire ou pas, parce que je sens que ça va vous énerver.
+
+438
+00:52:16.980 --> 00:52:26.540
+<v Jean-Marc Jancovici>C'est un choix individuel. De toute façon, ça reste un choix individuel. C'est-à-dire que je ne souhaite pas avoir un jour un monde dans lequel ça serait décidé de façon centralisée et planifiée.
+
+439
+00:52:26.700 --> 00:52:28.440
+<v Guillaume Hachez>C'est sûr. Comme la Chine. Mh.
+
+440
+00:52:28.980 --> 00:52:38.420
+<v Jean-Marc Jancovici>Oui, comme en Chine, comme dans quelques romans de science-fiction bien connus. Par contre, qu'il y ait des gens qui se posent la question, je trouve ça tout à fait normal, tout à fait légitime.
+
+441
+00:52:38.780 --> 00:52:42.450
+<v Jean-Marc Jancovici>Et je comprends tout à fait les gens qui disent : « Moi, j'ai choisi de ne pas avoir d'enfants. »
+
+442
+00:52:42.500 --> 00:52:48.520
+<v Guillaume Hachez>On s'approche tout doucement de la fin de notre entretien. Nous n'avons toujours pas parlé des questions liées au nucléaire.
+
+443
+00:52:48.760 --> 00:52:50.480
+<v Jean-Marc Jancovici>C'est plutôt une bonne nouvelle, parce que j'en parle plutôt trop.
+
+444
+00:52:52.540 --> 00:53:01.100
+<v Guillaume Hachez>Mais pour en venir, donc je-- vous avez exprimé le fait que ce sera pour un futur lointain et que ce n'est pas là-dessus qu'il faut miser pour l'instant.
+
+445
+00:53:01.140 --> 00:53:09.660
+<v Guillaume Hachez>Mais il y a, je l'évoquais tout à l'heure, un grand pari qui est fait sur la technologie de la fusion nucléaire, sur ITER en France.
+
+446
+00:53:09.760 --> 00:53:16.760
+<v Guillaume Hachez>Le futur est assez sombre. Est-ce qu'ITER pourra jouer un rôle important là-dedans, dans le futur ?
+
+447
+00:53:16.800 --> 00:53:17.380
+<v Jean-Marc Jancovici>Non.
+
+448
+00:53:17.440 --> 00:53:19.160
+<v Guillaume Hachez>Non ? Pourquoi ?
+
+449
+00:53:19.220 --> 00:53:26.540
+<v Jean-Marc Jancovici>Beaucoup trop loin en temps. ITER n'est pas un prototype d'installation qui va produire de l'électricité.
+
+450
+00:53:27.240 --> 00:53:28.019
+<v Guillaume Hachez>D'accord. Expliquez-moi.
+
+451
+00:53:28.050 --> 00:53:34.020
+<v Jean-Marc Jancovici>C'est un prototype d'installation qui est simplement destiné à vérifier que l'énergie restituée par la fusion,
+
+452
+00:53:35.660 --> 00:53:40.640
+<v Jean-Marc Jancovici>du plasma, c'est-à-dire l'état dans lequel on a mis la matière pour que la fusion puisse avoir lieu
+
+453
+00:53:41.140 --> 00:53:48.520
+<v Jean-Marc Jancovici>en la chauffant à quelques millions de degrés, sera supérieure à l'énergie qu'on a utilisée pour chauffer la matière à quelques millions de degrés.
+
+454
+00:53:48.600 --> 00:53:51.760
+<v Jean-Marc Jancovici>Pour chauffer la matière à quelques millions de degrés, il faut quand même utiliser de l'énergie.
+
+455
+00:53:53.260 --> 00:54:02.980
+<v Jean-Marc Jancovici>Donc ITER a pour simple objet de valider qu'on peut cracher plus d'énergie via la fusion de la matière que l'énergie qu'on a utilisée pour chauffer le plasma.
+
+456
+00:54:03.020 --> 00:54:10.360
+<v Jean-Marc Jancovici>Y a pas de dispositif de production électrique dans ITER. Donc il reste encore à le mettre au point, un dispositif de production électrique à partir de la chaleur dégagée par la fusion.
+
+457
+00:54:11.340 --> 00:54:20.240
+<v Jean-Marc Jancovici>Admettons que ITER valide le fait qu'on peut dégager plus d'énergie dans une opération de fusion qui va durer quelques minutes, hein, qui va pas durer des milliers d'heures.
+
+458
+00:54:20.620 --> 00:54:28.580
+<v Jean-Marc Jancovici>Or une centrale électrique industrielle, elle doit pouvoir fonctionner des milliers d'heures sans s'arrêter. Une centrale nucléaire moderne, elle fonctionne un an et demi sans s'arrêter.
+
+459
+00:54:28.840 --> 00:54:28.940
+<v Guillaume Hachez>Mh.
+
+460
+00:54:29.900 --> 00:54:32.220
+<v Jean-Marc Jancovici>Donc, ce qui fait pas loin de 10 000 heures. Donc
+
+461
+00:54:33.780 --> 00:54:39.080
+<v Jean-Marc Jancovici>ITER, c'est juste quelques minutes d'ambition, hein. Donc si ITER ça marche bien,
+
+462
+00:54:39.760 --> 00:54:49.660
+<v Jean-Marc Jancovici>ce qu'on saura en 2040, 35, 40, à ce moment, on décide de construire un truc qui éventuellement produirait de l'électricité, à supposer qu'on ait compris comment faire,
+
+463
+00:54:50.380 --> 00:55:02.160
+<v Jean-Marc Jancovici>qu'on commence à construire en 2045, qu'on termine de construire en 2055 ou 2060, qu'on commence à faire fonctionner en 2065, parce que premier plasma, ça prend du temps, etc., etc.
+
+464
+00:55:02.680 --> 00:55:10.640
+<v Jean-Marc Jancovici>Vous êtes rendu en 2100 avant d'avoir éventuellement la possibilité de construire la tête de série de réacteurs à fusion.
+
+465
+00:55:12.000 --> 00:55:23.040
+<v Jean-Marc Jancovici>Or, il faut qu'on soit devenu neutre en carbone en 2050. Donc, mettons dix milliards dans ITER si on veut, ou trente milliards, mais ça ne change strictement rien à ce qu'il faut faire dans les trente ou quarante ans qui viennent. Rien.
+
+466
+00:55:23.400 --> 00:55:27.220
+<v Guillaume Hachez>Oui. Est-ce qu'on peut imaginer qu'on partira donc sur
+
+467
+00:55:28.220 --> 00:55:39.780
+<v Guillaume Hachez>un vingt-et-unième siècle centré sur la décroissance avec des limites physiques, des... voilà, les difficultés pour produire de l'énergie sur base des carburants fossiles, tout ce qu'on a évoqué jusqu'à présent
+
+468
+00:55:40.520 --> 00:55:43.680
+<v Guillaume Hachez>et que peut-être, le vingt-deuxième siècle, la fusion nucléaire
+
+469
+00:55:44.640 --> 00:55:47.380
+<v Guillaume Hachez>sera alors le problème résolu ?
+
+470
+00:55:47.410 --> 00:55:55.800
+<v Jean-Marc Jancovici>Oui, c'est... Donc si on n'a rien contre le nucléaire, ce qui est mon cas, il y a beaucoup mieux à court terme que ITER, qui est le nucléaire de quatrième génération-
+
+471
+00:55:55.810 --> 00:55:59.120
+<v Guillaume Hachez>Oui. À court terme, on a bien compris que c'était pas envisageable.
+
+472
+00:55:59.220 --> 00:56:01.820
+<v Jean-Marc Jancovici>Dans l'ordre, ce qui est le mieux, c'est le nucléaire actuel.
+
+473
+00:56:02.200 --> 00:56:02.310
+<v Guillaume Hachez>Mh. Mh.
+
+474
+00:56:02.480 --> 00:56:07.040
+<v Jean-Marc Jancovici>La troisième génération étant pour moi du nucléaire actuel, c'est du nucléaire deux plus en fait, c'est un peu, c'est à peu près pareil.
+
+475
+00:56:07.600 --> 00:56:13.640
+<v Jean-Marc Jancovici>La vraie rupture, c'est le nucléaire de quatrième génération sur lequel les Russes et les Chinois sont en train d'accélérer très fort.
+
+476
+00:56:13.920 --> 00:56:21.080
+<v Jean-Marc Jancovici>Et du reste, c'est pas un hasard si les deux pays qui accélèrent le plus sont deux pays où, par ailleurs, le long terme a une signification parce que c'est des pays dans lesquels l'État,
+
+477
+00:56:21.620 --> 00:56:26.720
+<v Jean-Marc Jancovici>le pouvoir, à tort ou à raison, est raisonnablement assuré de sa permanence.
+
+478
+00:56:28.040 --> 00:56:37.340
+<v Jean-Marc Jancovici>Et donc, la quatrième génération, c'est les réacteurs surgénérateurs, donc qui utilisent la totalité de l'uranium ou qui utilisent du thorium.
+
+479
+00:56:37.980 --> 00:56:47.460
+<v Jean-Marc Jancovici>Ça comporte notamment les réacteurs à sels fondus qui cochent beaucoup de cases sur le papier et dont les Chinois sont en train... viennent de terminer un prototype, y a pas longtemps.
+
+480
+00:56:48.080 --> 00:57:00.500
+<v Jean-Marc Jancovici>Donc en fait, si l'Europe n'était pas en train de se tirer des balles dans le pied sur le nucléaire, ce qu'elle est très exactement en train de faire, ce qu'il faudrait, c'est accélérer sur la quatrième génération.
+
+481
+00:57:00.580 --> 00:57:09.459
+<v Jean-Marc Jancovici>Et ça, on peut avoir des têtes de série qu'on peut déployer dans quinze ou vingt ans si on est sérieux sur la question, si on se met en économie de guerre.
+
+482
+00:57:10.960 --> 00:57:12.240
+<v Jean-Marc Jancovici>Ça, on peut le faire.
+
+483
+00:57:12.740 --> 00:57:23.590
+<v Guillaume Hachez>On va bientôt arriver à la fin de cet entretien. Si je vous demandais deux dernières questions. Premièrement, les idées reçues que vous entendez beaucoup dans la population générale
+
+484
+00:57:24.040 --> 00:57:26.040
+<v Guillaume Hachez>et que vous souhaiteriez corriger très rapidement.
+
+485
+00:57:26.640 --> 00:57:31.460
+<v Guillaume Hachez>Et la différence entre la vision que vous aviez des choses il y a dix ans et celle que vous avez aujourd'hui.
+
+486
+00:57:31.600 --> 00:57:43.540
+<v Jean-Marc Jancovici>Alors sur la première, je pense que c'est une croyance sur la facilité avec laquelle la technologie va nous tirer du problème dans lequel nous sommes.
+
+487
+00:57:44.300 --> 00:57:52.980
+<v Jean-Marc Jancovici>En ce qui concerne le climat et l'énergie, le grand n'importe quoi est en train de se déplacer progressivement de la définition du problème vers la facilité avec laquelle on va résoudre le problème.
+
+488
+00:57:53.040 --> 00:57:58.400
+<v Jean-Marc Jancovici>Aujourd'hui, dans les élites économiques et politiques, il y a très très peu de gens qui sont ouvertement climatosceptiques.
+
+489
+00:57:59.300 --> 00:58:14.480
+<v Jean-Marc Jancovici>Par contre, vous avez énormément de gens qui sont devenus climato-fantaisistes, c'est-à-dire qu'ils exagèrent la facilité avec laquelle on va pouvoir résoudre le problème à base de patchs technologiques.
+
+490
+00:58:15.220 --> 00:58:15.500
+<v Guillaume Hachez>Mh.
+
+491
+00:58:15.920 --> 00:58:23.160
+<v Jean-Marc Jancovici>Et c'est là-dedans qu'on trouve le greenwashing, la confusion des ordres de grandeur. Justement, j'ai fait un machin en Islande qui pompe le CO2, donc ça y est, le problème est réglé.
+
+492
+00:58:23.740 --> 00:58:33.420
+<v Jean-Marc Jancovici>Je sais faire voler un modèle réduit à l'hydrogène, alors ça y est, l'aviation est sauvée. Je sais faire une voiture électrique, alors ça y est, la circulation routière est sauvée, etc.
+
+493
+00:58:34.120 --> 00:58:37.300
+<v Jean-Marc Jancovici>C'est ça la difficulté dans laquelle on tombe aujourd'hui,
+
+494
+00:58:37.920 --> 00:58:48.080
+<v Jean-Marc Jancovici>c'est exagérer la facilité avec laquelle on va pouvoir résoudre le problème avec juste des patchs techniques en faisant totalement abstraction de la réorganisation profonde de la société qu'il va falloir qu'on opère aussi.
+
+495
+00:58:48.440 --> 00:58:50.579
+<v Jean-Marc Jancovici>Voilà, j'ai envie de dire ça, à défaut, c'est la plus couramment répandue.
+
+496
+00:58:50.680 --> 00:58:51.040
+<v Guillaume Hachez>Très bien.
+
+497
+00:58:51.740 --> 00:59:01.890
+<v Jean-Marc Jancovici>Et sur quel sujet est-ce que j'ai aujourd'hui une vision très différente de la vision que j'avais il y a dix ans ? Je pense que le sujet sur lequel j'ai la vision la plus différente, c'est l'arbitrage réglementation fiscalité.
+
+498
+00:59:03.060 --> 00:59:12.820
+<v Jean-Marc Jancovici>Jusqu'à il y a dix ans, j'étais encore largement convaincu du fait qu'une bonne manière de régler le problème du climat, c'était de monter les prix, c'est-à-dire la fameuse taxe carbone.
+
+499
+00:59:14.180 --> 00:59:19.340
+<v Jean-Marc Jancovici>Et j'ai changé d'avis avant les gilets jaunes. En fait, je pense que maintenant, on a trop attendu pour que ce soit une bonne idée.
+
+500
+00:59:19.440 --> 00:59:26.360
+<v Jean-Marc Jancovici>Il aurait fallu commencer il y a vingt, trente ans. Parce que la montée des prix est un système qui doit être lent pour que la population ait le temps de s'adapter.
+
+501
+00:59:26.560 --> 00:59:33.060
+<v Jean-Marc Jancovici>Ça ne peut pas être rapide. Or aujourd'hui, nous avons besoin d'actions rapides. Et les actions rapides, on va les trouver beaucoup plus facilement dans la réglementation.
+
+502
+00:59:33.580 --> 00:59:39.460
+<v Jean-Marc Jancovici>Du genre, à partir de l'année prochaine, c'est interdit d'acheter une chaudière à fioul, même pour remplacer celle que vous avez.
+
+503
+00:59:39.960 --> 00:59:42.000
+<v Jean-Marc Jancovici>Et dans cinq ans, c'est même interdit d'en détenir une.
+
+504
+00:59:43.160 --> 00:59:53.080
+<v Jean-Marc Jancovici>Eh bien, si vous prenez ce genre de mesures réglementaires, vous pouvez aller beaucoup plus vite sur l'éradication du fioul dans le chauffage que si vous dites : « Je vous préviens hein, je vais monter le prix du fioul avec la taxe carbone ».
+
+505
+00:59:53.140 --> 01:00:04.720
+<v Jean-Marc Jancovici>Ça, c'est un truc qui fait que les gens sont beaucoup plus démunis. En plus, si vous envoyez le signal réglementaire que vous allez éradiquer les chaudières à fioul, ça donne à l'économie une visibilité dans ce secteur sur
+
+506
+01:00:05.300 --> 01:00:06.460
+<v Jean-Marc Jancovici>la fabrication de pompes à chaleur.
+
+507
+01:00:06.520 --> 01:00:15.180
+<v Jean-Marc Jancovici>Vous savez que le marché va exister. Alors que si vous dites simplement : « Je vais monter le prix du fioul », vous savez pas à quel moment le seuil de douleur sera franchi et les gens vont changer pour autre chose.
+
+508
+01:00:16.420 --> 01:00:22.670
+<v Jean-Marc Jancovici>Donc, je suis maintenant devenu beaucoup plus partisan de la réglementation que de l'approche fiscale pour des raisons essentiellement pratiques.
+
+509
+01:00:23.140 --> 01:00:29.720
+<v Guillaume Hachez>C'est une conclusion très, très clairement exprimée. Je vous remercie pour ces presque septante minutes passées avec moi.
+
+510
+01:00:30.200 --> 01:00:38.660
+<v Guillaume Hachez>Au rappel donc vos deux derniers livres, publiés ces cinq dernières années : « Dormez tranquille jusqu'en 2100 », dont l'audiobook est sorti la semaine dernière, il me semble,
+
+511
+01:00:39.200 --> 01:00:42.080
+<v Guillaume Hachez>et « Décarbonons : neuf propositions pour que l'Europe change d'ère
+
+512
+01:00:42.640 --> 01:00:44.420
+<v Guillaume Hachez>», qui est donc publié avec le Shift Project.
+
+513
+01:00:44.460 --> 01:00:45.540
+<v Jean-Marc Jancovici>Et je vais vous parler du prochain.
+
+514
+01:00:45.600 --> 01:00:46.200
+<v Guillaume Hachez>Ah dites-moi, oui.
+
+515
+01:00:46.520 --> 01:01:01.176
+<v Jean-Marc Jancovici>Car le 29 octobre en France sort une bande dessinée, coécrite avec Christophe Blain et qui s'appelle Le Monde sans fin et qui, en cent quatre-vingt-dix-sept pages, excusez du peu, entend initier le lecteur ou la lectrice.
+
+516
+01:01:01.776 --> 01:01:06.016
+<v Jean-Marc Jancovici>Et j'aimerais avoir beaucoup plus de lectrices que de lecteurs, parce que je trouve que ce milieu est beaucoup trop masculin, l'énergie,
+
+517
+01:01:06.796 --> 01:01:15.016
+<v Jean-Marc Jancovici>entend initier la lectrice donc, ou accessoirement le lecteur, à la compréhension du problème énergie-climat et du défi énergie-climat.
+
+518
+01:01:15.056 --> 01:01:21.656
+<v Jean-Marc Jancovici>Voilà, et on a fait ça en essayant d'être drôle, un peu décalé, en se moquant beaucoup de nous-mêmes, et en essayant d'être pédagogique.
+
+519
+01:01:22.376 --> 01:01:30.876
+<v Guillaume Hachez>Super, mais je mettrai alors tous ces liens en description. Un autre endroit, un autre lieu où les gens peuvent vous suivre, vous lire sur les Internets ou ailleurs ?
+
+520
+01:01:30.976 --> 01:01:39.046
+<v Jean-Marc Jancovici>Oui, alors, j'ai un site personnel, jancovici.com, et qui reprend alors la page de Facebook qui porte mon nom, mais que je ne gère pas,
+
+521
+01:01:39.556 --> 01:01:45.216
+<v Jean-Marc Jancovici>qui reprend le compte YouTube qui porte mon nom, mais que je ne gère pas et qui ne doit pas reprendre la page LinkedIn qui porte mon nom et que je gère.
+
+522
+01:01:46.326 --> 01:01:46.336
+<v Guillaume Hachez>Ça va.
+
+523
+01:01:46.336 --> 01:01:48.516
+<v Jean-Marc Jancovici>Et à laquelle... et qu'on peut suivre aussi.
+
+524
+01:01:49.316 --> 01:01:57.276
+<v Guillaume Hachez>Formidable. Mais je mettrai alors les liens vers toutes ces magnifiques choses en description. Et je vous remercie encore une fois pour ce presque Septante Minutes passés avec moi.
+
+525
+01:01:57.836 --> 01:02:00.696
+<v Guillaume Hachez>Et on se dit alors à dans deux semaines pour un prochain épisode. Au revoir.
+
+526
+01:02:00.716 --> 01:02:01.096
+<v Jean-Marc Jancovici>Merci beaucoup.
+
+527
+01:02:06.616 --> 01:02:15.756
+<v Guillaume Hachez>Voilà, j'espère que ça vous a plu. Encore désolé pour la qualité de l'enregistrement. Si le sujet vous intéresse, sachez que j'ai justement interviewé Zakia Khattabi, notre ministre fédérale de l'Environnement, du Climat,
+
+528
+01:02:16.256 --> 01:02:17.836
+<v Guillaume Hachez>du Développement durable et du Green Deal.
+
+529
+01:02:18.056 --> 01:02:23.776
+<v Guillaume Hachez>N'hésitez pas à aller consulter les épisodes précédents de Septante Minutes Avec. Il y en aura certainement un paquet qui vous intéresseront.
+
+530
+01:02:24.416 --> 01:02:29.116
+<v Guillaume Hachez>Et d'ailleurs, si ce n'est pas encore fait, je vous encourage à aller vous abonner à Septante Minutes Avec sur votre plateforme de podcast préférée.
+
+531
+01:02:29.696 --> 01:02:36.376
+<v Guillaume Hachez>C'est gratuit et ça vous permet de ne pas manquer les prochains épisodes. Et vous pouvez aussi suivre Septante Minutes Avec sur Twitter et Facebook.
+
+532
+01:02:37.096 --> 01:02:44.236
+<v Guillaume Hachez>Dans deux semaines, je recevrai Lucie Ronfaut, journaliste française spécialisée dans la tech et la culture web, anciennement journaliste au Figaro Tech,
+
+533
+01:02:44.836 --> 01:02:51.716
+<v Guillaume Hachez>pour parler de son roman Les règles du jeu, qui parle de la place donnée aux femmes dans la startup nation ainsi que de menstruation.
+
+534
+01:02:52.496 --> 01:02:53.716
+<v Guillaume Hachez>Je vous dis à très bientôt. Salut !

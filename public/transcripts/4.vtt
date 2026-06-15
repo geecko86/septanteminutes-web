@@ -1,0 +1,2385 @@
+WEBVTT
+
+0
+00:00:00.280 --> 00:00:20.520
+<v Guillaume Hachez>Salut, moi c'est Guillaume Hachez. Bienvenue dans « Septante Minutes avec ». Quatrième épisode, aujourd'hui, je passe septante minutes avec mon ami Patrick Beja, un parfait inconnu que personne ne connaît.
+
+1
+00:00:20.560 --> 00:00:30.240
+<v Guillaume Hachez>Sauf qu'en fait non, puisque Patrick, c'est juste la rockstar du podcast francophone. Il anime toutes les semaines « Le Rendez-vous Tech », une émission qui décortique l'actualité de la technologie écoutée chaque mois par plus de 40 000 auditeurs.
+
+2
+00:00:30.780 --> 00:00:40.560
+<v Guillaume Hachez>Il est, à ma connaissance, le seul à être podcasteur indépendant et à ne vivre que de ça. Dans cet épisode, on retrace le parcours de Patrick et on se penche sur ses rapports avec la paternité et les réseaux sociaux.
+
+3
+00:00:40.580 --> 00:00:46.880
+<v Guillaume Hachez>Let's go ! Et bonjour à tous et bienvenue pour un nouvel épisode. Aujourd'hui, nous sommes avec Patrick Beja. Salut Patrick.
+
+4
+00:00:46.920 --> 00:00:48.440
+<v Patrick Beja>Salut Guillaume, comment ça va ?
+
+5
+00:00:48.460 --> 00:00:51.360
+<v Guillaume Hachez>Bah très heureux de t'avoir ici avec moi aujourd'hui. Et toi, comment ça va ?
+
+6
+00:00:51.420 --> 00:00:58.260
+<v Patrick Beja>Très heureux que tu aies pris le temps de te réveiller très tôt pour enregistrer à mes horaires de papa d'un jeune bébé.
+
+7
+00:00:58.640 --> 00:00:59.160
+<v Patrick Beja>Je suis très reconnaissant.
+
+8
+00:00:59.380 --> 00:01:04.360
+<v Guillaume Hachez>Tu me dénonces. Est-ce que tu peux te présenter pour ceux qui ne te connaissent pas encore ?
+
+9
+00:01:04.420 --> 00:01:12.200
+<v Patrick Beja>Oui, bah avec plaisir. Je suis donc Patrick Beja, je suis podcasteur et j'aime me décrire comme un podcasteur professionnel puisque c'est mon métier.
+
+10
+00:01:12.280 --> 00:01:15.820
+<v Patrick Beja>Je fais ça à temps plein et j'en vis depuis plusieurs années maintenant.
+
+11
+00:01:16.100 --> 00:01:25.380
+<v Guillaume Hachez>Excellent. Pour citer un petit peu les podcasts que tu as pu faire, donc tu as commencé par faire un podcast sur World of Warcraft, donc le grand jeu de Blizzard.
+
+12
+00:01:25.520 --> 00:01:26.360
+<v Guillaume Hachez>Tu l'as fait en 2006.
+
+13
+00:01:26.420 --> 00:01:26.620
+<v Patrick Beja>C'est ça.
+
+14
+00:01:26.660 --> 00:01:38.360
+<v Guillaume Hachez>Puis en 2008, tu as lancé un podcast, le Phileas Club, un podcast qui réunit des gens, une communauté internationale autour de la table une fois par mois où vous discutez de l'actualité de chaque pays.
+
+15
+00:01:38.420 --> 00:01:39.780
+<v Patrick Beja>C'est ça, en anglais.
+
+16
+00:01:39.820 --> 00:01:42.640
+<v Guillaume Hachez>Voilà, en anglais, oui. Podcast où tu m'as déjà invité plusieurs fois d'ailleurs.
+
+17
+00:01:42.700 --> 00:01:42.830
+<v Patrick Beja>Mh, mh.
+
+18
+00:01:43.380 --> 00:01:55.340
+<v Guillaume Hachez>Et puis en 2009, tu as démarré Le Rendez-vous Tech. Déjà avant tout ça, tu écoutais beaucoup de podcasts américains, des trucs du style Buzz Out Loud avec Tom Merritt, des trucs comme This Week in Tech.
+
+19
+00:01:55.360 --> 00:02:01.220
+<v Guillaume Hachez>Et il me semble que déjà à l'époque, tu leur envoyais des emails, tu étais dans le courrier des lecteurs, tu participais déjà beaucoup comme ça.
+
+20
+00:02:02.100 --> 00:02:03.090
+<v Guillaume Hachez>Et aujourd'hui, tu bosses avec eux.
+
+21
+00:02:03.100 --> 00:02:12.440
+<v Patrick Beja>Tout à fait. Oui, oui, bah j'ai commencé assez vite en fait à bosser avec eux. Tu sais, à l'époque, les podcasts étaient une toute petite communauté, et puis tout le monde se connaissait un petit peu.
+
+22
+00:02:13.060 --> 00:02:19.440
+<v Patrick Beja>Et du coup, c'est comme ça qu'on s'est connectés. Et au départ, j'envoyais des mails et puis, très vite, j'ai commencé à participer aux émissions.
+
+23
+00:02:19.810 --> 00:02:25.660
+<v Patrick Beja>Donc je suis vraiment tombé dedans, pas quand j'étais petit, mais je suis vraiment tombé dans le podcast et je me suis lancé et je me suis jamais arrêté.
+
+24
+00:02:25.720 --> 00:02:26.860
+<v Patrick Beja>C'est une vraie histoire d'amour quoi.
+
+25
+00:02:26.880 --> 00:02:36.840
+<v Guillaume Hachez>Excellent. L'idée de lancer, ben donc en 2009, Le Rendez-vous Tech, elle t'est venue comment ? C'était surtout de faire comme tes role models américains ou y avait une autre idée derrière ?
+
+26
+00:02:36.940 --> 00:02:46.920
+<v Patrick Beja>Bah écoute, au départ, l'idée était effectivement d'avoir-- bah quand j'ai lancé le podcast sur World of Warcraft, c'était parce que j'en voulais un en français et que y en avait pas.
+
+27
+00:02:46.960 --> 00:02:53.200
+<v Patrick Beja>Donc je me suis dit : « Bah puisqu'y en a pas, je vais le faire moi-même ». Et c'est comme ça que ça a commencé. J'ai vraiment adoré le format.
+
+28
+00:02:53.240 --> 00:02:57.280
+<v Patrick Beja>Et donc j'ai commencé à en faire sur tous les sujets qui m'intéressaient. J'crois que
+
+29
+00:02:57.860 --> 00:03:08.040
+<v Patrick Beja>la motivation principale, c'était pas forcément-- 'fin l'inspiration venait un petit peu des podcasts anglophones que j'écoutais, c'est certain, mais la motivation, c'est, je crois comme beaucoup de podcasteurs,
+
+30
+00:03:08.440 --> 00:03:12.890
+<v Patrick Beja>que j'aime bien m'entendre parler, peut-être, si on veut dire les choses de manière un petit peu méchante. Et euh-
+
+31
+00:03:13.010 --> 00:03:16.440
+<v Guillaume Hachez>Et ça, ça tombe bien puisqu'on est sur le réseau de podcast jaimebienquandtuparles.com.
+
+32
+00:03:18.460 --> 00:03:26.320
+<v Patrick Beja>Bah c'est parfait. Mais ouais, y a un petit peu de ça. Il faut vouloir, quand on est podcasteur, il faut aimer un petit peu donner son avis.
+
+33
+00:03:26.760 --> 00:03:28.720
+<v Patrick Beja>Le Rendez-vous Tech, pour en parler spécifiquement,
+
+34
+00:03:29.180 --> 00:03:39.540
+<v Patrick Beja>oui, c'est venu de cette envie de discuter de tout ça avec des amis, de créer une sorte de média qui avait la liberté d'en parler pendant une heure, une heure et demie, deux heures si nécessaire.
+
+35
+00:03:39.940 --> 00:03:48.100
+<v Patrick Beja>Et puis n'oublie pas qu'on était dans la, en plein dans la révolution du smartphone, qui était tellement excitante, à ce moment-là.
+
+36
+00:03:48.140 --> 00:03:55.260
+<v Patrick Beja>Et personne n'en parlait comme ça. Personne n'en parlait comme on le faisait nous, comme le faisaient les émissions anglophones que j'écoutais.
+
+37
+00:03:55.800 --> 00:04:07.260
+<v Patrick Beja>On avait, nous, une frustration immense parce que les médias en parlaient en deux minutes rapidement avec des approximations grossières, à la télé ou à la radio, parce que bien sûr, ils avaient pas le temps, ils s'adressaient à des gens
+
+38
+00:04:07.660 --> 00:04:13.620
+<v Patrick Beja>dont la première préoccupation était peut-être, je sais pas, soit le prix du dollar, soit le prix du baril de lessive.
+
+39
+00:04:14.280 --> 00:04:19.079
+<v Patrick Beja>Et les smartphones, c'était pas vraiment au centre de leur univers, je dirais.
+
+40
+00:04:19.360 --> 00:04:27.580
+<v Guillaume Hachez>De temps en temps, dans Le Rendez-vous Tech, il est question de politique, que ce soit, tu sais, politique internationale ou bien le Sénat français.
+
+41
+00:04:28.180 --> 00:04:38.100
+<v Guillaume Hachez>Et souvent, on t'entend retomber sur le même constat, c'est-à-dire que, bah le législateur français ou américain, clairement, il connaît pas grand-chose, il comprend pas tout à fait de quoi il parle et qu'y a une certaine,
+
+42
+00:04:38.740 --> 00:04:42.180
+<v Guillaume Hachez>une certaine fracture entre ceux qui s'y connaissent et le législateur.
+
+43
+00:04:42.540 --> 00:04:49.220
+<v Guillaume Hachez>Une fracture générationnelle quoi, les jeunes et un peu les vieux, ceux qui ont grandi devant un écran et puis ceux qui n'y comprennent rien de rien de rien.
+
+44
+00:04:49.480 --> 00:05:00.320
+<v Guillaume Hachez>Et je t'ai parfois entendu dire à ce moment-là que c'est en partie pour ça que tu fais ton émission, pour informer, pour éduquer, aider à faire en sorte que les gens soient cultivés et informés au sujet de la tech.
+
+45
+00:05:00.720 --> 00:05:11.380
+<v Guillaume Hachez>Est-ce que tu as le sentiment que ça fonctionne ? Est-ce que les gens qui t'écoutent, finalement, ne sont pas déjà une minorité un peu geek, déjà très informés sur le sujet ?
+
+46
+00:05:11.420 --> 00:05:11.810
+<v Patrick Beja>Écoute,
+
+47
+00:05:12.460 --> 00:05:17.860
+<v Patrick Beja>principalement, oui, c'est sûr, mais j'ai été surpris, moi, d'apprendre que
+
+48
+00:05:18.280 --> 00:05:28.280
+<v Patrick Beja>y avait différentes personnes qui travaillaient dans des milieux connexes à la tech, voire immergées dans la tech, mais qui utilisaient cette émission pour se tenir au courant,
+
+49
+00:05:28.740 --> 00:05:34.420
+<v Patrick Beja>même s'ils n'étaient pas, eux, à la base, complètement connaisseurs du sujet.
+
+50
+00:05:35.060 --> 00:05:48.220
+<v Patrick Beja>Et c'est effectivement l'un des buts de l'émission, l'une des-- plus que l'un des buts, l'une des optiques avec laquelle je la conçois, c'est l'idée d'être toujours accessible pour les gens qui connaissent pas bien ces sujets,
+
+51
+00:05:48.860 --> 00:05:52.120
+<v Patrick Beja>tout en ayant des analyses intéressantes pour ceux qui sont experts.
+
+52
+00:05:52.520 --> 00:05:58.840
+<v Patrick Beja>Mais ces témoignages que j'ai eus m'ont vraiment encouragé à essayer de continuer dans cette direction parce que,
+
+53
+00:05:59.460 --> 00:06:07.140
+<v Patrick Beja>bah oui, comme tu le disais et comme je le disais, l'essentiel de l'audience, c'est sans doute des gens, bah des geeks qui s'intéressent déjà au sujet, mais
+
+54
+00:06:08.072 --> 00:06:09.712
+<v Patrick Beja>il y a vraiment ce besoin,
+
+55
+00:06:10.312 --> 00:06:25.092
+<v Patrick Beja>d'un vecteur par lequel avoir ces informations décortiquées et j'ai pas l'impression qu'il y ait beaucoup de vecteurs pour ça, beaucoup de moyens de rester informé sur ces sujets-là, de cette manière.
+
+56
+00:06:25.432 --> 00:06:38.232
+<v Patrick Beja>Parce que l'émission est, j'espère, agréable, sympathique à écouter, on passe un bon moment et en même temps, on est informé sur les gros sujets du moment qui sont-- pourquoi est-ce qu'il est important d'être informé sur ces sujets ?
+
+57
+00:06:38.272 --> 00:06:49.072
+<v Patrick Beja>Parce que ça touche, comme tu l'évoquais, ça touche à tous les domaines de la société, que ce soit l'économie, la distribution, le commerce, la politique.
+
+58
+00:06:49.092 --> 00:06:49.222
+<v Guillaume Hachez>Mmh.
+
+59
+00:06:49.992 --> 00:07:00.932
+<v Patrick Beja>Et oui, y a pas, à mon sens, de bons moyens, de moyens simples de rester informés sur ces sujets puisque les médias traditionnels n'ont pas le temps de bien les traiter ou rarement le temps de bien les traiter.
+
+60
+00:07:00.992 --> 00:07:07.492
+<v Patrick Beja>Il faut traiter un sujet en trois minutes, t'es obligé de bêtifier un petit peu la chose, de résumer, de faire des raccourcis un petit peu assassins.
+
+61
+00:07:07.612 --> 00:07:17.812
+<v Patrick Beja>Mais, mais, mais oui, y a des gens, et j'espère qu'il y en aura plus, qui écoutent l'émission pour se tenir informés alors que c'est pas forcément leur domaine de prédilection à la base.
+
+62
+00:07:17.912 --> 00:07:23.812
+<v Guillaume Hachez>Tu parlais du fait que la technologie touchait de manière transversale à plein de sujets comme la démocratie, l'économie, etc.
+
+63
+00:07:24.632 --> 00:07:36.272
+<v Guillaume Hachez>On a l'impression que les grands scandales, les grands problèmes dont on a parlé ces dernières années comme les révélations de Snowden, le dossier de Cambridge Analytica, ces problèmes-là sont pour le,
+
+64
+00:07:36.852 --> 00:07:48.572
+<v Guillaume Hachez>le Français moyen, le Belge moyen, sont encore relégués au rang de problèmes virtuels et que, ben, ils n'ont pas vraiment changé leurs habitudes, leur relation avec la technologie et que
+
+65
+00:07:49.192 --> 00:07:52.832
+<v Guillaume Hachez>ils ont encore beaucoup de mal à mesurer l'importance de ces dossiers sur la vraie vie.
+
+66
+00:07:53.192 --> 00:07:58.272
+<v Guillaume Hachez>Comment est-ce que tu vois l'évolution de ça ? Est-ce que tu penses que ça va aller en s'améliorant ?
+
+67
+00:07:58.392 --> 00:08:03.392
+<v Patrick Beja>C'est hyper complexe. Je crois qu'il est important que très concrètement, les
+
+68
+00:08:04.032 --> 00:08:15.492
+<v Patrick Beja>gens, les jeunes et les personnes plus âgées, sachent pas juste comment utiliser mécaniquement les applications ou les appareils, mais sachent de la même manière que,
+
+69
+00:08:16.012 --> 00:08:19.632
+<v Patrick Beja>on apprend à regarder à droite et à gauche dans la rue avant de traverser,
+
+70
+00:08:20.252 --> 00:08:27.992
+<v Patrick Beja>sachent quelles informations partager, comment comprendre des informations qu'ils vont trouver sur Internet.
+
+71
+00:08:28.372 --> 00:08:30.612
+<v Patrick Beja>Mais j'me dis en même temps que,
+
+72
+00:08:31.172 --> 00:08:33.912
+<v Patrick Beja>comme de la même manière qu'on n'apprend pas à l'école,
+
+73
+00:08:34.152 --> 00:08:42.992
+<v Patrick Beja>qu'il faut regarder à droite et à gauche avant de traverser, encore que quand on est en sortie scolaire, peut-être, mais c'est des choses qui passent par la société, par la culture générale.
+
+74
+00:08:43.592 --> 00:08:48.812
+<v Patrick Beja>Je crois que c'est frustrant, surtout pour les gens qui s'y connaissent, de constater que ça va pas plus vite.
+
+75
+00:08:49.132 --> 00:08:57.072
+<v Patrick Beja>Parce qu'y a des choses évidentes que nous, on comprend, qu'on a beau répéter aux gens qui ne les connaissent pas, on a l'impression que ça rentre pas.
+
+76
+00:08:57.112 --> 00:09:05.272
+<v Patrick Beja>Mais je crois que ça rejoint un petit peu ce que tu disais sur les classes politiques juste avant, la question générationnelle, c'est des choses qui prennent du temps.
+
+77
+00:09:05.592 --> 00:09:10.672
+<v Patrick Beja>La première fois, c'est un petit peu choquant pour les gens qui ne le connaissent pas. La deuxième fois, ça rentre un petit peu plus.
+
+78
+00:09:10.792 --> 00:09:18.392
+<v Patrick Beja>Au bout de trois, quatre, cinq, dix fois, ça finit par intégrer les comportements sans même qu'on s'en rende vraiment compte.
+
+79
+00:09:19.032 --> 00:09:27.892
+<v Patrick Beja>Donc je crois que c'est des choses qui peuvent pas imprimer juste avec un ou deux scandales. Et puis ça va pas imprimer complètement, mais ça va modifier un petit peu les états d'esprit.
+
+80
+00:09:28.472 --> 00:09:35.212
+<v Patrick Beja>Aujourd'hui, y a clairement une relation par rapport aux réseaux sociaux qui est en train d'évoluer.
+
+81
+00:09:35.612 --> 00:09:46.532
+<v Patrick Beja>Ça passe par les scandales, ça passe par les législateurs, ça passe par le comportement qu'a la population générale par rapport à ces problèmes.
+
+82
+00:09:46.912 --> 00:09:55.572
+<v Patrick Beja>Alors évidemment, ça veut pas dire que tout le monde va arrêter d'utiliser Facebook. Les gens qui prônent ce genre de changement se mettent un petit peu le doigt dans l'œil, ils se bercent d'illusions, je crois.
+
+83
+00:09:56.172 --> 00:10:07.132
+<v Patrick Beja>Mais ça veut dire que petit à petit, les gens vont savoir que sur Facebook, y a des fake news. Alors, elles vont fonctionner quand même pendant deux ans, cinq ans, dix ans.
+
+84
+00:10:07.392 --> 00:10:16.072
+<v Patrick Beja>La société évolue, la technologie est un facteur transformatif majeur de la manière dont la société fonctionne et des relations dans la société.
+
+85
+00:10:16.112 --> 00:10:27.852
+<v Patrick Beja>Donc ça prend du temps et je pense qu'on est qu'au début de ce changement permanent. Et à chaque fois, y a des nouvelles choses qui arrivent et il faut laisser le temps à la société pour appréhender correctement ces problèmes.
+
+86
+00:10:28.352 --> 00:10:32.912
+<v Patrick Beja>Donc y a une part de génération, y a une part d'apprentissage, mais ça prend du temps dans tous les cas.
+
+87
+00:10:33.012 --> 00:10:40.912
+<v Guillaume Hachez>Je t'ai entendu dire dans le Rendez-vous Tech du 9 juillet, tu évoquais une certaine difficulté à trouver des intervenants femmes dans ton émission.
+
+88
+00:10:41.552 --> 00:10:46.952
+<v Guillaume Hachez>Celles et ceux qui ont écouté l'épisode précédent de ce podcast savent à quel point c'est un sujet qui me tient à cœur.
+
+89
+00:10:47.012 --> 00:10:54.412
+<v Guillaume Hachez>On a donc reçu les gens de Interface 3, Laure Lemaire, Isabelle Collet. On en a parlé aussi avec le vice-premier ministre.
+
+90
+00:10:54.512 --> 00:11:03.632
+<v Guillaume Hachez>Déjà, bête question : pourquoi est-ce que c'est grave ? Très bête question : pourquoi est-ce que c'est grave qu'il y ait peu de filles qui écoutent et qui participent au Rendez-vous Tech ?
+
+91
+00:11:03.732 --> 00:11:15.692
+<v Patrick Beja>Pourquoi est-ce que c'est grave ? Parce que-- je sais pas si j'utiliserais le mot grave. Je dirais que c'est dommage et que surtout, c'est une faiblesse pour l'émission.
+
+92
+00:11:15.922 --> 00:11:19.192
+<v Patrick Beja>Moi, je crois qu'il est important d'avoir une
+
+93
+00:11:20.072 --> 00:11:22.812
+<v Patrick Beja>émission et un--
+
+94
+00:11:23.472 --> 00:11:37.092
+<v Patrick Beja>dans tous les domaines de la société et du travail, si tu n'as pas un minimum de représentation, je vais dire minorité, parce que mine de rien, le sexisme fait qu'une,
+
+95
+00:11:37.752 --> 00:11:47.632
+<v Patrick Beja>que les femmes sont une minorité, même s'ils représentent évidemment 50 % de la population, eh ben, tu ne comprends pas et tu n'analyses pas le monde tel qu'il est.
+
+96
+00:11:48.212 --> 00:11:56.902
+<v Patrick Beja>Si tu n'as pas ce point de vue, tu vas pas comprendre les choses comme elles sont. Tu as un biais de perception qui est évident.
+
+97
+00:11:57.412 --> 00:12:04.352
+<v Patrick Beja>Et de plus en plus, alors pendant très longtemps, la tech était la chasse gardée des geeks boutonneux que nous sommes.
+
+98
+00:12:04.492 --> 00:12:16.532
+<v Patrick Beja>Mais aujourd'hui, je pense que c'est clairement-- et y a des causes et des raisons très claires à cette déformation du public, parce que c'était pas le cas au début de la technologie.
+
+99
+00:12:16.552 --> 00:12:25.912
+<v Patrick Beja>Enfin bref, on va pas refaire l'histoire, mais, et donc on parlait, tu évoquais ce sujet à propos-- on parlait de l'affaire Nadia Daam, que je pense-
+
+100
+00:12:26.312 --> 00:12:27.962
+<v Guillaume Hachez>Tout à fait, oui
+
+101
+00:12:28.316 --> 00:12:29.736
+<v Patrick Beja>Alors on a pu parler-
+
+102
+00:12:29.776 --> 00:12:40.346
+<v Guillaume Hachez>On peut peut-être juste rappeler, il s'agit donc d'une journaliste qui s'est faite harceler, menacer de mort sur les réseaux sociaux par des jeunes du forum 18-25 de JV2.com et qui, ben,
+
+103
+00:12:41.196 --> 00:12:49.756
+<v Guillaume Hachez>une fois exceptionnellement, c'est la première fois que ça arrive de manière aussi médiatisée, les a poursuivis en justice et ils ont été sanctionnés par six mois de prison, il me semble.
+
+104
+00:12:49.936 --> 00:12:59.256
+<v Patrick Beja>Voilà. Alors ça a mené à une condamnation pour deux d'entre eux sur les centaines, à six mois de prison avec sursis et 2 000 ou 2 500 euros d'amende.
+
+105
+00:12:59.756 --> 00:13:05.776
+<v Patrick Beja>Et donc on se posait la question dans l'émission de savoir si on pouvait combattre ce type de comportement,
+
+106
+00:13:06.496 --> 00:13:18.796
+<v Patrick Beja>surtout quand on fait face à un déluge et qu'on ne peut évidemment pas condamner l'ensemble des contrevenants ou des criminels ou des gens qui se rendent coupables de ce type de harcèlement.
+
+107
+00:13:19.256 --> 00:13:28.476
+<v Patrick Beja>Donc on s'est posé cette question dans l'émission. Et on a bien sûr des femmes qui interviennent, mais moi j'aimerais en avoir plus parce que, bah, on en a simplement pas assez.
+
+108
+00:13:28.516 --> 00:13:38.856
+<v Patrick Beja>J'dis pas qu'il faut une égalité parfaite de 50/50, mais clairement, on est loin de cette proportion, et j'aimerais en avoir plus et on y travaille et on va y arriver, petit à petit.
+
+109
+00:13:39.476 --> 00:13:51.496
+<v Patrick Beja>Mais oui, c'est important parce que dans ce cas particulier, ben nous, on peut parler de ce sujet avec notre expérience d'hommes, et en l'occurrence, c'était-- j'étais avec Cédric Ingrand, donc d'hommes blancs.
+
+110
+00:13:52.056 --> 00:14:04.856
+<v Patrick Beja>On n'a pas la même expérience sur les réseaux sociaux. Donc on peut en parler un petit peu avec notre œil d'observateur averti, mais quand on l'a pas vécu, c'est pas la même chose.
+
+111
+00:14:04.916 --> 00:14:12.466
+<v Patrick Beja>J'évoquais justement dans cette émission l'expérience d'une personne sur Twitter avec qui j'avais parlé, qui me disait,
+
+112
+00:14:13.256 --> 00:14:23.246
+<v Patrick Beja>qui avait répondu justement à Nadia Daam sur Twitter et qui disait-- ou non, pardon, c'était pas à Nadia Daam, c'était à une autre journaliste qui avait été victime de harcèlement et qui lui disait : « Oh bah,
+
+113
+00:14:23.856 --> 00:14:25.876
+<v Patrick Beja>oui, mais des gens comme ça, y en aura toujours.
+
+114
+00:14:26.116 --> 00:14:27.596
+<v Patrick Beja>Faut juste le, le-
+
+115
+00:14:27.876 --> 00:14:28.106
+<v Guillaume Hachez>L'ignorer
+
+116
+00:14:28.106 --> 00:14:40.456
+<v Patrick Beja>...faut juste pas y prêter attention. » Et suite à cette réponse qui était, dans son esprit, une réponse qui voulait aider la journaliste en question, il s'était fait,
+
+117
+00:14:40.916 --> 00:14:47.716
+<v Patrick Beja>non pas harceler, mais y avait plein de gens qui lui étaient tombés dessus en disant : « Ah, mais tu te rends pas compte, c'est pas facile », de manière un petit peu agressive comme c'était le cas sur Twitter.
+
+118
+00:14:48.476 --> 00:14:59.076
+<v Patrick Beja>Et donc cette personne, je crois que c'était un jeune homme ou en tout cas un homme, avait dit-- quand moi, je lui avais répondu aussi, en essayant d'être constructif, il m'avait répondu de manière un peu brusque.
+
+119
+00:14:59.576 --> 00:15:10.736
+<v Patrick Beja>Et je lui réponds en réécrivant mon tweet quatre fois, en essayant d'être accommodant. Et il me dit : « Ah oui, désolé, mais tout le monde m'est tombé dessus par cette, euh-
+
+120
+00:15:11.356 --> 00:15:11.366
+<v Guillaume Hachez>Ouais
+
+121
+00:15:11.366 --> 00:15:11.646
+<v Patrick Beja>...à cause de ça. »
+
+122
+00:15:11.656 --> 00:15:18.316
+<v Guillaume Hachez>Mais Twitter est un petit peu un environnement, un contexte où ce genre de quiproquo sur le ton qu'on emploie, est-ce qu'on est agressif ?
+
+123
+00:15:18.356 --> 00:15:23.026
+<v Guillaume Hachez>Est-ce qu'on est constructif ? Voilà, ce genre de quiproquo très récurrent sur Twitter.
+
+124
+00:15:23.516 --> 00:15:38.096
+<v Patrick Beja>Bien sûr, mais c'est également symptomatique de la manière dont on interagit sur le net et de la manière dont, peut-être qu'on s'i-- les gens du forum 18-25 de JV ou d'autres forums, quand je dis forum, c'est lieu d'expression-
+
+125
+00:15:38.436 --> 00:15:38.545
+<v Guillaume Hachez>Ouais
+
+126
+00:15:38.596 --> 00:15:49.716
+<v Patrick Beja>...appréhendent les choses. Et le truc, c'est que quand tu n'as pas le témoignage de gens qui sont dans ces situations un petit peu plus minoritaires, eh ben tu te rends pas compte de la manière dont c'est perçu.
+
+127
+00:15:49.816 --> 00:15:59.456
+<v Patrick Beja>Et cette personne à laquelle je parlais, vu qu'il s'est fait tomber dessus une fois pendant deux heures, peut-être sur Twitter, il a modifié un petit peu son comportement.
+
+128
+00:15:59.476 --> 00:16:07.656
+<v Patrick Beja>Je lui dis : « Bah tu vois, toi, tu t'es fait tomber dessus pendant deux heures, et ça t'a rendu agressif. Rends-toi compte comment ça se passe pour des gens dont
+
+129
+00:16:08.236 --> 00:16:14.616
+<v Patrick Beja>le quotidien est comme ça, sur les réseaux sociaux ou sur Internet.
+
+130
+00:16:14.646 --> 00:16:25.856
+<v Patrick Beja>» Et moi, je m'en rends un petit peu compte parce que je vis ça, enfin, j'étudie ça, entre guillemets, beaucoup, mais c'est quand même pas quelque chose qui me touche dans ma chair, tu vois, au quotidien.
+
+131
+00:16:25.896 --> 00:16:30.136
+<v Patrick Beja>Donc il est important d'avoir des gens qui ont ce type de perception-
+
+132
+00:16:30.256 --> 00:16:30.605
+<v Guillaume Hachez>Tout à fait
+
+133
+00:16:30.676 --> 00:16:38.756
+<v Patrick Beja>...pour pouvoir expliquer pourquoi ça peut être problématique, pourquoi-- enfin bref, il est important d'avoir ces témoignages divers.
+
+134
+00:16:39.116 --> 00:16:44.996
+<v Patrick Beja>Et j'dis ça pour mon émission parce que c'est ce qui me concerne, mais de la même manière, il est important d'avoir des développeurs
+
+135
+00:16:45.256 --> 00:16:54.836
+<v Patrick Beja>de différents horizons parce que tes applications vont être utilisées par différentes personnes et donc ils vont penser à des problèmes auxquels toi, tu vas pas forcément penser.
+
+136
+00:16:54.856 --> 00:17:05.716
+<v Patrick Beja>Pour les jeux, ça va être pareil, etc. Donc aujourd'hui, j'pense qu'il est important qu'on fasse tous un effort. Et même si c'est pas facile, je crois qu'il faut faire prendre cette,
+
+137
+00:17:06.496 --> 00:17:10.546
+<v Patrick Beja>ces quelques pas et cet effort supplémentaire pour se forcer un petit peu, quoi.
+
+138
+00:17:10.596 --> 00:17:19.856
+<v Guillaume Hachez>Mais donc finalement, le constat que tu poses, c'est-à-dire que c'est finalement dur d'être une femme qui prend la parole sur les réseaux sociaux et sur Internet, c'est à la fois
+
+139
+00:17:20.676 --> 00:17:28.856
+<v Guillaume Hachez>la raison pour laquelle tu cherches des interven-- enfin, je simplifie, hein, mais c'est une des raisons pour laquelle tu cherches des intervenantes dans ton podcast.
+
+140
+00:17:29.036 --> 00:17:36.176
+<v Guillaume Hachez>Et en même temps, c'est un petit peu aussi la raison pour laquelle c'est peut-être plus difficile pour une femme de venir dans ton podcast et de prendre la parole publiquement.
+
+141
+00:17:36.676 --> 00:17:49.676
+<v Patrick Beja>Oui, bien sûr, ça peut jouer. J'espère qu'on réussira à faire tous ces efforts-là. Disons que j'ose espérer que ma communauté est suffisamment
+
+142
+00:17:50.656 --> 00:17:57.876
+<v Patrick Beja>adulte et mature pour ne pas se livrer à ce type de comportement, mais c'est sûr que c'est une exposition un petit peu plus.
+
+143
+00:17:57.916 --> 00:18:07.216
+<v Patrick Beja>Disons que j'pense qu'il y a des femmes qui sont prêtes à s'exposer un petit peu plus de cette manière et c'est à elles que je demanderai de participer à mes émissions.
+
+144
+00:18:07.256 --> 00:18:07.636
+<v Guillaume Hachez>Mhm.
+
+145
+00:18:07.756 --> 00:18:08.076
+<v Patrick Beja>Mais-
+
+146
+00:18:08.096 --> 00:18:08.186
+<v Guillaume Hachez>C'est ça
+
+147
+00:18:08.556 --> 00:18:11.095
+<v Patrick Beja>...ce sont celles qui ont déjà le courage de le faire, si tu veux.
+
+148
+00:18:11.106 --> 00:18:11.496
+<v Guillaume Hachez>D'accord.
+
+149
+00:18:11.556 --> 00:18:13.566
+<v Patrick Beja>Donc-- mais oui, ça, c'est forcément--
+
+150
+00:18:14.436 --> 00:18:16.836
+<v Patrick Beja>Ça, c'est forcément en lien parce que ça veut dire qu'il y a,
+
+151
+00:18:17.296 --> 00:18:26.696
+<v Patrick Beja>aussi beaucoup de femmes qui se disent : « Non, mais attends, c'est bon, j'ai pas envie de me présenter publiquement de cette manière », pas forcément pour les podcasts, mais en général.
+
+152
+00:18:27.256 --> 00:18:33.176
+<v Patrick Beja>Et donc ça réduit... D'une part, y a évidemment, c'est une question de chicken and egg, tu vois, c'est l'œuf et la poule.
+
+153
+00:18:33.656 --> 00:18:41.956
+<v Patrick Beja>À la base, y a pas beaucoup de personnes qui sont, enfin de femmes qui vont être intéressées par le sujet.
+
+154
+00:18:41.996 --> 00:18:48.996
+<v Patrick Beja>Donc elles vont pas forcément s'intégrer à l'industrie et donc elles vont pas créer des produits qui vont faire que les femmes vont s'y intéresser.
+
+155
+00:18:49.036 --> 00:18:55.456
+<v Patrick Beja>Donc il faut... C'est pour ça que je dis : il faut faire ce petit effort supplémentaire. Oui, ça peut être un petit peu plus compliqué.
+
+156
+00:18:55.496 --> 00:19:00.656
+<v Patrick Beja>Et oui, y a des gens qui vont dire : « Ah oui, mais y a pas beaucoup de femmes dans l'industrie, donc c'est normal qu'on leur parle pas.
+
+157
+00:19:01.046 --> 00:19:03.386
+<v Patrick Beja>» Bah oui, mais si tu fais pas l'effort, ça n'arrivera jamais.
+
+158
+00:19:03.416 --> 00:19:06.896
+<v Guillaume Hachez>Oui. Pour ce... On va changer brutalement de sujet.
+
+159
+00:19:07.236 --> 00:19:07.356
+<v Patrick Beja>Oui.
+
+160
+00:19:07.436 --> 00:19:11.996
+<v Guillaume Hachez>Ceux qui t'écoutent le savent, tu es devenu papa il y a quelques mois.
+
+161
+00:19:12.156 --> 00:19:12.236
+<v Patrick Beja>Mh, mh.
+
+162
+00:19:12.246 --> 00:19:22.264
+<v Guillaume Hachez>...est-ce que du coup, entouré de toutes ces questions, dans ton podcast, tu réfléchis, voilà, à toutes ces questions de la technologie dans notre société, de l'impact culturel, l'impact sur notre démocratie, etc.
+
+163
+00:19:23.344 --> 00:19:35.044
+<v Guillaume Hachez>Est-ce que tu réfléchis déjà, en tant que père, à comment tu vas élever ton fils dans cette société, cette société, j'ai envie de dire, numérique et dans cette société aussi patriarcale ?
+
+164
+00:19:35.104 --> 00:19:46.544
+<v Guillaume Hachez>Est-ce que en tant que... Tu te présentes et tu te déclares avec fierté comme féministe, est-ce que tu réfléchis déjà à comment tu vas l'élever par rapport à ces questions-là ?
+
+165
+00:19:46.604 --> 00:19:54.144
+<v Patrick Beja>Oui, bien sûr, je crois que c'est un petit peu inévitable, mais d'une certaine manière, j'y réfléchis depuis longtemps parce que je réfléchis à ces questions depuis longtemps.
+
+166
+00:19:54.184 --> 00:20:01.344
+<v Patrick Beja>Évidemment, c'est beaucoup plus personnel maintenant. Et j'ai pas encore vraiment de réponse. Je...
+
+167
+00:20:02.284 --> 00:20:02.294
+<v Guillaume Hachez>C'est dur hein.
+
+168
+00:20:02.294 --> 00:20:08.164
+<v Patrick Beja>Oui, c'est pas facile. Ce dont je suis certain, c'est que j'aimerais qu'il soit un gamer. Donc déjà à la base.
+
+169
+00:20:08.784 --> 00:20:10.824
+<v Guillaume Hachez>Tu as déjà choisi sa classe pour World of Warcraft ?
+
+170
+00:20:11.924 --> 00:20:19.603
+<v Patrick Beja>Moi, je pense que World of Warcraft, ça sera peut-être pas... D'ici à ce qu'il soit en âge d'y jouer, ça sera peut-être plus forcément d'actualité.
+
+171
+00:20:19.704 --> 00:20:27.304
+<v Patrick Beja>Je pense surtout à mes petits jeux Nintendo sur ma Switch, tu vois, auxquels on pourra jouer ensemble et facilement pour lui au début.
+
+172
+00:20:28.004 --> 00:20:40.504
+<v Patrick Beja>Mais non, mais tu vois, même la question de World of Warcraft, qui dit World of Warcraft dit chat et qui dit chat dit accès à des gens qui font pas forcément attention au fait que y a un enfant de,
+
+173
+00:20:41.044 --> 00:20:46.784
+<v Patrick Beja>je sais pas, 7, 8, 9 ans qui va être derrière le clavier et la souris ou derrière la manette.
+
+174
+00:20:46.864 --> 00:20:58.124
+<v Patrick Beja>Pareil pour les applications, que ça soit sur Twitter, Facebook, je sais pas, Snapchat ou ce qui arrivera d'ici à ce qu'il soit en âge de les utiliser, c'est évidemment une préoccupation.
+
+175
+00:20:58.724 --> 00:21:09.124
+<v Patrick Beja>Comment le préparer à cette idée qu'il va y avoir des gens, comme ceux qui vont aller harceler, que ça soit des femmes ou d'autres personnes, qui vont pas forcément réfléchir.
+
+176
+00:21:09.424 --> 00:21:19.164
+<v Patrick Beja>Tu vois, si c'est des enfants de 12, 13, 15 ans, on peut... Ou même des gens plus âgés, qui vont pas réfléchir au fait qu'il va y avoir un enfant de 8, 9, 10 ans derrière l'écran.
+
+177
+00:21:19.244 --> 00:21:26.514
+<v Patrick Beja>Évidemment, s'ils étaient en face d'un enfant, ils diraient pas ces choses-là, mais quelqu'un qui est caché derrière un,
+
+178
+00:21:27.304 --> 00:21:33.904
+<v Patrick Beja>un pseudonyme, bah, on va lui répondre comme on répondrait à quelqu'un de normal, enfin, à un adulte, tu vois.
+
+179
+00:21:33.924 --> 00:21:34.044
+<v Guillaume Hachez>Mh.
+
+180
+00:21:34.224 --> 00:21:44.664
+<v Patrick Beja>Et ça me préoccupe. J'ai pas forcément de réponse encore sur la manière dont gérer ce type de problème. Je crois que y va y avoir énormément d'éducation, bien sûr, de,
+
+181
+00:21:45.744 --> 00:21:50.184
+<v Patrick Beja>d'apprentissage de la manière dont fonctionnent ces choses-là.
+
+182
+00:21:50.704 --> 00:22:05.604
+<v Patrick Beja>Pour ce qui est de la question féministe, j'ai pas énormément de craintes. J'espère que ça se passera bien parce que moi, dans mon quotidien, avec ma femme, je pense qu'on est très très égaux à la base.
+
+183
+00:22:05.884 --> 00:22:15.144
+<v Patrick Beja>Moi, j'ai la chance de travailler depuis la maison, donc je m'occupe de lui autant que ma femme. Donc j'ai pas énormément... J'espère que ça se passera bien à ce niveau-là.
+
+184
+00:22:15.184 --> 00:22:21.884
+<v Patrick Beja>Et ensuite, pour tout le reste, pour ce qui est de la technologie, la familiarité avec les sujets fera le reste du...
+
+185
+00:22:22.024 --> 00:22:22.254
+<v Guillaume Hachez>Mh, mh.
+
+186
+00:22:22.384 --> 00:22:23.624
+<v Patrick Beja>De l'éducation, j'espère.
+
+187
+00:22:23.664 --> 00:22:35.444
+<v Guillaume Hachez>Ouais. Je pose cette question dans le sens où ton fils sera éduqué à la maison par ses parents, mais aussi par la société de manière générale, par l'école, par, voilà, par ce qui se passe en dehors de chez toi.
+
+188
+00:22:35.944 --> 00:22:50.044
+<v Guillaume Hachez>Et voilà, en fait, je pose cette question parce que je vois moi-même, parmi mes cousins, parmi mes frères et sœurs, je vois des jeunes parents et je vois les différentes manières dont ils élèvent leur fils ou leur fille.
+
+189
+00:22:50.684 --> 00:23:02.404
+<v Guillaume Hachez>Et je vois que effectivement, y a des parents qui sont très traditionalistes et où on va voir une différence très très très marquée dans la façon dont ils élèvent leur enfant selon si c'est une fille ou un garçon.
+
+190
+00:23:03.084 --> 00:23:09.744
+<v Guillaume Hachez>Donc j'ai pu voir, par exemple, des jeunes garçons de 10 ans qui jouaient au foot, qui étaient très, très agressifs, très violents, etc.
+
+191
+00:23:10.484 --> 00:23:14.844
+<v Guillaume Hachez>Et puis, par contre, leur petite sœur, elle est en robe. Quand elle se prend un ballon dans la figure, elle pleure.
+
+192
+00:23:15.184 --> 00:23:22.284
+<v Guillaume Hachez>On la traite différemment en fonction de ce qui se passe, etc. Et donc je vois en fait à quel point c'est quelque chose de proactif.
+
+193
+00:23:22.364 --> 00:23:23.744
+<v Guillaume Hachez>C'est... On forme une personne
+
+194
+00:23:24.304 --> 00:23:34.804
+<v Guillaume Hachez>et on lui, entre guillemets, on lui impose un certain modèle masculin ou féminin. Et donc, oui, comment est-ce que toi, tu vois ça, le fait de compenser toute cette culture, toute cette,
+
+195
+00:23:35.364 --> 00:23:43.224
+<v Guillaume Hachez>oui, cette culture occidentale qui veut absolument faire des filles, des jeunes poupées qui portent du rose et des petites jupes ou, voilà.
+
+196
+00:23:43.524 --> 00:23:50.784
+<v Patrick Beja>Ouais, bah, je crois que le problème se pose de manière un petit peu différente vu que le petit est un petit et pas une petite.
+
+197
+00:23:50.794 --> 00:24:00.244
+<v Patrick Beja>Il va y avoir beaucoup de... Disons que évidemment, je vais jamais le forcer à ne pas jouer avec des poupées, par exemple.
+
+198
+00:24:00.284 --> 00:24:06.744
+<v Patrick Beja>Tu vois, s'il veut jouer avec des poupées, bah. Bon, ma femme est finlandaise. On passe beaucoup de temps en Finlande, donc dans les pays nordiques.
+
+199
+00:24:07.053 --> 00:24:09.564
+<v Patrick Beja>Ils sont très à cheval sur ce genre de choses. Par exemple,
+
+200
+00:24:10.284 --> 00:24:22.184
+<v Patrick Beja>c'est tout bête hein, mais on a évité d'avoir des vêtements bleus pour le petit et on aurait évité d'avoir des vêtements roses si c'était pour la... Si c'était une fille.
+
+201
+00:24:22.244 --> 00:24:33.563
+<v Patrick Beja>Y a cette question de gender neutrality qui est... De neutralité de genre, qui est assez importante. Je sais pas si je vais lui acheter des poupées, pour le principe.
+
+202
+00:24:33.704 --> 00:24:42.684
+<v Patrick Beja>Je pense qu'on va plutôt essayer de répondre à ses besoins, ou à ses envies, à pas l'orienter.
+
+203
+00:24:43.184 --> 00:24:52.224
+<v Patrick Beja>S'il veut jouer avec des énormes camions et des soldats, très bien pour lui. S'il veut jouer avec des poupées ou faire la dînette, très bien pour lui aussi.
+
+204
+00:24:52.704 --> 00:25:00.224
+<v Patrick Beja>Mais l'idée est plus d'avoir des trucs neutres à disposition que de lui filer des trucs genrés de tous les genres.
+
+205
+00:25:00.264 --> 00:25:00.344
+<v Guillaume Hachez>Mh.
+
+206
+00:25:00.844 --> 00:25:05.784
+<v Patrick Beja>Je t'avoue que j'ai pas spécifiquement... Je me suis pas posé la question de savoir si j'allais lui acheter des Barbies ou pas.
+
+207
+00:25:05.824 --> 00:25:12.284
+<v Patrick Beja>Oui, peut-être, peut-être autant des Barbies et des Big Jim pour me dater dans ma jeunesse à moi. Mais...
+
+208
+00:25:12.784 --> 00:25:19.724
+<v Guillaume Hachez>C'est marrant parce que tu parlais des jouets genrés et juste avant, tu parlais des jeux vidéo. Mais les jeux vidéo sont justement terriblement genrés.
+
+209
+00:25:19.804 --> 00:25:26.584
+<v Guillaume Hachez>Et on a, tu sais, toutes ces couvertures de, ces covers de jeux vidéo avec des gros gars bien musclés.
+
+210
+00:25:27.064 --> 00:25:32.984
+<v Guillaume Hachez>Et on a très peu de jeux vidéo avec une protagoniste femme, voilà, qui ne soit pas elle-même super sexualisée.
+
+211
+00:25:33.024 --> 00:25:41.044
+<v Patrick Beja>Bah, je pense que c'est déjà en train de changer un petit peu, grâce en quelque sorte aux scandales qui ont mené au Gamergate.
+
+212
+00:25:41.404 --> 00:25:51.992
+<v Patrick Beja>Je crois qu'y a beaucoup de développeurs qui s'attachent à faire en sorte qu'on ait une représentation un petit peu plus équilibrée dans certains jeux.
+
+213
+00:25:52.232 --> 00:26:03.332
+<v Patrick Beja>J'crois que dans un premier temps, on va essayer de jouer à des jeux qui n'auront pas autant le problème. J'évoquais Nintendo parce que c'est l'exemple type des jeux pour enfants ou adaptés aux enfants.
+
+214
+00:26:03.952 --> 00:26:06.272
+<v Patrick Beja>Et, même chez Nintendo, j'crois que...
+
+215
+00:26:06.552 --> 00:26:07.252
+<v Guillaume Hachez>Super Mario.
+
+216
+00:26:07.672 --> 00:26:07.862
+<v Patrick Beja>Bien sûr.
+
+217
+00:26:07.862 --> 00:26:16.252
+<v Guillaume Hachez>Oui, c'est ça, Super Mario, c'est l'exemple du jeune moustachu, du jeune moustachu, de l'homme, oui, de l'homme, ouais, qui va aller sauver la princesse.
+
+218
+00:26:16.292 --> 00:26:24.612
+<v Patrick Beja>Bien sûr, bien sûr. Y a aussi des jeux comme, je pense à Splatoon, tu vois, où les inks sont hommes et femmes.
+
+219
+00:26:25.272 --> 00:26:35.532
+<v Patrick Beja>'Fin, ink, ink, des filles et des garçons. Je pense à Mario Kart où y a autant de personnages, 'fin pas autant, mais y a aussi des personnages femmes.
+
+220
+00:26:35.572 --> 00:26:48.352
+<v Patrick Beja>Et ce genre de choses, par exemple, si je lui montre que moi, je peux choisir Princess Peach comme personnage, bah ça l'aidera à ne pas se limiter, tu vois, dans ses choix de genre.
+
+221
+00:26:48.932 --> 00:27:00.012
+<v Patrick Beja>Mais c'est sûr que c'est pas hyper facile. Il va falloir, comme je le disais tout à l'heure dans le contexte des invités de mes émissions, il va falloir peut-être encore pendant quelques années faire quelques efforts.
+
+222
+00:27:00.602 --> 00:27:12.112
+<v Patrick Beja>Peut-être que je l'encouragerai à jouer à des jeux comme, au hasard, Horizon Zero Dawn, qui présentait un personnage féminin fort, et qui était le héros de l'aventure.
+
+223
+00:27:12.132 --> 00:27:13.392
+<v Patrick Beja>J'espère qu'y en aura d'autres à l'avenir.
+
+224
+00:27:13.992 --> 00:27:23.532
+<v Patrick Beja>Peut-être que ça demandera un petit effort, effectivement, mais, Dieu merci, je crois qu'on est en train de se diriger dans une direction où aujourd'hui, c'est un petit peu plus possible.
+
+225
+00:27:24.252 --> 00:27:29.402
+<v Patrick Beja>C'était moins le cas y a encore quelques années. J'espère que ça sera encore plus facile dans quelques années.
+
+226
+00:27:29.432 --> 00:27:40.122
+<v Guillaume Hachez>Il va aller à l'école en Finlande ou en France ? Puisque oui, je ne sais pas si on l'a précisé, mais donc tu es français, tu es né au Liban, si je ne dis pas de bêtises, et tu vis depuis combien de temps ?
+
+227
+00:27:40.132 --> 00:27:42.372
+<v Guillaume Hachez>Depuis un ou deux ans, c'est ça, en Finlande ?
+
+228
+00:27:42.392 --> 00:27:48.792
+<v Patrick Beja>Ouais, c'était... Disons qu'on partageait notre temps entre la France et la Finlande. Depuis que le petit est né, on passe plus de temps en Finlande, évidemment.
+
+229
+00:27:49.352 --> 00:27:56.092
+<v Patrick Beja>Donc il va aller à l'école au début en Finlande. Après, je sais pas, parce qu'on s'est exilé au fin fond de la campagne.
+
+230
+00:27:56.432 --> 00:28:05.352
+<v Patrick Beja>Donc on est dans un lieu où c'est pas forcément idéal pour l'école au-delà de, je sais pas, je dirais même le jardin d'enfants.
+
+231
+00:28:05.392 --> 00:28:12.632
+<v Patrick Beja>Donc, je sais pas. On verra, peut-être la Finlande, peut-être la France. C'est des questions qu'on repousse pour le moment, on n'y est pas encore.
+
+232
+00:28:12.692 --> 00:28:16.912
+<v Guillaume Hachez>On va du coup passer à un sujet beaucoup plus sombre et déprimant.
+
+233
+00:28:17.212 --> 00:28:18.012
+<v Patrick Beja>Oui, s'il fallait.
+
+234
+00:28:18.382 --> 00:28:27.972
+<v Guillaume Hachez>Tu es une... oui, c'est. Tu es une personnalité publique, pour ainsi dire. Tu as tes 50 000 followers sur Twitter, tu es très écouté en francophonie et même ailleurs dans le monde.
+
+235
+00:28:28.632 --> 00:28:39.552
+<v Guillaume Hachez>Est-ce que tu peux nous parler un peu de ta relation avec Twitter ? On a pu te voir un petit peu énervé sur Twitter occasionnellement ces dernières années, un peu exténué par l'un ou l'autre clash.
+
+236
+00:28:39.992 --> 00:28:45.792
+<v Guillaume Hachez>On t'a vu te disputer avec des gens au sujet de Trump, de la France insoumise, du Brexit.
+
+237
+00:28:46.332 --> 00:28:56.112
+<v Guillaume Hachez>Et puis ces derniers mois, on t'a vu un peu changer de position et prôner une attitude beaucoup plus posée, où tu défends maintenant une idée selon laquelle il faut éviter de s'énerver, éviter de crier au scandale.
+
+238
+00:28:56.152 --> 00:28:58.272
+<v Guillaume Hachez>Est-ce que tu peux nous parler un petit peu de ta relation avec Twitter ?
+
+239
+00:28:58.572 --> 00:29:06.812
+<v Patrick Beja>Moi, je dirais plusieurs choses. D'une part, ma relation avec Twitter, je pense, est assez différente de la relation de la plupart des autres gens avec Twitter parce que
+
+240
+00:29:07.412 --> 00:29:14.032
+<v Patrick Beja>dans l'ensemble, j'ai quand même une relation très saine et très adulte avec les gens avec qui je discute sur Twitter.
+
+241
+00:29:14.092 --> 00:29:23.392
+<v Patrick Beja>Là encore, ça demande certains efforts. Je disais tout à l'heure que j'avais réécrit mon tweet quatre fois avant de répondre à la personne à laquelle j'avais répondu, mais par une sorte de,
+
+242
+00:29:23.762 --> 00:29:29.012
+<v Patrick Beja>d'artifice magique auquel je ne comprends pas grand-chose,
+
+243
+00:29:30.232 --> 00:29:38.892
+<v Patrick Beja>les gens avec qui je discute, que ça soit sur Twitter ou ailleurs, sont généralement assez prompts à discuter de manière assez ouverte.
+
+244
+00:29:39.252 --> 00:29:53.632
+<v Patrick Beja>Au départ, y a souvent un petit clash. Et puis quand j'essaye d'aller plus loin, c'est souvent le cas, la personne en face est prête aussi à faire quelques pas dans ma direction, tu vois, et à calmer le jeu et puis à discuter.
+
+245
+00:29:53.672 --> 00:29:54.962
+<v Patrick Beja>Alors, ça veut pas dire qu'on tombe d'accord,
+
+246
+00:29:55.552 --> 00:30:06.872
+<v Patrick Beja>mais souvent, on a une conversation relativement constructive et au final, j'en ressors en ayant appris quelque chose et en ayant compris quelque chose de la personne avec laquelle je discutais et j'espère vice versa.
+
+247
+00:30:07.352 --> 00:30:18.572
+<v Patrick Beja>Donc ça, je pense que c'est possible parce que d'une manière générale, mon audience sur Twitter est composée de gens qui m'écoutent sur mes podcasts et donc des gens qui ont une relation un petit peu plus personnelle avec moi.
+
+248
+00:30:18.632 --> 00:30:26.632
+<v Patrick Beja>Je suis pas une personne anonyme sur Twitter qui a lancé un truc qui les a énervés. Donc ça aide à la conversation. Maintenant, évidemment, j'ai pas...
+
+249
+00:30:27.152 --> 00:30:32.392
+<v Guillaume Hachez>Tu nous décris une situation presque idyllique. Ça a l'air très sain quand tu nous parles de ça.
+
+250
+00:30:32.852 --> 00:30:38.522
+<v Guillaume Hachez>Moi, j'ai le souvenir de t'avoir vu un peu exténué, un peu stressé, un peu énervé par Twitter.
+
+251
+00:30:38.992 --> 00:30:48.852
+<v Patrick Beja>Non, mais bien sûr, parce qu'y a aussi, en particulier ces dernières années, tu vois, il va y avoir des moments où tu vas parler d'un sujet et des personnes plus ou moins bien intentionnées
+
+252
+00:30:49.252 --> 00:30:55.532
+<v Patrick Beja>vont venir chercher des mots-clés et te répondre sans que tu ne les connaisses d'Ève ou d'Adam.
+
+253
+00:30:55.632 --> 00:31:06.792
+<v Patrick Beja>Et ce genre de personnes, bah maintenant, je comprends, maintenant, je connais et donc je réagis pas ou je réagis pas de la même manière, mais il a fallu un moment pour comprendre ce type de fonctionnement.
+
+254
+00:31:06.892 --> 00:31:21.872
+<v Patrick Beja>Et puis c'est vrai aussi que j'ai appris que sur Twitter, bah c'était bien gentil de retweeter des trucs énervés, mais que d'une manière générale, c'était pas forcément le vecteur idéal pour convaincre les gens.
+
+255
+00:31:21.932 --> 00:31:26.481
+<v Patrick Beja>Parce que finalement, ce qu'on fait quand on retweete un truc, c'est qu'on essaye de convaincre les gens inconsciemment ou pas.
+
+256
+00:31:27.142 --> 00:31:33.842
+<v Patrick Beja>Quand y a un scandale qui est mis à jour par telle ou telle source, bah on le retweete en disant : « Mais regardez, ce truc est inacceptable ».
+
+257
+00:31:34.172 --> 00:31:38.512
+<v Patrick Beja>Sauf que sur Twitter, de deux choses l'une, soit les gens sont d'accord, donc ils vont être encore plus d'accord,
+
+258
+00:31:38.892 --> 00:31:44.772
+<v Patrick Beja>soit ils sont pas d'accord et ils vont certainement pas changer d'avis parce qu'ils ont vu un truc qu'ils ont déjà vu mille fois, mille fois ailleurs. Donc
+
+259
+00:31:45.420 --> 00:31:49.600
+<v Patrick Beja>c'est vrai qu'il m'est arrivé d'être lassé par ce type d'interaction
+
+260
+00:31:50.100 --> 00:32:01.440
+<v Patrick Beja>et du coup, avec le temps, j'ai diminué le nombre de retweets que je faisais ou le nombre de... Parce que j'essaye de voir les choses d'une manière un petit peu plus globale, tu vois.
+
+261
+00:32:01.480 --> 00:32:11.320
+<v Patrick Beja>Quand y a un truc qui a déjà été retweeté 50 000 fois, je pense que les gens, entre guillemets, cette masse un petit peu obscure, sont déjà au courant de ce problème.
+
+262
+00:32:11.640 --> 00:32:19.670
+<v Patrick Beja>Et le fait que moi, je le retweete, ça va pas forcément les informer plus. Donc, je préfère me concentrer sur peu de sujets,
+
+263
+00:32:20.140 --> 00:32:28.880
+<v Patrick Beja>sur des émissions comme le Phileas Club que tu évoquais, où justement, on essaye de converser plus longuement sur ces sujets et,
+
+264
+00:32:29.380 --> 00:32:36.560
+<v Patrick Beja>spécifiquement sur des sujets sur lesquels on n'est pas d'accord, mais où on va prendre le temps de s'expliquer pourquoi on n'est pas d'accord.
+
+265
+00:32:36.760 --> 00:32:50.320
+<v Patrick Beja>Donc pour faire avancer un petit peu le schmilblick, tu vois. Et c'est vrai que sur Twitter, j'ai un petit peu, à force, ces deux dernières années, perdu l'espoir de faire avancer vraiment le schmilblick sur Twitter.
+
+266
+00:32:50.400 --> 00:33:04.400
+<v Patrick Beja>Alors parfois, je me prends à tweeter quand même un truc énervé pour le principe, parce que je pense que ça reste quand même un petit facteur, mais j'crois pas que ça soit le bon forum pour convaincre les gens
+
+267
+00:33:05.340 --> 00:33:06.160
+<v Patrick Beja>d'une manière générale.
+
+268
+00:33:06.360 --> 00:33:10.490
+<v Patrick Beja>Encore que, encore une fois, quand tu prends des sujets un petit peu, euh,
+
+269
+00:33:11.320 --> 00:33:20.960
+<v Patrick Beja>ou des gens qui sont à la limite, je parlais tout à l'heure de cette personne qui a vécu cette expérience où il s'est fait tomber dessus, pendant deux heures parce qu'il avait dit un truc.
+
+270
+00:33:21.260 --> 00:33:23.840
+<v Patrick Beja>Tu vois, je pense que cette personne, parce que j'ai pris le temps,
+
+271
+00:33:24.340 --> 00:33:33.040
+<v Patrick Beja>pendant 10 minutes, une demi-heure, une heure d'expliquer le fonctionnement de ce truc et que lui, il s'était fait harce... pas harceler, mais il s'était fait tomber dessus.
+
+272
+00:33:33.320 --> 00:33:47.120
+<v Patrick Beja>Et donc j'ai mis en relation ça avec le vécu de la personne à laquelle il répondait, eh ben, c'est pas en une fois qu'il va être convaincu du jour au lendemain, mais j'pense que ça lui a fait bouger un petit peu l'aiguille.
+
+273
+00:33:47.180 --> 00:33:55.600
+<v Patrick Beja>Tu vois, il s'est dit : « Ah ouais, peut-être ». Et puis la deuxième fois, troisième fois, quatrième fois, comme j'en parlais tout à l'heure, eh ben petit à petit, il va peut-être changer un petit peu son point de vue.
+
+274
+00:33:56.159 --> 00:34:06.900
+<v Patrick Beja>Donc, j'pense qu'y a des opportunités, mais clairement, je crois que je suis aujourd'hui convaincu que c'est pas sur Twitter que tu vas convaincre les gens que Trump est un bon ou un mauvais président.
+
+275
+00:34:07.200 --> 00:34:17.340
+<v Patrick Beja>Soit ils sont convaincus qu'il est bien, eh ben ils vont rester convaincus. Et c'est pas en tweetant le fait qu'il mente, tout le monde le sait, tu vois, que tu vas convaincre les gens qu'il est pas bien, entre guillemets.
+
+276
+00:34:17.390 --> 00:34:24.860
+<v Patrick Beja>Ou de la même manière, si tu vas tweeter : « Oh mon Dieu, Trump a menti ! » Oui, bah les gens qui le savent le savent déjà.
+
+277
+00:34:24.960 --> 00:34:28.360
+<v Patrick Beja>C'est pas parce que toi, tu vas le tweeter qu'ils vont s'en rendre compte tout à coup. Donc...
+
+278
+00:34:28.680 --> 00:34:40.080
+<v Guillaume Hachez>Ouais, mais donc tu as l'air de dire que finalement, c'est impossible de faire sortir... impossible ou très dur de faire sortir les gens de la bulle idéologique, la bulle dans laquelle ils se sont enfermés sur les réseaux sociaux.
+
+279
+00:34:41.360 --> 00:34:52.440
+<v Patrick Beja>S'ils sont enfermés dans une bulle, peut-être. Mais j'crois qu'y a énormément de gens qui répondent de manière brusque sur Twitter et qui s'antagonisent les uns les autres.
+
+280
+00:34:53.020 --> 00:35:07.420
+<v Patrick Beja>Dans ce genre de contexte, oui, ça va rien changer. Par contre, comme j'essaye de le faire, moi, prendre le temps d'aller outre la première réaction qui est énervée et brusque,
+
+281
+00:35:08.360 --> 00:35:14.240
+<v Patrick Beja>ça peut aider, mais du coup, ça devient une conversation un à un, tu vois, un et un.
+
+282
+00:35:14.620 --> 00:35:23.780
+<v Patrick Beja>Moi, c'est des trucs qui vont prendre... quand je me lance dans ce genre de conversation, c'est relativement rare, mais ça prend une heure, deux heures de conversation.
+
+283
+00:35:23.900 --> 00:35:32.700
+<v Patrick Beja>Tu vois, et ça va prendre peut-être 10 tweets ou 20 tweets où chaque réponse, surtout les premières, sont faites avec beaucoup d'attention.
+
+284
+00:35:33.360 --> 00:35:46.040
+<v Patrick Beja>Et je vous jure, je vous jure que dans 90 % des cas, à part quand c'est des bots ou des trolls qui sont là pour troller pour le principe, mais dans 90 % des cas, quand je prends le temps de faire ça,
+
+285
+00:35:46.680 --> 00:35:50.140
+<v Patrick Beja>comme je le disais tout à l'heure, on en ressort avec chacun quelque chose.
+
+286
+00:35:50.449 --> 00:35:56.320
+<v Patrick Beja>Moi, j'ai compris pourquoi la personne était énervée et la personne en face a compris pourquoi moi, j'ai réagi de cette manière.
+
+287
+00:35:56.440 --> 00:36:02.380
+<v Patrick Beja>Mais c'est des trucs que tu peux pas faire... 'fin, c'est des trucs que tu peux pas faire tout le temps. Ça prend du temps, de l'énergie, de l'attention...
+
+288
+00:36:02.820 --> 00:36:06.079
+<v Guillaume Hachez>J'allais dire, finalement, c'est un peu une perte de temps de se battre sur les réseaux sociaux comme ça.
+
+289
+00:36:06.400 --> 00:36:13.140
+<v Patrick Beja>Non, j'crois pas. Alors là, complètement au contraire. J'pense pas que ça soit une perte de temps. Tout le monde va pas prendre le temps et moi-même, j'prendrai toujours le temps.
+
+290
+00:36:13.480 --> 00:36:25.160
+<v Patrick Beja>Mais quand on prend le temps, c'est l'opposé du temps perdu. C'est là où tu vas retweeter un truc facile, ça va te prendre une seconde et demie et tu vas juste énerver la moitié de ton,
+
+291
+00:36:25.760 --> 00:36:32.740
+<v Patrick Beja>de ton audience et galvaniser l'autre moitié de manière à ce qu'il y ait encore plus d'opposition qui naisse de ce retweet.
+
+292
+00:36:33.280 --> 00:36:35.400
+<v Patrick Beja>Ça, c'est du temps perdu. C'est peut-être qu'une seconde et demie,
+
+293
+00:36:35.700 --> 00:36:38.830
+<v Patrick Beja>mais c'est une seconde et demie complètement perdue. Par contre,
+
+294
+00:36:39.060 --> 00:36:41.440
+<v Patrick Beja>si tu passes deux heures à essayer de discuter avec quelqu'un
+
+295
+00:36:41.600 --> 00:36:48.320
+<v Patrick Beja>et essayer de faire comprendre ton point de vue et de comprendre son point... parce que c'est pas juste expliquer ton point de vue, c'est aussi vraiment essayer de
+
+296
+00:36:48.400 --> 00:36:53.970
+<v Patrick Beja>te mettre dans les baskets de la personne en face et de comprendre pourquoi est-ce qu'il pourrait avoir cette opinion que
+
+297
+00:36:54.140 --> 00:36:56.380
+<v Patrick Beja>toi, tu considères comme inimaginable.
+
+298
+00:36:56.440 --> 00:37:02.440
+<v Patrick Beja>Et la plupart du temps, si tu la considères comme inimaginable, c'est parce que t'as pas bien compris la position ou les causes de la position.
+
+299
+00:37:02.720 --> 00:37:14.040
+<v Patrick Beja>Alors bien sûr, y a toujours des exceptions, mais si tu as pris ce temps-là, toi, tu as grandi un petit peu ou du moins, tu as compris un petit peu plus et la personne en face a compris un petit peu plus.
+
+300
+00:37:14.100 --> 00:37:22.140
+<v Patrick Beja>Donc c'est l'opposé du temps perdu. C'est des efforts qui sont plus grands, mais qui sont les seuls qui vaillent quelque chose sur ces plateformes, à mon sens.
+
+301
+00:37:22.920 --> 00:37:29.260
+<v Guillaume Hachez>Je posais cette question-là parce qu'il me semble que tu t'es déjà décrit comme étant quelqu'un d'un petit peu stressé.
+
+302
+00:37:29.680 --> 00:37:34.920
+<v Guillaume Hachez>Tu m'as été décrit par d'autres gens comme étant un petit peu stressé. Et tu me-
+
+303
+00:37:34.980 --> 00:37:35.570
+<v Patrick Beja>Par qui ? Donne les noms.
+
+304
+00:37:36.320 --> 00:37:44.680
+<v Guillaume Hachez>Je-- non. Et là, tu me présentes une situation où, bah, on est dans le conflit, on est dans la fight, on est dans le clash sur Twitter.
+
+305
+00:37:44.780 --> 00:37:53.380
+<v Guillaume Hachez>Moi, si j'étais quelqu'un d'un petit peu stressé, bah j'essaierais de fuir ces situations pour fuir le stress et éviter d'avoir ça dans ma vie.
+
+306
+00:37:54.000 --> 00:37:57.060
+<v Guillaume Hachez>Et là, justement, tu m'expliques que tu as foncé là-dedans.
+
+307
+00:37:58.236 --> 00:38:04.376
+<v Patrick Beja>Ah, je suis aussi quelqu'un qui aime discuter et débattre et comprendre, tu sais.
+
+308
+00:38:04.656 --> 00:38:05.976
+<v Guillaume Hachez>C'est un sacrifice, c'est ça que tu veux dire.
+
+309
+00:38:06.396 --> 00:38:13.176
+<v Patrick Beja>Non, même pas. C'est que moi, ça me-- on contrôle pas de quoi on est fait. Tu sais, on choisit pas comment on est fait.
+
+310
+00:38:13.196 --> 00:38:26.956
+<v Patrick Beja>Donc j'ai quand même fait quelques pas en arrière sur Twitter, comme tu l'évoquais. Je retweete moins, je me lance moins dans ces conversations à corps perdu et puis dans ces parties des conversations qui sont inutiles.
+
+311
+00:38:27.056 --> 00:38:36.136
+<v Patrick Beja>Mais j'apprécie beaucoup Twitter par ailleurs. Et puis il faut avouer que la grande partie de mes interactions est quand même très cordiale et très sympathique.
+
+312
+00:38:36.196 --> 00:38:45.576
+<v Patrick Beja>Donc ça-- parfois ça glisse un peu, mais c'est pas la majorité. Et je considère quand même que, comment dire, j'essaye de trouver des solutions.
+
+313
+00:38:45.616 --> 00:39:00.576
+<v Patrick Beja>Tu vois, Twitter est une sorte de pouls du monde, pouls P-O-U-L-S hein, pas P-O-X, mais-- ou P-O-U. Et je prends un petit peu la température de ce qui se passe autour de moi par ce biais et par d'autres.
+
+314
+00:39:00.636 --> 00:39:09.076
+<v Patrick Beja>Et j'essaye de penser à des solutions parce que j'ai mine de rien énormément de chance dans la manière dont je suis né, dans la manière dont j'ai grandi.
+
+315
+00:39:09.176 --> 00:39:16.196
+<v Patrick Beja>Et j'essaye de réfléchir à comment résoudre les problèmes et comment apporter une petite pierre à l'édifice.
+
+316
+00:39:16.716 --> 00:39:28.796
+<v Patrick Beja>et y a plein de podcasts qui sont sympas, qui sont marrants, que je fais, mais y a aussi des choses que je fais, comme ces conversations que j'essaye d'avoir sur Twitter ou le podcast Le Phileas Club dont on a déjà parlé,
+
+317
+00:39:29.696 --> 00:39:34.216
+<v Patrick Beja>qui sont des tentatives d'essayer de trouver des solutions.
+
+318
+00:39:34.256 --> 00:39:42.596
+<v Patrick Beja>Donc j'ai le loisir de me dire : « Bon bah ça, c'est ce que j'essaye de faire pour trouver des solutions. » Et donc le reste, que je sois stressé un petit peu sur Twitter, j'interagis moins.
+
+319
+00:39:43.016 --> 00:39:49.556
+<v Patrick Beja>Bon, c'est pas tellement important. Mais non, je veux pas fuir non plus, je veux pas me cacher, tu vois. Ça serait facile de se dire : « Bon bah...
+
+320
+00:39:49.976 --> 00:39:55.675
+<v Patrick Beja>» enfin facile. J'aime quand même les réseaux sociaux, j'aime ces interactions, donc je crois que j'ai pas envie de m'en priver non plus, tu vois.
+
+321
+00:39:56.056 --> 00:40:00.916
+<v Guillaume Hachez>Mh, mh, mh. Mais justement, tu évoquais le Phileas Club, j'avais envie d'en parler un petit peu.
+
+322
+00:40:01.716 --> 00:40:10.076
+<v Guillaume Hachez>Moi, il me semble, en tant qu'auditeur, qu'il y a eu un changement assez dramatique, voilà, une transition qui s'est faite entre avant et après Donald Trump.
+
+323
+00:40:10.196 --> 00:40:13.826
+<v Guillaume Hachez>Puisque avant, moi, j'avais la sensation qu'il y avait ce côté très cordial, voilà,
+
+324
+00:40:14.416 --> 00:40:22.616
+<v Guillaume Hachez>les copains du Phileas Club qui se retrouvent autour de la table et on va parler de la neige qui est tombée en Finlande et de ce qui se passe à Dubaï, de ce qui se passe en Chine.
+
+325
+00:40:22.956 --> 00:40:33.536
+<v Guillaume Hachez>Voilà. Et j'ai l'impression que depuis Donald Trump, y a à chaque fois 10 minutes de monologue au début sur à quel point on vit dans une période toute déprimante, etc.
+
+326
+00:40:34.436 --> 00:40:38.146
+<v Guillaume Hachez>Est-ce que tu partages mon constat ou est-ce que ça s'est fait de manière très-
+
+327
+00:40:38.166 --> 00:40:42.836
+<v Patrick Beja>Bah, je m'en suis rendu compte, c'était naturel, mais c'était normal parce que le monde a évolué de cette manière, je crois.
+
+328
+00:40:43.276 --> 00:40:52.196
+<v Patrick Beja>Entre le Brexit et Trump et toutes les autres vagues de ce type qu'on a vu dans le monde, on s'est un petit peu réveillé.
+
+329
+00:40:52.256 --> 00:41:01.956
+<v Patrick Beja>Et c'est vrai que cette émission, qui a toujours été conçue comme un moyen de discuter avec des gens qui ont des cultures et des opinions différentes,
+
+330
+00:41:02.536 --> 00:41:11.146
+<v Patrick Beja>au départ, l'idée était de discuter avec des gens qui vivaient dans des pays différents, donc qui avaient des éducations, des visions du monde différentes, mais de cette manière.
+
+331
+00:41:11.556 --> 00:41:13.716
+<v Patrick Beja>Eh ben, naturellement, elle a évolué vers,
+
+332
+00:41:14.156 --> 00:41:22.616
+<v Patrick Beja>après la frustration de voir cette montée du nationalisme et du populisme dans différents pays du monde et en particulier
+
+333
+00:41:22.836 --> 00:41:31.796
+<v Patrick Beja>aux États-Unis, elle a évolué vers l'idée de se dire : « Mais il faut comprendre, c'est pas possible de rester enfermé dans notre bulle.
+
+334
+00:41:32.306 --> 00:41:40.496
+<v Patrick Beja>» Et de-- parce que très clairement, on l'a pas vu venir, on n'a pas compris comment ça s'est passé. Donc l'émission, effectivement, s'est transformée ou a évolué vers,
+
+335
+00:41:40.936 --> 00:41:48.796
+<v Patrick Beja>l'idée de se dire : « Bah, on est dans cette période que nous, on considère comme un peu sombre, mais je crois que tout le monde la considère comme sombre pour différentes raisons.
+
+336
+00:41:48.826 --> 00:41:55.756
+<v Patrick Beja>» Pas catastrophique, je crois, mais clairement préoccupante. Et il faut essayer de comprendre comment on est arrivé là.
+
+337
+00:41:55.856 --> 00:42:04.836
+<v Patrick Beja>Donc oui, j'ai essayé de parler à des gens qui avaient voté pour le Brexit, de parler à des gens qui avaient voté pour Trump et de les comprendre.
+
+338
+00:42:04.876 --> 00:42:13.256
+<v Patrick Beja>Et ce qui a été salvateur un petit peu pour moi aussi, c'est de me rendre compte que, même si on n'était pas d'accord,
+
+339
+00:42:13.816 --> 00:42:20.676
+<v Patrick Beja>je pouvais voir comment ils étaient arrivés à ces conclusions et surtout de constater que c'était des gens entre guillemets normaux.
+
+340
+00:42:21.096 --> 00:42:28.176
+<v Patrick Beja>Ils ont des enfants, des femmes, des maris, ils ont des loisirs, ils aiment les films de geeks, ils jouent à des jeux vidéo, tu vois.
+
+341
+00:42:28.236 --> 00:42:42.216
+<v Patrick Beja>Et c'est une manière d'humaniser ces personnes. Et pour moi, le gros problème qu'on a et qui m'a mené à ces réflexions sur l'agressivité de Twitter et la difficulté de se parler, c'est que c'est pas
+
+342
+00:42:43.916 --> 00:42:49.016
+<v Patrick Beja>nos convictions profondes qui sont forcément en opposition.
+
+343
+00:42:49.056 --> 00:43:05.476
+<v Patrick Beja>Bien sûr, c'est le cas et c'est souvent le cas, mais disons, ça représente 50 % de nos problèmes aujourd'hui. 50 autres pour cent, c'est la manière dont on se parle, parce qu'on est dans l'opposition et dans la répartie permanente. Et,
+
+344
+00:43:05.976 --> 00:43:13.016
+<v Patrick Beja>c'est une des choses que je constate dans l'émission qui clairement, pour revenir à la question que tu me posais, on a constaté que c'était le cas
+
+345
+00:43:13.436 --> 00:43:18.976
+<v Patrick Beja>avec le Brexit qui était le premier coup de semonce et l'élection de Donald Trump, qui était la vraie explosion.
+
+346
+00:43:19.476 --> 00:43:27.596
+<v Patrick Beja>Et donc forcément, ça a influencé l'émission. C'était naturel, normal et inévitable que ça influence l'émission et le ton de l'émission.
+
+347
+00:43:28.856 --> 00:43:36.316
+<v Guillaume Hachez>Mh, mh, mh. Bon, je reviens sur ce que j'évoquais y a 10 minutes, c'est-à-dire que ton côté un petit peu plus stressé.
+
+348
+00:43:36.776 --> 00:43:48.526
+<v Guillaume Hachez>Tu as quitté-- oui, désolé. Tu as quitté la cage dorée, je sais pas si c'est une expression belge ou si ça se dit en France aussi, mais tu as quitté la cage dorée du salariat, donc la sécurité-
+
+349
+00:43:48.876 --> 00:43:49.006
+<v Patrick Beja>Mh, mh.
+
+350
+00:43:49.176 --> 00:43:57.516
+<v Guillaume Hachez>...pour devenir entrepreneur et lancer ton propre projet. Comment est-ce que ça se passe pour toi d'être vraiment seul face à tes responsabilités ?
+
+351
+00:43:57.656 --> 00:44:02.956
+<v Patrick Beja>Ah, j'adore. Le risque, pas particulièrement, mais le fait d'être seul, moi, ça me convient très, très bien.
+
+352
+00:44:03.556 --> 00:44:11.916
+<v Patrick Beja>Je travaillais, comme tu le disais, j'ai travaillé pendant cinq ans chez Blizzard Entertainment, donc le développeur de World of Warcraft notamment.
+
+353
+00:44:12.760 --> 00:44:27.940
+<v Patrick Beja>Et même si le boulot était une ambiance absolument incroyable parce que c'était plein de jeunes d'horizons différents qui adoraient les jeux vidéo et qui contribuaient au développement de jeux qu'on aimait tous
+
+354
+00:44:28.320 --> 00:44:29.360
+<v Patrick Beja>et dont on était tous fiers.
+
+355
+00:44:29.420 --> 00:44:40.940
+<v Patrick Beja>Donc tu vois, c'est vraiment un contexte idéal. Bah malgré ça, c'était quand même une société, donc y avait des réunions, des discussions, des décisions à prendre à plusieurs, des approbations à obtenir, tout ça.
+
+356
+00:44:41.500 --> 00:44:50.660
+<v Patrick Beja>Là, quand je suis dans ma société, dont je suis le seul salarié et fondateur et propriétaire,
+
+357
+00:44:51.440 --> 00:44:58.960
+<v Patrick Beja>eh ben les réunions se font en pyjama, devant mon ordinateur et c'est moi qui suis le comité de décision, tu vois.
+
+358
+00:44:59.400 --> 00:45:05.280
+<v Patrick Beja>Donc c'est une liberté que j'apprécie énormément. Le fait de travailler de chez moi me dérange pas du tout, au contraire.
+
+359
+00:45:05.300 --> 00:45:15.520
+<v Patrick Beja>Bon c'est un petit peu compliqué avec le petit maintenant, mais ça me gêne pas du tout. Je suis quelqu'un de très solitaire en fait, malgré ma connexion internetienne accrue.
+
+360
+00:45:15.900 --> 00:45:21.820
+<v Patrick Beja>Je suis quelqu'un d'assez-- j'aime pas les gens, je crois. Je me rends compte que j'aime pas interagir avec les gens. Donc-
+
+361
+00:45:21.830 --> 00:45:21.840
+<v Guillaume Hachez>Ça reste, hein.
+
+362
+00:45:21.840 --> 00:45:23.410
+<v Patrick Beja>...je préfère interagir avec eux-
+
+363
+00:45:23.520 --> 00:45:28.619
+<v Guillaume Hachez>Suite à tout ce que tu m'as expliqué sur les différences et apprendre à se connaître et à bien se parler.
+
+364
+00:45:28.920 --> 00:45:29.600
+<v Guillaume Hachez>En fait, tu n'aimes pas ça.
+
+365
+00:45:29.780 --> 00:45:40.400
+<v Patrick Beja>Bah peut-être que ça joue, je sais pas. Peut-être que c'est lié. Mais oui, je suis très, très content d'être tout seul chez moi, pour travailler et de voir des gens une fois de temps en temps, ça me gêne pas du tout.
+
+366
+00:45:40.460 --> 00:45:45.800
+<v Patrick Beja>Donc non, ce passage à l'entrepreneuriat m'a pas du tout-
+
+367
+00:45:45.820 --> 00:45:46.300
+<v Guillaume Hachez>Traumatisé.
+
+368
+00:45:46.480 --> 00:45:47.120
+<v Patrick Beja>...posé de problème.
+
+369
+00:45:47.720 --> 00:45:59.960
+<v Guillaume Hachez>OK. Pour poursuivre sur le sujet de ton projet entrepreneurial et de ta carrière de podcasteur, certains s'inquiètent de voir que, bah ton Patreon, finalement, tu l'as lancé il y a quatre ans, c'est ça ?
+
+370
+00:46:00.040 --> 00:46:10.250
+<v Patrick Beja>Alors c'était-- ouais, c'était en 2014, mais c'était-- j'ai quitté mon travail à l'été 2014. Donc oui, c'était y a pile quatre ans.
+
+371
+00:46:10.260 --> 00:46:19.740
+<v Guillaume Hachez>Y a pile quatre ans. Et finalement, certains s'inquiètent, certains m'ont dit s'inquiétaient de voir que, bah ton Patreon, il ne décollait plus et il stagnait un peu depuis quelque temps.
+
+372
+00:46:20.200 --> 00:46:22.880
+<v Guillaume Hachez>Est-ce que toi, c'est justement quelque chose qui t'inquiète ?
+
+373
+00:46:22.979 --> 00:46:34.540
+<v Patrick Beja>M'inquiète, non, parce qu'il a un niveau qui me permet de subvenir à mes besoins et à ceux de ma famille. Donc ça m'inquiète pas forcément dans ce contexte.
+
+374
+00:46:34.600 --> 00:46:44.620
+<v Patrick Beja>S'il se mettait à baisser de manière dramatique, ça me préoccuperait un petit peu plus. J'ai passé aussi l'émission en hebdomadaire, donc ça a fait un petit peu augmenter les revenus.
+
+375
+00:46:44.660 --> 00:46:52.000
+<v Patrick Beja>Elle était bimensuelle avant. Ça a pas doublé parce que tout le monde donne pas pour autant d'émissions par mois, loin de là.
+
+376
+00:46:52.080 --> 00:46:58.260
+<v Patrick Beja>Mais ça a quand même augmenté un petit peu les revenus, donc ça me permet de subvenir aux besoins du membre de la famille supplémentaire.
+
+377
+00:46:58.720 --> 00:47:13.600
+<v Patrick Beja>Donc ça, c'est très bien. Pour le moment, je pense que ça se passe pas trop mal. Je crois qu'il y a un cœur de la communauté de l'émission qui, si jamais les choses baissaient un petit peu trop, répondrait présent.
+
+378
+00:47:13.980 --> 00:47:21.480
+<v Patrick Beja>Si je disais-- pour le moment, ça va, y a pas de souci, mais si je voyais que ça baissait et que je disais à la communauté : « Les gars, ça va pas super bien.
+
+379
+00:47:21.640 --> 00:47:28.080
+<v Patrick Beja>Si vous réfléchissiez à la possibilité de devenir, de soutenir l'émission, bah maintenant, c'est le moment.
+
+380
+00:47:28.109 --> 00:47:33.920
+<v Patrick Beja>» Je pense que les gens répondraient présents. Heureusement, on n'est pas du tout dans cette situation aujourd'hui.
+
+381
+00:47:34.580 --> 00:47:46.200
+<v Patrick Beja>Mais ce qui est clair, c'est que je pense que ça va pas grossir indéfiniment. Peut-être que si l'audience augmente, y aura plus de gens qui vont soutenir l'émission et y a de la marge pour augmenter l'audience.
+
+382
+00:47:46.230 --> 00:47:56.860
+<v Patrick Beja>Donc j'aimerais bien essayer d'aller dans cette direction aujourd'hui, mais c'est pas évident. Mais ce qui-- ça subvient aux besoins de moi, mais pas forcément plus.
+
+383
+00:47:57.100 --> 00:48:04.420
+<v Patrick Beja>J'ai le plaisir et l'honneur de payer certains des intervenants, les intervenants réguliers en fait, à l'émission.
+
+384
+00:48:04.900 --> 00:48:10.560
+<v Patrick Beja>Donc ça, c'est un truc que j'ai initié cette année et que j'espère pouvoir étendre, mais on va voir comment ça évolue.
+
+385
+00:48:11.180 --> 00:48:16.580
+<v Patrick Beja>Je pense pas pouvoir, par exemple, engager de sitôt quelqu'un en plus sur la société.
+
+386
+00:48:16.780 --> 00:48:16.970
+<v Guillaume Hachez>Mhm.
+
+387
+00:48:17.190 --> 00:48:24.660
+<v Patrick Beja>Donc on verra. Bon on verra comment ça va évoluer, mais pour le moment, c'est pas au goût du jour. Par contre, pour moi, seul, je suis relativement confiant.
+
+388
+00:48:24.720 --> 00:48:31.100
+<v Guillaume Hachez>Mhm. Tu l'évoquais il y a un instant, tu as réorganisé un petit peu tes podcasts avec l'arrivée de ton fils.
+
+389
+00:48:31.740 --> 00:48:42.800
+<v Guillaume Hachez>Tu as donc passé le Rendez-vous Tech en hebdomadaire. Tu as supprimé deux émissions, à savoir Positron et Upload, qui te prenaient un peu de temps et qui finalement n'apportaient pas un grand revenu sur investissement.
+
+390
+00:48:42.840 --> 00:48:54.270
+<v Guillaume Hachez>Est-ce que tu as de nouveaux projets pour le futur pour remplacer ces émissions ou bien est-ce que c'est vraiment : « Maintenant, je suis papa, je n'ai plus le temps et on a deux émissions en moins, puis c'est tout. »
+
+391
+00:48:54.320 --> 00:48:58.020
+<v Patrick Beja>Alors, j'espère que le petit me laissera du temps. Là, on est encore à six mois, donc
+
+392
+00:48:58.840 --> 00:49:04.820
+<v Patrick Beja>c'est encore un petit peu compliqué, surtout que comme je le disais, je travaille à la maison, mais à un moment, il va bien finir par aller à la crèche, puis à l'école, etc.
+
+393
+00:49:05.220 --> 00:49:15.240
+<v Patrick Beja>Donc je pourrais avoir des journées de travail normales. Pour te reprendre un petit peu, c'est pas uniquement pour une question de retour sur investissement que j'ai supprimé les émissions Upload et Positron.
+
+394
+00:49:15.580 --> 00:49:19.320
+<v Patrick Beja>C'était d'une part parce qu'elles étaient-- à mon sens, elles n'avaient pas
+
+395
+00:49:19.800 --> 00:49:32.600
+<v Patrick Beja>un grand potentiel à l'avenir. Tu vois, Upload était une émission qui avait été lancée pour couvrir les applications, des reviews d'apps et elle avait été lancée en 2008, 2009, au moment de l'explosion des app stores.
+
+396
+00:49:33.180 --> 00:49:39.100
+<v Patrick Beja>Clairement, on n'est plus dans la même période. On est à 10 ans de plus, c'est plus le même enthousiasme sur ces sujets.
+
+397
+00:49:39.140 --> 00:49:51.020
+<v Patrick Beja>Donc je crois qu'il était bon de l'amener gentiment vers son lit pour l'endormir un petit peu. Positron, un petit peu pareil, elle a jamais complètement décollé, même si c'est un sujet qui me tient à cœur.
+
+398
+00:49:51.030 --> 00:50:01.748
+<v Patrick Beja>'Fin, un sujet. C'était des recommandations de produits culturels, films, ciné, tout ça. Peut-être qu'à terme, je ramènerai une émission de ce type quelque part.
+
+399
+00:50:01.928 --> 00:50:09.508
+<v Patrick Beja>On verra. J'en ai déjà fait quelques épisodes pour parler de Infinity War puisque je suis un grand fan des films Marvel.
+
+400
+00:50:10.088 --> 00:50:11.018
+<v Patrick Beja>Donc pourquoi pas
+
+401
+00:50:11.548 --> 00:50:20.048
+<v Patrick Beja>? Mais surtout, l'idée était de se concentrer sur le Rendez-vous Tech, donc à son passage en hebdomadaire, parce que je pense que autant j'aime bien le format bimensuel,
+
+402
+00:50:20.508 --> 00:50:26.608
+<v Patrick Beja>autant une émission hebdomadaire est plus prompte à satisfaire aux besoins
+
+403
+00:50:27.108 --> 00:50:28.648
+<v Patrick Beja>de l'audience et de l'actualité.
+
+404
+00:50:29.088 --> 00:50:36.348
+<v Patrick Beja>Je crois que c'est plus cohérent d'avoir une heure, une heure et quart par semaine que deux heures toutes les deux semaines.
+
+405
+00:50:36.388 --> 00:50:46.988
+<v Patrick Beja>On va parler de sujets qui ont déjà 10 jours, on va pas traiter d'une actualité un petit peu, pas chaude parce qu'on traite jamais les choses à chaud, mais présente.
+
+406
+00:50:47.028 --> 00:50:54.628
+<v Patrick Beja>Donc l'idée était vraiment d'améliorer le Rendez-vous Tech plutôt que de se dire : « Bon bah, je vais laisser tomber ces émissions qui me plaisent pas », parce que si j'avais pu,
+
+407
+00:50:55.148 --> 00:50:58.628
+<v Patrick Beja>j'aurais continué toutes les émissions que je fais.
+
+408
+00:50:59.448 --> 00:51:08.168
+<v Patrick Beja>Pour l'avenir, je m'interdis rien. J'ai des émissions, des idées d'émissions, pour les 20 ans à venir.
+
+409
+00:51:08.748 --> 00:51:19.888
+<v Patrick Beja>Si les choses peuvent évoluer de manière positive, je crois qu'il est pas du tout impossible que je continue à faire évoluer les choses, peut-être supprimer d'autres émissions ou me concentrer encore plus sur certaines
+
+410
+00:51:20.308 --> 00:51:22.068
+<v Patrick Beja>ou en créer de nouvelles, rien n'est interdit.
+
+411
+00:51:22.328 --> 00:51:33.128
+<v Guillaume Hachez>Alors, je suis obligé de poser la question. Si tu devais donner un exemple d'une des idées d'émission auxquelles tu as déjà songé, un rêve, voilà, un fantasme que tu as pour l'instant.
+
+412
+00:51:34.528 --> 00:51:42.168
+<v Patrick Beja>Ah là là, c'est-- disons que ce que j'adorerais faire, mais j'crois pas qu'il soit possible, ça serait un Phileas Club en français.
+
+413
+00:51:42.568 --> 00:51:48.308
+<v Patrick Beja>Et je sais que c'est un petit peu un cop-out parce que c'est pas une nouvelle idée d'émission, mais j'aimerais beaucoup faire ça.
+
+414
+00:51:48.588 --> 00:51:51.528
+<v Guillaume Hachez>Y a un channel sur ton Slack qui s'appelle le Rendez-vous politique.
+
+415
+00:51:51.888 --> 00:51:52.188
+<v Patrick Beja>Oui.
+
+416
+00:51:52.928 --> 00:51:59.048
+<v Guillaume Hachez>Voilà. Et il n'existe pas de podcast qui s'appelle le Rendez-vous politique, mais voilà, on se demandait un jour si tu voulais le créer.
+
+417
+00:51:59.428 --> 00:52:08.968
+<v Patrick Beja>Bah, ça serait un truc que j'aimerais faire parce que autant, quand on parle de politique internationale, ça touche un petit peu tout le monde et puis ça aide à ouvrir les esprits, autant je me rends compte que,
+
+418
+00:52:09.568 --> 00:52:18.908
+<v Patrick Beja>sans-- pour parler précisément de la France et pas juste de la francophonie, j'ai vraiment l'impression que le même type de schémas sont en train de s'installer et qu'on a une opposition,
+
+419
+00:52:20.268 --> 00:52:26.288
+<v Patrick Beja>une opposition malsaine qui s'installe entre la droite et la gauche en France.
+
+420
+00:52:26.348 --> 00:52:40.048
+<v Patrick Beja>Je vais même pas parler de l'extrême droite parce que pour moi, c'est un cas particulier, mais même entre la droite et la gauche dans ce qu'elle a de traditionnel, et on se parle plus.
+
+421
+00:52:40.548 --> 00:52:48.428
+<v Patrick Beja>De la même manière qu'on ne se parle pas forcément quand on est partisan de Trump et partisan de-- on était partisan de Clinton, au hasard.
+
+422
+00:52:49.008 --> 00:52:57.668
+<v Patrick Beja>Y a le même type de schémas qui sont en train de s'installer en France et ça m'inquiète beaucoup parce que ça mène à l'extrémisation de tous les points de vue.
+
+423
+00:52:58.248 --> 00:53:09.008
+<v Patrick Beja>Donc je me dis : « Si je pouvais aider à mettre ma toute petite brique dans l'édifice d'une manière ou d'une autre, ça serait pas mal.
+
+424
+00:53:09.708 --> 00:53:18.088
+<v Patrick Beja>» Mais bon, il faut trouver-- le truc avec le Phileas Club, ce qui est intéressant, c'est qu'on a effectivement des gens de différentes opinions, de différents pays.
+
+425
+00:53:18.608 --> 00:53:26.528
+<v Patrick Beja>Et je pense qu'un élément intéressant dans un Phileas Club à la française ou un Rendez-vous politique serait vraiment d'avoir un œil extérieur.
+
+426
+00:53:26.568 --> 00:53:27.328
+<v Patrick Beja>Parce que je me rends compte,
+
+427
+00:53:27.728 --> 00:53:39.808
+<v Patrick Beja>parce que j'ai un petit peu voyagé, j'ai fréquenté des gens de différents pays, à quel point chacun dans son pays est isolé et se rend pas compte de la manière dont on voit les choses ailleurs et de la perspective que ça donne. Et pour moi,
+
+428
+00:53:40.428 --> 00:53:54.148
+<v Patrick Beja>les gens en France ne savent pas, j'exagère un petit peu, mais ne savent pas comment fonctionne le monde, et ont tendance à être très très très centrés sur une vision franco-française et donc ça nuit à la compréhension des choses.
+
+429
+00:53:54.208 --> 00:54:01.288
+<v Patrick Beja>Donc il faudrait essayer de trouver des gens de différents pays, mais du coup, c'est beaucoup plus difficile de trouver des gens de différents pays qui vont parler français.
+
+430
+00:54:01.308 --> 00:54:04.348
+<v Patrick Beja>On va avoir des expats, ce genre de choses, c'est possible, mais-- donc je sais pas.
+
+431
+00:54:04.458 --> 00:54:12.068
+<v Patrick Beja>Peut-être qu'il y aurait une formule différente, peut-être simplement un Rendez-vous politique où je m'appliquerais à inviter des gens de différents bords politiques, justement.
+
+432
+00:54:12.128 --> 00:54:15.228
+<v Patrick Beja>Mais du coup, ça, ça se fait déjà. Je sais pas.
+
+433
+00:54:15.288 --> 00:54:25.978
+<v Guillaume Hachez>Mh, mh, mh, mh. Une question me vient alors que tu parles de la situation politique en France. Je me souviens que quand tu m'avais invité dans le Phileas Club pour parler de la Belgique en janvier dernier-
+
+434
+00:54:26.328 --> 00:54:26.468
+<v Patrick Beja>Mh.
+
+435
+00:54:26.668 --> 00:54:36.168
+<v Guillaume Hachez>...y avait un moment donné où tu as essayé de parler des relations entre la Belgique et la France. Alors, on a eu un match de foot, une demi-finale.
+
+436
+00:54:36.928 --> 00:54:46.988
+<v Guillaume Hachez>C'était mardi, c'est ça ? Oui, mardi. Et c'était très intéressant de voir à quel point il y avait des choses qui ressortaient à ce moment-là, en marge de ce match de football.
+
+437
+00:54:47.608 --> 00:54:53.348
+<v Guillaume Hachez>Et alors, j'ai lu beaucoup d'articles à ce sujet dans la presse en Belgique plus que dans la presse française.
+
+438
+00:54:53.948 --> 00:54:54.868
+<v Guillaume Hachez>Voilà, des choses
+
+439
+00:54:55.608 --> 00:55:09.868
+<v Guillaume Hachez>très symptomatiques, comme par exemple, j'ai appris que la finale en 98, la finale de la Coupe du monde France-Brésil, y avait une majorité écrasante de Belges, genre 75 %, qui soutenaient le Brésil et pas la France.
+
+440
+00:55:09.988 --> 00:55:22.048
+<v Guillaume Hachez>Alors que ces mêmes personnes soutenaient les clubs de foot français du style OM, PSG, des trucs comme ça. Donc je trouvais ça très intéressant de me poser la question des relations franco-belges.
+
+441
+00:55:22.088 --> 00:55:33.748
+<v Guillaume Hachez>Alors, tu es français. Et je me souviens que justement, dans ce Phileas Club en janvier, tu as essayé d'aborder le sujet, mais sans vraiment savoir mettre le doigt sur ce qui se passait.
+
+442
+00:55:33.768 --> 00:55:37.468
+<v Guillaume Hachez>Alors, est-ce que tu peux nous parler de comment les Français perçoivent les Belges ?
+
+443
+00:55:38.028 --> 00:55:43.788
+<v Patrick Beja>Je crois qu'y a vraiment la relation de grand à petit frère ou de grand à petit cousin.
+
+444
+00:55:43.828 --> 00:55:44.408
+<v Guillaume Hachez>D'accord.
+
+445
+00:55:44.528 --> 00:55:57.958
+<v Patrick Beja>Du point de vue français, en tout cas, dans tout ce que ça a de positif et de négatif. Je crois qu'y a vraiment une déconsidération de nos voisins belges en tant que : « Ah, c'est les autres qui parlent français ».
+
+446
+00:55:57.968 --> 00:56:08.320
+<v Patrick Beja>Mais c'est pareil dans toute la francophonie. Tu sais, les Français, bah, c'est les gens qui viennent de l'endroit où on parle le français. Et les autres qui parlent français, bah c'est les autres qui parlent français.
+
+447
+00:56:08.360 --> 00:56:15.920
+<v Patrick Beja>Y a un petit peu de ça quand même, quelque part derrière, dans l'inconscient collectif. Donc y a ça d'une part.
+
+448
+00:56:16.300 --> 00:56:23.000
+<v Patrick Beja>Et puis y a en même temps le fait que c'est le centre de l'Europe. Et puis y a le chocolat et puis y a la bière.
+
+449
+00:56:23.500 --> 00:56:33.379
+<v Patrick Beja>Et puis bon bah c'est quand même nos alliés quelque part dans la francophonie. Donc y a un petit peu de tout ça en même temps, mais je crois que, si
+
+450
+00:56:33.920 --> 00:56:41.420
+<v Patrick Beja>On-- malheureusement, j'en suis désolé, mais si on retient qu'une seule chose comme ça en rigolant, peut-être avec un petit peu d'insensibilité,
+
+451
+00:56:42.100 --> 00:56:49.860
+<v Patrick Beja>je sais pas si c'est le terme approprié, ça serait genre les blagues, les blagues belges, tu vois-
+
+452
+00:56:49.920 --> 00:56:50.030
+<v Guillaume Hachez>D'accord.
+
+453
+00:56:50.030 --> 00:56:50.910
+<v Patrick Beja>...c'est les Belges-
+
+454
+00:56:51.060 --> 00:56:53.840
+<v Guillaume Hachez>Je pensais que t'allais parler de nos pédophiles, mais OK, c'est mieux, c'est un peu mieux.
+
+455
+00:56:53.860 --> 00:56:54.340
+<v Patrick Beja>Ah non, non, non.
+
+456
+00:56:54.930 --> 00:56:59.710
+<v Patrick Beja>Bien sûr, ça joue peut-être un petit peu aussi, mais oui, mais c'est les blagues belges, tu vois,
+
+457
+00:57:00.280 --> 00:57:06.780
+<v Patrick Beja>c'est ce genre de choses qui va rester un petit peu dans l'inconscient collectif, mais c'est en surface, tu vois, ça va pas-
+
+458
+00:57:06.860 --> 00:57:06.890
+<v Guillaume Hachez>Mhm.
+
+459
+00:57:06.920 --> 00:57:07.520
+<v Patrick Beja>...ça va bien loin.
+
+460
+00:57:07.980 --> 00:57:15.560
+<v Guillaume Hachez>Parce que, est-ce que tu estimes que les Français, de manière générale, sont-- ah, on en avait très rapidement parlé, je crois, il y a quelques années.
+
+461
+00:57:15.600 --> 00:57:20.900
+<v Guillaume Hachez>Est-ce que tu estimes que les Français sont, de manière générale, trop chauvins, trop fiers d'être français ?
+
+462
+00:57:20.940 --> 00:57:21.880
+<v Guillaume Hachez>Oui, bah oui, patriotes.
+
+463
+00:57:21.900 --> 00:57:28.360
+<v Patrick Beja>Alors, chauvins, certainement, en particulier les Parisiens, mais je crois que c'est le cas partout. Patriotes, pas du tout, du tout, du tout.
+
+464
+00:57:28.880 --> 00:57:37.000
+<v Patrick Beja>Au contraire, je pense qu'il y a un défaut de patriotisme en France et que ça nous joue des tours. C'est lié à plein de choses et notamment
+
+465
+00:57:37.460 --> 00:57:49.360
+<v Patrick Beja>à l'histoire et à la Deuxième Guerre mondiale où le patriotisme a été utilisé comme presque instrument de guerre et instrument nationaliste dangereux.
+
+466
+00:57:50.020 --> 00:58:00.160
+<v Patrick Beja>Mais je crois qu'on a honte d'être patriote en France et c'est un truc, à part quand on est en demi-finale ou en finale de la Coupe du monde, c'est le seul moment où on se l'autorise, tu vois.
+
+467
+00:58:00.720 --> 00:58:10.680
+<v Patrick Beja>Mais moi, je m'en suis rendu compte aussi, hein, tu vois, quand je vois quelqu'un mettre un drapeau français à sa fenêtre, je me dis : « Ouh là, mais pour qu'est-ce qu'il fait ?
+
+468
+00:58:10.740 --> 00:58:18.820
+<v Patrick Beja>Qu'est-ce qu'elle fait, elle ? Ou qu'est-ce qu'il fait, lui ? » Tu vois, c'est limite le drapeau français, on l'associe au Front national et à rien d'autre.
+
+469
+00:58:19.080 --> 00:58:19.400
+<v Guillaume Hachez>Mhm.
+
+470
+00:58:19.460 --> 00:58:26.020
+<v Patrick Beja>Et encore une fois, ça s'explique pour des raisons historiques, mais c'est quelque chose qu'on comprend pas du tout dans les autres pays.
+
+471
+00:58:26.080 --> 00:58:31.820
+<v Patrick Beja>Et peut-être même en Belgique, mais même quand je-- aux États-Unis, évidemment, parce qu'ils érigent le patriotisme en-
+
+472
+00:58:31.940 --> 00:58:42.300
+<v Guillaume Hachez>Pour le coup, on n'est pas très patriotes en Belgique non plus. Donc ça, c'est pas-- tu dépeins ça comme étant une chose négative, mais quand j'entends ça, je me dis : « Tiens, la France, c'est pas si mal, en fait ».
+
+473
+00:58:42.320 --> 00:58:55.840
+<v Patrick Beja>C'est pas mal. Mais je crois que ça a un effet négatif parce que ça crée un défaut d'identité. Tu sais, autant en France, on est très la République, l'école de la République, les citoyens, liberté, égalité, fraternité, machin.
+
+474
+00:58:56.280 --> 00:59:07.540
+<v Patrick Beja>Je crois que tout ça se brise un peu quand on essaye de s'unifier derrière une identité nationale qui peut être multiple.
+
+475
+00:59:07.600 --> 00:59:17.480
+<v Patrick Beja>Tu vois, aux États-Unis, ils ont une identité nationale très forte malgré le fait qu'ils soient un melting pot, plein de cultures différentes.
+
+476
+00:59:17.520 --> 00:59:26.420
+<v Patrick Beja>Ça veut pas dire qu'il faut s'uniformiser. Mais je crois qu'il y a quelque chose qui nous fait défaut en France parce qu'on a honte d'être français, presque.
+
+477
+00:59:26.960 --> 00:59:34.880
+<v Patrick Beja>Et c'est à mon sens dangereux parce que ça crée un terreau, justement, pour les nationalistes qui vont dire : « On a honte d'être français.
+
+478
+00:59:34.940 --> 00:59:47.160
+<v Patrick Beja>Bah non, moi, je suis fier d'être français, monsieur ». Ils vont définir la francité selon leurs termes. Donc je crois qu'il y a effectivement, pour moi, je dirais pas qu'on est trop patriotes.
+
+479
+00:59:47.620 --> 00:59:54.440
+<v Patrick Beja>Au contraire, on trouve que le patriotisme est suspect. Même moi, je trouve que c'est suspect, donc je trouve que ça serait pas mal de le redéfinir quelque part.
+
+480
+00:59:55.000 --> 01:00:02.440
+<v Patrick Beja>Mais oui, le patriotisme et le chauvinisme sont deux choses différentes et je crois qu'on est très chauvins en France, par contre. Ça, oui.
+
+481
+01:00:02.960 --> 01:00:05.620
+<v Guillaume Hachez>Justement, pour rebondir là-dessus,
+
+482
+01:00:06.460 --> 01:00:08.600
+<v Guillaume Hachez>le cliché du Français, c'est donc très chauvin,
+
+483
+01:00:09.320 --> 01:00:21.920
+<v Guillaume Hachez>pas très bon en langues, y a un accent en anglais assez catastrophique, une ouverture sur le monde, sur la culture internationale, sur la politique internationale qui n'est pas du tout au niveau.
+
+484
+01:00:21.940 --> 01:00:32.200
+<v Guillaume Hachez>Et toi, justement, tu sors un petit peu de ces clichés-là puisque tu fais des émissions en anglais, tu fais des Phileas Club où tu invites des gens à travers le monde, tu as un accent en anglais plus que correct.
+
+485
+01:00:32.880 --> 01:00:35.960
+<v Guillaume Hachez>Comment est-ce que tu expliques cette différence ?
+
+486
+01:00:36.020 --> 01:00:41.640
+<v Patrick Beja>Thank you, Guillaume. I am very glad you enjoy my English accent, which is very good.
+
+487
+01:00:43.980 --> 01:00:52.100
+<v Patrick Beja>Mais tu sais, en fait, si on veut aller au fond des choses, je suis sans doute le Français le moins français que vous trouverez, si on veut vraiment être honnête.
+
+488
+01:00:52.390 --> 01:01:01.340
+<v Patrick Beja>Comme tu l'évoquais tout à l'heure, je suis né au Liban, ma famille a pas une goutte de sang français dans les veines.
+
+489
+01:01:01.660 --> 01:01:13.420
+<v Patrick Beja>Je suis devenu français par naturalisation, plusieurs années après mon arrivée dans le pays. J'ai vécu dans plein de pays et principalement en France, mais enfin pas que.
+
+490
+01:01:14.060 --> 01:01:17.980
+<v Patrick Beja>Donc ma famille a fui la guerre. On est presque des réfugiés. 'Fin,
+
+491
+01:01:18.500 --> 01:01:28.400
+<v Patrick Beja>même, on est des réfugiés à la base, même si je suis arrivé en France quand j'étais tout petit, donc je m'en souviens pas vraiment, donc je sais pas si moi, je suis vraiment un Français typique.
+
+492
+01:01:28.420 --> 01:01:32.300
+<v Patrick Beja>Donc je sais pas si je pourrais vraiment répondre à ta question ou si c'est la réponse à ta question.
+
+493
+01:01:32.540 --> 01:01:33.950
+<v Guillaume Hachez>C'est une réponse, ouais.
+
+494
+01:01:33.980 --> 01:01:46.140
+<v Patrick Beja>Je dirais que les jeunes Français sont un petit peu différents de cette image que tu donnes. Je pense que la plupart d'entre eux aujourd'hui parlent anglais et parlent anglais parfois un petit peu maladroitement, mais pas trop mal.
+
+495
+01:01:46.600 --> 01:02:01.440
+<v Patrick Beja>Et l'Europe joue beaucoup pour ça parce que mine de rien, y a toute la génération Erasmus, qui a beaucoup grandi avec cet environnement international.
+
+496
+01:02:01.800 --> 01:02:12.220
+<v Patrick Beja>Y a le fait que le Net aujourd'hui te confronte à des cultures différentes presque sans que tu le veuilles, par YouTube, Twitter, mine de rien, tout ça, Facebook, etc.
+
+497
+01:02:13.100 --> 01:02:20.880
+<v Patrick Beja>Donc oui, je pense qu'il y a quand même beaucoup de Français centrés sur la France, comme je le disais, mais je crois que c'est en train d'évoluer.
+
+498
+01:02:21.500 --> 01:02:33.160
+<v Patrick Beja>Et j'espère que ça va continuer à évoluer et que les vagues de repli qu'on est en train de voir ne vont pas changer ces choses-là, à terme.
+
+499
+01:02:33.170 --> 01:02:35.940
+<v Guillaume Hachez>Mh. On va revenir un instant sur le chauvinisme. Le--
+
+500
+01:02:36.860 --> 01:02:37.860
+<v Guillaume Hachez>tu sais, nous, en Belgique, on a--
+
+501
+01:02:38.580 --> 01:02:44.240
+<v Guillaume Hachez>si on veut être tout à fait honnête, on n'a pas énormément de choses, énormément de fierté, de-- voilà, on n'a pas une grande histoire, on n'a pas
+
+502
+01:02:44.800 --> 01:02:51.800
+<v Guillaume Hachez>les Lumières, on n'a pas Montaigne, on n'a pas Rabelais, on n'a pas tous ces gens, pour avoir l'impression d'avoir un patrimoine culturel
+
+503
+01:02:52.420 --> 01:02:54.000
+<v Guillaume Hachez>aussi important que celui de la France.
+
+504
+01:02:54.620 --> 01:03:02.520
+<v Guillaume Hachez>Donc de manière générale, si on veut être un petit peu cynique, on va dire que les Belges ne sont pas chauvins parce qu'ils n'ont pas vraiment de quoi l'être, si on veut être un petit peu cynique.
+
+505
+01:03:03.240 --> 01:03:07.960
+<v Guillaume Hachez>Mais dans les faits, les Belges vont te répondre que, bah, le chauvinisme,
+
+506
+01:03:08.620 --> 01:03:15.340
+<v Guillaume Hachez>c'est vieux jeu quoi, c'est l'ancien et que nous, on est glob-- on est plus, entre guillemets, j'allais dire globaliste, pour parler comme Alex Jones.
+
+507
+01:03:15.820 --> 01:03:21.800
+<v Guillaume Hachez>Et on voit finalement, oui, le chauvinisme comme étant un truc ancien, un truc un peu vain, un peu désuet.
+
+508
+01:03:22.360 --> 01:03:31.980
+<v Guillaume Hachez>Est-ce que tu trouves comme nous que le chauvinisme, pardon, que les Français sont trop chauvins ?
+
+509
+01:03:32.000 --> 01:03:33.880
+<v Guillaume Hachez>Ou est-ce que c'est une bonne chose d'être chauvin ?
+
+510
+01:03:33.890 --> 01:03:43.120
+<v Patrick Beja>Oh non, je pense que dans l'ensemble, le chauvinisme, c'est plus négatif que positif. Clairement, ça a une connotation négative.
+
+511
+01:03:43.600 --> 01:03:56.580
+<v Patrick Beja>Il se représente en France, moi, je trouve, différemment du patriotisme parce que ça se manifeste dans : « Ah bah oui, nous, en France, c'est le vin, c'est le pain, c'est le fromage, c'est le machin.
+
+512
+01:03:56.620 --> 01:04:09.220
+<v Patrick Beja>Et puis nous, on a une culture de ça et on protège les valeurs de machin, de truc. » C'est marrant à petite dose, tu vois, mais évidemment, à grosse dose, ça peut devenir néfaste.
+
+513
+01:04:09.880 --> 01:04:20.120
+<v Patrick Beja>Je crois que ça reste amusant dans le contexte où un petit peu comme les Parisiens sont fiers d'être Parisiens et Parisiens tête de chien et Parigots tête de veau.
+
+514
+01:04:20.160 --> 01:04:22.920
+<v Patrick Beja>Je sais pas si tu connais cette expression des-
+
+515
+01:04:23.080 --> 01:04:24.180
+<v Guillaume Hachez>J'ai jamais très bien compris, mais oui.
+
+516
+01:04:24.220 --> 01:04:35.780
+<v Patrick Beja>Bah c'est une manière d'insulter un petit peu les Parisiens quand on est provincial. Et y a cette rivalité, ce petit mépris qu'il y a entre Paris et la province et vice versa.
+
+517
+01:04:36.580 --> 01:04:45.620
+<v Patrick Beja>Ça reste mignon quand c'est à petite dose et que c'est ludique, tu vois. Et de la même manière, je trouve qu'il y a une forme de chauvinisme ludique qui peut être
+
+518
+01:04:45.760 --> 01:04:49.680
+<v Patrick Beja>amusant de la même manière que, je suis sûr que les Belges sont fiers de leur bière et de leur chocolat.
+
+519
+01:04:49.740 --> 01:04:52.850
+<v Patrick Beja>Tu vois, c'est très bien. Évidemment, à forte dose-
+
+520
+01:04:52.850 --> 01:04:54.440
+<v Guillaume Hachez>C'est vrai. Tu as fait la liste.
+
+521
+01:04:54.580 --> 01:04:59.540
+<v Patrick Beja>Ouais. Oh bah, y a la BD quand même qui est une contribution-
+
+522
+01:04:59.860 --> 01:05:00.160
+<v Guillaume Hachez>La Ch'tie.
+
+523
+01:05:00.660 --> 01:05:12.820
+<v Patrick Beja>...importante. Mais oui, je crois qu'à petite dose, le chauvinisme, ça peut être même positif. Mais dans l'ensemble, si on devait mettre un chiffre, je dirais, le chauvinisme, c'est 60 ou 70 % négatif quand même.
+
+524
+01:05:12.880 --> 01:05:14.080
+<v Patrick Beja>Faut pas pousser le bouchon quoi.
+
+525
+01:05:14.700 --> 01:05:25.660
+<v Guillaume Hachez>Mh. D'accord. On va pas s'étendre pendant des heures sur le chauvinisme, sur les relations franco-belges, mais je pense que ça ferait un bon sujet d'émission pour le futur.
+
+526
+01:05:25.700 --> 01:05:33.540
+<v Guillaume Hachez>Donc je note ça peut-être pour une prochaine émission. On va clôturer en parlant un petit peu du medium podcast en lui-même.
+
+527
+01:05:33.900 --> 01:05:50.520
+<v Guillaume Hachez>Tu es podcasteur, toi, depuis avant que ce soit cool. Donc depuis 2006. On a vu depuis à peu près 2012 avec, bah, le grand podcast Serial qui a presque un peu rendu le truc mainstream aux États-Unis.
+
+528
+01:05:50.600 --> 01:05:58.620
+<v Guillaume Hachez>On voyait, oui, une animatrice de podcast qui passait dans les late shows chez Stephen Colbert, etc. C'était assez choquant à voir à l'époque.
+
+529
+01:05:59.160 --> 01:06:10.040
+<v Guillaume Hachez>Est-ce que tu penses que le podcast peut devenir aussi mainstream en Europe, en francophonie, qu'il l'est déjà aux États-Unis ?
+
+530
+01:06:10.080 --> 01:06:17.160
+<v Patrick Beja>C'est un peu compliqué parce qu'y a plusieurs barrières qui viennent s'installer, celle de la langue étant évidemment la principale.
+
+531
+01:06:17.240 --> 01:06:26.160
+<v Patrick Beja>Quand tu parles de mainstream, ça veut dire être très écouté en chiffres. Et en Europe, on va avoir des-
+
+532
+01:06:26.170 --> 01:06:28.440
+<v Guillaume Hachez>Ça veut dire aussi toucher un public qui n'est pas un public de niche, quoi.
+
+533
+01:06:28.500 --> 01:06:39.180
+<v Patrick Beja>Bah ça, je crois que c'est déjà en train de devenir le cas. Je pense que la plupart des gens, en France en tout cas, je sais pas si c'est le cas en Belgique ou ailleurs en Europe, mais y a beaucoup, beaucoup de gens qui écoutent des podcasts.
+
+534
+01:06:39.260 --> 01:06:45.459
+<v Patrick Beja>Moi, je me souviens que quand j'ai commencé, quand je disais ce que je faisais, je devais d'abord expliquer ce qu'était un podcast.
+
+535
+01:06:45.760 --> 01:06:51.120
+<v Patrick Beja>Aujourd'hui, je commence et les gens m'arrêtent en disant : « Non, non, mais c'est bon, je suis pas un imbécile, je sais ce que c'est un podcast », tu vois.
+
+536
+01:06:51.540 --> 01:06:58.700
+<v Patrick Beja>Donc je crois vraiment qu'il y a beaucoup de gens qui au moins savent ce qu'est un podcast et beaucoup de gens qui en écoutent.
+
+537
+01:06:59.680 --> 01:07:17.820
+<v Patrick Beja>Maintenant, de là à dire que le podcast en général est devenu un média reconnu, je crois. Mais je sais pas si on aura un podcast qui va devenir aussi populaire en France ou en Europe que ne l'était Serial aux États-Unis.
+
+538
+01:07:18.420 --> 01:07:27.800
+<v Patrick Beja>Ça, je suis pas convaincu parce qu'aux États-Unis, si 10 % de la population écoute Serial, ça fait quand même, je sais pas, 30 millions de personnes.
+
+539
+01:07:28.440 --> 01:07:35.340
+<v Patrick Beja>En France, si 10 % de la population écoute un podcast, ça fait-- c'est énorme aussi, mais-- enfin si, je sais pas, je sais pas.
+
+540
+01:07:35.400 --> 01:07:42.420
+<v Patrick Beja>J'ai pas de bonne réponse à cette question en fait. Parce que si 10 % de la population écoutait un podcast, ça ferait quand même 6 millions, ce qui est pas négligeable du tout.
+
+541
+01:07:42.980 --> 01:07:48.900
+<v Patrick Beja>Mais pour le moment, c'est pas le cas et je sais pas comment ça pourrait vraiment être le cas. J'ai l'impression que-
+
+542
+01:07:48.960 --> 01:07:57.680
+<v Guillaume Hachez>Tu dis 10 % de la population française, donc là, pour le coup, tu ne tiens pas compte de la barrière de la langue. C'est pas la langue qui va faire que ça se limite à 10 %.
+
+543
+01:07:58.580 --> 01:08:04.540
+<v Guillaume Hachez>C'est quoi l'autre barrière ou les autres barrières qui font qu'on n'est pas du 30, 40 % ?
+
+544
+01:08:04.580 --> 01:08:10.680
+<v Patrick Beja>Je sais pas. Le podcast est souvent un média de niche parce que la force, en fait, du podcast,
+
+545
+01:08:11.260 --> 01:08:23.120
+<v Patrick Beja>c'est ces coûts de production faibles qui font qu'on va pouvoir couvrir des sujets qui sont, entre guillemets, trop petits pour être couverts par les médias traditionnels.
+
+546
+01:08:23.880 --> 01:08:34.340
+<v Patrick Beja>Donc la tech, le jeu vidéo, d'autres sujets de ce type. Y a beaucoup de podcasteurs ou de journalistes qui commencent à faire du podcast et qui sont en train de se regrouper,
+
+547
+01:08:35.020 --> 01:08:41.992
+<v Patrick Beja>soit en lançant des sociétés, soit en collectif, pour faire en quelque sorte de la radio mais en podcast.
+
+548
+01:08:42.452 --> 01:08:52.792
+<v Patrick Beja>Et ce qui est compliqué, c'est qu'ils vont avoir des animateurs nombreux et des journalistes et des monteurs et des secrétaires et des, etc., etc.
+
+549
+01:08:53.612 --> 01:09:04.012
+<v Patrick Beja>Et tout ça, ça finit par coûter de l'argent. Et du coup, pour payer tous ces gens-là et tous ces bureaux, etc., ils vont vouloir mettre de la pub dans leurs émissions en général.
+
+550
+01:09:04.492 --> 01:09:17.752
+<v Patrick Beja>Et là, on redevient confronté à la question de la population. Parce qu'aux États-Unis, la pub sur 10 millions d'auditeurs, ça va faire beaucoup.
+
+551
+01:09:17.812 --> 01:09:22.092
+<v Patrick Beja>Ici, on n'a jamais même un million d'auditeurs. Ça ne se produit pas.
+
+552
+01:09:22.652 --> 01:09:31.592
+<v Patrick Beja>Et donc c'est difficile de faire payer tous ces gens-là parce que l'équipe va être la même pour produire un podcast aux États-Unis en anglais qu'un podcast en France en français.
+
+553
+01:09:32.072 --> 01:09:46.012
+<v Patrick Beja>Mais par contre, les revenus vont pas être les mêmes. Et c'est pour ça que, à mon sens, le podcast est le meilleur quand il couvre des sujets de niche et qu'il réduit la voilure qu'il va avoir.
+
+554
+01:09:46.052 --> 01:09:57.312
+<v Patrick Beja>C'est pour ça que moi, je suis seul et que je, pour le moment, en tout cas, je reste seul. C'est parce que je peux, avec la voilure de mon podcast, payer une personne.
+
+555
+01:09:57.932 --> 01:10:04.532
+<v Patrick Beja>Payer cinq, dix ou trente personnes comme le font certains, je sais pas si ça serait possible. J'espère que ça le soit.
+
+556
+01:10:04.592 --> 01:10:07.792
+<v Patrick Beja>Je le souhaiterais. Mais quand on va couvrir un sujet-
+
+557
+01:10:07.972 --> 01:10:12.262
+<v Guillaume Hachez>Tu prédis que toutes ces structures, toutes ces nouvelles sociétés vont s'effondrer, c'est ça que tu dis ?
+
+558
+01:10:12.712 --> 01:10:16.492
+<v Patrick Beja>Non, pas toutes, mais je pense qu'il va y avoir clairement des consolidations. Il va pas rester tout le monde au bout du compte.
+
+559
+01:10:16.972 --> 01:10:28.852
+<v Patrick Beja>Je crois que la vision qu'ils ont des podcasts aujourd'hui, je sais pas si elle va pouvoir se concrétiser parce que comme je le disais, faire de la radio en podcast, tu te mets en concurrence avec la radio.
+
+560
+01:10:29.432 --> 01:10:40.952
+<v Patrick Beja>Et là où on est fort dans les podcasts, c'est que comme on a des voilures plus petites, on va pouvoir parler de tech pendant une heure par semaine, tu vois, même à des audiences plus faibles.
+
+561
+01:10:41.812 --> 01:10:55.272
+<v Patrick Beja>Et-- ou parler de jeux vidéo, ou parler de ce genre de choses. Là où, sur, je sais pas, France Inter, ils vont jamais te faire un sujet sur le jeu vidéo pendant une heure ou une heure et demie par semaine.
+
+562
+01:10:55.292 --> 01:11:06.072
+<v Patrick Beja>Ils vont pas avoir une émission sur ça ou sur France 2 ou sur TF1 ou ce que c'est, parce qu'ils s'adressent à un public beaucoup plus large pour pouvoir toucher un public plus large, pour pouvoir vendre de la pub à un public plus large.
+
+563
+01:11:06.692 --> 01:11:19.832
+<v Patrick Beja>Donc, je sais pas si la formule peut avoir une solution, si on peut trouver une solution à cette équation et faire des sujets comparables à ceux de la radio, mais en podcast.
+
+564
+01:11:20.652 --> 01:11:33.572
+<v Patrick Beja>Je sais pas. Peut-être que oui, peut-être qu'ils vont trouver un ton particulier comme le ton de Serial. Peut-être qu'ils vont trouver des sujets particuliers et qu'il y aura quelques podcasts qui vont exploser en français aussi.
+
+565
+01:11:33.632 --> 01:11:36.952
+<v Patrick Beja>C'est ce que j'espère, mais ça me paraît compliqué.
+
+566
+01:11:37.252 --> 01:11:37.892
+<v Guillaume Hachez>Il faut y arriver quoi.
+
+567
+01:11:38.652 --> 01:11:44.212
+<v Patrick Beja>Faut y arriver. Et peut-être qu'il y aura quelqu'un qui trouvera la solution. C'est pas du tout impossible.
+
+568
+01:11:44.332 --> 01:11:51.612
+<v Patrick Beja>Moi, c'est ce que je souhaite parce que plus le podcast grandit, plus y a des gens qui vont venir se demander s'il y a des podcasts sur la tech et écouter le Rendez-vous Tech.
+
+569
+01:11:51.632 --> 01:11:53.612
+<v Patrick Beja>Donc moi, ça me va très bien.
+
+570
+01:11:53.692 --> 01:12:01.532
+<v Guillaume Hachez>Super. Très bien. Bien Patrick, je te remercie très fort. Je te remercie très sincèrement d'être venu répondre à mes questions. C'était formidable.
+
+571
+01:12:01.592 --> 01:12:10.392
+<v Patrick Beja>Ah mais merci de m'avoir fait l'honneur de m'inviter. J'étais très heureux de recevoir ton message en voyant que tu voulais m'avoir dans l'émission.
+
+572
+01:12:10.472 --> 01:12:11.252
+<v Patrick Beja>Ça me fait très plaisir.
+
+573
+01:12:11.572 --> 01:12:15.132
+<v Guillaume Hachez>Ah eh bien, est-ce que tu peux dire à nos auditeurs où ils peuvent te retrouver ?
+
+574
+01:12:15.752 --> 01:12:23.152
+<v Patrick Beja>Bien sûr, bah Twitter, on en parlait. C'est le moyen le plus simple sans doute. Je suis NotPatrick sur Twitter. C'est très facile à retenir, hein.
+
+575
+01:12:23.232 --> 01:12:29.792
+<v Patrick Beja>Y a beaucoup de gens qui me disent : « Mais d'où vient ce nom ? » Bah, y a une histoire, bien sûr, mais l'essentiel, c'est que c'est du marketing, tu vois.
+
+576
+01:12:29.832 --> 01:12:41.772
+<v Patrick Beja>NotPatrick, c'est déjà retenu. Je suis également NotPatrick sur Facebook et Instagram. Et surtout, si vous voulez écouter mon émission, ben c'est soit le Rendez-vous Tech, soit le Rendez-vous Jeux.
+
+577
+01:12:41.812 --> 01:12:47.852
+<v Patrick Beja>Vous pouvez chercher ça dans votre application de podcast que vous êtes en train d'utiliser en ce moment pour écouter ce podcast, par exemple.
+
+578
+01:12:48.112 --> 01:12:54.632
+<v Patrick Beja>Vous allez dans le petit champ de recherche de l'application, vous cherchez le Rendez-vous Tech, vous vous abonnez et vous aurez le prochain épisode.
+
+579
+01:12:54.642 --> 01:13:03.272
+<v Patrick Beja>Voilà, c'est simple et rapide. Donc c'est sur l'application de podcast directement ou alors sur le site frenchspin.fr.
+
+580
+01:13:03.392 --> 01:13:07.252
+<v Guillaume Hachez>Yes. Et on conseille aussi le Phileas Club quand même. Ne pas l'oublier, celui-là, il est-
+
+581
+01:13:07.332 --> 01:13:07.772
+<v Patrick Beja>Bien sûr.
+
+582
+01:13:07.812 --> 01:13:08.272
+<v Guillaume Hachez>...légendaire.
+
+583
+01:13:08.332 --> 01:13:14.032
+<v Patrick Beja>Si vous parlez anglais, le Phileas Club, je vous encourage à l'écouter également. C'est sur frenchspin.com.
+
+584
+01:13:14.372 --> 01:13:22.712
+<v Patrick Beja>Mais si vous connaissez Phileas Fogg du Tour du monde en 80 jours, bah Phileas Club, voilà, l'orthographe sera facile à retrouver.
+
+585
+01:13:22.732 --> 01:13:35.572
+<v Guillaume Hachez>Nice. Merci Patrick et on se retrouve bientôt pour un prochain épisode. Et voilà, c'est déjà fini pour ce quatrième épisode.
+
+586
+01:13:35.742 --> 01:13:41.132
+<v Guillaume Hachez>C'est-à-dire que nous, on se retrouve dans deux semaines et ça veut dire que moi, je dois taffer parce que si j'en enregistre pas plus, je vais bientôt être à court.
+
+587
+01:13:41.232 --> 01:13:46.192
+<v Guillaume Hachez>Un petit mot avant qu'on se quitte. Ça fait deux semaines que le podcast a été lancé et j'ai reçu beaucoup de messages d'encouragement et de soutien.
+
+588
+01:13:46.232 --> 01:13:56.472
+<v Guillaume Hachez>Et pour ça, je tenais à vous remercier. Enfin, je sais très bien que quand le host, à la fin du podcast, demande d'aller liker la page sur Facebook et tout ça, ça rentre par une oreille et ça ressort par l'autre.
+
+589
+01:13:56.632 --> 01:14:08.112
+<v Guillaume Hachez>Mais voilà, le truc, c'est que quand on fait des podcasts, c'est un peu un média à sens unique. Vous, vous m'écoutez parler avec mon invité, mais au final, moi, j'ai forcément beaucoup moins de retours de votre part, de la part de mes auditeurs.
+
+590
+01:14:08.532 --> 01:14:14.692
+<v Guillaume Hachez>Donc voilà, dans la description de cet épisode, il y a des liens vers les pages Facebook, Twitter et YouTube de 70 minutes avec.
+
+591
+01:14:15.292 --> 01:14:22.632
+<v Guillaume Hachez>Moi, je vous propose un truc. Quand vous aurez fini cet épisode, allez suivre 70 minutes avec sur votre réseau social préféré.
+
+592
+01:14:22.712 --> 01:14:30.132
+<v Guillaume Hachez>Ça vous permettra d'entrer en contact avec moi, si vous avez des retours à faire sur un épisode, que ce soit positif, négatif, peu importe.
+
+593
+01:14:30.172 --> 01:14:34.102
+<v Guillaume Hachez>Et ça vous permettra aussi de vous tenir au courant de l'actualité de l'émission, des prochains invités et tout et tout.
+
+594
+01:14:34.462 --> 01:14:45.052
+<v Guillaume Hachez>Pour chaque épisode, j'ai mis des petits extraits de deux minutes sur Facebook et Twitter. Et si ça vous chante, c'est très simple de retweeter ou de partager ces extraits, histoire de faire découvrir l'émission à vos amis.
+
+595
+01:14:45.092 --> 01:14:51.412
+<v Guillaume Hachez>Et moi, ça m'aiderait énormément. Voilà, c'est tout pour moi. À dans deux semaines pour un nouvel épisode sur la science de l'éducation. Bye bye.

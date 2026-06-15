@@ -1,0 +1,2153 @@
+WEBVTT
+
+0
+00:00:00.280 --> 00:00:19.360
+<v Guillaume Hachez>Salut, moi c'est Guillaume Hachez. Bienvenue dans Septante Minutes Avec. Cette semaine, je suis allé à la rencontre de mon amie Julie Foulon, la cofondatrice de MolenGeek.
+
+1
+00:00:19.380 --> 00:00:23.640
+<v Guillaume Hachez>MolenGeek se trouve à Molenbeek, le fameux quartier bruxellois dont on a beaucoup parlé il y a quelques années.
+
+2
+00:00:24.060 --> 00:00:29.340
+<v Guillaume Hachez>On passe une heure à parler de ce très beau projet qui illustre encore une fois que l'informatique est un formidable vecteur d'ascension sociale,
+
+3
+00:00:29.780 --> 00:00:32.400
+<v Guillaume Hachez>mais aussi de l'entrepreneuriat en Belgique et du manque de femmes dans le secteur.
+
+4
+00:00:32.860 --> 00:00:39.520
+<v Guillaume Hachez>Et en parlant de ça, j'aurai une grosse annonce à faire en fin d'émission, donc reste bien jusqu'au bout. Let's go ! Et bonjour à tous et bienvenue pour un nouvel épisode.
+
+5
+00:00:39.940 --> 00:00:43.360
+<v Guillaume Hachez>Cette semaine, on passe septante minutes avec Julie Foulon. Salut Julie.
+
+6
+00:00:43.400 --> 00:00:44.460
+<v Julie Foulon>Salut Guillaume.
+
+7
+00:00:44.600 --> 00:00:52.080
+<v Guillaume Hachez>Très content de t'avoir. Ça fait des mois que je te cours après. On essaie de se caser un rendez-vous et on a enfin réussi à se poser deux heures à MolenGeek.
+
+8
+00:00:52.200 --> 00:00:53.300
+<v Guillaume Hachez>Tu es super occupée-
+
+9
+00:00:53.560 --> 00:00:53.570
+<v Julie Foulon>Ouais, très
+
+10
+00:00:53.570 --> 00:00:56.650
+<v Guillaume Hachez>...parce que tu diriges MolenGeek. C'est quoi MolenGeek ? Rappelle-nous.
+
+11
+00:00:56.940 --> 00:01:06.160
+<v Julie Foulon>MolenGeek, c'est un incubateur de start-up, c'est aussi une coding school. Donc la mission première de MolenGeek, c'est de rendre accessibles à tous les nouvelles technologies et l'entrepreneuriat innovant
+
+12
+00:01:06.600 --> 00:01:09.320
+<v Julie Foulon>et en particulier aux jeunes qui ont quitté l'école tôt,
+
+13
+00:01:09.860 --> 00:01:14.040
+<v Julie Foulon>qui sont soit en décrochage, soit qui n'arrivent pas à se,
+
+14
+00:01:14.780 --> 00:01:23.820
+<v Julie Foulon>à se projeter dans cette société, le marché du travail, parce qu'il y a vraiment une vraie différence entre ce que tu apprends à l'école et puis les besoins concrets des entreprises.
+
+15
+00:01:23.850 --> 00:01:24.960
+<v Julie Foulon>Donc il y a plein de jeunes comme ça-
+
+16
+00:01:25.140 --> 00:01:25.150
+<v Guillaume Hachez>Ouais
+
+17
+00:01:25.150 --> 00:01:27.880
+<v Julie Foulon>...qui sont un peu perdus. Et nous, on les accueille ici pour-
+
+18
+00:01:27.890 --> 00:01:27.900
+<v Guillaume Hachez>D'accord, ok
+
+19
+00:01:27.900 --> 00:01:29.360
+<v Julie Foulon>...leur donner une voix.
+
+20
+00:01:29.560 --> 00:01:35.660
+<v Guillaume Hachez>Beaucoup de choses dans ce que tu as dit. On va passer tout ça en revue. Mais ouais, donc on a parlé de MolenGeek avec Alexander De Croo dans l'épisode un.
+
+21
+00:01:35.720 --> 00:01:38.080
+<v Guillaume Hachez>On en a parlé avec Interface3 dans l'épisode deux.
+
+22
+00:01:38.180 --> 00:01:39.900
+<v Julie Foulon>Nous sommes omniprésents, c'est ça.
+
+23
+00:01:40.260 --> 00:01:40.390
+<v Guillaume Hachez>Ben oui, oui.
+
+24
+00:01:40.390 --> 00:01:40.840
+<v Julie Foulon>Ça, c'est MolenGeek.
+
+25
+00:01:40.880 --> 00:01:49.040
+<v Guillaume Hachez>Et donc tu arrives-- T'es un peu comme l'empereur dans Star Wars. On parle de toi pendant tous les épisodes et puis tu arrives dans l'épisode six. Voilà, et donc tu-
+
+26
+00:01:49.080 --> 00:01:50.000
+<v Julie Foulon>J'aime bien l'analogie.
+
+27
+00:01:50.120 --> 00:01:51.620
+<v Guillaume Hachez>C'est ça. Tu meurs à la fin, désolé.
+
+28
+00:01:53.530 --> 00:02:02.740
+<v Guillaume Hachez>Mais donc les jeunes qui arrivent à MolenGeek, tu m'expliquais que c'était des jeunes en-- Vous faisiez un focus sur ceux qui étaient un peu défavorisés, qui avaient un cursus scolaire un peu difficile.
+
+29
+00:02:03.400 --> 00:02:07.100
+<v Guillaume Hachez>C'est-- voilà, c'est qui précisément les jeunes qui viennent à MolenGeek ? Parce que ça me paraît assez typé.
+
+30
+00:02:07.340 --> 00:02:15.320
+<v Guillaume Hachez>J'étais dans la salle d'attente tout à l'heure et je voyais des filles, je voyais des gens de couleur, je voyais que des minorités qu'on voit pas d'habitude dans les milieux un peu tech.
+
+31
+00:02:15.500 --> 00:02:16.840
+<v Guillaume Hachez>Comment tu fais ? Comment c'est possible ?
+
+32
+00:02:16.880 --> 00:02:23.720
+<v Julie Foulon>Ben en fait, c'est parti un peu d'un constat. Donc l'idée de MolenGeek ne vient pas de moi, hein, ça vient d'Ibrahim Ouassari et d'une bande de copains.
+
+33
+00:02:23.780 --> 00:02:28.260
+<v Julie Foulon>Moi, je suis arrivée dans l'aventure vraiment au tout début, avant que ça prenne.
+
+34
+00:02:28.740 --> 00:02:38.859
+<v Julie Foulon>Et l'idée, c'était que-- En fait, si tu veux, je rebondis sur ce que tu disais, qu'on voit des gens qu'on voit pas dans la scène tech, c'est vrai, puisque la scène tech, d'une manière générale, est assez élitiste.
+
+35
+00:02:38.900 --> 00:02:46.680
+<v Julie Foulon>On voit toujours le même type de profil, des gens qui ont fait des études supérieures, qui viennent de classe moyenne, classe supérieure. Comme-
+
+36
+00:02:46.820 --> 00:02:54.400
+<v Guillaume Hachez>Au-delà du milieu d'où ils viennent, il y a un peu le côté cooptation. On s'invite entre mecs, entre Blancs, on reste bien entre nous et voilà.
+
+37
+00:02:54.460 --> 00:02:59.100
+<v Julie Foulon>Ben tout à fait. Ben de toute façon, tu le voyais bien un peu au Beta Group, hein, quand tu venais à mes événements.
+
+38
+00:02:59.140 --> 00:02:59.600
+<v Guillaume Hachez>Vas-y, balance, balance.
+
+39
+00:02:59.660 --> 00:03:07.720
+<v Julie Foulon>Hein, ben oui, c'est ça. C'est vrai qu'il y avait quoi ? Entre quatre cents, cinq cents personnes qui venaient tous les mois à l'ULB et tu voyais, c'était toujours le même type de pro-
+
+41
+00:03:07.920 --> 00:03:15.080
+<v Julie Foulon>...de profil. Très peu de femmes, comme tu dis, c'est principalement des hommes. Et puis ben, zéro diversité culturelle.
+
+42
+00:03:15.520 --> 00:03:24.440
+<v Julie Foulon>Alors moi, je râlais parce que je trouvais qu'il y avait pas assez de nanas. Et puis lui, Ibrahim, quand il venait à mes événements, il disait : « Ben écoute, finalement, il y a pas beaucoup de diversité non plus quoi ».
+
+43
+00:03:24.480 --> 00:03:33.020
+<v Julie Foulon>Et puis il y a pas non plus de jeunes. Et malgré le fait de le faire à l'université, je me souviens dans les statistiques, j'avais 7 % d'étudiants.
+
+44
+00:03:33.360 --> 00:03:33.660
+<v Guillaume Hachez>Ah ouais.
+
+45
+00:03:33.780 --> 00:03:42.340
+<v Julie Foulon>Ce qui est rien. Ce qui est rien du tout. Alors qu'on sait, l'innovation vient aussi des jeunes, de par leur manière de voir le monde, d'utiliser les nouvelles technologies.
+
+46
+00:03:42.400 --> 00:03:55.450
+<v Julie Foulon>Donc c'était très important de pouvoir les impliquer et les intégrer. Donc c'est vrai que MolenGeek, l'idée de base, c'était de faire un test à Molenbeek et de prouver que les jeunes, finalement, des quartiers,
+
+47
+00:03:56.060 --> 00:04:04.360
+<v Julie Foulon>avaient un intérêt et pouvaient accrocher à toutes ces nouvelles techniques entrepreneuriales et à cette innovation, ces nouvelles technologies.
+
+48
+00:04:04.860 --> 00:04:17.399
+<v Julie Foulon>Et donc on a vraiment transformé l'essai en créant un espace en mars 2016 qui a été agrandi de-- qui passait de soixante-cinq mètres carrés à cent septante, puis maintenant à six cents et bientôt à mille mètres carrés.
+
+49
+00:04:17.810 --> 00:04:17.840
+<v Guillaume Hachez>Ouah.
+
+50
+00:04:17.840 --> 00:04:23.820
+<v Julie Foulon>Et bientôt, on ouvrira encore un autre lieu. Donc c'est vrai qu'on a vraiment transformé l'essai dans le sens où
+
+51
+00:04:24.440 --> 00:04:33.660
+<v Julie Foulon>on a réussi à toucher toute une jeunesse qui, finalement, n'arrivait pas à se projeter dans l'avenir, dans le marché du travail et qui, finalement, avait,
+
+52
+00:04:34.620 --> 00:04:39.979
+<v Julie Foulon>avait que des perspectives d'avenir sur des travails, des-- tu vois, du travail à faible valeur ajoutée.
+
+53
+00:04:40.000 --> 00:04:42.310
+<v Guillaume Hachez>Des travaux, oui, style chauffeur de bus, etc.
+
+54
+00:04:42.340 --> 00:04:42.940
+<v Julie Foulon>Exactement.
+
+55
+00:04:43.460 --> 00:04:43.780
+<v Guillaume Hachez>C'est ça.
+
+56
+00:04:43.940 --> 00:04:55.920
+<v Julie Foulon>Alors que les nouvelles technologies, secteur d'opportunités et d'avenir, et on le sait, hein, dans les dix prochaines années, la moitié des nouveaux métiers, on les connaît pas encore et ce sera dans le digital.
+
+57
+00:04:56.080 --> 00:04:58.720
+<v Julie Foulon>Donc c'est un vecteur de croissance et c'est un vecteur d'émancipation.
+
+58
+00:04:58.800 --> 00:05:03.060
+<v Guillaume Hachez>C'est ça. Donc quand tu le décris comme ça, on a l'impression que les jeunes qui viennent ici, ils viennent chercher-- 'fin, y a pas que des jeunes, mais
+
+59
+00:05:03.380 --> 00:05:09.940
+<v Guillaume Hachez>les jeunes qui viennent ici, ils viennent chercher une espèce de levier d'ascension sociale, un petit peu du style : « Ben, j'ai pas envie de devenir chauffeur de bus.
+
+60
+00:05:09.960 --> 00:05:13.740
+<v Guillaume Hachez>J'aimerais bien avoir un métier qui paye bien, qui est valorisé dans la société » et ils viennent chercher ça.
+
+61
+00:05:14.040 --> 00:05:22.300
+<v Julie Foulon>Ben ils viennent surtout se raccrocher à quelque chose qui les intéresse. Donc ils ont tous un smartphone dans la poche, ils sont tous consommateurs de nouvelles technologies.
+
+62
+00:05:22.650 --> 00:05:29.100
+<v Julie Foulon>Et là, pour une fois, on leur dit : « Ben, vous savez, les nouvelles technologies, c'est pas si inaccessible que ça.
+
+63
+00:05:29.560 --> 00:05:38.920
+<v Julie Foulon>C'est pas parce qu'on parle anglais ou dans la scène tech, on utilise un vocabulaire assez compliqué ou des notions complexes à appréhender que c'est pas fait pour vous.
+
+64
+00:05:39.160 --> 00:05:43.590
+<v Julie Foulon>» Mais y a quand même pas mal de buzzwords et nous, on est là pour justement faire un peu le ménage et-
+
+65
+00:05:43.600 --> 00:05:44.500
+<v Guillaume Hachez>Faire le truc un peu accessible
+
+66
+00:05:44.520 --> 00:05:53.120
+<v Julie Foulon>...et rendre les choses accessibles. Et en fait, ça fonctionne puisque quand on voit les jeunes qui font notre coding school, en l'espace de six mois, ils deviennent full stack développeurs
+
+67
+00:05:53.540 --> 00:05:56.460
+<v Julie Foulon>et ils sont à la fin embauchés ou alors ils montent leur entreprise.
+
+68
+00:05:56.800 --> 00:06:00.800
+<v Guillaume Hachez>Donc tu penses que ça vient surtout d'une familiarité, d'un intérêt pour
+
+69
+00:06:01.080 --> 00:06:08.380
+<v Guillaume Hachez>les ordinateurs, pour les GSM et donc ouais, pas tellement pour les questions économiques de se dire : « J'ai envie d'avoir un métier cool qui paye bien et qui me plaît » et tout ça ?
+
+70
+00:06:08.700 --> 00:06:20.770
+<v Julie Foulon>Ben je pense qu'il y a un centre d'intérêt. Donc ils aiment bien, ils sont consommateurs, ils aiment bien les nouvelles technologies en général, sans savoir ce qu'est le métier de développeur, hein, par exemple. Et puis donc,
+
+71
+00:06:21.000 --> 00:06:21.720
+<v Julie Foulon>ils viennent ici,
+
+72
+00:06:21.940 --> 00:06:31.960
+<v Julie Foulon>ils se forment et après, évidemment, il y a toujours cette question économique parce que la plupart des jeunes qui viennent ici, ben, il faut quand même le reconnaître, hein, ils ont énormément de difficultés à être embauchés.
+
+73
+00:06:32.060 --> 00:06:34.239
+<v Julie Foulon>La plupart n'ont pas de diplôme. 30 %-
+
+74
+00:06:34.280 --> 00:06:35.019
+<v Guillaume Hachez>Avant de venir ici, ouais.
+
+75
+00:06:35.120 --> 00:06:45.460
+<v Julie Foulon>Voilà. 30 % des jeunes qui viennent ici n'ont pas de CESS. Et alors après, dans ceux qui ont leur CESS, ben alors là, la grande majorité n'ont pas fait d'études supérieures.
+
+76
+00:06:45.800 --> 00:06:52.280
+<v Julie Foulon>Donc autant te dire que c'est compliqué pour eux, ben, d'un point de vue diplôme, d'être embauchés, ils ont pas le bon profil.
+
+77
+00:06:52.300 --> 00:06:57.680
+<v Julie Foulon>Et alors en plus, tu mets une couche de discrimination, alors là, parfois, c'est mission impossible.
+
+78
+00:06:57.700 --> 00:07:07.460
+<v Julie Foulon>Donc du coup, ils sont obligés de se tourner vers l'entrepreneuriat. Et là, grande chance, c'est que pour être entrepreneur, t'as pas besoin de faire d'études parce que c'est une question d'état d'esprit avant tout.
+
+79
+00:07:07.860 --> 00:07:14.380
+<v Julie Foulon>Et les nouvelles technologies, ça avance tellement vite et ça évolue à une rapidité, donc ce que je disais, complètement dingue,
+
+80
+00:07:14.840 --> 00:07:25.980
+<v Julie Foulon>que si tu te formes et que tu mets le pied à l'étrier, que t'es motivé, que t'as un bon bosseur, eh ben grâce à l'expérience et ce que tu fais, ben tu peux devenir full stack développeur et combiner les deux.
+
+81
+00:07:26.020 --> 00:07:27.960
+<v Julie Foulon>Alors là, c'est le combo gagnant, tu montes ta boîte.
+
+82
+00:07:28.260 --> 00:07:35.360
+<v Guillaume Hachez>C'est ça. Mais quand tu parles de monter ta boîte, c'est plutôt alors des boîtes de services où tu es webmaster pour d'autres sociétés ou tu crées du...
+
+83
+00:07:35.920 --> 00:07:41.240
+<v Julie Foulon>Tout à fait. Alors au début, c'est vrai que c'est ça. Parce qu'il faut comprendre que t'as un cheminement.
+
+84
+00:07:41.280 --> 00:07:53.880
+<v Julie Foulon>Tu viens pas comme ça de rien du tout à l'idée du siècle qui va révolutionner la Terre entière. Donc les jeunes viennent ici, ils se familiarisent avec un écosystème tech et innovant,
+
+85
+00:07:54.300 --> 00:07:59.540
+<v Julie Foulon>ils se forment, ils deviennent indépendants, donc ils commencent à avoir leur premier client.
+
+86
+00:07:59.900 --> 00:08:11.460
+<v Julie Foulon>Alors, c'est souvent comme tu dis, hein, c'est la création de sites internet, la gestion de contenus, etc. Et c'est après, au travers d'un process que, ben là, ils commencent à développer leurs propres idées.
+
+87
+00:08:11.520 --> 00:08:17.760
+<v Julie Foulon>Mais ça prend du temps. Ça prend du temps, pour le coup, d'avoir une idée qui a mûri et qui a maturé.
+
+88
+00:08:18.120 --> 00:08:25.020
+<v Guillaume Hachez>Et c'est ça qui est intéressant avec MolenGeek, c'est que d'un côté, il y a cet aspect, on parle de start-up, de start-up nation, de grandes levées de fonds, etc.
+
+89
+00:08:25.960 --> 00:08:33.640
+<v Guillaume Hachez>Et en même temps, quand tu nous parles de tout ça, il y a un peu le côté social, un peu le côté... Vous avez reçu des aides du gouvernement de
+
+90
+00:08:34.240 --> 00:08:37.440
+<v Guillaume Hachez>la part du Digital Skills Fund d'Alexander De Croo il y a quelques années, donc
+
+91
+00:08:38.080 --> 00:08:39.300
+<v Guillaume Hachez>cinq cent mille euros, si je ne m'abuse.
+
+92
+00:08:39.600 --> 00:08:45.600
+<v Guillaume Hachez>Donc quand on entend ça, on se dit : « Ah, c'est vraiment côté social, côté on va aider la jeunesse. » Et puis-
+
+93
+00:08:45.669 --> 00:08:45.840
+<v Julie Foulon>Oui.
+
+94
+00:08:45.840 --> 00:08:50.810
+<v Guillaume Hachez>Et en même temps, il y a aussi cet aspect : on va créer de la valeur, on va créer des sociétés...
+
+95
+00:08:50.820 --> 00:09:01.460
+<v Julie Foulon>Ben c'est pour ça que nous, on parle plutôt d'un impact sociétal positif. Donc c'est vrai que la première année, on a eu vraiment de l'aide d'Alexander De Croo, au travers de son fonds, hein.
+
+96
+00:09:01.540 --> 00:09:15.260
+<v Julie Foulon>Et c'est vrai que ça nous a permis finalement d'avoir un impact plus grand et vraiment positif et de mettre vraiment un grand coup et de permettre de lancer MolenGeek, ce qui est chouette.
+
+97
+00:09:15.560 --> 00:09:19.680
+<v Julie Foulon>C'est vrai qu'on continue à être aidés à ce niveau-là, mais on a cette logique
+
+98
+00:09:20.140 --> 00:09:31.490
+<v Julie Foulon>d'entrepreneur avec Ibrahim où notre objectif, c'est d'être indépendant financièrement et afin justement de grandir comme une vraie entreprise et de montrer l'exemple à tous ces jeunes.
+
+99
+00:09:31.520 --> 00:09:32.880
+<v Julie Foulon>On n'est pas là pour...
+
+100
+00:09:33.040 --> 00:09:34.260
+<v Guillaume Hachez>C'est ça, pour vivre des subsides.
+
+101
+00:09:34.280 --> 00:09:34.720
+<v Julie Foulon>Ah non, pas du tout.
+
+102
+00:09:34.760 --> 00:09:35.060
+<v Guillaume Hachez>Définitivement.
+
+103
+00:09:35.100 --> 00:09:35.420
+<v Julie Foulon>Ah pas du tout.
+
+104
+00:09:35.440 --> 00:09:40.560
+<v Guillaume Hachez>Mais justement, j'avais une question là-dessus puisque donc vous êtes aussi soutenus par des grands géants américains du style
+
+105
+00:09:40.840 --> 00:09:45.680
+<v Guillaume Hachez>Google, Samsung et donc aussi des grandes sommes d'argent, plusieurs centaines de milliers d'euros.
+
+106
+00:09:45.880 --> 00:09:55.600
+<v Guillaume Hachez>Cet argent, il part où, en fait ? Parce que je vois des agrandissements, des étages qui bougent, mais est-ce que vous avez vraiment dépensé près d'un million d'euros dans ce que je vois là ici ?
+
+107
+00:09:55.640 --> 00:09:56.360
+<v Guillaume Hachez>Ou comment ça marche ?
+
+108
+00:09:56.380 --> 00:09:59.490
+<v Julie Foulon>Ah ben, on n'a pas reçu un million d'euros de Samsung et de Google.
+
+109
+00:09:59.540 --> 00:10:06.500
+<v Guillaume Hachez>Non, non, mais si on ajoute les cinq cent mille d'Alexander De Croo, si on ajoute les deux cent, trois cent, je ne sais pas combien de Google et puis ceux de Samsung et puis voilà.
+
+110
+00:10:06.640 --> 00:10:13.320
+<v Julie Foulon>Alors donc déjà, on a fait tous les travaux d'agrandissement du rez-de-chaussée. Donc ça, c'était quand même un grand bloc, hein.
+
+111
+00:10:13.340 --> 00:10:14.819
+<v Guillaume Hachez>Ouais, ça s'est bien agrandi depuis, hein.
+
+112
+00:10:14.860 --> 00:10:23.580
+<v Julie Foulon>Si tu te souviens, mais dans le bâtiment dans lequel nous nous trouvons, qui est le centre d'entreprises de Molenbeek, c'était vraiment des bureaux qui étaient séparés les uns des autres.
+
+113
+00:10:23.600 --> 00:10:29.600
+<v Julie Foulon>Donc ça, c'était vraiment-- on est passé de soixante-cinq mètres carrés à cent septante mètres carrés. Donc on a changé complètement la structure.
+
+114
+00:10:29.620 --> 00:10:36.100
+<v Julie Foulon>Et puis après, on s'est agrandis de quasiment quatre cents-- un peu plus de quatre cents mètres carrés supplémentaires au premier étage.
+
+115
+00:10:36.120 --> 00:10:45.980
+<v Julie Foulon>Donc pareil, il a fallu changer la structure pour passer de bureaux individuels à un grand espace de coworking d'un côté et puis des classes vitrées de l'autre.
+
+116
+00:10:46.280 --> 00:10:55.420
+<v Julie Foulon>Donc tu vois, ça demande aussi pas mal d'investissements. Puis après, on a aussi du personnel, hein, on a des coachs, il y a du monde, hein, qui travaille à MolenGeek.
+
+117
+00:10:55.500 --> 00:10:59.000
+<v Guillaume Hachez>Des ressources humaines et des bâtiments, et du matériel et tout ça.
+
+118
+00:10:59.180 --> 00:11:06.499
+<v Julie Foulon>Et puis des événements, beaucoup d'événements qu'on organise, hein. Donc il y a toutes les activités qu'on organise à MolenGeek, évidemment.
+
+119
+00:11:06.540 --> 00:11:14.355
+<v Guillaume Hachez>Ouais. Mais donc du coup, ça marche comment le modèle économique de MolenGeek ? Puisque tu m'as expliqué qu'à terme, vous voulez devenir rentable, vous voulez rentrer dans vos frais.
+
+120
+00:11:15.096 --> 00:11:21.356
+<v Guillaume Hachez>Jusque-là, vous avez surtout des aides gouvernementales, des aides de sponsors. On a dit Google, Samsung et compagnie.
+
+121
+00:11:21.516 --> 00:11:22.856
+<v Guillaume Hachez>Vous allez faire comment du coup ?
+
+122
+00:11:22.896 --> 00:11:30.335
+<v Julie Foulon>Ben c'est vrai qu'avec Ibrahim, on a cette logique entrepreneuriale qu'on a eue depuis le début. Comme tu dis, on a différents revenus qui sont assez variés.
+
+123
+00:11:30.456 --> 00:11:44.116
+<v Julie Foulon>On a de l'aide de l'État, hein, donc de ce fonds d'Alexander De Croo, le Digital Skills Fund. On a aussi, comment dire, des subsides de la région Bruxelles-Capitale pour des projets très particuliers.
+
+124
+00:11:44.676 --> 00:11:55.396
+<v Julie Foulon>On a des gros sponsors, Samsung et Google, mais on est aussi prestataire de services pour Bruxelles Formation et Actiris, puisqu'on crée et on donne des formations pour les chercheurs d'emploi.
+
+125
+00:11:55.816 --> 00:12:05.216
+<v Julie Foulon>Enfin, là, on développe ce qu'on appelle une factory où on crée des sites internet et des applications pour les entreprises et les entreprises nous rémunèrent.
+
+126
+00:12:05.956 --> 00:12:15.576
+<v Julie Foulon>Donc ça, c'est vraiment quelque chose qu'on va vraiment essayer de faire développer par la suite pour être complètement indépendants et ne plus faire appel aux subsides de l'État quoi.
+
+127
+00:12:15.596 --> 00:12:19.606
+<v Guillaume Hachez>OK, donc si je comprends bien-- 'fin, tu peux expliquer un peu la factory, ça marche comment ? C'est...
+
+128
+00:12:19.616 --> 00:12:34.696
+<v Julie Foulon>Ben la factory, donc c'est un nouveau service, hein, qu'on a lancé. Et l'idée, c'est que des entreprises qui souhaitent faire développer une application ou un site Internet, ben le fassent au travers de MolenGeek.
+
+129
+00:12:34.716 --> 00:12:37.616
+<v Julie Foulon>Et donc nous, on met des gens pour faire développer
+
+130
+00:12:38.016 --> 00:12:48.676
+<v Julie Foulon>ces applications. Alors ce qui est chouette, c'est que ces entreprises, pourquoi est-ce qu'elles viennent chez nous et pas aller voir des, je sais pas, des web agencies qui ont pignon sur rue ?
+
+131
+00:12:48.736 --> 00:12:57.356
+<v Julie Foulon>C'est que souvent, ces entreprises trouvent que le travail qu'on fait est intéressant et que ça participe à l'écosystème, à le faire évoluer.
+
+132
+00:12:57.796 --> 00:13:07.076
+<v Julie Foulon>Puis en plus, c'est souvent des juniors, ils le savent, hein. Ce sont des juniors qui vont développer les sites et les applications, supervisés par des seniors.
+
+133
+00:13:07.416 --> 00:13:13.316
+<v Julie Foulon>Et du coup, ça permet finalement l'apprentissage et l'acquisition de compétences.
+
+134
+00:13:13.636 --> 00:13:23.796
+<v Guillaume Hachez>Cool. On va passer alors sur les formations que vous faites ici à MolenGeek, dans la coding school. Vous en faites deux par an, deux fois six mois, avec à chaque fois des classes de un peu moins de vingt personnes. C'est ça ?
+
+135
+00:13:23.856 --> 00:13:27.676
+<v Julie Foulon>Non, on fait plus que ça. La première année, on a fait deux classes pilotes-
+
+136
+00:13:27.896 --> 00:13:28.296
+<v Guillaume Hachez>Ouais.
+
+137
+00:13:28.396 --> 00:13:35.716
+<v Julie Foulon>Donc en 2017. Et notre objectif en 2018, c'est faire cinq classes et puis après, d'augmenter.
+
+138
+00:13:35.736 --> 00:13:37.156
+<v Guillaume Hachez>D'accord, donc vous augmentez vraiment le-
+
+139
+00:13:37.296 --> 00:13:37.586
+<v Julie Foulon>Ouais, ouais
+
+140
+00:13:37.616 --> 00:13:38.556
+<v Guillaume Hachez>...le niveau. Et toujours pour des-
+
+141
+00:13:38.586 --> 00:13:39.576
+<v Julie Foulon>Ben oui, puisqu'on a surtout-
+
+142
+00:13:39.596 --> 00:13:39.786
+<v Guillaume Hachez>Oui, oui.
+
+143
+00:13:40.236 --> 00:13:45.556
+<v Julie Foulon>Tu vois, on a maintenant toute l'infrastructure nécessaire pour assurer plein de classes supplémentaires.
+
+144
+00:13:45.896 --> 00:13:47.576
+<v Guillaume Hachez>Oui, c'est toujours des formations de six mois alors.
+
+145
+00:13:47.796 --> 00:13:56.935
+<v Julie Foulon>C'est toujours des formations de six mois. Donc comme je disais, t'as les quatre premiers mois, l'idée, c'est d'apprendre les langages de programmation et puis les deux derniers mois, c'est être en production.
+
+146
+00:13:57.016 --> 00:14:04.976
+<v Guillaume Hachez>Oui. Il me semblait avoir entendu Ibrahim dire que peut-être que six mois, c'était un peu limite, qu'il fallait peut-être augmenter un peu la durée.
+
+147
+00:14:04.996 --> 00:14:06.236
+<v Guillaume Hachez>Qu'est-ce que-- vous en êtes où à ce niveau-là ?
+
+148
+00:14:06.276 --> 00:14:13.156
+<v Julie Foulon>Eh ben non, c'est toujours six mois. Donc ceux qui veulent continuer après, ils continuent leur stage. Ils ont la possibilité de faire un stage.
+
+149
+00:14:13.216 --> 00:14:16.696
+<v Guillaume Hachez>C'est ça. Oui, et en plus de ça, ils ont possibilité d'être rémunérés, j'imagine. Non ?
+
+150
+00:14:16.736 --> 00:14:18.396
+<v Julie Foulon>Ben non, ils font un stage, c'est pas rémunéré.
+
+151
+00:14:18.426 --> 00:14:19.316
+<v Guillaume Hachez>Un stage rémunéré ?
+
+152
+00:14:19.776 --> 00:14:19.936
+<v Julie Foulon>Non.
+
+153
+00:14:19.966 --> 00:14:20.496
+<v Guillaume Hachez>OK. Non, non ? OK.
+
+154
+00:14:20.916 --> 00:14:23.336
+<v Julie Foulon>Ils sont en apprentissage.
+
+155
+00:14:23.796 --> 00:14:36.236
+<v Guillaume Hachez>Donc dans ces formations, l'année dernière, quand c'était seulement des classes de dix-neuf personnes, vous aviez huit filles sur les dix-neuf élèves, donc à peu près 40 % de la classe.
+
+156
+00:14:36.276 --> 00:14:39.636
+<v Guillaume Hachez>Comment vous faites ? Comment c'est possible ? Parce que des filles, y en a pas en informatique d'habitude.
+
+157
+00:14:39.876 --> 00:14:41.336
+<v Julie Foulon>Eh ben là, y en a, figure-toi.
+
+158
+00:14:41.496 --> 00:14:42.026
+<v Guillaume Hachez>Et comment c'est possible ?
+
+159
+00:14:42.026 --> 00:14:45.176
+<v Julie Foulon>Ben justement, on va les chercher là où on s'y attend pas.
+
+160
+00:14:45.676 --> 00:14:56.576
+<v Julie Foulon>La majorité des femmes qui sont là dans la dernière promotion, même dans les précédentes, hein, ben c'est pas du tout des femmes qui avaient des compétences tech à la base.
+
+161
+00:14:56.816 --> 00:15:03.586
+<v Julie Foulon>C'était des femmes, ben voilà, qui cherchaient un peu une voie et qui ont entendu parler de MolenGeek, qui se sont dit : « Ben voilà, pourquoi pas ? »
+
+162
+00:15:03.596 --> 00:15:03.896
+<v Guillaume Hachez>C'est ça.
+
+163
+00:15:03.966 --> 00:15:05.336
+<v Julie Foulon>« Pourquoi pas ? »
+
+164
+00:15:05.356 --> 00:15:12.196
+<v Guillaume Hachez>Quand tu me dis ça, j'ai l'impression qu'il y a une grande différence entre—— tu sais, moi, j'étais en informatique à l'ULB et donc t'avais un auditoire de
+
+165
+00:15:13.316 --> 00:15:20.476
+<v Guillaume Hachez>cent mecs qui avaient baigné dans l'informatique, dans les ordinateurs depuis dix ans et qui jouaient aux jeux vidéo et qui étaient à fond super geek et tout.
+
+166
+00:15:21.276 --> 00:15:29.035
+<v Guillaume Hachez>Et j'ai l'impression que toi, tu me décris des filles qui viennent surtout parce qu'elles ont envie de trouver une voie, trouver un métier, trouver quelque chose qui peut
+
+167
+00:15:30.136 --> 00:15:34.616
+<v Guillaume Hachez>les sortir d'une situation un peu peut-être plus difficile, voilà, sortir du chômage, par exemple.
+
+168
+00:15:35.336 --> 00:15:43.706
+<v Guillaume Hachez>Et donc c'est vraiment une logique de comment est-ce que je vais ramener de l'argent à la maison plutôt que de se dire : « Ah moi, ça me passionne, c'est mon truc, je suis à fond dedans. »
+
+169
+00:15:43.716 --> 00:15:45.946
+<v Julie Foulon>Ben c'est une logique d'émancipation. Elles se disent——
+
+170
+00:15:46.386 --> 00:15:46.396
+<v Guillaume Hachez>C'est ça.
+
+171
+00:15:46.396 --> 00:15:55.656
+<v Julie Foulon>Elles voient—— on parle, nous, à MolenGeek, on parle de programmation informatique, d'entrepreneuriat, du fait que c'est accessible, etc.
+
+172
+00:15:56.076 --> 00:16:03.356
+<v Julie Foulon>Et donc le message, visiblement, est entendu, ben par ces femmes, notamment. Et elles essayent. Et puis elles passent les tests.
+
+173
+00:16:03.376 --> 00:16:09.176
+<v Julie Foulon>Et puis ça fonctionne. Et puis elles se découvrent. En fait, si tu veux, c'est vraiment des femmes qui connaissaient pas.
+
+174
+00:16:09.276 --> 00:16:17.636
+<v Julie Foulon>Et parce qu'elles n'avaient jamais testé, parce qu'on a toujours autour d'elles, on leur a toujours dit que le code, c'était pour les mecs, que l'entrepreneuriat, c'est pour les hommes.
+
+175
+00:16:17.736 --> 00:16:22.196
+<v Julie Foulon>Et en venant ici, ben elles se sont révélées et ce sont d'excellentes développeuses.
+
+176
+00:16:22.456 --> 00:16:29.416
+<v Guillaume Hachez>Je me souviens avoir discuté avec Soumaya et elle m'expliquait qu'elle était avant dans une haute école et qu'il y a eu un genre de
+
+177
+00:16:30.456 --> 00:16:41.036
+<v Guillaume Hachez>projet de loi ou un truc qui était voté et qui faisait qu'on ne pouvait plus venir avec son voile, son hijab, à l'école et que donc elle pouvait plus aller, elle pouvait plus poursuivre ses études.
+
+178
+00:16:41.556 --> 00:16:52.432
+<v Guillaume Hachez>Donc, elle s'est retrouvée ici un peu par contrainte. Donc, vous récupérez un petit peu aussi les pots cassés de l'enseignement, j'allais dire officiel, mais l'enseignement supérieur plutôt.
+
+179
+00:16:53.132 --> 00:17:02.812
+<v Julie Foulon>Bah oui, mais c'est—— franchement, cette histoire-là, justement, t'en parles, bah moi, je trouve que c'est vraiment dramatique et puis je trouve ça vraiment stupide, bah, de rejeter finalement les gens par rapport à
+
+180
+00:17:03.332 --> 00:17:04.452
+<v Julie Foulon>à ce qu'ils peuvent m'apporter.
+
+181
+00:17:04.752 --> 00:17:11.932
+<v Julie Foulon>Et c'est vraiment la spécificité de MolenGeek. Nous, on regarde pas ton identité, on regarde ce que tu sais faire.
+
+182
+00:17:12.272 --> 00:17:24.022
+<v Julie Foulon>Et je pense que c'est pour ça que la communauté est tellement appréciée et c'est pour ça que les gens se sentent bien, parce qu'on n'est pas là en train de te questionner sur qui t'es, sur tes diplômes,
+
+183
+00:17:24.572 --> 00:17:26.612
+<v Julie Foulon>mais plutôt sur ce que tu sais faire.
+
+184
+00:17:26.652 --> 00:17:34.692
+<v Julie Foulon>Ah bah, t'es passionné de réalité virtuelle. Ah bah toi, t'aimes bien la 3D. Ah bah toi, t'es un bon développeur. Eh bah, c'est ça qui intéresse les gens.
+
+185
+00:17:34.952 --> 00:17:44.172
+<v Julie Foulon>Alors, ce qui est rigolo, c'est qu'après coup, des mois plus tard, moi, ça m'est déjà arrivé, bah, de m'apercevoir que j'avais des collaborateurs qui n'avaient pas de CESS, par exemple.
+
+186
+00:17:44.212 --> 00:17:45.052
+<v Julie Foulon>Parce qu'on s'en fout.
+
+187
+00:17:45.232 --> 00:17:47.572
+<v Guillaume Hachez>Le CESS pour les Français qui nous écoutent, c'est le bac.
+
+188
+00:17:47.762 --> 00:17:47.842
+<v Julie Foulon>Voilà.
+
+189
+00:17:47.852 --> 00:17:48.872
+<v Guillaume Hachez>C'est le truc que tu reçois à 18 ans.
+
+190
+00:17:49.032 --> 00:17:59.632
+<v Julie Foulon>Exactement. Et nous, on s'en fout. Le but, c'est vraiment : bah qu'est-ce que tu sais faire et qu'est-ce que tu peux amener à la communauté pour qu'on s'entraide tous et qu'on y ait cet effet de levier.
+
+191
+00:18:00.312 --> 00:18:06.972
+<v Julie Foulon>Et que si j'apprends quelque chose, bah, et que je te le transmets, ça te profitera et ça profitera sûrement à ton voisin.
+
+192
+00:18:07.012 --> 00:18:17.812
+<v Julie Foulon>Et puis il y aura peut-être un retour de boomerang et ça me profitera, ça nous profitera à tous. Donc c'est pour ça que, par exemple, quand tu viens ici, t'as pas ce sentiment de compétition, même au sein de la Coding School.
+
+193
+00:18:17.872 --> 00:18:23.412
+<v Julie Foulon>Tout le monde est là pour s'entraider et pour faire du business.
+
+194
+00:18:23.812 --> 00:18:25.952
+<v Guillaume Hachez>Ouais, il y a une espèce de sentiment de fraternité, de——
+
+195
+00:18:26.292 --> 00:18:28.212
+<v Julie Foulon>Tout à fait. Et de profondément respect.
+
+196
+00:18:28.232 --> 00:18:28.332
+<v Guillaume Hachez>Mh.
+
+197
+00:18:28.532 --> 00:18:34.352
+<v Julie Foulon>Donc c'est vrai que—— donc nous, on récupère pas, comme tu dis, hein, enfin les pots cassés, mais on est une alternative.
+
+198
+00:18:34.942 --> 00:18:34.962
+<v Guillaume Hachez>Un peu quand même.
+
+199
+00:18:34.962 --> 00:18:38.872
+<v Julie Foulon>Bah, on est une vraie alternative et on donne une vraie réponse.
+
+200
+00:18:39.092 --> 00:18:40.552
+<v Guillaume Hachez>C'est vraiment intéressant ça, parce que donc il y a
+
+201
+00:18:41.472 --> 00:18:50.832
+<v Guillaume Hachez>il y a toutes ces personnes, moi y compris, qui se disent qu'il serait vraiment temps que l'enseignement obligatoire commence à donner des cours de programmation, qu'on commence à parler d'un peu plus d'entrepreneuriat, de choses comme ça.
+
+202
+00:18:51.292 --> 00:18:59.552
+<v Guillaume Hachez>Et c'est un milieu qui est très conservateur, qui est très inerte à toutes ces choses-là. Et donc tant que c'est comme ça, finalement, il y aura du monde pour venir à MolenGeek.
+
+203
+00:18:59.612 --> 00:19:09.732
+<v Guillaume Hachez>Mais si un jour on a une culture de l'entrepreneuriat, on a des cours de programmation à l'école, etc., ben il y aura peut-être un peu moins de—— un rôle un peu moindre à jouer, non ?
+
+204
+00:19:09.832 --> 00:19:14.552
+<v Julie Foulon>Ouais, bah peut-être qu'on changera alors notre fusil d'épaule, mais je crois qu'on a un peu le temps parce que comme tu dis——
+
+205
+00:19:14.632 --> 00:19:15.381
+<v Guillaume Hachez>Lâchement, surtout en Belgique
+
+206
+00:19:15.381 --> 00:19:20.422
+<v Julie Foulon>...je pense que même en Belgique ou en France, on n'y est pas du tout, on n'y est pas du tout. Puis alors nous,
+
+207
+00:19:20.832 --> 00:19:30.532
+<v Julie Foulon>n'oublie pas que nous, notre cible aussi, c'est pour les formations de développement web, c'est et d'applications, c'est les chercheurs d'emploi, hein, notre cible.
+
+208
+00:19:30.922 --> 00:19:38.792
+<v Julie Foulon>Pour l'instant, on n'est pas du tout encore au niveau des écoles. Même si on le fait, on accueille des écoles très régulièrement pour faire de la promotion des nouvelles technologies.
+
+209
+00:19:38.872 --> 00:19:47.232
+<v Guillaume Hachez>Quand j'avais rencontré Alexander De Croo, il décrivait les projets comme MolenGeek comme étant un petit peu des laboratoires qu'il finançait avec son fonds fédéral.
+
+210
+00:19:47.392 --> 00:19:56.832
+<v Guillaume Hachez>Donc, il a pas vraiment d'influence sur les écoles, mais donc il voit MolenGeek et les initiatives de ce style, parce qu'il y en a d'autres, comme des laboratoires. Et il espère,
+
+211
+00:19:57.672 --> 00:20:03.062
+<v Guillaume Hachez>j'étais un peu moyennement convaincu quand il m'a dit ça, mais il espère qu'à terme, ça va montrer au secteur de l'enseignement que
+
+212
+00:20:03.812 --> 00:20:09.552
+<v Guillaume Hachez>on peut apprendre des choses en termes pédagogiques, puisqu'on peut en parler aussi, mais la pédagogie ici est très intéressante.
+
+213
+00:20:09.592 --> 00:20:17.272
+<v Guillaume Hachez>On en a parlé un peu avec Nicolas Rolland. Mais donc, il espère qu'à terme, le secteur de l'enseignement obligatoire va apprendre un peu de MolenGeek.
+
+214
+00:20:17.592 --> 00:20:28.372
+<v Julie Foulon>Oui, ben on espère aussi. Si on peut inspirer, ce serait formidable, hein. C'est vrai que nous, encore une fois, notre but premier, c'est rendre accessibles les nouvelles technologies et l'entrepreneuriat à tous.
+
+215
+00:20:28.432 --> 00:20:35.622
+<v Julie Foulon>On n'est pas focalisés sur les écoles pour le moment parce qu'on a suffisamment à faire avec les chercheurs d'emploi.
+
+216
+00:20:35.622 --> 00:20:37.872
+<v Guillaume Hachez>Parce qu'elles sont très inertes et qu'elles ont pas forcément envie de——
+
+217
+00:20:38.572 --> 00:20:47.392
+<v Julie Foulon>Bah, c'est compliqué. Déjà, nous, on a un impact sur les, bah déjà sur les étudiants, sur les jeunes qui sont en secondaire parce qu'ils viennent ici.
+
+218
+00:20:47.572 --> 00:20:53.792
+<v Julie Foulon>Après, maintenant, il y a tout un travail pédagogique à faire aussi avec les professeurs et puis après avec les équipes pédagogiques, mais ça prend du temps.
+
+219
+00:20:53.932 --> 00:20:55.792
+<v Julie Foulon>Ça, il faudrait voir avec Nicolas Rolland, effectivement.
+
+220
+00:20:57.052 --> 00:21:03.962
+<v Guillaume Hachez>Ouais, ouais, ouais. Le futur pour MolenGeek, c'est quoi ? Donc tu as parlé d'ouvrir un deuxième lieu à Schaerbeek, c'est ça ?
+
+221
+00:21:03.982 --> 00:21:09.192
+<v Julie Foulon>À Schaerbeek, autour de la thématique du new media. Donc ça, c'est une chouette thématique. Mais les clés, on les a pas encore.
+
+222
+00:21:09.212 --> 00:21:10.592
+<v Julie Foulon>On les a en septembre.
+
+223
+00:21:10.872 --> 00:21:13.552
+<v Guillaume Hachez>D'accord. Ah bah oui, donc c'est tout bientôt quoi. C'est dans——
+
+224
+00:21:13.732 --> 00:21:13.872
+<v Julie Foulon>Ouais
+
+225
+00:21:14.112 --> 00:21:14.432
+<v Guillaume Hachez>...deux jours.
+
+226
+00:21:14.732 --> 00:21:23.232
+<v Julie Foulon>Ouais, c'est ça. On les a là. Et puis après, il faut faire des travaux. Puis on pourra installer un nouveau MolenGeek autour de la thématique du new media.
+
+227
+00:21:23.292 --> 00:21:32.812
+<v Julie Foulon>Alors, new media, c'est quoi ? C'est toutes les thématiques qui sont liées à la postproduction, au community management, à la création de contenu, au copywriting, etc.
+
+228
+00:21:33.072 --> 00:21:41.652
+<v Guillaume Hachez>OK. Donc une nouvelle délocalisation à Schaerbeek, pas loin d'ici. Et d'autres projets d'agrandissement. On m'a parlé de trucs en Italie, on m'a parlé du Maroc.
+
+229
+00:21:41.852 --> 00:21:42.672
+<v Guillaume Hachez>Qu'est-ce qui se passe ?
+
+230
+00:21:42.692 --> 00:21:53.632
+<v Julie Foulon>Alors effectivement, bah ça, c'est deux projets. T'as TechStation Padova à Padoue, en Italie. Et donc là, c'est trois entrepreneurs qui ont décidé de monter un MolenGeek là-bas.
+
+231
+00:21:53.832 --> 00:21:57.032
+<v Guillaume Hachez>OK. C'est où ? C'est—— Padova, c'est dans le sud, c'est dans le nord ?
+
+232
+00:21:57.092 --> 00:21:58.652
+<v Julie Foulon>C'est dans le nord, c'est à côté de Venise.
+
+233
+00:21:59.052 --> 00:22:05.432
+<v Guillaume Hachez>OK, d'accord. Donc c'est quoi ? C'est qu'ils ont entendu parler de vous dans la presse internationale, puisque comme on disait, vous faites beaucoup de presse.
+
+234
+00:22:05.472 --> 00:22:06.562
+<v Guillaume Hachez>Ils se sont dit : ''On va faire pareil.''
+
+235
+00:22:06.852 --> 00:22:14.692
+<v Julie Foulon>Eh bah, c'est les deux. En fait, figure-toi que ce sont des entrepreneurs qui sont dans le milieu des nouvelles technologies et qui recherchaient des compétences tech.
+
+236
+00:22:14.912 --> 00:22:22.132
+<v Julie Foulon>On le sait, hein, la Commission européenne n'arrête pas de le dire, il y a une pénurie de développeurs. Eh ben, ça a touché aussi l'Italie.
+
+237
+00:22:22.162 --> 00:22:33.852
+<v Julie Foulon>Et donc, ils cherchaient un peu sur la toile comment ils pouvaient, bah tu vois, trouver des programmes qui permettraient de former des jeunes aux langages de programmation.
+
+238
+00:22:34.192 --> 00:22:46.092
+<v Julie Foulon>Et puis ils nous ont découverts, puis ils sont venus, puis ça a bien accroché et on a décidé de les coacher et de leur permettre de, bah tu vois, de monter d'une manière totalement indépendante un MolenGeek en Italie.
+
+239
+00:22:46.132 --> 00:22:48.452
+<v Julie Foulon>Alors, ça s'appelle pas MolenGeek Italie——
+
+240
+00:22:48.572 --> 00:22:48.582
+<v Guillaume Hachez>Padova
+
+241
+00:22:48.582 --> 00:23:03.232
+<v Julie Foulon>...ça s'appelle TechStation Padova parce que le lieu, c'est dans une ancienne gare. Et effectivement, puis nous, ça nous apprend, on se forme hein, justement, à coacher une équipe bis, finalement, à développer un nouveau MolenGeek.
+
+242
+00:23:03.452 --> 00:23:14.372
+<v Guillaume Hachez>Quand tu dis coacher et former un nouveau MolenGeek, ça veut dire dans le sens où vous les formez en termes de pédagogie, comment enseigner le coding de manière efficace à des populations un peu défavorisées, c'est ça ?
+
+243
+00:23:14.452 --> 00:23:26.132
+<v Julie Foulon>En fait, on partage nos outils, bah nos outils, la pédagogie, les cours, les outils pour développer des événements, etc., pour qu'ils arrivent à répliquer un MolenGeek là-bas.
+
+244
+00:23:26.940 --> 00:23:27.160
+<v Guillaume Hachez>OK.
+
+245
+00:23:27.300 --> 00:23:28.600
+<v Julie Foulon>C'est une sorte de franchise, en fait.
+
+246
+00:23:29.240 --> 00:23:36.740
+<v Guillaume Hachez>Oui, d'accord, une franchise. Ouais, ça, c'est intéressant. Mais c'est juste un peu fou quand tu dis : ''On va leur donner notre façon de faire des cours——
+
+247
+00:23:36.750 --> 00:23:36.760
+<v Julie Foulon>Ouais.
+
+248
+00:23:36.760 --> 00:23:39.320
+<v Guillaume Hachez>...notre façon de faire une pédagogie.'' Qu'est-ce que ça veut dire exactement ?
+
+249
+00:23:39.360 --> 00:23:44.680
+<v Julie Foulon>Ben, par exemple, on a développé tout un tas de, ben, notre cours pour devenir développeur full stack, par exemple.
+
+250
+00:23:44.860 --> 00:23:55.900
+<v Julie Foulon>On le partage avec eux. On partage aussi notre méthodologie pour monter des événements type hackathon, pour développer une communauté de rien du tout——
+
+251
+00:23:55.960 --> 00:23:56.140
+<v Guillaume Hachez>OK.
+
+252
+00:23:56.260 --> 00:23:58.220
+<v Julie Foulon>...pour communiquer, et cetera. Donc c——
+
+253
+00:23:58.340 --> 00:24:03.779
+<v Guillaume Hachez>C'est marrant, parce que quand tu me dis ça, je me dis : ''Mais c'est pas si dur que ça. Pourquoi est-ce qu'ils doivent aller chercher en Belgique pour trouver
+
+254
+00:24:04.120 --> 00:24:07.680
+<v Guillaume Hachez>comment apprendre à programmer ?'' Je veux dire, on n'a pas attendu MolenGeek pour faire ça.
+
+255
+00:24:08.040 --> 00:24:13.640
+<v Julie Foulon>Non, mais on a développé toute une pédagogie, une méthodologie complètement innovante que——
+
+256
+00:24:13.720 --> 00:24:15.239
+<v Guillaume Hachez>Tu peux nous en parler ? Parce que c——
+
+257
+00:24:15.420 --> 00:24:25.400
+<v Julie Foulon>De la méthodologie ? Ouais, je peux en parler. Ben effectivement, si tu veux, la force de MolenGeek, c'est que tout le staff qui est là, on est tous indépendants, on est tous des entrepreneurs.
+
+258
+00:24:25.880 --> 00:24:36.260
+<v Julie Foulon>Et Yassine Karchaf, le directeur de la coding school, a développé donc tout le programme et c'est un passionné de pédagogie.
+
+259
+00:24:36.680 --> 00:24:43.280
+<v Julie Foulon>Donc il n'a pas du tout appris les langages de programmation à l'école. C'est un autodidacte. Lui, il a un bachelier en communication à la base.
+
+260
+00:24:43.650 --> 00:24:43.680
+<v Guillaume Hachez>Ah ouais OK.
+
+261
+00:24:43.680 --> 00:24:45.720
+<v Julie Foulon>Puis il est devenu entrepreneur, il a monté sa boîte,
+
+262
+00:24:46.460 --> 00:24:58.420
+<v Julie Foulon>et il a développé en fonction vraiment du public qu'on avait, donc des jeunes qui ont décroché l'école jeunes, assez tôt parce qu'ils en avaient marre d'apprendre des trucs complètement abstraits.
+
+263
+00:24:59.000 --> 00:25:07.940
+<v Julie Foulon>Il a développé une manière de faire qui est basée sur des cas concrets et une approche par la pratique. Donc t'as un peu de théorie, beaucoup de pratique.
+
+264
+00:25:08.540 --> 00:25:17.240
+<v Julie Foulon>Et donc en faisant ça, il a développé tout un tas de cours avec un vocabulaire précis, avec une arborescence précise, et cetera,
+
+265
+00:25:18.240 --> 00:25:31.860
+<v Julie Foulon>et qui fait en sorte que, ben, les jeunes deviennent autonomes très rapidement, apprennent à apprendre par eux-mêmes, ont un sentiment d'engagement et arrivent finalement, au terme des six mois, à être complètement
+
+266
+00:25:32.460 --> 00:25:35.120
+<v Julie Foulon>autonomes en tant que full stack développeur.
+
+267
+00:25:35.500 --> 00:25:36.240
+<v Guillaume Hachez>C'est super intéressant.
+
+268
+00:25:36.640 --> 00:25:46.380
+<v Julie Foulon>Et il a vraiment développé une méthodologie qui est complètement innovante et particulière et qui fonctionne, puisque maintenant, là, on va avoir notre cinquième promotion.
+
+269
+00:25:47.020 --> 00:25:52.320
+<v Julie Foulon>Donc ça, par exemple, on les coache. Et puis on les coache aussi à devenir, à créer cette communauté.
+
+270
+00:25:52.360 --> 00:25:56.200
+<v Guillaume Hachez>Et donc vous en faites un peu une franchise, vous vous délocalisez. Donc tu me parlais aussi du Maroc.
+
+271
+00:25:56.480 --> 00:25:56.579
+<v Julie Foulon>Ouais.
+
+272
+00:25:56.590 --> 00:25:58.020
+<v Guillaume Hachez>Un autre projet. Tu peux nous en parler ?
+
+273
+00:25:58.080 --> 00:26:07.600
+<v Julie Foulon>Alors, le Maroc, oui. Là, maintenant, on a fait deux événements avec nos amis marocains et Startup Maroc et l'APEFE.
+
+274
+00:26:08.460 --> 00:26:11.140
+<v Julie Foulon>L'APEFE qui est un peu la coopération belge.
+
+275
+00:26:11.740 --> 00:26:17.660
+<v Julie Foulon>Et ben l'idée, c'est vraiment de créer à Oujda, donc dans l'Oriental, hein, donc c'est vraiment le nord du Maroc,
+
+276
+00:26:18.240 --> 00:26:25.620
+<v Julie Foulon>un MolenGeek qui sera là-bas, un MolenGeek bis, hein, et qui permettra en fait aux jeunes,
+
+277
+00:26:26.140 --> 00:26:36.220
+<v Julie Foulon>marocains, ben, de se former aux nouvelles technologies, et de développer leur projet entrepreneurial et puis d'avoir un point de chute aussi à Bruxelles.
+
+278
+00:26:36.540 --> 00:26:43.020
+<v Julie Foulon>Et comme nous, les jeunes de, comment ça s'appelle, de Belgique, de Bruxelles, avoir un point de chute à Oujda.
+
+279
+00:26:43.480 --> 00:26:44.740
+<v Julie Foulon>Alors pourquoi Oujda ?
+
+280
+00:26:44.780 --> 00:26:45.030
+<v Guillaume Hachez>Ouais, pourquoi ?
+
+281
+00:26:45.040 --> 00:26:51.970
+<v Julie Foulon>Parce qu'il se trouve qu'il y a plein, comment dire, dans les flux migratoires des Marocains qui sont venus en Belgique,
+
+282
+00:26:52.440 --> 00:26:58.280
+<v Julie Foulon>c'est principalement des gens de l'Oriental, du nord donc du Maroc, qui sont venus à Bruxelles.
+
+283
+00:26:58.300 --> 00:27:03.920
+<v Julie Foulon>Et donc quand t'as des jeunes qui sont là et qui repartent en vacances au Maroc, ils repartent dans cette région.
+
+284
+00:27:04.180 --> 00:27:04.280
+<v Guillaume Hachez>Ouais.
+
+285
+00:27:04.300 --> 00:27:13.260
+<v Julie Foulon>Et donc il y a beaucoup plus de chances que ces jeunes puissent retrouver, ben, d'autres collègues avec qui ils ont participé à des événements type hackathon là-bas.
+
+286
+00:27:13.640 --> 00:27:18.460
+<v Guillaume Hachez>Qu'est-ce qui explique qu'ils retournent là-bas alors qu'ils n'y sont jam—— ils sont pas nés là-bas ? Ils——
+
+287
+00:27:18.510 --> 00:27:23.460
+<v Julie Foulon>Ben ils ont de la famille, tu vois, ils ont des grands-parents, des oncles, des tantes, et cetera. Tu vois, ils ont un point de...
+
+288
+00:27:23.500 --> 00:27:24.600
+<v Julie Foulon>Souvent, ils ont un point de chute, tu vois.
+
+289
+00:27:24.610 --> 00:27:24.620
+<v Guillaume Hachez>Un point de chute.
+
+290
+00:27:24.620 --> 00:27:26.440
+<v Julie Foulon>Ils viennent voir les cousins, tout ça.
+
+291
+00:27:26.700 --> 00:27:31.260
+<v Guillaume Hachez>OK, OK. Donc ça fait des liens entre Molenbeek et le Maroc. Et donc on——
+
+292
+00:27:31.400 --> 00:27:41.769
+<v Julie Foulon>Voilà. Et du coup, c'est chouette parce qu'en plus de ça, on a vraiment envie que Oujda, donc la région de l'Oriental qui est assez sinistrée,
+
+293
+00:27:42.460 --> 00:27:50.980
+<v Julie Foulon>ben de permettre finalement que cette ville soit un peu la porte d'entrée vers la région du MENA.
+
+294
+00:27:51.120 --> 00:27:57.020
+<v Julie Foulon>Donc c'est Middle East North Africa. Et d'être un point d'entrée vers l'Afrique et puis, ben, toute la région du Maghreb.
+
+295
+00:27:57.500 --> 00:28:01.700
+<v Guillaume Hachez>Tu fais aussi, en plus de MolenGeek, tu fais un truc qui s'appelle Girl Geek.
+
+296
+00:28:01.920 --> 00:28:02.180
+<v Julie Foulon>Ouais.
+
+297
+00:28:02.650 --> 00:28:11.560
+<v Guillaume Hachez>De temps en temps. Ça devient plus rare parce que t'es très occupée avec MolenGeek. Et donc tu fais des events où tu invites des gens de la scène de Bruxelles——
+
+298
+00:28:11.660 --> 00:28:11.670
+<v Julie Foulon>Ouais.
+
+299
+00:28:11.670 --> 00:28:12.940
+<v Guillaume Hachez>...et en particulier des femmes.
+
+300
+00:28:13.180 --> 00:28:13.280
+<v Julie Foulon>Oui.
+
+301
+00:28:13.440 --> 00:28:18.459
+<v Guillaume Hachez>Tu décris le truc comme étant le seul event tech avec une majorité de femmes et souvent, c'est vrai.
+
+302
+00:28:18.470 --> 00:28:19.379
+<v Julie Foulon>Ah ben, quand même, hein.
+
+303
+00:28:19.400 --> 00:28:27.630
+<v Guillaume Hachez>Mais comment tu fais ? Enfin, c'est genre, oui, comme tu disais, ça existe plus maintenant, mais quand on allait à Beta Group, y avait pas de filles, quand on allait,
+
+304
+00:28:28.540 --> 00:28:31.060
+<v Guillaume Hachez>au Coastation ou quoi, y en a quelques-unes, mais pas trop.
+
+305
+00:28:31.120 --> 00:28:34.320
+<v Guillaume Hachez>Et puis là, y en a, tu vois, y en a plein. Mais tu les trouves où ? Comment ça marche ?
+
+306
+00:28:34.360 --> 00:28:46.780
+<v Julie Foulon>Ben parce que voilà, on arrive à créer un environnement qui est suffisamment sympa et puis accueillant et qui permet, je pense, aux femmes de se reconnaître dans des événements tech.
+
+307
+00:28:47.040 --> 00:28:53.800
+<v Julie Foulon>C'est vrai que j'en fais plus beaucoup, hein, j'avoue, j'ai plus le temps, mais je me contente, ben, de l'écriture ou maintenant de la radio.
+
+308
+00:28:53.860 --> 00:28:54.360
+<v Guillaume Hachez>Ouais, moi aussi.
+
+309
+00:28:54.490 --> 00:29:02.660
+<v Julie Foulon>Mais c'est vrai qu'on arrivait à faire des trucs assez sympas. Mais ça prend du temps et ça demande beaucoup de ressources pour communiquer dans différents réseaux.
+
+310
+00:29:02.680 --> 00:29:09.110
+<v Guillaume Hachez>Oui, c'est juste le fait de faire un event par une fille, avec des logos, avec un style très féminin, avec des,
+
+311
+00:29:09.780 --> 00:29:14.060
+<v Guillaume Hachez>les filles en tête et le fait de dire : ''C'est pour vous, on vous cible directement.'' Ça, c'est ça qui ramène des filles ?
+
+312
+00:29:14.460 --> 00:29:23.280
+<v Julie Foulon>Je pense qu'on arrive à créer aussi des rôles modèles accessibles. Tu vois, dans le milieu de la tech, j'ai beau faire tout un tas de conférences, à chaque fois, c'est toujours le même rôle modèle qui,
+
+313
+00:29:23.820 --> 00:29:25.140
+<v Julie Foulon>qui vient, c'est Marie Curie.
+
+314
+00:29:25.180 --> 00:29:33.820
+<v Julie Foulon>Donc, tu vois, ça entend. Et en fait, la tech, c'est pas ça, hein. Il faut arriver à créer des rôles modèles accessibles.
+
+315
+00:29:33.900 --> 00:29:42.820
+<v Julie Foulon>Et les événements Girl Geek, c'est ça qui était chouette, c'est que t'avais tout un tas de nanas qui venaient, ben qui parlaient de nouvelles technologies, de leur start-up.
+
+316
+00:29:43.200 --> 00:29:52.410
+<v Julie Foulon>T'avais aussi des femmes qui venaient présenter aussi des entreprises qui sont a priori pas tech au début,
+
+317
+00:29:52.900 --> 00:30:01.090
+<v Julie Foulon>mais qui ont un pied dans l'entrepreneuriat au travers d'applications qui permettent, je sais pas, moi, de customiser, je sais pas, moi, des produits, par exemple, tu vois.
+
+318
+00:30:01.600 --> 00:30:11.260
+<v Julie Foulon>Et du coup, ça crée en fait un lien et puis un sentiment de reconnaissance, ben d'autres femmes qui se disaient : « Ah, mais attends, ça, c'est une entrepreneuse de la tech.
+
+319
+00:30:11.640 --> 00:30:16.360
+<v Julie Foulon>Ah, ça, c'est une tech girl, par exemple. Ben moi aussi, je fais la même chose. Donc moi, j'en suis une ». Tu vois ?
+
+320
+00:30:16.380 --> 00:30:17.900
+<v Julie Foulon>Donc ça, ça crée du lien.
+
+321
+00:30:17.930 --> 00:30:18.160
+<v Guillaume Hachez>Un office.
+
+322
+00:30:18.520 --> 00:30:27.419
+<v Julie Foulon>Et c'est aussi comme ça à MolenGeek, hein, qu'on arrive à attirer d'autres femmes dans les formations. Ben, c'est justement en créant ces rôles modèles accessibles.
+
+323
+00:30:28.460 --> 00:30:38.420
+<v Guillaume Hachez>Et comment est-ce que tu expliques qu'il y ait aussi peu de femmes entrepreneuses ? Comment ça se fait que ça reste globalement surtout un truc de mecs ici en Belgique ?
+
+324
+00:30:38.460 --> 00:30:42.680
+<v Julie Foulon>Entrepreneuses dans les technos ou quoi ?
+
+325
+00:30:42.800 --> 00:30:45.250
+<v Guillaume Hachez>En fait, les deux, quoi, de manière générale et encore plus dans les technos, quoi.
+
+326
+00:30:45.280 --> 00:30:54.280
+<v Julie Foulon>Ben moi, je pense que t'as des femmes qui se reconnaissent pas en tant qu'entrepreneuses tech, qui se définissent pas tant comme telles.
+
+327
+00:30:54.660 --> 00:31:02.680
+<v Julie Foulon>Donc déjà, t'as une chose, hein. Et puis alors après, on a un gros problème au niveau de l'entrepreneuriat pour les femmes, c'est, ben, c'est la famille, hein.
+
+328
+00:31:03.000 --> 00:31:10.180
+<v Julie Foulon>Alors déjà, en Belgique, les gens n'aiment pas prendre de risques. Quand tu dis : « Je vais devenir entrepreneur », ben toi, t'as fait l'expérience avec tes parents.
+
+329
+00:31:11.560 --> 00:31:15.370
+<v Julie Foulon>Quand t'as dit que tu voulais devenir entrepreneur, bon, ils se sont un peu affolés, n'est-ce pas ?
+
+330
+00:31:15.400 --> 00:31:16.010
+<v Guillaume Hachez>Ouais, ouais.
+
+331
+00:31:16.060 --> 00:31:25.960
+<v Julie Foulon>Et c'est vrai que souvent, on est un peu taxé de complètement frappadingue, de prendre des risques inutilement et qu'on devrait devenir consultant et d'avoir notre maison et notre voiture, ce serait beaucoup mieux.
+
+332
+00:31:26.000 --> 00:31:26.010
+<v Guillaume Hachez>Hum, hum.
+
+333
+00:31:26.520 --> 00:31:38.820
+<v Julie Foulon>Mais l'état d'esprit est en train de changer. Enfin, je l'espère. Et c'est vrai que quand t'es une femme, pour l'avoir expérimenté également, c'est que les gens autour de toi qui t'aiment et qui t'adorent,
+
+334
+00:31:39.380 --> 00:31:40.380
+<v Julie Foulon>ils projettent leur peur.
+
+335
+00:31:40.820 --> 00:31:45.200
+<v Julie Foulon>Donc, ils vont te dire : « Mais non, le fais pas, mais tu prends des risques, mais ça va pas fonctionner ». Alors, c'est pas-
+
+336
+00:31:45.210 --> 00:31:46.159
+<v Guillaume Hachez>Plus que quand t'es un homme.
+
+337
+00:31:46.200 --> 00:31:47.200
+<v Julie Foulon>Ah ben écoute, c'est compliqué.
+
+338
+00:31:47.320 --> 00:31:47.469
+<v Guillaume Hachez>Ouais.
+
+339
+00:31:47.480 --> 00:31:53.960
+<v Julie Foulon>Quand t'es une femme, c'est compliqué. Et souvent, je dis d'ailleurs : « Si vous êtes célibataire, c'est peut-être le meilleur moyen de devenir entrepreneur.
+
+340
+00:31:54.000 --> 00:31:59.050
+<v Julie Foulon>Au moins, vous avez pas de comptes à rendre et vous avez pas un mec qui va vous emmerder toutes les deux minutes ».
+
+341
+00:31:59.050 --> 00:32:01.180
+<v Guillaume Hachez>Tu peux avoir un bon mec. Tu peux bien choisir aussi.
+
+342
+00:32:01.460 --> 00:32:05.940
+<v Julie Foulon>Ouais, d'accord. Ben, je veux bien avoir des exemples. Donc appel à témoins.
+
+343
+00:32:05.960 --> 00:32:06.060
+<v Guillaume Hachez>Ouais.
+
+344
+00:32:06.220 --> 00:32:12.120
+<v Julie Foulon>N'hésitez pas à m'envoyer des cas. Non, mais c'est compliqué. C'est vrai que c'est pas facile pour une femme.
+
+345
+00:32:12.200 --> 00:32:19.430
+<v Julie Foulon>Et puis en plus, ben il faut le reconnaître, les femmes, elles sont quand même cantonnées à toutes les, à comment dire, à toutes les tâches ménagères.
+
+346
+00:32:19.920 --> 00:32:21.540
+<v Julie Foulon>Quand t'es maman, ben tu dois aussi-
+
+347
+00:32:21.660 --> 00:32:21.730
+<v Guillaume Hachez>OK.
+
+348
+00:32:21.900 --> 00:32:30.060
+<v Julie Foulon>Moi, je suis maman, je suis maman célibataire. Donc, je sais de quoi je parle, hein. Je dois cumuler et MolenGeek et Girl Geek et ma fille. C'est compliqué.
+
+349
+00:32:30.080 --> 00:32:38.650
+<v Guillaume Hachez>OK. Mais tu penses qu'il y a vraiment encore un héritage un peu très conservateur dans les mentalités ? Enfin, il reste un peu des choses de ce vieux monde-là, de se dire-
+
+350
+00:32:38.980 --> 00:32:39.120
+<v Julie Foulon>Oui.
+
+351
+00:32:39.300 --> 00:32:41.580
+<v Guillaume Hachez>La femme, la famille, la maman, l'épouse.
+
+352
+00:32:41.680 --> 00:32:44.380
+<v Julie Foulon>L'accès au financement, tout est plus compliqué quand t'es une femme.
+
+353
+00:32:44.420 --> 00:32:46.340
+<v Guillaume Hachez>Comment ça se fait, ça ? L'accès à quel financement ?
+
+354
+00:32:46.360 --> 00:32:49.680
+<v Julie Foulon>Ben par exemple, si t'as envie d'aller voir ton banquier pour avoir un prêt.
+
+355
+00:32:49.689 --> 00:32:49.810
+<v Guillaume Hachez>D'accord, ouais.
+
+356
+00:32:49.880 --> 00:32:52.800
+<v Julie Foulon>Tout est beaucoup plus compliqué quand t'es une femme.
+
+357
+00:32:52.880 --> 00:33:00.060
+<v Guillaume Hachez>Ouais, ouais. Et c'est d'ailleurs intéressant. Quand on pose cette question-là, on voit un petit peu deux grandes familles de féministes.
+
+358
+00:33:00.100 --> 00:33:12.200
+<v Guillaume Hachez>Comment est-ce qu'on fait, quand on est une femme pour résoudre ce problème de, ben justement d'avoir des investisseurs, des banquiers qui sont plus froids, qui sont moins enclins à te donner un financement que si tu étais un homme ?
+
+359
+00:33:12.380 --> 00:33:13.340
+<v Guillaume Hachez>C'est quoi la solution pour ça ?
+
+360
+00:33:13.620 --> 00:33:17.240
+<v Julie Foulon>Avoir des clients. Ben c'est simple. C'est, ben, c'est avoir des clients.
+
+361
+00:33:17.280 --> 00:33:23.540
+<v Guillaume Hachez>D'accord, mais si tu veux faire une start-up et que tu veux démarrer et que tu as besoin de faire des investissements de base dès le début, c'est...
+
+362
+00:33:23.680 --> 00:33:27.960
+<v Julie Foulon>Ben ouais, c'est quoi, ben c'est, ouais, c'est compliqué. J'ai pas vraiment la réponse.
+
+363
+00:33:28.000 --> 00:33:34.260
+<v Guillaume Hachez>Ben parce que je me souviens que j'étais venu à un event Girl Geek et il y avait Claire Munck qui avait expliqué que-
+
+364
+00:33:34.540 --> 00:33:35.480
+<v Julie Foulon>De Be Angel, ouais.
+
+365
+00:33:35.580 --> 00:33:37.780
+<v Guillaume Hachez>Ouais, qui avait expliqué qu'une solution, c'était de,
+
+366
+00:33:38.480 --> 00:33:50.500
+<v Guillaume Hachez>d'apprendre aux femmes à connaître leur public, à savoir que les investisseurs sont très probablement des hommes, que donc il faut pitcher avec un discours masculin et qu'il faut vendre des aspects masculins, connaître le... Voilà.
+
+367
+00:33:51.180 --> 00:34:03.860
+<v Julie Foulon>Ah mais effectivement, moi, je me souviens de cet événement-là. C'est vrai qu'on... Alors, je pense que certains de tes auditeurs seront pas d'accord, mais on vit dans un monde à discrimination positive envers les hommes.
+
+368
+00:34:03.900 --> 00:34:04.620
+<v Guillaume Hachez>Ils seront tous d'accord.
+
+369
+00:34:05.380 --> 00:34:14.100
+<v Julie Foulon>Donc, on vit dans un monde essentiellement masculin, avec des codes masculins, etc. Donc du coup, il faut, ben il faut parler le même langage.
+
+370
+00:34:14.370 --> 00:34:14.540
+<v Guillaume Hachez>Hum, hum.
+
+371
+00:34:14.620 --> 00:34:17.100
+<v Julie Foulon>Et euh, ben c'est compliqué. Ben il faut être-
+
+372
+00:34:17.280 --> 00:34:26.120
+<v Guillaume Hachez>C'est pour ça que je disais qu'il y avait deux grandes familles de féministes. C'est qu'il y a cette approche-là, qui est se dire : « Mais il faut, on est obligé, il faut faire avec, il faut,
+
+373
+00:34:27.010 --> 00:34:30.370
+<v Guillaume Hachez>faut se démener, mais voilà, on est quand même un peu obligé de faire comme ça ».
+
+374
+00:34:30.900 --> 00:34:37.500
+<v Guillaume Hachez>Puis, il y a l'autre famille qui est de dire : « Mais fuck 'em ». Tu vois, c'est genre si les hommes, ils veulent pas entendre notre discours, enfin
+
+375
+00:34:38.580 --> 00:34:49.360
+<v Guillaume Hachez>le discours des femmes, leur façon d'exprimer, leur façon de penser l'entrepreneuriat, de penser la technologie, c'est les hommes qu'il faut remettre en question et pas les femmes.
+
+376
+00:34:50.060 --> 00:34:50.640
+<v Guillaume Hachez>Tu vois ce que je veux dire ?
+
+377
+00:34:50.650 --> 00:34:53.340
+<v Julie Foulon>OK. Et tu fais comment alors pour les remettre en question ?
+
+378
+00:34:53.640 --> 00:35:05.680
+<v Guillaume Hachez>C'est dur, hein. Mais c'est ce que je veux dire, c'est que y a une f-- on pourrait dire que c'est un petit peu baisser les bras que de dire : « Je vais parler comme un homme pour essayer d'avoir mon financement ».
+
+379
+00:35:05.740 --> 00:35:11.160
+<v Julie Foulon>Ouais, mais après, tu peux avoir le financement et après essayer de changer les choses avec ton point de vue.
+
+380
+00:35:11.260 --> 00:35:13.590
+<v Guillaume Hachez>Oui. OK. OK, c'est intéressant.
+
+381
+00:35:14.080 --> 00:35:20.160
+<v Julie Foulon>Oui, non, c'est pas facile. J'pense que, quand t'es entrepreneur, c'est suffisamment compliqué.
+
+382
+00:35:20.280 --> 00:35:27.280
+<v Julie Foulon>Tu vois, le fait de baisser les-- 'fin, de dire, de tout remettre en question, de baisser les bras, etc. Ça demande aussi beaucoup d'énergie.
+
+383
+00:35:27.400 --> 00:35:37.540
+<v Julie Foulon>Et cette énergie, finalement, tu pourrais la concentrer, l'utiliser pour faire avancer ton projet. Et si une fois, tu dois pitcher comme un mec pour avoir des fonds, bah, fais-le quoi, tu vois ?
+
+384
+00:35:37.580 --> 00:35:44.740
+<v Guillaume Hachez>Ok, ouais, c'est une approche. Tu en connais beaucoup des femmes entrepreneuses qui ont décroché un financement, qui ont levé des fonds ? Tu en connais ?
+
+385
+00:35:44.760 --> 00:35:47.780
+<v Julie Foulon>Bah, j'en connais, ouais, j'en connais, j'en connais quand même.
+
+386
+00:35:48.100 --> 00:35:52.260
+<v Guillaume Hachez>Et c'est plutôt quel profil ? C'est des gens qui viennent de Molenbeek ou c'est des gens qui viennent de Uccle ?
+
+387
+00:35:52.380 --> 00:35:56.300
+<v Julie Foulon>Non, c'est plutôt des universitaires de Torrens.
+
+388
+00:35:56.610 --> 00:35:58.000
+<v Guillaume Hachez>D'accord, ok. C'est ça. Qui ont fait Vlerick.
+
+389
+00:35:58.360 --> 00:36:00.640
+<v Julie Foulon>Ouais, ouais, ou plutôt ou l'ULB, etc.
+
+390
+00:36:01.060 --> 00:36:01.860
+<v Guillaume Hachez>D'accord, OK.
+
+391
+00:36:02.680 --> 00:36:12.260
+<v Guillaume Hachez>Ben donc on-- c'est intéressant parce qu'on parlait un petit peu du fait qu'en Belgique, voilà, culture de-- 'fin peur de la culture du risque, peur de l'échec, on a peur de se lancer et puis les femmes encore plus, etc.
+
+392
+00:36:13.300 --> 00:36:25.080
+<v Guillaume Hachez>Je me souviens que, je crois que c'était en mars dernier ou en avril, il y a eu un dossier dans La Libre Belgique, où vous étiez en une et vous parliez de Bruxelles et de la scène à Bruxelles, de Molenbeek, de MolenGeek, etc.
+
+393
+00:36:26.420 --> 00:36:29.560
+<v Guillaume Hachez>Vous aviez expliqué que Bruxelles allait devenir la nouvelle Silicon Valley.
+
+394
+00:36:29.780 --> 00:36:31.920
+<v Julie Foulon>Exactement. Ben on y croit dur comme fer.
+
+395
+00:36:32.340 --> 00:36:43.080
+<v Guillaume Hachez>Mais tu viens de m'expliquer que les gens avaient peur de se lancer. Et puis en plus de ça, on sait que dans les chiffres, les étudiants qui étudient l'informatique en Belgique, c'est 1,1 %.
+
+396
+00:36:43.170 --> 00:36:49.940
+<v Guillaume Hachez>C'est le ratio le plus petit de tous les pays de l'OCDE. Donc il y a pas beaucoup de gens qui étudient l'informatique.
+
+397
+00:36:50.400 --> 00:36:58.750
+<v Guillaume Hachez>Il y a pas vraiment une culture de l'entrepreneuriat. On a un petit pays qui est divisé. Quand Google arrive, quand on leur dit : « Hé, vous voulez pas faire un campus ici à Bruxelles ?
+
+398
+00:36:58.750 --> 00:37:06.779
+<v Guillaume Hachez>» Ils disent : « Non, c'est petit, c'est divisé. Non, bof, ça marchera pas. » Et toi, tu nous expliques que, en fait, c'est quand même la Silicon Valley européenne.
+
+399
+00:37:07.000 --> 00:37:10.410
+<v Julie Foulon>Et oui, parce que figure-toi qu'il y a un nouveau phénomène-
+
+400
+00:37:10.820 --> 00:37:11.020
+<v Guillaume Hachez>OK
+
+401
+00:37:11.140 --> 00:37:20.680
+<v Julie Foulon>...qui est en train de se passer. C'est un retour de tous les entrepreneurs de la Silicon Valley en Europe. Donc il faut savoir que la Silicon Valley est essentiellement finalement composée, ben, d'entrepreneurs européens.
+
+402
+00:37:20.860 --> 00:37:20.950
+<v Guillaume Hachez>Mmm-hmm.
+
+403
+00:37:21.340 --> 00:37:33.540
+<v Julie Foulon>Et ça devient un peu n'importe quoi de vivre à San Francisco et dans la Silicon Valley quand tu sais qu'il te faut au moins cinq cent mille euros, cinq cent mille dollars pour pouvoir payer tes bureaux pendant l'année, tu vois.
+
+404
+00:37:33.920 --> 00:37:45.959
+<v Julie Foulon>Donc à un moment donné, ça devient un peu du grand n'importe quoi. Et du coup, t'as ce phénomène de plein d'entrepreneurs, ben, qui reviennent au bercail, qui reviennent en Europe et qui reviennent aussi, bah, en Belgique.
+
+405
+00:37:46.480 --> 00:37:52.300
+<v Julie Foulon>Et ça, c'est intéressant. Alors bien sûr, ça va pas devenir la Silicon Valley, la nouvelle Silicon Valley, pour demain.
+
+406
+00:37:52.600 --> 00:37:52.750
+<v Guillaume Hachez>Mmm-hmm.
+
+407
+00:37:52.830 --> 00:38:00.300
+<v Julie Foulon>Mais il se trouve que, ben, Bruxelles, c'est quand même stratégique, c'est la capitale de l'Europe. Et ben, en termes de logement, c'est quand même extrêmement intéressant.
+
+408
+00:38:00.360 --> 00:38:14.000
+<v Julie Foulon>Et oui, on pense que bientôt, il y aura suffi-- il y aura un écosystème tech qui sera suffisamment développé et innovant qui pourra permettre aussi à d'autres entreprises étrangères de venir s'installer.
+
+409
+00:38:14.040 --> 00:38:21.500
+<v Guillaume Hachez>Mmm-hmm. Quand on pense aux pôles startup, aux pôles tech en Europe, on pense à Paris, on pense à Berlin, on pense à Londres.
+
+410
+00:38:21.680 --> 00:38:29.160
+<v Julie Foulon>Et on pensera bientôt à Bruxelles. Regarde, la scène tech en Belgique, elle a commencé quand ? En 2008 avec le Beta Group. Tu vois ?
+
+411
+00:38:29.180 --> 00:38:29.760
+<v Guillaume Hachez>OK. Où c'était ?
+
+412
+00:38:29.900 --> 00:38:41.040
+<v Julie Foulon>Ça fait dix ans. Et t'as vu le chemin qu'on a fait ? Avant, il y avait rien. Et en l'espace de dix ans, on a créé des marques, on a-- MolenGeek, on arrive à même le pitcher aux Nations unies.
+
+413
+00:38:41.480 --> 00:38:41.500
+<v Guillaume Hachez>Mmm-hmm.
+
+414
+00:38:41.500 --> 00:38:45.800
+<v Julie Foulon>Donc bon, on reçoit des prix de Samsung à Séoul.
+
+415
+00:38:46.460 --> 00:38:48.880
+<v Guillaume Hachez>Il y a des exemples similaires à Londres, à Berlin et à Paris.
+
+416
+00:38:49.060 --> 00:38:56.149
+<v Julie Foulon>Mais voilà. Mais avant, il y avait rien. Et comme tu dis, on est un petit pays. Donc on est en train de faire et on est en train de vraiment, je pense, de faire connaître la Belgique-
+
+417
+00:38:56.180 --> 00:38:58.920
+<v Guillaume Hachez>D'accord, je suis d'accord pour dire qu'on est en train d'un peu rattraper notre retard et que-
+
+418
+00:38:59.030 --> 00:38:59.040
+<v Julie Foulon>Ouais
+
+419
+00:38:59.040 --> 00:39:09.220
+<v Guillaume Hachez>...on a bien avancé. Non, je suis désolé, mais quand on voit qu'on est des tout derniers du classement de la culture d'entreprise, que les gens créent pas leur boîte ici, que les gens n'étudient pas l'informatique,
+
+420
+00:39:10.020 --> 00:39:15.600
+<v Guillaume Hachez>tu vois, moi, j'ai un peu du mal à trouver des gens avec un profil semblable au mien, un peu entrepreneurial, un peu tech, etc.
+
+421
+00:39:15.660 --> 00:39:17.390
+<v Julie Foulon>Oui, mais toi, t'as un profil très particulier, mais t'en-
+
+422
+00:39:17.420 --> 00:39:18.120
+<v Guillaume Hachez>C'est le profil Silicon Valley.
+
+423
+00:39:18.160 --> 00:39:24.120
+<v Julie Foulon>Déjà, si tu venais plus à MolenGeek, t'en trouverais d'autres, des tech guys avec des profils d'entrepreneurs.
+
+424
+00:39:24.480 --> 00:39:34.760
+<v Julie Foulon>Non, mais il y en a, il y en a, Guillaume. Et franchement, moi, je serais pas si sceptique que ça. Et je pense que vraiment, effectivement, Alexander De Croo et
+
+425
+00:39:35.420 --> 00:39:40.870
+<v Julie Foulon>en particulier essayent de vraiment de faire en sorte-- et puis toutes les initiatives qui sont,
+
+426
+00:39:41.140 --> 00:39:51.240
+<v Julie Foulon>sur ces thématiques entrepreneuriales innovantes puis nouvelles technologies, je pense qu'on fait beaucoup de bien à la Belgique et on essaye de faire en sorte que-- d'avoir un point de chute pour toutes ces entreprises.
+
+427
+00:39:51.260 --> 00:39:52.960
+<v Julie Foulon>Il y a un beau rayonnement international.
+
+428
+00:39:53.060 --> 00:39:57.200
+<v Guillaume Hachez>Je crois que tu es très optimiste et que je suis très pessimiste. On verra, on verra qui a raison.
+
+429
+00:39:57.420 --> 00:39:57.740
+<v Julie Foulon>On verra.
+
+430
+00:39:57.880 --> 00:40:06.539
+<v Guillaume Hachez>La vérité peut-être entre les deux, on verra. Ouais, mais donc je parlais de l'article qui est passé dans La Libre, La Libre Belgique, il y a quelques mois.
+
+431
+00:40:07.040 --> 00:40:15.200
+<v Guillaume Hachez>Vous faites beaucoup de presse, vous passez à la télé, vous passez dans les médias, dans les journaux, à la radio, aux Nations unies, sur le site de Samsung, etc.
+
+432
+00:40:15.480 --> 00:40:22.380
+<v Guillaume Hachez>Donc c'est vraiment beaucoup, beaucoup de communication. Alors que finalement, les places ici à MolenGeek, elles sont relativement limitées.
+
+433
+00:40:22.450 --> 00:40:26.320
+<v Guillaume Hachez>Donc il y a un an, c'était encore une vingtaine de personnes. Maintenant, tu me dis que ça s'est élargi ou quoi ?
+
+434
+00:40:26.340 --> 00:40:31.230
+<v Julie Foulon>Il y a un an, une vingtai-- non, non, non, pas du tout. Il y a un an, écoute, les chiffres, c'était en-
+
+435
+00:40:31.230 --> 00:40:32.080
+<v Guillaume Hachez>Je parle de la Coding School.
+
+436
+00:40:32.460 --> 00:40:34.720
+<v Julie Foulon>De la Code-- ah oui, oui, d'accord. La Coding School, oui.
+
+437
+00:40:34.800 --> 00:40:44.520
+<v Guillaume Hachez>Donc beaucoup de communication alors que les places sont relativement limitées. Est-ce que ça peut pas se retourner contre vous à terme de faire autant de communication, autant parler de vous ?
+
+438
+00:40:44.560 --> 00:40:47.340
+<v Guillaume Hachez>Grande demande pour s'inscrire à la Coding School. Vous pouvez pas recevoir tout le monde.
+
+439
+00:40:47.680 --> 00:40:55.460
+<v Julie Foulon>Non, on peut pas recevoir tout le monde. Mais maintenant qu'on a agrandi, on a vraiment augmenté nos capacités, ben d'accueil.
+
+440
+00:40:56.020 --> 00:41:00.500
+<v Julie Foulon>Et puis, le premier étage, les quatre cent mètres carrés, je peux te dire, on peut accueillir-- on a cinq classes.
+
+441
+00:41:00.570 --> 00:41:00.919
+<v Guillaume Hachez>Mmm-hmm.
+
+442
+00:41:00.970 --> 00:41:03.800
+<v Julie Foulon>Donc il y a de quoi faire pour accueillir.
+
+443
+00:41:04.360 --> 00:41:11.960
+<v Guillaume Hachez>Et donc justement, le processus de sélection, combien de demandes, combien de personnes qui sont candidates pour s'inscrire à la Coding School chaque fois ?
+
+444
+00:41:12.080 --> 00:41:16.180
+<v Julie Foulon>En moyenne, on a un peu plus de cent personnes qui viennent-
+
+445
+00:41:16.550 --> 00:41:16.560
+<v Guillaume Hachez>Cent personnes. Et au final, vous en gardez combien ?
+
+446
+00:41:16.560 --> 00:41:23.473
+<v Julie Foulon>...par notre source d'info et on en garde vingt maximum. Grand maximum. Donc alors, comment ça se passe ?
+
+447
+00:41:23.484 --> 00:41:26.744
+<v Guillaume Hachez>Et je pensais que ça s'était élargi. Tu me disais vingt maximum, mais...
+
+448
+00:41:26.764 --> 00:41:28.114
+<v Julie Foulon>Bah c'est des classes de vingt. Donc t'as-
+
+449
+00:41:28.114 --> 00:41:28.954
+<v Guillaume Hachez>Des classes-- Oui, c'est ça. Mais donc-
+
+450
+00:41:28.964 --> 00:41:29.684
+<v Julie Foulon>C'est ça. Mais donc-
+
+451
+00:41:29.864 --> 00:41:30.424
+<v Guillaume Hachez>Vingt fois-
+
+452
+00:41:30.484 --> 00:41:38.024
+<v Julie Foulon>Oui, mais pour l'instant, à chaque fois, on faisait donc deux séances d'information par promotion. Mais on fait toujours ça d'ailleurs, deux séances d'information par promotion.
+
+453
+00:41:38.664 --> 00:41:43.844
+<v Julie Foulon>Et au total, on avait donc ouais, une centaine de personnes pour vingt places quoi.
+
+454
+00:41:43.924 --> 00:41:47.224
+<v Guillaume Hachez>OK. Et vous, vous les sélectionnez comment ? Sur quels critères ? C'est quoi, c'est quoi l'idée ?
+
+455
+00:41:47.284 --> 00:41:57.704
+<v Julie Foulon>Alors, y a pas de critères disqualifiants. Ce sont les jeunes eux-mêmes qui se rendent compte au travers d'un processus de sélection qui est assez long, s'ils sont faits pour être développeur ou pas.
+
+456
+00:41:58.124 --> 00:42:06.144
+<v Julie Foulon>Donc c'est pas à nous qu'allons les juger sous forme de test, comment ça se passe. Déjà, le fait de venir à la séance d'information, c'est déjà un bon point.
+
+457
+00:42:06.204 --> 00:42:07.194
+<v Julie Foulon>Ça veut dire que tu t'es,
+
+458
+00:42:07.724 --> 00:42:20.284
+<v Julie Foulon>t'es quand même motivé pour venir découvrir une nouvelle formation. Puis ensuite, deux jours plus tard, t'as une séance de test technique où ils apprennent toute la journée, ils commencent à apprendre le JavaScript.
+
+459
+00:42:20.674 --> 00:42:22.944
+<v Julie Foulon>Parce qu'on sait que le JavaScript, au sein de la formation-
+
+460
+00:42:22.964 --> 00:42:24.564
+<v Guillaume Hachez>C'est déjà un peu plus la pensée de la programmation.
+
+461
+00:42:24.684 --> 00:42:30.484
+<v Julie Foulon>Voilà, c'est le début de la pensée de la programmation. Et là, tu vois directement ceux qui ont la logique et ceux qui l'ont pas.
+
+462
+00:42:30.564 --> 00:42:38.424
+<v Julie Foulon>Et effectivement, pour devenir développeur, hein, tout le monde peut pas l'être. Et si t'as pas cette logique, t'as beau travailler, ben, tu l'as pas, tu l'as pas.
+
+463
+00:42:38.724 --> 00:42:39.304
+<v Julie Foulon>Ce serait compliqué.
+
+464
+00:42:39.604 --> 00:42:39.764
+<v Guillaume Hachez>OK.
+
+465
+00:42:40.124 --> 00:42:50.724
+<v Julie Foulon>Et puis, pendant cette journée, t'as aussi un entretien avec le staff pour déterminer ton parcours de vie,
+
+466
+00:42:51.364 --> 00:42:57.864
+<v Julie Foulon>pour voir si justement, t'as un parcours stable, si t'as besoin d'être mis en contact avec des assistants sociaux,
+
+467
+00:42:58.464 --> 00:43:05.764
+<v Julie Foulon>pour, j'sais pas moi, trouver un logement, si t'es endetté, si t'as des problèmes comme ça, parce que c'est une, encore une fois, c'est une formation de six mois qui est très intensive.
+
+468
+00:43:05.824 --> 00:43:06.824
+<v Guillaume Hachez>Ouais, il faut venir tous les jours.
+
+469
+00:43:06.864 --> 00:43:14.924
+<v Julie Foulon>Donc si, à un moment donné, t'as plus de logement ou t'as vraiment des gros-- t'as besoin d'argent et que tu dois travailler, le fait d'arrêter et d'interrompre ta formation,
+
+470
+00:43:15.644 --> 00:43:19.344
+<v Julie Foulon>ça va tout casser et tu pourras plus continuer, en fait.
+
+471
+00:43:19.524 --> 00:43:21.884
+<v Guillaume Hachez>Vous avez déjà eu ça ? Vous avez déjà eu ça aux-- les premières années ?
+
+472
+00:43:21.944 --> 00:43:30.504
+<v Julie Foulon>Ouais, on a déjà eu ça. C'est pour ça qu'on est très vigilants par rapport à ça et on fait en sorte que les jeunes soient en ordre pour intégrer la formation.
+
+473
+00:43:31.103 --> 00:43:38.304
+<v Julie Foulon>Et puis ensuite, t'as un entretien autour de la motivation et puis on regarde un peu ce que t'as fait au cours de la journée.
+
+474
+00:43:38.864 --> 00:43:51.124
+<v Julie Foulon>Donc y a pas du tout-- t'es pas du tout jugé par ce que tu fais. T'es pas jugé si tu poses des questions aux autres, si tu poses des questions au coach, si tu t'entraides avec d'autres.
+
+475
+00:43:51.164 --> 00:44:00.884
+<v Julie Foulon>Au contraire, c'est beaucoup plus recommandé. Donc ça va nous paraître un peu suspicieux si t'as un petit jeune qui va pas dire un mot, qui va rester dans son coin et qui va être un peu introverti.
+
+476
+00:44:00.964 --> 00:44:02.344
+<v Julie Foulon>Bon voilà, on va faire attention.
+
+477
+00:44:02.384 --> 00:44:03.744
+<v Guillaume Hachez>On le serait mal jugé s'il est vraiment motivé.
+
+478
+00:44:03.824 --> 00:44:11.384
+<v Julie Foulon>Bah, on va faire attention parce que si tu veux, nous, on doit avoir une bonne équipe, un, comment dire, un effet dynamique, hein, de groupe.
+
+479
+00:44:11.404 --> 00:44:19.544
+<v Julie Foulon>Et ça, c'est important. Donc ça, c'est vraiment la séance d'information. Suivie, séance d'information test technique, suivie de quoi ?
+
+480
+00:44:19.664 --> 00:44:25.804
+<v Julie Foulon>D'une coding week. Donc c'est une semaine pour apprendre à créer un premier site internet. Donc là, ils font HTML, CSS, Bootstrap.
+
+481
+00:44:25.944 --> 00:44:33.604
+<v Julie Foulon>Et là, c'est chouette parce que ils rentrent dans le code et pendant quatre jours, ils apprennent et ils font leur premier site qu'ils présentent le vendredi.
+
+482
+00:44:33.764 --> 00:44:40.304
+<v Guillaume Hachez>Au-delà des critères qui sont donc la situation sociale, la motivation, etc., y a rien d'autre ? Par exemple, je suis toujours étonné.
+
+483
+00:44:40.344 --> 00:44:44.724
+<v Guillaume Hachez>Donc vous arrivez à avoir 40 % de femmes sans faire de discrimination positive alors.
+
+484
+00:44:44.764 --> 00:44:46.684
+<v Julie Foulon>Oui, sans faire de discrimination positive. Donc,
+
+485
+00:44:47.524 --> 00:44:59.624
+<v Julie Foulon>je parle de la coding week. Donc entre les séances, le test technique et l'entretien et la coding week, t'en as certains, déjà après la journée de JavaScript, qui te disent : « Bah, c'est pas pour moi du tout », quoi, tu vois.
+
+486
+00:44:59.764 --> 00:45:09.764
+<v Julie Foulon>Donc y en a certains qui abandonnent. Et puis, ils font la coding week et puis t'en as encore d'autres qui vont abandonner en se disant : « Bah non, mais moi, je me vois pas du tout coder toute la journée, c'est pas du tout pour moi ».
+
+487
+00:45:09.784 --> 00:45:19.944
+<v Julie Foulon>Et puis après, t'as encore un test, c'est une journée où ils font des jeux de société. Et puis là, on repère. Ouais, et là, on repère un peu leur attitude-
+
+488
+00:45:20.024 --> 00:45:20.594
+<v Guillaume Hachez>Ah c'est intéressant ça
+
+489
+00:45:20.764 --> 00:45:22.444
+<v Julie Foulon>...au sein du groupe, en fait.
+
+490
+00:45:22.504 --> 00:45:26.044
+<v Guillaume Hachez>On appelle team playing, le fait d'être positif ou le fait d'être emmerdant.
+
+491
+00:45:26.124 --> 00:45:35.464
+<v Julie Foulon>Bah de prendre le lead ou d'écraser les autres, tu vois. Et ça, le fait de jouer à des jeux comme ça, ça permet un peu de révéler un peu ta personnalité.
+
+492
+00:45:35.484 --> 00:45:40.703
+<v Guillaume Hachez>Est-ce que je peux te donner un exemple ? Est-ce que vous avez déjà filtré quelqu'un sur base d'un truc qui s'est passé quand il a joué à Monopoly ou un truc comme ça ?
+
+493
+00:45:40.724 --> 00:45:45.804
+<v Julie Foulon>Bah alors, c'est pas vraiment un Monopoly, c'est des jeux de rôle où tu dois trouver un peu des-
+
+494
+00:45:46.164 --> 00:45:46.384
+<v Guillaume Hachez>D'accord
+
+495
+00:45:46.394 --> 00:45:54.564
+<v Julie Foulon>...t'es un peu un Sherlock Holmes, comme ça tu dois trouver des indices et tout. Mais oui, on a déjà repéré des gens qui avaient tendance à écraser les autres.
+
+496
+00:45:54.604 --> 00:46:02.664
+<v Julie Foulon>Et donc dans un petit groupe de quinze, vingt personnes, dans une classe, si t'as quelqu'un qui est un peu une terreur et qui va écraser les autres, ça pourra pas fonctionner.
+
+497
+00:46:02.804 --> 00:46:08.844
+<v Julie Foulon>Les autres membres du groupe ne pourront pas poser des questions, ne pourront pas évoluer.
+
+498
+00:46:09.304 --> 00:46:15.104
+<v Julie Foulon>Donc c'est important d'avoir un groupe qui est homogène, soudé. Et c'est ce qu'on arrive à faire d'ailleurs.
+
+499
+00:46:15.444 --> 00:46:25.564
+<v Julie Foulon>La dernière promo, la promo quatre, en dehors de MolenGeek, ils se voient, ils sont soudés, ils font des activités ensemble, ils ont même créé des liens avec la promo trois.
+
+500
+00:46:25.644 --> 00:46:26.624
+<v Julie Foulon>Donc ça, c'est formidable.
+
+501
+00:46:26.664 --> 00:46:33.744
+<v Guillaume Hachez>Cool. Très bien Julie, mais je vais devoir bientôt te libérer. Mais juste avant, j'avais envie de te poser une question sur les autres initiatives qu'on voit arriver à Bruxelles.
+
+502
+00:46:33.784 --> 00:46:43.204
+<v Guillaume Hachez>Les-- y a eu BeCode, y a eu l'École 19, y a eu Interface 3 qui-- mais comment est-ce que vous voyez cette concurrence ?
+
+503
+00:46:43.244 --> 00:46:48.884
+<v Guillaume Hachez>Est-ce que c'est vraiment de la concurrence ? Est-ce que c'est une concurrence saine ? Est-ce que vous vous détestez entre vous ?
+
+504
+00:46:48.904 --> 00:46:54.084
+<v Guillaume Hachez>Comment est-ce que-- est-ce que MolenGeek a une particularité que les autres n'ont pas ? Comment ça marche ?
+
+505
+00:46:54.104 --> 00:47:05.644
+<v Julie Foulon>Bah écoute, non, je pense que c'est une concurrence saine. On n'a pas du tout le même public cible. Par exemple, Interface 3, on le sait, c'est des chercheuses d'emploi ou des femmes.
+
+506
+00:47:05.684 --> 00:47:13.384
+<v Julie Foulon>Donc ça, c'est formidable parce que ça permet justement à des femmes de pouvoir apprendre à coder dans un chouette environnement.
+
+507
+00:47:13.704 --> 00:47:16.024
+<v Julie Foulon>C'est des formations qui sont beaucoup plus longues, hein. Parfois, elles sont-
+
+508
+00:47:16.084 --> 00:47:16.554
+<v Guillaume Hachez>Sont un an
+
+509
+00:47:16.764 --> 00:47:24.984
+<v Julie Foulon>...c'est un an. Voilà. Ensuite, tu as l'École 19. Bon bah là, c'est trois ans de formation grand maximum, je crois.
+
+510
+00:47:25.244 --> 00:47:34.544
+<v Julie Foulon>Par exemple, moi, je me souviens, juste pour ma propre expérience, quand j'ai passé mon bac, j'avais le choix entre aller en prépa HEC ou aller à la fac.
+
+511
+00:47:34.684 --> 00:47:43.404
+<v Julie Foulon>Ben moi, la fac, c'était hors de question parce qu'à l'époque, j'avais besoin de structure. Le fait de m'autogérer, de travailler toute seule, c'était mission impossible.
+
+512
+00:47:43.444 --> 00:47:54.164
+<v Julie Foulon>Alors t'imagines, pour des jeunes qui, sans encadrement, c'est un peu compliqué. Et puis enfin, BeCode, c'est ce qui se rapproche un peu le plus de nous.
+
+513
+00:47:54.604 --> 00:48:02.640
+<v Julie Foulon>Mais pareil, ils sont, c'est une approche par projet. Oui, ils sont vraiment très autonomes dès le début.
+
+514
+00:48:03.380 --> 00:48:14.240
+<v Julie Foulon>Et puis le public est un peu différent parce que t'as un peu de reconversion professionnelle aussi dedans. Nous, notre méthodo, elle est vraiment unique en fait, elle est vraiment différente parce qu'on--
+
+515
+00:48:14.720 --> 00:48:18.660
+<v Julie Foulon>les jeunes ne sont jamais à aucun moment lâchés seuls.
+
+516
+00:48:18.760 --> 00:48:20.960
+<v Julie Foulon>Ils sont-- il y a toujours ce contrôle du début à la fin.
+
+517
+00:48:21.220 --> 00:48:26.140
+<v Guillaume Hachez>Et du coup, qu'est-ce qu'on peut vous souhaiter pour les années à venir à MolenGeek, au-delà des projets d'extension, etc.
+
+518
+00:48:26.600 --> 00:48:30.000
+<v Guillaume Hachez>? Qu'est-ce que vous aimeriez voir améliorer, voir grandir ?
+
+519
+00:48:30.290 --> 00:48:34.960
+<v Julie Foulon>Bah MolenGeek, c'est un point de chute hein, et puis c'est vraiment une alternative pour tous ces jeunes.
+
+520
+00:48:35.080 --> 00:48:49.800
+<v Julie Foulon>Je pense que c'est important d'avoir toujours un maximum de visibilité. On a une véritable responsabilité, Ibra et moi, parce que t'as plein de jeunes qui comptent sur nous, justement pour avoir, pour trouver une place dans la vie.
+
+521
+00:48:49.840 --> 00:49:04.080
+<v Julie Foulon>Ça fonctionne. On a trouvé vraiment une méthodo qui fonctionnait et on fait vraiment des merveilles. Et pour nous, c'est vraiment hyper gratifiant quand t'as six mois auparavant des jeunes qui, pff, qui savaient pas quoi faire et
+
+522
+00:49:05.039 --> 00:49:12.420
+<v Julie Foulon>pour qui c'était vraiment problématique et qui étaient complètement perdus, de les voir embaucher par des grandes boîtes ou monter leur entreprise.
+
+523
+00:49:12.510 --> 00:49:16.800
+<v Julie Foulon>Pour nous, c'est vraiment la plus belle-
+
+524
+00:49:17.440 --> 00:49:17.460
+<v Guillaume Hachez>La consécration.
+
+525
+00:49:17.460 --> 00:49:19.300
+<v Julie Foulon>Ouais, c'est la plus belle victoire pour nous.
+
+526
+00:49:19.320 --> 00:49:24.800
+<v Guillaume Hachez>Ok, donc on vous souhaite en gros de continuer sur cette lancée et aussi d'arriver tout doucement à une rentabilité, si je comprends bien.
+
+527
+00:49:25.060 --> 00:49:29.000
+<v Julie Foulon>Bah la rentabilité, oui, on y arrive, on y arrive, hein, y a pas de problème pour ça.
+
+528
+00:49:29.340 --> 00:49:30.760
+<v Guillaume Hachez>Ok, cool. Julie, merci.
+
+529
+00:49:31.300 --> 00:49:31.930
+<v Julie Foulon>Bah merci Guillaume.
+
+530
+00:49:31.950 --> 00:49:46.620
+<v Guillaume Hachez>Merci d'avoir passé 70 minutes avec moi. Et on se revoit dans deux semaines. Bye bye. Et voilà, c'est déjà fini pour cet épisode.
+
+531
+00:49:46.680 --> 00:49:56.220
+<v Guillaume Hachez>Alors oui, je sais que l'émission s'appelle 70 minutes avec alors qu'en vrai, pour le coup, c'était plutôt 50 minutes. Mais voilà, comme on l'a dit, Julie est super méga occupée tout le temps, donc c'est comme ça.
+
+532
+00:49:56.860 --> 00:50:04.440
+<v Guillaume Hachez>N'oubliez pas de suivre 70 minutes avec sur Facebook et Twitter. N'oubliez pas de vous abonner sur votre appli de podcast préférée et de laisser plein d'étoiles sur iTunes.
+
+533
+00:50:05.260 --> 00:50:11.420
+<v Guillaume Hachez>Et j'en profite pour dire que l'émission est maintenant aussi dispo sur Spotify et YouTube. Je vous avais promis une annonce, alors la voici.
+
+534
+00:50:11.520 --> 00:50:20.660
+<v Guillaume Hachez>Ça fait des mois que je bosse sur un article écrit. Ça s'appelle Des souris et que des hommes. Ça parle d'un sujet qui m'obsède depuis quelques années, à savoir le fait qu'en Belgique, il y a très très peu d'étudiantes en informatique.
+
+535
+00:50:21.200 --> 00:50:29.179
+<v Guillaume Hachez>L'article est assez long, il est très complet. Ça parle de sociologie, ça parle d'histoire de l'informatique, ça parle d'économie, d'enseignement catholique, ça parle de l'histoire de la Belgique.
+
+536
+00:50:29.200 --> 00:50:38.000
+<v Guillaume Hachez>Voilà, tout ça pour dire que j'ai vraiment bossé dessus. Et d'ailleurs, c'est comme ça que ce podcast a démarré, puisque toutes les rencontres que j'ai pu faire ces derniers mois avec le ministre, avec Interface 3, avec Isabelle Collet, etc.
+
+537
+00:50:38.680 --> 00:50:47.880
+<v Guillaume Hachez>C'était avant tout pour me renseigner et maîtriser le sujet. Je vous invite à checker ça. Vous trouverez le lien sur les réseaux sociaux ou bien sur Google en tapant tout simplement le titre Des souris et que des hommes.
+
+538
+00:50:48.300 --> 00:50:56.280
+<v Guillaume Hachez>N'hésitez pas à le lire. Je me suis vraiment donné. J'espère que ça va vous plaire et j'ai hâte d'avoir votre feedback. Allez, on se retrouve dans deux semaines. Bye bye.

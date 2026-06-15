@@ -1,0 +1,3021 @@
+WEBVTT
+
+0
+00:00:00.280 --> 00:00:17.780
+<v Guillaume Hachez>Salut, moi c'est Guillaume Hachez. Bienvenue dans Septante Minutes Avec. Pour ce deuxième épisode de Septante Minutes Avec, deux invités.
+
+1
+00:00:18.240 --> 00:00:21.250
+<v Guillaume Hachez>On passera d'abord une heure avec Laure Lemaire, la directrice de Interface3.
+
+2
+00:00:21.880 --> 00:00:29.840
+<v Guillaume Hachez>Interface3, c'est une école d'informatique réservée aux filles qui compte plus d'élèves qu'il n'y a d'étudiants en informatique dans toutes les universités belges francophones réunies.
+
+3
+00:00:29.880 --> 00:00:35.540
+<v Guillaume Hachez>Et juste après ça, une interview de trente minutes avec Isabelle Collet, qui est maîtresse de recherche en sciences de l'éducation à l'Université de Genève.
+
+4
+00:00:36.000 --> 00:00:42.380
+<v Guillaume Hachez>Let's go ! Et bonjour à tous et bienvenue pour un nouvel épisode de ce podcast. On est ici aujourd'hui avec Laure Lemaire.
+
+5
+00:00:42.560 --> 00:00:43.280
+<v Guillaume Hachez>Laure Lemaire, bonjour.
+
+6
+00:00:43.640 --> 00:00:44.080
+<v Laure Lemaire>Bonjour.
+
+7
+00:00:44.180 --> 00:00:52.560
+<v Guillaume Hachez>Vous êtes la directrice de Interface3, un centre de formation en informatique exclusivement pour les femmes. Est-ce que vous pouvez vous présenter pour ceux qui ne vous connaissent pas ?
+
+8
+00:00:52.640 --> 00:01:03.280
+<v Laure Lemaire>OK. Donc moi, je suis directrice d'Interface3 depuis dix ans. Donc, je représente là, pour l'occasion, l'équipe. Mais donc, c'est bien toute une équipe qui construit le projet.
+
+9
+00:01:03.940 --> 00:01:10.760
+<v Laure Lemaire>Si vous voulez un peu me connaître, je peux dire que je suis sociologue de formation et économiste et que j'ai d'abord travaillé dans la recherche
+
+10
+00:01:11.480 --> 00:01:20.960
+<v Laure Lemaire>sur tout ce qui est justement impact des nouvelles technologies sur les transformations du travail, des compétences, des qualifications nécessaires et des besoins en formation
+
+11
+00:01:22.060 --> 00:01:24.720
+<v Laure Lemaire>avec la Fondation Travail Université pendant des années.
+
+12
+00:01:24.860 --> 00:01:34.040
+<v Laure Lemaire>Et puis j'avais envie de faire quelque chose qui soit plus un travail de terrain. Et comme j'avais rencontré Interface3 via des études que je faisais, des recherches que je menais, finalement, je me suis--
+
+13
+00:01:35.000 --> 00:01:37.480
+<v Laure Lemaire>voilà, j'ai commencé à travailler chez Interface3 comme chargée de projet.
+
+14
+00:01:37.500 --> 00:01:42.940
+<v Laure Lemaire>Et puis le poste de direction s'est libéré et j'ai tenté l'aventure et je suis toujours là dix ans plus tard.
+
+15
+00:01:43.480 --> 00:01:49.340
+<v Guillaume Hachez>OK, super. Interface3, ça a démarré au début des années 90, fin des années 80, c'est ça ?
+
+16
+00:01:49.500 --> 00:01:58.100
+<v Laure Lemaire>C'est ça, exactement. Au milieu des années 80. Donc, Interface3, c'est un projet monté par des femmes qui travaillaient plutôt au niveau de la recherche sur le marché du travail en Europe
+
+17
+00:01:58.780 --> 00:02:04.100
+<v Laure Lemaire>et qui voulaient faire quelque chose de concret pour favoriser l'égalité des hommes et des femmes sur le marché du travail.
+
+18
+00:02:04.140 --> 00:02:04.790
+<v Laure Lemaire>Alors, on sait bien qu'il y a,
+
+19
+00:02:05.560 --> 00:02:09.580
+<v Laure Lemaire>qu'il y a un peu différents types d'inégalités sur le marché du travail, dont des inégalités de salaire,
+
+20
+00:02:10.320 --> 00:02:20.020
+<v Laure Lemaire>qui sont dues aussi à ce qu'on appelle la ségrégation horizontale sur le marché du travail, qui est le fait que finalement, les métiers sont quand même assez sexués.
+
+21
+00:02:20.410 --> 00:02:25.780
+<v Laure Lemaire>Et donc il existe des métiers non mixtes. Donc, il y a les métiers qui sont essentiellement occupés par les hommes.
+
+22
+00:02:25.840 --> 00:02:31.540
+<v Laure Lemaire>C'est beaucoup de métiers techniques, entre autres. Et puis, de l'autre côté, on a les métiers qui sont plus réservés aux femmes.
+
+23
+00:02:31.590 --> 00:02:39.040
+<v Laure Lemaire>Et là, on a tout ce qui est soins aux personnes, éducation. Et finalement, on reproduit assez bien les tâches traditionnelles des femmes à la maison.
+
+24
+00:02:39.520 --> 00:02:50.540
+<v Laure Lemaire>Parce que même s'il y a des femmes docteurs, des femmes avocates, etc. Statistiquement, quand même, ça fait depuis l'après-guerre, donc depuis les années 60, ça ne bouge pas beaucoup.
+
+25
+00:02:50.700 --> 00:03:00.060
+<v Laure Lemaire>Les femmes sont surreprésentées dans le secteur qu'on appelle du care, donc soins aux personnes, éducation, etc. Donc, Interface3 a choisi cet angle d'attaque bien précis.
+
+26
+00:03:00.100 --> 00:03:12.620
+<v Laure Lemaire>Donc l'idée, c'était d'aider les femmes à s'insérer sur le marché du travail dans des secteurs porteurs. Alors porteurs, ça veut dire en termes de salaire, de conditions de travail, d'opportunités de carrière,
+
+27
+00:03:13.340 --> 00:03:18.440
+<v Laure Lemaire>mais aussi de statut social, parce qu'il n'y a rien à faire, il y a des métiers qui posent mieux en société que d'autres.
+
+28
+00:03:18.560 --> 00:03:28.740
+<v Laure Lemaire>Et donc c'était le début de la société de l'information au milieu des années 80. Et donc Interface3 a décidé d'essayer d'aider les femmes à s'adapter à la société de l'information qui émergeait.
+
+29
+00:03:28.780 --> 00:03:34.760
+<v Laure Lemaire>Et donc petit à petit, les formations sont nées. Au début, c'était une formation, puis deux formations. Aujourd'hui, il y en a onze.
+
+30
+00:03:34.960 --> 00:03:42.440
+<v Laure Lemaire>Formations longues, donc qualifiantes, qui mènent à l'emploi avec un stage en entreprise. Et donc on a suivi l'évolution de l'IT.
+
+31
+00:03:42.740 --> 00:03:52.040
+<v Laure Lemaire>Donc notre cible au départ, c'était vraiment que les femmes s'emparent de la société de l'information, qu'elles soient actrices plutôt que spectatrices.
+
+32
+00:03:52.160 --> 00:03:59.720
+<v Laure Lemaire>Parce que le problème auquel on est confronté, mais toujours aujourd'hui, même si ça fait une trentaine d'années que nous, on travaille là-dessus, le problème est toujours d'actualité.
+
+33
+00:03:59.740 --> 00:04:00.000
+<v Guillaume Hachez>Bien sûr.
+
+34
+00:04:00.160 --> 00:04:05.900
+<v Laure Lemaire>C'est que les femmes sont des usagers des nouvelles technologies, ça, c'est sûr. Elles tchatent, elles surfent sur Internet, etc.
+
+35
+00:04:07.000 --> 00:04:09.420
+<v Laure Lemaire>Mais elles ne développent pas les applications qui sont derrière.
+
+36
+00:04:09.780 --> 00:04:10.030
+<v Guillaume Hachez>Mh. Mh.
+
+37
+00:04:10.380 --> 00:04:19.480
+<v Laure Lemaire>Et elles ne s'occupent pas non plus de l'infrastructure. Et donc quelque part, ça veut dire que la moitié de l'humanité n'est pas représentée dans la façon dont l'informatique est aujourd'hui développée.
+
+38
+00:04:20.280 --> 00:04:31.680
+<v Laure Lemaire>Donc, il y a quand même un enjeu de société important. Je veux dire, d'un côté, il y a le fait que c'est dommage que les femmes ne s'emparent pas de métiers aussi passionnants et aussi porteurs.
+
+39
+00:04:31.720 --> 00:04:35.860
+<v Laure Lemaire>C'est-à-dire, il y a beaucoup d'emplois dans l'IT et des emplois qui ne sont pas pourvus par manque de main-d'œuvre qualifiée.
+
+40
+00:04:35.900 --> 00:04:42.880
+<v Laure Lemaire>Donc ça, c'est dommage que les femmes n'en profitent pas. Et d'un autre côté, pour la société, c'est dommage que les femmes ne fassent pas partie des développeurs en général.
+
+41
+00:04:43.760 --> 00:04:52.240
+<v Laure Lemaire>Donc, ce qu'on a trouvé comme formule un peu originale chez Interface3 pour favoriser les femmes dans les métiers de l'informatique, c'est de leur réserver nos formations.
+
+42
+00:04:52.800 --> 00:05:00.800
+<v Laure Lemaire>En fait, ça nous permet de travailler sur les freins invisibles qui font que les femmes ne se dirigent pas vers ce secteur.
+
+43
+00:05:00.940 --> 00:05:11.760
+<v Laure Lemaire>D'abord, il y a les stéréotypes qui assignent les gens, les genres, oui, à certaines vocations, on va dire.
+
+44
+00:05:12.360 --> 00:05:17.640
+<v Laure Lemaire>Ça, c'est ce qu'on appelle les stéréotypes. Et c'est vrai qu'au niveau de l'orientation professionnelle, je pense que ça a un rôle assez important, surtout que
+
+45
+00:05:18.420 --> 00:05:24.840
+<v Laure Lemaire>les jeunes, l'orientation, ça commence à l'adolescence et c'est particulièrement une période où on est très sensible à ce qu'on pense de nous.
+
+46
+00:05:25.600 --> 00:05:33.420
+<v Laure Lemaire>Et donc, voilà, on s'éloigne difficilement du groupe. On va dire, c'est difficile d'être un outsider. Par exemple, pour un garçon, de dire : « Mais moi, je veux absolument être puériculteur. » Bon.
+
+47
+00:05:34.620 --> 00:05:37.750
+<v Guillaume Hachez>Vous avez un total de onze formations, vous me disiez, c'est ça ?
+
+48
+00:05:37.760 --> 00:05:37.880
+<v Laure Lemaire>Oui.
+
+49
+00:05:38.040 --> 00:05:41.620
+<v Guillaume Hachez>Ça fait un total de, je crois, cent cinquante élèves par an, c'est juste ?
+
+50
+00:05:41.890 --> 00:05:43.140
+<v Laure Lemaire>Un peu plus, cent soixante-cinq.
+
+51
+00:05:43.180 --> 00:05:46.600
+<v Guillaume Hachez>Cent soixante-cinq, d'accord. Pour une formation qui dure un an, c'est ça ?
+
+52
+00:05:47.180 --> 00:05:56.320
+<v Laure Lemaire>Si ça ne vous dérange pas, je vais terminer sur les freins parce que c'est vraiment important pour comprendre la démarche. Parce que donc, il y a la question du stéréotype et puis le fait que
+
+53
+00:05:57.364 --> 00:06:04.324
+<v Laure Lemaire>finalement, quand le PC personnel est arrivé dans les maisons, il a été, on va dire, un peu pris en main par les garçons et les hommes en général.
+
+54
+00:06:04.364 --> 00:06:06.563
+<v Laure Lemaire>Et puis il y a la figure du geek qui est apparue.
+
+55
+00:06:06.574 --> 00:06:07.884
+<v Guillaume Hachez>Au cinéma, Hollywood.
+
+56
+00:06:07.944 --> 00:06:15.004
+<v Laure Lemaire>Oui, un peu. Le garçon un peu asocial, boutonneux, etc. Ben ça ne le fait pas trop. Une fille a du mal à s'identifier à cette figure.
+
+57
+00:06:15.044 --> 00:06:26.044
+<v Laure Lemaire>Du coup, ça les a éloignées de l'informaticien, je pense. Donc ça, c'est un premier constat. Mais le deuxième constat, c'est que en fait, il faut voir qu'il y a peu de femmes qui s'inscrivent dans les filières informatiques.
+
+58
+00:06:26.084 --> 00:06:31.284
+<v Laure Lemaire>Donc, vous disiez moins de sept pour cent de femmes dans les masters, les baccalauréats, etc., en Belgique.
+
+59
+00:06:31.624 --> 00:06:32.424
+<v Guillaume Hachez>Dans les études supérieures.
+
+60
+00:06:32.464 --> 00:06:38.004
+<v Laure Lemaire>Dans les études supérieures. Mais il y a quand même plus de femmes, si on regarde les professionnelles de l'informatique, je pense qu'on est autour de seize pour cent.
+
+61
+00:06:38.864 --> 00:06:43.184
+<v Laure Lemaire>Et donc ça veut dire qu'il y a des femmes qui se réorientent vers l'informatique. Et ça, c'est notre créneau, justement.
+
+62
+00:06:43.464 --> 00:06:49.004
+<v Laure Lemaire>C'est que les femmes qui viennent ici, c'est des femmes qui se réorientent vers l'informatique après avoir fait un autre choix en formation initiale.
+
+63
+00:06:49.164 --> 00:07:00.374
+<v Laure Lemaire>Et là apparaît un deuxième problème qui est de nouveau un frein invisible, c'est que comme elles n'ont pas été encouragées jeunes à s'emparer de cette matière, elles n'ont en général aucun prérequis.
+
+64
+00:07:01.184 --> 00:07:05.484
+<v Laure Lemaire>Par rapport aux garçons, il y a un handicap. Si vous voulez, il y aura plus de garçons qui auront déjà bidouillé avec le code, etc.
+
+65
+00:07:05.884 --> 00:07:09.744
+<v Laure Lemaire>et qui auront déjà été, en autodidacte, chercher des tutoriels sur Internet, etc.
+
+66
+00:07:10.804 --> 00:07:20.104
+<v Laure Lemaire>Moins de filles. Et donc si vous passez des sélections en formation professionnelle, parce que donc nous, on organise des formations professionnelles, ça veut dire qu'il y a quand même une sélection à l'entrée puisqu'on fait des groupes de quinze.
+
+67
+00:07:20.224 --> 00:07:25.564
+<v Laure Lemaire>Donc, je ne sais pas, il y a soixante personnes qui se présentent pour une formation web application développeur, il faut sélectionner.
+
+68
+00:07:26.724 --> 00:07:36.504
+<v Laure Lemaire>Et alors là, dans les formations professionnelles classiques, je ne vais pas nommer les opérateurs, mais un peu partout en Wallonie et à Bruxelles, en général, on demande : « Est-ce que vous avez une formation en code ?
+
+69
+00:07:36.514 --> 00:07:41.884
+<v Laure Lemaire>» On demande : « Est-ce que vous avez déjà codé ? » Là, les garçons, ils ont une longueur d'avance, donc les filles ne passent pas la sélection.
+
+70
+00:07:43.004 --> 00:07:47.204
+<v Laure Lemaire>Donc c'est pour ça que nous, on fait des formations non mixtes. Ça nous permet de ne demander aucun prérequis.
+
+71
+00:07:47.604 --> 00:07:57.444
+<v Laure Lemaire>Donc on reprend tout à la base et on ne met pas en concurrence les filles et les garçons dans la mesure où les filles ont quelque part une sorte de retard technologique à rattraper.
+
+72
+00:07:57.454 --> 00:08:02.344
+<v Laure Lemaire>Évidemment, je grossis le trait, hein, mais je veux dire, là, je parle de la majorité des personnes. Il y a toujours des exceptions.
+
+73
+00:08:02.484 --> 00:08:08.104
+<v Laure Lemaire>Ça veut dire, il y a des filles qui sont geeks avant d'arriver ici, mais disons qu'elles sont de plus en plus nombreuses, mais elles sont quand même pas nombreuses.
+
+74
+00:08:08.844 --> 00:08:17.864
+<v Laure Lemaire>Et donc c'est pour lutter contre ces deux freins invisibles que c'est efficace de faire des formations non mixtes, parce que d'une part, on peut les convaincre que c'est pour elles, leur montrer des rôles modèles,
+
+75
+00:08:18.724 --> 00:08:20.484
+<v Laure Lemaire>leur permettre d'expérimenter la technologie.
+
+76
+00:08:20.544 --> 00:08:28.784
+<v Laure Lemaire>C'est ce qu'on fait. Il y a des modules d'orientation avant les formations qualifiantes où elles peuvent se tester, c'est-à-dire voir si elles ont une affinité, des affinités avec le code ou avec le réseau, etc.
+
+77
+00:08:29.884 --> 00:08:38.364
+<v Laure Lemaire>Donc ça, c'est pour lutter contre les stéréotypes. Et puis on commence au départ, on ne les met pas en concurrence avec les garçons et elles peuvent devenir le geek du groupe.
+
+78
+00:08:38.524 --> 00:08:46.884
+<v Laure Lemaire>C'est ce qu'elles disent toujours. Elles ont dit que s'il y avait trois garçons qui s'y connaissent mieux dans un groupe de douze, je ne sais pas, ils vont dire par exemple : « Attends, je vois bien que t'as du mal, je vais t'aider.
+
+79
+00:08:46.973 --> 00:08:52.724
+<v Laure Lemaire>» Et finalement, si on fait ça, on renvoie toujours les femmes à leur--
+
+80
+00:08:52.744 --> 00:08:54.064
+<v Guillaume Hachez>En besoin d'assistance et en besoin d'aide.
+
+81
+00:08:54.744 --> 00:08:57.304
+<v Laure Lemaire>À leur soi-disant non affinité avec la technique.
+
+82
+00:08:57.364 --> 00:08:57.624
+<v Guillaume Hachez>C'est ça.
+
+83
+00:08:58.024 --> 00:09:01.204
+<v Laure Lemaire>Voilà. Maintenant, si vous voulez, je reviens à toutes nos formations.
+
+84
+00:09:02.604 --> 00:09:05.784
+<v Guillaume Hachez>Mais j'ai envie de revenir à ce qu'on disait il y a un instant, le fait que
+
+85
+00:09:06.364 --> 00:09:19.734
+<v Guillaume Hachez>finalement, il y avait ici la fonction de ces formations en informatique était également un rôle d'ascension sociale dans la société, le fait de les former dans les métiers qui sont plus valorisés, mieux payés, etc.
+
+86
+00:09:20.764 --> 00:09:29.024
+<v Guillaume Hachez>moi-même, j'étais étudiant en sciences informatiques à l'ULB et le profil que je voyais arriver dans les auditoires, c'était, comme vous disiez, le profil, le cliché du geek
+
+87
+00:09:29.224 --> 00:09:32.663
+<v Guillaume Hachez>passionné qui a vraiment l'informatique dans le sang, dans son identité.
+
+88
+00:09:33.244 --> 00:09:45.824
+<v Guillaume Hachez>J'ai l'impression que vous me dites que les élèves qui viennent ici à Interface3 n'ont pas forcément ça, entre guillemets, dans le sang ou dans leur identité, mais viennent avant tout dans un besoin d'ascension sociale, dans un besoin de,
+
+89
+00:09:46.524 --> 00:09:51.984
+<v Guillaume Hachez>oui, de meilleures conditions de vie, d'un meilleur rang, entre guillemets, dans la société. C'est juste ?
+
+90
+00:09:52.044 --> 00:09:59.404
+<v Laure Lemaire>C'est vrai qu'il y a une motivation qui est que c'est un secteur qui est pourvoyeur d'emplois. Et ça, à partir d'un certain âge, tout le monde l'a compris.
+
+91
+00:10:00.204 --> 00:10:05.964
+<v Laure Lemaire>Parce qu'on a souvent des femmes qui ont déjà travaillé, donc qui ont constaté dans leur environnement de travail que l'informatique était omniprésent.
+
+92
+00:10:06.024 --> 00:10:12.984
+<v Laure Lemaire>Ça peut être une dame qui travaille, par exemple, à l'accueil du Sheraton, qui vient de commencer une formation de web application développeur.
+
+93
+00:10:13.044 --> 00:10:20.744
+<v Laure Lemaire>Elle, c'est dans son travail qu'elle a constaté que l'IT était important. Et puis après, il y a les connaissances, les gens qui l'entourent, qui lui en ont parlé, etc.
+
+94
+00:10:21.064 --> 00:10:22.934
+<v Laure Lemaire>Donc, elle est venue
+
+95
+00:10:24.024 --> 00:10:26.274
+<v Laure Lemaire>pour ça. Donc essentiellement d'abord pour trouver un boulot.
+
+96
+00:10:26.924 --> 00:10:38.664
+<v Laure Lemaire>Mais en fait, il y a aussi beaucoup de femmes qui, ayant déjà travaillé, alors ça peut être dans la communication, parce qu'on a, par exemple, des personnes qui ont travaillé dans la communication, on a, je ne sais pas moi, des ex-caméramans, on a
+
+97
+00:10:38.884 --> 00:10:39.904
+<v Laure Lemaire>des personnes qui ont travaillé,
+
+98
+00:10:40.284 --> 00:10:41.524
+<v Laure Lemaire>ben histoire de l'art.
+
+99
+00:10:42.164 --> 00:10:53.744
+<v Laure Lemaire>Enfin, on a un peu toutes sortes de profils. On a aussi des profils moins qualifiés au départ qui arrivent ici, mais toutes, elles se sont rendu compte que l'IT pouvait les amener plus loin.
+
+100
+00:10:53.784 --> 00:10:58.744
+<v Laure Lemaire>Et alors, il y en a pas mal aussi qui viennent pour le côté créatif de l'informatique. Elles ont envie de créer des choses.
+
+101
+00:10:59.164 --> 00:11:07.374
+<v Laure Lemaire>Par exemple, je pense à une comptable, une jeune femme qui avait fait des études de compta et qui trouvait que ce n'était pas assez créatif, son métier.
+
+102
+00:11:07.484 --> 00:11:09.884
+<v Laure Lemaire>Et voilà, elle avait envie-- l'informatique, ça lui plaisait.
+
+103
+00:11:10.444 --> 00:11:12.694
+<v Laure Lemaire>Donc c'est souvent des personnes qui ont découvert l'informatique dans leur
+
+104
+00:11:12.944 --> 00:11:19.724
+<v Laure Lemaire>environnement de travail, dans leur premier environnement de travail et qui se sont rendu compte qu'avec ça, peut-être, elles vont faire des choses plus intéressantes, plus chouettes.
+
+105
+00:11:19.744 --> 00:11:24.844
+<v Laure Lemaire>Et puis après, il y a celles à qui on renvoie toujours le fait que ça leur manque. Je ne sais pas moi, les graphistes, les journalistes.
+
+106
+00:11:25.544 --> 00:11:34.724
+<v Laure Lemaire>À un moment donné, ils sont confrontés plus vite aussi au fait que s'ils savaient programmer ou s'occuper du web en général, ils se débrouilleraient mieux.
+
+107
+00:11:35.724 --> 00:11:42.604
+<v Laure Lemaire>Donc voilà. Et de temps en temps, on a quand même quelques geekettes qui-- surtout pour les jeux vidéo.
+
+108
+00:11:42.644 --> 00:11:43.064
+<v Guillaume Hachez>Ah oui.
+
+109
+00:11:43.124 --> 00:11:50.004
+<v Laure Lemaire>Là, on a fait une découverte en ouvrant une nouvelle formation développeuse de jeux vidéo, que-- enfin, ce n'est pas une découverte.
+
+110
+00:11:50.024 --> 00:11:56.034
+<v Laure Lemaire>Il y a beaucoup de filles qui jouent aux jeux vidéo, mais qu'elles ont vraiment ça dans le sang et qu'elles ont envie de s'en emparer. Voilà, ça, c'est--
+
+111
+00:11:56.104 --> 00:12:04.724
+<v Guillaume Hachez>C'est un point très intéressant. C'est que finalement, je reviens à l'auditoire, le fameux auditoire de sciences informatiques à l'ULB où il y avait peut-être quatre filles sur cent personnes, c'est que
+
+112
+00:12:05.792 --> 00:12:18.872
+<v Guillaume Hachez>le chemin que ces cent étudiants ont suivi pour arriver dans cette filière, ils n'ont pas été sensibilisés à l'informatique via des cours qu'ils ont reçus au sein de l'enseignement obligatoire en secondaire ou quoi.
+
+113
+00:12:19.732 --> 00:12:27.732
+<v Guillaume Hachez>C'est une passion qu'ils se sont découverte dans leur temps libre, chez eux, en jouant aux jeux vidéo, à Pokémon, à League of Legends, etc.
+
+114
+00:12:28.112 --> 00:12:39.472
+<v Guillaume Hachez>En passant beaucoup de temps sur leur PC, etc. Effectivement, c'est une porte d'accès qui est genrée, des jeux vidéo faits par les garçons, pour les garçons, pensés avec les garçons en tête.
+
+115
+00:12:40.132 --> 00:12:51.572
+<v Guillaume Hachez>Et donc oui, ce n'est pas une surprise de voir que les quelques filles qui sont joueuses, ce n'est pas une surprise de voir qu'elles sont vraiment passionnées et qu'elles ont le côté, la geekitude dans le sang.
+
+116
+00:12:51.652 --> 00:12:59.292
+<v Guillaume Hachez>Ça, c'est... J'ai envie de revenir juste sur le rapport. Vous publiez un rapport annuel sur Interface3, un long PDF de cinquante pages chaque année.
+
+117
+00:13:00.132 --> 00:13:06.652
+<v Guillaume Hachez>J'étais surpris de voir que les profils des étudiants, enfin des élèves qui viennent à Interface3 sont très marqués.
+
+118
+00:13:06.692 --> 00:13:12.132
+<v Guillaume Hachez>On voit qu'il y a plus de la moitié qui sont issus de l'immigration. On voit qu'il y a une tendance de,
+
+119
+00:13:12.912 --> 00:13:20.672
+<v Guillaume Hachez>elles sont très peu nombreuses à venir de Woluwe-Saint-Pierre et elles sont bien plus nombreuses à venir de Molenbeek, de Schaerbeek, etc.
+
+120
+00:13:21.492 --> 00:13:24.012
+<v Guillaume Hachez>Comment expliquer cette tendance ?
+
+121
+00:13:24.052 --> 00:13:35.832
+<v Laure Lemaire>Bon, il faut savoir qu'au départ, on est un organisme d'insertion socio-professionnelle et donc, au démarrage, Interface3 travaillait uniquement avec un public qui n'a pas terminé l'enseignement secondaire.
+
+122
+00:13:35.952 --> 00:13:42.411
+<v Laure Lemaire>C'est de cette façon-là qu'on a un agrément avec la Cocof, en étant organisme d'insertion socio-professionnelle.
+
+123
+00:13:42.432 --> 00:13:49.272
+<v Laure Lemaire>Et donc ça oriente déjà le public avec lequel on travaille. Donc au départ, on travaillait qu'avec des personnes qui n'avaient pas achevé l'enseignement secondaire.
+
+124
+00:13:50.592 --> 00:14:03.072
+<v Laure Lemaire>Et forcément, ces personnes-là, vous les trouvez davantage dans les quartiers que vous avez cités et dans les populations avec une origine migratoire ou les primo-arrivants, parce qu'il y a aussi des diplômes non reconnus là-dedans.
+
+125
+00:14:03.112 --> 00:14:12.232
+<v Laure Lemaire>Donc, vous voyez, c'est notre public de départ, on va dire. Après, comme on a décidé de continuer à faire évoluer nos formations avec l'évolution de l'informatique,
+
+126
+00:14:13.232 --> 00:14:15.051
+<v Laure Lemaire>on a été obligé de glisser un peu,
+
+127
+00:14:16.051 --> 00:14:27.092
+<v Laure Lemaire>pour ce qui est des métiers IT purs, donc la programmation, je ne sais pas, full stack développeur, front-end développeur, administratrice système et réseau, vers des profils un peu plus qualifiés au départ.
+
+128
+00:14:27.112 --> 00:14:38.772
+<v Laure Lemaire>Parce qu'on s'est rendu compte qu'en une année, s'il faut apprendre de la programmation, donc devenir quand même assez bon dans quelques langages de programmation, si on n'a pas terminé le secondaire, ben ce n'est pas évident.
+
+129
+00:14:39.542 --> 00:14:46.512
+<v Laure Lemaire>Parce qu'il y a une capacité logique, une capacité d'apprentissage qui doit être davantage travaillée avec les personnes qui n'ont pas terminé le secondaire.
+
+130
+00:14:46.592 --> 00:14:51.752
+<v Laure Lemaire>Et comme les formats des formations qui sont quelque part imposés par les financements, une année, c'est déjà assez long.
+
+131
+00:14:51.812 --> 00:14:55.852
+<v Laure Lemaire>C'est douze mois, c'est quand même des grosses formations. C'est trente-cinq heures semaine, donc c'est beaucoup d'heures.
+
+132
+00:14:55.892 --> 00:15:00.012
+<v Laure Lemaire>On frise les mille quatre cents heures, hein, pour les formations au développement.
+
+133
+00:15:01.812 --> 00:15:10.412
+<v Laure Lemaire>Et ben ça ne le fait pas. En tout cas, si on prend le public en masse, c'est-à-dire qu'un groupe avec des personnes qui n'ont pas terminé le secondaire, on a essayé, on n'y arrive pas. C'est trop dur.
+
+134
+00:15:10.932 --> 00:15:11.772
+<v Guillaume Hachez>Vous en accueillez encore.
+
+135
+00:15:12.192 --> 00:15:21.692
+<v Laure Lemaire>On en accueille encore, il y en a dans les formations. Mais donc ces formations-là, elles ont glissé vers un public qui a déjà terminé son secondaire supérieur, voire qui a un diplôme du supérieur dans un secteur un peu bouché
+
+136
+00:15:22.112 --> 00:15:23.632
+<v Laure Lemaire>et qui veut se réorienter.
+
+137
+00:15:23.672 --> 00:15:28.692
+<v Laure Lemaire>Et évidemment, de temps en temps, il y a des personnes qui n'ont pas terminé le secondaire et qui se débrouillent très bien, mais c'est l'exception qui confirme la règle.
+
+138
+00:15:29.772 --> 00:15:37.092
+<v Laure Lemaire>Donc, en fait, maintenant, on a deux publics et donc on a deux types de formations. On a les formations vraiment IT et on a aussi des formations,
+
+139
+00:15:37.652 --> 00:15:40.952
+<v Laure Lemaire>à des profils plus administratifs et commerciaux, mais dans lesquels il y a beaucoup de bureautique.
+
+140
+00:15:41.252 --> 00:15:45.672
+<v Laure Lemaire>Donc l'informatique est très présente, mais là, plutôt en tant que super usager.
+
+141
+00:15:45.972 --> 00:15:46.841
+<v Guillaume Hachez>C'est ça, en tant qu'outil.
+
+142
+00:15:46.902 --> 00:15:48.142
+<v Laure Lemaire>Voilà, mais plutôt qu'en tant que
+
+143
+00:15:48.712 --> 00:15:55.192
+<v Laure Lemaire>personne qui développe les applications. Et maintenant, on a aussi des formations à d'autres métiers techniques en collaboration avec Bruxelles Formation, parce qu'on s'est dit,
+
+144
+00:15:55.652 --> 00:16:02.052
+<v Laure Lemaire>finalement, c'est une expertise d'arriver à convaincre les femmes de venir vers des métiers masculins, entre guillemets, donc on va élargir.
+
+145
+00:16:02.192 --> 00:16:07.132
+<v Laure Lemaire>Et donc maintenant, on fait un profil électricien industriel avec Bruxelles Formation et magasinière.
+
+146
+00:16:07.212 --> 00:16:09.892
+<v Guillaume Hachez>Ah oui, donc là, pour vous, c'est vraiment de la diversification.
+
+147
+00:16:10.152 --> 00:16:16.192
+<v Laure Lemaire>Oui, oui, tout à fait, oui. Mais toujours un peu avec la même logique, parce que c'est toujours les mêmes freins.
+
+148
+00:16:16.232 --> 00:16:25.452
+<v Laure Lemaire>En gros, bon, c'est peut-être pire pour l'électricien industriel. C'est-à-dire, ça paraît encore plus éloigné pour les femmes, donc c'est assez difficile de recruter d'ailleurs et de convaincre les femmes.
+
+149
+00:16:25.492 --> 00:16:34.192
+<v Laure Lemaire>Et pourtant, ça marche très bien. On a fait trois éditions et elles sont toutes engagées par Veolia, qui s'est beaucoup impliquée dans le projet.
+
+150
+00:16:34.532 --> 00:16:37.722
+<v Laure Lemaire>mais on travaille toujours sur ces fameux freins invisibles, c'est-à-dire les filles qui voudraient
+
+151
+00:16:37.832 --> 00:16:45.172
+<v Laure Lemaire>se réorienter après le secondaire et après une première expérience professionnelle, qui voudraient se réorienter vers l'électricité, ben elles vont de nouveau arriver sans,
+
+152
+00:16:45.372 --> 00:16:47.532
+<v Laure Lemaire>avec zéro prérequis, alors que les garçons qui vont se présenter,
+
+153
+00:16:48.112 --> 00:16:53.652
+<v Laure Lemaire>ils auront souvent fait électricien résidentiel dans le secondaire, en professionnel, là où il y a zéro fille.
+
+154
+00:16:54.552 --> 00:17:01.972
+<v Laure Lemaire>Et donc ils ont une longueur d'avance. Donc nous, ben, on fait la même chose, on fait une préformation, on redonne les bases, on donne confiance, on fait des rappels en mathématiques, etc.
+
+155
+00:17:02.192 --> 00:17:11.192
+<v Laure Lemaire>Donc on fait de la manipulation d'outils, manipuler la foreuse, la scie à métaux, etc. pour qu'elles puissent ensuite entrer en formation qualifiante chez Bruxelles Formation.
+
+156
+00:17:11.772 --> 00:17:19.072
+<v Guillaume Hachez>Vous faites une sélection à l'entrée, justement, pour choisir les élèves qui sont capables de suivre le cursus ?
+
+157
+00:17:19.132 --> 00:17:26.372
+<v Laure Lemaire>Alors, oui, il y a une sélection. Elle est basée surtout sur des tests de logique et sur un entretien de motivation.
+
+158
+00:17:28.052 --> 00:17:36.692
+<v Laure Lemaire>Parce que les formations professionnelles, c'est un peu comme si vous étiez au travail. C'est trente-cinq heures semaine, vous devez être présent parce que vous continuez à toucher vos allocations de chômage quand vous avez la chance d'en avoir,
+
+159
+00:17:37.512 --> 00:17:39.562
+<v Laure Lemaire>mais à condition que vous soyez là.
+
+160
+00:17:39.592 --> 00:17:44.552
+<v Laure Lemaire>Donc c'est pas comme à l'unif ou quoi, on va, on vient. Si on n'est pas là, c'est pas grave. Non, c'est un peu différent.
+
+161
+00:17:44.592 --> 00:17:57.032
+<v Laure Lemaire>Donc il faut quand même être très motivé. Et puis il faut être motivé pour entrer dans ce secteur-là. Et alors, le test de logique, lui, sert un peu justement à évaluer la capacité à apprendre.
+
+162
+00:17:57.932 --> 00:18:04.112
+<v Laure Lemaire>Et surtout, il est assez révélateur à ce qui va se passer quand vous allez aborder la programmation informatique.
+
+163
+00:18:04.372 --> 00:18:12.992
+<v Laure Lemaire>C'est-à-dire, après dix ans d'usage de ce test, on voit assez bien, en fonction du niveau de réussite du test, c'est plus ou moins facile pour vous, la programmation.
+
+164
+00:18:13.032 --> 00:18:20.112
+<v Laure Lemaire>Voilà, donc pour nous, c'est un indicateur. Si vous vous plantez carrément, ça va être dur. Mais on s'arrête pas là.
+
+165
+00:18:20.152 --> 00:18:29.952
+<v Laure Lemaire>On donne la possibilité d'expérimenter pendant quatre semaines la programmation ou le réseau ou... Enfin oui, de toute façon, on a un peu deux types de formation.
+
+166
+00:18:30.012 --> 00:18:37.451
+<v Laure Lemaire>Il y en a où il y a beaucoup de programmation et puis les autres, c'est de l'infrastructure. Et donc, elles ont l'occasion de vraiment se tester et nous, on a l'occasion de les tester aussi.
+
+167
+00:18:37.472 --> 00:18:39.531
+<v Laure Lemaire>Et là, on prend un groupe plus large que le groupe final.
+
+168
+00:18:40.472 --> 00:18:51.272
+<v Laure Lemaire>Voilà. Et puis on offre aussi des modules d'orientation et des modules d'initiation tout à fait en dehors des formations qualifiantes qui permettent aux femmes de découvrir les métiers et de tester leur affinité avec.
+
+169
+00:18:51.332 --> 00:18:55.052
+<v Guillaume Hachez>Je pense que vous menez également des actions au sein des écoles secondaires.
+
+170
+00:18:55.512 --> 00:18:55.522
+<v Laure Lemaire>Oui.
+
+171
+00:18:55.532 --> 00:18:58.432
+<v Guillaume Hachez>Qu'est-ce que vous leur dites exactement à ces jeunes filles ?
+
+172
+00:18:59.272 --> 00:19:05.132
+<v Laure Lemaire>Alors, pendant tout un temps, on a mené un projet qui s'appelle Informaticienne d'un jour. On le fait plus depuis quelques années.
+
+173
+00:19:05.212 --> 00:19:13.892
+<v Laure Lemaire>Et là, donc, on animait un atelier sur les stéréotypes dans le monde informatique avec les jeunes.
+
+174
+00:19:13.932 --> 00:19:19.432
+<v Laure Lemaire>Donc là, c'était des groupes mixtes. Forcément, c'est les classes. Donc on leur faisait réfléchir un peu à la figure de l'informaticien, c'est qui, c'est quoi, il fait quoi.
+
+175
+00:19:19.472 --> 00:19:28.392
+<v Laure Lemaire>Puis on déconstruisait un peu les stéréotypes avec eux. On leur présentait un peu la richesse du métier. Et puis, on les emmenait en entreprise une demi-journée.
+
+176
+00:19:29.272 --> 00:19:35.452
+<v Laure Lemaire>Et donc là, ben, ce qu'on leur dit aux filles, c'est : « Vous pouvez tout à fait y aller, c'est aussi pour vous, c'est passionnant.
+
+177
+00:19:35.492 --> 00:19:43.272
+<v Laure Lemaire>Et puis c'est pas juste coder toute la journée devant son ordi, c'est avoir des relations avec des clients, c'est analyser un projet, c'est construire des applications, avoir des idées.
+
+178
+00:19:43.282 --> 00:19:51.071
+<v Laure Lemaire>» Donc voilà. Et puis aujourd'hui, on anime un projet qui s'appelle Girls Day Boys Day et qui est initié par la Communauté française.
+
+179
+00:19:51.152 --> 00:19:55.382
+<v Laure Lemaire>Non, je devrais dire la Fédération Wallonie-Bruxelles. Et euh-
+
+180
+00:19:55.712 --> 00:19:57.922
+<v Guillaume Hachez>Même sur le site internet, parfois, ils se trompent.
+
+181
+00:19:57.922 --> 00:20:03.972
+<v Laure Lemaire>Ils buguent. Et donc là, l'idée, c'est de montrer aux garçons et aux filles qu'il y a des métiers non mixtes et de réfléchir avec eux pourquoi.
+
+182
+00:20:04.192 --> 00:20:16.952
+<v Laure Lemaire>Mais donc ce projet-là, c'est pour encourager autant les filles d'aller dans les métiers techniques que les garçons d'aller dans des métiers qui sont étiquetés féminins comme infirmier, instituteur, assistant social.
+
+183
+00:20:17.432 --> 00:20:23.152
+<v Laure Lemaire>Et donc là, ils rencontrent des témoins qui travaillent dans des métiers qui sont pas normalement pour leur sexe, entre guillemets.
+
+184
+00:20:23.432 --> 00:20:28.792
+<v Laure Lemaire>Ça peut être une femme pilote d'avion, une femme mécanicienne, une femme informaticienne, un homme sage-femme, voilà.
+
+185
+00:20:29.012 --> 00:20:31.732
+<v Guillaume Hachez>Mais pour approfondir un petit peu cette question-là-
+
+186
+00:20:31.892 --> 00:20:32.012
+<v Laure Lemaire>Oui.
+
+187
+00:20:32.212 --> 00:20:42.252
+<v Guillaume Hachez>On le disait tout à l'heure, seulement 7,2 % des étudiants en sciences informatiques ou en ICT dans les études supérieures sont des femmes.
+
+188
+00:20:42.932 --> 00:20:52.632
+<v Guillaume Hachez>C'est le ratio le plus mauvais de tous les pays de l'OCDE. En tant qu'experte de la question, entre guillemets, comment est-ce que vous expliqueriez ça ?
+
+189
+00:20:53.592 --> 00:21:06.352
+<v Laure Lemaire>Mais je pense que vous avez vous-même identifié, enfin, reformulé un peu ce que je dis et ce que d'autres disent sans doute, c'est que la porte d'entrée aux études informatiques est assez genrée, hein, puisqu'on a dit-
+
+190
+00:21:06.472 --> 00:21:07.392
+<v Guillaume Hachez>C'est le cas partout dans le monde.
+
+191
+00:21:08.452 --> 00:21:10.931
+<v Laure Lemaire>Oui, d'accord, mais bon, on va commencer parce qu'on se connaît.
+
+192
+00:21:10.942 --> 00:21:10.952
+<v Guillaume Hachez>Oui.
+
+193
+00:21:10.952 --> 00:21:20.912
+<v Laure Lemaire>Puis après, se poser la question sur la Belgique. Donc ça, c'est déjà une bonne explication pour ce qui est du peu de femmes qui entrent en formation initiale en informatique.
+
+194
+00:21:20.952 --> 00:21:24.902
+<v Laure Lemaire>Pourquoi c'est pire en Belgique ? Alors là, ça, je...
+
+195
+00:21:24.912 --> 00:21:25.572
+<v Guillaume Hachez>Pas la moindre idée.
+
+196
+00:21:26.052 --> 00:21:35.152
+<v Laure Lemaire>Non, parce que nous, on s'occupe moins-- enfin bon, oui, on s'occupe moins de la problématique de l'entrée en formation initiale puisque nous, on est un peu l'école de la seconde chance.
+
+197
+00:21:35.182 --> 00:21:39.952
+<v Laure Lemaire>Donc on a plus des femmes qui se réorientent. Donc la problématique est un peu différente.
+
+198
+00:21:41.132 --> 00:21:51.752
+<v Laure Lemaire>mais ce que je constate, c'est que, ben enfin, je viens de vous le dire, les femmes, elles s'orientent souvent vers l'IT parce qu'elles ont compris l'utilité de l'informatique dans un autre domaine.
+
+199
+00:21:51.872 --> 00:21:59.672
+<v Laure Lemaire>C'est-à-dire, elles ont travaillé dans un domaine où elles ont réalisé que l'informatique était omniprésente et pouvait peut-être être une voie intéressante pour elles.
+
+200
+00:21:59.732 --> 00:22:08.652
+<v Laure Lemaire>Donc il faut que ça ait du sens pour elles. Alors, il y a la question, voilà-- il y a la-- pour les femmes, je pense, peut-être plus jeunes, il y a la question du sens.
+
+201
+00:22:09.172 --> 00:22:19.932
+<v Laure Lemaire>Qu'est-ce que je vais bien pouvoir faire avec ça ? Évidemment, si on leur montre pas, ça n'ira pas. Sinon, pourquoi-- parce que c'est pire en Belgique, mais est-ce que les écarts sont énormes ?
+
+202
+00:22:19.952 --> 00:22:28.472
+<v Laure Lemaire>Parce qu'en France, c'est quoi ? C'est-- peut-être, on fait pas assez de campagnes, peut-être il y a pas assez d'IT dans-- Bon, c'est sûr, un des gros problèmes, c'est qu'il y a pas de vraie informatique à l'école secondaire, on est bien d'accord.
+
+203
+00:22:29.032 --> 00:22:30.421
+<v Laure Lemaire>Il y a des cours de bureautique, mais ça, c'est pas-
+
+204
+00:22:31.472 --> 00:22:31.482
+<v Guillaume Hachez>Oui.
+
+205
+00:22:31.512 --> 00:22:40.552
+<v Laure Lemaire>C'est pas de ce problème-là dont on parle, c'est de vraiment faire des filles et des garçons, des développeurs d'applications, des-- enfin des gens qui maîtrisent la sécurité, l'infrastructure, la programmation.
+
+206
+00:22:41.711 --> 00:22:49.132
+<v Laure Lemaire>Et donc la solution, ce serait en effet d'introduire des cours qui présentent un peu toutes les facettes de l'informatique en secondaire.
+
+207
+00:22:49.152 --> 00:22:51.832
+<v Laure Lemaire>Il y a le côté créatif aussi qui est attirant.
+
+208
+00:22:51.872 --> 00:22:58.372
+<v Guillaume Hachez>Mh. Je vais peut-être proposer une hypothèse et vous allez me dire si vous pensez que je fais complètement fausse route.
+
+209
+00:22:58.492 --> 00:23:09.732
+<v Guillaume Hachez>Quand on observe les pays comme le Maroc, l'Algérie, l'Arabie Saoudite, là, on observe des ratios autour de 50/50 pour Polytech, pour l'informatique, etc.
+
+210
+00:23:10.712 --> 00:23:24.532
+<v Guillaume Hachez>Et ce sont des pays où les problématiques sont plus, en sociologie, on dit matérialistes, dans le sens où la clé du problème, c'est mettre du pain sur la table, ramener de l'argent à la maison pour des problèmes très concrets.
+
+211
+00:23:25.642 --> 00:23:41.112
+<v Guillaume Hachez>Là où, entre guillemets, les pays où la situation économique est plus aisée, on va avoir des individus qui vont chercher à s'orienter sur base de leur identité, sur base de ce qui leur correspond, qui ils sont.
+
+212
+00:23:42.372 --> 00:23:59.512
+<v Guillaume Hachez>Et dans des sociétés qui sont ultra genrées, on se définit avant tout sur base de son sexe, son genre. Et je sais qu'en Belgique, on est le pays avec le-- c'est le pays où on a le plus d'argent par individu en moyenne.
+
+213
+00:23:59.592 --> 00:24:08.612
+<v Guillaume Hachez>On a un excellent-- on a un PIB par individu très élevé. On est relativement aisé en Belgique, relativement.
+
+214
+00:24:08.772 --> 00:24:15.572
+<v Guillaume Hachez>Est-ce qu'il n'y aurait pas-- est-ce que vous pensez que je vais dans le bon sens ou est-ce que ça vous paraît un peu capilotracteur ?
+
+215
+00:24:16.612 --> 00:24:21.132
+<v Laure Lemaire>Non, non, c'est intéressant ce que vous dites. Évidemment, moi, je pensais qu'on parlait de l'Europe. Alors
+
+216
+00:24:21.492 --> 00:24:27.712
+<v Laure Lemaire>en Europe, on va dire, allez, bon il y a des PIB-- enfin, je veux dire, il y a des niveaux de vie différents, évidemment, si on prend le Portugal ou la Belgique, la Finlande.
+
+217
+00:24:27.752 --> 00:24:34.056
+<v Laure Lemaire>Mais c'est vrai que vous avez raison, quand on va voir ailleurs, c'est très différent. En Malaisie, c'est exactement l'inverse, par exemple.
+
+218
+00:24:34.376 --> 00:24:45.286
+<v Laure Lemaire>Je veux dire, je crois qu'il y a 60 % de femmes dans les facultés d'informatique. Donc, et là, probablement que le métier est présenté comme particulièrement féminin parce que il peut--
+
+219
+00:24:45.856 --> 00:24:53.696
+<v Laure Lemaire>je veux dire, vous êtes plus en retrait, vous êtes derrière votre écran, c'est propre comme métier. Donc
+
+220
+00:24:54.736 --> 00:25:01.366
+<v Laure Lemaire>je sais pas si parfois-- enfin, il y a ce que vous dites, je suis d'accord avec vous, la question de l'orientation professionnelle, elle est probablement très différente dans des métiers où,
+
+221
+00:25:01.906 --> 00:25:10.856
+<v Laure Lemaire>enfin pardon, dans des pays où le niveau de vie est moins important et la motivation des jeunes, c'est d'abord un métier où il y a du boulot et qui va rapporter.
+
+222
+00:25:11.016 --> 00:25:23.276
+<v Laure Lemaire>Donc ça, je vous suis. Maintenant, c'est contradictoire en même temps, si on regarde le Maroc ou l'Algérie, etc., où les femmes sont aussi quand même assez encouragées à rester à la maison.
+
+223
+00:25:23.316 --> 00:25:31.476
+<v Laure Lemaire>Donc voilà, ça vient presque-- c'est pas que ça contredit tout à fait ce que vous dites, mais enfin quand même, ça pose un petit problème.
+
+224
+00:25:31.816 --> 00:25:34.376
+<v Laure Lemaire>Et en Malaisie, là, je sais pas trop-
+
+225
+00:25:34.386 --> 00:25:37.076
+<v Guillaume Hachez>C'est encore plus visible en Arabie Saoudite où elles sont euh-
+
+226
+00:25:37.096 --> 00:25:37.416
+<v Laure Lemaire>Oui, là.
+
+227
+00:25:37.716 --> 00:25:46.056
+<v Guillaume Hachez>46 % des étudiants en informatique sont des femmes et seulement 6 % des travailleurs en informatique sont des femmes, justement à cause des raisons-
+
+228
+00:25:46.076 --> 00:25:50.866
+<v Laure Lemaire>Et là, je me demande si y a pas aussi des stéréotypes dans l'autre sens qui rentrent,
+
+229
+00:25:51.656 --> 00:25:56.936
+<v Laure Lemaire>qui sont favorables à l'IT alors, parce que je vous dis, en Malaisie, ben j'ai pas bien étudié la question, mais je sais que
+
+230
+00:25:57.456 --> 00:26:06.976
+<v Laure Lemaire>des arguments qui sont avancés, c'est que c'est un métier qui peut être fait-- enfin, développeur, oui, vous pouvez travailler en partie à la maison quand même, même si c'est du travail d'équipe et la plupart sont en entreprise.
+
+231
+00:26:07.556 --> 00:26:17.456
+<v Laure Lemaire>C'est propre aussi comme métier. Donc vous êtes quand même un peu souvent un travailleur de l'ombre. Alors vous êtes pas, vous voyez, vous êtes pas en relation avec le public directement, etc.
+
+232
+00:26:17.516 --> 00:26:27.836
+<v Laure Lemaire>Donc dans les métiers où on encourage pas les femmes à justement se montrer et être, voilà, face au public et tout, peut-être que l'informatique, ça paraît comme un métier convenable.
+
+233
+00:26:27.916 --> 00:26:33.376
+<v Laure Lemaire>Voilà, bon ça, c'est une hypothèse qui est peut-être complètement farfelue, mais bon, puisqu'on réfléchit.
+
+234
+00:26:34.436 --> 00:26:34.736
+<v Guillaume Hachez>Voilà.
+
+235
+00:26:34.936 --> 00:26:45.976
+<v Laure Lemaire>Non, c'est pas facile. Bon, tout le monde parle toujours des rôles modèles. C'est vrai que ça, ça joue hein. Évidemment, y a pas de, allez, de femmes dans l'IT qui sont encore très célèbres comme Mark Zuckerberg peut l'être,
+
+236
+00:26:46.796 --> 00:26:48.516
+<v Laure Lemaire>ou d'autres, hein, Bill Gates, etc.
+
+237
+00:26:49.596 --> 00:26:58.256
+<v Laure Lemaire>Ou d'autres encore qui sont même plus sexy pour les garçons. Y a pas ça, en effet, pour les jeunes filles.
+
+238
+00:26:58.316 --> 00:27:09.136
+<v Laure Lemaire>Donc ça, ça aide pas, sans doute. Et puis bon, moi, je pense que les-- peut-être que la conception aussi des études universitaires ou des baccalauréats devrait peut-être être réinterrogée.
+
+239
+00:27:09.276 --> 00:27:17.816
+<v Laure Lemaire>Est-ce que l'informatique, est-ce que ça serait pas plus judicieux qu'il y ait de l'informatique dans différentes disciplines ?
+
+240
+00:27:17.836 --> 00:27:24.765
+<v Laure Lemaire>Hein, vous voyez, par exemple, oui, de manière plus transversale, par exemple, qu'on apprenne la programmation en économie, parce qu'après tout, enfin, je veux dire,
+
+241
+00:27:25.616 --> 00:27:29.015
+<v Laure Lemaire>les entreprises sont bien contentes quand un informaticien connaît bien le côté business.
+
+242
+00:27:29.756 --> 00:27:35.916
+<v Laure Lemaire>Mais ça pourrait être vrai pour la biologie, parce qu'aujourd'hui, la bioinformatique, ça pourrait être vrai pour probablement d'autres disciplines.
+
+243
+00:27:35.956 --> 00:27:48.836
+<v Laure Lemaire>Donc, puisque si nous, on arrive à faire des développeurs juniors en une année, peut-être que dans un cursus universitaire de cinq ans, y a moyen, vous voyez, de faire des profils mixtes.
+
+244
+00:27:48.886 --> 00:27:51.396
+<v Laure Lemaire>Et à ce moment-là, on aura plus de femmes et peut-être même
+
+245
+00:27:52.336 --> 00:28:00.996
+<v Laure Lemaire>plus d'hommes, parce que j'ai pas bien suivi les inscriptions en informatique ces dernières années, mais je sais qu'y a même pas assez de garçons pour, je veux dire, pour la quantité d'emplois qui sont-
+
+246
+00:28:01.516 --> 00:28:10.396
+<v Guillaume Hachez>Ce qui est frappant également, c'est que les sciences informatiques telles qu'on les propose ici en Belgique, c'est vraiment très, entre guillemets,
+
+247
+00:28:11.676 --> 00:28:18.316
+<v Guillaume Hachez>faculté des sciences, blouse blanche, on va avoir des cours de statistiques, de bioinformatique, de mathématiques discrètes, de...
+
+248
+00:28:18.356 --> 00:28:29.996
+<v Guillaume Hachez>voilà. Y a pas de stage à la fin du master. Alors que quand on compare aux computer science aux États-Unis, on va avoir des cours sur le web, sur iOS, sur l'intelligence artificielle.
+
+249
+00:28:30.156 --> 00:28:40.556
+<v Guillaume Hachez>Ils ont un stage à la fin du cursus, à la fin de leur master. Donc, on a vraiment des orientations très différentes et je pense qu'on perçoit encore l'informatique comme étant une science dure et vraiment
+
+250
+00:28:41.496 --> 00:28:48.036
+<v Guillaume Hachez>pas du tout comme étant quelque chose de fonctionnel et de transversal, en tout cas au sein de l'université.
+
+251
+00:28:48.636 --> 00:28:58.356
+<v Guillaume Hachez>On a grosso modo quatre grandes façons de se former en informatique en Belgique. Il y a l'université. Ensuite, il y a toujours l'enseignement supérieur.
+
+252
+00:28:58.376 --> 00:29:04.896
+<v Guillaume Hachez>On a les hautes écoles qui sont déjà un peu plus concrètes avec des parcours de type plus court en trois ans. On peut être autodidacte.
+
+253
+00:29:05.416 --> 00:29:17.616
+<v Guillaume Hachez>Et puis, il y a finalement les instituts de formation tels que le vôtre. Et on a effectivement l'impression que les publics sont complètement différents en fonction de la voie dont il est question.
+
+254
+00:29:18.336 --> 00:29:27.116
+<v Guillaume Hachez>Et on voit effectivement beaucoup plus d'individus qui sont issus de quartiers moins favorisés, qui sont en reconversion, qui sont peut-être plus âgés.
+
+255
+00:29:27.876 --> 00:29:34.116
+<v Guillaume Hachez>Et j'étais très surpris de voir que quand j'ai demandé les chiffres au Forem et à Bruxelles Formation, de voir que
+
+256
+00:29:35.276 --> 00:29:47.576
+<v Guillaume Hachez>dans cette dernière catégorie, donc les instituts de formation dont il est question, on voit 33 % de femmes contre 7 % dans les études supérieures.
+
+257
+00:29:49.036 --> 00:29:55.296
+<v Guillaume Hachez>je pense que finalement, c'est aussi parce que le public est différent et parce que les, comment dire,
+
+258
+00:29:56.596 --> 00:30:02.756
+<v Guillaume Hachez>les attentes, les critères du choix d'orientation sont complètement différents en fonction du public dont on discute.
+
+259
+00:30:03.536 --> 00:30:08.216
+<v Laure Lemaire>Oui. Oui. 33 %, oui. C'est entre autres grâce à Interface3.
+
+260
+00:30:08.516 --> 00:30:08.746
+<v Guillaume Hachez>Ah oui.
+
+261
+00:30:08.816 --> 00:30:09.296
+<v Laure Lemaire>D'ailleurs.
+
+262
+00:30:10.016 --> 00:30:10.566
+<v Guillaume Hachez>Si on enlevait Interface3-
+
+263
+00:30:10.566 --> 00:30:16.096
+<v Laure Lemaire>Puisqu'on en forme 100 chaque année. Oui, parce qu'il y a quand même pas beaucoup chez Bruxelles Formation, par exemple,
+
+264
+00:30:16.756 --> 00:30:23.426
+<v Laure Lemaire>il y a une ou deux filles de temps en temps dans un groupe de douze, treize, quatorze, mais les chiffres sont pas, voilà, c'est pas une moyenne, hein,
+
+265
+00:30:24.236 --> 00:30:26.716
+<v Laure Lemaire>le 33 %, on va dire, en fonction des centres quoi.
+
+266
+00:30:26.736 --> 00:30:27.406
+<v Guillaume Hachez>Hum, hum. Hum, hum.
+
+267
+00:30:27.856 --> 00:30:28.536
+<v Laure Lemaire>Donc oui.
+
+268
+00:30:28.696 --> 00:30:30.086
+<v Guillaume Hachez>C'est pas vrai partout, c'est ça que vous voulez dire.
+
+269
+00:30:30.116 --> 00:30:33.016
+<v Laure Lemaire>Oui, voilà, oui, oui, c'est ça. Donc ça reste quand même-
+
+270
+00:30:33.056 --> 00:30:35.756
+<v Guillaume Hachez>Si on enlevait Interface3 de la moyenne, vous pensez qu'on tomberait à-
+
+271
+00:30:35.956 --> 00:30:38.816
+<v Laure Lemaire>À Bruxelles, je pense bien, oui. Oui, oui, je pense bien.
+
+272
+00:30:38.856 --> 00:30:38.886
+<v Guillaume Hachez>À combien ?
+
+273
+00:30:38.886 --> 00:30:47.116
+<v Laure Lemaire>Ben j'en sais rien. Il faudrait essayer. Il faudrait demander à Bruxelles Formation. Je ne sais pas. Je ne connais pas les autres chiffres, mais je sais qu'il y a peu de filles en général,
+
+274
+00:30:47.776 --> 00:30:50.256
+<v Laure Lemaire>mais pour les raisons que je vous ai expliquées.
+
+275
+00:30:50.316 --> 00:31:03.364
+<v Laure Lemaire>Mais vous avez raison, le public est très différent et vous avez entièrement raison de dire que les études informatiques, donc dans l'enseignement classique supérieur, sont perçues comme rébarbatives.
+
+276
+00:31:03.464 --> 00:31:13.664
+<v Laure Lemaire>Entre autres, elles sont probablement un peu éliminatoires avec les maths. Et ça, mais je sais pas, mais pour former des développeurs, il y a pas besoin d'être champion en maths hein.
+
+277
+00:31:13.764 --> 00:31:24.444
+<v Laure Lemaire>Donc c'est vrai que la formation professionnelle échappe à ce problème-là et donc ça encourage les personnes à devenir, oui, c'est ça, à se lancer.
+
+278
+00:31:24.604 --> 00:31:35.064
+<v Laure Lemaire>Parce que je pense qu'il y a-- les mathématiques, ça, c'est quand même très désolant, mais ça reste une matière-- parce que nous, on travaille quand même avec beaucoup de personnes qui ont subi des échecs scolaires.
+
+279
+00:31:35.104 --> 00:31:43.664
+<v Laure Lemaire>Et donc ça reste une matière qui est effrayante pour beaucoup de gens. Et surtout, il y a beaucoup de personnes qui arrivent ici et qui sont persuadées qu'ils sont très mauvais en maths.
+
+280
+00:31:43.724 --> 00:31:50.304
+<v Laure Lemaire>Et c'est par exemple les électriciennes industrielles. Il y a des maths dans la formation, parce que pour l'électricité, c'est important.
+
+281
+00:31:50.384 --> 00:31:54.344
+<v Laure Lemaire>Et on a des personnes qui se braquent et qui abandonnent juste à cause des maths donc.
+
+282
+00:31:55.504 --> 00:32:04.764
+<v Guillaume Hachez>Est-ce que le modèle d'Interface3 de faire un centre de formation non mixte, est-ce que ça a fait des imitateurs ?
+
+283
+00:32:04.784 --> 00:32:08.204
+<v Guillaume Hachez>Est-ce que certains ont tenté de reproduire l'expérience ?
+
+284
+00:32:08.284 --> 00:32:16.024
+<v Laure Lemaire>Non, il y a assez peu de formations. Enfin, il y a assez peu de centres qui utilisent cette formule non mixte. Il y a des centres pour femmes
+
+285
+00:32:16.824 --> 00:32:23.044
+<v Laure Lemaire>qui font d'autres, qui visent d'autres métiers, qui organisent des groupes non mixtes pour d'autres raisons aussi.
+
+286
+00:32:23.144 --> 00:32:31.424
+<v Laure Lemaire>Ça, je peux vous expliquer aussi pour nos formations Païti, pourquoi c'est resté non mixte. Mais par contre, avec Bruxelles Formation, on s'est rendu compte que,
+
+287
+00:32:32.364 --> 00:32:41.264
+<v Laure Lemaire>mais que c'était une façon vraiment de lutter contre la non-mixité et en tout cas au minimum pour rattraper le retard dans la technologie en question qui fait que les femmes n'arrivent jamais à rentrer.
+
+288
+00:32:41.344 --> 00:32:48.344
+<v Laure Lemaire>Donc c'est comme ça qu'on a fait électricienne industrielle et magasinière, aussi pour mettre les femmes en confiance et qu'elles osent passer le pas en fait.
+
+289
+00:32:48.384 --> 00:32:55.084
+<v Laure Lemaire>Parce que ce qui est difficile aussi, c'est d'arriver dans un groupe où il y a que des garçons. Mais donc il y a assez peu de-- non, il y a peu de centres qui
+
+290
+00:32:56.244 --> 00:32:57.404
+<v Laure Lemaire>copient la formule parce que
+
+291
+00:32:58.384 --> 00:33:01.924
+<v Laure Lemaire>je ne sais pas si vous, vous ouvrez un centre
+
+292
+00:33:02.724 --> 00:33:10.584
+<v Laure Lemaire>pour aider les jeunes à se lancer dans l'IT parce que vous avez vu que c'était un domaine très porteur, que ça soit pour les start-up ou pour être engagé comme développeur, par exemple Modern Geek.
+
+293
+00:33:10.664 --> 00:33:18.184
+<v Laure Lemaire>L'objectif initial est très différent. Interface3 a été créé pour aider les femmes à s'épanouir sur le marché de l'emploi.
+
+294
+00:33:18.524 --> 00:33:27.924
+<v Laure Lemaire>Et comme l'informatique était incontournable, c'est pour ça qu'on est dans l'informatique. Mais c'est pas notre but premier de former tous les demandeurs d'emploi à l'IT.
+
+295
+00:33:28.104 --> 00:33:37.304
+<v Laure Lemaire>Donc, vous voyez, donc notre ADN est différent. Donc, je comprends que, je sais pas, BeCode ou Modern Geek ne vont pas ouvrir des formations non mixtes.
+
+296
+00:33:37.524 --> 00:33:42.694
+<v Laure Lemaire>Ils font leur possible pour avoir le plus possible de femmes. Et puis, bah, ça marche plus ou moins bien en fonction des années.
+
+297
+00:33:42.694 --> 00:33:46.364
+<v Guillaume Hachez>Ils ont 40 % de femmes cette année sur la coding school actuelle.
+
+298
+00:33:46.724 --> 00:33:57.384
+<v Laure Lemaire>Oui, elle me l'a dit. Julie Volon m'a expliqué. Mais voilà, donc c'est pas-- ça dépend en fait de l'attention qu'on va prêter, je pense.
+
+299
+00:33:57.704 --> 00:34:03.724
+<v Laure Lemaire>Je veux dire, les-- probablement que des groupes mixtes peuvent fonctionner si vous faites attention au moment du recrutement, de ne pas décourager les filles, etc.
+
+300
+00:34:04.064 --> 00:34:11.003
+<v Laure Lemaire>Ça dépend un peu comment vous-- mais par exemple, regardez l'École 19 qui vient d'ouvrir. Je pense qu'il y a une, enfin, j'ai vu une fille, en tout cas, il y en avait peut-être deux.
+
+301
+00:34:11.184 --> 00:34:13.724
+<v Guillaume Hachez>C'est sans doute la directrice, la directrice pédagogique.
+
+302
+00:34:14.004 --> 00:34:19.064
+<v Laure Lemaire>Non, non, non. Non, non, non. Ils ont engagé une fille parce que je l'ai vue récemment, elle a témoigné, mais-
+
+303
+00:34:19.144 --> 00:34:19.544
+<v Guillaume Hachez>Ah oui, d'accord.
+
+304
+00:34:19.824 --> 00:34:25.174
+<v Laure Lemaire>Donc ils viennent de faire leur grande sélection dans leur piscine et je ne sais plus combien, 38 ou-
+
+305
+00:34:25.344 --> 00:34:32.444
+<v Guillaume Hachez>C'est frappant comment sur la photo, tous les élèves ont exactement la même tête, la même coiffure, les mêmes lunettes. C'est-
+
+306
+00:34:32.604 --> 00:34:33.604
+<v Laure Lemaire>Oui, on est d'accord. Donc-
+
+307
+00:34:33.744 --> 00:34:34.224
+<v Guillaume Hachez>Très amusant.
+
+308
+00:34:34.744 --> 00:34:43.424
+<v Laure Lemaire>Donc, je sais pas. Disons qu'il y a une première sélection de 40. Je pense qu'en tout cas, il y avait-- la fille qui a témoigné a dit que donc ils étaient 100 au départ ou 98, je ne sais plus.
+
+309
+00:34:43.444 --> 00:34:53.164
+<v Laure Lemaire>Il y avait trois filles. Donc elle, en tout cas, c'est sûr, elle est prise. Les autres, je ne sais pas. Mais voilà, ça, c'est le reflet de la situation.
+
+310
+00:34:53.184 --> 00:35:01.484
+<v Laure Lemaire>Et je pense que dès que vous faites jouer le-- on sous-estime parfois le manque de confiance que les femmes peuvent avoir dans leurs compétences professionnelles.
+
+311
+00:35:01.544 --> 00:35:13.424
+<v Laure Lemaire>Déjà, les femmes sont moins éduquées à avoir confiance en elles, elles sont plus réservées. Et si en plus, vous attaquez un domaine qui n'est pas le vôtre et qui est réputé ne pas être féminin, c'est encore plus dur.
+
+312
+00:35:13.464 --> 00:35:17.664
+<v Laure Lemaire>Donc, je crois qu'on sous-estime. On peut avoir des filles au début et puis si on leur demande trop de,
+
+313
+00:35:18.284 --> 00:35:24.524
+<v Laure Lemaire>voilà, je sais pas, il y a des systèmes, par exemple, qui vous sélectionnent pendant un mois, vous vous débrouillez et puis vous devez réaliser des choses tout seul.
+
+314
+00:35:25.104 --> 00:35:32.284
+<v Laure Lemaire>Faut déjà être costaud quoi. Alors, il y a toujours des femmes costauds, mais c'est pas la majorité. Donc, vous allez toujours avoir des petits nombres, en fait, en gros.
+
+315
+00:35:33.344 --> 00:35:45.424
+<v Guillaume Hachez>L'exemple de l'École 19 ou de l'École 42 est intéressant puisque justement, il y a quelques mois, dans la presse, on avait entendu parler de scandales, de comportements douteux au sein de l'École 42.
+
+316
+00:35:45.484 --> 00:35:46.884
+<v Guillaume Hachez>Je ne sais pas si vous aviez entendu parler.
+
+317
+00:35:46.934 --> 00:35:47.524
+<v Laure Lemaire>Non, j'ai pas entendu.
+
+318
+00:35:47.644 --> 00:35:55.204
+<v Guillaume Hachez>Il était question de harcèlement, il était question d'un channel Slack où des photomontages douteux circulaient.
+
+319
+00:35:56.844 --> 00:36:09.524
+<v Guillaume Hachez>Vous proposez ici une nouvelle porte d'entrée au monde et à l'industrie informatique. Est-ce qu'une fois qu'elles sont rentrées dans ce secteur, est-ce qu'elles ne font pas face à un sexisme assez répugnant qui vont finalement
+
+320
+00:36:10.404 --> 00:36:13.464
+<v Guillaume Hachez>vite les encourager à changer de voie ?
+
+321
+00:36:13.474 --> 00:36:21.084
+<v Laure Lemaire>Alors, je pense qu'elles sont assez malignes pour choisir, pour bien choisir leur entreprise aussi. Je veux dire l'entreprise où elles sont engagées.
+
+322
+00:36:21.864 --> 00:36:31.043
+<v Laure Lemaire>Parce que ce que vous dites, c'est vrai, ça existe. Il y a d'ailleurs un très bon film qui a été fait par une Américaine qui est assez-- attends, je pourrais vous donner après les coordonnées de ce film.
+
+323
+00:36:31.064 --> 00:36:43.824
+<v Laure Lemaire>Je me souviens plus du titre comme ça. C'est ce que vous dites, c'est-à-dire le harcèlement, les comportements très, très sexistes en entreprise, c'est assez vrai dans les entreprises qui se veulent,
+
+324
+00:36:45.324 --> 00:36:46.804
+<v Laure Lemaire>allez, branchées, on va dire, pour faire simple.
+
+325
+00:36:47.904 --> 00:36:58.979
+<v Laure Lemaire>Google et compagnie, enfin, je veux dire les grosses boîtes très créatives où vraiment, on cherche la figure du geek. 'fin de ce que j'ai vu dans ce film, en tout cas, il me semble que cette culture est plus présente là.
+
+326
+00:36:59.400 --> 00:37:06.400
+<v Laure Lemaire>Maintenant, si vous êtes en Belgique, que vous allez travailler à la STIB, ils ont un département développement, hein, parce qu'ils ont pas mal d'applications, ils ont un site web, etc.
+
+327
+00:37:07.460 --> 00:37:19.340
+<v Laure Lemaire>Ben ça, ça n'arrive pas. Si vous allez travailler dans une petite boîte, une petite start-up comme ATrust, par exemple, les femmes sont bienvenues et elles sont très bien traitées.
+
+328
+00:37:19.440 --> 00:37:24.640
+<v Laure Lemaire>On a pas mal de développeuses qui ont été engagées par l'entreprise Smart, qui développe aussi pas mal d'applications.
+
+329
+00:37:25.380 --> 00:37:35.040
+<v Laure Lemaire>Ça se passe très bien. Donc, je-- c'est pas-- ça, c'est peut-être plus vrai dans les boîtes vraiment identifiées IT, vous voyez ?
+
+330
+00:37:35.049 --> 00:37:35.290
+<v Guillaume Hachez>Mmh. D'accord.
+
+331
+00:37:35.760 --> 00:37:46.140
+<v Laure Lemaire>C'est moins vrai-- 'fin, et je parle des grosses boîtes. Alors, à mon avis, c'est moins vrai dans les start-up et c'est moins vrai dans les entreprises qui ont un département IT.
+
+332
+00:37:47.140 --> 00:37:56.160
+<v Laure Lemaire>Donc la culture d'entreprise n'est pas informatique de A à Z. Donc, je pense qu'elles échappent comme ça à-- donc on a très peu de retours dans ce sens.
+
+333
+00:37:56.220 --> 00:38:04.300
+<v Laure Lemaire>Alors c'est vrai qu'il y a des femmes qui abandonnent, et on le sait hein, qu'il y a un taux de drop out du secteur de la part de la gent féminine.
+
+334
+00:38:04.320 --> 00:38:10.520
+<v Laure Lemaire>Donc c'est pas gagné. C'est pas parce que nous, on les a formées, en effet, que la bataille est gagnée. Elles peuvent en ressortir.
+
+335
+00:38:11.420 --> 00:38:19.380
+<v Laure Lemaire>Mais des échos que nous, on a, donc on forme une centaine de femmes à l'informatique chaque année, on a très peu d'échos de ce genre.
+
+336
+00:38:19.560 --> 00:38:23.240
+<v Laure Lemaire>Peut-être un ou deux tous les deux ans, on va dire.
+
+337
+00:38:24.440 --> 00:38:25.240
+<v Guillaume Hachez>C'est plutôt une bonne nouvelle.
+
+338
+00:38:25.600 --> 00:38:25.760
+<v Laure Lemaire>Oui.
+
+339
+00:38:25.840 --> 00:38:37.740
+<v Guillaume Hachez>Et est-ce que des start-up ressortent de Interface3 ? Est-ce qu'il y a une culture de-- culture entrepreneuriale, des gens qui ont vraiment envie de lancer leur projet ?
+
+340
+00:38:37.760 --> 00:38:39.370
+<v Guillaume Hachez>Est-ce que ça arrive ici, à Interface3 ?
+
+341
+00:38:39.960 --> 00:38:49.040
+<v Laure Lemaire>Alors, c'est la minorité parce qu'on a affaire à beaucoup de femmes qui ont déjà des responsabilités, des enfants. Alors, pas toutes hein.
+
+342
+00:38:50.200 --> 00:38:56.500
+<v Laure Lemaire>L'âge des stagiaires ici, ça va de dix-huit à cinquante-cinq ans, mais disons que la moyenne se situe plutôt entre trente et quarante. Et donc,
+
+343
+00:38:57.320 --> 00:39:02.350
+<v Laure Lemaire>il faut qu'elles trouvent un boulot, pour faire rentrer de l'argent. Donc, elles vont plutôt--
+
+344
+00:39:03.000 --> 00:39:14.420
+<v Laure Lemaire>elles vont pas-- elles vont avoir tendance à pas trop prendre de risques dans un premier temps et plutôt commencer avec un emploi de salarié, aussi pour asseoir leurs compétences informatiques, ce que je trouve quand même judicieux.
+
+345
+00:39:14.700 --> 00:39:23.469
+<v Laure Lemaire>Parce que se lancer dans une start-up parce qu'on a juste fait une école, et voilà, c'est pas si évident. Je veux dire, parfois, il y en a besoin de se tester, d'apprendre encore sur le terrain.
+
+346
+00:39:23.480 --> 00:39:35.360
+<v Laure Lemaire>Donc, on a assez peu ce type de profil et c'est vrai qu'au départ, comme elles sont en recherche aussi de sécurité, et là, je parle globalement de l'ensemble de notre public parce qu'on a vraiment des profils très diversifiés,
+
+347
+00:39:36.320 --> 00:39:39.700
+<v Laure Lemaire>on n'a jamais poussé ce côté-là.
+
+348
+00:39:39.900 --> 00:39:51.180
+<v Laure Lemaire>Maintenant qu'à Bruxelles, on agite beaucoup le, comment dire, la création de start-up et qu'on encourage, qu'on sensibilise, ça commence.
+
+349
+00:39:51.620 --> 00:39:56.880
+<v Laure Lemaire>Nous, on les encourage à participer à des hackathons, on en organise nous-mêmes. Et le hackathon, il flirte avec la start-up tout le temps.
+
+350
+00:39:57.020 --> 00:40:03.160
+<v Laure Lemaire>C'est pas juste du code, c'est aussi des idées et tout. Donc, ça commence à rentrer dans la culture ici, tout doucement.
+
+351
+00:40:03.300 --> 00:40:13.900
+<v Laure Lemaire>Et on essaie d'encourager celles qui ont des projets à au moins continuer à les développer en parallèle ou-- et si elles ont envie, 'fin, on leur dit qu'il existe 1819, etc.
+
+352
+00:40:14.220 --> 00:40:21.760
+<v Laure Lemaire>Et des tas de services qui peuvent les aider. Mais pour le moment, je dirais, ça concerne peut-être 10 % des personnes en formation chez nous. Oui.
+
+353
+00:40:22.380 --> 00:40:25.560
+<v Guillaume Hachez>C'est pas rien non plus hein, ça fait seize personnes par an, c'est ça ?
+
+354
+00:40:26.140 --> 00:40:30.080
+<v Laure Lemaire>Ouais, non, là, c'est un peu exagéré. Une petite dizaine, on va dire. À peine.
+
+355
+00:40:30.120 --> 00:40:44.810
+<v Guillaume Hachez>D'accord. Oui, mais donc la culture d'entreprendre, également le faible ratio des femmes parmi les informaticiens en Belgique, ce sont les deux problèmes pour lesquels la Belgique est dernière de la classe.
+
+356
+00:40:44.890 --> 00:40:47.120
+<v Guillaume Hachez>Ce sont deux sujets qui me passionnent.
+
+357
+00:40:48.360 --> 00:41:00.000
+<v Guillaume Hachez>Si vous étiez responsable de la Belgique pour une semaine et que vous deviez résoudre ces deux problèmes et améliorer grandement, peut-être pas atteindre cinquante cinquante, mais améliorer grandement le ratio hommes-femmes
+
+358
+00:41:00.740 --> 00:41:07.400
+<v Guillaume Hachez>des métiers informatiques et des études supérieures informatiques, quelle serait la première étape, d'après vous ?
+
+359
+00:41:07.600 --> 00:41:19.840
+<v Laure Lemaire>La première étape, c'est que j'impose dans les écoles, en primaire et en secondaire, des cours d'informatique dignes de ce nom, où on apprend vraiment à développer, où on montre tous les aspects, le côté créatif, mais aussi la sécurité, les réseaux.
+
+360
+00:41:20.660 --> 00:41:27.760
+<v Laure Lemaire>Je pense qu'il y a vraiment-- alors, il y a aussi la question de l'apprentissage de la-- une gestion critique des technologies et une gestion environnementale.
+
+361
+00:41:27.810 --> 00:41:33.640
+<v Laure Lemaire>'fin, pour moi, il y a beaucoup d'enjeux. Une gestion critique de l'analyse de l'information, mais ça, c'est un autre domaine.
+
+362
+00:41:33.740 --> 00:41:43.120
+<v Laure Lemaire>On va dire que ça ressort plus des cours de, je sais pas, de citoyenneté ou de français, j'en sais rien, mais donc la première chose que je ferais, c'est ça.
+
+363
+00:41:43.200 --> 00:41:45.040
+<v Laure Lemaire>Évidemment, ça passe par
+
+364
+00:41:45.740 --> 00:41:50.920
+<v Laure Lemaire>la création aussi de nouveaux types d'enseignants. Je veux dire, il faut former les enseignants, donc il faut former
+
+365
+00:41:51.620 --> 00:42:00.320
+<v Laure Lemaire>des filières peut-être probablement spécialisées, pour que les enseignants soient vraiment formés à l'informatique de façon pertinente.
+
+366
+00:42:01.100 --> 00:42:07.360
+<v Laure Lemaire>Et puis, il y a au-- ben il y a toute une réflexion à mener sur à quoi pourraient ressembler ces cours hein, ça, c'est sûr.
+
+367
+00:42:07.420 --> 00:42:15.050
+<v Laure Lemaire>Donc, et puis, il y a la question du matériel, mais ça, c'est le moins problématique, à mon avis. Ça, ce serait la première chose, je crois, que je ferais.
+
+368
+00:42:15.140 --> 00:42:21.800
+<v Laure Lemaire>Et évidemment, je m'assurerais que les enseignants en question, il y a une parité quoi, moitié femmes, moitié hommes, parce que sinon, on va toujours retomber hein.
+
+369
+00:42:22.260 --> 00:42:28.040
+<v Laure Lemaire>Et je donnerai des cours formation en genre aussi à ces enseignants. C'est déjà un vaste programme.
+
+370
+00:42:28.380 --> 00:42:37.500
+<v Guillaume Hachez>Mais donc, on a de la part de l'industrie, de la part du secteur, vraiment ces convictions qui sont portées, comme quoi il faut absolument rajouter des cours de programmation au sein de l'enseignement obligatoire.
+
+371
+00:42:38.220 --> 00:42:46.580
+<v Guillaume Hachez>Il y a actuellement, en tout cas du côté francophone et aussi du côté néerlandophone en fait, des réformes qui sont menées au sujet de l'enseignement obligatoire.
+
+372
+00:42:46.630 --> 00:42:57.440
+<v Guillaume Hachez>Mais finalement, la question de l'informatique, de la programmation est relativement absente. On parle dans certains rapports au mieux de mener quelques ateliers d'algorithmique en secondaire ou autre.
+
+373
+00:42:58.240 --> 00:43:12.368
+<v Guillaume Hachez>Comment est-ce que vous expliquez que le monde de l'enseignement, que ce soit le staff ou du côté ministériel, soit aussi peu réceptif à cette demande de rajouter des cours d'informatique dans l'enseignement obligatoire ?
+
+374
+00:43:12.388 --> 00:43:15.728
+<v Guillaume Hachez>Comment est-ce que-- Comment expliquer que ce ne soit pas une évidence pour tout le monde ?
+
+375
+00:43:15.988 --> 00:43:24.628
+<v Laure Lemaire>Honnêtement, j'ai moi-même du mal à comprendre. Est-ce que c'est un problème budgétaire ? Est-ce que c'est un problème de réticence du corps professoral ?
+
+376
+00:43:25.248 --> 00:43:25.828
+<v Guillaume Hachez>Je comprends pas.
+
+377
+00:43:26.668 --> 00:43:39.208
+<v Laure Lemaire>On a du mal à comprendre, non. Est-ce que c'est un problème de formation ? Non, c'est difficile à comprendre. Maintenant, est-ce que tout ce monde-là réalise pas assez, pas suffisamment ce qui se passe sur le marché de l'emploi ?
+
+378
+00:43:39.368 --> 00:43:47.547
+<v Laure Lemaire>Ce qui se passe dans les entreprises, les enjeux des développements futurs et actuels au niveau technologique.
+
+379
+00:43:47.888 --> 00:43:48.268
+<v Guillaume Hachez>Mmm-hmm.
+
+380
+00:43:48.328 --> 00:43:50.688
+<v Laure Lemaire>Je, j'ai du mal à m'expliquer.
+
+381
+00:43:51.008 --> 00:43:51.648
+<v Guillaume Hachez>Du mal comprendre.
+
+382
+00:43:51.688 --> 00:43:58.608
+<v Laure Lemaire>Mais je reste, euh... Je veux pas foncer dans la critique facile parce que je sais à quel point c'est difficile de gérer, euh...
+
+383
+00:43:59.328 --> 00:44:04.988
+<v Laure Lemaire>Nous, on travaille avec les pouvoirs publics et on est au cœur de tout ce qui est contraintes financières, etc.
+
+384
+00:44:05.328 --> 00:44:09.888
+<v Laure Lemaire>Donc, voilà, je suis d'abord en empathie et puis j'aimerais bien qu'on m'explique.
+
+385
+00:44:10.348 --> 00:44:13.188
+<v Guillaume Hachez>Donc, quand j'avais évoqué cette question-là avec--
+
+386
+00:44:14.108 --> 00:44:25.008
+<v Guillaume Hachez>dans un épisode précédent, avec le vice-premier ministre et ministre de l'agenda numérique, Alexander De Croo, il expliquait qu'il y avait effectivement une certaine inertie dans le corps professoral, une certaine...
+
+387
+00:44:25.428 --> 00:44:30.228
+<v Guillaume Hachez>Voilà, que finalement, le milieu de l'enseignement n'avait pas tellement évolué en trente ans, ce qui est assez triste.
+
+388
+00:44:31.108 --> 00:44:39.058
+<v Guillaume Hachez>Et finalement, sa stratégie en réponse à ça, c'est peut-être fonctionner en dehors des écoles et de-- grâce à son, euh-
+
+389
+00:44:39.168 --> 00:44:39.888
+<v Laure Lemaire>Digital Skills
+
+390
+00:44:39.908 --> 00:44:50.698
+<v Guillaume Hachez>...Digital Skills Punt, voilà, de proposer des Molengeek, des BeCode, etc., en dehors de l'enseignement obligatoire, avec à terme l'idée de se dire : « Mais
+
+391
+00:44:51.668 --> 00:44:56.808
+<v Guillaume Hachez>si ça fonctionne bien et que ça a du succès et que ça plaît, peut-être que les écoles finiront par s'y intéresser.
+
+392
+00:44:57.478 --> 00:45:00.528
+<v Guillaume Hachez>» Est-ce que vous croyez à cette stratégie-là ?
+
+393
+00:45:00.608 --> 00:45:15.948
+<v Laure Lemaire>Non, je trouve que ça n'est pas une bonne idée. Je pense que pour qu'on soit sûr que ce monde soit à la portée de toutes et tous et que l'accessibilité prenne en compte des questions d'inégalité qui existent dans la société-
+
+394
+00:45:16.068 --> 00:45:16.968
+<v Guillaume Hachez>Ces formations sont gratuites.
+
+395
+00:45:17.368 --> 00:45:22.848
+<v Laure Lemaire>Oui, mais attendez, je vais développer. Donc, je pense la meilleure façon, c'est de le mettre dans l'enseignement obligatoire.
+
+396
+00:45:22.868 --> 00:45:24.408
+<v Laure Lemaire>Ça, c'est certain, parce que là, c'est sûr-
+
+397
+00:45:24.648 --> 00:45:25.448
+<v Guillaume Hachez>C'était son avis également
+
+398
+00:45:25.668 --> 00:45:32.948
+<v Laure Lemaire>...tout le monde y passe. Alors maintenant, c'est vrai qu'à propos de l'inertie du corps professoral, évidemment, la première chose qui doit changer, c'est la formation des profs.
+
+399
+00:45:32.988 --> 00:45:38.948
+<v Laure Lemaire>Et donc c'est là qu'il faut investir. Alors, est-ce qu'il y a assez de budget dans l'éducation supérieure ? Est-ce qu'il y a des budgets pour ça ?
+
+400
+00:45:39.028 --> 00:45:45.348
+<v Laure Lemaire>Ça, c'est du ressort des politiques aussi. Donc, ça, c'est leur responsabilité et pour moi, c'est une responsabilité lourde.
+
+401
+00:45:45.568 --> 00:45:56.828
+<v Laure Lemaire>Et il faut quand même dire que l'enseignement, euh... Bon, enfin, moi, je trouve pas du tout normal qu'il y ait autant de personnes qui sortent sans avoir terminé le secondaire à Bruxelles, donc qui sortent de l'école
+
+402
+00:45:58.088 --> 00:46:04.328
+<v Laure Lemaire>sans avoir terminé leur diplôme, enfin, sans avoir un diplôme de l'enseignement secondaire supérieur, parce qu'aujourd'hui, ça devient vraiment le b.a.-ba, quoi.
+
+403
+00:46:04.428 --> 00:46:12.988
+<v Laure Lemaire>Sans ça, je veux dire, au niveau salarial, vous êtes bloqué toute votre vie. Enfin bon, bref. Donc, moi, là-dessus, je suis assez fâchée, on va dire, avec le politique.
+
+404
+00:46:13.388 --> 00:46:16.868
+<v Laure Lemaire>Et alors, OK, des initiatives comme BeCode et Molengeek, mais
+
+405
+00:46:18.068 --> 00:46:33.378
+<v Laure Lemaire>je suis désolée, même si ces initiatives se présentent comme ouvertes à toutes et à tous, dans les faits, il y a quand même une sélection, il y a rien à faire. C'est,
+
+406
+00:46:34.228 --> 00:46:38.798
+<v Laure Lemaire>c'est inhérent aussi à, comment dire, à la formule, c'est-à-dire à partir du moment... Enfin, en tout cas, nous,
+
+407
+00:46:39.468 --> 00:46:45.088
+<v Laure Lemaire>ils s'approchent de la formation professionnelle, ils ont des conventions avec les courses de formation, même s'ils sont pas encore exactement dans le même carcan que nous.
+
+408
+00:46:45.668 --> 00:46:56.368
+<v Laure Lemaire>Mais vous avez des groupes pas trop grands, parce que c'est comme ça que ça fonctionne, ces formations-là. Ça va jusqu'à vingt-cinq, on va dire, chez BeCode, mais il y a beaucoup de candidats.
+
+409
+00:46:56.548 --> 00:47:07.088
+<v Laure Lemaire>Donc, il y a une première partie qui est assez sélective où on vous dit, voilà, de réaliser telle, telle, telle chose en grande autonomie, sans beaucoup d'aide.
+
+410
+00:47:08.128 --> 00:47:16.308
+<v Laure Lemaire>Et il y a beaucoup de personnes qui n'ont pas assez de confiance en elles pour faire ça, que ça peut être des filles comme des garçons, ça dépend de leur background.
+
+411
+00:47:16.408 --> 00:47:30.028
+<v Laure Lemaire>Et en plus, dans les nouvelles initiatives qui arrivent aujourd'hui, on a tendance à raccourcir les durées parce que pour les politiques, c'est mieux, c'est moins cher, à mettre moins de profs.
+
+412
+00:47:31.088 --> 00:47:39.708
+<v Laure Lemaire>Il y a des coachs, vous allez vous débrouiller. Après tout, c'est une histoire d'autodidacte, l'IT. Enfin, je veux dire, pour moi, c'est un peu les clichés qu'il y a là-derrière et puis des raisons budgétaires. Et donc
+
+413
+00:47:41.068 --> 00:47:53.748
+<v Laure Lemaire>nous, on a quand même en tout cas vingt ans d'expérience dans la formation à la programmation et on a réalisé quand même qu'une année avec des personnes qui ont déjà le secondaire ou déjà un diplôme du supérieur,
+
+414
+00:47:54.428 --> 00:48:02.228
+<v Laure Lemaire>c'est tout juste pour arriver, c'est bien, on va dire, pour arriver au seuil d'entrée que les employeurs exigent pour un développeur junior.
+
+415
+00:48:03.588 --> 00:48:10.868
+<v Laure Lemaire>On a testé, retesté, ça fait des années. Chaque année, ici, c'est cent stages. Je veux dire, les entreprises, on en a vu une diversité incroyable.
+
+416
+00:48:11.488 --> 00:48:23.328
+<v Laure Lemaire>Donc c'est basé sur des constats très pragmatiques, ce que je vous dis. Et donc, on a tendance pour le moment à penser que le code va sauver le monde et à brader un peu, euh...
+
+417
+00:48:24.208 --> 00:48:33.247
+<v Laure Lemaire>Enfin, moi, j'ai peur, en tout cas. En bradant les formations, vous vous adressez plus qu'à ceux qui, de toute façon, se débrouillent, vont se débrouiller très bien.
+
+418
+00:48:33.388 --> 00:48:42.728
+<v Laure Lemaire>Alors, l'École 19, ça, c'est vraiment se débrouiller tout seul. Alors après, il y a dégradation. Mais donc non, pour moi, c'est une approche libérale de la problématique.
+
+419
+00:48:42.788 --> 00:48:51.048
+<v Laure Lemaire>Et moi, personnellement, j'ai un problème avec ça, même si dans ces nouvelles initiatives, il y a des choses intéressantes à prendre.
+
+420
+00:48:51.688 --> 00:48:58.738
+<v Laure Lemaire>Enfin, je veux dire, chaque nouvel acteur amène une pédagogie différente, une autre approche. Donc chacun a ses qualités, mais je pense que c'est très important d'avoir l'honnêteté
+
+421
+00:48:59.408 --> 00:49:03.898
+<v Laure Lemaire>de, voilà, de bien se situer pour tout le monde, pour ceux qui vont rentrer en formation chez vous
+
+422
+00:49:04.588 --> 00:49:09.078
+<v Laure Lemaire>et aussi par rapport aux politiques, de bien situer, c'est-à-dire analyser bien le public qu'on a, celui qui réussit
+
+423
+00:49:09.780 --> 00:49:12.440
+<v Laure Lemaire>Moi, je vous cache pas que les formations de développeurs, c'est pas,
+
+424
+00:49:13.200 --> 00:49:17.080
+<v Laure Lemaire>je vous l'ai dit, c'est pas des personnes qui n'ont pas achevé leur secondaire en majorité.
+
+425
+00:49:17.200 --> 00:49:23.920
+<v Laure Lemaire>C'est des personnes qui ont déjà un bon niveau, elles ont déjà des compétences, donc elles ont des doubles compétences. Donc elles sont très attractives pour les employeurs.
+
+426
+00:49:24.000 --> 00:49:29.900
+<v Laure Lemaire>Ça peut être une comptable qui est devenue développeuse, ça peut être une graphiste qui est devenue développeuse, ça peut être une journaliste qui est devenue développeuse.
+
+427
+00:49:30.300 --> 00:49:39.580
+<v Laure Lemaire>Donc, je veux dire, le seuil d'entrée est élevé quand même. Donc il faut pas... Voilà, moi, ça me fait un peu peur, ce genre d'initiative.
+
+428
+00:49:40.300 --> 00:49:49.110
+<v Laure Lemaire>Et donc, je reste persuadée qu'il faut vraiment populariser la programmation en la faisant passer par l'école. Voilà.
+
+429
+00:49:49.400 --> 00:50:00.700
+<v Guillaume Hachez>C'était, je pense, également sa conviction que l'école est un égalisateur universel, voilà, et c'est ce dont on a besoin, mais je pense qu'il agissait avant tout en réponse à une certaine inertie, à une certaine...
+
+430
+00:50:02.020 --> 00:50:05.920
+<v Guillaume Hachez>Finalement, c'est un ministre fédéral qui n'a pas de pouvoir sur l'enseignement. C'est un autre problème.
+
+431
+00:50:06.060 --> 00:50:14.339
+<v Laure Lemaire>Oui, oui, non, mais ça, je comprends bien que Alexander De Croo, lui, il est effectivement hors-jeu pour ce qui est de l'enseignement obligatoire.
+
+432
+00:50:14.380 --> 00:50:28.280
+<v Laure Lemaire>C'est régional, non, c'est communautaire, pardon. Et donc c'est là que se situe la manette. Après, il y a la question de comment on répartit les budgets dans un pays, sur quel poste on les met.
+
+433
+00:50:28.300 --> 00:50:30.400
+<v Laure Lemaire>Mais bon, voilà, vaste, vaste sujet.
+
+434
+00:50:31.400 --> 00:50:38.660
+<v Guillaume Hachez>Une dernière question. Interface 3, c'est gratuit à l'inscription ? C'est financé par quelle manière exactement ?
+
+435
+00:50:38.780 --> 00:50:49.880
+<v Laure Lemaire>Alors, donc en effet, les formations sont gratuites et elles sont financées par différents pouvoirs publics. Donc Actiris, pour ces formations, et le Fonds social européen en grande quantité.
+
+436
+00:50:49.920 --> 00:50:58.840
+<v Laure Lemaire>Le Fonds social européen, je veux dire, ça représente une grosse partie de notre budget. Et puis aussi les salaires subsidiés de la Région bruxelloise, les ACS.
+
+437
+00:51:00.020 --> 00:51:05.060
+<v Laure Lemaire>Et puis on travaille aussi avec les fonds sectoriels de formation, donc les cotisations des entreprises privées hein, qui sont rassemblées dans des fonds.
+
+438
+00:51:06.060 --> 00:51:17.180
+<v Laure Lemaire>Et puis des sponsors privés, la fondation JP Morgan, la fondation Roi Baudouin, et puis des sponsors plus petits de la part des entreprises pour des choses, Microsoft, pour les certifications IT.
+
+439
+00:51:18.240 --> 00:51:22.460
+<v Laure Lemaire>Donc voilà, on a une quinzaine de financeurs différents, je pense.
+
+440
+00:51:22.960 --> 00:51:35.120
+<v Guillaume Hachez>Qu'est-ce qu'on peut vous souhaiter pour les années à venir ? Est-ce que Interface 3 a pour ambition de s'élargir encore ou bien est-ce que vous continuez sur cette lancée actuelle avec cent soixante-trois étudiants par an ?
+
+441
+00:51:35.240 --> 00:51:43.869
+<v Laure Lemaire>Donc il faut savoir qu'on forme quand même presque plutôt trois cents étudiants par an, parce qu'on a aussi des modules d'orientation, des modules d'initiation en plus des formations qualifiantes.
+
+442
+00:51:44.440 --> 00:51:45.630
+<v Laure Lemaire>Et donc qu'est-ce qu'on peut nous souhaiter ?
+
+443
+00:51:46.160 --> 00:51:55.680
+<v Laure Lemaire>D'abord, un taux d'emploi toujours meilleur pour les stagiaires. Actuellement, le taux d'emploi moyen chez Interface 3, si on prend toutes les formations, tous niveaux confondus, ça tourne autour de septante-cinq pour cent.
+
+444
+00:51:55.720 --> 00:52:03.560
+<v Laure Lemaire>Pour les formations IT en développement, ça a atteint ces dernières années cent pour cent. Après, les formations IT, ça oscille entre quatre-vingt et cent pour cent.
+
+445
+00:52:03.640 --> 00:52:12.040
+<v Laure Lemaire>Ça dépend un peu des profils et des années. Donc ça, je veux dire, ce qui nous tient surtout à cœur, c'est que les personnes qui viennent ici atteignent leur objectif.
+
+446
+00:52:12.480 --> 00:52:19.840
+<v Laure Lemaire>Et nous, notre objectif, c'est de mettre tout le monde à l'embauche dans un emploi de qualité. Donc, ce qu'on peut nous souhaiter, c'est d'améliorer ça
+
+447
+00:52:20.900 --> 00:52:30.260
+<v Laure Lemaire>et puis de continuer à aider les femmes à s'insérer dans des secteurs qui ne sont pas habituels pour elles et puis de faire en sorte qu'elles deviennent des pionnières pour les autres.
+
+448
+00:52:31.070 --> 00:52:41.200
+<v Laure Lemaire>Parce que sensibiliser, c'est une chose, mais former les femmes et puis qu'elles s'installent dans le secteur et puis qu'elles en parlent à leurs filles, à leurs nièces, à leurs voisines, ça, c'est pour moi plus solide.
+
+449
+00:52:41.230 --> 00:52:51.209
+<v Laure Lemaire>Donc, je pense qu'il faut vraiment faire des actions positives, qu'on appelle de discrimination positive, même si c'est contradictoire les deux termes, pour qu'il y ait plus de femmes dans le secteur et puis que
+
+450
+00:52:51.640 --> 00:52:57.400
+<v Laure Lemaire>voilà, qu'elles tracent la route pour les autres et qu'elles fassent changer les mentalités aussi à l'intérieur des entreprises.
+
+451
+00:52:57.480 --> 00:53:09.800
+<v Laure Lemaire>Mais s'élargir pour s'élargir, je pense pas, parce que je crois que garder la taille qu'on a, ça nous permet de faire un travail qui s'apparente au travail de l'artisan. Et je trouve
+
+452
+00:53:10.860 --> 00:53:20.580
+<v Laure Lemaire>plus intéressant de faire bien ce qu'on fait puis de servir de modèle éventuellement, par exemple comme on est en train de faire avec Bruxelles Formation, c'est-à-dire on reproduit un peu le même schéma pour entrer dans d'autres métiers.
+
+453
+00:53:20.740 --> 00:53:27.499
+<v Laure Lemaire>J'ai peur que s'élargir, ça devienne après une usine et—
+
+454
+00:53:27.520 --> 00:53:28.640
+<v Guillaume Hachez>Qu'on perde en efficacité.
+
+455
+00:53:28.650 --> 00:53:33.720
+<v Laure Lemaire>Qu'on perde en efficacité, voilà. Donc, et puis après, il y a le plaisir de travailler de notre équipe qui est important aussi.
+
+456
+00:53:34.500 --> 00:53:43.580
+<v Laure Lemaire>On est trente salariés. C'est vrai qu'on travaille avec une cinquantaine de formateurs freelances aussi. Et voilà, le travail reste agréable pour tout le monde avec cette dimension.
+
+457
+00:53:44.560 --> 00:53:49.620
+<v Laure Lemaire>Et si on s'agrandit, je pense qu'on tombe sur d'autres réalités. Voilà donc...
+
+458
+00:53:50.280 --> 00:53:55.220
+<v Guillaume Hachez>On vous souhaite alors de continuer sur cette lancée et que tout se passe bien encore pour les années à venir.
+
+459
+00:53:56.000 --> 00:53:56.920
+<v Guillaume Hachez>Laure Lemaire, merci.
+
+460
+00:53:56.960 --> 00:53:57.350
+<v Laure Lemaire>Merci beaucoup.
+
+461
+00:53:57.350 --> 00:54:00.040
+<v Guillaume Hachez>Merci beaucoup pour cet entretien. Et au revoir.
+
+462
+00:54:00.080 --> 00:54:00.420
+<v Laure Lemaire>Au revoir.
+
+463
+00:54:02.420 --> 00:54:10.400
+<v Guillaume Hachez>Sans transition, on passe directement à mon interview avec Isabelle Collet. Isabelle Collet, c'est la référence pour ce qui est des questions des femmes en informatique en francophonie.
+
+464
+00:54:10.880 --> 00:54:16.060
+<v Guillaume Hachez>Elle est maîtresse en recherche en sciences de l'éducation à l'Université de Genève et ça fait des décennies qu'elle se penche sur ces questions.
+
+465
+00:54:16.100 --> 00:54:20.580
+<v Guillaume Hachez>Dès qu'on fait une recherche sur le sujet, on tombe sur des dizaines d'articles et de papiers qu'elle a publiés au cours des années.
+
+466
+00:54:20.620 --> 00:54:27.080
+<v Guillaume Hachez>Elle m'a fait l'honneur de s'entretenir avec moi pendant une demi-heure. Let's go ! Et bonjour à tous. Aujourd'hui, nous recevons Isabelle Collet.
+
+467
+00:54:27.240 --> 00:54:32.260
+<v Guillaume Hachez>Isabelle Collet, qui est maîtresse en enseignement à l'Université de Genève. Isabelle Collet, bonjour.
+
+468
+00:54:32.580 --> 00:54:33.060
+<v Isabelle Collet>Bonjour.
+
+469
+00:54:33.840 --> 00:54:37.160
+<v Guillaume Hachez>Est-ce que vous pouvez vous présenter pour ceux qui ne vous connaissent pas ?
+
+470
+00:54:37.240 --> 00:54:43.840
+<v Isabelle Collet>Alors, je suis informaticienne de formation initiale, informaticienne scientifique, traitement d'images numériques, ce genre de choses.
+
+471
+00:54:44.480 --> 00:54:57.100
+<v Isabelle Collet>Et ça remonte à quelque temps, vu que j'ai été diplômée dans les années nonante. Et ayant été diplômée à peu près au seul moment où il y a eu une crise de l'informatique, je n'ai pas trouvé de travail à ce moment-là.
+
+472
+00:54:57.560 --> 00:55:09.360
+<v Isabelle Collet>D'autant plus, et c'est pas innocent pour la suite de ce que j'ai fait, d'autant plus que j'étais une jeune femme mariée et donc suspectée par mes employeurs de vouloir produire de grandes quantités d'enfants.
+
+473
+00:55:09.440 --> 00:55:09.970
+<v Guillaume Hachez>Mh. Mh.
+
+474
+00:55:11.280 --> 00:55:17.840
+<v Isabelle Collet>Je me suis reconvertie dans la formation, je suis allée faire des études en sciences de l'éducation et—
+
+475
+00:55:17.900 --> 00:55:18.220
+<v Guillaume Hachez>D'accord.
+
+476
+00:55:18.280 --> 00:55:26.640
+<v Isabelle Collet>...ça m'a plu. Donc j'ai passé une thèse en sciences de l'éducation sur la question du genre en informatique. Et je suis maintenant à l'Université de Genève en sciences de l'éducation.
+
+477
+00:55:27.040 --> 00:55:28.680
+<v Guillaume Hachez>Et donc c'est quoi ? C'est suite à,
+
+478
+00:55:29.240 --> 00:55:33.060
+<v Guillaume Hachez>voilà, le fait de regarder l'auditoire dans lequel vous vous trouviez
+
+479
+00:55:33.580 --> 00:55:41.580
+<v Guillaume Hachez>et voir finalement assez peu de femmes dans le secteur de l'informatique qui— est-ce que ça vous a guidée pour vous pencher sur ces questions de genre dans l'éducation ?
+
+480
+00:55:41.600 --> 00:55:47.000
+<v Isabelle Collet>Alors pas du tout en fait, parce que, premièrement, j'avais pas remarqué qu'on était peu de filles.
+
+481
+00:55:47.040 --> 00:55:47.300
+<v Guillaume Hachez>Ah bon.
+
+482
+00:55:47.760 --> 00:55:55.440
+<v Isabelle Collet>Pas très observatrice. Mais il faut reconnaître qu'à cette époque-là, on était quand même un quart, donc c'était moins—
+
+483
+00:55:55.480 --> 00:55:56.100
+<v Guillaume Hachez>D'accord, oui.
+
+484
+00:55:56.400 --> 00:55:57.180
+<v Isabelle Collet>...moins visible.
+
+485
+00:55:57.520 --> 00:55:59.740
+<v Guillaume Hachez>Aujourd'hui, aujourd'hui, ce serait presque un objectif.
+
+486
+00:56:00.500 --> 00:56:04.340
+<v Isabelle Collet>Bah voilà, c'est ça. Aujourd'hui, si on avait un quart, ce serait complètement extraordinaire quoi.
+
+487
+00:56:04.940 --> 00:56:14.080
+<v Isabelle Collet>Donc c'était moins criant que maintenant, mais y avait aussi le fait que j'avais toujours été environnée essentiellement de garçons dans mes études scientifiques, dans mes loisirs.
+
+488
+00:56:14.140 --> 00:56:24.230
+<v Isabelle Collet>Donc ça me semblait pas très différent. La première fois que j'ai mis mes pieds dans un amphithéâtre de sciences de l'éducation, je me suis dit : « Ouh là là, mais 75 %, 80 % de filles, j'vais jamais y arriver quoi ».
+
+489
+00:56:24.800 --> 00:56:26.120
+<v Isabelle Collet>Donc c'est vraiment pas ça qui m'a—
+
+490
+00:56:26.740 --> 00:56:26.940
+<v Guillaume Hachez>Mmm-hmm.
+
+491
+00:56:27.040 --> 00:56:37.540
+<v Isabelle Collet>...qui m'a posé souci, mais ça a été plutôt de réaliser que, au niveau de l'entreprise, c'était jamais moi qui étais employée sur un poste stabilisé.
+
+492
+00:56:37.840 --> 00:56:48.740
+<v Isabelle Collet>C'est pas à moi qu'on pensait pour encadrer, pour faire carrière. Bref, j'aurais eu un travail intéressant à ce moment-là en informatique, je serais probablement devenue une informaticienne très heureuse.
+
+493
+00:56:48.780 --> 00:56:58.420
+<v Isabelle Collet>Alors à la place, je suis devenue une sociologue très heureuse, mais ce n'est pas moi qui ai eu un dégoût ou un désintérêt pour l'informatique.
+
+494
+00:56:58.500 --> 00:57:06.260
+<v Guillaume Hachez>Uh-huh. Alors on va juste directement se plonger au cœur du sujet. Vous disiez que les ratios avaient évolué au fil du temps.
+
+495
+00:57:06.880 --> 00:57:13.730
+<v Guillaume Hachez>Les femmes étaient plutôt bien représentées dans l'après-guerre, dans le secteur, et vous disiez 25 % dans les années 90.
+
+496
+00:57:14.350 --> 00:57:18.160
+<v Guillaume Hachez>Qu'est-ce qui a changé finalement ? Qu'est-ce qui a causé ces changements ?
+
+497
+00:57:18.220 --> 00:57:33.920
+<v Isabelle Collet>Alors y a deux facteurs qui ont fonctionné ensemble et malheureusement dans le même sens. Le premier facteur, c'est que quand l'informatique est arrivée, on va dire dans les années 60, 70, évidemment personne ne savait vraiment ce que c'était.
+
+498
+00:57:33.940 --> 00:57:34.220
+<v Guillaume Hachez>Mmm-hmm.
+
+499
+00:57:34.360 --> 00:57:46.800
+<v Isabelle Collet>Les premiers— outre l'armée, les premiers lieux de travail à être équipés en informatique, ça a été les grosses administrations et les banques, par exemple.
+
+500
+00:57:47.380 --> 00:57:56.680
+<v Isabelle Collet>Donc quand on était une femme scientifique, ça permettait de travailler dans le secteur tertiaire. Somme toute, c'était pas tellement contre-stéréotypé pour les femmes.
+
+501
+00:57:57.200 --> 00:58:06.420
+<v Isabelle Collet>Et puis, y avait pas de prestige dans ces métiers-là. On savait pas très bien où ils allaient mener. Le prestige était toujours en science, par exemple hein, dans les maths pures, dans la physique, etc.
+
+502
+00:58:07.260 --> 00:58:14.660
+<v Isabelle Collet>Donc y avait des places pour des femmes qui faisaient des études qu'on appelait calcul numérique, et qui trouvaient de l'emploi scientifique.
+
+503
+00:58:14.960 --> 00:58:23.360
+<v Isabelle Collet>Donc ça, c'est une première chose. Et puis, il y a eu de plus en plus des discours qui sont montés sur l'informatique, c'est l'avenir.
+
+504
+00:58:23.920 --> 00:58:31.060
+<v Isabelle Collet>Le pays doit entrer de plain-pied dans l'ère de l'informatique pour rester dans la course sur haut niveau industriel mondial, etc.
+
+505
+00:58:32.300 --> 00:58:42.740
+<v Isabelle Collet>Et c'est devenu, alors c'est des discours, mais proches de l'incantation hein, c'était vraiment très fort. Et donc on est passé à l'idée que l'informatique, c'était l'emploi assuré, la carrière assurée et un bon salaire.
+
+506
+00:58:43.420 --> 00:58:52.440
+<v Isabelle Collet>Et donc, encore plus à cette époque-là que maintenant, même si évidemment, c'est toujours un peu vrai, c'est les garçons que l'on dirige vers l'emploi assuré, vers le bon salaire et vers la carrière.
+
+507
+00:58:52.720 --> 00:59:06.680
+<v Isabelle Collet>Donc y a eu un engouffrement massif de jeunes hommes dont les parents, l'école, les discours institutionnels les ont poussés massivement et incités massivement à aller en informatique, qui a pris de plus en plus de prestige.
+
+508
+00:59:06.720 --> 00:59:12.540
+<v Isabelle Collet>Donc ça, c'est le premier phénomène. Et simultanément, y avait un deuxième phénomène qui est l'arrivée du micro-ordinateur.
+
+509
+00:59:13.180 --> 00:59:24.260
+<v Isabelle Collet>Chaque fois qu'un nouvel appareil technologique arrive, ce sont les garçons qui sont équipés les premiers, que ce soit une console de jeu, un walkman, la télé dans la chambre, ça, c'est toujours vérifié.
+
+510
+00:59:25.120 --> 00:59:36.280
+<v Isabelle Collet>Alors pas tous les garçons hein, parce que ça coûte cher, évidemment. Ce sont les garçons de milieux socioprofessionnels favorisés ou les garçons vraiment passionnés qui ont réussi à convaincre tout leur entourage de leur payer un ordinateur.
+
+511
+00:59:36.320 --> 00:59:43.520
+<v Isabelle Collet>Parce que quand même, dans les années 80, ouais 80, 90, 90 disons, ça faisait pas grand-chose hein, l'ordinateur personnel.
+
+512
+00:59:43.540 --> 00:59:50.680
+<v Isabelle Collet>Mais bon. Donc les garçons sont équipés les premiers et autour de ces ordinateurs se créent des micro-sociétés de garçons.
+
+513
+00:59:50.720 --> 01:00:02.180
+<v Isabelle Collet>Je dis micro-société parce que c'était pas une majorité de garçons qui les avaient. Très investis dans le rapport à la machine, ceux qu'on appellerait aujourd'hui les geeks ou les nerds, même si à l'époque, le terme, on le connaissait pas.
+
+514
+01:00:03.020 --> 01:00:14.740
+<v Isabelle Collet>En plus, à une époque où ils sont adolescents, c'est-à-dire où le groupe de filles fait peur et qu'ils se replient autour de leurs activités sur l'ordinateur, taper des programmes, programmer des jeux, etc., etc.
+
+515
+01:00:15.740 --> 01:00:27.640
+<v Isabelle Collet>Une représentation nouvelle de l'informatique apparaît, d'autant plus qu'y avait pas de représentation au préalable. L'informatique, ce serait faire comme ces jeunes garçons dans leur rapport passionné avec la machine.
+
+516
+01:00:27.680 --> 01:00:33.700
+<v Isabelle Collet>Ce serait le monde de l'informatique, ce serait la version adulte de ces jeunes hommes. Alors ça tente pas tous les garçons, évidemment.
+
+517
+01:00:34.700 --> 01:00:45.060
+<v Isabelle Collet>Ça tente pas non plus toutes les filles, d'autant plus que pour entrer dans cet univers-là, pour faire partie de ces groupes, c'est beaucoup plus difficile quand on est une fille, on est suspectée d'incompétence.
+
+518
+01:00:45.120 --> 01:00:58.040
+<v Isabelle Collet>Et puis en plus, les relations adolescentes, c'est pas ce qu'il y a de plus facile pour la mixité. Et donc on se crée une représentation erronée, mais tout de même solide, de ce que seraient les métiers de l'informatique.
+
+519
+01:00:58.080 --> 01:01:06.840
+<v Isabelle Collet>Et quand je dis on, c'est à la fois les jeunes, les parents, le système de l'orientation, les enseignants, etc. Alors, vous avez les deux phénomènes qui se combinent en même temps.
+
+520
+01:01:07.340 --> 01:01:16.196
+<v Isabelle Collet>Un métier qui prend de la valeur à la fois symboliquement, mais aussi en termes de carrière, de salaire, etc. Donc on incite fortement les garçons à y aller.
+
+521
+01:01:16.806 --> 01:01:26.436
+<v Isabelle Collet>D'autre part, des sollicitations à pratiquer l'informatique plutôt dirigées envers les garçons parce que c'est technique et des micro-sociétés de garçons qui se construisent autour des ordinateurs.
+
+522
+01:01:26.836 --> 01:01:39.676
+<v Isabelle Collet>On a une représentation de l'ordinateur qui serait ce qu'on fait quand on est un geek ou un nerd, même si les termes pour le coup sont anachroniques, qui évidemment a tendance à écarter les filles de ces disciplines.
+
+523
+01:01:39.716 --> 01:01:46.696
+<v Guillaume Hachez>Vous parlez de micro-société de garçons, vous parlez de finalement ces communautés assez adolescentes où les filles ne sont pas les bienvenues.
+
+524
+01:01:47.096 --> 01:01:52.816
+<v Guillaume Hachez>Ça fait écho un petit peu à ce qu'on voit dans la Silicon Valley avec un certain sexisme dans l'industrie.
+
+525
+01:01:52.896 --> 01:02:00.936
+<v Guillaume Hachez>On a vu il y a un an, un manifeste d'un employé de Google qui expliquait que les femmes n'avaient pas leur place à la Silicon Valley.
+
+526
+01:02:01.496 --> 01:02:07.556
+<v Guillaume Hachez>Est-ce que l'industrie de la tech et de l'informatique est plus sexiste que les autres ?
+
+527
+01:02:07.636 --> 01:02:09.356
+<v Isabelle Collet>Alors pas plus.
+
+528
+01:02:10.756 --> 01:02:17.156
+<v Isabelle Collet>Si on se préoccupe de la part des femmes dans certains secteurs, y a des secteurs, par exemple le secteur de la culture,
+
+529
+01:02:17.836 --> 01:02:27.036
+<v Isabelle Collet>et surtout au niveau où on dirige, préside aux destinées, décide des subventions, dirige des théâtres, etc., est plus sexiste que l'informatique.
+
+530
+01:02:27.416 --> 01:02:36.196
+<v Isabelle Collet>Donc, il est moins stratégique, il est moins visible, mais c'est pas— 'fin, faut pas qu'on pense que c'est le secteur le pire et le plus fermé.
+
+531
+01:02:36.676 --> 01:02:51.996
+<v Isabelle Collet>Néanmoins, effectivement, comme c'est un secteur dans lequel y a du pouvoir, les personnes qui ont ce pouvoir ont plutôt envie de le garder et ont plutôt envie— c'est un milieu comme d'autres hein, qui marche beaucoup par cooptation.
+
+532
+01:02:52.596 --> 01:03:02.796
+<v Isabelle Collet>On se rencontre, on travaille ensemble, on s'apprécie, on se coopte, on s'aide, on fait des réseaux. Le système par cooptation, c'est ce qu'il y a de plus efficace pour maintenir en l'état les populations.
+
+533
+01:03:03.096 --> 01:03:07.876
+<v Isabelle Collet>C'est-à-dire, on se coopte dans l'entre-soi, même si on n'en a pas conscience.
+
+534
+01:03:07.916 --> 01:03:15.916
+<v Guillaume Hachez>Mh. Quand je regardais mon propre auditoire de sciences informatiques, je voyais effectivement, comme vous dites, des geeks, des nerds, des gens qui avaient vraiment ça dans le sang,
+
+535
+01:03:16.616 --> 01:03:25.996
+<v Guillaume Hachez>qui étaient arrivés là par une filière type, ben, la passion pour le jeu vidéo, pour Linux, pour les sujets geeks. Finalement,
+
+536
+01:03:26.976 --> 01:03:36.276
+<v Guillaume Hachez>c'est le jeu vidéo et la culture geek mainstream était une porte d'entrée pour ces jeunes pour arriver aux études d'informatique qui n'étaient finalement pas vraiment
+
+537
+01:03:36.956 --> 01:03:39.016
+<v Guillaume Hachez>qui ne ciblaient pas vraiment les jeunes filles.
+
+538
+01:03:39.816 --> 01:03:48.785
+<v Guillaume Hachez>Comment est-ce qu'on fait pour sortir de ces stéréotypes ? Comment est-ce qu'on fait pour ouvrir une nouvelle porte d'entrée et ramener des femmes dans le secteur de l'informatique ?
+
+539
+01:03:48.785 --> 01:04:04.136
+<v Isabelle Collet>Alors, premièrement, il faut pas se tromper de bouc émissaire. Disons, pas choisir les geeks comme bouc émissaire parce que ça déresponsabilise les institutions de leur propre influence en la matière.
+
+540
+01:04:04.456 --> 01:04:13.276
+<v Isabelle Collet>Et puis c'est pas la faute aux geeks s'y a pas de filles. C'est-à-dire que premièrement, dans les études d'informatique, on n'apprend pas à être des hackers et on n'apprend pas à être geek.
+
+541
+01:04:14.136 --> 01:04:22.396
+<v Isabelle Collet>C'est-à-dire la représentation qu'on peut s'en faire n'est pas réellement— si vous faites des études d'ingénieur en informatique, vous allez pas apprendre à faire du jeu vidéo, vous allez pas apprendre à être un geek.
+
+542
+01:04:22.536 --> 01:04:22.956
+<v Guillaume Hachez>Mh.
+
+543
+01:04:23.036 --> 01:04:28.916
+<v Isabelle Collet>Ça, c'est une première chose. La deuxième chose, c'est que la culture geek, intrinsèquement, elle a rien de sexiste.
+
+544
+01:04:29.336 --> 01:04:33.896
+<v Isabelle Collet>C'est-à-dire que dans la culture geek, vous avez peut-être des grands barbares musclés qui se battent
+
+545
+01:04:34.356 --> 01:04:45.516
+<v Isabelle Collet>avec des grosses épées, ce qui en soi d'ailleurs est pas forcément désagréable pour les filles, mais vous avez aussi les animations japonaises de Hayao Miyazaki qui n'ont absolument rien de super viril, c'est le moins qu'on puisse dire.
+
+546
+01:04:45.816 --> 01:05:00.596
+<v Isabelle Collet>Donc c'est pas une culture qui en soi serait intrinsèquement hostile aux filles. Simplement, en termes de socialisation, c'est vrai que c'est des univers qui sont davantage proposés, cooptés, échangés entre garçons.
+
+547
+01:05:00.756 --> 01:05:04.576
+<v Isabelle Collet>Mais de toute façon, le problème, il est pas là. Le problème, c'est les écoles,
+
+548
+01:05:05.496 --> 01:05:08.636
+<v Isabelle Collet>et je parle là de l'enseignement supérieur d'abord,
+
+549
+01:05:09.296 --> 01:05:15.556
+<v Isabelle Collet>les écoles, c'est à elles de faire les efforts nécessaires, mais des vrais efforts, pas simplement de l'affichage,
+
+550
+01:05:16.116 --> 01:05:22.796
+<v Isabelle Collet>pour inciter une population plus variée, et donc plus variée, ça voudra dire nécessairement plus de filles, à venir dans les filières.
+
+551
+01:05:23.376 --> 01:05:33.556
+<v Isabelle Collet>C'est-à-dire— alors, des moyens, il en existe, des très, on va dire, très incisifs et puis des moyens qui sont un peu plus en douceur.
+
+552
+01:05:34.056 --> 01:05:40.816
+<v Isabelle Collet>Y a trois étapes hein, de toute façon, si on veut réussir à intégrer une population minoritaire, voire très très très minoritaire.
+
+553
+01:05:41.986 --> 01:05:52.496
+<v Isabelle Collet>La première, c'est qu'il faut l'intéresser. La deuxième, c'est qu'il faut être en capacité de la recruter. Et la troisième étape, c'est qu'une fois qu'elle soit recrutée, que cette population se sente bien pour qu'elle reste jusqu'au bout.
+
+554
+01:05:52.596 --> 01:06:00.596
+<v Isabelle Collet>Si on ne coordonne pas ces trois étapes, ça va pas fonctionner, évidemment. Donc ça veut dire que c'est des actions sur le long terme.
+
+555
+01:06:00.766 --> 01:06:07.876
+<v Isabelle Collet>'Fin, en tout cas qui se pensent sur le long terme et qui nécessitent un effort coordonné sur du long terme. Alors, intéresser.
+
+556
+01:06:07.976 --> 01:06:18.556
+<v Isabelle Collet>Intéresser, il faut aller chercher la population intéressée là où elle se trouve, c'est-à-dire quand on est une école supérieure, aller les chercher à la fin de l'enseignement secondaire
+
+557
+01:06:19.156 --> 01:06:24.936
+<v Isabelle Collet>et donner à ce moment-là envie, attirer, donner envie de venir faire des études.
+
+558
+01:06:24.976 --> 01:06:31.346
+<v Isabelle Collet>Alors comment donner envie ? Présenter ce qu'on fait, envoyer des étudiants et des étudiantes faire des démonstrations, former les enseignants
+
+559
+01:06:32.196 --> 01:06:39.656
+<v Isabelle Collet>et les enseignantes, en particulier de sciences, pour qu'ils fassent une présentation de la discipline de manière plus mixte.
+
+560
+01:06:40.056 --> 01:06:50.176
+<v Isabelle Collet>Et évidemment, dans l'idéal, en ce qui concerne l'informatique, si on pouvait toucher du doigt ce que c'était que la programmation, et je parle pas de programmer des calculatrices pour pouvoir faire des courbes en maths.
+
+561
+01:06:50.236 --> 01:06:51.956
+<v Isabelle Collet>Si on avait l'occasion de toucher du doigt
+
+562
+01:06:52.416 --> 01:07:03.552
+<v Isabelle Collet>ce qu'est la programmation quand on est dans le secondaire, on pourrait envisager de se projeter dans des études de programmation qui inclut la programmation, même si l'informatique, c'est pas que de la programmation, dans le supérieur.
+
+563
+01:07:03.912 --> 01:07:04.472
+<v Guillaume Hachez>Mh, mh, mh.
+
+564
+01:07:04.492 --> 01:07:05.062
+<v Isabelle Collet>On a un élève—
+
+565
+01:07:05.732 --> 01:07:16.372
+<v Guillaume Hachez>Oui. Donc, on pourrait alors utiliser l'école comme un égalisateur universel pour vraiment mettre tout le monde au même niveau et proposer l'informatique à ceux qui n'y étaient pas vraiment confrontés avant.
+
+566
+01:07:16.892 --> 01:07:21.972
+<v Guillaume Hachez>Contrairement à la situation actuelle où c'est seulement les garçons qui ont l'occasion de goûter un peu ça—
+
+567
+01:07:22.032 --> 01:07:26.312
+<v Isabelle Collet>Parce que quand on essaie de se projeter : qu'est-ce que je veux faire quand je serai dans l'enseignement supérieur ? On a tendance à reproduire.
+
+568
+01:07:26.352 --> 01:07:32.191
+<v Isabelle Collet>Je suis bon en physique, je ferai de la physique. Je suis bonne en maths, je ferai des maths. Bah l'informatique, on sait pas, on n'a pas essayé quoi.
+
+569
+01:07:32.492 --> 01:07:43.072
+<v Isabelle Collet>Donc ce serait déjà un pied dans la porte. Mais de toute façon, ces écoles d'informatique, a priori, elles vont avoir trois ans, cinq ans pour former les gens en informatique.
+
+570
+01:07:43.132 --> 01:07:45.232
+<v Isabelle Collet>On n'a pas besoin d'avoir des,
+
+571
+01:07:45.792 --> 01:07:48.532
+<v Isabelle Collet>des compétences préalables. On va avoir tout le temps de le faire.
+
+572
+01:07:48.892 --> 01:08:01.252
+<v Isabelle Collet>C'est-à-dire, ces écoles ont tout intérêt pour intéresser la population à signaler qu'on vous recrute sur des critères qui n'ont rien à voir, 'fin, qui peuvent n'avoir rien à voir avec la technique, mais qui feront partie de ce qu'on attend d'un bon
+
+573
+01:08:01.612 --> 01:08:03.492
+<v Isabelle Collet>ou d'une bonne professionnelle de l'informatique.
+
+574
+01:08:04.012 --> 01:08:11.982
+<v Isabelle Collet>Comme s'impliquer dans sa communauté, être bénévole, avoir des capacités d'organisation, des compétences en langues, etc., etc.
+
+575
+01:08:12.012 --> 01:08:14.432
+<v Guillaume Hachez>On sait que en France, depuis— alors,
+
+576
+01:08:15.172 --> 01:08:24.472
+<v Guillaume Hachez>vous êtes Suisse, je suis Belge, mais il me semble avoir entendu que depuis peu, il y avait de l'informatique au sein du secondaire dans l'enseignement obligatoire en France.
+
+577
+01:08:25.712 --> 01:08:25.772
+<v Isabelle Collet>Ça commence.
+
+578
+01:08:25.772 --> 01:08:34.712
+<v Guillaume Hachez>Oui, ça commence tout doucement. Est-ce que vous pensez que, bah d'ici une dizaine d'années, on va ressentir justement cet effet, avoir un peu plus de mixité grâce à ça ?
+
+579
+01:08:34.912 --> 01:08:44.612
+<v Isabelle Collet>Tout dépend comment les— 'fin, à quel point l'expérience va être menée, menée sérieusement et jusqu'où. C'est-à-dire que pour l'instant, y a de l'informatique, pas partout.
+
+580
+01:08:45.512 --> 01:08:52.532
+<v Isabelle Collet>Y a des logiques de géographie très importantes, c'est-à-dire selon l'établissement dans lequel vous êtes, vous en avez ou vous en avez pas.
+
+581
+01:08:52.632 --> 01:08:58.692
+<v Isabelle Collet>C'est une option. Donc à partir du moment où on a une option, les différences des sexes réapparaissent et les groupes se répartissent.
+
+582
+01:08:58.812 --> 01:09:00.722
+<v Guillaume Hachez>Ah oui, forcément. Ça peut pas être une option.
+
+583
+01:09:00.722 --> 01:09:07.592
+<v Isabelle Collet>Voilà. Et en plus— alors, c'est destiné à devenir obligatoire, au collège, au secondaire un. Là, tout le monde passera par là.
+
+584
+01:09:07.972 --> 01:09:16.332
+<v Isabelle Collet>Cela peut être, là, on verra des transformations. Mais pour l'instant, au secondaire deux, c'est une option. Et l'autre problème, c'est que souvent, qui fait cette option ?
+
+585
+01:09:16.372 --> 01:09:22.622
+<v Isabelle Collet>Le prof de maths. Et donc on y va en gros si on aime bien ou si on n'aime pas le prof de maths ou si on se sent à l'aise ou pas.
+
+586
+01:09:22.752 --> 01:09:22.872
+<v Guillaume Hachez>C'est ça.
+
+587
+01:09:22.912 --> 01:09:31.372
+<v Isabelle Collet>Donc on a une combo maths info qui va probablement pas attirer des... Non pas que les filles sont pas bonnes en maths hein, mais elles ont pas particulièrement confiance en elles dans ce domaine. Et en plus—
+
+588
+01:09:31.932 --> 01:09:35.072
+<v Guillaume Hachez>C'est ça. Elles s'identifient pas comme étant les plus compétentes en maths.
+
+589
+01:09:35.112 --> 01:09:43.292
+<v Isabelle Collet>Et en plus de la part de profs qui ne sont pas formés à cette spécificité qui est qu'on a besoin de produire de la mixité parce que la discipline elle-même n'envoie pas ce signal.
+
+590
+01:09:43.972 --> 01:09:54.172
+<v Isabelle Collet>Si les profs— alors y a des établissements où les profs ont pris conscience de ça, se sont formés et envoient des messages très clairs et rame d'ailleurs, mais enfin ils y arrivent, pour avoir un peu plus de mixité dans leur filière.
+
+591
+01:09:54.212 --> 01:10:04.392
+<v Isabelle Collet>Mais si on touche à rien, eh ben on va reproduire le même modèle. Alors par contre, l'informatique qui arrive au collège, ça, c'est intéressant parce que tout le monde va en faire.
+
+592
+01:10:05.292 --> 01:10:06.812
+<v Isabelle Collet>Donc tout le monde va toucher du doigt.
+
+593
+01:10:07.212 --> 01:10:17.612
+<v Isabelle Collet>Là, j'espère vraiment que le programme qui va être fait ne sera pas fait que par les profs de maths ou en tout cas sera fait par des personnes qui auront préalablement une formation sur les questions genre
+
+594
+01:10:18.152 --> 01:10:22.532
+<v Isabelle Collet>ou en tout cas sur ces enjeux pour qu'on reproduise pas un schéma où on voit ce qu'il donne quoi.
+
+595
+01:10:22.972 --> 01:10:23.062
+<v Guillaume Hachez>Mh.
+
+596
+01:10:23.512 --> 01:10:26.172
+<v Guillaume Hachez>C'est intéressant. Dans un de vos papiers, vous
+
+597
+01:10:26.432 --> 01:10:32.512
+<v Guillaume Hachez>vous expliquez que seule une mixité réfléchie et travaillant en classe offrant un cadre contrôlé et sécurisant
+
+598
+01:10:32.632 --> 01:10:40.422
+<v Guillaume Hachez>peut autoriser des comportements moins normés, ouvrir le débat entre garçons et filles et permettre de recréer le lien d'empathie nécessaire pour aller à la rencontre de l'autre.
+
+599
+01:10:40.792 --> 01:10:48.572
+<v Guillaume Hachez>Qu'est-ce que c'est finalement cette mixité réfléchie ? Ce que vous expliquez comme quoi il faut former les enseignants aux questions de mixité, aux questions de genre.
+
+600
+01:10:49.232 --> 01:10:52.362
+<v Guillaume Hachez>Qu'est-ce que ça donne concrètement, un professeur qui est formé à ces questions ?
+
+601
+01:10:52.372 --> 01:11:04.352
+<v Isabelle Collet>Alors la première chose, l'étape zéro, c'est que l'enseignant ou l'enseignante arrête de penser que le seul fait de mettre des élèves filles et garçons ensemble produit de la mixité.
+
+602
+01:11:04.412 --> 01:11:11.032
+<v Isabelle Collet>Ça, c'est pas vrai. En fait, la mixité à l'école, on l'a encore jamais essayée. On a produit de la juxtaposition des sexes.
+
+603
+01:11:11.772 --> 01:11:14.972
+<v Isabelle Collet>Par contre, il suffit de regarder une classe pour comprendre que c'est de la juxtaposition.
+
+604
+01:11:15.452 --> 01:11:24.432
+<v Isabelle Collet>C'est-à-dire, les élèves, alors éventuellement, ils se chahutent, ils se séduisent, ils plaisantent, ils se défient, ils s'insultent, mais ils travaillent pas ensemble.
+
+605
+01:11:25.012 --> 01:11:26.052
+<v Isabelle Collet>Et d'ailleurs, ils ne le souhaitent pas.
+
+606
+01:11:26.072 --> 01:11:26.452
+<v Guillaume Hachez>Mh, mh.
+
+607
+01:11:26.472 --> 01:11:32.032
+<v Isabelle Collet>C'est-à-dire quand vous les mettez en groupe de travail, c'est comme la vinaigrette hein, l'huile et le vinaigre se reséparent si on mélange.
+
+608
+01:11:32.072 --> 01:11:32.992
+<v Guillaume Hachez>Ouais, tout à fait. Tout à fait.
+
+609
+01:11:33.012 --> 01:11:40.292
+<v Isabelle Collet>Donc la première chose, c'est prendre conscience de ça et se dire que c'est pas une fatalité et que c'est pas nécessairement désirable.
+
+610
+01:11:40.532 --> 01:11:47.891
+<v Isabelle Collet>Alors, je comprends les enseignants qui disent à cet âge-là, c'est-à-dire quand on est adolescent, on n'a pas forcément envie de travailler avec l'autre sexe, ce qui est vrai.
+
+611
+01:11:48.512 --> 01:11:54.732
+<v Isabelle Collet>Et autant les mettre dans des bonnes conditions de travail et leur permettre de travailler avec des personnes qu'ils apprécient.
+
+612
+01:11:55.172 --> 01:12:00.032
+<v Isabelle Collet>Dans la vraie vie, dans le monde professionnel, on travaille avec des gens avec lesquels on n'a pas envie de travailler.
+
+613
+01:12:00.592 --> 01:12:09.952
+<v Isabelle Collet>Et ça veut pas dire qu'on va faire du mauvais travail avec eux. Et il faut faire avec. L'école, c'est aussi, c'est ce que disait l'éducation nouvelle, c'est un laboratoire de la vie.
+
+614
+01:12:10.332 --> 01:12:18.692
+<v Isabelle Collet>On apprend à travailler ensemble, y compris avec des gens qui sont pas nos amis et on constate que c'est pas grave et on constate qu'on fait pas forcément du mauvais travail.
+
+615
+01:12:19.532 --> 01:12:22.912
+<v Isabelle Collet>Seulement, pour entrer dans cette logique-là, il faut que les enseignants,
+
+616
+01:12:23.452 --> 01:12:33.392
+<v Isabelle Collet>dès le début d'année, se donnent la peine de mélanger, c'est-à-dire d'instaurer des pratiques où on va travailler ensemble dans des groupes qui vont varier garçons et filles.
+
+617
+01:12:33.872 --> 01:12:42.712
+<v Isabelle Collet>Faut aussi regarder comment les groupes travaillent. C'est-à-dire, y a des phénomènes qui se mettent en place très vite, c'est-à-dire les filles qui disent : « C'est moi qui écris tout, comme ça, ce sera propre et bien fait.
+
+618
+01:12:43.222 --> 01:12:44.212
+<v Isabelle Collet>» Alors au fait, effectivement—
+
+619
+01:12:44.422 --> 01:12:45.192
+<v Guillaume Hachez>Ça, oui, j'ai déjà vu, oui.
+
+620
+01:12:46.132 --> 01:12:59.252
+<v Isabelle Collet>Elles ont une espèce de leadership sur le groupe hein, pour le coup, mais c'est quand même elles qui se tapent le travail et ça les place déjà en service d'un groupe, avec les garçons qui pensent et elles qui rendent compte.
+
+621
+01:12:59.432 --> 01:13:04.092
+<v Isabelle Collet>Donc il faut faire tourner les rôles au sein des groupes alors même que les élèves, ni les garçons ni les filles le souhaitent hein.
+
+622
+01:13:04.552 --> 01:13:10.152
+<v Isabelle Collet>Les garçons qui disent : « C'est drôlement bien d'être dans un groupe de filles parce qu'elles sont sérieuses et on bosse mieux.
+
+623
+01:13:10.548 --> 01:13:19.728
+<v Isabelle Collet>Les filles en assistantes pédagogiques des garçons. Ça fait pas du bien. Alors, on se plaint indéfiniment de l'immaturité des garçons quand ils sont ados.
+
+624
+01:13:19.788 --> 01:13:23.848
+<v Isabelle Collet>Ce genre de situation ne permet pas de sortir de ces discours d'immaturité.
+
+625
+01:13:24.748 --> 01:13:36.388
+<v Isabelle Collet>Donc ça, c'est une première posture de la part des enseignants de vérifier comment les élèves, 'fin, de mettre en sorte les bonnes conditions pour que les élèves travaillent ensemble et de manière égalitaire.
+
+626
+01:13:36.928 --> 01:13:47.348
+<v Isabelle Collet>Et puis, dans la posture, dans les gestes au quotidien de la classe, il y a beaucoup de facteurs à prendre en compte, comme par exemple regarder ses contenus d'enseignement.
+
+627
+01:13:47.408 --> 01:13:53.808
+<v Isabelle Collet>Si on fait aveuglément confiance au livre de classe, y a de bonnes chances qu'on diffuse du stéréotype à longueur de temps.
+
+628
+01:13:54.848 --> 01:13:57.828
+<v Isabelle Collet>Donc regarder ses contenus d'enseignement,
+
+629
+01:13:58.988 --> 01:14:03.828
+<v Isabelle Collet>se préoccuper de comment la parole est distribuée dans la classe. En gros, si on laisse faire
+
+630
+01:14:04.228 --> 01:14:13.248
+<v Isabelle Collet>lors d'un cours dialogué, c'est-à-dire un cours où l'enseignant pose des questions aux élèves, les élèves répondent et c'est ce qui fait avancer le cours, la répartition du temps de parole au secondaire, c'est deux tiers, un tiers.
+
+631
+01:14:13.788 --> 01:14:21.588
+<v Isabelle Collet>Deux tiers de prise de parole par les garçons, un tiers pour les filles. Pas tous les garçons. En général, c'est un petit groupe de garçons qui sont dévorants.
+
+632
+01:14:21.608 --> 01:14:27.228
+<v Isabelle Collet>Mais le fait est, vous fermez les yeux, vous écoutez la classe, y a deux fois plus de prises de parole de garçons que de filles.
+
+633
+01:14:27.248 --> 01:14:32.228
+<v Isabelle Collet>Des filles qui parlent de manière plus courte, qui se font interrompre. Dès qu'elles hésitent, on leur reprend la parole, etc.
+
+634
+01:14:32.868 --> 01:14:45.028
+<v Isabelle Collet>Bon ça, c'est des choses aussi que l'enseignant, l'enseignante doit contrôler dans sa classe. Et puis faire attention aux exemples qu'on apporte, à la manière dont on peut varier les différentes formes d'apprentissage.
+
+635
+01:14:45.488 --> 01:14:52.528
+<v Isabelle Collet>Moi, je fais un cours là-dessus, il fait 30 heures quoi. Ça s'apprend pas en deux coups de cuillère à pot. C'est une vraie, un vrai apprentissage.
+
+636
+01:14:52.578 --> 01:14:58.128
+<v Isabelle Collet>C'est une vraie formation des enseignants et des enseignantes qu'il faut intégrer, à mon sens, dans le quotidien de la classe.
+
+637
+01:14:58.538 --> 01:15:08.688
+<v Isabelle Collet>Parce que quand on commence à faire attention à ça, à cette dimension égalité filles garçons, on se met à faire attention à de nombreuses dimensions d'égalité en termes de classe sociale et en termes d'origine ethnique.
+
+638
+01:15:08.988 --> 01:15:15.168
+<v Isabelle Collet>C'est-à-dire y a beaucoup de choses qui se mettent à aller avec. Et à la fin, on produit un enseignement plus égalitaire.
+
+639
+01:15:16.308 --> 01:15:20.748
+<v Guillaume Hachez>Mmm-mmh. Et de nos jours, ce n'est pas le cas ? Les professeurs ne sont pas formés à ces questions ?
+
+640
+01:15:20.808 --> 01:15:24.668
+<v Isabelle Collet>Alors tout dépend où ils habitent. S'ils habitent Genève, oui. Parce que—
+
+641
+01:15:24.788 --> 01:15:24.998
+<v Guillaume Hachez>D'accord
+
+642
+01:15:25.028 --> 01:15:35.808
+<v Isabelle Collet>...le canton de Genève a rendu ces cours obligatoires et évalués tant pour les enseignants de primaire et du secondaire, dans des proportions variées, mais en tout cas, ça existe.
+
+643
+01:15:35.888 --> 01:15:46.828
+<v Isabelle Collet>En France, bah, ça dépend dans quelle école, dans quelle SP vous êtes formé. Et en Belgique, c'est un peu ça aussi, c'est-à-dire que y a un cours pour les enseignants qui traite de diversité,
+
+644
+01:15:47.968 --> 01:15:58.388
+<v Isabelle Collet>dont le programme, pour l'instant, est laissé au bon vouloir de la personne qui donne ce cours, une personne qui n'est pas nécessairement formée elle-même spécifiquement aux questions d'égalité entre les sexes.
+
+645
+01:15:58.708 --> 01:16:08.528
+<v Isabelle Collet>Donc vous pouvez faire des choses très très bien selon où vous êtes et des choses qui ne parleront peut-être exclusivement que de diversité, de handicap ou je sais pas, voilà.
+
+646
+01:16:09.388 --> 01:16:18.028
+<v Guillaume Hachez>Mmm-mmh. Et du côté du canton de Genève, est-ce qu'on observe, en conséquence de ce cours, est-ce qu'on observe des améliorations, des changements ?
+
+647
+01:16:18.048 --> 01:16:25.268
+<v Isabelle Collet>Alors, on observe des changements dans les pratiques, ce qui ne suffit pas pour avoir des changements dans les orientations. C'est-à-dire—
+
+648
+01:16:25.608 --> 01:16:25.618
+<v Guillaume Hachez>D'accord
+
+649
+01:16:25.808 --> 01:16:33.888
+<v Isabelle Collet>...dans les pratiques, on a des enseignants et des enseignantes qui disent que la question de l'égalité des sexes est une question vive de l'éducation.
+
+650
+01:16:33.928 --> 01:16:41.428
+<v Isabelle Collet>Alors que dans les cantons voisins, non. Non pas que l'égalité soit obtenue dans les cantons voisins, c'est que simplement, à Genève, on pense encore que c'est un sujet.
+
+651
+01:16:42.188 --> 01:16:54.908
+<v Isabelle Collet>Les établissements scolaires font— 'fin beaucoup d'établissements scolaires, du primaire en particulier, mais du secondaire également, ont des activités, des semaines égalité ou des choses de ce genre.
+
+652
+01:16:55.248 --> 01:17:10.868
+<v Isabelle Collet>Les établissements du secondaire font beaucoup de choses sur la lutte contre l'homophobie. Mais y a dans le canton, on va dire, une culture de l'égalité qui fait que les enseignants, les enseignantes peuvent s'emparer des sujets.
+
+653
+01:17:10.888 --> 01:17:18.568
+<v Isabelle Collet>Et c'est un sujet qui existe. Bon, après, il faut que l'orientation suive. Et c'est là le problème. C'est-à-dire qu'actuellement,
+
+654
+01:17:18.868 --> 01:17:31.088
+<v Isabelle Collet>dans ce qu'on appelle les écoles d'apprentissage, c'est-à-dire qui vous mèneront aux filières professionnelles et éventuellement à l'enseignement supérieur professionnel, cette culture de l'égalité, on va dire, elle existe pas quoi.
+
+655
+01:17:31.947 --> 01:17:40.378
+<v Isabelle Collet>Très peu. Et donc aujourd'hui, en termes d'orientation, on a un problème. C'est-à-dire, il suffit pas de dire : « Les métiers n'ont pas de sexe.
+
+656
+01:17:40.848 --> 01:17:44.728
+<v Isabelle Collet>» Après, il faut le prouver quoi. Et c'est là que ça cloche.
+
+657
+01:17:45.168 --> 01:17:57.068
+<v Isabelle Collet>Et je ne pense pas qu'il suffise de former les enseignants et qu'il suffise d'informer les élèves si le reste de la chaîne de l'orientation ne suit pas et si les écoles ne suivent pas en prenant des décisions
+
+658
+01:17:57.548 --> 01:18:00.848
+<v Isabelle Collet>fortes et énergiques, ça suffira pas à changer les choses.
+
+659
+01:18:02.308 --> 01:18:11.428
+<v Guillaume Hachez>Mmm-mmh. On va revenir un instant au sujet de l'informatique. J'ai eu l'occasion d'interviewer Laure Lemaire, la directrice de Interface3.
+
+660
+01:18:12.108 --> 01:18:19.568
+<v Guillaume Hachez>Et en discutant avec elle, c'était très intéressant de voir que finalement, les élèves de Interface3 qui souhaitaient se former aux questions d'informatique
+
+661
+01:18:20.208 --> 01:18:29.128
+<v Guillaume Hachez>allaient là-bas non pas pour des questions de, comme on disait, bah, geek, nerd, j'ai ça dans le sang, c'est ma passion, mais plutôt pour des raisons très pragmatiques, très pratiques.
+
+662
+01:18:29.288 --> 01:18:37.238
+<v Guillaume Hachez>Ils sont belges. Ce sont des métiers qui ramènent de l'argent, ce sont des métiers qui amènent une certaine stabilité, un certain, oui, un CDI.
+
+663
+01:18:37.908 --> 01:18:48.648
+<v Guillaume Hachez>Et donc voilà. Et donc on voit toutes ces jeunes filles, y en a, j'crois, une bonne cinquantaine, ce qui est infiniment plus que ce qu'on voit dans le supérieur en Belgique.
+
+664
+01:18:49.388 --> 01:19:01.308
+<v Guillaume Hachez>Mais c'était très intéressant de voir que finalement, ces questions-là, ces questions pratiques ramenaient infiniment plus de filles que, bah, les questions, 'fin l'aspect identitaire, l'aspect geek, nerd et tout ça.
+
+665
+01:19:02.208 --> 01:19:16.348
+<v Guillaume Hachez>Je vais faire un raccourci et vous allez me dire si vous pensez que je dis une énorme bêtise, mais il se trouve que la Belgique est le pays d'Europe où le patrimoine individuel est le plus élevé et
+
+666
+01:19:17.036 --> 01:19:19.456
+<v Guillaume Hachez>Elle est troisième dans le monde derrière la Suisse et Dubaï.
+
+667
+01:19:19.536 --> 01:19:27.196
+<v Guillaume Hachez>Donc il semble qu'en Belgique et en Suisse, on soit particulièrement aisés, particulièrement stables d'un point de vue financier.
+
+668
+01:19:28.296 --> 01:19:37.556
+<v Guillaume Hachez>Est-ce que simplement la raison qui fait qu'on est les plus mauvais élèves en termes de participation des femmes aux questions,
+
+669
+01:19:38.496 --> 01:19:39.296
+<v Guillaume Hachez>aux filières informatiques,
+
+670
+01:19:39.996 --> 01:19:48.276
+<v Guillaume Hachez>est-ce que simplement ce ne serait pas en partie parce qu'on vit dans une société où on est relativement aisés financièrement et que donc on a
+
+671
+01:19:48.976 --> 01:19:55.696
+<v Guillaume Hachez>moins de femmes qui doivent se tourner vers l'informatique pour des raisons pratiques, des raisons financières ?
+
+672
+01:19:55.736 --> 01:19:56.866
+<v Guillaume Hachez>Est-ce que ce serait pas une partie de la réponse ?
+
+673
+01:19:56.866 --> 01:20:07.816
+<v Isabelle Collet>Il y a un article qui est sorti récemment, en gros sur ce thème-là, en disant que y avait moins de femmes— dans les pays les plus favorisés, y avait moins de femmes dans les sciences que dans les pays les plus défavorisés.
+
+674
+01:20:08.336 --> 01:20:13.156
+<v Isabelle Collet>Et donc qui irait dans cette direction-là, c'est-à-dire qu'elles ont pas besoin, donc elles vont vers ce qui les tente naturellement.
+
+675
+01:20:13.196 --> 01:20:18.736
+<v Isabelle Collet>Alors là, on voit la pente savonneuse de la naturalisation des compétences hein—
+
+676
+01:20:19.596 --> 01:20:22.296
+<v Guillaume Hachez>Disons, naturellement dans des sociétés genrées.
+
+677
+01:20:22.356 --> 01:20:29.876
+<v Isabelle Collet>Oui oui, c'est ça, voilà, on est bien d'accord. En fait, par exemple, si on regarde,
+
+678
+01:20:31.076 --> 01:20:38.416
+<v Isabelle Collet>la part des femmes dans l'enseignement supérieur en Suisse, enfin dans le monde, je veux dire, on s'aperçoit que la Suisse et le Japon sont très proches.
+
+679
+01:20:38.766 --> 01:20:48.576
+<v Isabelle Collet>Sont beaucoup plus proches que la Suisse et ses pays voisins, ce qui peut paraître étonnant. Là, c'est plutôt une question de tradition, c'est-à-dire qu'en Suisse, en particulier en Suisse alémanique,
+
+680
+01:20:49.156 --> 01:20:54.116
+<v Isabelle Collet>s'il y a un bon salaire, le mieux, c'est de garder les enfants à la maison, sous-entendu les femmes.
+
+681
+01:20:54.136 --> 01:21:01.976
+<v Isabelle Collet>Et pendant très longtemps, l'école, un peu sur le modèle allemand, n'aidait pas du tout à permettre de travailler quand on avait de jeunes enfants.
+
+682
+01:21:02.716 --> 01:21:12.056
+<v Isabelle Collet>Quand on regarde par exemple le nombre de femmes très important qu'il peut y avoir dans les études d'informatique ou de physique en Iran ou en Palestine, bon c'est pour d'autres raisons.
+
+683
+01:21:12.136 --> 01:21:25.395
+<v Isabelle Collet>C'est-à-dire qu'en Palestine, les garçons vont plutôt dans les filières militaires, armées, de combat politique. En Iran, elles sont en informatique, mais de toute façon, beaucoup d'entre elles ne pourront pas travailler, etc., etc.
+
+684
+01:21:25.956 --> 01:21:39.476
+<v Isabelle Collet>Donc vous voyez, y a des logiques assez variées. Pour la Belgique, pour le coup, je peux pas vous dire à quel point il peut y avoir une culture industrielle.
+
+685
+01:21:39.636 --> 01:21:52.396
+<v Isabelle Collet>Vous voyez, par exemple, le Luxembourg, qui a aussi des chiffres en ingénierie qui sont absolument microscopiques. Le Luxembourg est passé un peu directement d'une culture minière à une culture bancaire tout aussi patriarcale.
+
+686
+01:21:52.456 --> 01:21:59.916
+<v Isabelle Collet>Alors OK, financièrement, ça va, donc on peut s'en accommoder, mais je pense pas que ce soit la cause première, vous voyez ?
+
+687
+01:21:59.976 --> 01:22:06.266
+<v Isabelle Collet>C'est-à-dire effectivement, on peut s'en accommoder. Y a pas une question de survie. Mais voilà. Mais partie—
+
+688
+01:22:06.365 --> 01:22:17.476
+<v Guillaume Hachez>Donc vous pensez que l'histoire du pays, l'histoire de la culture, donc l'aspect industriel, l'aspect traditionnel que vous évoquiez serait déjà plus une cause.
+
+689
+01:22:17.796 --> 01:22:25.256
+<v Guillaume Hachez>Mais est-ce que finalement, l'aspect financier qu'on évoque ici ne participe pas du tout ? Est-ce que ce ne serait pas quelque chose qui empêche ?
+
+690
+01:22:25.276 --> 01:22:34.696
+<v Isabelle Collet>C'est un moteur, c'est un moteur second. C'est-à-dire quand il faut trouver— si Interface3 formait beaucoup de femmes, alors moi, j'y ai travaillé il y a maintenant une dizaine d'années, où j'étais consultante.
+
+691
+01:22:34.976 --> 01:22:41.496
+<v Isabelle Collet>Y avait énormément de femmes migrantes en reprise d'études. On leur disait : « Là, y a du boulot. Eh ben OK, pourquoi pas l'informatique ?
+
+692
+01:22:41.516 --> 01:22:56.036
+<v Isabelle Collet>» Donc c'est un moteur hein. Ce que je trouve navrant, c'est qu'on soit dans la situation de dire : « OK, la nécessité me permettra de passer outre l'appréhension que je pourrais avoir pour venir en informatique.
+
+693
+01:22:56.366 --> 01:22:57.536
+<v Isabelle Collet>» Sur cette histoire de,
+
+694
+01:22:58.276 --> 01:23:05.976
+<v Isabelle Collet>« Je l'ai dans le sang, je suis née pour ça », plus les garçons et les filles qui vont plus pour des raisons pragmatiques, c'est un distinguo qu'on trouve très très souvent,
+
+695
+01:23:06.636 --> 01:23:08.976
+<v Isabelle Collet>quand on interviewe garçons et filles sur l'informatique.
+
+696
+01:23:09.896 --> 01:23:16.656
+<v Isabelle Collet>Bon, ce qui est vraiment intéressant là-dessus et qui déconstruit un peu cette représentation, alors, c'est que premièrement,
+
+697
+01:23:17.356 --> 01:23:25.556
+<v Isabelle Collet>les geeks sont une fraction visible et sympathique de la discipline, mais pas la majorité des personnes qui travaillent en informatique.
+
+698
+01:23:26.036 --> 01:23:36.136
+<v Isabelle Collet>C'est une petite fraction qui devient représentative, mais qui en fait n'est pas représentative de monsieur, madame Tout-le-Monde, plutôt monsieur et monsieur Tout-le-Monde, qui travaillent en informatique.
+
+699
+01:23:36.656 --> 01:23:44.016
+<v Isabelle Collet>Deuxièmement— mais ils sont réputés pour être brillants et extrêmement compétents. C'est pour ça qu'on les met en avant.
+
+700
+01:23:44.096 --> 01:23:46.736
+<v Isabelle Collet>Ils viennent avec une pop culture qui est également tout à fait sympathique.
+
+701
+01:23:47.416 --> 01:24:02.116
+<v Isabelle Collet>Mais l'université Carnegie Mellon, qui a fait d'énormes efforts pour intégrer plus de femmes en informatique, suffisamment d'efforts pour avoir environ entre 30 et 40 % de manière stable, bon c'est quand même plutôt pas mal hein,
+
+702
+01:24:02.916 --> 01:24:09.016
+<v Isabelle Collet>sont revenus sur ce distinguo, les garçons qui programment pour l'amour de l'art, les filles qui travaillent parce que ça sert à quelque chose.
+
+703
+01:24:09.536 --> 01:24:17.636
+<v Isabelle Collet>Une fois qu'ils ont fait tous leurs efforts d'intégration dont je vous ai parlé tout à l'heure, intéresser, recruter, socialiser, ce distinguo n'existe plus.
+
+704
+01:24:18.116 --> 01:24:24.656
+<v Isabelle Collet>C'est-à-dire, les filles comme les garçons disent qu'ils sont là pour l'amour de l'art et parce que ça sert à quelque chose.
+
+705
+01:24:25.236 --> 01:24:33.996
+<v Isabelle Collet>C'est difficile pour une fille, sauf si elle assume réellement son côté geek avec toute la panoplie qui va avec, de dire : « Je suis là pour l'amour de l'art.
+
+706
+01:24:34.006 --> 01:24:42.496
+<v Isabelle Collet>» Parce que ça amène des conséquences en termes de moins séduisante, moins féminine, moins tout un tas de choses. On peut l'assumer hein.
+
+707
+01:24:42.536 --> 01:24:47.696
+<v Isabelle Collet>Moi, quand j'étais en études d'informatique, le terme existait pas, mais j'étais une geek et j'étais très heureuse comme ça.
+
+708
+01:24:48.056 --> 01:24:56.256
+<v Isabelle Collet>C'est pas des représentations que beaucoup de filles peuvent se permettre si elles veulent rester dans une certaine représentation de ce qu'est une fille séduisante, ce qu'est une vraie fille.
+
+709
+01:24:56.776 --> 01:25:00.896
+<v Isabelle Collet>Si cette représentation tombait, je pense qu'on découvrirait plus de geekettes.
+
+710
+01:25:01.476 --> 01:25:09.456
+<v Guillaume Hachez>D'accord. Et donc l'institut que vous citez, Carnegie Mellon, est-ce qu'ils sont arrivés à des chiffres intéressants en termes de ratio hommes/femmes ?
+
+711
+01:25:10.796 --> 01:25:12.576
+<v Isabelle Collet>Bah je vous dis 30 à 40 % de manière stable.
+
+712
+01:25:12.596 --> 01:25:14.076
+<v Guillaume Hachez>D'accord. Oui, effectivement, c'est énorme.
+
+713
+01:25:14.276 --> 01:25:16.676
+<v Isabelle Collet>Donc on peut estimer que c'est plutôt pas mal hein.
+
+714
+01:25:17.256 --> 01:25:17.696
+<v Guillaume Hachez>Ouais, tout à fait.
+
+715
+01:25:17.956 --> 01:25:25.095
+<v Isabelle Collet>D'ailleurs, ça m'a rassurée de découvrir ça parce que je me demandais si on allait vraiment y arriver. Bon, ben il y a des gens qui peuvent quoi.
+
+716
+01:25:25.116 --> 01:25:34.246
+<v Isabelle Collet>Eux, ils y arrivent. NTNU en Norvège, à Trondheim, pareil, 30 à 40 %. On peut le faire. Une volonté politique forte de l'école, on peut le faire.
+
+717
+01:25:34.256 --> 01:25:46.296
+<v Guillaume Hachez>Oui, mais justement, une volonté politique forte de l'école, on voit que finalement, l'institut qui est l'enseignement obligatoire, finalement assez statique, assez inerte, évolue assez peu finalement sur les dernières 30 années.
+
+718
+01:25:46.816 --> 01:25:49.816
+<v Guillaume Hachez>Et en Belgique, ce qu'on observe, c'est finalement de plus en plus
+
+719
+01:25:50.876 --> 01:26:04.456
+<v Guillaume Hachez>d'acteurs tertiaires, indépendants du ministère de l'Enseignement, qui vont former à l'informatique et à toutes ces questions, indépendamment, 'fin à l'extérieur de l'enseignement obligatoire.
+
+720
+01:26:04.476 --> 01:26:12.896
+<v Guillaume Hachez>Est-ce que ce n'est pas finalement vers ça qu'on se dirige, face à un enseignement inerte qui ne s'améliore pas pour les questions, ben de,
+
+721
+01:26:13.616 --> 01:26:20.976
+<v Guillaume Hachez>de genre, de mixité, voilà, d'améliorer l'image de l'informatique comme le ferait Carnegie Mellon ?
+
+722
+01:26:21.016 --> 01:26:28.596
+<v Isabelle Collet>Ben alors, ces écoles, donc Trondheim, NTNU ou Carnegie Mellon, ont fait avec. C'est-à-dire, ils sont l'enseignement supérieur.
+
+723
+01:26:28.976 --> 01:26:37.456
+<v Isabelle Collet>Le secondaire, ils ont pas pris direct dessus. Peu importe, on va pas s'y résigner. Ils ont fait avec un enseignement secondaire qui est tel qu'il est.
+
+724
+01:26:37.576 --> 01:26:43.676
+<v Isabelle Collet>Néanmoins, je suis d'accord avec vous, ça veut pas dire qu'on a— alors, je dis ça parce que ça veut dire qu'on doit pas se résigner.
+
+725
+01:26:43.686 --> 01:26:48.836
+<v Isabelle Collet>C'est-à-dire souvent, on attend, ça se renvoyait la balle. « Ah, mais nous, on est l'enseignement supérieur, tout le problème vient du secondaire.
+
+726
+01:26:49.166 --> 01:26:55.436
+<v Isabelle Collet>» Le secondaire, il dit : « Ouh là là, nous, ils sont déjà tous stéréotypés, tout le problème vient de la primaire » et on se renvoie la balle jusqu'aux familles, finalement.
+
+727
+01:26:55.896 --> 01:27:07.116
+<v Isabelle Collet>Bon, c'est jamais perdu, et on peut être un institut de l'enseignement supérieur et faire quelque chose avec la situation telle qu'elle est.
+
+728
+01:27:07.616 --> 01:27:16.896
+<v Isabelle Collet>Par ailleurs, oui, effectivement, il faut agir à tous les niveaux. Et je constate également en France qu'un certain nombre
+
+729
+01:27:17.996 --> 01:27:31.096
+<v Isabelle Collet>d'activités en parallèle, en périscolaire, se mettent à apparaître ou alors en apprentissage, en école de la seconde chance, en formation a posteriori, se mettent à former des personnes en informatique qui n'ont pas été formées avant.
+
+730
+01:27:31.156 --> 01:27:40.916
+<v Isabelle Collet>Alors, y a un certain nombre de domaines comme ça où l'école se décharge sur des associations d'une partie d'enseignement qui sont, à mon avis, de sa responsabilité.
+
+731
+01:27:41.016 --> 01:27:48.256
+<v Isabelle Collet>L'égalité des sexes en fait partie d'ailleurs, l'éducation à la sexualité, etc. Malheureusement, l'informatique semble en faire partie aussi.
+
+732
+01:27:48.696 --> 01:28:02.136
+<v Isabelle Collet>Je pense qu'on est quand même dans un mouvement, en tout cas en Suisse comme en France, où on discute de réintégrer, je dis réintégrer parce que dans les années 80, c'était un peu plus là, de réintégrer l'informatique dans l'enseignement général.
+
+733
+01:28:02.616 --> 01:28:08.576
+<v Isabelle Collet>Après, y a des arbitrages compliqués, y a des questions de sous, c'est-à-dire que la journée de l'élève n'est pas extensible.
+
+734
+01:28:08.896 --> 01:28:16.836
+<v Isabelle Collet>Si on rentre l'informatique, qu'est-ce qu'on sort ? Qu'est-ce qu'on accepte de sortir ? Qu'est-ce qu'on va juger important, moins important, plus important ?
+
+735
+01:28:16.856 --> 01:28:25.636
+<v Isabelle Collet>Est-ce qu'on va réellement mettre le prix pour former des enseignants compétents dans ces disciplines ? Ou est-ce qu'on va se dire : « Ouah, les profs de maths, ils vont nous brutoler un machin et ça va faire l'affaire.
+
+736
+01:28:25.906 --> 01:28:31.416
+<v Isabelle Collet>» ? Est-ce qu'on veut vraiment jouer le jeu ? C'est des histoires d'argent et des histoires de stratégie politique. Ça vient d'en haut.
+
+737
+01:28:31.496 --> 01:28:38.016
+<v Isabelle Collet>Est-ce que les directions des systèmes éducatifs vont prendre la mesure de l'enjeu et en particulier de l'enjeu en égalité ?
+
+738
+01:28:38.396 --> 01:28:39.316
+<v Isabelle Collet>La question se pose.
+
+739
+01:28:39.356 --> 01:28:46.616
+<v Guillaume Hachez>Oui, oui. C'est, je crois, le plus gros obstacle au changement. C'est effectivement, ben finalement, le budget, le politique.
+
+740
+01:28:47.056 --> 01:28:54.456
+<v Guillaume Hachez>Et vaste sujet que nous n'aurons pas le temps d'aborder puisque je dois vous libérer, Isabelle Collet. Merci beaucoup d'avoir été avec nous.
+
+741
+01:28:54.536 --> 01:28:57.006
+<v Guillaume Hachez>C'était vraiment très intéressant. Est-ce que—
+
+742
+01:28:57.036 --> 01:28:58.636
+<v Isabelle Collet>Je vous remercie de votre invitation.
+
+743
+01:28:58.656 --> 01:29:01.726
+<v Guillaume Hachez>Est-ce que nos auditeurs peuvent vous suivre quelque part ?
+
+744
+01:29:03.156 --> 01:29:03.995
+<v Isabelle Collet>Non.
+
+745
+01:29:05.986 --> 01:29:08.616
+<v Guillaume Hachez>Pas de réseaux sociaux, pas de Twitter, pas de—
+
+746
+01:29:08.816 --> 01:29:15.636
+<v Isabelle Collet>Je n'ai pas le temps, donc je tweete pas. J'ai un site où par contre, on peut trouver un grand nombre de mes articles.
+
+747
+01:29:16.236 --> 01:29:16.516
+<v Guillaume Hachez>D'accord.
+
+748
+01:29:17.216 --> 01:29:23.136
+<v Isabelle Collet>Et parce que comme je suis dans la recherche publique, j'estime que mes articles doivent être publics, donc on peut me lire.
+
+749
+01:29:23.606 --> 01:29:32.816
+<v Isabelle Collet>Mais non, à mon grand regret, c'est pas parce que j'aime pas ou que ça m'intéresse pas, mais j'ai pas le temps de tweeter ou de faire quelque chose de vivant qui me permette d'être suivie.
+
+750
+01:29:32.856 --> 01:29:34.576
+<v Guillaume Hachez>Merci beaucoup Isabelle Collet. Au revoir.
+
+751
+01:29:34.596 --> 01:29:35.656
+<v Isabelle Collet>Merci beaucoup, au revoir.
+
+752
+01:29:38.356 --> 01:29:46.896
+<v Guillaume Hachez>Et voilà, c'est déjà tout pour ce deuxième épisode de Septante Minutes Avec. Pour ceux que ça intéresse, je rappelle que je vais bientôt publier un article sur le sujet des femmes en informatique en Belgique.
+
+753
+01:29:46.956 --> 01:29:52.696
+<v Guillaume Hachez>Ça s'appellera « Des souris et que des hommes ». Ce sera sur Medium et je publierai le lien sur Twitter dès que ce sera prêt.
+
+754
+01:29:53.046 --> 01:30:00.156
+<v Guillaume Hachez>Pour me suivre sur Twitter, il y a un lien dans la description. N'oubliez pas de vous abonner au podcast pour ne manquer aucun épisode de Septante Minutes Avec. À très bientôt.

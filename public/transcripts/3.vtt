@@ -1,0 +1,2677 @@
+WEBVTT
+
+0
+00:00:00.280 --> 00:00:17.540
+<v Guillaume Hachez>Salut, moi c'est Guillaume Hachez. Bienvenue dans Septante Minutes Avec. Aujourd'hui, je passe septante minutes avec Pierre-François Lovens.
+
+1
+00:00:18.120 --> 00:00:24.800
+<v Guillaume Hachez>P.F. Lovens, c'est journaliste économique à La Libre Belgique, c'est le monsieur start-up de La Libre et il est aussi ancien rédacteur en chef adjoint.
+
+2
+00:00:25.240 --> 00:00:32.520
+<v Guillaume Hachez>Je me suis posé une heure avec lui pour discuter des évolutions de la presse ces vingt dernières années avec l'arrivée d'Internet et leurs déboires contre Google News en 2005.
+
+3
+00:00:33.060 --> 00:00:41.120
+<v Guillaume Hachez>Let's go ! Et bonjour à tous et bienvenue pour un nouvel épisode. On est ici aujourd'hui avec Pierre-François Lovens. Pierre-François, bonjour.
+
+4
+00:00:41.160 --> 00:00:41.840
+<v Pierre-François Lovens>Bonjour.
+
+5
+00:00:41.880 --> 00:00:45.400
+<v Guillaume Hachez>Est-ce que tu peux te présenter pour ceux qui ne te connaissent pas ?
+
+6
+00:00:45.460 --> 00:00:54.980
+<v Pierre-François Lovens>Alors voilà, donc on se trouve à La Libre Belgique. C'est la rédaction dans laquelle je travaille depuis 1998. Donc ça fait un bon bout de temps.
+
+7
+00:00:55.080 --> 00:01:02.210
+<v Pierre-François Lovens>À la base, je suis journaliste économique. J'ai commencé au journal L'Écho, où j'ai travaillé pendant six ans.
+
+8
+00:01:02.240 --> 00:01:07.440
+<v Pierre-François Lovens>Et puis je suis arrivé à La Libre, où j'ai traité différents sujets, matières.
+
+9
+00:01:08.140 --> 00:01:17.100
+<v Pierre-François Lovens>D'abord, plutôt dans le domaine de la politique économique, donc tous les sujets politique fiscale, politique budgétaire, politique économique au sens large.
+
+10
+00:01:17.180 --> 00:01:22.860
+<v Pierre-François Lovens>Et puis j'ai été amené à prendre des responsabilités au sein de la rédaction de La Libre, chef de service, rédacteur en chef adjoint.
+
+11
+00:01:23.100 --> 00:01:37.740
+<v Pierre-François Lovens>Et pour parler maintenant de la situation actuelle, depuis maintenant environ trois ans, je suis revenu à mes premières amours qui est le journalisme économique et sur les matières dont on va parler qui sont l'innovation, l'entrepreneuriat,
+
+12
+00:01:38.500 --> 00:01:40.820
+<v Pierre-François Lovens>surtout dans le domaine numérique, digital.
+
+13
+00:01:41.500 --> 00:01:49.360
+<v Pierre-François Lovens>Je suis aussi en charge du secteur des télécoms. Voilà, donc je fais partie du service économique de La Libre où on est une petite dizaine de journalistes et voilà, chacun-
+
+14
+00:01:49.480 --> 00:01:54.070
+<v Guillaume Hachez>Et donc, tu es en fait monsieur start-up à La Libre Belgique. C'est comme ça qu'on se connaît en fait.
+
+15
+00:01:54.100 --> 00:02:03.120
+<v Pierre-François Lovens>Tout à fait, oui. Alors, c'est vrai que je le suis devenu un peu par la force des choses. C'était pas vraiment calculé parce que quand, il y a trois ans, j'ai repris un peu
+
+16
+00:02:03.680 --> 00:02:12.620
+<v Pierre-François Lovens>l'écriture et le travail journalistique, je me suis un peu posé la question de savoir : tiens, aujourd'hui, dans l'économie telle qu'elle est, telle qu'elle évolue, quels sont un peu les sujets sur lesquels je pourrais
+
+17
+00:02:13.560 --> 00:02:19.880
+<v Pierre-François Lovens>à la fois, moi, investir parce que ça m'intéresse et sortir, c'est vrai, de secteurs un peu plus traditionnels.
+
+18
+00:02:20.580 --> 00:02:32.100
+<v Pierre-François Lovens>Et c'est vrai qu'à ce moment-là, et ça, tu le sais aussi bien que moi, on parle beaucoup dans la presse spécialisée et tout doucement dans la presse généraliste aussi des start-up, dans le cadre de la révolution numérique.
+
+19
+00:02:32.160 --> 00:02:42.620
+<v Pierre-François Lovens>Et je me suis dit : tiens, ça vaudrait peut-être la peine de me pencher un peu là-dessus. Et j'ai commencé à traiter des sujets start-up, innovation, mais sans vraiment savoir où ça allait m'amener.
+
+20
+00:02:43.460 --> 00:02:48.740
+<v Pierre-François Lovens>Et c'est vrai que trois ans plus tard, ben j'y suis toujours, je m'amuse beaucoup, il y a beaucoup de sujets, beaucoup de matières.
+
+21
+00:02:49.360 --> 00:02:59.040
+<v Pierre-François Lovens>Et donc c'est vrai que vis-à-vis de l'extérieur, ça m'a donné un peu l'étiquette du monsieur start-up de La Libre comme il y en a à Trends Tendance, à L'Écho...
+
+22
+00:02:59.380 --> 00:03:10.060
+<v Guillaume Hachez>On va revenir sur les start-up dans un instant, mais avant ça, tu disais donc que tu es journaliste économique pour La Libre Belgique depuis dix-neuf ans, donc ancien rédacteur en chef adjoint, c'est ça ?
+
+23
+00:03:10.100 --> 00:03:11.320
+<v Pierre-François Lovens>Tout à fait, oui.
+
+24
+00:03:11.340 --> 00:03:18.280
+<v Guillaume Hachez>Donc ce qui est déjà intéressant dans ce postulat, je trouve, c'est que ça veut dire que tu as connu l'arrivée, le changement, la révolution du Web dans le journalisme.
+
+25
+00:03:18.300 --> 00:03:26.500
+<v Pierre-François Lovens>Tout à fait. Non, c'est bien que tu mettes le doigt là-dessus parce que, donc en 92, quand je sors de mes études— pour la petite histoire, j'ai fait des études d'économie.
+
+26
+00:03:27.280 --> 00:03:38.200
+<v Pierre-François Lovens>Et ce qui m'a beaucoup servi, mais j'ai fait des études d'économie sachant que je voulais faire du journalisme. Et à l'époque, mes parents d'abord, mais aussi mon entourage me disaient : « Ouh là, le journalisme...
+
+27
+00:03:38.920 --> 00:03:48.100
+<v Pierre-François Lovens>» On disait déjà que c'était un secteur bouché, donc essaye de faire d'abord des études sérieuses, entre guillemets. Et donc, j'ai opté pour l'économie comme j'aurais pu opter pour le droit ou d'autres études.
+
+28
+00:03:48.560 --> 00:03:53.380
+<v Pierre-François Lovens>Donc, je me suis lancé dans l'économie, mais toujours avec l'idée : je veux travailler dans un journal. Et j'étais plutôt attiré par la presse écrite.
+
+29
+00:03:53.800 --> 00:04:02.440
+<v Pierre-François Lovens>Et c'est comme ça que ça a commencé. Mais c'est vrai que quand j'arrive en 92 dans le métier, j'arrive dans une rédaction qui est une rédaction encore à l'ancienne, papier.
+
+30
+00:04:02.480 --> 00:04:10.170
+<v Pierre-François Lovens>Alors, il y a plus les rotatives avec les caractères... pour imprimer. Donc, on est déjà quand même dans une impression-
+
+31
+00:04:10.340 --> 00:04:11.540
+<v Guillaume Hachez>Vous aviez des ordinateurs.
+
+32
+00:04:11.580 --> 00:04:17.920
+<v Pierre-François Lovens>Voilà, on avait des ordinateurs, on envoyait des fichiers à l'imprimerie, etc. Donc, il y avait déjà une évolution, mais par contre, Internet n'est pas encore là.
+
+33
+00:04:18.459 --> 00:04:22.620
+<v Pierre-François Lovens>Et par exemple, tout ce qui est agence de presse, donc qui est une des sources d'information-
+
+34
+00:04:22.740 --> 00:04:23.900
+<v Guillaume Hachez>Belga, AFP, etc.
+
+35
+00:04:24.220 --> 00:04:35.160
+<v Pierre-François Lovens>Exactement. Ça arrive sur des téléscripteurs, donc sur du papier. Et donc, il y a des personnes qui, au sein de la rédaction, s'occupent à trier, à découper les dépêches, au sens vraiment-
+
+36
+00:04:35.420 --> 00:04:37.140
+<v Guillaume Hachez>Et aujourd'hui, ça se fait par Twitter.
+
+37
+00:04:38.140 --> 00:04:40.260
+<v Pierre-François Lovens>Oui, par Twitter, mais il y a eu quand même une étape intermédiaire-
+
+38
+00:04:40.320 --> 00:04:40.520
+<v Guillaume Hachez>C'est ça
+
+39
+00:04:40.580 --> 00:04:41.340
+<v Pierre-François Lovens>...sur ordinateur d'abord.
+
+40
+00:04:41.420 --> 00:04:41.860
+<v Guillaume Hachez>Ouais, ouais, ouais.
+
+41
+00:04:41.880 --> 00:04:52.580
+<v Pierre-François Lovens>Et donc c'est vrai que j'ai connu la révolution Internet dans les rédactions, fin des années 90, début 2000. Et puis voilà, l'accélération aussi avec l'arrivée des réseaux sociaux par après.
+
+42
+00:04:52.620 --> 00:04:59.960
+<v Pierre-François Lovens>Et aujourd'hui, c'est vrai que quand je dis : « Je travaille à La Libre Belgique », c'est vrai qu'on associe encore La Libre Belgique à un média écrit, un quotidien écrit.
+
+43
+00:04:59.980 --> 00:05:00.760
+<v Guillaume Hachez>Un papier, ouais.
+
+44
+00:05:00.860 --> 00:05:05.160
+<v Pierre-François Lovens>En fait, je suis par la force des choses et tous mes collègues, c'est pareil, on est devenu des journalistes multimédias parce que-
+
+45
+00:05:05.320 --> 00:05:05.550
+<v Guillaume Hachez>Ah ouais
+
+46
+00:05:05.820 --> 00:05:10.330
+<v Pierre-François Lovens>...on est aussi bien dans l'écrit que dans la voix, que dans l'image. Or,
+
+47
+00:05:10.680 --> 00:05:18.140
+<v Pierre-François Lovens>on n'a pas forcément été formés par ça, mais c'est vrai qu'on a dû se former sur le tas pour être capable de temps à autre, je le dis pas qu'on le fait systématiquement,
+
+48
+00:05:18.660 --> 00:05:28.420
+<v Pierre-François Lovens>mais quand on part en reportage, on nous demande de faire des photos, on nous demande de prendre du son, éventuellement des petites vidéos, parce qu'aujourd'hui, voilà, de plus en plus de nos lecteurs sont des internautes.
+
+49
+00:05:28.480 --> 00:05:39.620
+<v Guillaume Hachez>Mmh. Justement, je voulais te demander, mais quelle est l'importance du Web pour La Libre aujourd'hui ? Puisque justement, on sait que vous donnez vingt-quatre heures d'avance, vingt-quatre heures d'exclusivité au papier par rapport au Web.
+
+50
+00:05:40.030 --> 00:05:44.060
+<v Guillaume Hachez>On sait que beaucoup d'articles sur votre site Web ne sont pas accessibles si on n'est pas abonné.
+
+51
+00:05:44.740 --> 00:05:50.060
+<v Pierre-François Lovens>Il y a deux choses dans la question. C'est vrai que les vingt-quatre heures, elle est-- en fait, elle est déjà en train de...
+
+52
+00:05:50.100 --> 00:06:00.960
+<v Pierre-François Lovens>C'est vrai qu'elle a existé. Ça veut dire qu'on voulait donner une priorité à nos abonnés papier, parce que sur le plan économique, du modèle économique, c'est vrai que le papier reste quand même, même s'il est en déclin-
+
+53
+00:06:01.090 --> 00:06:02.120
+<v Guillaume Hachez>Au niveau du revenu
+
+54
+00:06:02.464 --> 00:06:12.684
+<v Pierre-François Lovens>Exactement. Dans le chiffre d'affaires, l'abonnement papier reste quand même la part majoritaire. Ceci étant, l'évolution fait qu'on a de moins en moins d'abonnés papier et que
+
+55
+00:06:13.104 --> 00:06:17.144
+<v Pierre-François Lovens>on a, par contre, de nouveaux lecteurs ou des lecteurs qui passent du papier au Web,
+
+56
+00:06:17.804 --> 00:06:24.464
+<v Pierre-François Lovens>ou bien seulement des lecteurs Web et qui, eux, bon, soit on les fait pas payer et on compte sur la publicité pour nous financer.
+
+57
+00:06:25.024 --> 00:06:32.794
+<v Pierre-François Lovens>Malheureusement, ça fonctionne pas comme ça. Les recettes publicitaires sont inférieures sur le Web, en tout cas pour La Libre Belgique que sur le papier.
+
+58
+00:06:32.804 --> 00:06:38.904
+<v Pierre-François Lovens>Et donc c'est vrai qu'on passe dans un modèle payant sur le Web. Y a encore des parties gratuites, mais y a de plus en plus de payant.
+
+59
+00:06:39.444 --> 00:06:48.184
+<v Pierre-François Lovens>Et donc tout ça évolue. Y a pas de règles fixes et chaque entreprise de presse cherche un peu son modèle. Mais aujourd'hui, effectivement,
+
+60
+00:06:48.944 --> 00:07:06.444
+<v Pierre-François Lovens>sur une audience de, je dirais, de-- en 250 000 lecteurs, ça, c'est quand on additionne l'audience des lecteurs papier plus les lecteurs des applications, Web, tablettes, smartphones, etc.
+
+61
+00:07:07.803 --> 00:07:16.714
+<v Pierre-François Lovens>On est, à ma connaissance-- voilà, l'audience papier reste majoritaire, mais elle décroît. Donc-
+
+62
+00:07:16.714 --> 00:07:17.064
+<v Guillaume Hachez>D'accord
+
+63
+00:07:17.524 --> 00:07:26.764
+<v Pierre-François Lovens>...aujourd'hui, la part Web ne fait qu'augmenter, elle n'est pas encore dominante. Et alors, dans cette part Web, la part payante, elle augmente aussi, mais pas à pas, je dirais.
+
+64
+00:07:27.404 --> 00:07:33.124
+<v Pierre-François Lovens>Aujourd'hui, on a un peu plus de 7 000 abonnés payants numériques, des purs numériques.
+
+65
+00:07:33.164 --> 00:07:34.104
+<v Guillaume Hachez>D'accord, oui.
+
+66
+00:07:34.204 --> 00:07:43.974
+<v Pierre-François Lovens>Et on a 30 000 plus ou moins abonnés papier. Et alors, il faut ajouter à ça ceux qui achètent La Libre en librairie, mais ça reste, qui est, elle-
+
+67
+00:07:44.044 --> 00:07:45.564
+<v Guillaume Hachez>C'est minoritaire, oui. Hm, d'accord
+
+68
+00:07:45.624 --> 00:07:51.684
+<v Pierre-François Lovens>Donc voilà, ça donne un peu les ordres de grandeur. Donc le Web n'est pas encore dominant, mais il croît, ce qui est une bonne nouvelle.
+
+69
+00:07:52.144 --> 00:07:55.414
+<v Guillaume Hachez>C'est une bonne nouvelle, mais en même temps, tu as l'air de dire que vous ne gagnez pas tellement d'argent grâce-
+
+70
+00:07:55.424 --> 00:07:55.884
+<v Pierre-François Lovens>Pas encore
+
+71
+00:07:55.904 --> 00:07:58.024
+<v Guillaume Hachez>...au Web et que le papier, c'est ce qui vous drive-
+
+72
+00:07:58.064 --> 00:07:59.614
+<v Pierre-François Lovens>Tout à fait. Oui, mais c'est pour ça, c'est toute la difficulté-
+
+73
+00:07:59.614 --> 00:08:01.754
+<v Guillaume Hachez>...et en même temps, le papier est faible, c'est plutôt inquiétant, ce que tu me dis, en fait.
+
+74
+00:08:01.764 --> 00:08:12.064
+<v Pierre-François Lovens>C'est vrai. C'est vrai. D'ailleurs, ça peut paraître, si pas contradictoire, en tout cas un peu flou. Et ça l'est, parce qu'on est vraiment dans cette période de transition, transformation digitale.
+
+75
+00:08:12.823 --> 00:08:28.104
+<v Pierre-François Lovens>On passe d'un média papier à un média Web, mais en ayant une cohabitation des deux pour l'instant. Mais comme tu sais, faire un média Web ou faire un média papier, les coûts sont différents.
+
+76
+00:08:28.144 --> 00:08:37.344
+<v Pierre-François Lovens>Et quand tu fais un journal papier, tu as une imprimerie, tu dois te fournir en papier, en encre, tu as de la distribution, de la logistique, ça coûte très cher.
+
+77
+00:08:37.844 --> 00:08:46.644
+<v Pierre-François Lovens>Et donc, c'est vrai que l'économie, là, est compliquée parce que les volumes papier diminuent, mais tu as quand même des coûts fixes importants.
+
+78
+00:08:47.144 --> 00:08:54.914
+<v Pierre-François Lovens>Tandis que fabriquer un journal Web, ben ça coûte beaucoup moins cher, mais ça rapporte moins. Et donc voilà, aujourd'hui, honnêtement, c'est compliqué.
+
+79
+00:08:54.924 --> 00:08:55.784
+<v Guillaume Hachez>Vous êtes dans le flou, ouais.
+
+80
+00:08:55.804 --> 00:09:05.544
+<v Pierre-François Lovens>On est-- ouais, j'espère que les services financiers commerciaux de La Libre sont beaucoup moins dans le flou que moi. Mais en tant que journaliste, c'est vrai que je n'ai pas forcément toujours une vision claire.
+
+81
+00:09:05.564 --> 00:09:07.474
+<v Guillaume Hachez>Est-ce que c'est spécifique à La Libre Belgique ?
+
+82
+00:09:07.864 --> 00:09:07.893
+<v Pierre-François Lovens>Non, non, non.
+
+83
+00:09:07.893 --> 00:09:11.584
+<v Guillaume Hachez>Puisque tu m'expliquais que le public de La Libre Belgique était peut-être un peu plus âgé que les autres.
+
+84
+00:09:11.624 --> 00:09:11.754
+<v Pierre-François Lovens>Oui, tout à fait.
+
+85
+00:09:11.764 --> 00:09:13.754
+<v Guillaume Hachez>Est-ce que tout ça est lié ou est-ce que c'est-
+
+86
+00:09:13.774 --> 00:09:16.494
+<v Pierre-François Lovens>C'est pas spécifique à La Libre. C'est-à-dire, cette transformation que j'expliquais-
+
+87
+00:09:16.504 --> 00:09:16.514
+<v Guillaume Hachez>Hm hm
+
+88
+00:09:16.514 --> 00:09:22.064
+<v Pierre-François Lovens>...elle est vécue par tous les médias du monde. Et, si on se limite à la Belgique, c'est la même chose-
+
+89
+00:09:22.244 --> 00:09:22.584
+<v Guillaume Hachez>D'accord
+
+90
+00:09:22.594 --> 00:09:30.564
+<v Pierre-François Lovens>...au Morgen que, qu'au Soir ou à La Libre. Maintenant, le point de départ n'est pas toujours le même.
+
+91
+00:09:30.764 --> 00:09:41.464
+<v Pierre-François Lovens>Un journal avec une plus grosse audience, un plus gros tirage va effectivement avoir peut-être plus de facilité à amortir le choc de la révolution numérique par rapport à un journal qui a des volumes plus restreints.
+
+92
+00:09:41.524 --> 00:09:50.944
+<v Guillaume Hachez>Tu as listé, tu as passé en revue les changements pour La Libre Belgique. Si tu devais passer en revue les changements de ces 20 dernières années pour le journalisme.
+
+93
+00:09:51.204 --> 00:09:51.354
+<v Pierre-François Lovens>Oui, oui.
+
+94
+00:09:51.404 --> 00:09:58.304
+<v Guillaume Hachez>L'impact que le World Wide Web a eu sur le journalisme. Qu'est-ce qui a changé finalement ? Parce que certains disent que le journalisme est en danger aujourd'hui.
+
+95
+00:09:58.393 --> 00:09:59.194
+<v Guillaume Hachez>Est-ce que ça te paraît juste ?
+
+96
+00:09:59.204 --> 00:10:06.074
+<v Pierre-François Lovens>Si on essaie de prendre un peu de recul, et notamment par rapport à ce qu'on a pu connaître ces derniers mois et qui est quand même quelque chose de
+
+97
+00:10:07.244 --> 00:10:11.424
+<v Pierre-François Lovens>à la fois d'important, mais on a peut-être pas assez le recul par rapport aux fake news.
+
+98
+00:10:11.504 --> 00:10:13.023
+<v Pierre-François Lovens>On sent bien que
+
+99
+00:10:13.924 --> 00:10:17.924
+<v Pierre-François Lovens>les fake news sont une tendance à la fois nouvelle et de fond, mais,
+
+100
+00:10:18.564 --> 00:10:26.104
+<v Pierre-François Lovens>j'attends un peu de voir comment les choses-- c'est un peu difficile de se prononcer parce qu'on voit aussi que les réseaux sociaux eux-mêmes sont en train d'adapter leurs modèles, leurs algorithmes.
+
+101
+00:10:26.644 --> 00:10:40.244
+<v Pierre-François Lovens>Et donc, dans quelle mesure ce qui s'est passé, bon, les cas les plus classiques, c'est avec le Brexit et les élections de Trump, dans quelle mesure ce seront des incidents graves, mais qui seront peut-être rapidement rectifiés ?
+
+102
+00:10:40.344 --> 00:10:55.564
+<v Pierre-François Lovens>J'en sais rien. Mais pour répondre à ta question, moi, j'essaie de me convaincre que la technologie n'a pas fondamentalement transformé la manière dont je veux pratiquer mon métier de journaliste.
+
+103
+00:10:56.124 --> 00:10:58.154
+<v Pierre-François Lovens>Les règles, les fondamentaux, je dirais, restent-
+
+104
+00:10:58.324 --> 00:11:08.544
+<v Guillaume Hachez>Les fondamentaux. Mais si on prend un contre-exemple de ça, on pourrait dire, par exemple, que les questions de référencement, les questions de clics, pour la presse sur le Web vont faire, par exemple, qu'on va plutôt titrer sur
+
+105
+00:11:09.104 --> 00:11:12.584
+<v Guillaume Hachez>le chien qui est mort écrasé par une voiture que sur les news économiques.
+
+106
+00:11:13.124 --> 00:11:19.984
+<v Pierre-François Lovens>C'est vrai. Alors, une façon de botter en touche, c'est de se dire : « C'est pas trop mon métier ».
+
+107
+00:11:20.064 --> 00:11:21.264
+<v Pierre-François Lovens>Aujourd'hui, c'est vrai que tu as,
+
+108
+00:11:22.064 --> 00:11:31.394
+<v Pierre-François Lovens>tu as-- les métiers ont évolué. Le métier du journaliste, il est à réinventer, il s'est transformé aussi, mais tu as de nouveaux intervenants qui sont apparus dans les rédactions, notamment,
+
+109
+00:11:32.124 --> 00:11:45.504
+<v Pierre-François Lovens>via la gestion des sites, des réseaux sociaux, où tu as des community managers, etc., qui, eux, ont les techniques, effectivement, pour bien référencer les articles, pour bien les poster au bon moment, etc.
+
+110
+00:11:46.284 --> 00:11:52.284
+<v Pierre-François Lovens>Et ça, le journaliste, en tout cas, dans un premier temps, on lui a pas demandé d'intégrer ça dans sa manière de faire son métier.
+
+111
+00:11:52.584 --> 00:12:03.404
+<v Pierre-François Lovens>Ce qu'on lui demande en priorité, c'est d'avoir de bonnes infos, qu'elles soient bien expliquées, bien restituées, avec les bonnes sources, bien écrites, etc.
+
+112
+00:12:03.824 --> 00:12:13.492
+<v Pierre-François Lovens>Et donc ça, je dirais, si déjà, on pouvait faire cette partie-là du métier le mieux possible, je dirais, ce serait déjà très bien.
+
+113
+00:12:13.652 --> 00:12:20.532
+<v Pierre-François Lovens>Je suis pas sûr-- donner de leçons à personne, mais ça reste un vrai problème dans la profession, en Belgique comme ailleurs.
+
+114
+00:12:20.572 --> 00:12:25.832
+<v Pierre-François Lovens>On voit bien, voilà, qu'il y a de bons médias, y a de bons journalistes, y en a des moins bons.
+
+115
+00:12:26.412 --> 00:12:37.982
+<v Pierre-François Lovens>Et donc, c'est-- à chaque fois, ne pas justement être submergé et dépassé par l'aspect technologique pour s'écarter de ces fondamentaux et ces règles de bon journalisme, de qualité journalistique.
+
+116
+00:12:38.452 --> 00:12:46.132
+<v Pierre-François Lovens>Je crois que si y a un moyen pour les médias menacés, moi, c'est depuis que je travaille, on dit que la presse est en crise et je crois qu'elle est effectivement en crise économique.
+
+117
+00:12:46.992 --> 00:13:00.212
+<v Pierre-François Lovens>Mais si y a un moyen pour elle de s'en sortir, c'est justement de revenir à ces fondamentaux de qualité, de valeur ajoutée, comme on dit aujourd'hui, pour effectivement continuer à séduire et attirer,
+
+118
+00:13:00.752 --> 00:13:05.512
+<v Pierre-François Lovens>des clients, parce qu'on est sur un marché et que y a, voilà, y a pas de secret.
+
+119
+00:13:05.992 --> 00:13:17.432
+<v Pierre-François Lovens>Si on veut que les gens viennent vers nous dans un monde où l'information n'a jamais été aussi abondante, bah il faut qu'on fasse la différence, qu'on vienne avec des contenus de qualité, traités de manière rigoureuse, et pas du,
+
+120
+00:13:17.972 --> 00:13:25.192
+<v Pierre-François Lovens>simplement des titres qui vont cliquer, ou des photos qui vont faire, je dirais, un peu le buzz.
+
+121
+00:13:25.312 --> 00:13:35.172
+<v Guillaume Hachez>Tu évoquais à l'instant cette volonté d'aller en profondeur et de créer une plus-value journalistique. Je voulais rebondir là-dessus en évoquant l'article de Frédéric Chardon, c'est ça ?
+
+122
+00:13:35.192 --> 00:13:39.362
+<v Guillaume Hachez>Oui. Il y a quelques jours, où il faisait une analyse des relations franco-belges-
+
+123
+00:13:39.572 --> 00:13:39.672
+<v Pierre-François Lovens>Oui
+
+124
+00:13:39.872 --> 00:13:41.312
+<v Guillaume Hachez>...au jour du match-
+
+125
+00:13:41.952 --> 00:13:42.472
+<v Pierre-François Lovens>Du match, oui
+
+126
+00:13:42.482 --> 00:13:46.432
+<v Guillaume Hachez>...de demi-finale ce soir d'ailleurs. Donc, je le trouvais très intéressant.
+
+127
+00:13:46.492 --> 00:13:46.632
+<v Pierre-François Lovens>Oui.
+
+128
+00:13:47.192 --> 00:13:49.692
+<v Guillaume Hachez>Je trouvais qu'il n'allait pas assez en profondeur-
+
+129
+00:13:49.772 --> 00:13:50.002
+<v Pierre-François Lovens>Tout à fait
+
+130
+00:13:50.002 --> 00:13:51.472
+<v Guillaume Hachez>...et qu'il s'arrêtait trop tôt et que-
+
+131
+00:13:51.582 --> 00:13:51.592
+<v Pierre-François Lovens>Oui
+
+132
+00:13:51.592 --> 00:13:52.482
+<v Guillaume Hachez>...je me disais, mais finalement-
+
+133
+00:13:52.632 --> 00:13:53.252
+<v Pierre-François Lovens>Tu restais sur ta faim
+
+134
+00:13:53.272 --> 00:13:57.372
+<v Guillaume Hachez>...c'est-- il n'y a pas cette place pour écrire la fin de l'article-
+
+135
+00:13:57.392 --> 00:13:57.402
+<v Pierre-François Lovens>Oui
+
+136
+00:13:57.402 --> 00:13:59.472
+<v Guillaume Hachez>...puisqu'il y a une grosse publicité juste en dessous de l'article.
+
+137
+00:13:59.572 --> 00:14:05.012
+<v Pierre-François Lovens>Oui, c'est vrai. Alors, maintenant, oui, c'est vrai. On peut isoler un cas ou un-
+
+138
+00:14:05.052 --> 00:14:06.892
+<v Guillaume Hachez>Bien sûr, bien sûr, oui. C'est peut-être anecdotique.
+
+139
+00:14:07.072 --> 00:14:13.232
+<v Pierre-François Lovens>Par contre-- non, je dis pas que c'est anecdotique, mais c'est vrai qu'il faut voir les circonstances dans lesquelles il a dû rédiger cet article.
+
+140
+00:14:13.252 --> 00:14:18.132
+<v Pierre-François Lovens>Je crois que les gens de l'extérieur ne se rendent pas toujours compte non plus des conditions dans lesquelles parfois des articles doivent être écrits.
+
+141
+00:14:18.752 --> 00:14:22.752
+<v Pierre-François Lovens>Je veux dire, on n'arrive pas comme ça au journal, à la rédaction,
+
+142
+00:14:23.852 --> 00:14:36.052
+<v Pierre-François Lovens>le matin et puis où on connaît déjà son sujet à l'avance et où on se donne au moins une journée pour bien le rédiger, donner les coups de téléphone ou voir les gens qui peuvent éventuellement enrichir le contenu.
+
+143
+00:14:36.612 --> 00:14:43.752
+<v Pierre-François Lovens>Cet article-là, puisque j'étais présent à la rédaction, il s'est fait un dimanche, il s'est-- il n'avait-
+
+144
+00:14:43.762 --> 00:14:45.452
+<v Guillaume Hachez>Il voulait partir en quarter, donc il n'avait pas le temps.
+
+145
+00:14:45.462 --> 00:14:52.932
+<v Pierre-François Lovens>Voilà, il y en avait d'autres qui l'attendaient, etc. Donc c'est vrai que parfois, bon voilà, il faut admettre que des choses sont écrites rapidement.
+
+146
+00:14:52.972 --> 00:15:02.372
+<v Pierre-François Lovens>Ça veut pas dire qu'elles sont de mauvaise qualité, mais voilà, parfois, on doit réagir vite. Ce sujet-là nous paraissait intéressant, mais Frédéric n'avait pas non plus trois heures devant lui pour faire un article.
+
+147
+00:15:03.032 --> 00:15:13.492
+<v Pierre-François Lovens>Mais sinon, on essaie quand même, parce que si La Libre se résumait à de petits articles un peu superficiels, je pense qu'à mon avis, on serait déjà disparu.
+
+148
+00:15:13.512 --> 00:15:15.892
+<v Pierre-François Lovens>Mais c'est vrai que c'est un exercice, c'est pas évident, hein, parce qu'on est,
+
+149
+00:15:16.632 --> 00:15:25.392
+<v Pierre-François Lovens>on est entré, pour revenir à l'aspect technologique de ta question, on est entré depuis quelques années, c'est vrai, dans une sorte de,
+
+150
+00:15:26.102 --> 00:15:38.152
+<v Pierre-François Lovens>de courant où toutes les choses, où tout s'est accéléré, où on veut être les premiers à donner l'information, on veut surtout avoir les informations que les autres n'ont pas.
+
+151
+00:15:38.832 --> 00:15:50.252
+<v Pierre-François Lovens>Et donc, c'est source de danger, parce que c'est source de superficialité dans le traitement. Ça peut être source d'imprécision, le fait de ne pas prendre le temps de vérifier l'information.
+
+152
+00:15:50.312 --> 00:15:59.672
+<v Pierre-François Lovens>Et tout ça, c'est des choses, voilà, il faut trouver le bon équilibre entre le fait que c'est vrai qu'avec les réseaux sociaux, eh bah y a une prime à celui qui arrive le premier, hein, qui donne l'information le premier,
+
+153
+00:16:00.172 --> 00:16:03.152
+<v Pierre-François Lovens>beaucoup plus qu'avant avec les journaux papier.
+
+154
+00:16:03.172 --> 00:16:12.432
+<v Pierre-François Lovens>D'un autre côté, si c'est pour être le premier, mais finalement galvauder un peu la qualité de la marque, hein, de la marque Libre ou la marque Soir, etc.
+
+155
+00:16:13.332 --> 00:16:19.692
+<v Pierre-François Lovens>Je pense qu'à terme, c'est un très mauvais calcul parce qu'on va déprécier cette marque et que les lecteurs ne viendront plus chez nous.
+
+156
+00:16:19.732 --> 00:16:30.472
+<v Guillaume Hachez>Mh. Et donc, est-ce que c'est justement pour créer cette plus-value, cette valeur ajoutée que vous faites beaucoup de contributions externes dans La Libre Belgique ?
+
+157
+00:16:30.512 --> 00:16:38.832
+<v Pierre-François Lovens>Alors, ça, c'est vraiment oui. Ça, c'est un choix vraiment éditorial. Donc, et c'est une des spécificités de La Libre.
+
+158
+00:16:39.052 --> 00:16:44.442
+<v Pierre-François Lovens>Ça veut pas dire qu'on est les seuls à le faire, mais en tout cas, c'est un choix qu'on a fait, mais ça, il y a déjà quelques années.
+
+159
+00:16:44.442 --> 00:16:55.182
+<v Pierre-François Lovens>C'était au début des années 2000, quand on a fait une refonte assez fondamentale du journal, pas uniquement de la maquette et pas uniquement une refonte graphique, mais aussi, on s'est réinterrogé un peu sur
+
+160
+00:16:55.712 --> 00:16:57.132
+<v Pierre-François Lovens>quelles sont finalement nos forces,
+
+161
+00:16:58.192 --> 00:17:06.572
+<v Pierre-François Lovens>en termes de contenu, partant du principe ou du postulat que La Libre Belgique, vu les moyens qui sont les siens, ne peut pas courir derrière tout.
+
+162
+00:17:06.592 --> 00:17:10.352
+<v Pierre-François Lovens>Il y a des journaux qui essayent de tout faire. Depuis l'information, le fait divers-
+
+163
+00:17:10.402 --> 00:17:11.832
+<v Guillaume Hachez>Qu'est-ce que vous ne faites pas, par exemple ?
+
+164
+00:17:11.892 --> 00:17:18.382
+<v Pierre-François Lovens>Bah par exemple, nous, on n'est clairement pas un journal régional, même si on a des pages qui parlent-
+
+165
+00:17:18.412 --> 00:17:19.522
+<v Guillaume Hachez>Pour chaque province, ouais
+
+166
+00:17:19.872 --> 00:17:27.492
+<v Pierre-François Lovens>...mais ce sont deux pages, trois pages maximum, où effectivement, on donne le minimum, je dirais, ce qu'il faut un peu savoir dans...
+
+167
+00:17:27.872 --> 00:17:35.592
+<v Pierre-François Lovens>Mais notre raison d'être, c'est pas ça. Je veux dire, si la personne cherche de l'information locale, il va se diriger vers une presse beaucoup plus
+
+168
+00:17:36.272 --> 00:17:41.912
+<v Pierre-François Lovens>régionale ou locale, comme L'Avenir, comme SudPresse, qui, elle, va se donner les moyens, a un réseau.
+
+169
+00:17:42.272 --> 00:17:48.332
+<v Pierre-François Lovens>Nous, on n'a pas un réseau de correspondants régionaux qui nous permettent vraiment de nous profiler comme un journal régional.
+
+170
+00:17:48.372 --> 00:17:58.972
+<v Pierre-François Lovens>Par contre, il y a quatre, cinq domaines dans lesquels on veut être de qualité. On ne veut pas, je dirais pas les meilleurs, mais où on essaye vraiment d'être bon, c'est la politique.
+
+171
+00:17:59.552 --> 00:18:07.402
+<v Pierre-François Lovens>La politique belge, ça, c'est depuis de tout temps, La Libre a été un journal en pointe sur l'information politique.
+
+172
+00:18:08.032 --> 00:18:10.482
+<v Pierre-François Lovens>Je vais pas refaire un-
+
+173
+00:18:10.482 --> 00:18:10.842
+<v Guillaume Hachez>Un historique
+
+174
+00:18:10.932 --> 00:18:19.612
+<v Pierre-François Lovens>...un historique, parce qu'effectivement, il y a eu dans cette couverture politique différentes phases, hein. Il y a un moment, on a été très proche d'une famille politique pendant très longtemps.
+
+175
+00:18:20.112 --> 00:18:29.528
+<v Pierre-François Lovens>On s'est émancipé sur le plan, justement, de ce reproche qui nous est encore fait aujourd'hui, mais qui, selon moi, n'a plus de raison d'être.
+
+176
+00:18:29.948 --> 00:18:35.258
+<v Pierre-François Lovens>C'est pas parce que tu défends des valeurs que tu es proche d'un parti politique. Parfois, les gens font un peu l'amalgame en disant : « Oui, comme ils
+
+177
+00:18:35.508 --> 00:18:40.988
+<v Pierre-François Lovens>défendent telles valeurs, les valeurs chrétiennes, par exemple, ils sont forcément un journal, le journal du CDH.
+
+178
+00:18:41.008 --> 00:18:44.968
+<v Pierre-François Lovens>» Bon, c'est un peu caricatural.
+
+179
+00:18:45.028 --> 00:18:49.108
+<v Guillaume Hachez>Ces contributions externes, y en a notamment monsieur, monsieur Dujardin-
+
+180
+00:18:49.168 --> 00:18:49.178
+<v Pierre-François Lovens>Oui
+
+181
+00:18:49.188 --> 00:18:51.208
+<v Guillaume Hachez>...qui s'est présenté sur les listes à Woluwe-Saint-Pierre.
+
+182
+00:18:51.248 --> 00:18:52.228
+<v Pierre-François Lovens>Sur le MR, je pense, oui.
+
+183
+00:18:52.268 --> 00:18:52.928
+<v Guillaume Hachez>Oui, c'est ça, voilà.
+
+184
+00:18:53.238 --> 00:18:55.957
+<v Pierre-François Lovens>Qui n'est plus maintenant contributeur depuis qu'il est justement, il s'est présenté-
+
+185
+00:18:56.267 --> 00:18:56.558
+<v Guillaume Hachez>D'accord
+
+186
+00:18:56.668 --> 00:18:58.548
+<v Pierre-François Lovens>...il a été candidat aux élections communales, je pense.
+
+187
+00:18:58.568 --> 00:19:04.728
+<v Guillaume Hachez>Oui, oui, ça a du sens, oui. Mais donc, justement, c'est quelqu'un qui était, qui est plutôt d'une droite dure-
+
+188
+00:19:05.128 --> 00:19:05.488
+<v Pierre-François Lovens>Oui, qui-
+
+189
+00:19:05.508 --> 00:19:08.028
+<v Guillaume Hachez>...qui explique qu'on a besoin d'avoir une NVA du côté francophone-
+
+190
+00:19:08.208 --> 00:19:08.218
+<v Pierre-François Lovens>Tout à fait
+
+191
+00:19:08.218 --> 00:19:11.538
+<v Guillaume Hachez>...qui défend, qui approuve la droitisation du MR-
+
+192
+00:19:11.588 --> 00:19:11.678
+<v Pierre-François Lovens>Oui, du MR
+
+193
+00:19:11.678 --> 00:19:12.808
+<v Guillaume Hachez>...ces dernières années-
+
+194
+00:19:12.908 --> 00:19:14.568
+<v Pierre-François Lovens>Au même titre que Destexhe, oui.
+
+195
+00:19:15.108 --> 00:19:20.228
+<v Guillaume Hachez>Mais donc, bon, cette position-là, vous la ressentiez déjà, j'imagine, du temps où il était contributeur dans l'image du journal.
+
+196
+00:19:20.238 --> 00:19:20.668
+<v Pierre-François Lovens>Oui, oui, tout à fait, mais-
+
+197
+00:19:20.828 --> 00:19:27.378
+<v Guillaume Hachez>Est-ce que justement, le fait d'avoir de tels contributeurs dans le journal ne participe pas à orienter un petit peu politiquement La Libre Belgique ?
+
+198
+00:19:27.448 --> 00:19:41.528
+<v Pierre-François Lovens>Oui, si ce n'était que des contributions venant de cet horizon politique qui est très à droite, comme tu le dis, je pense qu'effectivement, à ce moment-là, on serait perçu exclusivement comme un journal-
+
+199
+00:19:41.628 --> 00:19:41.988
+<v Guillaume Hachez>De droite
+
+200
+00:19:42.168 --> 00:19:49.708
+<v Pierre-François Lovens>...de droite et avec des relents réactionnaires. Mais je pense qu'effectivement, la qualité de La Libre fait que le débat est ouvert.
+
+201
+00:19:49.748 --> 00:19:54.628
+<v Pierre-François Lovens>C'était un de nos slogans, il y a quelques années, qu'on donne la parole à beaucoup d'autres
+
+202
+00:19:55.908 --> 00:20:03.748
+<v Pierre-François Lovens>sensibilités, qu'elles soient de droite comme de gauche ou du centre, qui font que, je--
+
+203
+00:20:04.448 --> 00:20:10.908
+<v Pierre-François Lovens>si tu te limites évidemment à une semaine et tu te dis : « Ouais, ils ont donné la parole à un tel ou à un tel », on va dire que c'est un journal de droite.
+
+204
+00:20:10.988 --> 00:20:24.968
+<v Pierre-François Lovens>Bon OK. Si tu prends la peine d'analyser toutes les contributions qu'on donne, je sais pas moi, sur une année, on peut faire l'exercice, c'est une image beaucoup plus nuancée et pluraliste.
+
+205
+00:20:25.308 --> 00:20:26.768
+<v Pierre-François Lovens>Et c'est vraiment, on veut être un journal
+
+206
+00:20:26.928 --> 00:20:30.628
+<v Pierre-François Lovens>pluraliste. Ça veut pas dire que le journal lui-même n'a pas une ligne éditoriale
+
+207
+00:20:30.768 --> 00:20:39.448
+<v Pierre-François Lovens>et des valeurs, mais en tout cas, quand il donne la parole à des contributions extérieures, il a vraiment la préoccupation de refléter un maximum de positions-
+
+208
+00:20:39.468 --> 00:20:40.388
+<v Guillaume Hachez>Une certaine pluralité.
+
+209
+00:20:40.398 --> 00:20:51.938
+<v Pierre-François Lovens>'Fin de pluralisme, pardon. Ce qui veut pas dire qu'effectivement, il y a des personnes peut-être que tu ne liras rarement ou que très rarement dans La Libre ou pas du tout, parce que soit elles sont vraiment aux extrêmes,
+
+210
+00:20:52.668 --> 00:20:55.548
+<v Pierre-François Lovens>ou parce qu'elles ne sont pas représentatives.
+
+211
+00:20:55.608 --> 00:20:57.168
+<v Pierre-François Lovens>Si c'est donner la parole à monsieur
+
+212
+00:20:58.288 --> 00:21:09.078
+<v Pierre-François Lovens>X qui, voilà, qui ne représente que lui, bon, ça s'appelle du courrier des lecteurs, on peut le faire, mais de là à donner des opinions et de l'espace à des personnes qui ne représentent qu'eux, avec en plus des idées complètement,
+
+213
+00:21:10.158 --> 00:21:16.628
+<v Pierre-François Lovens>voilà, qui ne rentrent pas dans le débat démocratique, on ne voit pas très bien la raison pour laquelle on doit les accueillir.
+
+214
+00:21:17.868 --> 00:21:18.958
+<v Pierre-François Lovens>Mais j'ai pas terminé sur les-
+
+215
+00:21:19.048 --> 00:21:19.497
+<v Guillaume Hachez>Je t'en prie, vas-y
+
+216
+00:21:19.497 --> 00:21:28.068
+<v Pierre-François Lovens>...les points forts, en fait. Donc j'avais commencé la politique. Il y a la politique internationale où La Libre aussi a toujours voulu être une référence.
+
+217
+00:21:28.088 --> 00:21:29.908
+<v Pierre-François Lovens>Il y a l'information économique et financière.
+
+218
+00:21:30.028 --> 00:21:30.828
+<v Guillaume Hachez>Ça, c'est toi.
+
+219
+00:21:30.868 --> 00:21:36.648
+<v Pierre-François Lovens>C'est pas moi, c'est moi et mes collègues. Et il y a la culture. Parce que tu me disais : « Mais qu'est-ce que vous ne faites pas ?
+
+220
+00:21:36.658 --> 00:21:46.888
+<v Pierre-François Lovens>» Et donc ça, c'est vraiment les quatre domaines dans lesquels on veut vraiment être présent. Ce qui veut pas dire qu'on ne donne pas du sport, qu'on ne donne pas de l'information locale ou régionale, qu'on ne donne pas du fait divers.
+
+221
+00:21:46.908 --> 00:21:55.188
+<v Pierre-François Lovens>Mais voilà, compte tenu de nos moyens, on essaye aussi de mettre nos forces sur ces quatre grands domaines.
+
+222
+00:21:55.568 --> 00:22:04.038
+<v Guillaume Hachez>Alors, on va passer sur un autre gros dossier. On va remonter quelques années en arrière. Tu étais rédacteur en chef adjoint en 2005, 2006.
+
+223
+00:22:04.128 --> 00:22:04.788
+<v Pierre-François Lovens>Oui.
+
+224
+00:22:04.828 --> 00:22:08.807
+<v Guillaume Hachez>À l'époque où vous aviez fait une grosse attaque, un gros procès contre Google News.
+
+225
+00:22:09.148 --> 00:22:09.518
+<v Pierre-François Lovens>Oui, oui.
+
+226
+00:22:09.528 --> 00:22:14.288
+<v Guillaume Hachez>Est-ce que tu peux nous parler de cette époque-là et de ce qui vous a guidé à ce moment-là ?
+
+227
+00:22:14.328 --> 00:22:29.168
+<v Pierre-François Lovens>Alors, ce qu'il faut bien comprendre, c'est que, d'une certaine façon, le procès en tant que tel, il a été mené par les éditeurs, donc regroupés au sein des journaux francophones belges.
+
+228
+00:22:29.288 --> 00:22:30.968
+<v Guillaume Hachez>Ça s'appelait CopyPress, c'est ça ?
+
+229
+00:22:31.008 --> 00:22:38.988
+<v Pierre-François Lovens>Dans CopyPress, si tu veux, ça, c'était un peu tout ce qui était effectivement lié à la reproduction de contenus protégés par le droit d'auteur.
+
+230
+00:22:39.628 --> 00:22:48.108
+<v Pierre-François Lovens>Et puis, tu avais notamment les éditeurs, donc les patrons de presse, qui, eux, avaient une association qui s'appelle les JFB, qu'on appelle maintenant LaPresse.be.
+
+231
+00:22:48.588 --> 00:22:59.148
+<v Pierre-François Lovens>Et c'est eux, vraiment eux qui ont été les fers de lance dans cette réaction par rapport à Google, même si derrière Google, il y avait d'autres acteurs émergents à ce moment-là.
+
+232
+00:22:59.188 --> 00:23:10.608
+<v Pierre-François Lovens>Mais Google, c'est vrai, était le plus puissant. Et donc c'est eux qui vraiment, de façon concertée, donc c'est pas le patron de La Libre, c'est pas le patron du Soir, qui à un moment ont vu effectivement l'impact,
+
+233
+00:23:11.348 --> 00:23:24.958
+<v Pierre-François Lovens>que pouvait avoir la récupération de contenus venant de nos médias, pour alimenter leur fil Google News.
+
+234
+00:23:24.968 --> 00:23:25.468
+<v Guillaume Hachez>Leur plateforme, oui.
+
+235
+00:23:25.668 --> 00:23:38.828
+<v Pierre-François Lovens>Voilà. Et donc, ils ont vraiment, à un moment, ils ont tiré la sonnette d'alarme en disant : « Bon, on est en train de piller nos contenus et il est pas normal que ce ne soit pas contre rétribution.
+
+236
+00:23:39.318 --> 00:23:46.688
+<v Pierre-François Lovens>» Et donc c'est comme ça que les choses ont commencé. Il y a eu vraiment une saga judiciaire dont d'ailleurs j'étais souvent un peu perdu.
+
+237
+00:23:47.188 --> 00:23:54.768
+<v Pierre-François Lovens>Et chaque fois que je devais écrire un-- 'fin, devais, devais pas, mais que j'écrivais un papier sur le sujet, c'est vrai que suivre ça était très compliqué.
+
+238
+00:23:54.878 --> 00:24:05.688
+<v Pierre-François Lovens>Et donc moi, je l'ai suivi, mais de manière un peu distante pour essayer quand même de tenir nos lecteurs informés qui comprennent le pourquoi de la réaction des éditeurs et de La Libre en particulier.
+
+239
+00:24:06.028 --> 00:24:11.168
+<v Guillaume Hachez>C'est ça. Et donc, mais tu as l'air de dire que c'est une bataille qui s'est menée avant tout par les dirigeants-
+
+240
+00:24:11.228 --> 00:24:11.608
+<v Pierre-François Lovens>Oui, tout à fait
+
+241
+00:24:11.668 --> 00:24:13.008
+<v Guillaume Hachez>...et pas tellement par les journalistes.
+
+242
+00:24:13.038 --> 00:24:13.068
+<v Pierre-François Lovens>Non.
+
+243
+00:24:13.068 --> 00:24:19.898
+<v Guillaume Hachez>Donc, idéologiquement, est-ce que-- parce que quand on lisait justement tes articles sur le sujet, on sentait que c'était assez orienté, qu'il y avait-
+
+244
+00:24:20.318 --> 00:24:20.328
+<v Pierre-François Lovens>Oui, tout à fait
+
+245
+00:24:20.328 --> 00:24:21.948
+<v Guillaume Hachez>...il y avait les gentils, il y avait les méchants de l'autre côté.
+
+246
+00:24:22.008 --> 00:24:29.952
+<v Pierre-François Lovens>Oui, et c'était vraiment... Oui. Et je peux le comprendre parce que je suppose qu'on va parler aussi de l'épisode-
+
+247
+00:24:30.032 --> 00:24:31.942
+<v Guillaume Hachez>Oui, oui, on va y arriver. On va y arriver
+
+248
+00:24:32.132 --> 00:24:38.782
+<v Pierre-François Lovens>...de la réforme sur le droit d'auteur au niveau européen. Je crois que les journalistes-- alors moi, j'étais peut-être,
+
+249
+00:24:39.972 --> 00:24:45.332
+<v Pierre-François Lovens>enfin moi, ici au sein de La Libre, mais d'autres journalistes qui suivent un peu le secteur des médias, on découvrait pas la chose.
+
+250
+00:24:45.372 --> 00:24:50.572
+<v Pierre-François Lovens>On savait que effectivement, la montée en puissance de Google et la manière dont,
+
+251
+00:24:51.212 --> 00:25:03.432
+<v Pierre-François Lovens>il prenait de plus en plus de parts de marché publicitaire et donc, cette part de marché publicitaire, elle était gagnée et rognée sur celle des éditeurs des médias classiques.
+
+252
+00:25:03.492 --> 00:25:09.052
+<v Pierre-François Lovens>C'est devenu-- quand l'affaire a éclaté, c'était vraiment une bagarre d'entreprise. C'était David contre Goliath.
+
+253
+00:25:09.252 --> 00:25:23.672
+<v Pierre-François Lovens>Et donc c'était les petits éditeurs belges francophones contre le géant de Mountain View. Et donc c'est vrai que moi, en tant que journaliste d'un, finalement, d'un petit journal au niveau mondial,
+
+254
+00:25:24.652 --> 00:25:36.852
+<v Pierre-François Lovens>c'est vrai que je me mettais effectivement dans la peau de celui qui est assiégé par le géant Google, avec aussi tout ce que ça peut représenter en termes de schizophrénie ou d'hypocrisie.
+
+255
+00:25:37.232 --> 00:25:50.212
+<v Pierre-François Lovens>On est les premiers aussi à utiliser Google quand ça nous arrange. Google, voilà, qui est une boîte assez géniale parce que quand même, voilà, c'est assez génial comme histoire.
+
+256
+00:25:50.572 --> 00:26:01.952
+<v Pierre-François Lovens>Google a l'intelligence aujourd'hui de venir financer des projets journalistiques, à travers des initiatives Digital News Initiative dont nous avons aussi bénéficié.
+
+257
+00:26:02.452 --> 00:26:11.112
+<v Pierre-François Lovens>Donc quand je dis schizophrénie, c'est parce que voilà, d'un côté, on voit bien que c'est une menace parce qu'ils viennent manger une partie de nos ressources et de plus en plus grande.
+
+258
+00:26:11.752 --> 00:26:20.391
+<v Pierre-François Lovens>Et de l'autre côté, on voit qu'eux essayent évidemment de trouver des-- ils ont besoin de nous, ils ont besoin des médias, du contenu.
+
+259
+00:26:20.772 --> 00:26:26.052
+<v Pierre-François Lovens>Hein, le contenu, c'est quand même ce que les gens vont chercher sur Google ou sur d'autres réseaux. Et nos contenus les intéressent.
+
+260
+00:26:26.692 --> 00:26:36.892
+<v Pierre-François Lovens>Et donc voilà, Google n'a jamais évidemment accepté de payer des droits d'auteur au sens classique du terme, mais ils ont essayé par d'autres canaux de dire : « Mais voilà, on aimerait bien être vos partenaires.
+
+261
+00:26:36.902 --> 00:26:43.352
+<v Pierre-François Lovens>» Et donc un type de partenariat, c'est notamment le financement de projets journalistiques de plus long terme. Et voilà.
+
+262
+00:26:43.382 --> 00:26:50.352
+<v Pierre-François Lovens>Mais donc c'est très compliqué à traiter comme sujet parce qu'effectivement, on est un peu partisan.
+
+263
+00:26:50.752 --> 00:26:58.412
+<v Pierre-François Lovens>Moi, en tant que journaliste qui écrit ça dans un journal classique qui fait partie de ces acteurs qui attaquent Google en justice,
+
+264
+00:26:59.352 --> 00:27:09.412
+<v Pierre-François Lovens>voilà, ça fait partie de ces sujets qui sont délicats à traiter et qui sont intéressants à traiter, mais voilà, forcément, on écrit d'un point de vue et,
+
+265
+00:27:10.092 --> 00:27:15.392
+<v Pierre-François Lovens>et de l'extérieur, ça peut apparaître comme quelque chose de déséquilibré ou très partiel.
+
+266
+00:27:15.432 --> 00:27:24.512
+<v Guillaume Hachez>Mais justement, pour continuer là-dessus, on a beaucoup parlé ces dernières semaines, comme tu le disais, de ce projet de réforme au Parlement européen, cette directive.
+
+267
+00:27:25.152 --> 00:27:34.452
+<v Guillaume Hachez>On va revenir dessus dans un instant. J'étais assez choqué de voir à quel point, selon la source que je lisais, le projet de loi était soit génial, soit la pire chose du monde.
+
+268
+00:27:34.992 --> 00:27:44.672
+<v Guillaume Hachez>Ça fait un-- bon, j'exagère un tout petit peu, mais ça fait un petit peu écho à la situation en Amérique où selon si on regarde Fox News ou MSNBC, on vit sur deux planètes complètement différentes.
+
+269
+00:27:44.752 --> 00:27:45.172
+<v Pierre-François Lovens>Oui, c'est vrai.
+
+270
+00:27:45.392 --> 00:27:55.532
+<v Guillaume Hachez>Il y a pour certains un mythe comme quoi être journaliste, c'est viser l'objectivité. Pour le coup, c'est assez clair que l'objectivité n'existe pas et qu'on est soit pour, soit contre.
+
+271
+00:27:55.812 --> 00:27:56.632
+<v Guillaume Hachez>C'est très subjectif.
+
+272
+00:27:56.832 --> 00:27:57.872
+<v Pierre-François Lovens>Je vais parler pour La Libre.
+
+273
+00:27:57.912 --> 00:27:58.392
+<v Guillaume Hachez>Oui.
+
+274
+00:27:58.452 --> 00:28:05.372
+<v Pierre-François Lovens>Dans le cas précis de la réforme des droits d'auteur, à mon avis, t'as pas dû retrouver beaucoup d'articles sous mon nom.
+
+275
+00:28:06.112 --> 00:28:10.562
+<v Guillaume Hachez>Non, mais je t'ai demandé directement sur Twitter et tu m'as dit : « Je partage l'avis de cet article. »
+
+276
+00:28:10.592 --> 00:28:20.702
+<v Pierre-François Lovens>Oui, parce que tu m'as interrogé. Mais dans le papier que j'ai écrit, on a écrit très peu de choses en fait, dans l'arrivée du projet en plénière à Strasbourg.
+
+277
+00:28:21.392 --> 00:28:28.752
+<v Pierre-François Lovens>En fait, j'ai écrit un papier au départ d'une dépêche AFP que je trouvais très bien faite. D'ailleurs, j'avais mis PFL avec AFP entre parenthèses
+
+278
+00:28:29.572 --> 00:28:41.412
+<v Pierre-François Lovens>et qui était-- dans ce papier-là, tu ne peux pas-- je présentais les-- je faisais un flashback sur le fait qu'en commission du Parlement, le projet avait été approuvé, de manière,
+
+279
+00:28:42.592 --> 00:28:47.132
+<v Pierre-François Lovens>très juste et que ça arrivait en plé-- j'étais vraiment dans le descriptif, c'est ça que je veux dire.
+
+280
+00:28:47.172 --> 00:28:49.882
+<v Pierre-François Lovens>Par contre, c'est vrai que le jour même ou la veille,
+
+281
+00:28:50.552 --> 00:28:53.212
+<v Pierre-François Lovens>notre administrateur délégué, donc le patron de La Libre Belgique,
+
+282
+00:28:53.512 --> 00:29:04.512
+<v Pierre-François Lovens>dans les pages débats et opinions de La Libre, a pris la parole et donc a rédigé un texte pour dire que c'était une catastrophe si jamais
+
+283
+00:29:04.672 --> 00:29:16.832
+<v Pierre-François Lovens>les eurodéputés n'approuvaient pas ce projet de réforme tel qu'il arrivait et qui était le fruit d'un compromis, puisqu'il y a eu un lobbying, mais intense, aussi bien des GAFA que des
+
+284
+00:29:17.012 --> 00:29:17.852
+<v Pierre-François Lovens>patrons de presse.
+
+285
+00:29:18.392 --> 00:29:26.592
+<v Pierre-François Lovens>Et donc, par contre, on n'a pas fait d'éditoriaux. Un journal concurrent a décidé de faire un éditorial en marquant clairement-
+
+286
+00:29:27.112 --> 00:29:27.982
+<v Guillaume Hachez>Sa position, ouais
+
+287
+00:29:27.982 --> 00:29:35.032
+<v Pierre-François Lovens>...son point de vue, sa position. Je respecte ça et probablement que si on avait fait un éditorial, on aurait été dans le même sens.
+
+288
+00:29:35.132 --> 00:29:44.792
+<v Pierre-François Lovens>Par contre, là aussi, dans ce journal-là, il y avait un article qu'on peut éventuellement juger partiel, mais qui donnait quand même des éléments d'information et qui était pas-
+
+289
+00:29:45.032 --> 00:29:45.832
+<v Guillaume Hachez>Il était très partiel.
+
+290
+00:29:46.152 --> 00:29:47.472
+<v Pierre-François Lovens>D'accord, je vais pas me prononcer.
+
+291
+00:29:47.562 --> 00:29:48.311
+<v Guillaume Hachez>C'est carrément partiel.
+
+292
+00:29:48.412 --> 00:30:00.622
+<v Pierre-François Lovens>Oui, mais chez nous, en tout cas, c'était pas le méchant GAFA, les méchants GAFA. Et le lendemain, quand le vote, finalement, le projet a été rejeté, c'est vrai qu'on a-- probablement qu'on a dû titrer en disant :
+
+293
+00:30:01.332 --> 00:30:10.052
+<v Pierre-François Lovens>« Les éditeurs perdent contre les GAFA », mais on n'a pas mis les méchants GAFA, même si les sous-entendus peuvent évidemment être assez évidents.
+
+294
+00:30:10.112 --> 00:30:13.512
+<v Pierre-François Lovens>Voilà, mais sur le fond du dossier...
+
+295
+00:30:13.812 --> 00:30:20.752
+<v Guillaume Hachez>Non, on va-- sur le fond du dossier, on va y revenir dans un instant, mais avant d'aller là-dessus, je voulais simplement approfondir la question de la partialité, justement.
+
+296
+00:30:21.152 --> 00:30:30.002
+<v Guillaume Hachez>Est-ce que quand on est journaliste, on a le sentiment, en plus de simplement relayer l'actualité, de participer à façonner le monde, à relayer une certaine idéologie ?
+
+297
+00:30:30.444 --> 00:30:31.364
+<v Guillaume Hachez>Comment est-ce que tu vois ?
+
+298
+00:30:31.404 --> 00:30:39.724
+<v Pierre-François Lovens>Oui, oui, oui, moi, je crois clairement. Donc, c'est un peu bateau de le dire, mais l'objectivité, la neutralité n'existent pas en journalisme.
+
+299
+00:30:40.384 --> 00:30:51.344
+<v Pierre-François Lovens>Je crois qu'on est des-- tu traites l'information toujours d'un point de vue. Je veux dire, tu n'es pas neutre quand tu poses un regard sur un fait d'actualité.
+
+300
+00:30:52.074 --> 00:30:58.214
+<v Pierre-François Lovens>Tu as beau dire : « Je vais coller à l'actualité » et, comme disent les Anglo-Saxons, « facts, facts, facts ».
+
+301
+00:30:59.464 --> 00:31:12.464
+<v Pierre-François Lovens>La manière dont tu écris déjà, la manière dont tu vas sélectionner, hiérarchiser les faits, va être façonnée par ce que tu es, mais aussi par l'employeur, le journal pour lequel tu travailles.
+
+302
+00:31:13.284 --> 00:31:28.314
+<v Pierre-François Lovens>Donc moi, je ne prétends certainement pas à ne pas véhiculer un... Alors l'idéologie, ça, c'est déjà un next step, c'est-à-dire que l'idéologie, ça veut dire qu'on s'inscrit dans un cadre pratiquement déjà
+
+303
+00:31:29.044 --> 00:31:34.284
+<v Pierre-François Lovens>prédéterminé auquel tout le monde devrait, comme les Dix Commandements,
+
+304
+00:31:34.324 --> 00:31:34.334
+<v Guillaume Hachez>Mh
+
+305
+00:31:34.334 --> 00:31:36.623
+<v Pierre-François Lovens>on devrait suivre. Ça, ça va pas jusque-là.
+
+306
+00:31:37.204 --> 00:31:47.963
+<v Pierre-François Lovens>La seule chose, c'est que la rédaction de La Libre, et La Libre a une histoire, a des valeurs et qu'on est tous nourris là-dessus, mais c'est pas des valeurs figées, c'est des valeurs qui évoluent avec le temps.
+
+307
+00:31:48.544 --> 00:31:58.424
+<v Pierre-François Lovens>J'en parlais tout à l'heure par rapport au traitement de l'actualité politique. Entre la manière d'entretenir la politique il y a 20 ans ou 30 ans et maintenant, il y a un monde de différence.
+
+308
+00:31:59.024 --> 00:32:07.784
+<v Pierre-François Lovens>Et ceux qui veulent vraiment prendre la peine de l'observer le verront. C'est la même chose dans le domaine de l'économie, de la culture, etc.
+
+309
+00:32:08.964 --> 00:32:12.064
+<v Pierre-François Lovens>Mais moi, en tant que journaliste, c'est vrai que je,
+
+310
+00:32:12.944 --> 00:32:19.324
+<v Pierre-François Lovens>je vais privilégier... Voilà, plutôt... Dans le domaine de l'entrepreneuriat, par exemple, et des entreprises,
+
+311
+00:32:20.084 --> 00:32:32.884
+<v Pierre-François Lovens>voilà, je suis pas neutre de la façon dont je vais plutôt privilégier telle ou telle société, tel secteur, parce que j'ai des affinités avec certains secteurs, avec certaines personnes
+
+312
+00:32:33.844 --> 00:32:35.484
+<v Pierre-François Lovens>et que je vais plutôt aller vers elles.
+
+313
+00:32:35.504 --> 00:32:37.144
+<v Pierre-François Lovens>Et donc tout ça va influencer mon travail.
+
+314
+00:32:37.244 --> 00:32:37.844
+<v Guillaume Hachez>Mh.
+
+315
+00:32:37.884 --> 00:32:45.924
+<v Pierre-François Lovens>Maintenant, au-delà de ça, le tout, c'est de bien le faire quand même. C'est pas parce que, voilà, tu donneras peut-être la préférence à un interlocuteur ou une boîte.
+
+316
+00:32:46.144 --> 00:32:47.974
+<v Pierre-François Lovens>Il faut le faire sérieusement. Je veux dire, c'est,
+
+317
+00:32:48.844 --> 00:32:59.104
+<v Pierre-François Lovens>c'est là qu'il y a un contrat avec le lecteur. Parce que si c'est juste faire la promotion de la boîte de mes petits copains, je veux dire, quelle est la valeur de l'information que je véhicule ?
+
+318
+00:32:59.124 --> 00:33:09.234
+<v Pierre-François Lovens>Il faut quand même que j'aie un regard très large, très critique, complet. Et ça, c'est, voilà, c'est pour ça qu'on est des
+
+319
+00:33:09.264 --> 00:33:09.274
+<v Guillaume Hachez>Oui
+
+320
+00:33:09.274 --> 00:33:10.224
+<v Pierre-François Lovens>professionnels.
+
+321
+00:33:10.544 --> 00:33:16.004
+<v Guillaume Hachez>Pendant longtemps, les journalistes, ceux qui travaillaient pour un journal, pour une télévision ou pour une radio,
+
+322
+00:33:16.584 --> 00:33:26.324
+<v Guillaume Hachez>aujourd'hui, avec les nouveaux médias, on voit arriver ceux qu'on appelle les influenceurs ou, de manière générale, ceux qui créent du contenu de manière plus artisanale, plus amateur,
+
+323
+00:33:27.284 --> 00:33:29.244
+<v Guillaume Hachez>les podcasts, les chaînes YouTube, etc.
+
+324
+00:33:30.104 --> 00:33:39.104
+<v Guillaume Hachez>Les frontières se brouillent en quelque sorte. Qu'est-ce qui fait la différence pour toi entre un influenceur, pour appeler ça comme ça, et un journaliste ?
+
+325
+00:33:39.704 --> 00:33:50.804
+<v Pierre-François Lovens>Bonne question. Moi, ces influenceurs, je les... Parce qu'un journaliste, on va dire traditionnel, comme je le suis, peut devenir un influenceur
+
+326
+00:33:50.944 --> 00:33:50.954
+<v Guillaume Hachez>Mh
+
+327
+00:33:51.224 --> 00:33:58.744
+<v Pierre-François Lovens>dans son domaine, dans la manière dont il va traiter les sujets, etc. Donc parfois, les deux se recoupent.
+
+328
+00:33:59.384 --> 00:34:00.504
+<v Guillaume Hachez>En fait, je vais peut-être un petit peu
+
+329
+00:34:00.624 --> 00:34:00.664
+<v Pierre-François Lovens>Oui
+
+330
+00:34:00.944 --> 00:34:10.424
+<v Guillaume Hachez>préciser ma question. Est-ce que est journaliste le premier qui se dit journaliste ? Est-ce qu'on est journaliste seulement si on travaille pour les grands médias ?
+
+331
+00:34:10.464 --> 00:34:15.084
+<v Guillaume Hachez>Est-ce qu'on peut être journaliste si on fait une chaîne YouTube dans sa chambre ? Comment est-ce que tu vois ça ?
+
+332
+00:34:15.164 --> 00:34:18.144
+<v Pierre-François Lovens>C'est vrai que tu fais bien de poser la question. C'est que tout le monde peut être journaliste.
+
+333
+00:34:18.344 --> 00:34:18.784
+<v Guillaume Hachez>D'accord.
+
+334
+00:34:18.844 --> 00:34:25.324
+<v Pierre-François Lovens>En fait, il n'y a aucun diplôme nécessaire pour accéder à la profession de journaliste. C'est un des rares métiers d'ailleurs.
+
+335
+00:34:25.424 --> 00:34:27.684
+<v Pierre-François Lovens>Quand tu veux être médecin, ben tu dois avoir un diplôme de médecine.
+
+336
+00:34:27.944 --> 00:34:36.404
+<v Guillaume Hachez>Ce serait dangereux si c'était le cas. C'est un peu comme en Ouganda où tu dois payer, je crois que c'est en Ouganda, où tu dois payer 1 000 euros pour avoir le droit d'avoir une chaîne YouTube ou...
+
+337
+00:34:36.444 --> 00:34:43.064
+<v Pierre-François Lovens>Ah oui, oui, oui. Mais c'est vrai que c'est quand même particulier. C'est-à-dire, le droit d'informer est un droit qui est reconnu à tout le monde.
+
+338
+00:34:43.864 --> 00:34:57.404
+<v Pierre-François Lovens>Maintenant, je pense que c'est la manière dont... 'Fin, c'est, un média, il va acquérir un certain succès, il va réunir une communauté dès lors qu'il instaure une confiance avec cette communauté.
+
+339
+00:34:57.484 --> 00:35:07.884
+<v Pierre-François Lovens>Et cette confiance, elle passe par le fait qu'une rédaction est composée de gens de qualité qui suivent un certain nombre de règles qui sont pas des règles,
+
+340
+00:35:09.044 --> 00:35:23.244
+<v Pierre-François Lovens>forcément toutes écrites et dictées dans la loi, mais qui... Les règles de déontologie, par exemple, ce sont des règles que la profession elle-même a définies et qu'on s'engage tous à respecter.
+
+341
+00:35:23.544 --> 00:35:33.964
+<v Pierre-François Lovens>Et parfois, elles ne sont pas respectées et il y a des rappels à l'ordre. Donc, je dirais, être journaliste, aujourd'hui, tout le monde peut devenir journaliste, surtout avec les technologies.
+
+342
+00:35:34.064 --> 00:35:43.964
+<v Pierre-François Lovens>Donc, on peut ouvrir une chaîne YouTube, on peut ouvrir un blog du jour au lendemain. Maintenant, je pense que n'est pas... Pour avoir une audience, c'est encore autre chose.
+
+343
+00:35:44.014 --> 00:35:51.434
+<v Pierre-François Lovens>Pour construire une audience, c'est pas, à moins de s'appeler, 'fin d'avoir vraiment un nom qui
+
+344
+00:35:51.434 --> 00:35:51.444
+<v Guillaume Hachez>Mh
+
+345
+00:35:51.444 --> 00:35:59.864
+<v Pierre-François Lovens>qui rassemble et qui fait autorité, c'est très compliqué d'être seul derrière son blog et de réunir des grosses audiences.
+
+346
+00:35:59.984 --> 00:36:03.654
+<v Pierre-François Lovens>Tu vas me dire : « Oui, sur YouTube, il y a des gars qui font des millions de vues, etc. »
+
+347
+00:36:03.764 --> 00:36:05.443
+<v Guillaume Hachez>Sur YouTube, il y a des gars qui font des millions de vues.
+
+348
+00:36:05.454 --> 00:36:11.044
+<v Pierre-François Lovens>Ils font rarement du journalisme. C'est plutôt des amuseurs publics. Ils font de l'infotainment, comme on dit.
+
+349
+00:36:11.124 --> 00:36:24.324
+<v Pierre-François Lovens>C'est-à-dire que j'appelle pas ça du travail journalistique, mais tu as peut-être des exemples sérieux et qui probablement existent, de gens qui, à travers YouTube, se sont révélés être d'excellents journalistes.
+
+350
+00:36:24.504 --> 00:36:26.883
+<v Pierre-François Lovens>C'est possible. En Belgique, j'en connais pas, en tout cas.
+
+351
+00:36:26.944 --> 00:36:27.883
+<v Guillaume Hachez>Non, mais la Belgique est un petit marché.
+
+352
+00:36:27.964 --> 00:36:41.488
+<v Pierre-François Lovens>Mais c'est vrai que c'est un tout petit marché. Mais donc voilà, c'est compliqué de répondre à la question. Je pense que moi, si j'étais Pierre-François Lovens seul et que je créais mon média, j'aurais énormément de difficultés.
+
+353
+00:36:41.868 --> 00:36:48.568
+<v Pierre-François Lovens>Par contre, le fait que Pierre-François Lovens travaille à La Libre, au Soir ou à L'Écho, ça lui donne une légitimité, tu vois ?
+
+354
+00:36:48.608 --> 00:36:49.468
+<v Guillaume Hachez>D'accord, OK.
+
+355
+00:36:49.508 --> 00:36:51.138
+<v Pierre-François Lovens>Donc il y a la question de la légitimité aussi.
+
+356
+00:36:51.138 --> 00:36:53.508
+<v Guillaume Hachez>La question de la légitimité, la question de l'audience, de la taille du public.
+
+357
+00:36:53.548 --> 00:36:54.128
+<v Pierre-François Lovens>Voilà, oui.
+
+358
+00:36:54.308 --> 00:36:58.688
+<v Guillaume Hachez>Et donc, in fine, la question de la rémunération et de savoir vivre de son travail.
+
+359
+00:36:58.698 --> 00:37:04.227
+<v Pierre-François Lovens>Voilà, exactement. Et oui, c'est ça aussi. Si c'est juste une activité complémentaire, mais qui ne te permette pas de vivre...
+
+360
+00:37:04.848 --> 00:37:07.048
+<v Guillaume Hachez>C'est un peu ce que moi, je fais quand j'écris des papiers...
+
+361
+00:37:07.088 --> 00:37:19.668
+<v Pierre-François Lovens>Oui, oui. Ceci étant, il faut l'admettre, dans la profession de journaliste, malheureusement, il y a beaucoup de jeunes, notamment, qui sont précarisés parce qu'ils sont pas bien payés et que quand tu commences comme jeune journaliste
+
+362
+00:37:20.288 --> 00:37:23.068
+<v Pierre-François Lovens>et que tu... Non seulement tu dois faire tes preuves, acquérir une certaine
+
+363
+00:37:24.208 --> 00:37:32.328
+<v Pierre-François Lovens>légitimité au-delà de la légitimité du média pour lequel tu travailles, mais tu dois toi-même montrer que tu es à la hauteur du média pour lequel tu travailles.
+
+364
+00:37:33.128 --> 00:37:40.028
+<v Pierre-François Lovens>Mais bon, voilà, je veux dire, la qualité, ça se paye. Malheureusement, il y a beaucoup de jeunes journalistes qui sont pas... qui rament.
+
+365
+00:37:40.208 --> 00:37:46.948
+<v Pierre-François Lovens>Moi, j'ai eu la chance de commencer dans un média qui a accepté d'emblée de m'accorder un contrat de salarié,
+
+366
+00:37:47.768 --> 00:37:55.808
+<v Pierre-François Lovens>mais je me rends compte que j'ai eu énormément de chance et qu'aujourd'hui, la plupart des jeunes journalistes, ben ils commencent comme indépendants. Que
+
+367
+00:37:55.868 --> 00:37:56.408
+<v Guillaume Hachez>Comme pigistes.
+
+368
+00:37:56.628 --> 00:38:02.898
+<v Pierre-François Lovens>Ils restent comme pigistes, oui. Et avant de gagner ta vie convenablement, il faut déjà...
+
+369
+00:38:03.228 --> 00:38:04.027
+<v Guillaume Hachez>Mmh, chose pas facile.
+
+370
+00:38:04.138 --> 00:38:06.527
+<v Pierre-François Lovens>Il faut glisser de la copie. De la bonne copie.
+
+371
+00:38:06.668 --> 00:38:11.548
+<v Guillaume Hachez>Oui, en plus. On va maintenant enchaîner et parler justement de cette directive européenne,
+
+372
+00:38:11.668 --> 00:38:11.808
+<v Pierre-François Lovens>Oui
+
+373
+00:38:11.888 --> 00:38:14.848
+<v Guillaume Hachez>le Copyright in the Digital Single Market,
+
+374
+00:38:15.068 --> 00:38:15.168
+<v Pierre-François Lovens>Oui
+
+375
+00:38:15.328 --> 00:38:24.328
+<v Guillaume Hachez>qui sera débattu en septembre au Parlement européen. On va s'attarder dans un premier temps sur l'article 11 qui, en gros, cible assez...
+
+376
+00:38:25.108 --> 00:38:28.968
+<v Guillaume Hachez>C'est pas dit explicitement, mais c'est un petit peu l'article Google News quoi.
+
+377
+00:38:28.988 --> 00:38:29.608
+<v Pierre-François Lovens>Mmh.
+
+378
+00:38:29.618 --> 00:38:35.728
+<v Guillaume Hachez>Donc pour ceux qui n'ont pas suivi, l'idée de ce texte de l'article 11, c'est de créer un droit voisin pour les médias.
+
+379
+00:38:35.768 --> 00:38:36.028
+<v Pierre-François Lovens>Mmh-mmh.
+
+380
+00:38:36.288 --> 00:38:46.328
+<v Guillaume Hachez>Donc si je suis une société du Web et que je veux faire un lien vers La Libre Belgique, afficher le titre de l'article, une photo, un extrait de l'article,
+
+381
+00:38:46.468 --> 00:38:46.668
+<v Pierre-François Lovens>Mmh
+
+382
+00:38:46.708 --> 00:38:54.948
+<v Guillaume Hachez>je dois demander la permission de La Libre Belgique et probablement aussi la question des royalties. Plus précisément, dans le texte,
+
+383
+00:38:54.988 --> 00:38:55.158
+<v Pierre-François Lovens>Mmh-mmh
+
+384
+00:38:55.188 --> 00:39:04.018
+<v Guillaume Hachez>il est précisé que ça s'applique aux grandes sociétés du Web, mais ça n'est pas défini très clairement puisque c'est une directive européenne et que ce sera aux États membres de préciser,
+
+385
+00:39:04.068 --> 00:39:11.388
+<v Pierre-François Lovens>Oui, voilà, donc ça devrait être appliqué dans les droits nationaux, voire même dans les droits régionaux, communautaires, concernant la Belgique.
+
+386
+00:39:12.048 --> 00:39:15.208
+<v Guillaume Hachez>Première question : pourquoi est-ce que vous voulez faire ça ?
+
+387
+00:39:15.248 --> 00:39:16.628
+<v Pierre-François Lovens>Attends, moi, je ne veux pas le faire ça.
+
+388
+00:39:16.888 --> 00:39:19.838
+<v Guillaume Hachez>Non, non, mais votre média soutient ouvertement le projet de loi.
+
+389
+00:39:19.848 --> 00:39:23.748
+<v Pierre-François Lovens>Oui, d'accord, mais moi, je... Non, non, mais c'est un... Je peux donner mon avis sur la question.
+
+390
+00:39:23.848 --> 00:39:24.428
+<v Guillaume Hachez>Bien sûr.
+
+391
+00:39:24.508 --> 00:39:35.088
+<v Pierre-François Lovens>Moi, je ne revendique pas que ce soit ça. Je comprends tout à fait et je soutiens le fait que mon entreprise et d'autres entreprises de presse revendiquent ça.
+
+392
+00:39:35.208 --> 00:39:43.748
+<v Pierre-François Lovens>Ça, c'est clair. Pourquoi ? Parce que... Je vais prendre un exemple très simple. Quand quelqu'un veut utiliser un de mes articles, la première chose qu'il fait, si...
+
+393
+00:39:44.348 --> 00:39:48.368
+<v Pierre-François Lovens>La plupart du temps, c'est qu'il me téléphone en disant : « Pierre-François, j'ai vu que tu avais écrit un article.
+
+394
+00:39:48.428 --> 00:39:53.948
+<v Pierre-François Lovens>Est-ce que je peux l'utiliser pour le mettre, par exemple, sur ma plateforme, mon blog ? » Dans le domaine des start-up, ça arrive souvent.
+
+395
+00:39:53.968 --> 00:39:58.058
+<v Guillaume Hachez>Quand tu veux dire l'utiliser, tu veux dire mettre un lien ou le copier-coller ?
+
+396
+00:39:58.088 --> 00:39:59.958
+<v Pierre-François Lovens>Ça peut être les deux. Ça peut être les deux, c'est-à-dire que
+
+397
+00:39:59.968 --> 00:40:01.088
+<v Guillaume Hachez>Les deux sont quand même assez différents.
+
+398
+00:40:01.688 --> 00:40:12.728
+<v Pierre-François Lovens>Oui, OK. Mais juste terminer cet exemple-là. Par exemple, dans le cas des start-up, souvent, les start-up aiment, sur leur site Internet, montrer que des médias ont parlé d'eux.
+
+399
+00:40:13.228 --> 00:40:26.548
+<v Pierre-François Lovens>Et donc, ils vont aller mettre un lien ou copier-coller, mais souvent, c'est un lien avec le logo du média. Mais pour faire ça, ils vont en principe demander la permission.
+
+400
+00:40:26.828 --> 00:40:37.817
+<v Guillaume Hachez>C'est là-dedans... C'est là qu'on arrive dans la question du droit voisin, puisque actuellement, on est dans une situation où le copier-coller complet de l'article et puis éventuellement, on oublie de mettre le nom et la source, voilà. Là, c'est
+
+401
+00:40:38.328 --> 00:40:44.028
+<v Guillaume Hachez>une pratique qui est sanctionnée par la loi. Là où on arrive dans la question du droit voisin et de cette directive européenne,
+
+402
+00:40:44.448 --> 00:40:53.708
+<v Guillaume Hachez>on passerait dans un scénario où mettre un lien, le titre de l'article, une photo, un petit extrait seraient soumis aux mêmes règles, c'est-à-dire, il faut demander la permission et éventuellement payer des royalties.
+
+403
+00:40:53.728 --> 00:40:54.158
+<v Pierre-François Lovens>Je comprends.
+
+404
+00:40:54.168 --> 00:40:55.418
+<v Guillaume Hachez>C'est une distinction importante à faire.
+
+405
+00:40:55.418 --> 00:41:02.328
+<v Pierre-François Lovens>Tout à fait, oui. Et honnêtement, moi, je ne prétends pas être un spécialiste de la question pour dire jusqu'à quel moment...
+
+406
+00:41:02.668 --> 00:41:05.808
+<v Pierre-François Lovens>Parce que Google, ce qu'il faisait avant, c'est qu'il mettait quand même
+
+407
+00:41:05.888 --> 00:41:06.568
+<v Guillaume Hachez>L'intégralité.
+
+408
+00:41:06.588 --> 00:41:07.228
+<v Pierre-François Lovens>L'intégralité.
+
+409
+00:41:07.428 --> 00:41:09.208
+<v Guillaume Hachez>Et ça, ça n'est pas permis et ils ont été sanctionnés.
+
+410
+00:41:09.348 --> 00:41:09.687
+<v Pierre-François Lovens>Exactement.
+
+411
+00:41:09.728 --> 00:41:12.177
+<v Guillaume Hachez>Aujourd'hui, la loi demande l'étape suivante, c'est-à-dire le droit voisin.
+
+412
+00:41:12.188 --> 00:41:16.848
+<v Pierre-François Lovens>Il y a une évolution. Et d'ailleurs, c'est le projet de loi, 'fin la proposition de directive
+
+413
+00:41:16.948 --> 00:41:17.168
+<v Guillaume Hachez>C'est ça
+
+414
+00:41:17.248 --> 00:41:18.348
+<v Pierre-François Lovens>qui était soumise, c'était ça.
+
+415
+00:41:19.308 --> 00:41:32.128
+<v Pierre-François Lovens>C'était de permettre quand même, 'fin si j'ai bien compris, parce que j'ai pas assisté au débat de la Commission en commission du Parlement européen, c'est que, à partir du moment où on,
+
+416
+00:41:33.028 --> 00:41:44.588
+<v Pierre-François Lovens>où on donne un contenu sur Google auquel tout internaute peut accéder alors que ce contenu est protégé, ben c'est là qu'on demande rémunération.
+
+417
+00:41:44.648 --> 00:41:54.468
+<v Pierre-François Lovens>Si c'est juste mettre un lien, mais sans... Juste avec le titre de l'article, mais sans donner, par exemple, les dix premières lignes de l'article, c'est juste cliquer sur un lien.
+
+418
+00:41:54.848 --> 00:42:00.208
+<v Pierre-François Lovens>À ma connaissance, les éditeurs ne demandent pas d'être rémunérés pour ça. Mais sous réserve de vérifier.
+
+419
+00:42:00.668 --> 00:42:07.408
+<v Guillaume Hachez>Qu'est-ce qui change alors entre la situation aujourd'hui et la situation post-entrée en vigueur de cette loi ?
+
+420
+00:42:07.448 --> 00:42:08.268
+<v Pierre-François Lovens>Mais elle n'est pas entrée en vigueur.
+
+421
+00:42:08.368 --> 00:42:09.988
+<v Guillaume Hachez>Non, non, mais le jour où c'est le cas.
+
+422
+00:42:10.348 --> 00:42:20.188
+<v Pierre-François Lovens>Mais c'est que avant, Google faisait des copier-coller, on pouvait accéder à des contenus comme ça, à tout venant. Donc...
+
+423
+00:42:20.728 --> 00:42:24.068
+<v Guillaume Hachez>Tu parles de quand on va voir le cache d'un...
+
+424
+00:42:24.088 --> 00:42:24.928
+<v Pierre-François Lovens>Oui, oui.
+
+425
+00:42:25.048 --> 00:42:27.588
+<v Guillaume Hachez>Et alors à ce moment-là, les publicités ne sont pas affichées, c'est ça ?
+
+426
+00:42:27.688 --> 00:42:32.448
+<v Pierre-François Lovens>Alors là, techniquement, je sais même pas si les publicités sont affichées ou pas. Ça, c'est quelque chose, par exemple, je n'ai jamais été vérifié.
+
+427
+00:42:32.468 --> 00:42:32.968
+<v Guillaume Hachez>C'est ça.
+
+428
+00:42:33.008 --> 00:42:42.424
+<v Pierre-François Lovens>Moi, c'était le contenu journalistique de l'article qui était accessible, sans devoir, sans barrière, sans paywall, je dirais.
+
+429
+00:42:42.804 --> 00:42:48.924
+<v Pierre-François Lovens>Par contre, aujourd'hui, avec la réforme du droit d'auteur, selon moi, mais peut-être que je me trompe
+
+430
+00:42:49.064 --> 00:42:49.244
+<v Guillaume Hachez>Mmh
+
+431
+00:42:49.344 --> 00:43:00.504
+<v Pierre-François Lovens>c'est le fait que on donne plus comme ça accès gratuitement à des contenus que Google va chercher et importe sur sa plateforme. Non ?
+
+432
+00:43:00.564 --> 00:43:00.744
+<v Guillaume Hachez>Non.
+
+433
+00:43:01.564 --> 00:43:04.164
+<v Pierre-François Lovens>Donne-moi ton interprétation de l'article 11.
+
+434
+00:43:04.544 --> 00:43:10.084
+<v Guillaume Hachez>La question du droit voisin, c'est que c'est plus seulement l'article dans son intégralité qui est protégé par le droit d'auteur et que
+
+435
+00:43:10.164 --> 00:43:10.284
+<v Pierre-François Lovens>Oui
+
+436
+00:43:10.324 --> 00:43:20.364
+<v Guillaume Hachez>effectivement, celui qui va le copier-coller sera un pirate et sera sanctionné par la loi. Ce sera que carrément, peut-être de copier-coller le titre, simplement le titre, éventuellement une photo
+
+437
+00:43:20.464 --> 00:43:20.884
+<v Pierre-François Lovens>Très payant
+
+438
+00:43:21.224 --> 00:43:24.764
+<v Guillaume Hachez>sera soumis au droit d'auteur. Il faudra demander la permission
+
+439
+00:43:25.104 --> 00:43:25.164
+<v Pierre-François Lovens>Autorisation
+
+440
+00:43:25.174 --> 00:43:32.544
+<v Guillaume Hachez>au média qui le possède. Et c'est là, effectivement, qu'on voit qu'il y a des interprétations différentes et pas forcément
+
+441
+00:43:33.364 --> 00:43:33.494
+<v Pierre-François Lovens>Oui, oui
+
+442
+00:43:33.494 --> 00:43:44.044
+<v Guillaume Hachez>justes, pas forcément conformes à la réalité. C'est que certains décrivaient la situation comme quoi on ne pourra plus partager les articles sur Facebook, parce qu'il faudra à chaque fois demander la permission de La Libre.
+
+443
+00:43:44.084 --> 00:43:51.264
+<v Guillaume Hachez>Dans les faits, ce que dit l'article, c'est que ça ne s'appliquera qu'aux très grandes sociétés, sans non plus définir exactement ce que ça signifie, dans quel contexte.
+
+444
+00:43:51.424 --> 00:43:52.584
+<v Guillaume Hachez>Donc c'est pour ça qu'il y avait un peu de flou.
+
+445
+00:43:52.604 --> 00:43:53.024
+<v Pierre-François Lovens>Il y a du flou.
+
+446
+00:43:53.384 --> 00:44:01.684
+<v Guillaume Hachez>Et c'est pour ça qu'il y avait une certaine opposition. Et donc, oui, mais les articles qui sont payants, par exemple sur La Libre Belgique, par exemple celui
+
+447
+00:44:02.684 --> 00:44:06.384
+<v Guillaume Hachez>où tu parles de moi, si tu fais une recherche Google et que tu vas avoir le cache
+
+448
+00:44:06.644 --> 00:44:07.214
+<v Pierre-François Lovens>Tu sauras pas le
+
+449
+00:44:07.424 --> 00:44:13.704
+<v Guillaume Hachez>Y aura toujours une barrière qui dit : « Il faut payer ». Ça, ça n'est pas... Google n'a pas des pouvoirs magiques pour faire disparaître les paywall.
+
+450
+00:44:13.764 --> 00:44:25.104
+<v Pierre-François Lovens>Non, d'accord, OK. Mais le problème, c'est que, comme tu dis toi-même, c'est encore trop flou pour voir exactement quelles sont les plateformes qui vont être concernées.
+
+451
+00:44:25.364 --> 00:44:25.704
+<v Guillaume Hachez>Déjà, oui.
+
+452
+00:44:26.044 --> 00:44:26.824
+<v Pierre-François Lovens>Ces grands acteurs.
+
+453
+00:44:27.564 --> 00:44:38.624
+<v Pierre-François Lovens>Et dans quel... Mais moi, je n'ai... Mais tu as probablement raison, je n'avais pas compris jusqu'ici, parce que l'article 11 ne perm... 'fin, moi, je trouve qu'il n'est pas suffisamment, il ne permet pas d'aller jusque-là.
+
+454
+00:44:38.664 --> 00:44:48.664
+<v Guillaume Hachez>Et en plus de ça, je dirais que la couverture médiatique de cet article 11 a été, comme je disais, certains le décrivaient comme étant, comme tu dis, un truc horrible qui allait rendre tout le contenu payant gratuit, etc.
+
+455
+00:44:49.304 --> 00:44:52.204
+<v Guillaume Hachez>Et donc, effectivement, je pense que c'est aussi une question des sources qu'on a consommées.
+
+456
+00:44:52.213 --> 00:44:58.244
+<v Pierre-François Lovens>Alors, je crois qu'au-delà de l'aspect technique, à partir de quel moment le média va demander à la plateforme de payer,
+
+457
+00:44:59.144 --> 00:45:09.664
+<v Pierre-François Lovens>je pense qu'au-delà de ce qu'on fera de cet article 11 et comment on va le traduire dans les législations nationales, je pense que la position de principe que les éditeurs ont aussi,
+
+458
+00:45:10.524 --> 00:45:21.704
+<v Pierre-François Lovens>c'est le fait qu'eux, pour produire ces contenus et les commercialiser, mais pour les produire, ils ont derrière eux effectivement une série de coûts, dont les journalistes, et qu'il est normal,
+
+459
+00:45:22.924 --> 00:45:28.184
+<v Pierre-François Lovens>alors c'est là où on peut discuter, que des plateformes comme Google, Facebook...
+
+460
+00:45:28.244 --> 00:45:29.304
+<v Guillaume Hachez>Google News, ouais, ouais
+
+461
+00:45:29.644 --> 00:45:41.744
+<v Pierre-François Lovens>...payent leur part pour pouvoir utiliser ce contenu-là. Comme effectivement le consommateur de La Libre ou du Soir paye effectivement son droit d'accéder au contenu...
+
+462
+00:45:42.164 --> 00:45:52.084
+<v Guillaume Hachez>Et ici, quand on parle de contenu, on parle donc de, bah simplement un petit extrait, un titre, une photo telle que c'est présenté, par exemple, sur Google News.
+
+463
+00:45:52.684 --> 00:45:56.884
+<v Guillaume Hachez>Et donc cette question de participer, de payer les médias pour...
+
+464
+00:45:56.944 --> 00:45:57.244
+<v Pierre-François Lovens>Oui
+
+465
+00:45:57.254 --> 00:46:06.444
+<v Guillaume Hachez>...utiliser une partie de leur contenu, c'est une loi qui est déjà entrée en vigueur en Espagne, où, bah, ce qu'on appelle dans les faits une taxe Google News.
+
+466
+00:46:06.574 --> 00:46:07.424
+<v Pierre-François Lovens>Puis Google s'est retiré.
+
+467
+00:46:07.824 --> 00:46:10.144
+<v Guillaume Hachez>Bah Google, oui, Google News, en tout cas, a disparu de l'Espagne.
+
+468
+00:46:10.704 --> 00:46:13.144
+<v Pierre-François Lovens>Mais ce qu'ils ont fait en Belgique à un moment aussi hein, puis ils sont revenus, mais...
+
+469
+00:46:13.564 --> 00:46:24.504
+<v Guillaume Hachez>Oui, oui, tout à fait. Mais d'après la presse espagnole, suite au retrait de Google News, ils ont perdu un bon gros paquet de trafic.
+
+470
+00:46:25.284 --> 00:46:33.504
+<v Guillaume Hachez>Donc c'est une question que je voulais te poser. Est-ce que finalement, Google News, en termes d'importance, de trafic, est-ce que c'est important aux yeux de La Libre Belgique ?
+
+471
+00:46:33.524 --> 00:46:33.724
+<v Pierre-François Lovens>Oui.
+
+472
+00:46:33.744 --> 00:46:35.044
+<v Guillaume Hachez>Ou bien est-ce que finalement...
+
+473
+00:46:35.864 --> 00:46:37.164
+<v Pierre-François Lovens>Google et Facebook.
+
+474
+00:46:37.704 --> 00:46:38.824
+<v Guillaume Hachez>Pourquoi vous leur tapez dessus alors ?
+
+475
+00:46:38.844 --> 00:46:48.124
+<v Pierre-François Lovens>Non, parce que finalement, y a eu quand même, y a eu à un moment une sorte de... quand les éditeurs, effectivement, ont attaqué Google News en...
+
+476
+00:46:48.374 --> 00:46:49.414
+<v Guillaume Hachez>2005, 2006, oui.
+
+477
+00:46:49.444 --> 00:46:55.923
+<v Pierre-François Lovens>Google News a eu la même attitude qu'en Espagne. Ils se sont retirés et nous, on a vu effectivement une chute de fréquentation de notre site.
+
+478
+00:46:55.944 --> 00:47:01.344
+<v Guillaume Hachez>En plus de s'être retirés, ils vous ont complètement déréférencés des moteurs de recherche. Et donc, si on cherchait un article, on n'arrivait pas à le trouver.
+
+479
+00:47:01.353 --> 00:47:09.984
+<v Pierre-François Lovens>Exactement. Et on a vu que ça nous faisait beaucoup de tort. Et donc après, y a eu, voilà, ils ont fait un peu marche arrière, et ils ont essayé de trouver effectivement un terrain d'entente, parce que
+
+480
+00:47:11.304 --> 00:47:22.224
+<v Pierre-François Lovens>la fréquentation de nos sites, c'est un secret pour personne, je veux dire, le rôle joué, l'impact des réseaux sociaux et des plateformes est énorme.
+
+481
+00:47:22.284 --> 00:47:22.884
+<v Guillaume Hachez>Bien sûr.
+
+482
+00:47:23.244 --> 00:47:33.384
+<v Pierre-François Lovens>Je pourrais pas te dire des chiffres comme ça, mais ils sont connus et tu peux les retrouver. Mais voilà, on sait que si tu mets Google plus Facebook, plus éventuellement l'un ou l'autre,
+
+483
+00:47:34.104 --> 00:47:36.784
+<v Pierre-François Lovens>je sais pas moi, Twitter, Instagram, LinkedIn, etc,
+
+484
+00:47:37.564 --> 00:47:39.244
+<v Pierre-François Lovens>bah t'arrives, voilà...
+
+485
+00:47:39.824 --> 00:47:40.384
+<v Guillaume Hachez>95 % quoi.
+
+486
+00:47:40.844 --> 00:47:49.284
+<v Pierre-François Lovens>Je sais pas. Honnêtement, je ne connais pas les chiffres et j'ai peur de dire des bêtises, mais c'est une grosse, grosse partie des internautes qui arrivent sur le site de La Libre via ces plateformes-là.
+
+487
+00:47:50.044 --> 00:47:53.744
+<v Pierre-François Lovens>Et donc c'est là un peu où on doit, voilà, où c'est pas facile.
+
+488
+00:47:53.964 --> 00:47:55.384
+<v Guillaume Hachez>Vous mordez la main qui vous nourrit.
+
+489
+00:47:56.364 --> 00:48:07.564
+<v Pierre-François Lovens>Oui, mais c'est... oui, mais ça aussi, ça vaut aussi pour eux. Alors maintenant, eux, ils sont dans une position de force, ils ont une puissance financière, une surface incroyable, mais eux ont besoin de nous aussi.
+
+490
+00:48:08.424 --> 00:48:15.044
+<v Pierre-François Lovens>C'est vrai qu'on est le Petit Poucet là-dedans, mais eux, pour rendre leur plateforme intéressante, ils ont besoin de...
+
+491
+00:48:15.204 --> 00:48:16.004
+<v Guillaume Hachez>De contenu
+
+492
+00:48:16.024 --> 00:48:27.204
+<v Pierre-François Lovens>...de contenu intéressant. Alors maintenant, Facebook, à un moment, a fait le pari de se dire : « Oui, finalement, on va modifier l'algorithme pour ne plus privilégier les contenus de type journalistique news ».
+
+493
+00:48:27.304 --> 00:48:34.684
+<v Pierre-François Lovens>Bah, je pense que... et plus se recentrer sur la fonction première du réseau social, c'est-à-dire les amis, nos proches, etc.
+
+494
+00:48:36.084 --> 00:48:40.644
+<v Pierre-François Lovens>Je pense qu'ils n'ont pas persévéré dans cette voie-là, à ma connaissance.
+
+495
+00:48:40.844 --> 00:48:44.084
+<v Guillaume Hachez>On ne va pas parler de l'article 13 puisque c'est, voilà, ça, on...
+
+496
+00:48:44.144 --> 00:48:47.043
+<v Pierre-François Lovens>Oui, parce que je connais déjà pas très bien le 11, je vais parler du 13.
+
+497
+00:48:47.424 --> 00:48:55.824
+<v Guillaume Hachez>Tu es journaliste, le journaliste start-up de La Libre Belgique ? Qu'est-ce qui fait justement... on en a, on a un petit peu touché à ce sujet tout à l'heure.
+
+498
+00:48:55.864 --> 00:49:00.604
+<v Guillaume Hachez>Qu'est-ce qui fait que tu apprécies cette culture start-up en Belgique ?
+
+499
+00:49:00.994 --> 00:49:13.064
+<v Pierre-François Lovens>Je pense que c'est lié d'abord à ma manière de... depuis que je suis journaliste, donc depuis 92, je suis toujours resté grosso modo dans le domaine économique.
+
+500
+00:49:13.124 --> 00:49:22.564
+<v Pierre-François Lovens>Mais c'est vrai qu'après quelques années, j'aime bien aller à la découverte de nouveaux secteurs ou de nouveaux domaines de l'économie.
+
+501
+00:49:23.024 --> 00:49:32.724
+<v Pierre-François Lovens>Et c'est pour ça que j'ai été amené à évoluer, à travailler dans différents domaines. Et c'est vrai, y a trois ans, je me suis dit sur quel sujet je vais travailler.
+
+502
+00:49:33.724 --> 00:49:41.764
+<v Pierre-François Lovens>Ce sujet-là m'est apparu intéressant et, mais vraiment le goût de la curiosité. J'y allais sans a priori, sans véritables connaissances.
+
+503
+00:49:41.784 --> 00:49:49.684
+<v Pierre-François Lovens>J'y allais vraiment un peu dans la peau de celui qui... presque du Tintin reporter qui va dire : « Tiens, on parle beaucoup de start-up.
+
+504
+00:49:49.744 --> 00:49:50.574
+<v Pierre-François Lovens>Le mot commence à... »
+
+505
+00:49:50.584 --> 00:49:51.514
+<v Guillaume Hachez>C'est quoi une start-up, finalement ?
+
+506
+00:49:51.584 --> 00:50:05.024
+<v Pierre-François Lovens>Oui, voilà. Et donc je partais vraiment de zéro, même si j'y ai retrouvé forcément des éléments de management d'entreprise, de stratégie, de business plan, etc., que tu retrouves dans l'économie ou dans les entreprises plus classiques.
+
+507
+00:50:05.524 --> 00:50:21.004
+<v Pierre-François Lovens>Mais c'est vrai que j'ai été au contact de ce domaine-là, de ce secteur émergent et que j'y ai croisé des gens que je n'avais pas eu la chance ou l'habitude de croiser auparavant.
+
+508
+00:50:21.424 --> 00:50:35.224
+<v Pierre-François Lovens>C'est-à-dire des... J'avais... ça a cassé quand même certains stéréotypes, notamment par rapport à la jeune génération que l'on disait peu entreprenante, que l'on disait surtout soucieuse de s'assurer
+
+509
+00:50:36.184 --> 00:50:42.124
+<v Pierre-François Lovens>un job dès la sortie de ses études et de préférence dans une banque ou dans une société d'assurance.
+
+510
+00:50:42.824 --> 00:50:59.424
+<v Pierre-François Lovens>J'y ai trouvé aussi des gens... voilà, 'fin, j'ai... en fait, j'ai rencontré une génération, c'est un peu pompeux de le dire, mais que moi, j'aurais aimé faire partie de cette génération il y a 25 ans d'ici.
+
+511
+00:50:59.664 --> 00:51:00.053
+<v Guillaume Hachez>Finalement, tu as...
+
+512
+00:51:00.184 --> 00:51:03.314
+<v Pierre-François Lovens>Je me suis un peu identifié à ça, même si je pense que j'ai pas du tout l'âme d'un entrepreneur.
+
+513
+00:51:03.314 --> 00:51:10.863
+<v Guillaume Hachez>J'ai envie de mettre ça en lien avec le fait que, j'ai écrit un papier là-dessus, le fait qu'en Belgique, de manière générale, il y a assez peu de création d'entreprise.
+
+514
+00:51:10.924 --> 00:51:19.724
+<v Guillaume Hachez>On est assez fort dans la sécurité, on a un patrimoine individuel très élevé, on aime bien garder l'argent en banque, on n'aime pas trop le risquer, pas trop...
+
+515
+00:51:19.984 --> 00:51:31.444
+<v Guillaume Hachez>voilà, peur de l'échec, peur du risque, etc. Et finalement, avec cette nouvelle génération, la génération Z/Y, tu as finalement trouvé un certain renouveau que tu ne trouvais pas en Belgique de manière générale.
+
+516
+00:51:31.464 --> 00:51:41.144
+<v Pierre-François Lovens>Dans la morosité, surtout wallonne, un peu bruxelloise. Je découvrais des... notamment à travers le One Hour Challenge où chaque mois, on accueillait des start-up.
+
+517
+00:51:41.164 --> 00:51:49.004
+<v Pierre-François Lovens>J'ai été heureux de découvrir qu'il y avait aussi un renouveau, un regain de,
+
+518
+00:51:50.184 --> 00:52:02.824
+<v Pierre-François Lovens>dans le domaine de l'entrepreneuriat et en particulier dans la start-up, où finalement, on a là des outils qui permettent effectivement à tout un chacun d'innover et de...
+
+519
+00:52:03.624 --> 00:52:10.624
+<v Pierre-François Lovens>Et puis le côté disruptif aussi des business qui étaient, que je voyais passer, le côté très positif aussi de gens qui,
+
+520
+00:52:11.044 --> 00:52:21.184
+<v Pierre-François Lovens>qui avaient une relation à l'échec, même si on sait que c'est un gros problème en Belgique, mais qui avaient fait une, deux, trois tentatives, qui avaient déjà une ou deux, trois failles derrière eux, mais qui recommençaient autre chose.
+
+521
+00:52:21.284 --> 00:52:22.084
+<v Guillaume Hachez>Des profils intéressants.
+
+522
+00:52:22.284 --> 00:52:28.064
+<v Pierre-François Lovens>Voilà, je trouvais ça plutôt, ça... on sortait vraiment du ronron classique...
+
+523
+00:52:28.184 --> 00:52:29.083
+<v Guillaume Hachez>conventionnel
+
+524
+00:52:29.124 --> 00:52:34.524
+<v Pierre-François Lovens>...voilà, et je me suis dit : « Tiens, il y a quand même aussi ça en Belgique », même si je n'ai aucune idée de ce que ça représente.
+
+525
+00:52:34.833 --> 00:52:36.664
+<v Pierre-François Lovens>Probablement qu'aujourd'hui encore, c'est...
+
+526
+00:52:36.704 --> 00:52:37.164
+<v Guillaume Hachez>Très minoritaire
+
+527
+00:52:37.184 --> 00:52:46.804
+<v Pierre-François Lovens>...concentré sur un certain type de profils dans certaines régions, on le sait, hein, Bruxelles, Louvain-la-Neuve, Liège
+
+528
+00:52:46.924 --> 00:52:56.144
+<v Guillaume Hachez>Ouais, ouais, c'est exactement ça. La répartition des start-up en Wallonie, c'est surtout le Brabant wallon, donc plutôt pour les Français qui nous écoutent, c'est près de Bruxelles
+
+529
+00:52:56.164 --> 00:52:59.904
+<v Pierre-François Lovens>...et c'est une bonne chose. Et puis voilà, j'ai rencontré des gens qui me plaisaient.
+
+530
+00:52:59.944 --> 00:53:07.384
+<v Guillaume Hachez>Tu parlais d'une certaine positivité dans ce portrait qui est dressé. Donc, tu rencontres des start-up, comme tu disais, dans le One Hour Challenge.
+
+531
+00:53:08.164 --> 00:53:14.664
+<v Guillaume Hachez>Il y a beaucoup de bullshit aussi quand tu écoutes les start-up. Est-ce que c'est facile de faire la part des choses et de...
+
+532
+00:53:14.764 --> 00:53:23.304
+<v Pierre-François Lovens>Alors pas au début. Et je pense que certains ont dû un peu rigoler ou sourire en disant : « Tiens, La Libre découvre les start-up.
+
+533
+00:53:23.904 --> 00:53:30.804
+<v Pierre-François Lovens>Ils font One Hour Challenge, comme tout le monde est beau, tout le monde est gentil. On fait Solvay, on fait LSM ».
+
+534
+00:53:30.864 --> 00:53:44.244
+<v Pierre-François Lovens>Et finalement, pour caricaturer un peu, c'est tous les petits deux de Boitsfort et de Uccle et de Ixelles qui découvrent l'entrepreneuriat et qui, même s'ils se plantent, iront chez papa après.
+
+535
+00:53:44.264 --> 00:53:56.044
+<v Pierre-François Lovens>Et je pense qu'il y a eu de ma part une certaine naïveté au début, parce que je découvrais et que j'avais un regard presque naïf et bienveillant sur tout ce nouvel univers qui s'ouvrait à moi.
+
+536
+00:53:57.284 --> 00:54:08.544
+<v Pierre-François Lovens>Mais je n'ai pas voulu... dans un premier temps, mon job, c'était de comprendre. Comprendre qui sont les acteurs de l'écosystème, qu'est-ce qu'ils font, avant de me dire : « C'est bullshit... »
+
+537
+00:54:08.644 --> 00:54:10.584
+<v Guillaume Hachez>Et aujourd'hui, quand tu...
+
+538
+00:54:10.684 --> 00:54:24.214
+<v Pierre-François Lovens>Aujourd'hui, je pense que j'ai acquis, après trois ans, un début de maturité qui me permet, et je pense que j'ai peut-être plus de légitimité aujourd'hui qu'il y a un an, certainement, pour dire : « Ça, c'est bullshit ».
+
+539
+00:54:24.304 --> 00:54:26.564
+<v Pierre-François Lovens>Pour dire soit on l'a déjà fait, j'ai déjà entendu 10 fois.
+
+540
+00:54:27.024 --> 00:54:33.764
+<v Guillaume Hachez>Donc quand tu vois arriver, comme tu disais, un petit deux de Ixelles dans le One Hour Challenge, tu le traites différemment le sujet ?
+
+541
+00:54:33.824 --> 00:54:40.624
+<v Pierre-François Lovens>Non, non, ça, honnêtement, moi, je passe au-dessus de ça aussi. Non, non. Ça, franchement, c'est pas un critère de sélection
+
+542
+00:54:40.664 --> 00:54:42.124
+<v Guillaume Hachez>Ah, c'est sélectivité, il y a un instant.
+
+543
+00:54:42.164 --> 00:54:43.864
+<v Pierre-François Lovens>Oui, mais parce que j'observe que c'est comme ça.
+
+544
+00:54:43.984 --> 00:54:44.724
+<v Guillaume Hachez>D'accord, oui.
+
+545
+00:54:44.824 --> 00:54:48.604
+<v Pierre-François Lovens>J'observe effectivement que, dans ces générations...
+
+546
+00:54:48.684 --> 00:54:51.204
+<v Guillaume Hachez>Le milieu entrepreneurial belge est encore assez typé, oui.
+
+547
+00:54:51.244 --> 00:54:59.464
+<v Pierre-François Lovens>Voilà, mais ça, c'est un peu dans les gènes de la Belgique, hein. L'économie belge, l'économie de papa, l'économie des grandes familles.
+
+548
+00:54:59.524 --> 00:55:08.022
+<v Pierre-François Lovens>C'est pas un hasard si effectivement aujourd'hui, la génération de nouveaux entrepreneurs émane notamment. Alors, Guillaume Hachez est un...
+
+549
+00:55:08.352 --> 00:55:08.572
+<v Guillaume Hachez>C'est moi
+
+550
+00:55:08.592 --> 00:55:14.652
+<v Pierre-François Lovens>...est un contre-exemple. Heureusement, et tout ce que peuvent faire d'autres,
+
+551
+00:55:14.932 --> 00:55:18.472
+<v Pierre-François Lovens>que ce soit dans des incubateurs, dans des
+
+552
+00:55:18.572 --> 00:55:30.292
+<v Pierre-François Lovens>écoles de codage où heureusement, on va chercher aussi et on essaie de stimuler l'entrepreneuriat chez des gens qui n'ont pas la chance de naître avec une cuillère en or dans la bouche ou en argent, en argent,
+
+553
+00:55:30.832 --> 00:55:34.282
+<v Pierre-François Lovens>et qui n'ont pas la chance de faire tous des études,
+
+554
+00:55:35.152 --> 00:55:40.232
+<v Pierre-François Lovens>même si je pense que pour être un bon entrepreneur, il faut pas forcément faire de grandes études.
+
+555
+00:55:40.272 --> 00:55:46.952
+<v Pierre-François Lovens>Et donc voilà, je pense qu'il y a une mixité qui va devoir être quand même ou une diversité qui n'est pas encore là...
+
+556
+00:55:47.272 --> 00:55:47.452
+<v Guillaume Hachez>Mhm
+
+557
+00:55:47.512 --> 00:55:54.871
+<v Pierre-François Lovens>...et qu'il va falloir, j'espère, qui va grandir. Et donc aujourd'hui, mon regard a déjà un peu évolué. C'est pas par rapport aux petits deux.
+
+558
+00:55:55.272 --> 00:56:07.742
+<v Pierre-François Lovens>C'est vrai que je citais l'exemple, mais c'est pas ça qui me... aujourd'hui, ce sur quoi j'ai un regard critique, c'est par rapport d'abord au côté très marketing aussi de gens capables de vendre leur boîte. Et que je tombe...
+
+559
+00:56:08.272 --> 00:56:17.152
+<v Pierre-François Lovens>y a trois ans, je tombais facilement dans le panneau, je dis : « Ah oui, c'est génial », etc. Sans me rendre compte qu'en fait telle application avait été déjà faite 10 fois et que le mec, il n'avait juste qu'essayé,
+
+560
+00:56:17.582 --> 00:56:19.912
+<v Pierre-François Lovens>qu'essayé de la transposer en Belgique.
+
+561
+00:56:20.872 --> 00:56:28.172
+<v Pierre-François Lovens>Donc là, j'ai quand même un regard un peu plus aiguisé, heureusement, parce que j'apprends. J'apprends aussi, par exemple, par rapport au fonctionnement de l'écosystème hein.
+
+562
+00:56:28.672 --> 00:56:43.932
+<v Pierre-François Lovens>On voit resurgir ou on a vu surgir finalement des dérives typiquement belges, voire wallonnes, dans la gestion, la manière dont on accompagne les startups, dans la manière dont on attribue les budgets publics, etc.
+
+563
+00:56:45.352 --> 00:56:48.082
+<v Pierre-François Lovens>Donc là-dessus, j'essaie aussi d'avoir un regard plus critique,
+
+564
+00:56:48.512 --> 00:56:56.222
+<v Pierre-François Lovens>mais dans le secteur privé aussi. Je vois aussi l'opportunisme de grandes boîtes privées par rapport au phénomène des startups qui disent : « Ah oui, là, allez, on va mettre...
+
+565
+00:56:56.792 --> 00:56:59.172
+<v Pierre-François Lovens>on va plus dire starter, mais on va dire startup ».
+
+566
+00:56:59.232 --> 00:57:05.972
+<v Pierre-François Lovens>Les grandes banques, notamment. Et voilà, elles essayent un peu de se mettre dans la tendance du moment.
+
+567
+00:57:06.712 --> 00:57:17.652
+<v Pierre-François Lovens>Je vois aussi l'envers du décor des startupers. C'est-à-dire, je vois aussi que c'est pas... et là, c'est plutôt en faveur des gens qui se lancent là-dedans, c'est que
+
+568
+00:57:19.012 --> 00:57:27.012
+<v Pierre-François Lovens>sur les quelques-uns qui réussissent et dont on parle dans les journaux, bon, y en a, y en a, y en a...
+
+569
+00:57:27.232 --> 00:57:27.842
+<v Guillaume Hachez>Beaucoup qui se plantent
+
+570
+00:57:27.932 --> 00:57:28.532
+<v Pierre-François Lovens>...y en a beaucoup...
+
+571
+00:57:28.672 --> 00:57:29.242
+<v Guillaume Hachez>C'est normal, c'est normal
+
+572
+00:57:29.332 --> 00:57:39.912
+<v Pierre-François Lovens>...qui rament, qui se lancent, qui échouent. Et j'aimerais bien de plus en plus m'intéresser à eux parce que je suis pas sûr que le regard de la société belge sur ceux qui échouent a vraiment changé.
+
+573
+00:57:39.972 --> 00:57:42.101
+<v Guillaume Hachez>C'est sûr. Mais justement, je voulais...
+
+574
+00:57:42.172 --> 00:57:42.202
+<v Pierre-François Lovens>Ça, c'est...
+
+575
+00:57:42.332 --> 00:57:50.772
+<v Guillaume Hachez>...te relancer là-dessus. C'est les startups en Belgique, avec la question du regard de la société belge, la question du fonctionnement, de l'argent du papa, l'argent de la famille...
+
+576
+00:57:50.892 --> 00:57:50.902
+<v Pierre-François Lovens>Oui
+
+577
+00:57:50.902 --> 00:57:53.302
+<v Guillaume Hachez>...etc. Enfin, tu le sais...
+
+578
+00:57:53.492 --> 00:57:53.612
+<v Pierre-François Lovens>Oui
+
+579
+00:57:53.662 --> 00:57:56.502
+<v Guillaume Hachez>...parce qu'on en a déjà discuté. Je suis assez sévère, assez cynique...
+
+580
+00:57:56.552 --> 00:57:56.662
+<v Pierre-François Lovens>Oui
+
+581
+00:57:56.732 --> 00:57:58.552
+<v Guillaume Hachez>...sur la scène startup en Belgique...
+
+582
+00:57:58.612 --> 00:57:58.672
+<v Pierre-François Lovens>Oui
+
+583
+00:57:58.692 --> 00:58:06.112
+<v Guillaume Hachez>...et sur la situation. Bah l'exemple le plus concret, c'est le taux de création d'entreprises qui est très très faible en Belgique.
+
+584
+00:58:06.932 --> 00:58:15.992
+<v Guillaume Hachez>Et pourtant, quand on va écouter les acteurs publics, quand on va écouter le gouvernement fédéral, le gouvernement wallon, pour parler de ces questions, mais tout va super bien.
+
+585
+00:58:16.172 --> 00:58:22.152
+<v Guillaume Hachez>Les startups, ça décolle, on en crée plein, tout le monde en fait, et pas seulement un certain public du gouvernement wallon.
+
+586
+00:58:22.812 --> 00:58:34.652
+<v Guillaume Hachez>Voilà. Est-ce que... comment se fait-il qu'on soit aussi déconnecté ? Bon, alors, c'est complètement subjectif hein, mais comment se fait-il qu'il y ait une telle déconnexion entre les chiffres et la façon dont on...
+
+587
+00:58:34.682 --> 00:58:34.692
+<v Pierre-François Lovens>Oui, oui
+
+588
+00:58:34.692 --> 00:58:36.872
+<v Guillaume Hachez>...dépeint la situation ?
+
+589
+00:58:36.992 --> 00:58:48.692
+<v Pierre-François Lovens>Oui, c'est vrai qu'on... c'est souvent frappant quand on va à l'étranger aussi, dans des pays qui ont déjà un historique beaucoup plus long en termes de dynamisme entrepreneurial.
+
+590
+00:58:48.892 --> 00:58:52.472
+<v Pierre-François Lovens>On a eu l'occasion de se rencontrer aux États-Unis. C'est vrai que c'est un peu,
+
+591
+00:58:53.232 --> 00:59:05.422
+<v Pierre-François Lovens>c'est un peu la caricature, mais c'est vrai que quand tu vas à San Francisco ou à New York, bon ben, ou à Boston, tu sens effectivement que, comme ils disent là-bas, le mindset, ça fait un peu snob de le dire, mais...
+
+592
+00:59:05.472 --> 00:59:06.152
+<v Guillaume Hachez>C'est exactement ça.
+
+593
+00:59:06.192 --> 00:59:11.572
+<v Pierre-François Lovens>C'est ça. C'est un autre mindset. Et là, je me dis : « Putain, on est quand même loin encore. On est encore...
+
+594
+00:59:11.692 --> 00:59:12.352
+<v Guillaume Hachez>On est très très loin
+
+595
+00:59:12.372 --> 00:59:24.412
+<v Pierre-François Lovens>...encore dans la préhistoire. Et comment effectivement, un gouvernement, qu'il soit fédéral, wallon, vient nous dire : la Belgique ou la Wallonie devient un nouvel Eldorado.
+
+596
+00:59:24.511 --> 00:59:26.792
+<v Pierre-François Lovens>Voilà, parfois, je dois un peu me pincer parce que...
+
+597
+00:59:26.872 --> 00:59:32.632
+<v Guillaume Hachez>Ils ont généralement tendance à se focaliser sur le fait qu'on a plutôt de bons chiffres en termes de croissance.
+
+598
+00:59:32.672 --> 00:59:32.992
+<v Pierre-François Lovens>Oui.
+
+599
+00:59:33.472 --> 00:59:35.512
+<v Guillaume Hachez>Mais ils oublient de dire qu'il y a très peu de gens qui se lancent.
+
+600
+00:59:35.552 --> 00:59:40.432
+<v Pierre-François Lovens>Oui, et honnêtement, pour l'instant, moi je suis convaincu que les choses évoluent et qu'elles bougent.
+
+601
+00:59:40.832 --> 00:59:41.292
+<v Guillaume Hachez>C'est sûr.
+
+603
+00:59:41.832 --> 00:59:43.212
+<v Guillaume Hachez>La génération Z, comme tu le disais.
+
+604
+00:59:43.222 --> 00:59:50.392
+<v Pierre-François Lovens>Sur les cinq dernières années, je pense qu'on a fait beaucoup de choses et que ça va vraiment dans le bon sens. Maintenant, c'est le tout début de l'histoire.
+
+605
+00:59:50.432 --> 00:59:51.992
+<v Guillaume Hachez>C'est sûr. On part de loin, on part de loin.
+
+606
+00:59:52.072 --> 00:59:59.792
+<v Pierre-François Lovens>Et pour relever ce taux de création d'entreprises et surtout connaître des réussites, voilà, on n'est pas encore arrivé.
+
+607
+01:00:00.652 --> 01:00:08.591
+<v Pierre-François Lovens>Moi, je serais incapable de citer cinq startups wallonnes qui ont vraiment réussi, qui sont devenues des scale-up.
+
+608
+01:00:08.882 --> 01:00:15.132
+<v Pierre-François Lovens>D'abord, c'est difficile de définir une scale-up, mais on parle d'Odoo. Bon, Odoo est une très belle réussite.
+
+609
+01:00:15.752 --> 01:00:15.762
+<v Guillaume Hachez>Mmm-hmm.
+
+610
+01:00:15.762 --> 01:00:20.711
+<v Pierre-François Lovens>Mais derrière Odoo... Alors, je mets les biotechs de côté, je parle vraiment des startups numériques.
+
+611
+01:00:21.512 --> 01:00:31.172
+<v Pierre-François Lovens>Quelles sont aujourd'hui vraiment celles qui vont être capables de créer 200, 300 emplois en étant au départ de projets de startup...
+
+612
+01:00:31.252 --> 01:00:31.952
+<v Guillaume Hachez>En partant de rien, oui.
+
+613
+01:00:32.152 --> 01:00:33.432
+<v Pierre-François Lovens>...en partant pratiquement de rien.
+
+614
+01:00:33.932 --> 01:00:40.792
+<v Pierre-François Lovens>Alors, toutes les startups ne doivent pas devenir des gros employeurs, mais vraiment des choses qui sortent, qui deviennent vraiment des références
+
+615
+01:00:41.282 --> 01:00:46.532
+<v Pierre-François Lovens>au niveau... Comme en Flandre, ils ont déjà une avance quand même plus marquée.
+
+616
+01:00:46.592 --> 01:00:46.922
+<v Guillaume Hachez>C'est sûr, oui.
+
+617
+01:00:46.922 --> 01:00:50.392
+<v Pierre-François Lovens>Ils ont de très belles réussites. En Wallonie, on manque encore de réussites.
+
+618
+01:00:50.972 --> 01:00:51.112
+<v Guillaume Hachez>Oui.
+
+619
+01:00:51.512 --> 01:01:07.232
+<v Pierre-François Lovens>Mais voilà, ça va venir. Et je suis sûr que le fait aussi aujourd'hui que de plus en plus d'entrepreneurs commencent à redonner ce qu'ils ont peut-être eu et gagné ou eu comme expérience, de réinvestir dans des boîtes.
+
+620
+01:01:07.292 --> 01:01:17.228
+<v Pierre-François Lovens>Tout ça est assez lent, mais ça va plutôt dans le bon sens. Et donc, c'est une drôle d'alchimie tout ça, entre le public, le privé, l'entrepreneur, la bonne équipe, etc.
+
+621
+01:01:17.648 --> 01:01:23.338
+<v Guillaume Hachez>On parle souvent de la culture de l'exemple et de l'importance des role models. Est-ce que tu as le sentiment que--
+
+622
+01:01:24.288 --> 01:01:32.248
+<v Guillaume Hachez>est-ce qu'en fait, c'était un de vos paramètres, un de vos objectifs en créant le-- enfin, en affichant le One Hour Challenge dans La Libre Belgique ?
+
+623
+01:01:32.278 --> 01:01:34.208
+<v Guillaume Hachez>Parce que de participer à ce mouvement-là de-
+
+624
+01:01:34.238 --> 01:01:38.028
+<v Pierre-François Lovens>Oui, clairement. Et ça, je l'assume et je le revendique. C'est-à-dire, je pense que
+
+625
+01:01:38.908 --> 01:01:51.158
+<v Pierre-François Lovens>il était intéressant et de notre rôle de donner une visibilité médiatique à tout un pan de l'économie qui n'avait pas suffisamment de-- qui n'était pas suffisamment représenté dans la presse francophone belge.
+
+626
+01:01:51.408 --> 01:01:57.848
+<v Pierre-François Lovens>Ça veut pas dire qu'on était les premiers à le faire, certainement pas. Il y avait d'autres journalistes avant moi qui se sont intéressés avant moi à ce sujet-là.
+
+627
+01:01:58.088 --> 01:02:05.368
+<v Pierre-François Lovens>Mais c'est vrai qu'il y avait un tel déséquilibre entre l'importance qu'on peut donner aux grosses boîtes, celles du Bel20,
+
+628
+01:02:06.128 --> 01:02:12.188
+<v Pierre-François Lovens>pour parler des boîtes belges, et tout ce tissu d'innovation, d'entrepreneuriat,
+
+629
+01:02:12.908 --> 01:02:23.998
+<v Pierre-François Lovens>que voilà, à travers le One Hour Challenge, on a voulu vraiment montrer à nos lecteurs que, ben voilà, il y avait aussi une nouvelle économie qui était en train d'émerger.
+
+630
+01:02:24.668 --> 01:02:30.968
+<v Pierre-François Lovens>Et le fait de l'avoir fait avec LeanSquare, pour moi, ça m'a permis aussi d'accélérer ma-
+
+631
+01:02:31.728 --> 01:02:32.278
+<v Guillaume Hachez>Ta transition.
+
+632
+01:02:32.728 --> 01:02:41.748
+<v Pierre-François Lovens>...ma transition et ma connaissance du secteur, parce que je suis tombé sur des gens comme Ben Picker ou Roald Sibbersen qui sont, eux, dans le milieu et l'écosystème depuis longtemps,
+
+633
+01:02:42.528 --> 01:02:46.108
+<v Pierre-François Lovens>et qui ont pu me mettre, alors eux, en contact avec d'autres.
+
+634
+01:02:46.168 --> 01:02:54.128
+<v Pierre-François Lovens>Maintenant, voilà, heureusement, j'ai élargi mes horizons grâce à ça, mais le One Hour Challenge, on va pas le faire non plus pendant dix ans.
+
+635
+01:02:54.208 --> 01:03:04.028
+<v Pierre-François Lovens>Donc il faudra passer à autre chose. Mais pour l'instant, en tout cas, vu qu'il y a un intérêt des start-up de faire savoir ce qu'elles font et...
+
+636
+01:03:04.068 --> 01:03:09.448
+<v Pierre-François Lovens>Maintenant, ce qui va être intéressant de faire, c'est un suivi surtout, parce que moi, ce qui m'intéresse comme journaliste, c'est aussi de-
+
+637
+01:03:09.588 --> 01:03:10.388
+<v Guillaume Hachez>Oui, de parler de ceux qui-
+
+638
+01:03:10.478 --> 01:03:16.388
+<v Pierre-François Lovens>...de parler de ceux qui s'accrochent et qui vont, comme Quiteric, qui vont grandir et tous les autres.
+
+639
+01:03:16.428 --> 01:03:22.327
+<v Pierre-François Lovens>Et donc ça, c'est le plus intéressant. Ou aller voir ceux qui se sont plantés, pourquoi ? Qu'est-ce qui a manqué ?
+
+640
+01:03:22.368 --> 01:03:30.147
+<v Pierre-François Lovens>Voilà. Parce que je commence maintenant à rencontrer aussi, à connaître des boîtes, voilà, qui malheureusement n'ont pas tenu un an ou deux ans et...
+
+641
+01:03:30.608 --> 01:03:35.348
+<v Guillaume Hachez>Mais globalement, tu es optimiste et tu penses qu'on va dans le bon sens et que les choses vont en s'améliorant.
+
+642
+01:03:35.448 --> 01:03:40.808
+<v Pierre-François Lovens>Oui. Maintenant, parfois, je me demande si je vis pas trop dans-- On reproche souvent aux journalistes de vivre un peu-
+
+643
+01:03:40.868 --> 01:03:41.548
+<v Guillaume Hachez>Dans sa bulle.
+
+644
+01:03:41.948 --> 01:03:57.168
+<v Pierre-François Lovens>...oui, dans sa bulle. Et parfois, j'aimerais bien qu'on me dise : « Attends, tu te fais des-- » pas des illusions, mais parfois peut-être que, voilà, il faudrait pas que je reste trop dans une bulle Bruxelles, Béwé, Liège.
+
+645
+01:03:57.688 --> 01:04:00.408
+<v Pierre-François Lovens>Il faudrait que je voie aussi, voilà, que-
+
+646
+01:04:00.848 --> 01:04:03.708
+<v Guillaume Hachez>Tu veux chercher des entrepreneurs dans les Ardennes, c'est ça que tu dis ?
+
+647
+01:04:04.328 --> 01:04:12.748
+<v Pierre-François Lovens>Mais que je reste vigilant sur le, voilà, pour éviter de tomber dans ce que tu appelais le bullshit quoi. Et parce qu'il y en a qui sont très doués pour faire du marketing entrepreneurial.
+
+648
+01:04:13.488 --> 01:04:22.868
+<v Pierre-François Lovens>Et donc voilà, ça, c'est mon rôle de journaliste. Et c'est pas les entrepreneurs qui vont me le dire, mais de déguiser mon regard pour être sûr d'identifier vraiment les gens qui,
+
+649
+01:04:23.788 --> 01:04:27.608
+<v Pierre-François Lovens>qui innovent et qui ont les-- parce que tout le monde peut pas être entrepreneur.
+
+650
+01:04:27.628 --> 01:04:35.488
+<v Pierre-François Lovens>Moi, je veux pas être dans une société où on dit : il faut être entrepreneur. Voilà, s'il y en a plus, tant mieux, mais je suis convaincu que tout le monde ne peut pas l'être et que voilà-
+
+651
+01:04:35.628 --> 01:04:36.038
+<v Guillaume Hachez>Non, c'est sûr.
+
+652
+01:04:36.508 --> 01:04:46.048
+<v Pierre-François Lovens>...Et, mais s'il y a des gens dans la nouvelle génération qui ont ça dans leur ADN, waouh ! Moi, je suis vraiment admiratif parce que moi, je serais incapable d'être entrepreneur.
+
+653
+01:04:46.088 --> 01:04:53.228
+<v Pierre-François Lovens>Moi, je saurais pas être entrepreneur. J'ai de l'admiration en fait pour-- parce que j'ai de l'admiration pour les gens qui ont des trucs que moi, je n'ai pas.
+
+654
+01:04:53.368 --> 01:05:03.568
+<v Pierre-François Lovens>Et je suis pas du tout technicien, je suis pas un leader, mais voilà, je suis curieux et j'aime voir des gens qui...
+
+655
+01:05:04.488 --> 01:05:11.308
+<v Pierre-François Lovens>C'est peut-être aussi parce que mon fils arrive à un âge où il pourrait devenir un startuppeur et je me dis : « Tiens,
+
+656
+01:05:12.688 --> 01:05:18.908
+<v Pierre-François Lovens>c'est quand même super que dans notre société à nous, ici en Belgique, c'est une chance d'avoir tous ces gens-là.
+
+657
+01:05:19.528 --> 01:05:30.648
+<v Pierre-François Lovens>Il faut les aider, mais il faut pas non plus les glorifier à tout prix, je dis ça vous... » Mais voilà, moi, c'est une catégorie de gens dans l'économie qui m'intéresse plus que de m'intéresser à des,
+
+658
+01:05:31.588 --> 01:05:38.848
+<v Pierre-François Lovens>voilà, des grands capitaines d'industrie avec des moyens importants, etc. Voilà.
+
+659
+01:05:38.988 --> 01:05:39.078
+<v Guillaume Hachez>OK.
+
+660
+01:05:39.488 --> 01:05:44.468
+<v Pierre-François Lovens>Tout ce qui sort, toute la matière grise qui sort de cette nouvelle génération m'intéresse. C'est voir un peu ce qu'elle est capable de faire.
+
+661
+01:05:44.808 --> 01:05:50.228
+<v Guillaume Hachez>Donc, une note positive alors pour ce côté. C'était très intéressant. Merci beaucoup Pierre-François.
+
+662
+01:05:50.268 --> 01:05:50.988
+<v Pierre-François Lovens>Merci à toi Guillaume.
+
+663
+01:05:51.048 --> 01:05:54.048
+<v Guillaume Hachez>Et on se retrouve pour un prochain épisode très bientôt. Au revoir.
+
+664
+01:05:54.078 --> 01:05:54.608
+<v Pierre-François Lovens>Au revoir.
+
+665
+01:05:56.308 --> 01:06:01.188
+<v Guillaume Hachez>Et c'est déjà tout pour cet épisode. Je remercie Pierre-François de m'avoir accordé une heure de son temps. C'était très intéressant.
+
+666
+01:06:01.228 --> 01:06:08.068
+<v Guillaume Hachez>On a rapidement émis quelques critiques vis-à-vis de la scène start-up belge. Pour ceux que ça intéresse, j'ai écrit un article à ce sujet il y a à peu près un an.
+
+667
+01:06:08.168 --> 01:06:13.668
+<v Guillaume Hachez>Ça parle de la peur du risque, de la peur de l'échec qu'on connaît ici en Belgique et de pourquoi on n'a pas assez d'entrepreneurs.
+
+668
+01:06:14.088 --> 01:06:21.428
+<v Guillaume Hachez>Ça s'appelle Des Hobbits en Belgique et c'est disponible sur Medium. Si vous avez apprécié cet épisode, n'oubliez pas de vous abonner sur votre plateforme de podcast préférée.
+
+669
+01:06:21.948 --> 01:06:27.668
+<v Guillaume Hachez>Et si vous écoutez sur iTunes, essayez de me laisser cinq étoiles, ça m'aide énormément. Allez, à très bientôt.

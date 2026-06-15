@@ -1,0 +1,2481 @@
+WEBVTT
+
+0
+00:00:00.220 --> 00:00:03.760
+<v Guillaume Hachez>Salut, moi, c'est Guillaume Hachez. Bienvenue dans Septante Minutes Avec.
+
+1
+00:00:15.550 --> 00:00:25.080
+<v Guillaume Hachez>Après deux épisodes axés sur la politique belge avec Frédéric Chardon de La Libre Belgique et l'écologiste Barbara Trachte, je voulais conclure cette série en beauté en parlant de politique internationale.
+
+2
+00:00:25.620 --> 00:00:33.200
+<v Guillaume Hachez>On avait abordé avec les deux invités précédents la montée des extrêmes un peu partout dans le monde, y compris au Brésil, aux États-Unis et maintenant en Belgique.
+
+3
+00:00:33.620 --> 00:00:42.200
+<v Guillaume Hachez>On avait rapidement évoqué l'importance des réseaux sociaux pour tous ces partis populistes, mais sans vraiment aller au fond des choses, sans vraiment expliquer leur stratégie.
+
+4
+00:00:42.860 --> 00:00:49.960
+<v Guillaume Hachez>C'est maintenant chose faite puisque dans cet épisode, je reçois l'excellent Giuliano da Empoli, qui est l'auteur d'un très bon livre à ce sujet.
+
+5
+00:00:50.000 --> 00:00:57.460
+<v Guillaume Hachez>Il est italien, mais rassurez-vous, cet épisode est en français. C'est vraiment un très bon épisode, donc j'espère que vous me pardonnerez mon retard et j'espère qu'il vous plaira aussi.
+
+6
+00:00:58.280 --> 00:01:07.700
+<v Guillaume Hachez>C'est parti. Bonjour à tous. Aujourd'hui, j'ai le plaisir d'être rejoint par monsieur Giuliano da Empoli. Giuliano, bonjour.
+
+7
+00:01:07.760 --> 00:01:08.119
+<v Giuliano da Empoli>Bonjour.
+
+8
+00:01:08.500 --> 00:01:16.320
+<v Guillaume Hachez>Vous êtes directeur du think tank Volta à Milan et vous étiez auparavant conseiller politique de Matteo Renzi lorsqu'il était Premier ministre.
+
+9
+00:01:16.820 --> 00:01:25.700
+<v Guillaume Hachez>Et vous êtes surtout l'auteur du livre Les ingénieurs du chaos, raison pour laquelle nous vous avons invité aujourd'hui dans cette émission, qui est publié aux éditions Jean-Claude Lattès.
+
+10
+00:01:26.140 --> 00:01:31.420
+<v Guillaume Hachez>Mais je suis également rejoint exceptionnellement par mon très bon ami Patrick Beja. Patrick, salut.
+
+11
+00:01:31.580 --> 00:01:33.300
+<v Patrick Beja>Salut Guillaume, merci de l'invitation.
+
+12
+00:01:33.420 --> 00:01:41.040
+<v Guillaume Hachez>Donc tu es, pour ceux qui ne te connaissent pas, les rares, les quelques-uns qui ne te connaissent pas, tu es l'animateur du Rendez-vous Tech et de l'émission en anglais le Phileas Club.
+
+13
+00:01:41.860 --> 00:01:49.060
+<v Guillaume Hachez>Et c'est justement parce qu'on va parler aujourd'hui de technologie et de politique internationale que je tenais à ce que tu nous rejoignes pour cet entretien.
+
+14
+00:01:49.540 --> 00:01:59.860
+<v Guillaume Hachez>Alors, avant de se lancer, Giuliano, je vais vous demander, peut-être pour ceux qui ne vous connaissent pas, de vous présenter et peut-être de nous expliquer un petit peu ce que c'est Volta, votre think tank.
+
+15
+00:02:00.700 --> 00:02:13.880
+<v Giuliano da Empoli>Oui, donc, je suis surtout un auteur d'essais sur des thèmes de société et de politique depuis assez longtemps.
+
+16
+00:02:13.920 --> 00:02:22.000
+<v Giuliano da Empoli>J'ai commencé tôt, quand j'avais vingt-trois ans et j'ai pas vraiment arrêté depuis. Aujourd'hui, j'en ai quarante-cinq.
+
+17
+00:02:22.870 --> 00:02:38.420
+<v Giuliano da Empoli>Et donc j'ai publié une douzaine d'essais sur plusieurs thèmes, initialement en italien et puis qui ont été traduits, dont le dernier, justement, qui a été écrit directement en français et qui s'appelle justement Les ingénieurs du chaos.
+
+18
+00:02:39.160 --> 00:02:55.040
+<v Giuliano da Empoli>Parallèlement à ça, j'ai suivi un parcours aussi de conseil politique. Donc, j'ai été conseiller de beaucoup d'hommes politiques italiens et européens.
+
+19
+00:02:55.760 --> 00:03:10.700
+<v Giuliano da Empoli>Et notamment, j'ai été adjoint à la culture du maire de Florence, Matteo Renzi, quand il était maire, et je l'ai depuis suivi comme conseiller politique quand il est devenu Premier ministre de l'Italie.
+
+20
+00:03:11.340 --> 00:03:24.300
+<v Giuliano da Empoli>À partir de 2015, avec un groupe d'amis, nous avons décidé de créer un think tank, justement, basé à Milan, qui est la ville la plus dynamique d'Italie,
+
+21
+00:03:24.960 --> 00:03:39.580
+<v Giuliano da Empoli>avec l'objectif surtout de relancer en Italie une nouvelle façon de regarder les problématiques européennes et de relancer un discours europhile.
+
+22
+00:03:39.940 --> 00:03:52.040
+<v Giuliano da Empoli>Bon, vous me direz, ça n'a pas très bien marché vu ce qui s'est passé en Italie depuis. Donc, effectivement, nous n'avons peut-être pas produit l'effet escompté.
+
+23
+00:03:52.480 --> 00:04:07.800
+<v Giuliano da Empoli>Et c'est pour ça d'ailleurs, peut-être, que j'ai écrit ce livre, qui s'occupe des stratégies, d'essayer un tout petit peu d'analyser les stratégies des spin doctors nationaux populistes qui sont aujourd'hui
+
+24
+00:04:08.640 --> 00:04:09.930
+<v Giuliano da Empoli>dominants au niveau,
+
+25
+00:04:10.800 --> 00:04:15.500
+<v Giuliano da Empoli>au niveau du moins électoral de beaucoup de pays européens.
+
+26
+00:04:15.820 --> 00:04:18.920
+<v Guillaume Hachez>Excellent. Mais on va plonger tout de suite alors au cœur du sujet.
+
+27
+00:04:19.420 --> 00:04:23.440
+<v Guillaume Hachez>Dans votre livre, vous expliquez que nous sommes entrés dans un monde post-idéologique
+
+28
+00:04:23.880 --> 00:04:34.580
+<v Guillaume Hachez>et que c'est en grande partie grâce à cela et au talent de ceux que vous appelez les ingénieurs du chaos, que, voilà, des figures populistes comme Donald Trump, Viktor Orbán et le mouvement Cinq Étoiles ont pu obtenir le pouvoir.
+
+29
+00:04:34.640 --> 00:04:41.520
+<v Guillaume Hachez>Du coup, je suis obligé de vous poser la question : qu'est-ce que ça signifie exactement en politique, ce mot post-idéologique ?
+
+30
+00:04:41.580 --> 00:04:48.880
+<v Giuliano da Empoli>Je ne sais pas si nous sommes entrés dans un monde post-idéologique. Je pense que nous sommes en train de changer d'idéologie plutôt.
+
+31
+00:04:48.940 --> 00:04:55.700
+<v Giuliano da Empoli>C'est-à-dire que les nationaux populistes sont en train de désarticuler l'ancien clivage,
+
+32
+00:04:56.400 --> 00:05:11.400
+<v Giuliano da Empoli>droite-gauche. C'est vrai que, bon, il y a un philosophe allemand qui s'appelle Peter Sloterdijk, qui dit : « Il y a toujours une certaine quantité de colère à l'intérieur de toutes les sociétés.
+
+33
+00:05:11.560 --> 00:05:20.020
+<v Giuliano da Empoli>» Et il y a traditionnellement des forces qui ont su intercepter cette colère pour construire des projets politiques dessus.
+
+34
+00:05:20.520 --> 00:05:34.100
+<v Giuliano da Empoli>Il dit : « Traditionnellement, au cours du XXe siècle, ça a été surtout les partis de gauche, pas que les partis de gauche, mais beaucoup les partis de la gauche qui ont intercepté la colère et le désir de changement,
+
+35
+00:05:34.580 --> 00:05:37.739
+<v Giuliano da Empoli>pour en faire des projets politiques.
+
+36
+00:05:38.220 --> 00:05:51.160
+<v Giuliano da Empoli>» C'est vrai qu'à la fin du XXe siècle, les partis de la gauche qui se sont un peu rendus aux lois du marché, du gouvernement plutôt centriste.
+
+37
+00:05:51.560 --> 00:05:57.780
+<v Giuliano da Empoli>C'est vrai que les partis de la gauche traditionnelle ont un peu perdu cette capacité d'intercepter la colère,
+
+38
+00:05:58.220 --> 00:06:08.780
+<v Giuliano da Empoli>que nos sociétés nourrissent de tout temps et qui, évidemment, augmente dans des temps de crise comme ça a été le cas en Europe à partir de 2008.
+
+39
+00:06:09.440 --> 00:06:22.860
+<v Giuliano da Empoli>Et donc, il y a de nouvelles forces qui sont apparues, qui ont su intercepter cette rage et cette colère contre le système et qui, elles, oui, ont tendance à désarticuler les vieux clivages.
+
+40
+00:06:23.460 --> 00:06:35.880
+<v Giuliano da Empoli>Le succès des nationaux populistes, il est basé sur la capacité d'intercepter les suffrages des électeurs qui appartiennent, qui proviennent,
+
+41
+00:06:36.640 --> 00:06:48.920
+<v Giuliano da Empoli>disons, souvent, les leaders viennent de la droite ou même de l'extrême droite, mais après, ils arrivent aussi à intercepter les suffrages d'anciens électeurs de gauche et même d'extrême gauche.
+
+42
+00:06:49.360 --> 00:06:51.810
+<v Giuliano da Empoli>Donc, on dit qu'ils ont du succès,
+
+43
+00:06:52.320 --> 00:07:01.160
+<v Giuliano da Empoli>les Trump, les Brexiteers, les nationaux populistes de tous bords, inclus les Italiens,
+
+44
+00:07:01.640 --> 00:07:08.580
+<v Giuliano da Empoli>quand ils n'ont pas que les votes des fachos, mais ceux des fâchés aussi, de tous les fâchés, de tous les mécontents.
+
+45
+00:07:09.180 --> 00:07:18.240
+<v Giuliano da Empoli>Et ça, c'est vrai, ça désarticule le vieux clivage. Après, je ne sais pas si c'est post-idéologique, parce que la force
+
+46
+00:07:18.760 --> 00:07:27.270
+<v Giuliano da Empoli>de ces nouveaux mouvements, c'est aussi de réinjecter, si vous voulez, de l'idéologie dans les discours, hein, face
+
+47
+00:07:27.770 --> 00:07:35.880
+<v Giuliano da Empoli>à des forces plus traditionnelles qui sont devenues beaucoup plus technocratiques, qui parlent beaucoup moins de valeurs, d'idéaux, etc.
+
+48
+00:07:36.520 --> 00:07:40.500
+<v Giuliano da Empoli>Donc, on est encore quand même dans l'idéologie, bien souvent.
+
+49
+00:07:40.860 --> 00:07:54.740
+<v Patrick Beja>Vous nous dites qu'effectivement, il y a un mécanisme de récupération qui est pas nouveau, mais pour plonger au cœur de la différence dans les événements que nous voyons aujourd'hui,
+
+50
+00:07:55.400 --> 00:08:04.120
+<v Patrick Beja>est-ce que vous pensez que cette récupération aurait été possible sans la technologie et les réseaux sociaux ?
+
+51
+00:08:04.140 --> 00:08:15.580
+<v Patrick Beja>Ou est-ce que c'est une composante nécessaire de cette montée de cette nouvelle forme de national-populiste ? Parce qu'on a l'impression que la valeur, peut-être pas de l'idéologie, mais de la réalité,
+
+52
+00:08:16.180 --> 00:08:22.940
+<v Patrick Beja>s'est amoindrie et que c'est un facteur de l'abondance d'informations qu'on a avec les réseaux sociaux.
+
+53
+00:08:22.980 --> 00:08:32.720
+<v Patrick Beja>Donc, est-ce que-- je vous repose la question : est-ce que vous pensez que ça aurait été possible, ce phénomène, sans les réseaux sociaux ou ils sont une composante essentielle ?
+
+54
+00:08:32.790 --> 00:08:42.090
+<v Giuliano da Empoli>Je pense qu'ils sont une composante essentielle. D'ailleurs, un livre précédent que j'avais écrit en Italie sur le Mouvement cinq étoiles s'appelait « La rage et l'algorithme ».
+
+55
+00:08:42.260 --> 00:08:55.500
+<v Giuliano da Empoli>C'est-à-dire, à mon avis, ces nouveaux mouvements, ils se basent justement sur un socle de colère et de mécontentement qui est réel et qui dérive bien souvent de phénomènes et de problèmes réels.
+
+56
+00:08:56.020 --> 00:09:07.660
+<v Giuliano da Empoli>Mais après, il est multiplié et canalisé, justement, par les algorithmes des ingénieurs du chaos. C'est tout le thème, d'ailleurs, du livre.
+
+57
+00:09:08.160 --> 00:09:11.540
+<v Giuliano da Empoli>C'est-à-dire, ces mouvements ont compris,
+
+58
+00:09:12.080 --> 00:09:17.260
+<v Giuliano da Empoli>qu'on pouvait, justement, que la rage était une ressource politique
+
+59
+00:09:17.700 --> 00:09:21.620
+<v Giuliano da Empoli>et qu'il existe aujourd'hui des instruments beaucoup plus sophistiqués,
+
+60
+00:09:22.060 --> 00:09:35.680
+<v Giuliano da Empoli>pour aller puiser dans les poches de rage, disons, des électeurs qui peuvent avoir d'ailleurs des causes très différentes entre elles et même contradictoires entre elles.
+
+61
+00:09:36.220 --> 00:09:48.060
+<v Giuliano da Empoli>Mais aujourd'hui, par rapport à il y a 10, 15 ans, justement, on peut importer en politique la logique de Facebook ou de YouTube, c'est-à-dire comment ça marche.
+
+62
+00:09:48.660 --> 00:10:04.160
+<v Giuliano da Empoli>Facebook n'a pas vraiment un intérêt à promouvoir les théories du complot ou des fake news, mais Facebook a simplement intérêt à vous garder sur sa plateforme le plus longuement possible.
+
+63
+00:10:04.170 --> 00:10:14.580
+<v Giuliano da Empoli>Donc, le seul critère, c'est l'engagement, non. Et donc, il va vous donner exactement ce que vous voulez pour vous garder le plus longtemps sur la plateforme.
+
+64
+00:10:15.060 --> 00:10:24.560
+<v Giuliano da Empoli>Si vous voulez des gentilles poésies de Rainer Maria Rilke, il va vous bombarder de ça. Après quelques clics, vous êtes là et puis il vous en envoie plus.
+
+65
+00:10:24.660 --> 00:10:36.820
+<v Giuliano da Empoli>Mais si, par hasard, vous cliquez sur un thème un peu plus, disons, controversé ou un peu plus chaud, sur une fake news ou sur quelque chose, il va vous inonder de ça.
+
+66
+00:10:37.500 --> 00:10:43.680
+<v Giuliano da Empoli>Et surtout, après, bon, il est pas tout à fait neutre, ça. On a vu ça avec les algorithmes, par exemple, de YouTube.
+
+67
+00:10:43.780 --> 00:10:48.520
+<v Giuliano da Empoli>C'est-à-dire, oui, il vous renvoie ce que vous voulez et,
+
+68
+00:10:49.380 --> 00:10:51.180
+<v Giuliano da Empoli>et vos préférences par rapport à vos clics,
+
+69
+00:10:51.640 --> 00:11:05.980
+<v Giuliano da Empoli>mais en même temps, il essaye aussi de vous porter sur des contenus qui sont prouvés, qui génèrent plus d'engagement, donc plus d'excitation, plus de peur, plus de colère, plus de-- bon,
+
+70
+00:11:06.540 --> 00:11:11.240
+<v Giuliano da Empoli>et ça, effectivement, c'est souvent des thèmes un peu, enfin, c'est des thèmes,
+
+71
+00:11:12.220 --> 00:11:17.200
+<v Giuliano da Empoli>souvent un peu extrêmes d'un point de vue politique ou de l'information.
+
+72
+00:11:17.240 --> 00:11:25.680
+<v Giuliano da Empoli>Ça peut être souvent des fake news. On a vu que les fake news circulent beaucoup plus rapidement sur les réseaux sociaux par rapport aux informations vraies.
+
+73
+00:11:25.700 --> 00:11:34.680
+<v Giuliano da Empoli>Il y a eu des expériences qui ont été faites sur ça. Et donc, en effet, c'est tout à fait fondamental de pouvoir compter sur cet élément.
+
+74
+00:11:34.700 --> 00:11:40.890
+<v Giuliano da Empoli>Après, moi, je ne veux pas faire de longues-- je parle trop, comme vous voyez, donc je vais essayer de-
+
+75
+00:11:40.980 --> 00:11:41.460
+<v Patrick Beja>C'est très bien.
+
+76
+00:11:42.220 --> 00:11:53.780
+<v Giuliano da Empoli>Mais je vais quand même après peut-être vous raconter comment, de ce point de vue, a été conçue la campagne du Brexit, parce que c'est un peu un exemple paradigmatique de ce procédé.
+
+77
+00:11:54.208 --> 00:12:06.408
+<v Guillaume Hachez>Tout à fait. On viendra dans un instant à la campagne du Brexit. Effectivement, vous présentez très bien à quel point l'outil que sont les réseaux sociaux est très puissant, et en particulier pour la classe politique.
+
+78
+00:12:06.728 --> 00:12:14.448
+<v Guillaume Hachez>C'est un nouvel outil de marketing très puissant. D'ailleurs, la tête pensante du mouvement Cinq étoiles disait : « Nous sommes Netflix.
+
+79
+00:12:14.508 --> 00:12:25.968
+<v Guillaume Hachez>La partiocratie est un peu comme un vieux blockbuster » pour bien montrer, pour bien marquer à quel point la révolution numérique est marquée dans le domaine politique, tout comme dans le domaine de la vidéo.
+
+80
+00:12:26.408 --> 00:12:35.008
+<v Guillaume Hachez>On a très bien compris que ça cassait les vieux clivages gauche-droite. On reviendra sur le comment c'est possible, c'est très intéressant.
+
+81
+00:12:35.348 --> 00:12:44.348
+<v Guillaume Hachez>Mais si on comprend bien que le mouvement Cinq étoiles, par exemple, a réussi à séduire tous ces laissés-pour-compte, toutes ces personnes marquées par cette rage,
+
+82
+00:12:44.868 --> 00:12:49.768
+<v Guillaume Hachez>ce qui est moins clair, c'est comment il a réussi à tous les fédérer en un seul mouvement, à s'assurer que cet électorat-là
+
+83
+00:12:50.488 --> 00:12:53.028
+<v Guillaume Hachez>ne se divise pas en plusieurs petits partis.
+
+84
+00:12:53.728 --> 00:12:54.938
+<v Guillaume Hachez>Comment est-ce qu'ils ont fait ça exactement ?
+
+85
+00:12:55.828 --> 00:13:02.018
+<v Giuliano da Empoli>Le mouvement Cinq étoiles, c'est quand même un phénomène assez fascinant et assez unique parce que c'est un peu comme
+
+86
+00:13:02.668 --> 00:13:12.768
+<v Giuliano da Empoli>si Cambridge Analytica, au lieu d'être employé par la campagne Trump ou par la campagne du Brexit, avait fondé son propre parti et avait pris le pouvoir directement. Après,
+
+87
+00:13:14.068 --> 00:13:23.348
+<v Giuliano da Empoli>ce n'est pas tout à fait ça, mais c'est quand même un mouvement qui naît d'une intuition d'une sorte d'ingénieur informatique qui s'appelait
+
+88
+00:13:24.288 --> 00:13:34.888
+<v Giuliano da Empoli>Gian Roberto Casaleggio, qui comprend au début des années 2000 qu'Internet va changer la politique et qu'il va surtout falloir utiliser les données.
+
+89
+00:13:34.968 --> 00:13:42.288
+<v Giuliano da Empoli>Mais il comprend aussi qu'on ne peut pas faire un parti purement Internet, ça ne marcherait pas comme les partis pirates de l'Europe du Nord, par exemple.
+
+90
+00:13:42.848 --> 00:13:57.048
+<v Giuliano da Empoli>Et donc il va chez un comique qui s'appelle Beppe Grillo et lui dit : « On va faire un blog, tu seras le porte-parole de ça et moi, je serai derrière et on prendra les thèmes qui marchent mieux et on va faire ça sur Internet.
+
+91
+00:13:57.378 --> 00:14:10.788
+<v Giuliano da Empoli>» Et en même temps, en récoltant les données, etc. Après, ça se développe, il y a de nouveaux personnages qui sortent. Toute la classe dirigeante du mouvement Cinq étoiles est recrutée à travers des sortes de casting Facebook
+
+92
+00:14:11.588 --> 00:14:15.628
+<v Giuliano da Empoli>et ils sont testés constamment pour voir qui marche, qui ne marche pas.
+
+93
+00:14:15.688 --> 00:14:27.568
+<v Giuliano da Empoli>Les thèmes de campagne, ça fonctionne de la même façon. On teste tout et on ne garde que ce qui génère de l'engagement. Après, dans leur cas, tout est complètement centralisé.
+
+94
+00:14:27.868 --> 00:14:36.488
+<v Giuliano da Empoli>C'est vraiment un peu Big Brother parce qu'il n'y a aucune... Et là, c'est encore un peu le modèle Silicon Valley, si vous voulez.
+
+95
+00:14:36.568 --> 00:14:41.088
+<v Giuliano da Empoli>C'est-à-dire, la transparence est pour tout le monde sauf pour eux-mêmes. Donc
+
+96
+00:14:42.448 --> 00:14:47.308
+<v Giuliano da Empoli>la plateforme qui aujourd'hui s'appelle la plateforme Rousseau, sur laquelle se base
+
+97
+00:14:47.968 --> 00:14:57.408
+<v Giuliano da Empoli>le fonctionnement du mouvement Cinq étoiles, c'est une plateforme privée qui est contrôlée aujourd'hui par le fils de Gian Roberto Casaleggio, parce que le père est mort,
+
+98
+00:14:58.328 --> 00:15:02.908
+<v Giuliano da Empoli>donc pas open source du tout, et où sont stockées toutes les données du parti.
+
+99
+00:15:03.348 --> 00:15:14.068
+<v Giuliano da Empoli>Et le parti n'a aucune vie dans le monde physique, c'est-à-dire il n'y a pas de réunion, il n'y a pas de congrès, il n'y a pas d'organisation territoriale.
+
+100
+00:15:14.468 --> 00:15:29.748
+<v Giuliano da Empoli>C'est même défendu par les statuts du mouvement Cinq étoiles qui prévoit que toute la vie du parti doit se développer entièrement sur le réseau et donc sur cette plateforme Rousseau privée.
+
+101
+00:15:30.388 --> 00:15:40.628
+<v Giuliano da Empoli>Donc, il y a eu dans l'histoire du mouvement Cinq étoiles des purges continuelles, surtout au début, quand les gens pensaient pouvoir s'organiser tout seuls, etc., on les sortait.
+
+102
+00:15:40.688 --> 00:15:52.778
+<v Giuliano da Empoli>Et la façon de les sortir, c'était très simple. On retirait leur accès au réseau et ils étaient en dehors du mouvement. On leur retirait la possibilité d'utiliser le symbole du mouvement Cinq étoiles, qui était privé aussi.
+
+103
+00:15:52.808 --> 00:16:00.428
+<v Giuliano da Empoli>Et puis, ils étaient en dehors du mouvement. Après, ils pouvaient toujours essayer d'organiser quelque chose dans leur coin, mais disons, ça n'a jamais vraiment marché.
+
+104
+00:16:00.808 --> 00:16:03.288
+<v Giuliano da Empoli>Donc, c'est un mécanisme très particulier.
+
+105
+00:16:03.808 --> 00:16:18.648
+<v Giuliano da Empoli>Après, il faut dire aussi quand même que ces mouvements, par rapport à des mouvements traditionnels avec des programmes, des idéologies, etc., ont quand même une très grande capacité partout à gérer la contradiction.
+
+106
+00:16:19.868 --> 00:16:28.808
+<v Giuliano da Empoli>Et ça vient justement du modèle Facebook, c'est-à-dire : je vais te donner ce que tu veux, j'ai des données sur toi individuellement.
+
+107
+00:16:29.328 --> 00:16:42.948
+<v Giuliano da Empoli>Donc, si tu es pro-animaux, c'est encore une fois le cas du référendum du Brexit, si tu es pro-animaux, je vais te dire que l'Europe ne protège pas les animaux.
+
+108
+00:16:43.508 --> 00:17:03.228
+<v Giuliano da Empoli>Si tu es chasseur, je vais te dire que l'Europe protège trop les animaux et je vais faire ça de façon pratiquement individualisée et je vais réussir à garder dans mon mouvement des gens qui ont des opinions même radicalement opposées entre elles.
+
+109
+00:17:03.588 --> 00:17:09.728
+<v Giuliano da Empoli>C'est ce qu'ils font justement. C'est aujourd'hui technologiquement possible. Ça ne l'était peut-être pas au temps des mass media.
+
+110
+00:17:10.228 --> 00:17:23.108
+<v Guillaume Hachez>Vous expliquez qu'autrefois, la politique, c'était plutôt rassembleur, plutôt on partait du centre et on essayait de rassembler un amas le plus large possible d'électeurs de gauche et de droite et qu'aujourd'hui, finalement,
+
+111
+00:17:23.848 --> 00:17:25.468
+<v Guillaume Hachez>on ne doit pas forcément partir du centre.
+
+112
+00:17:25.508 --> 00:17:36.188
+<v Guillaume Hachez>On peut dire tout et son contraire, on peut s'attaquer aux extrêmes, donc les niches que vous évoquiez, les chasseurs ou les animalistes, et que donc ça change complètement les règles du jeu.
+
+113
+00:17:36.428 --> 00:17:37.648
+<v Guillaume Hachez>Patrick, tu avais une question ?
+
+114
+00:17:37.688 --> 00:17:48.288
+<v Patrick Beja>Oui, qui rejoint un petit peu ce que tu disais. Vu de l'extérieur, on a l'impression que ces mouvements sont tellement contradictoires et tellement grossiers dans leurs mensonges.
+
+115
+00:17:48.468 --> 00:17:56.988
+<v Patrick Beja>On se doute bien et on comprend que les politiques et les politiciens déforment toujours un petit peu la vérité pour s'adapter à leur audience ou à leur message.
+
+116
+00:17:57.488 --> 00:18:12.680
+<v Patrick Beja>Mais vu de l'extérieur, ces mouvements ont l'air tellement de prendre tellement de liberté avec la vérité qu'il semble difficile de les suivre, enfin de tomber dans le panneau qu'ils nous affichent.
+
+117
+00:18:13.140 --> 00:18:15.640
+<v Patrick Beja>Comment est-ce que vous expliquez que ce type de--
+
+118
+00:18:16.580 --> 00:18:18.140
+<v Patrick Beja>excusez-moi, j'élabore un tout petit peu.
+
+119
+00:18:18.660 --> 00:18:22.400
+<v Patrick Beja>Ces mécanismes que vous décrivez d'hyper ciblage,
+
+120
+00:18:22.900 --> 00:18:25.700
+<v Patrick Beja>fonctionnaient peut-être, on pouvait comprendre qu'ils fonctionnent
+
+121
+00:18:26.060 --> 00:18:35.900
+<v Patrick Beja>il y a quelques années avec l'élection de Trump ou le vote du Brexit quand on ne les comprenait pas, mais aujourd'hui qu'ils ont été mis à jour, on aurait pu légitimement se dire que,
+
+122
+00:18:36.360 --> 00:18:43.260
+<v Patrick Beja>les gens qui avaient suivi ces mouvements verraient, comprendraient la supercherie et s'en détacheraient un petit peu.
+
+123
+00:18:43.340 --> 00:19:00.060
+<v Patrick Beja>Or, ce qu'on constate, c'est qu'il y a un cœur de sympathisants qui est immense dans le cas de Trump et dans le cas du Brexit, je connais moins le cas de l'Italie, mais qui ne démord pas du tout de
+
+124
+00:19:01.040 --> 00:19:06.350
+<v Patrick Beja>ces rhétoriques, même quand elles ont clairement été démontées.
+
+125
+00:19:06.760 --> 00:19:16.100
+<v Patrick Beja>Comment est-ce que vous expliquez cet aspect de ces mouvements et cet attachement à la révolte qu'ils représentent ?
+
+126
+00:19:16.260 --> 00:19:26.140
+<v Giuliano da Empoli>Je pense que d'abord, nous vivons dans un univers d'information qui n'est plus le même qu'avant. Donc, il y a un célèbre,
+
+127
+00:19:27.080 --> 00:19:37.660
+<v Giuliano da Empoli>un célèbre intellectuel américain qui disait : « Vous avez droit à vos opinions, mais pas à vos propres faits.
+
+128
+00:19:38.090 --> 00:19:45.420
+<v Giuliano da Empoli>» Mais en réalité, aujourd'hui, tout le monde a droit non seulement à ses propres opinions, mais à ses propres faits.
+
+129
+00:19:45.460 --> 00:19:49.520
+<v Giuliano da Empoli>Parce que, et ça, ça a été prouvé aussi, non ? Si vous êtes,
+
+130
+00:19:50.180 --> 00:20:04.930
+<v Giuliano da Empoli>si vos informations, si on vous dit que les médias mentent et donc de toute façon, les mass media, c'est des élites corrompues, les journalistes, ils font partie d'un bloc de pouvoir
+
+131
+00:20:05.580 --> 00:20:06.880
+<v Giuliano da Empoli>qui est contre le peuple.
+
+132
+00:20:06.920 --> 00:20:18.900
+<v Giuliano da Empoli>Alors, ne vous informez pas, ne croyez pas les médias. C'était, disons, un des, une des premières choses que Trump disait au cours de ses meetings électoraux.
+
+133
+00:20:18.960 --> 00:20:26.180
+<v Giuliano da Empoli>Et c'est un peu le leitmotiv de toutes ces formations. C'était la même chose pour Cinq Étoiles et pour tous ces mouvements-là.
+
+134
+00:20:26.680 --> 00:20:37.900
+<v Giuliano da Empoli>Bon, alors, on ne croit pas vraiment aux médias mainstream qui, de toute façon, sont hégémonisés par les progressistes multiculturalistes, etc.
+
+135
+00:20:38.260 --> 00:20:49.400
+<v Giuliano da Empoli>Bon. Et donc, on croit plus, on s'informe surtout, justement, sur Facebook, sur les réseaux sociaux, sur des médias alternatifs.
+
+136
+00:20:49.960 --> 00:21:02.400
+<v Giuliano da Empoli>Et là, on sait très bien qu'après, il suffit de quelques clics pour entrer dans des réalités parallèles qui ne sont même pas nécessairement des réalités fausses.
+
+137
+00:21:02.480 --> 00:21:17.540
+<v Giuliano da Empoli>Ce sont simplement des réalités où la hiérarchie des informations, la façon dont elles sont présentées, et vraiment ce qu'on vous raconte et ce qu'on vous raconte pas,
+
+138
+00:21:18.080 --> 00:21:21.280
+<v Giuliano da Empoli>dépend de votre profil.
+
+139
+00:21:21.560 --> 00:21:27.900
+<v Giuliano da Empoli>Et donc, par exemple, quelqu'un qui sera sensible au thème de l'immigration,
+
+140
+00:21:28.420 --> 00:21:42.160
+<v Giuliano da Empoli>il va pas nécessairement être bombardé de fake news, mais disons, il a cliqué quelques fois sur des crimes commis par des immigrés légaux ou illégaux.
+
+141
+00:21:42.640 --> 00:21:46.000
+<v Giuliano da Empoli>Bon, une fois qu'il a fait ça deux ou trois fois, chaque jour,
+
+142
+00:21:46.420 --> 00:21:58.720
+<v Giuliano da Empoli>il va recevoir des nouvelles qui ne sont même pas nécessairement fausses, mais qui, disons, sont hors contexte parce qu'elles ne sont pas insérées dans une hiérarchie d'information normale de,
+
+143
+00:21:59.510 --> 00:22:03.450
+<v Giuliano da Empoli>justement, de malversations et de crimes,
+
+144
+00:22:04.340 --> 00:22:07.360
+<v Giuliano da Empoli>commis par des étrangers.
+
+145
+00:22:07.460 --> 00:22:18.660
+<v Giuliano da Empoli>Et donc, vous entrez très rapidement dans ces bulles, que du coup ces mouvements connaissent bien et qu'ils savent très bien exploiter.
+
+146
+00:22:18.720 --> 00:22:31.540
+<v Giuliano da Empoli>On connaît l'effort qui a été fait par Trump sur Facebook, mais on est en train aujourd'hui de voir une campagne pharaonique qu'il est en train de monter pour sa réélection,
+
+147
+00:22:32.000 --> 00:22:38.790
+<v Giuliano da Empoli>où d'ailleurs, encore une fois, comme ça avait déjà été le cas de Obama de 2008 à 2012,
+
+148
+00:22:39.360 --> 00:22:42.460
+<v Giuliano da Empoli>celui qui était le chef de la campagne digitale,
+
+149
+00:22:43.040 --> 00:22:48.680
+<v Giuliano da Empoli>la fois d'avant devient le chef de toute la campagne électorale la fois d'après.
+
+150
+00:22:48.720 --> 00:23:05.040
+<v Giuliano da Empoli>Parce qu'on comprend que c'est là que ça se joue. Et donc Brad Parscale, qui était le chef de la campagne digitale de Trump en 2016, sera le chef de toute la campagne électorale Trump de 2020.
+
+151
+00:23:05.120 --> 00:23:20.710
+<v Giuliano da Empoli>Il est en train de monter une gigantesque machine. Et malheureusement, c'est vraiment ce processus de fragmentation de l'information aujourd'hui qui impressionne le plus. Parce que
+
+152
+00:23:21.320 --> 00:23:30.910
+<v Giuliano da Empoli>les faits auxquels chacun de nous est exposé, même sans passer par les fake news et les complots, même en restant aux faits,
+
+153
+00:23:31.460 --> 00:23:41.840
+<v Giuliano da Empoli>sont aujourd'hui très différents parce qu'ils sont taillés sur mesure sur la base de nos habitudes de consommation
+
+154
+00:23:42.640 --> 00:23:43.680
+<v Giuliano da Empoli>d'informations.
+
+155
+00:23:43.920 --> 00:23:57.340
+<v Giuliano da Empoli>Et ça vaut pour nous aussi d'ailleurs. Ça vaut pour nous aussi, parce que nous aussi, on est, disons, ceux, justement, les progressistes ou ceux qui ont une approche, disons, un peu plus traditionnelle à la
+
+156
+00:23:58.140 --> 00:24:06.120
+<v Giuliano da Empoli>à la politique, ils sont aussi, d'une certaine façon, prisonniers d'une bulle, même si on a tendance à penser que ce n'est pas le cas.
+
+157
+00:24:06.440 --> 00:24:14.440
+<v Patrick Beja>Oui, tout à fait. Patrick, est-ce que ça répond à ta question ? Oui, oui, bien sûr. Disons que ce qui reste surprenant, et j'ai un petit peu
+
+158
+00:24:15.160 --> 00:24:21.540
+<v Patrick Beja>travaillé la question, donc je le comprends aussi, mais on peut comprendre que ce type de,
+
+159
+00:24:22.560 --> 00:24:23.760
+<v Patrick Beja>comment dire, de
+
+160
+00:24:25.092 --> 00:24:36.812
+<v Patrick Beja>manipulation fonctionne sur un petit nombre de personnes, mais quand on parle des campagnes comme celles des États-Unis et d'Angleterre, on parle de la moitié des votants, vraiment.
+
+161
+00:24:37.432 --> 00:24:40.632
+<v Patrick Beja>Et il est surprenant que cette—
+
+162
+00:24:41.572 --> 00:24:51.932
+<v Patrick Beja>parce que quand on dit : « Nous sommes aussi enfermés dans une bulle », c'est certainement le cas et je crois qu'il faut pas non plus minimiser le rôle qu'ont eu les médias traditionnels dans ce glissement,
+
+163
+00:24:52.592 --> 00:24:55.572
+<v Patrick Beja>et dans cette perte de confiance, parce qu'il y a eu des problèmes à ce niveau aussi.
+
+164
+00:24:56.032 --> 00:25:05.812
+<v Patrick Beja>Mais y a quand même une base de réalité dans ce qu'on voit chez les journalistes sérieux. Et la base des réalités est beaucoup plus ténue dans ce qu'on voit sur ces,
+
+165
+00:25:06.712 --> 00:25:13.012
+<v Patrick Beja>ces nouvelles sur Facebook, notamment, qui sont postées, les déclarations de Trump et des partisans du Brexit.
+
+166
+00:25:13.192 --> 00:25:26.152
+<v Patrick Beja>C'est quelque chose qui est vraiment clairement déformé. Et le fait que tellement de gens, qu'un petit groupe tombe dans le panneau, on peut le comprendre, mais que tout le monde tombe dans le panneau, c'est compliqué à accepter.
+
+167
+00:25:26.212 --> 00:25:40.232
+<v Patrick Beja>Mais bon, le fait est que c'est la réalité. C'est juste l'ampleur, en fait, qui est surprenante. Et ça, je continue à ne pas bien comprendre pourquoi ça a pris cette ampleur.
+
+168
+00:25:40.692 --> 00:25:41.932
+<v Guillaume Hachez>Ça nous dépasse un petit peu.
+
+169
+00:25:42.072 --> 00:25:51.912
+<v Giuliano da Empoli>Mh, évidemment, ça— d'ailleurs, ça nous a tous surpris, enfin, et ça continue à nous surprendre, vu que ça continue à se produire.
+
+170
+00:25:52.232 --> 00:26:05.312
+<v Giuliano da Empoli>Moi, je pense quand même qu'il y a une question plus politique de fond. C'est-à-dire que je pense que dans le discours national-populiste, il y a
+
+171
+00:26:06.052 --> 00:26:23.872
+<v Giuliano da Empoli>une situation où la vérité des faits qu'ils portent et des informations qu'ils portent est moins importante pour ces électeurs que la vérité de la vision du fond. C'est-à-dire,
+
+172
+00:26:24.412 --> 00:26:31.552
+<v Giuliano da Empoli>ils ne sont peut-être même pas dupes de toutes les informations et de tous les arguments des nationaux-populistes,
+
+173
+00:26:32.072 --> 00:26:44.161
+<v Giuliano da Empoli>mais le discours de fond qui consiste à dire : « On a perdu le contrôle de notre destin, on n'est plus maître chez nous, on est en train de s'appauvrir et on n'a pas,
+
+174
+00:26:44.632 --> 00:26:48.652
+<v Giuliano da Empoli>et on n'a pas vraiment les moyens pour reprendre le,
+
+175
+00:26:49.362 --> 00:26:51.092
+<v Giuliano da Empoli>le contrôle de notre destin.
+
+176
+00:26:51.152 --> 00:26:52.832
+<v Giuliano da Empoli>Et c'est l'ouverture qui produit ça
+
+177
+00:26:53.432 --> 00:26:55.652
+<v Giuliano da Empoli>». Ce discours-là, il résonne
+
+178
+00:26:56.072 --> 00:27:07.152
+<v Giuliano da Empoli>avec beaucoup d'électeurs et il leur semble profondément vrai, même si après, justement, les Boris Johnson et les Donald Trump et,
+
+179
+00:27:07.492 --> 00:27:17.392
+<v Giuliano da Empoli>et les Matteo Salvini vont inventer des trucs absurdes ou injecter de fausses informations.
+
+180
+00:27:17.472 --> 00:27:24.472
+<v Giuliano da Empoli>Alors que les, disons, les partis plus traditionnels, les progressistes, les pro-européens, etc.,
+
+181
+00:27:25.492 --> 00:27:40.642
+<v Giuliano da Empoli>ils donnent des informations et des arguments qui sont tous, enfin, a priori, plus ou moins justes, prouvés, disons, basés sur des éléments de réalité.
+
+182
+00:27:41.212 --> 00:27:44.612
+<v Giuliano da Empoli>Mais la vision d'ensemble qui consiste à dire :
+
+183
+00:27:45.462 --> 00:28:03.352
+<v Giuliano da Empoli>« On va tous y gagner en étant plus unis, en faisant une Europe plus forte, en étant de plus en plus proches, en échangeant de plus en plus et en ouvrant de plus en plus », elle sonne fausse à ces électeurs-là.
+
+184
+00:28:03.472 --> 00:28:08.532
+<v Giuliano da Empoli>Elle sonne, disons, pas convaincante. Ils y ont peut-être cru
+
+185
+00:28:09.092 --> 00:28:19.072
+<v Giuliano da Empoli>pendant une certaine période et aujourd'hui, ils disent : « Mais non, c'est pas l'expérience, c'est pas mon expérience de vie, c'est pas l'impression que j'ai ».
+
+186
+00:28:19.152 --> 00:28:28.372
+<v Giuliano da Empoli>Et donc il y a ce paradoxe-là, justement, qu'une addition de faussetés peut générer une vision qui résonne vrai,
+
+187
+00:28:28.832 --> 00:28:43.512
+<v Giuliano da Empoli>qui résonne vrai pour certains électeurs, pour une large partie des électorats de nos pays, alors qu'une addition de faits réels produit une vision d'ensemble, une vision politique
+
+188
+00:28:44.012 --> 00:28:48.132
+<v Giuliano da Empoli>qui sonne fausse et manipulatrice et,
+
+189
+00:28:48.792 --> 00:28:52.752
+<v Giuliano da Empoli>à une large partie des électorats européens, américains, etc.
+
+190
+00:28:53.472 --> 00:29:03.652
+<v Giuliano da Empoli>C'est un peu— bon, je sais pas, c'est un peu gros, enfin, comme analyse. Mais j'ai l'impression qu'il y a quand même quelque chose de ça.
+
+191
+00:29:04.132 --> 00:29:16.402
+<v Guillaume Hachez>Vous avez employé à plusieurs reprises le terme, voilà, une partie des électeurs, un certain électorat. Du coup, j'ai envie de poser la question : est-ce qu'on est tous égaux face à l'algorithme tout-puissant de Facebook ?
+
+192
+00:29:16.412 --> 00:29:23.112
+<v Guillaume Hachez>Parce que quand on vous lit, on a l'impression que ça impacte surtout, voilà, les électeurs fragilisés, qui ont une certaine rage en eux.
+
+193
+00:29:23.232 --> 00:29:25.972
+<v Guillaume Hachez>Est-ce qu'on est tous égaux face à cet algorithme ?
+
+194
+00:29:25.992 --> 00:29:28.592
+<v Giuliano da Empoli>Bah, non, évidemment, on a—
+
+195
+00:29:29.812 --> 00:29:37.532
+<v Giuliano da Empoli>bah, on voit d'ailleurs, c'est le cas même de— aujourd'hui, c'était pas le cas au début, mais aujourd'hui, si on regarde la,
+
+196
+00:29:37.932 --> 00:29:48.732
+<v Giuliano da Empoli>la composition sociologique des utilisateurs de Facebook, ça a été beaucoup fait dans le cas des analyses du mouvement des gilets jaunes en France, par exemple.
+
+197
+00:29:49.192 --> 00:29:52.592
+<v Giuliano da Empoli>Et il y a des analyses très intéressantes là-dessus qui prouvent,
+
+198
+00:29:53.092 --> 00:30:07.132
+<v Giuliano da Empoli>que Facebook, c'est vraiment devenu le média de choix, de communication et d'information, de classes sociales plutôt populaires et plutôt périphériques aujourd'hui.
+
+199
+00:30:07.192 --> 00:30:16.972
+<v Giuliano da Empoli>C'est-à-dire que, bon, et c'est d'ailleurs ce que les— encore une fois, ce que ces spin doctors savent parfaitement.
+
+200
+00:30:17.132 --> 00:30:30.632
+<v Giuliano da Empoli>Quand le— Luca Morisi, qui est le stratège de communication de Matteo Salvini, dit : « Bon, quand on veut parler aux élites ou aux journalistes, etc., on est sur Twitter.
+
+201
+00:30:30.792 --> 00:30:44.172
+<v Giuliano da Empoli>Mais après, la vraie communication de masse où vous, justement, vieux outils de la politique traditionnelle, vous n'arrivez pas, ça se fait sur Facebook.
+
+202
+00:30:44.202 --> 00:30:58.192
+<v Giuliano da Empoli>» D'ailleurs, Matteo Salvini est l'homme politique européen qui a le plus de suiveurs et d'engagement sur Facebook, très loin devant les Macron, les Merkel et même tous les autres leaders nationaux-populistes.
+
+203
+00:30:58.252 --> 00:31:05.792
+<v Giuliano da Empoli>Il est autour de 4 millions de, disons, de fans enregistrés sur sa page Facebook.
+
+204
+00:31:06.432 --> 00:31:14.191
+<v Guillaume Hachez>Patrick, c'est peut-être en grande partie pour ça que tu ne comprends pas bien la puissance, l'impact que ça peut avoir.
+
+205
+00:31:14.232 --> 00:31:16.582
+<v Guillaume Hachez>C'est parce que tu n'es simplement peut-être pas le bon électorat, Patrick.
+
+206
+00:31:16.612 --> 00:31:18.192
+<v Giuliano da Empoli>Pas assez sur Facebook.
+
+207
+00:31:18.432 --> 00:31:24.102
+<v Guillaume Hachez>C'est possible. Tu ne, oui, voilà, tu ne fais pas partie de la classe populaire qui est plus fragilisée, plus sensible à ces choses-là.
+
+208
+00:31:24.202 --> 00:31:25.012
+<v Giuliano da Empoli>C'est ça, effectivement.
+
+209
+00:31:25.072 --> 00:31:25.482
+<v Guillaume Hachez>Si je comprends bien.
+
+210
+00:31:25.492 --> 00:31:30.232
+<v Giuliano da Empoli>On va prendre cette explication. Elle me sied, merci. Elle flatte mon ego. Merci Guillaume.
+
+211
+00:31:30.832 --> 00:31:31.192
+<v Guillaume Hachez>Super.
+
+212
+00:31:31.612 --> 00:31:39.532
+<v Guillaume Hachez>Mais donc oui, je— pour revenir à ce que vous disiez il y a un instant, Giuliano, donc les ingénieurs du chaos, les personnes comme Steve Bannon ou bien,
+
+213
+00:31:39.872 --> 00:31:46.832
+<v Guillaume Hachez>Casaleggio, qui sont donc ces personnes derrière la montée de, voilà, des figures nationales-populistes qui ont compris
+
+214
+00:31:47.292 --> 00:31:48.521
+<v Guillaume Hachez>comment, voilà, utiliser,
+
+215
+00:31:49.192 --> 00:31:51.692
+<v Guillaume Hachez>ben voilà, justement, cette rage de ce milieu populaire.
+
+216
+00:31:52.232 --> 00:32:01.032
+<v Guillaume Hachez>Vous dites dans le livre : « Leur ingéniosité est celle d'avoir compris que la rage était une source d'énergie colossale et que l'exploiter permettait de réaliser n'importe quel objectif.
+
+217
+00:32:01.042 --> 00:32:05.952
+<v Guillaume Hachez>» Alors du coup, j'ai envie de poser la question : cette rage, pourquoi est-ce qu'elle ressort aujourd'hui plus qu'avant ?
+
+218
+00:32:06.232 --> 00:32:11.271
+<v Guillaume Hachez>Est-ce que, de nouveau, les réseaux sociaux jouent quelque chose là-dedans ? Est-ce que ça amplifie la rage, les réseaux sociaux ?
+
+219
+00:32:11.992 --> 00:32:24.452
+<v Giuliano da Empoli>Oui, tout à fait. C'est-à-dire, je pense, bon évidemment, il y a eu quand même au moins deux faits socioéconomiques majeurs qui se sont produits à,
+
+220
+00:32:25.072 --> 00:32:43.612
+<v Giuliano da Empoli>entre la fin des années 0 et le début des années 10, c'est-à-dire la crise financière de 2008 et puis la crise migratoire de 2014, 2015, 2016,
+
+221
+00:32:44.192 --> 00:32:56.982
+<v Giuliano da Empoli>qui sont des faits majeurs et qui ont contribué à multiplier la rage dans beaucoup de milieux populaires,
+
+222
+00:32:57.832 --> 00:33:07.452
+<v Giuliano da Empoli>aux— bon, aux États-Unis, surtout en ce qui concerne la crise financière et en Europe les deux, et à discréditer les élites.
+
+223
+00:33:07.672 --> 00:33:17.732
+<v Giuliano da Empoli>Donc, il y a là des faits réels qui ont eu— ont produit un impact politique certain.
+
+224
+00:33:18.292 --> 00:33:21.852
+<v Giuliano da Empoli>Après, encore une fois, justement, c'est prouvé que,
+
+225
+00:33:22.732 --> 00:33:29.412
+<v Giuliano da Empoli>disons, et d'ailleurs, là aussi, il y a des recherches assez intéressantes, par exemple, sur les zones de conflits ethniques,
+
+226
+00:33:30.212 --> 00:33:46.972
+<v Giuliano da Empoli>où il y a une recherche sur l'Allemagne qui est passionnante, où on a croisé, justement, les données de pénétration de Facebook avec la géographie des incidents xénophobes qui se produisent sur le territoire allemand.
+
+227
+00:33:47.392 --> 00:33:57.372
+<v Giuliano da Empoli>Et on a vu qu'il y avait quand même plus de probabilités qu'il y ait des incidents xénophobes dans les zones où la pénétration de Facebook est plus élevée.
+
+228
+00:33:57.752 --> 00:34:06.392
+<v Giuliano da Empoli>Bon, alors, après, moi, je veux pas nécessairement— la question n'est pas nécessairement de faire un procès à Facebook, même si on sait encore une fois que
+
+229
+00:34:07.192 --> 00:34:09.432
+<v Giuliano da Empoli>là où il y a des conflits ethniques,
+
+230
+00:34:09.992 --> 00:34:13.912
+<v Giuliano da Empoli>où il y a des violences sectaires, ce qu'on fait
+
+231
+00:34:14.312 --> 00:34:20.252
+<v Giuliano da Empoli>et ce que les autorités font aujourd'hui, aussi dans les pays d'Asie où,
+
+232
+00:34:20.472 --> 00:34:31.672
+<v Giuliano da Empoli>c'est immédiatement quand il y a des explosions de violence, de fermer les réseaux sociaux et les connexions Internet, parce qu'elles propagent inévitablement des,
+
+233
+00:34:31.942 --> 00:34:34.111
+<v Giuliano da Empoli>et très, très rapidement, des
+
+234
+00:34:34.521 --> 00:34:37.012
+<v Giuliano da Empoli>des mots de passe, de, disons, de,
+
+235
+00:34:37.432 --> 00:34:44.432
+<v Giuliano da Empoli>de violence, avec des fake news et elles multiplient la colère.
+
+236
+00:34:45.152 --> 00:34:56.992
+<v Giuliano da Empoli>Je crois pas qu'on puisse aujourd'hui douter du fait que ces instruments sont des instruments qui multiplient la colère et la frustration.
+
+237
+00:34:57.132 --> 00:35:12.412
+<v Giuliano da Empoli>C'est vrai. Ça ne veut pas dire qu'il faut les fermer. Je veux dire, c'est pas, parce qu'ils multiplient aussi les possibilités de connexion, de communication, de solidarité.
+
+238
+00:35:12.752 --> 00:35:24.471
+<v Giuliano da Empoli>On a tous été, justement, on a— personne d'entre nous n'a vu le potentiel négatif de ces instruments parce qu'on était tous tellement contents au début que
+
+239
+00:35:25.432 --> 00:35:37.872
+<v Giuliano da Empoli>Internet fasse élire Obama aux États-Unis, qu'Internet facilite les révolutions du printemps arabe dans les pays de l'Afrique du Nord, etc.
+
+240
+00:35:38.372 --> 00:35:47.772
+<v Giuliano da Empoli>Donc, justement, il y a plusieurs aspects. Mais c'est vrai qu'on a sous-estimé, je crois, de façon un peu
+
+241
+00:35:48.832 --> 00:35:58.292
+<v Giuliano da Empoli>optimiste, les effets quand même de multiplication de haine que ces instruments permettent.
+
+242
+00:35:58.332 --> 00:36:05.552
+<v Guillaume Hachez>Excellent. 'Fin non, pas excellent, tragique, au contraire. Mais votre réponse est excellente.
+
+243
+00:36:05.572 --> 00:36:08.572
+<v Guillaume Hachez>Mais donc, au final, pour reprendre un petit peu tous les éléments,
+
+244
+00:36:08.932 --> 00:36:16.512
+<v Guillaume Hachez>la tactique de ces ingénieurs du chaos, dans le cas du Brexit, c'était donc comprendre pourquoi ces gens, donc, voilà, vous disiez principalement un électorat,
+
+245
+00:36:17.092 --> 00:36:21.552
+<v Guillaume Hachez>pas seulement, mais principalement un électorat, voilà, plutôt les classes populaires fragilisées,
+
+246
+00:36:22.292 --> 00:36:25.892
+<v Guillaume Hachez>et plutôt sur Facebook donc, comprendre pourquoi ces gens-là sont énervés.
+
+247
+00:36:25.932 --> 00:36:30.612
+<v Guillaume Hachez>Et ensuite, dans un deuxième temps, utiliser les messages ciblés sur les réseaux sociaux pour leur dire : « Voilà, c'est à cause de l'Union européenne
+
+248
+00:36:31.052 --> 00:36:36.612
+<v Guillaume Hachez>qu'il faut voter, euh, pour le— soit voter pour le Leave, soit rester à la maison et ne pas aller voter pour le Remain.
+
+249
+00:36:37.182 --> 00:36:48.612
+<v Guillaume Hachez>» Et pourquoi pas, occasionnellement, en utilisant, voilà, des fake news. Et du coup, qu'est-ce que les ingénieurs du chaos emploient comme outil pour, voilà, comprendre des patterns et cibler certains électeurs ?
+
+250
+00:36:48.652 --> 00:36:49.392
+<v Giuliano da Empoli>Ben voilà, alors,
+
+251
+00:36:49.772 --> 00:37:07.072
+<v Giuliano da Empoli>le procédé de Cambridge Analytica, il se base sur les recherches d'un ingénieur russe qui est, ben, basé à Stanford depuis longtemps et qui fait des profils psychographiques sur la base de vos likes Facebook.
+
+252
+00:37:07.372 --> 00:37:25.112
+<v Giuliano da Empoli>Et lui, ce qu'il a fait d'assez intéressant, c'est qu'il a prouvé, bon, ou du moins, il a fait des recherches qui disent que sur la base de 30— si vous posez à quelqu'un,
+
+253
+00:37:25.892 --> 00:37:40.012
+<v Giuliano da Empoli>mettons, je veux savoir, je suis ami de Guillaume et on me pose un questionnaire de questions relativement privées sur les goûts, les préférences,
+
+254
+00:37:40.972 --> 00:37:43.092
+<v Giuliano da Empoli>les inclinations de Guillaume.
+
+255
+00:37:43.612 --> 00:37:59.022
+<v Giuliano da Empoli>Alors, cet ingénieur russe a démontré que sur la base de 30 likes sur Facebook, il savait répondre à ce questionnaire mieux qu'un ami de Guillaume.
+
+256
+00:38:00.442 --> 00:38:10.842
+<v Giuliano da Empoli>Sur la base— non, qu'un collègue de travail de Guillaume. Sur la base de 60 likes, il savait répondre mieux qu'un ami de Guillaume.
+
+257
+00:38:11.642 --> 00:38:27.782
+<v Giuliano da Empoli>Sur la base de, je crois, 150 likes Facebook, il pouvait prévoir et connaître les goûts et les réponses de Guillaume à ce questionnaire personnel mieux qu'un conjoint ou qu'un membre de la famille.
+
+258
+00:38:28.342 --> 00:38:39.502
+<v Giuliano da Empoli>Et 300 likes Facebook permettaient de répondre mieux que le conjoint, l'épouse ou le conjoint de la personne.
+
+259
+00:38:40.142 --> 00:38:51.602
+<v Giuliano da Empoli>Et donc, on voit 300 likes sur Facebook, c'est rien. Je veux dire, c'est une semaine d'activité, même pas. Enfin, après, ça dépend de votre taux de participation.
+
+260
+00:38:52.242 --> 00:39:06.422
+<v Giuliano da Empoli>Et Cambridge Analytica, ça se base sur ça. C'est-à-dire, ça se base— on va récolter, il paraît d'ailleurs de façon illégale, des données sur des usagers, des millions d'usagers Facebook.
+
+261
+00:39:06.902 --> 00:39:20.822
+<v Giuliano da Empoli>Et puis, on va construire des profils psychographiques qui vont nous permettre, justement, de cibler de façon extraordinairement précise chacun des usagers.
+
+262
+00:39:21.382 --> 00:39:23.622
+<v Giuliano da Empoli>Et c'est— mais ça,
+
+263
+00:39:24.762 --> 00:39:26.162
+<v Giuliano da Empoli>requiert une—
+
+264
+00:39:27.142 --> 00:39:34.042
+<v Giuliano da Empoli>la gestion d'une quantité immense de données. C'est pour ça que Dominic Cummings, le,
+
+265
+00:39:34.802 --> 00:39:51.362
+<v Giuliano da Empoli>le directeur de la campagne du Leave pour le Brexit, a dit dans une série d'interviews qu'il a faite après : « Si vous voulez gagner des élections aujourd'hui, vous avez— n'employez pas des experts de communication politique
+
+266
+00:39:52.222 --> 00:39:54.782
+<v Giuliano da Empoli>ou de marketing électoral.
+
+267
+00:39:54.861 --> 00:40:08.582
+<v Giuliano da Empoli>Employez des physiciens », parce que c'est un travail de physicien, c'est un croisement de données continu avec des masses de données que les hommes politiques et les experts de politique ne sont pas du tout habitués à gérer,
+
+268
+00:40:09.402 --> 00:40:21.502
+<v Giuliano da Empoli>mais qui permet d'optimiser de façon systématique les messages qui sont envoyés aux uns et aux autres pour avoir le maximum de pénétration et de succès
+
+269
+00:40:22.362 --> 00:40:24.262
+<v Giuliano da Empoli>dans ce qu'on veut leur dire.
+
+270
+00:40:24.322 --> 00:40:26.662
+<v Giuliano da Empoli>Et donc, justement, pour les démotiver,
+
+271
+00:40:27.242 --> 00:40:40.462
+<v Giuliano da Empoli>si c'est des électeurs qui ont plutôt tendance à être de l'autre côté ou au contraire, plutôt pour motiver ses propres électeurs, mais justement, avec des messages qui peuvent être parfaitement contradictoires entre eux.
+
+272
+00:40:40.802 --> 00:40:51.602
+<v Guillaume Hachez>Très bien, oui. Mais du coup, je pense que ça explique encore une fois l'incompréhension de Patrick tout à l'heure. Il se dit : « Mais tiens, mais comment est-ce que ça peut être aussi puissant ?
+
+273
+00:40:51.612 --> 00:41:04.862
+<v Guillaume Hachez>» Mais je pense que voilà, il y a cette réalité assez sombre, mais qu'il va falloir accepter, qui est que nous ne sommes finalement, nous, humains, nous ne sommes que des amas de données.
+
+274
+00:41:04.882 --> 00:41:07.082
+<v Guillaume Hachez>En tout cas, on peut être résumé à des amas de données plutôt.
+
+275
+00:41:08.042 --> 00:41:19.542
+<v Guillaume Hachez>Et que oui, avec des outils de big data, des outils de statistiques, des outils de machine learning, on peut finalement nous résumer, nous comprendre très simplement, comprendre nos fonctionnements.
+
+276
+00:41:20.242 --> 00:41:28.842
+<v Guillaume Hachez>Et voilà, l'exemple que vous donniez tout à l'heure avec cet ingénieur russe à Stanford est tout à fait parlant. Mais donc, du coup, est-ce que ça répond à ta...
+
+277
+00:41:29.722 --> 00:41:38.082
+<v Patrick Beja>Est-ce que ça explique un petit peu mieux ton— voilà, le phénomène que tu avais du mal à comprendre ? En tout cas, tu avais du mal à comprendre que ça puisse être aussi puissant.
+
+278
+00:41:38.222 --> 00:41:49.871
+<v Patrick Beja>Oui, il y a quelque chose qui reste quand même un petit peu mystérieux, c'est-à-dire que comme tu le disais en début d'émission, moi, je produis une émission en anglais où je vais justement parler à des gens
+
+279
+00:41:50.422 --> 00:41:55.622
+<v Patrick Beja>qui sont d'opinions très différentes de la mienne, dans une démarche qui, je crois, manque
+
+280
+00:41:56.222 --> 00:41:58.122
+<v Patrick Beja>dans les médias classiques.
+
+281
+00:41:59.602 --> 00:42:07.082
+<v Patrick Beja>Et j'ai donc parlé à des gens qui ont voté pour Donald Trump, j'ai parlé à des gens qui sont partisans du Brexit.
+
+282
+00:42:07.902 --> 00:42:19.422
+<v Patrick Beja>Et il y a quand même une sorte de décalage entre ce qu'ils disent et— j'ai presque envie de dire la réalité.
+
+283
+00:42:19.462 --> 00:42:22.582
+<v Patrick Beja>Je les comprends mieux, mais quand on—
+
+284
+00:42:23.902 --> 00:42:45.022
+<v Patrick Beja>je crois qu'un élément dont on n'a peut-être pas encore parlé, c'est le rejet de la classe politique en général et la situation économique du pays dans son ensemble, sans cause précise, sans explication rigoureuse.
+
+285
+00:42:45.922 --> 00:42:56.122
+<v Patrick Beja>Et là, peut-être qu'on rejoint l'aspect populiste de ces mouvements qui est que malgré tout, derrière toutes ces
+
+286
+00:42:57.082 --> 00:43:04.942
+<v Patrick Beja>toutes ces fake news et tout ce ciblage, il y a un message politique un petit peu plus traditionnel, comme vous le disiez en début d'entretien, Giuliano,
+
+287
+00:43:06.602 --> 00:43:15.542
+<v Patrick Beja>qui est d'offrir une solution simple aux frustrations que ressentent ceux qu'on appelle souvent les laissés-pour-compte de la mondialisation.
+
+288
+00:43:16.362 --> 00:43:29.742
+<v Patrick Beja>Et je crois que s'il y a une explication sur le squelette des motivations de ces gens-là, je crois qu'elle est peut-être, à mon avis, à chercher là.
+
+289
+00:43:30.942 --> 00:43:41.902
+<v Patrick Beja>Et ensuite, ces mouvements-là rajoutent les organes, on va dire, pour continuer avec cette analogie douteuse, avec les fake news et avec le ciblage. Mais
+
+290
+00:43:43.170 --> 00:43:53.410
+<v Guillaume Hachez>cet élément, moi, j'ai parfois tendance à l'oublier, mais y a quelque chose de très vrai, et une frustration réelle avec des gens qui, au final, sont
+
+291
+00:43:54.290 --> 00:44:00.710
+<v Guillaume Hachez>emportés dans un tourbillon de fake news et de ciblage qui font qu'ils vont peut-être se dire : « Bon bah allez, je m'en fous.
+
+292
+00:44:00.730 --> 00:44:09.370
+<v Guillaume Hachez>De toute façon, ce qui est important, c'est ma conviction de base à laquelle répondent ces mouvements.
+
+293
+00:44:09.400 --> 00:44:16.790
+<v Guillaume Hachez>» Et donc, bah, qu'est-ce qui— quoi qu'il se passe ailleurs, tout devient du bruit, le vrai, le faux, l'inventé, la fake news.
+
+294
+00:44:17.110 --> 00:44:19.730
+<v Guillaume Hachez>Et donc, je reviens à ce message simple à comprendre,
+
+295
+00:44:20.170 --> 00:44:29.730
+<v Guillaume Hachez>de ces populistes qui va me motiver plus que tout le reste. Et je crois que c'est en substance une grande partie de ce que vous disiez, Giuliano, mais on a tendance à le perdre de vue,
+
+296
+00:44:30.270 --> 00:44:34.710
+<v Guillaume Hachez>quand on essaye d'étudier le phénomène dans le détail. Et—
+
+297
+00:44:34.790 --> 00:44:34.890
+<v Giuliano da Empoli>Oui
+
+298
+00:44:34.950 --> 00:44:37.190
+<v Guillaume Hachez>...et pour moi, c'est ça qui compte beaucoup aussi, quoi.
+
+299
+00:44:37.290 --> 00:44:50.050
+<v Giuliano da Empoli>Je suis tout à fait d'accord. C'est-à-dire, et c'est un peu, si vous voulez aussi, la difficulté et l'ambiguïté d'écrire un livre comme celui que j'ai écrit et de parler de ces thèmes.
+
+300
+00:44:50.090 --> 00:44:52.370
+<v Giuliano da Empoli>C'est-à-dire, je pense que tout ça,
+
+301
+00:44:52.970 --> 00:45:03.820
+<v Giuliano da Empoli>ça joue un rôle très important, le ciblage, et cetera, et que justement, il y a des réalités, des pratiques qui ne sont peut-être pas suffisamment connues et
+
+302
+00:45:04.150 --> 00:45:08.870
+<v Giuliano da Empoli>qui pèsent de plus en plus sur les résultats et sur le jeu politique.
+
+303
+00:45:08.950 --> 00:45:22.250
+<v Giuliano da Empoli>Mais en même temps, justement, je suis vraiment, vraiment convaincu qu'il y a un problème politique à la base qui est beaucoup plus large et qui explique de façon beaucoup plus convaincante,
+
+304
+00:45:22.830 --> 00:45:27.010
+<v Giuliano da Empoli>ce qui s'est produit et ce qui continue à se produire.
+
+305
+00:45:27.370 --> 00:45:41.750
+<v Giuliano da Empoli>Justement, dit de façon grossière, je crois que, disons, que les... mais c'est le cas, par exemple, de la construction européenne.
+
+306
+00:45:41.790 --> 00:45:47.650
+<v Giuliano da Empoli>On voit très bien que la construction européenne marche très bien pour,
+
+307
+00:45:48.250 --> 00:46:05.830
+<v Giuliano da Empoli>les mobiles, pour les nomades, pour tous ceux, entreprises ou personnes qui peuvent bouger, que ce soit pour des raisons professionnelles ou même simplement pour du plaisir, pour du tourisme, et cetera.
+
+308
+00:46:06.310 --> 00:46:16.290
+<v Giuliano da Empoli>Et toute cette construction-là, on le voit, et ce n'est pas un effet de propagande populiste ou national-populiste.
+
+309
+00:46:16.750 --> 00:46:33.370
+<v Giuliano da Empoli>Cette construction-là, elle marche moins bien, elle sert moins bien les intérêts et elle donne moins de satisfaction aussi d'un point de vue symbolique, culturel, de reconnaissance et tout ça, aux sédentaires, si vous voulez.
+
+310
+00:46:33.410 --> 00:46:38.650
+<v Giuliano da Empoli>C'est-à-dire aux gens qui restent d'ailleurs une large majorité de la,
+
+311
+00:46:39.270 --> 00:46:45.160
+<v Giuliano da Empoli>de la population européenne, qui habitent toujours près d'où ils sont nés,
+
+312
+00:46:45.710 --> 00:47:00.210
+<v Giuliano da Empoli>dans un... je crois que 70 % des Européens vivent à l'intérieur d'un périmètre de 30, 40 kilomètres de l'endroit où ils sont nés ou peut-être même où sont nés leurs parents. Et,
+
+313
+00:47:01.530 --> 00:47:11.690
+<v Giuliano da Empoli>et là, ce n'est pas... et justement, ce n'est pas un effet de manipulation. Il y a quand même quelque chose de profondément,
+
+314
+00:47:12.510 --> 00:47:21.710
+<v Giuliano da Empoli>de très profond, qui après peut être exploité, là, c'est vrai, de façon cynique et tout à fait,
+
+315
+00:47:22.830 --> 00:47:23.960
+<v Giuliano da Empoli>et tout à fait,
+
+316
+00:47:25.290 --> 00:47:32.010
+<v Giuliano da Empoli>comme ça, disons, sans états d'âme, des entrepreneurs et des ingénieurs du chaos.
+
+317
+00:47:32.510 --> 00:47:43.450
+<v Giuliano da Empoli>Mais on l'a dit dans le cas du Brexit, c'était un sentiment qui a battu un raisonnement. Et... mais la politique, ça a toujours été ça.
+
+318
+00:47:43.870 --> 00:47:46.650
+<v Giuliano da Empoli>Si vous pensez que vous allez pouvoir,
+
+319
+00:47:47.190 --> 00:47:51.730
+<v Giuliano da Empoli>gagner des élections et emporter des grands mouvements,
+
+320
+00:47:52.250 --> 00:48:04.870
+<v Giuliano da Empoli>sur la base simplement d'argumentations, de raisonnements en disant : « Non, mais là, écoutez, si vous votez contre, on va perdre des emplois, ça va être pire », c'est peut-être vrai,
+
+321
+00:48:05.410 --> 00:48:19.310
+<v Giuliano da Empoli>mais si le sentiment est de l'autre côté, et il y a quand même cette sensation de perte de contrôle sur leur destin, par rapport à laquelle, en effet, la réponse de la fermeture est la plus logique, hein.
+
+322
+00:48:19.390 --> 00:48:33.950
+<v Giuliano da Empoli>On va revenir dans un monde où on contrôlera nos frontières, où les entreprises ne vont pas pouvoir partir, où les capitaux ne vont pas pouvoir circuler, où les étrangers vont pouvoir entrer avec plus de difficultés, tout ça.
+
+323
+00:48:33.990 --> 00:48:40.170
+<v Giuliano da Empoli>Bon, en réalité, on a vu que ce n'est pas vrai, non ? Je veux dire, ça ne marche pas comme ça. Et aujourd'hui, le,
+
+324
+00:48:40.740 --> 00:48:47.070
+<v Giuliano da Empoli>la Grande-Bretagne est probablement dans une position de plus grande faiblesse par rapport à avant.
+
+325
+00:48:47.670 --> 00:48:59.170
+<v Giuliano da Empoli>Mais c'est un argument quand même extraordinairement efficace. Et tant qu'on n'aura pas des arguments aussi efficaces d'un point de vue politique, culturel, économique, à,
+
+326
+00:49:00.270 --> 00:49:08.750
+<v Giuliano da Empoli>à faire peser de l'autre côté, on va continuer à voir ces mouvements se développer, je crains.
+
+327
+00:49:08.990 --> 00:49:17.930
+<v Guillaume Hachez>Mais du coup, j'ai envie de poser la question de la solution. Puisque dit comme ça, on a l'impression que pour résoudre cette situation, il faut élever le niveau d'éducation de la population, hein.
+
+328
+00:49:17.990 --> 00:49:26.190
+<v Guillaume Hachez>On parlait dans l'épisode précédent d'éducation aux médias, d'apprendre à se méfier des messages ciblés, à vérifier ses sources, à ne pas croire tout ce qu'on lit sur Internet.
+
+329
+00:49:26.850 --> 00:49:33.610
+<v Guillaume Hachez>On se dit aussi qu'il faut sans doute, voilà, travailler à diminuer les inégalités, hein. Vous évoquiez tout à l'heure la crise des subprimes.
+
+330
+00:49:34.270 --> 00:49:39.830
+<v Guillaume Hachez>Bref, donc tous des travaux qui vont prendre, mais des générations et des générations, des décennies.
+
+331
+00:49:39.910 --> 00:49:47.830
+<v Guillaume Hachez>Est-ce qu'on est donc condamnés à subir cette montée des populismes ou bien est-ce qu'il existe une solution ?
+
+332
+00:49:47.890 --> 00:49:58.929
+<v Giuliano da Empoli>Oui, moi, je... bon, alors, Gramsci disait quelque chose comme le pessimisme de la réalité et l'optimisme de la volonté, hein, quelque chose comme ça.
+
+333
+00:49:58.970 --> 00:50:07.090
+<v Giuliano da Empoli>Alors, je suis dans l'optimisme de la volonté, mais non, le pessimisme de la raison et l'optimisme de la volonté, c'était ça.
+
+334
+00:50:07.670 --> 00:50:23.470
+<v Giuliano da Empoli>Et donc, il y a quand même des précédents, justement. Bon, c'est un peu banal, mais c'est vrai que ce qu'a fait Franklin Delano Roosevelt aux États-Unis, au début des années 30,
+
+335
+00:50:24.090 --> 00:50:27.810
+<v Giuliano da Empoli>ça a été de combiner,
+
+336
+00:50:29.030 --> 00:50:39.450
+<v Giuliano da Empoli>une véritable révolution des politiques publiques, le New Deal, etc., pour répondre à la crise de 29, avec une révolution technologique,
+
+337
+00:50:40.490 --> 00:50:50.770
+<v Giuliano da Empoli>pas seulement l'utilisation de la radio, qui a été un extraordinaire véhicule des nationaux-populistes, enfin des nationalistes plutôt, en Europe.
+
+338
+00:50:50.950 --> 00:50:55.810
+<v Giuliano da Empoli>On sait que les nazis, par exemple, une des premières choses qu'ils ont faites en Allemagne, ça a été de,
+
+339
+00:50:56.150 --> 00:51:08.630
+<v Giuliano da Empoli>d'introduire une radio dans toutes les maisons allemandes, de produire des radios qui coûtaient très peu et qui permettaient de faire entendre les voix de Hitler et de Goebbels dans tous les foyers.
+
+340
+00:51:08.690 --> 00:51:14.830
+<v Giuliano da Empoli>Donc, ces médias-là, qui ont été de gros véhicules de pénétration du nationalisme,
+
+341
+00:51:15.470 --> 00:51:28.010
+<v Giuliano da Empoli>et même du fascisme et du nazisme, aux États-Unis, Roosevelt les a utilisés dans une direction contraire et aussi, justement, des nouvelles techniques.
+
+342
+00:51:28.250 --> 00:51:36.190
+<v Giuliano da Empoli>Les sondages, c'était nouveau à l'époque. C'était utilisé par les marques, les entreprises privées, mais ça n'existait pas en politique.
+
+343
+00:51:36.210 --> 00:51:45.490
+<v Giuliano da Empoli>Et Roosevelt a introduit toute une série de nouveaux instruments, les sondages, là aussi, déjà, des instruments de ciblage,
+
+344
+00:51:46.150 --> 00:51:53.770
+<v Giuliano da Empoli>d'interprétation de l'opinion publique et puis de communication beaucoup plus sophistiqués, par rapport à ce qu'il y avait avant.
+
+345
+00:51:53.810 --> 00:52:09.890
+<v Giuliano da Empoli>Et il l'a fait pour contrer la montée du nationalisme et des populismes américains. Donc, c'est des opérations qui combinent des réponses politiques véritables sur la réalité
+
+346
+00:52:10.430 --> 00:52:14.610
+<v Giuliano da Empoli>avec des réponses technologiques de marketing et de propagande,
+
+347
+00:52:15.190 --> 00:52:20.530
+<v Giuliano da Empoli>qui ont été... c'est des opérations qui ont été faites dans le passé.
+
+348
+00:52:20.850 --> 00:52:34.130
+<v Giuliano da Empoli>Et franchement, je ne vois aucune raison pour laquelle ce ne serait pas possible aujourd'hui. Enfin, il faut évidemment un peu plus de courage, d'initiative et de talent politique.
+
+349
+00:52:34.650 --> 00:52:38.470
+<v Giuliano da Empoli>Encore une fois, l'exemple d'Obama est quand même un exemple...
+
+350
+00:52:39.420 --> 00:52:56.210
+<v Giuliano da Empoli>Bon, après, c'est vrai que ça a débouché sur Trump, mais c'est vrai aussi que si Obama avait été candidat une troisième fois, face à Trump, tous les éléments que nous avons nous disent qu'Obama aurait gagné.
+
+351
+00:52:56.670 --> 00:53:07.210
+<v Giuliano da Empoli>Alors après, ça se joue encore beaucoup. D'ailleurs, le leadership politique, on n'en a pas parlé jusque-là, mais ça reste un facteur et ça devient de plus en plus.
+
+352
+00:53:07.290 --> 00:53:16.050
+<v Giuliano da Empoli>Après, c'est pas que positif non plus, c'est un peu inquiétant aussi. Mais disons, le leadership politique joue un rôle extraordinaire.
+
+353
+00:53:16.210 --> 00:53:17.770
+<v Giuliano da Empoli>On a vu en Nouvelle-Zélande
+
+354
+00:53:18.190 --> 00:53:30.530
+<v Giuliano da Empoli>le même parti changer, qui était très bas dans les sondages, le Parti travailliste, quand il a changé à un mois des élections, le leader, en gardant toute la proposition politique, le programme précédent,
+
+355
+00:53:30.930 --> 00:53:40.750
+<v Giuliano da Empoli>il a eu un boost de 25 % et c'est Jacinda qui a gagné les dernières élections politiques et c'était simplement un visage nouveau et un leadership nouveau.
+
+356
+00:53:41.070 --> 00:53:50.330
+<v Giuliano da Empoli>Donc, il y a énormément de facteurs qui entrent en jeu et c'est vraiment pas le moment d'être résigné ou pessimiste, hein.
+
+357
+00:53:50.450 --> 00:53:51.850
+<v Giuliano da Empoli>De ça, je suis assez convaincu.
+
+358
+00:53:51.950 --> 00:53:53.150
+<v Guillaume Hachez>Patrick, tu avais une question ?
+
+359
+00:53:53.510 --> 00:54:05.270
+<v Patrick Beja>Ben, j'en aurais mille. Mais je me pose une question qui est peut-être un tout petit peu hors propos, mais on a la chance de vous parler, donc je vais quand même la poser.
+
+360
+00:54:05.790 --> 00:54:12.450
+<v Patrick Beja>On a parlé de différentes figures politiques qui ont bien utilisé les réseaux sociaux et qui ont un certain charisme.
+
+361
+00:54:12.890 --> 00:54:25.290
+<v Patrick Beja>Moi, étant français et étant un petit peu, on va dire poliment, intrigué par la figure de Jean-Luc Mélenchon, je ne sais pas si vous connaissez bien le personnage.
+
+362
+00:54:26.570 --> 00:54:33.990
+<v Patrick Beja>Il y a certaines similarités. Je veux pas dire... quand je parle de la France insoumise, parfois, j'utilise le qualificatif qui...
+
+363
+00:54:34.510 --> 00:54:44.510
+<v Patrick Beja>d'extrême et souvent, mes camarades et mes auditeurs me le reprochent en disant que ça caricature le mouvement de la France insoumise, ce que je peux comprendre,
+
+364
+00:54:45.090 --> 00:54:47.310
+<v Patrick Beja>mais je crois qu'il y a certaines similarités.
+
+365
+00:54:47.390 --> 00:55:03.210
+<v Patrick Beja>Il y a certains éléments de, comment dire, de militantisme, on va dire... bon, je vais pas utiliser le terme extrême, donc je vais me concentrer sur ma question plutôt.
+
+366
+00:55:03.730 --> 00:55:18.166
+<v Patrick Beja>Quelle similarité est-ce qu'il y a réellement entre un personnage comme Jean-Luc Mélenchon, qui a, malheureusement pour lui, qui est passé un petit peu au second plan, en particulier avec le mouvement des Gilets jaunes.
+
+367
+00:55:18.946 --> 00:55:26.006
+<v Patrick Beja>Mais il y avait quand même, je crois, une comparaison faisable avec les mouvements dont on parlait.
+
+368
+00:55:26.046 --> 00:55:26.226
+<v Giuliano da Empoli>Oui.
+
+369
+00:55:26.286 --> 00:55:28.476
+<v Patrick Beja>Est-ce que c'est moi qui interprète les choses-
+
+370
+00:55:28.506 --> 00:55:28.576
+<v Giuliano da Empoli>Non
+
+371
+00:55:28.606 --> 00:55:30.066
+<v Patrick Beja>...ou est-ce qu'il y a effectivement quelque chose là-dedans ?
+
+372
+00:55:30.186 --> 00:55:38.186
+<v Giuliano da Empoli>Non, non, moi, je partage tout à fait votre avis. Je pense que lui, il a essayé de faire avec La France insoumise
+
+373
+00:55:38.706 --> 00:55:51.846
+<v Giuliano da Empoli>une opération, justement, qui allait dans la direction d'un populisme pur, c'est-à-dire qui se détachait du clivage idéologique traditionnel, il a bien vu.
+
+374
+00:55:52.026 --> 00:56:00.675
+<v Giuliano da Empoli>C'est d'ailleurs la théorie de Steve Bannon, l'ancien spin doctor de Trump, qui dit : « Encore une fois,
+
+375
+00:56:01.426 --> 00:56:10.686
+<v Giuliano da Empoli>les populistes gagnent là où ils arrivent à unir populistes de droite et populistes de gauche.
+
+376
+00:56:11.186 --> 00:56:20.706
+<v Giuliano da Empoli>» Et donc à réorganiser le clivage politique, à déstructurer le clivage droite-gauche. Et Mélenchon, qui partait de la gauche,
+
+377
+00:56:21.266 --> 00:56:34.126
+<v Giuliano da Empoli>on a bien vu au cours des élections successives qu'il a essayé d'évacuer un peu ou de mettre au second plan, justement, le profil idéologique, l'être de gauche, etc.,
+
+378
+00:56:35.066 --> 00:56:46.226
+<v Giuliano da Empoli>ou en mettant au premier plan plutôt, justement, la colère de tous bords, les exclus, les oubliés, etc.
+
+379
+00:56:46.726 --> 00:56:58.226
+<v Giuliano da Empoli>Et donc on ne prend plus vraiment parti entre Le Pen et Macron quand il s'agit de donner une indication au second tour.
+
+380
+00:56:58.686 --> 00:57:11.326
+<v Giuliano da Empoli>Et donc, on essaye et on courtise et on essaye de récupérer le mouvement des Gilets jaunes qui lui-même contenait beaucoup, beaucoup, beaucoup d'éléments différents.
+
+381
+00:57:11.966 --> 00:57:20.626
+<v Giuliano da Empoli>Et bon, il a... on voit bien qu'il a essayé de faire ça parce que c'est une opération qui reste à faire en France, justement.
+
+382
+00:57:21.126 --> 00:57:32.206
+<v Giuliano da Empoli>En Italie, elle a été faite grâce surtout au Mouvement 5 étoiles qui après a pu devenir le véhicule pour une vraie droite en même temps, parce que Salvini, c'est quand même,
+
+383
+00:57:32.826 --> 00:57:46.926
+<v Giuliano da Empoli>c'est quand même une droite assez radicale, mais il n'aurait jamais pu prendre le pouvoir sans la contribution décisive du Mouvement 5 étoiles qui, du coup, est un mouvement post-idéologique, purement populiste, etc.
+
+384
+00:57:47.746 --> 00:58:01.646
+<v Giuliano da Empoli>Et cette opération-là, elle reste à faire en France. Elle est tout à fait possible parce que Macron a fait l'opération inverse, c'est-à-dire que lui, il a gagné justement en déstructurant le clivage droite-gauche,
+
+385
+00:58:02.226 --> 00:58:04.266
+<v Giuliano da Empoli>mais sur la base d'un programme,
+
+386
+00:58:05.066 --> 00:58:08.966
+<v Giuliano da Empoli>europhile, d'ouverture, etc.
+
+387
+00:58:09.946 --> 00:58:24.746
+<v Giuliano da Empoli>Et donc, il y a tout à fait la place et je crois que ça, Mélenchon l'a bien vu, pour quelqu'un qui réussirait à fédérer tous ceux qui sont du côté opposé de ce nouveau clivage
+
+388
+00:58:25.446 --> 00:58:29.126
+<v Giuliano da Empoli>ouverture, fermeture, élite, populiste, etc.
+
+389
+00:58:29.946 --> 00:58:38.726
+<v Giuliano da Empoli>Simplement, il n'a pas réussi à le faire. Bon, il avait probablement un peu trop d'histoire derrière lui.
+
+390
+00:58:38.786 --> 00:58:48.486
+<v Giuliano da Empoli>La question de l'immigration reste centrale, c'est-à-dire que c'est vrai que cette union-là, elle se fait sur la question de l'immigration aussi.
+
+391
+00:58:48.666 --> 00:58:53.366
+<v Giuliano da Empoli>Donc, tant que vous ne voulez pas,
+
+392
+00:58:53.966 --> 00:59:07.306
+<v Giuliano da Empoli>disons, casser le tabou, qui est un tabou, disons, plutôt de la gauche traditionnelle, qui est plutôt pour une politique d'accueil, pour une politique bienveillante par rapport à l'immigration et tout ça,
+
+393
+00:59:08.746 --> 00:59:21.466
+<v Giuliano da Empoli>là, pour faire l'opération nationale-populiste, il faut sur ça prendre une position beaucoup plus de droite, si vous voulez, hein, beaucoup plus.
+
+394
+00:59:21.806 --> 00:59:26.986
+<v Giuliano da Empoli>Et ça, il l'a pas tout à fait fait non plus. Il pouvait peut-être pas, hein.
+
+395
+00:59:27.055 --> 00:59:28.186
+<v Patrick Beja>Oui, je crois que-
+
+396
+00:59:28.246 --> 00:59:28.916
+<v Giuliano da Empoli>Et donc,
+
+397
+00:59:28.986 --> 00:59:31.805
+<v Patrick Beja>Ça aurait été compliqué par rapport à sa base, effectivement.
+
+398
+00:59:31.935 --> 00:59:38.326
+<v Giuliano da Empoli>Voilà. Et mais il a tout... je pense qu'il a essayé, hein, il a vraiment essayé de faire l'opération dont vous parlez.
+
+399
+00:59:38.426 --> 00:59:45.186
+<v Patrick Beja>Mmh. Moi, ça me rassure un petit peu sur l'analyse que j'avais de, ben, des dernières élections et du personnage, parce que
+
+400
+00:59:45.986 --> 01:00:01.226
+<v Patrick Beja>comme je le dis, je pointe des similarités, sur la forme, pas, évidemment, pas sur le fond, mais sur la forme, entre Jean-Luc Mélenchon et la France insoumise et ce qu'on voit du côté droite dans différents pays.
+
+401
+01:00:01.766 --> 01:00:14.386
+<v Patrick Beja>Et souvent, on me répond avec un petit peu de violence que je suis alarmiste et que j'essaye de salir l'image de Mélenchon et ce genre de choses.
+
+402
+01:00:14.416 --> 01:00:21.626
+<v Patrick Beja>Donc ça me rassure un peu que sans juger le fond, encore une fois, vous me confirmiez que vous avez une analyse, en tout cas, un petit peu similaire.
+
+403
+01:00:21.646 --> 01:00:26.146
+<v Patrick Beja>Donc merci de m'indiquer que je suis pas complètement fou.
+
+404
+01:00:26.206 --> 01:00:28.446
+<v Giuliano da Empoli>On se trompe peut-être tous les deux, mais enfin, je-
+
+405
+01:00:28.706 --> 01:00:29.476
+<v Patrick Beja>C'est possible, bien sûr
+
+406
+01:00:29.476 --> 01:00:31.506
+<v Giuliano da Empoli>...je suis d'accord avec vous sur ça, tout à fait, ouais.
+
+407
+01:00:31.636 --> 01:00:31.986
+<v Patrick Beja>D'accord.
+
+408
+01:00:32.126 --> 01:00:40.086
+<v Guillaume Hachez>On n'en a pas parlé, mais l'aspect populiste de la France insoumise apparaît aussi quand on regarde le fait qu'ils ont lancé leur propre média qui s'appelle Le Média.
+
+409
+01:00:40.646 --> 01:00:46.106
+<v Guillaume Hachez>Et voilà, et on retourne un petit peu à ce qu'on disait sur la radio dans la maison, pour, en Allemagne.
+
+410
+01:00:46.186 --> 01:00:50.836
+<v Guillaume Hachez>C'est... il y a le côté contrôler l'information et voilà, présenter les choses sur un certain angle.
+
+411
+01:00:50.846 --> 01:01:01.246
+<v Patrick Beja>Oui, ça s'inscrit dans... j'ai pas donné d'exemples concrets, mais effectivement, ça s'inscrit dans cette mouvance où on ne peut pas faire confiance aux médias, effectivement.
+
+412
+01:01:01.286 --> 01:01:13.666
+<v Patrick Beja>Et si vous allez voir les gens du Média, puisqu'ils s'appellent Le Média, ils vous assureront et vous jureront jusqu'à leur dernier souffle qu'ils n'ont rien à voir avec la France insoumise, et que ça s'est fait de manière séparée.
+
+413
+01:01:14.026 --> 01:01:20.606
+<v Patrick Beja>Bon ensuite, on laissera chacun juger, mais oui, je voulais juste le préciser parce que je pense que tu recevras des mails sinon, Guillaume.
+
+414
+01:01:21.446 --> 01:01:22.526
+<v Patrick Beja>Selon eux, ils sont indépendants.
+
+415
+01:01:23.126 --> 01:01:30.926
+<v Guillaume Hachez>On va dire ça. Mais donc, on a parlé jusqu'à présent d'une stratégie qui consiste à bombarder les électeurs indécis de messages ciblés.
+
+416
+01:01:31.306 --> 01:01:34.146
+<v Guillaume Hachez>C'est pas la seule, hein, on a parlé de l'importance du leadership, par exemple.
+
+417
+01:01:34.566 --> 01:01:44.186
+<v Guillaume Hachez>J'étais tombé il y a quelques années sur un article très intéressant où l'auteur avait fait des calculs statistiques de grande échelle, hein, on parlait tout à l'heure de big data, mais c'est exactement ça.
+
+418
+01:01:44.346 --> 01:01:53.246
+<v Guillaume Hachez>Des calculs de grande échelle pour calculer les intersections entre les différents subreddits, donc les sections du site Reddit qui est très populaire, surtout aux États-Unis.
+
+419
+01:01:53.866 --> 01:02:01.810
+<v Guillaume Hachez>Et on voyait par exemple qu'il y avait un segment conséquent, c'est pas la majorité, mais un segment conséquent des visiteurs du subreddit de Donald Trump
+
+420
+01:02:02.550 --> 01:02:13.510
+<v Guillaume Hachez>qui postaient régulièrement, par exemple aussi sur 4chan ou sur un subreddit qui s'appelait FatPeopleHate, donc qui incitait à la haine des personnes en surpoids.
+
+421
+01:02:13.630 --> 01:02:22.590
+<v Guillaume Hachez>Ou encore aussi sur un subreddit qui prônait la haine raciale. C'était très parlant. Je savais pas vraiment poser de mots là-dessus.
+
+422
+01:02:22.630 --> 01:02:27.950
+<v Guillaume Hachez>Je ne savais pas vraiment l'expliquer, mais ça me semblait juste. C'était très parlant et donc les données le confirmaient.
+
+423
+01:02:28.670 --> 01:02:40.090
+<v Guillaume Hachez>Et en plus de ça, on voyait aussi que quand on faisait l'intersection des visiteurs du subreddit Donald Trump avec la communauté des gamers, une partie importante de,
+
+424
+01:02:41.030 --> 01:02:46.550
+<v Guillaume Hachez>de l'intersection qu'on obtenait à ce moment-là, c'était des supporteurs de ce qu'on appelle le Gamergate.
+
+425
+01:02:46.970 --> 01:02:47.090
+<v Patrick Beja>Oui.
+
+426
+01:02:47.120 --> 01:02:54.750
+<v Guillaume Hachez>Alors, Patrick, je suis désolé de te faire ça, mais tu avais écrit il y a quelques années un excellent article sur ton blog qui parlait du Gamergate.
+
+427
+01:02:54.770 --> 01:03:01.210
+<v Guillaume Hachez>Du coup, avant d'écouter Giuliano à ce sujet, est-ce que tu peux rappeler à nos auditeurs ce que c'est en fait Gamergate ?
+
+428
+01:03:01.290 --> 01:03:03.250
+<v Patrick Beja>Oui, bon, on va-
+
+429
+01:03:03.390 --> 01:03:03.930
+<v Guillaume Hachez>Je suis désolé hein
+
+430
+01:03:04.050 --> 01:03:15.670
+<v Patrick Beja>...on va essayer d'être... Non, non, mais je vais... C'est très compliqué en fait. C'est vraiment un mouvement compliqué qui était, tu as raison, le précurseur peut-être de ce qu'on a vu arriver par la suite, d'une certaine manière.
+
+431
+01:03:16.230 --> 01:03:22.510
+<v Patrick Beja>Gamergate est un mouvement sans leader qui a été lancé sur Internet, principalement sur 4chan et Reddit,
+
+432
+01:03:23.070 --> 01:03:33.570
+<v Patrick Beja>dont l'étincelle a été un scandale qui avait à voir avec des journalistes et, enfin une femme journaliste et des relations qu'elle aurait pu avoir avec,
+
+433
+01:03:34.190 --> 01:03:38.990
+<v Patrick Beja>un développeur et le travail qu'elle avait fait, journalistique, sur les jeux du développeur.
+
+434
+01:03:39.350 --> 01:03:41.230
+<v Patrick Beja>Et ça a donné lieu à-
+
+435
+01:03:41.270 --> 01:03:43.670
+<v Guillaume Hachez>Attends, est-ce que tu parles de Zoë Quinn ?
+
+436
+01:03:43.710 --> 01:03:44.390
+<v Patrick Beja>Oui, tout à fait.
+
+437
+01:03:44.770 --> 01:03:47.780
+<v Guillaume Hachez>Ben donc, Zoë Quinn, c'était la développeuse et c'était une relation avec un journaliste.
+
+438
+01:03:47.780 --> 01:04:02.910
+<v Patrick Beja>Excuse-moi, j'ai fait l'inverse. Mais donc le mouvement s'est articulé autour de ce premier scandale pour se développer en argumentaire anti-journalistique,
+
+439
+01:04:03.450 --> 01:04:10.030
+<v Patrick Beja>qui voulait expliquer à la communauté des gamers que les journalistes ne savaient pas faire leur travail.
+
+440
+01:04:10.670 --> 01:04:20.730
+<v Patrick Beja>Sauf que l'intégralité ou on va dire l'immense majorité de leurs critiques s'adressait systématiquement à des femmes, femmes développeurs, femmes journalistes, etc., etc.
+
+441
+01:04:21.650 --> 01:04:26.710
+<v Patrick Beja>Et il y avait ce double discours qui était impossible à,
+
+442
+01:04:27.900 --> 01:04:42.169
+<v Patrick Beja>à dédire où les gamergateurs qui s'autodéclaraient gamergateurs disaient : « Nous, nous voulons protéger le journalisme dans le monde du jeu vidéo et l'intégrité éthique et artistique du monde du jeu vidéo.
+
+443
+01:04:42.700 --> 01:04:51.590
+<v Patrick Beja>» Et dans les faits, toutes leurs critiques et toutes leurs attaques, qui sont devenues assez violentes par la suite, s'orientaient vers des femmes.
+
+444
+01:04:51.650 --> 01:05:07.350
+<v Patrick Beja>Donc c'était effectivement un mouvement clairement sexiste, qui a été parsemé de harcèlements assez terribles, qui prenait comme étendard l'éthique dans le monde du journalisme du jeu vidéo.
+
+445
+01:05:07.790 --> 01:05:22.919
+<v Patrick Beja>Et là où c'était vraiment notable, c'est qu'il n'y avait pas de leader et il y avait ce... C'est même comparable au mouvement d'Occupy Wall Street du début des années 2000, où n'importe qui pouvait se dire,
+
+446
+01:05:24.150 --> 01:05:25.270
+<v Patrick Beja>membre du Gamergate.
+
+447
+01:05:25.710 --> 01:05:35.990
+<v Patrick Beja>Et donc quand on essayait de reprocher quelque chose au mouvement Gamergate, chacun pouvait honnêtement dire : « Ah oui, mais vous prenez un exemple, il ne nous représente pas.
+
+448
+01:05:36.550 --> 01:05:45.390
+<v Patrick Beja>» Sauf que, de fait, ils avaient activement décidé de ne pas avoir une liste de demandes, de ne pas avoir de hiérarchie, de structure.
+
+449
+01:05:45.650 --> 01:05:56.130
+<v Patrick Beja>Et donc il était impossible de pointer du doigt les dysfonctionnements ou les problèmes du mouvement, puisque à chaque fois qu'on en pointait un du doigt, ils disaient : « Ah oui, mais il y a des extrêmes partout.
+
+450
+01:05:56.520 --> 01:05:58.890
+<v Patrick Beja>» Donc c'était un mouvement très intéressant dont on a
+
+451
+01:05:59.590 --> 01:06:10.030
+<v Patrick Beja>souvent pensé qu'il était un épiphénomène au niveau de l'histoire et on se rend compte aujourd'hui qu'il est devenu une sorte de template standard pour de nombreux autres mouvements de ce type.
+
+452
+01:06:10.270 --> 01:06:13.950
+<v Patrick Beja>Je sais pas si le résumé correspond à ce que tu espérais.
+
+453
+01:06:13.990 --> 01:06:15.850
+<v Guillaume Hachez>C'est un résumé très efficace.
+
+454
+01:06:15.959 --> 01:06:15.969
+<v Patrick Beja>Merci.
+
+455
+01:06:15.969 --> 01:06:17.610
+<v Guillaume Hachez>Et donc du coup, je me retourne
+
+456
+01:06:18.130 --> 01:06:26.350
+<v Guillaume Hachez>vers Giuliano, puisque vous en parlez dans le livre. Comment est-ce que les ingénieurs du chaos, Steve Bannon, Milo Yiannopoulos, pour les citer,
+
+457
+01:06:26.800 --> 01:06:34.530
+<v Guillaume Hachez>comment est-ce qu'ils ont fait pour dompter alors cette rage, ben voilà, on disait un petit peu anti-journalistique, surtout misogyne ?
+
+458
+01:06:34.630 --> 01:06:41.370
+<v Guillaume Hachez>Comment est-ce qu'ils ont fait pour dompter cette rage et la convertir en électorat, au profit de Donald Trump ?
+
+459
+01:06:41.450 --> 01:06:43.530
+<v Guillaume Hachez>Ça s'est concrétisé comment exactement ? Comment est-ce qu'ils ont fait ça ?
+
+460
+01:06:43.540 --> 01:06:49.410
+<v Giuliano da Empoli>Ben là encore, c'est assez fascinant. C'est-à-dire, d'abord, ils ont, Bannon, par rapport à
+
+461
+01:06:51.010 --> 01:06:59.230
+<v Giuliano da Empoli>tous les autres spin doctors politiques, a quand même compris avant qu'il y avait là un potentiel politique extraordinaire parce qu'il avait une expérience.
+
+462
+01:06:59.750 --> 01:07:11.634
+<v Giuliano da Empoli>Il avait tenté de monter une entreprise basée à Hong Kong qui exploitait fondamentalement qui était basé sur le jeu World of Warcraft
+
+463
+01:07:11.814 --> 01:07:17.554
+<v Guillaume Hachez>Du gold farming, donc c'était pour collectionner des objets dans le jeu et les revendre pour du vrai argent
+
+464
+01:07:17.574 --> 01:07:31.184
+<v Giuliano da Empoli>Il faisait jouer des employés chinois à très bas coût pour revendre leurs trophées aux riches joueurs américains et européens qui n'avaient pas le temps ou l'envie de passer toute leur journée sur
+
+465
+01:07:31.954 --> 01:07:35.634
+<v Giuliano da Empoli>l'ordinateur pour gagner des trophées.
+
+466
+01:07:35.694 --> 01:07:47.954
+<v Giuliano da Empoli>Et là, vu que c'était de la triche, en réalité, pour les vrais joueurs de World of Warcraft, il y a eu une rébellion très violente des gamers contre lui qui a forcé l'entreprise à
+
+467
+01:07:48.554 --> 01:08:00.074
+<v Giuliano da Empoli>fermer et qui a forcé le développeur de World of Warcraft, justement, à changer les règles pour rendre impossible ce type d'opération.
+
+468
+01:08:00.614 --> 01:08:05.014
+<v Giuliano da Empoli>Et donc là, Bannon a vu qu'il y avait des centaines de milliers de
+
+469
+01:08:06.154 --> 01:08:21.614
+<v Giuliano da Empoli>personnes déconnectées, enfin pas nécessairement, enfin distribuées un peu partout et dont on ne connaissait pas le potentiel politique, mais qui pouvaient être un mouvement très efficace sur Internet.
+
+470
+01:08:22.014 --> 01:08:31.594
+<v Giuliano da Empoli>Et il s'est souvenu de ça quand il est devenu responsable de la campagne de Trump. Et donc, il a embauché,
+
+471
+01:08:32.454 --> 01:08:48.594
+<v Giuliano da Empoli>même avant, quand il était à Breitbart News, son média sur Internet, il a embauché Milo Yiannopoulos, qui était cette sorte de blogueur anglais très transgressif, qui avait essayé un peu, voilà, Patrick le disait, le
+
+472
+01:08:49.254 --> 01:09:01.574
+<v Giuliano da Empoli>Gamergate n'avait pas de leader ou de porte-parole, mais il y avait quand même quelques personnages qui essayaient un tout petit peu d'interpréter cette mouvance-là et de se présenter comme
+
+473
+01:09:02.214 --> 01:09:05.234
+<v Giuliano da Empoli>les porte-paroles des gamers et tout.
+
+474
+01:09:05.454 --> 01:09:16.734
+<v Guillaume Hachez>Yiannopoulos, c'était effectivement l'une des égéries, enfin l'un des égéries du mouvement Gamergate. C'est là qu'il a effectivement commencé à devenir particulièrement visible, on va dire.
+
+475
+01:09:17.274 --> 01:09:22.094
+<v Giuliano da Empoli>Et donc ce qu'ils ont fait justement, c'était pratiquement de dire,
+
+476
+01:09:22.714 --> 01:09:27.274
+<v Giuliano da Empoli>d'avoir l'argument : « Ben nous, on défend la,
+
+477
+01:09:27.854 --> 01:09:44.734
+<v Giuliano da Empoli>d'abord la liberté des gamers et, d'une certaine façon, l'éthique du monde des gamers, justement, face à des intrusions de politically correct, de censure, de, justement,
+
+478
+01:09:45.354 --> 01:09:48.614
+<v Giuliano da Empoli>souvent représentées par, curieusement, par des femmes.
+
+479
+01:09:48.994 --> 01:09:59.954
+<v Giuliano da Empoli>On défend la liberté de parole, de dire ce qu'on veut et donc surtout d'insulter et, justement, d'avoir tous les comportements.
+
+480
+01:10:00.254 --> 01:10:08.954
+<v Giuliano da Empoli>On défend le Far West, la souveraineté du Far West digital. » Et ça, ça a résonné
+
+481
+01:10:09.754 --> 01:10:19.114
+<v Giuliano da Empoli>avec le monde des gamers auxquels ils ont expliqué justement que Trump, c'était ça, c'était contre le politically correct, ça allait préserver leur
+
+482
+01:10:19.674 --> 01:10:29.834
+<v Giuliano da Empoli>écosystème et leur liberté face à la censure introduite par le politically correct, les progressistes, Hillary, évidemment, et tout ça.
+
+483
+01:10:30.494 --> 01:10:44.754
+<v Giuliano da Empoli>Et ils ont pu mobiliser quand même la force de frappe de ce monde qui est justement constitué par des centaines de milliers, peut-être des millions de personnes qui sont très actives
+
+484
+01:10:45.614 --> 01:10:52.034
+<v Giuliano da Empoli>en ligne et qui ont contribué à viraliser la campagne Trump,
+
+485
+01:10:52.694 --> 01:11:08.174
+<v Giuliano da Empoli>à la porter dans beaucoup de milieux, à créer des mèmes, donc, disons, des slogans, des images, des fake news quelquefois, ou même avec des rappels.
+
+486
+01:11:08.254 --> 01:11:19.154
+<v Giuliano da Empoli>Bon, on a vu ça pendant la campagne. Il y a eu quand même de la symbologie, disons, qui va du Ku Klux Klan à d'autres mouvements xénophobes,
+
+487
+01:11:20.034 --> 01:11:31.754
+<v Giuliano da Empoli>et parafascistes qui ont fait leur apparition dans la campagne Trump, mais toujours, comme le disait encore une fois Patrick, avec la possibilité, la deniability absolue.
+
+488
+01:11:31.774 --> 01:11:41.514
+<v Giuliano da Empoli>C'est-à-dire, si après quelqu'un dit : « Ah, mais vous, vous employez ces arguments-là », c'est qui, nous ? Hein, il y a pas, non, il y a pas de,
+
+489
+01:11:42.214 --> 01:11:49.494
+<v Giuliano da Empoli>il y a pas de hiérarchie, il y a pas de-- donc c'est des individus isolés, ça nous représente pas et tout ça.
+
+490
+01:11:49.954 --> 01:11:50.994
+<v Giuliano da Empoli>Et ça a été quand même,
+
+491
+01:11:51.814 --> 01:12:13.654
+<v Giuliano da Empoli>ça a été quand même un élément assez important de la campagne Trump sur Internet, tout ce monde des subreddits dont vous parliez, des gamers, de ces forums, forums douteux, 4chan, 8chan, etc.
+
+492
+01:12:14.654 --> 01:12:19.114
+<v Guillaume Hachez>Oui, donc une fois que ça c'est fait, est-ce que c'est vraiment efficace ? Est-ce que c'est vraiment utile d'avoir
+
+493
+01:12:19.794 --> 01:12:24.814
+<v Guillaume Hachez>une armée, ben voilà, de toutes les plateformes que vous avez citées, une armée, entre guillemets, de gamers énervés ?
+
+494
+01:12:24.894 --> 01:12:29.954
+<v Guillaume Hachez>On a du mal à comprendre exactement comment ça peut avoir un poids à l'échelle nationale, en fait.
+
+495
+01:12:30.834 --> 01:12:44.374
+<v Giuliano da Empoli>Ben ça a un poids à plusieurs niveaux. Parce que d'abord, vous savez, même pour toute idée, même extrême, sur le réseau, le critère de vérité, c'est le nombre, hein.
+
+496
+01:12:44.714 --> 01:12:51.884
+<v Giuliano da Empoli>Il y a pas le vrai critère qui compte, c'est le nombre, le nombre de retweets, le nombre de likes, le nombre de-
+
+497
+01:12:51.974 --> 01:12:53.114
+<v Guillaume Hachez>C'est celui qui crie le plus fort qui a raison.
+
+498
+01:12:53.214 --> 01:13:05.214
+<v Giuliano da Empoli>Et donc, tout ce monde-là, il donne une première force, une masse critique à des idées même
+
+499
+01:13:06.374 --> 01:13:14.734
+<v Giuliano da Empoli>qui auraient été inaudibles dans le passé, parce que justement, elles ne seraient pas passées dans la presse traditionnelle, dans les médias et tout ça,
+
+500
+01:13:15.394 --> 01:13:18.454
+<v Giuliano da Empoli>mais qui ont commencé à avoir de la traction sur Internet
+
+501
+01:13:19.114 --> 01:13:24.714
+<v Giuliano da Empoli>Et quand vous commencez à avoir un certain nombre, une certaine masse qui se développe,
+
+502
+01:13:25.334 --> 01:13:40.374
+<v Giuliano da Empoli>sur, autour d'une idée ou d'un message sur Internet, la masse, elle peut provoquer ce qu'on appelle une cascade informationnelle, c'est-à-dire justement, après, elle se multiplie.
+
+503
+01:13:40.424 --> 01:13:47.164
+<v Giuliano da Empoli>Et les barrières de résistance, même de personnes qui sont du coup moins extrémistes, qui ont,
+
+504
+01:13:47.534 --> 01:13:58.914
+<v Giuliano da Empoli>disons, des idées plus modérées, qui n'auraient jamais peut-être pensé de pouvoir ouvertement formuler une idée xénophobe ou sexiste et tout ça,
+
+505
+01:13:59.374 --> 01:14:06.154
+<v Giuliano da Empoli>eh bien, s'ils voient qu'il y a des milliers, des dizaines de milliers, des centaines de milliers de personnes qui sont déjà là.
+
+506
+01:14:06.214 --> 01:14:13.194
+<v Giuliano da Empoli>Après, là aussi, il peut y avoir des manipulations, des faux profils, des-- bon, mais on va peut-être pas rentrer là-dedans.
+
+507
+01:14:13.834 --> 01:14:29.594
+<v Giuliano da Empoli>Mais, disons, le nombre, ça compte beaucoup et ça permet, une fois qu'une idée a rejoint une certaine masse critique, ça abat les résistances.
+
+508
+01:14:29.934 --> 01:14:43.174
+<v Giuliano da Empoli>Et là, du coup, ça peut circuler très largement, même dans des mondes qui n'étaient a priori pas disposés à avoir des idées aussi radicales.
+
+509
+01:14:43.494 --> 01:14:53.334
+<v Giuliano da Empoli>En plus, ils ont pu aussi, par rapport aux sondages online qui sont effectués après les débats, qui étaient effectués après les débats présidentiels,
+
+510
+01:14:53.914 --> 01:15:03.874
+<v Giuliano da Empoli>là aussi, dans les sondages traditionnels faits par téléphone, Trump sortait en général pas en première position.
+
+511
+01:15:04.314 --> 01:15:18.274
+<v Giuliano da Empoli>Mais dans les sondages online qui étaient effectués immédiatement et en même temps, par rapport au déroulement des débats télévisuels entre les candidats républicains et puis avec Hillary Clinton,
+
+512
+01:15:18.714 --> 01:15:21.894
+<v Giuliano da Empoli>Trump sortait gagnant grâce
+
+513
+01:15:22.494 --> 01:15:26.574
+<v Giuliano da Empoli>beaucoup à ses supporters, justement, sur Internet.
+
+514
+01:15:26.854 --> 01:15:37.574
+<v Giuliano da Empoli>Et ça aussi, ça a créé un effet psychologique important parce que Trump pouvait tweeter immédiatement : « On a gagné, les sondages disent qu'on a gagné, on est les premiers », etc.
+
+515
+01:15:38.054 --> 01:15:42.564
+<v Giuliano da Empoli>Donc ça a vraiment créé un effet un peu d'avalanche, d'un certain point de vue.
+
+516
+01:15:42.574 --> 01:15:44.234
+<v Guillaume Hachez>Très bien. Patrick, tu avais une question ?
+
+517
+01:15:44.314 --> 01:15:53.154
+<v Patrick Beja>Non, peut-être une remarque, quand on parle du mouvement Gamergate, je viens de retourner sur mon blog regarder la date à laquelle j'ai écrit ce fameux article.
+
+518
+01:15:53.614 --> 01:16:11.874
+<v Patrick Beja>Et c'était en octobre 2014, donc on est à cinq ans du mouvement Gamergate. Je pense qu'on peut dire qu'aujourd'hui, le Gamergate est devenu quelque chose de, comment dire, de minoritaire.
+
+519
+01:16:11.954 --> 01:16:18.974
+<v Patrick Beja>Le mouvement et ses membres n'ont pas disparu. Ils continuent à s'agiter de temps en temps, mais il y a une réaction
+
+520
+01:16:19.394 --> 01:16:26.694
+<v Patrick Beja>assez vive de rejet de ce mouvement et de ses idées, qui a pris un moment, parce que c'était complètement chaotique, on revient au sujet dont on parle,
+
+521
+01:16:27.194 --> 01:16:31.154
+<v Patrick Beja>de la part de la communauté des gamers dans son ensemble.
+
+522
+01:16:31.454 --> 01:16:46.034
+<v Patrick Beja>Et au bout de deux, trois ans, les choses ont commencé à se calmer. Et aujourd'hui, il y a toujours ces idées qui sont agitées par certains d'entre eux, mais je pense que ça a peut-être même permis de mettre au jour des problèmes,
+
+523
+01:16:46.574 --> 01:16:53.054
+<v Patrick Beja>qu'ils ont symbolisés et qu'on essaye aujourd'hui de gérer dans la communauté des gamers.
+
+524
+01:16:53.134 --> 01:17:06.934
+<v Patrick Beja>Donc la raison pour laquelle je dis ça, c'est qu'à cinq ans du Gamergate, le phénomène est, on va dire, maîtrisé. Peut-être que dans le monde politique et social en général, l'ampleur est plus grande, donc ça prendra plus de temps.
+
+525
+01:17:06.974 --> 01:17:11.594
+<v Patrick Beja>Mais peut-être qu'on a de l'espoir, effectivement, comme le disait Giuliano. Peut-être que ça va prendre un peu plus que cinq ans,
+
+526
+01:17:12.214 --> 01:17:24.454
+<v Patrick Beja>mais qu'on réussira aussi à canaliser cette idéologie qui semblait tellement chaotique et qui semble tellement immaîtrisable, et qui était de la même manière immaîtrisable au moment du Gamergate.
+
+527
+01:17:24.494 --> 01:17:26.094
+<v Patrick Beja>Donc peut-être une petite note d'espoir.
+
+528
+01:17:26.394 --> 01:17:27.994
+<v Guillaume Hachez>Un avis là-dessus, Giuliano ?
+
+529
+01:17:28.134 --> 01:17:39.274
+<v Giuliano da Empoli>Ah oui, tout à fait. Non, mais moi, je suis persuadé que ces phénomènes évoluent, et qu'il y a, bon, il faut travailler dessus.
+
+530
+01:17:39.394 --> 01:17:47.534
+<v Giuliano da Empoli>Il y a un travail qui peut être fait au niveau de la régulation aussi, par exemple. Mais là aussi, je suis plutôt optimiste.
+
+531
+01:17:47.614 --> 01:18:05.594
+<v Giuliano da Empoli>C'est-à-dire, quand on parlait il y a simplement trois ou quatre ans de régulation des plateformes, des réseaux sociaux et cetera, bon, c'était un discours tout à fait inaudible, absolument minoritaire.
+
+532
+01:18:05.634 --> 01:18:17.474
+<v Giuliano da Empoli>Aujourd'hui, c'est un thème qui est sur l'agenda, au centre de l'agenda politique. Il y a des candidats à la présidence des États-Unis qui ont dans leur programme,
+
+533
+01:18:18.034 --> 01:18:23.354
+<v Giuliano da Empoli>de réguler les plateformes et même de casser certains monopoles.
+
+534
+01:18:23.554 --> 01:18:31.514
+<v Giuliano da Empoli>Il y a une question de concurrence aussi qui est une question importante. On a vu ce qui est en train d'être fait quand même au niveau européen.
+
+535
+01:18:31.834 --> 01:18:45.154
+<v Giuliano da Empoli>On est encore très loin d'arriver à une vraie régulation de l'écosystème informatif sur Internet, mais on est en train d'y arriver.
+
+536
+01:18:45.554 --> 01:18:58.254
+<v Giuliano da Empoli>Et donc, à plusieurs niveaux, le débat évolue. C'est très visible par rapport justement seulement à il y a trois, quatre ans.
+
+537
+01:18:58.794 --> 01:19:08.064
+<v Giuliano da Empoli>Et je pense qu'on trouvera des solutions. Mais je disais, on trouvera des solutions de régulation pour limiter les abus,
+
+538
+01:19:08.654 --> 01:19:19.274
+<v Giuliano da Empoli>et pour responsabiliser un peu les plateformes par rapport au contenu qu'elles véhiculent, parce que, mais elles ne peuvent quand même pas être tout à fait irresponsables par rapport à tout.
+
+539
+01:19:19.334 --> 01:19:28.854
+<v Giuliano da Empoli>On l'a vu dans le cas de la tuerie, par exemple, en Nouvelle-Zélande. Bon, il y a quand même encore beaucoup à faire.
+
+540
+01:19:29.414 --> 01:19:41.370
+<v Giuliano da Empoli>Mais ça évolue d'un point de vue social, politique aussi, de la réponse qui est donnée, de la traction même, comme le disait Patrick, que ces mouvements ont.
+
+541
+01:19:41.460 --> 01:19:50.590
+<v Giuliano da Empoli>Parce que c'est vrai, après, que tout ça, c'est quand même un peu plus difficile à faire une fois qu'on est au gouvernement.
+
+542
+01:19:50.630 --> 01:20:02.690
+<v Giuliano da Empoli>On a vu dans le cas italien que, par exemple, la popularité du Mouvement 5 étoiles a dramatiquement baissé au cours d'une seule année.
+
+543
+01:20:02.730 --> 01:20:07.270
+<v Giuliano da Empoli>Ils sont passés de 33 % aux élections de 2018 à,
+
+544
+01:20:07.800 --> 01:20:20.560
+<v Giuliano da Empoli>à 17 % aux élections européennes du mois dernier. Bon, après, en Italie, c'est particulier parce que c'est Salvini qui monte, donc ce qui n'est pas nécessairement mieux et peut-être même un peu pire. Mais-
+
+545
+01:20:20.810 --> 01:20:30.650
+<v Guillaume Hachez>Y a un an, justement, à l'aube de ce gouvernement italien, donc la coalition, on le rappelle, entre la Ligue de Salvini et le Mouvement 5 étoiles, vous prédisiez il y a un an que ce gouvernement,
+
+546
+01:20:31.030 --> 01:20:34.270
+<v Guillaume Hachez>il n'allait pas durer cinq ans et qu'il allait certainement se planter en cours de route.
+
+547
+01:20:34.870 --> 01:20:38.810
+<v Guillaume Hachez>Aujourd'hui, est-ce que c'est toujours votre sentiment ? Comment est-ce que vous voyez la chose ?
+
+548
+01:20:38.850 --> 01:20:52.390
+<v Giuliano da Empoli>Oui, il ne va pas durer cinq ans. Là, la question, mais on rentre dans la politique italienne, c'est que Salvini va à un certain moment vouloir prendre le contrôle.
+
+549
+01:20:52.710 --> 01:21:02.890
+<v Giuliano da Empoli>Aujourd'hui, il est majoritaire en termes de votes, mais il est encore minoritaire à l'intérieur d'un gouvernement qui a été constitué dans une situation différente.
+
+550
+01:21:02.970 --> 01:21:14.050
+<v Giuliano da Empoli>Donc, il va vouloir probablement, à un certain moment, passer par de nouvelles élections, pour, avec une nouvelle coalition dont il serait le guide.
+
+551
+01:21:14.390 --> 01:21:24.690
+<v Giuliano da Empoli>Et s'il gagnait les élections, il deviendrait Premier ministre en Italie. La question de ça, ce n'est pas une question de
+
+552
+01:21:25.350 --> 01:21:32.370
+<v Giuliano da Empoli>si ça va se produire, parce que ça va se produire, mais c'est une question de quand, c'est une question de timing.
+
+553
+01:21:32.510 --> 01:21:36.910
+<v Giuliano da Empoli>Et le timing, il est assez largement remis à Salvini lui-même,
+
+554
+01:21:37.510 --> 01:21:52.450
+<v Giuliano da Empoli>même si, en Italie, il y a quand même un problème de finances publiques, de rapport avec l'Europe, donc de formation de la loi de budget à l'automne, qui est toujours un thème très délicat.
+
+555
+01:21:52.910 --> 01:22:07.930
+<v Giuliano da Empoli>Et donc, il va falloir que Salvini considère ça aussi. Mais tôt ou tard, la coalition va se briser et Salvini va essayer de prendre le pouvoir directement, seul.
+
+556
+01:22:08.430 --> 01:22:14.270
+<v Guillaume Hachez>Oui, mais là, comme vous le disiez, c'est un cas un petit peu particulier, puisque d'habitude, quand on est au pouvoir, on a tendance plutôt à baisser dans les sondages.
+
+557
+01:22:14.310 --> 01:22:23.450
+<v Guillaume Hachez>Et là, Salvini, il arrive à monter. Donc c'est très particulier. Mais si on prend un autre exemple, hein, par exemple, je sais pas, un Viktor Orbán ou un,
+
+558
+01:22:24.490 --> 01:22:30.770
+<v Guillaume Hachez>ou un Donald Trump, donc voilà, des figures plutôt antisystème, ou en tout cas, c'est comme ça qu'ils se positionnent.
+
+559
+01:22:31.470 --> 01:22:42.730
+<v Guillaume Hachez>Quand on arrive au bout de son mandat, et que voilà, c'est-- en l'occurrence, pour Donald Trump, c'est plutôt quelqu'un de, on peut le dire, plutôt quelqu'un d'incompétent.
+
+560
+01:22:43.370 --> 01:22:54.590
+<v Guillaume Hachez>Est-ce que quand un leader, voilà, qui se positionne sur ce national-populisme, sur cet anti-establishment, est-ce qu'un leader est sanctionné pour son incompétence ou bien est-ce que ça n'a aucune importance ?
+
+561
+01:22:54.710 --> 01:22:59.460
+<v Giuliano da Empoli>Disons, l'incompétence, paradoxalement, est devenue un
+
+562
+01:23:00.370 --> 01:23:11.850
+<v Giuliano da Empoli>argument en faveur de ces leaders, parce qu'elle prouve qu'ils n'appartiennent pas au système, qu'ils n'appartiennent pas au monde des vieilles élites, qu'ils ne sont pas,
+
+563
+01:23:12.350 --> 01:23:15.970
+<v Giuliano da Empoli>qu'il ne s'agit pas d'un technocrate, qui donc,
+
+564
+01:23:16.630 --> 01:23:21.210
+<v Giuliano da Empoli>d'un point de vue électoral, c'est plutôt un argument
+
+565
+01:23:21.910 --> 01:23:26.850
+<v Giuliano da Empoli>en faveur de ces leaders que contre, ce qui est un paradoxe, mais c'est comme ça.
+
+566
+01:23:27.630 --> 01:23:40.010
+<v Giuliano da Empoli>Alors après, une fois au pouvoir, évidemment, l'incompétence, elle provoque des dégâts, elle provoque des gaffes, mais elle provoque aussi des-- bon, ça peut devenir dangereux.
+
+567
+01:23:40.710 --> 01:23:53.550
+<v Giuliano da Empoli>Mais encore une fois, la grande capacité de ces leaders-là, et ça a été le cas de Trump comme celui de Salvini, c'est de cibler leur base.
+
+568
+01:23:53.750 --> 01:24:05.730
+<v Giuliano da Empoli>C'est-à-dire, ce qui est prioritaire pour eux, c'est de continuer à envoyer des messages qui vont motiver et fidéliser leur base.
+
+569
+01:24:06.010 --> 01:24:13.670
+<v Giuliano da Empoli>Ils la connaissent très bien, ils savent exactement quels sont les arguments qu'il faut utiliser pour ça. Et donc, ils vont toujours
+
+570
+01:24:14.150 --> 01:24:22.630
+<v Giuliano da Empoli>avoir la priorité d'envoyer des messages qui n'ont rien à voir avec la compétence, la gestion économique, etc.
+
+571
+01:24:23.070 --> 01:24:25.440
+<v Giuliano da Empoli>Mais c'est vraiment de la propagande,
+
+572
+01:24:26.030 --> 01:24:27.770
+<v Giuliano da Empoli>et donc des symboles.
+
+573
+01:24:28.310 --> 01:24:38.230
+<v Giuliano da Empoli>Et là, justement, la bataille de Trump pour avoir le financement de son mur, même si ça a provoqué l'arrêt de l'administration fédérale,
+
+574
+01:24:38.660 --> 01:24:48.350
+<v Giuliano da Empoli>les, la bataille que Salvini fait contre chaque bateau d'ONG qui débarquerait en Italie.
+
+575
+01:24:48.630 --> 01:24:54.070
+<v Giuliano da Empoli>Et en concentrant toutes ces énergies, non pas sur la solution du problème migratoire,
+
+576
+01:24:54.550 --> 01:25:07.510
+<v Giuliano da Empoli>mais sur les quarante migrants qui sont à bord du navire spécifique sur lequel il va faire une semaine de campagne de communication haineuse, etc.
+
+577
+01:25:08.210 --> 01:25:25.498
+<v Giuliano da Empoli>Donc, on est en dehors de la réalité. On est dans la pure représentation politique, symbolique, etc. Mais ça reste quand même très efficace sur la base des électeurs de ces personnages.
+
+578
+01:25:25.958 --> 01:25:36.957
+<v Giuliano da Empoli>Et apparemment, par exemple, dans-- encore une fois, dans le cas italien, sur une base même plus large, hein. On est vraiment plus dans le théâtre que dans la réalité.
+
+579
+01:25:37.478 --> 01:25:45.398
+<v Giuliano da Empoli>Après, pour que la réalité morde, ça prend plus longtemps. Hein, on est en train de voir ça, par exemple, en Italie, dans les villes.
+
+580
+01:25:45.458 --> 01:25:57.218
+<v Giuliano da Empoli>La-- Rome, qui est gérée par un maire cinq étoiles tout à fait incompétent. Aujourd'hui, les citoyens sont très mécontents parce que ça se passe très mal, hein.
+
+581
+01:25:57.598 --> 01:26:07.518
+<v Giuliano da Empoli>Mais dans une ville, il a fallu quand même plus que deux ans. Et dans une ville, les résultats pratiques d'une mauvaise gestion, on les voit beaucoup plus tôt.
+
+582
+01:26:08.138 --> 01:26:26.618
+<v Giuliano da Empoli>À un niveau national, vous êtes Premier ministre, ministre, etc. Pour qu'on perçoive les dégâts et les mauvais résultats de votre gestion dans la vie quotidienne des gens, ça prend beaucoup plus de temps.
+
+583
+01:26:26.678 --> 01:26:31.418
+<v Giuliano da Empoli>Donc, malheureusement, la propagande a vraiment un énorme rôle à jouer.
+
+584
+01:26:31.758 --> 01:26:41.158
+<v Guillaume Hachez>Oui, oui, donc c'est effectivement cette promesse d'être antisystème, ben, finalement, elle est tenue par les Donald Trump et autres, puisque voilà, ils font un shutdown du gouvernement, etc.
+
+585
+01:26:41.458 --> 01:26:50.278
+<v Guillaume Hachez>Et donc c'est une promesse tenue et qui parle particulièrement à leur électorat. Très bien, mais on a bien dépassé les septante minutes que nous devions passer ensemble.
+
+586
+01:26:50.578 --> 01:26:57.178
+<v Guillaume Hachez>Donc, je vais vous remercier tous les deux d'être venus. Giuliano, merci beaucoup, encore une fois.
+
+587
+01:26:57.578 --> 01:27:00.538
+<v Giuliano da Empoli>Merci, c'était très agréable et très intéressant.
+
+588
+01:27:01.038 --> 01:27:08.698
+<v Guillaume Hachez>Et on peut vous retrouver sur Twitter, donc Giuliano da Empoli, tout simplement en cherchant. Et je mettrai le lien dans la description.
+
+589
+01:27:08.738 --> 01:27:19.318
+<v Guillaume Hachez>Et donc, on le rappelle, vous avez publié un livre il y a un an qui s'appelle Les ingénieurs du chaos où, voilà, vous détaillez tout ce que vous avez expliqué ici aujourd'hui en allant encore plus en profondeur.
+
+590
+01:27:19.718 --> 01:27:24.698
+<v Guillaume Hachez>Et donc, c'est publié aux éditions Jean-Claude Lattès. Autre chose à promouvoir ?
+
+591
+01:27:24.738 --> 01:27:31.418
+<v Giuliano da Empoli>Non, ben, c'est tout pour l'instant. Je suis en train d'écrire la suite, mais ça prendra quelque temps.
+
+592
+01:27:32.238 --> 01:27:38.958
+<v Guillaume Hachez>Ben, oui, on a presque envie d'espérer que ça n'arrive jamais puisque la suite sera, je suppose, très sombre.
+
+593
+01:27:39.018 --> 01:27:46.518
+<v Giuliano da Empoli>Non, non, non, la suite, ce sera plutôt les mouvements et les cas qui arrivent à contrer les ingénieurs du chaos. Donc elle est un peu plus positive.
+
+594
+01:27:46.918 --> 01:27:51.678
+<v Guillaume Hachez>Ah effectivement, effectivement, c'est plutôt lumineux. Patrick, où est-ce qu'on peut te retrouver ?
+
+595
+01:27:51.738 --> 01:28:03.358
+<v Patrick Beja>Oh ben, sur Twitter également, Notes Patrick. C'est très très simple. Vous l'avez déjà retenu, Notes Patrick en un mot. Et puis sinon, en podcast avec le Rendez-vous Tech qui étudie les sujets tech divers toutes les semaines.
+
+596
+01:28:03.858 --> 01:28:09.838
+<v Patrick Beja>Ou alors, tu évoquais The Phileas Club, qui est Phileas comme Phileas Fogg, hein, du Tour du monde en quatre-vingt jours.
+
+597
+01:28:09.898 --> 01:28:17.027
+<v Patrick Beja>Mais le plus simple, c'est d'aller sur frenchspin.com et de trouver l'orthographe, où on discute avec des gens de tous horizons et de tous bords,
+
+598
+01:28:17.538 --> 01:28:23.438
+<v Patrick Beja>et on essaye justement d'avoir des vraies conversations et pas juste de s'envoyer des conclusions au visage.
+
+599
+01:28:23.858 --> 01:28:28.918
+<v Patrick Beja>Donc, si ça vous intéresse, c'est en anglais par contre. Le Rendez-vous Tech est en français, mais The Phileas Club est en anglais.
+
+600
+01:28:29.318 --> 01:28:35.708
+<v Guillaume Hachez>Très bien. Mais justement, le Rendez-vous Tech, c'est précisément parce qu'il y a quelques mois, un de tes auditeurs, en fin d'émission, avait
+
+601
+01:28:36.378 --> 01:28:45.638
+<v Guillaume Hachez>fait la promotion du livre de Giuliano, en expliquant justement que Les ingénieurs du chaos étaient parvenus à reconvertir le,
+
+602
+01:28:46.258 --> 01:28:54.798
+<v Guillaume Hachez>les Gamergaters en un électorat pour Donald Trump, que j'avais compris : « Tiens, ce livre a très certainement compris quelque chose puisqu'il a saisi cet aspect-là.
+
+603
+01:28:55.218 --> 01:28:58.098
+<v Guillaume Hachez>» Donc c'est grâce à toi, en fait, que j'ai pu lire et apprécier-
+
+604
+01:28:58.428 --> 01:28:58.958
+<v Patrick Beja>Grâce aux auditeurs
+
+605
+01:28:59.018 --> 01:29:03.358
+<v Guillaume Hachez>...le livre de Giuliano. Oui, oui, c'est vrai, mais indirectement, indirectement grâce à toi, Patrick.
+
+606
+01:29:03.478 --> 01:29:03.898
+<v Patrick Beja>Merci.
+
+607
+01:29:03.998 --> 01:29:13.838
+<v Guillaume Hachez>Je mettrai aussi le lien dans la description vers ton article sur le Gamergate. Et on l'a pas dit, mais tu étais l'invité de ce délicieux podcast il y a un an, tu étais venu.
+
+608
+01:29:13.898 --> 01:29:16.138
+<v Guillaume Hachez>Donc, je mettrai le lien aussi vers cet épisode-là.
+
+609
+01:29:16.198 --> 01:29:16.498
+<v Patrick Beja>Super.
+
+610
+01:29:16.958 --> 01:29:17.918
+<v Guillaume Hachez>Merci à tous les deux.
+
+611
+01:29:17.978 --> 01:29:18.358
+<v Patrick Beja>Merci.
+
+612
+01:29:18.438 --> 01:29:23.358
+<v Guillaume Hachez>Et c'était un plaisir de vous écouter. Et chers auditeurs, on se retrouve dans deux semaines. Au revoir.
+
+613
+01:29:23.418 --> 01:29:23.758
+<v Giuliano da Empoli>Au revoir.
+
+614
+01:29:32.778 --> 01:29:42.778
+<v Guillaume Hachez>C'est déjà tout pour cet épisode avec Giuliano da Empoli et Patrick Beja. N'hésitez pas à me dire si ça vous a plu. C'est le genre de sujet qui me fascine, mais voilà, je sais que ce n'est pas la tasse de thé de tout le monde.
+
+615
+01:29:43.318 --> 01:29:52.167
+<v Guillaume Hachez>Encore une fois, cette émission s'appelle Septante Minutes Avec. Elle aurait peut-être dû s'appeler Septante Minutes à la louche parce que voilà, visiblement, les épisodes d'une heure et demie sont de plus en plus fréquents.
+
+616
+01:29:52.678 --> 01:30:01.938
+<v Guillaume Hachez>Si vous découvrez ce podcast avec cet épisode, n'hésitez pas à vous abonner sur votre plateforme de podcast préférée, à nous suivre sur les réseaux sociaux et à nous laisser des étoiles sur Apple Podcast.
+
+617
+01:30:02.058 --> 01:30:07.538
+<v Guillaume Hachez>J'ai mis les liens dans la description. Dans un genre complètement différent, on a un peu parlé de jeux vidéo aujourd'hui.
+
+618
+01:30:08.018 --> 01:30:18.458
+<v Guillaume Hachez>Si vous êtes joueur, j'ai remplacé Patrick pour un épisode de son podcast Le Rendez-vous Jeux, où on a parlé du futur de l'industrie vidéoludique avec le streaming, les nouvelles consoles et les tendances qu'on a observées à l'E3 cette année.
+
+619
+01:30:18.558 --> 01:30:25.998
+<v Guillaume Hachez>J'ai aussi mis le lien dans la description. Promis, on arrête avec la politique pour le moment et on revient très vite avec des sujets plus légers. À très bientôt.

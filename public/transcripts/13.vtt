@@ -1,0 +1,2305 @@
+WEBVTT
+
+0
+00:00:00.180 --> 00:00:23.140
+<v Guillaume Hachez>Salut, moi c'est Guillaume Hachez. Bienvenue dans Septante Minutes Avec. Pour ce treizième épisode, j'ai eu le plaisir de me rendre dans les bureaux de Google pour passer septante minutes avec Thierry Geerts, directeur de Google Belgique.
+
+1
+00:00:23.810 --> 00:00:29.880
+<v Guillaume Hachez>C'est un entretien qui s'inscrit directement dans la suite de ceux que j'ai réalisés à Molengeek et avec Alexander De Croo.
+
+2
+00:00:30.420 --> 00:00:38.420
+<v Guillaume Hachez>On parle ensemble de la révolution numérique, de son potentiel et de ses dangers. Et plus particulièrement, on parle de la situation en Belgique.
+
+3
+00:00:38.720 --> 00:00:46.460
+<v Guillaume Hachez>Est-ce que les Belges ont su prendre le train du numérique en marche ? Est-ce que les Wallons sont autant inspirés par la technologie que les Flamands ?
+
+4
+00:00:46.480 --> 00:00:52.760
+<v Guillaume Hachez>Est-ce que la fonction de ministre de l'Agenda numérique est à la hauteur des enjeux ? En plus de tous ces enjeux belgo-belges,
+
+5
+00:00:53.300 --> 00:01:03.420
+<v Guillaume Hachez>on parle aussi de Google, de leur activité en Belgique, leur position vis-à-vis du règlement général de la protection des données, hein, GDPR, et aussi du Digital Single Market.
+
+6
+00:01:04.140 --> 00:01:13.400
+<v Guillaume Hachez>Avant de se lancer dans l'interview, je précise que Thierry Geerts n'est aucunement affilié à Nadia Geerts, que j'avais reçue dans l'épisode huit, même si, voilà, même si ils portent le même nom.
+
+7
+00:01:14.480 --> 00:01:24.920
+<v Guillaume Hachez>Et je précise aussi que, full disclosure, ma société, Quickleric, l'application belge la plus téléchargée dans le monde, dont j'ai jamais parlé ici d'ailleurs,
+
+8
+00:01:25.600 --> 00:01:33.840
+<v Guillaume Hachez>comme pour beaucoup de monde, la principale source de financement de ma société, ce sont les revenus publicitaires et la vente d'abonnements.
+
+9
+00:01:33.880 --> 00:01:44.400
+<v Guillaume Hachez>Et tout ça se passe très majoritairement par Google. Donc voilà, j'ai fait cette interview en toute impartialité, mais la transparence, c'est important, donc je tenais à clarifier ça.
+
+10
+00:01:44.420 --> 00:01:53.220
+<v Guillaume Hachez>Voilà, on se retrouve dans septante minutes pour quelques annonces. C'est parti. Et bonjour à tous. Nous sommes aujourd'hui chez Google Belgique avec Thierry Geerts.
+
+11
+00:01:53.340 --> 00:01:54.540
+<v Guillaume Hachez>Thierry Geerts, bonjour.
+
+12
+00:01:54.560 --> 00:01:54.900
+<v Thierry Geerts>Bonjour.
+
+13
+00:01:55.360 --> 00:02:02.320
+<v Guillaume Hachez>Vous êtes le directeur de Google Belgique, même Google Belux avec le Luxembourg. D'abord, avant de commencer, je vous souhaite une bonne année.
+
+14
+00:02:02.500 --> 00:02:03.340
+<v Guillaume Hachez>Il est encore temps.
+
+15
+00:02:03.360 --> 00:02:04.940
+<v Thierry Geerts>Merci. Aux auditeurs aussi, bonne année.
+
+16
+00:02:05.080 --> 00:02:15.190
+<v Guillaume Hachez>Vous étiez auparavant actif dans le monde de la presse chez Corelio, secteur qui est généralement inerte, assez conservateur, très affecté par la révolution numérique.
+
+17
+00:02:15.190 --> 00:02:22.400
+<v Guillaume Hachez>Des batailles ont d'ailleurs souvent opposé la presse écrite et Google dans les tribunaux à ce sujet, par le passé en Belgique.
+
+18
+00:02:22.440 --> 00:02:32.680
+<v Guillaume Hachez>Première question : comment est-ce que vous expliquez que vous avez pu passer d'un secteur aussi réfractaire à la révolution numérique, pour ensuite diriger Google qui est un petit peu, voilà, la figure de proue de cette révolution numérique ?
+
+19
+00:02:32.700 --> 00:02:41.280
+<v Thierry Geerts>Alors, détrompez-vous, le monde des médias en Belgique est un secteur très dynamique, et qui a embrassé la digitalisation très rapidement.
+
+20
+00:02:41.380 --> 00:02:48.459
+<v Thierry Geerts>Je travaillais à Corelio. Le site du Standard date quand même de 1996. C'était donc le premier site de presse en Belgique.
+
+21
+00:02:49.140 --> 00:02:59.420
+<v Thierry Geerts>Et assez rapidement, le site du Standard, on est parvenu à le monter à un million d'audience par jour alors qu'on ne vend que cent mille copies du journal par jour.
+
+22
+00:02:59.660 --> 00:03:08.820
+<v Thierry Geerts>Et donc, on s'est rendu compte qu'il y avait un effet de levier très important. Comme la mission est de donner du journalisme de qualité en Flandre,
+
+23
+00:03:09.560 --> 00:03:13.080
+<v Thierry Geerts>il y avait un levier d'un sur dix pour toucher plus de gens via le digital.
+
+24
+00:03:13.300 --> 00:03:25.480
+<v Thierry Geerts>Et donc y a plein d'initiatives dans la presse et nos groupes de médias, par exemple, se portent. Donc tant le groupe Persgroup que ex-Corelio qui est maintenant Mediahuis sont actifs en Hollande,
+
+25
+00:03:26.120 --> 00:03:28.000
+<v Thierry Geerts>et le groupe Rossel est actif en France.
+
+26
+00:03:28.040 --> 00:03:33.579
+<v Thierry Geerts>Et donc on a des groupes médias en Belgique qui se portent très très bien, avec lesquels maintenant, chez Google, on collabore énormément.
+
+27
+00:03:33.640 --> 00:03:40.780
+<v Thierry Geerts>Et donc, c'est beaucoup plus une collaboration qu'on ne pense et le secteur est beaucoup plus comparable. Les deux métiers sont relativement comparables.
+
+28
+00:03:40.820 --> 00:03:43.960
+<v Thierry Geerts>Naturellement, nous vivons totalement dans le numérique, on n'a pas d'imprimerie.
+
+29
+00:03:44.580 --> 00:03:49.720
+<v Thierry Geerts>Mais pour le reste, il y a quand même le fait que nous faisons des produits de grande audience, la presse fait également,
+
+30
+00:03:50.320 --> 00:03:59.900
+<v Thierry Geerts>et que il y a dans la presse un élément de qualité rédactionnelle indépendamment de la publicité qui est la même chose chez Google où vous l'avez, le résultat naturel d'une recherche
+
+31
+00:04:00.280 --> 00:04:03.210
+<v Thierry Geerts>est totalement indépendant de la publicité et a la même
+
+32
+00:04:03.640 --> 00:04:07.140
+<v Thierry Geerts>indépendance rédactionnelle, si vous voulez, sur la qualité de nos produits sur lesquels il y a
+
+33
+00:04:07.620 --> 00:04:10.540
+<v Thierry Geerts>aucun compromis à faire.
+
+34
+00:04:11.040 --> 00:04:19.340
+<v Thierry Geerts>C'est d'abord l'utilisation, la qualité de l'expérience pour l'utilisateur et par après, éventuellement, la monétisation du produit.
+
+35
+00:04:19.399 --> 00:04:28.790
+<v Thierry Geerts>Donc, je me suis retrouvé dans des domaines très comparables, tout compte fait, avec des possibilités de plateforme et de liens qu'on a construits,
+
+36
+00:04:29.380 --> 00:04:32.220
+<v Thierry Geerts>mais avec naturellement une accélération.
+
+37
+00:04:32.780 --> 00:04:38.820
+<v Thierry Geerts>La vitesse à laquelle on opère chez Google est plus rapide que ce que je n'ai connu dans la presse.
+
+38
+00:04:39.080 --> 00:04:49.420
+<v Guillaume Hachez>Très bien. Donc une évolution finalement assez organique. Vous avez publié l'an dernier un livre, Digitalis, publié chez Racine, un livre qui parle entre autres justement de cette révolution numérique.
+
+39
+00:04:49.450 --> 00:04:57.660
+<v Guillaume Hachez>Vous expliquez que bientôt, nous serons entrés dans une nouvelle économie, l'économie de la connaissance. Qu'est-ce que c'est exactement cette économie de la connaissance, Thierry Geerts ?
+
+40
+00:04:57.780 --> 00:05:03.340
+<v Thierry Geerts>Ça demande effectivement un petit peu de contexte. Nous sommes dans la quatrième révolution industrielle. Ça semble, on oublie un peu,
+
+41
+00:05:03.900 --> 00:05:09.080
+<v Thierry Geerts>mais donc la digitalisation, c'est pas uniquement avoir un chouette smartphone et utiliser quelques chouettes apps.
+
+42
+00:05:09.100 --> 00:05:16.060
+<v Thierry Geerts>Non, non, c'est un changement profond de notre société et le smartphone est une des choses qu'on voit, qui est visible de cette transformation.
+
+43
+00:05:17.060 --> 00:05:22.500
+<v Thierry Geerts>Et alors, la question de savoir : elle ressemble à quoi cette quatrième révolution industrielle ? Elle est basée sur quoi ?
+
+44
+00:05:22.520 --> 00:05:29.320
+<v Thierry Geerts>Et regardons un peu par le passé, les premières révolutions industrielles étaient basées sur des matières premières, c'est-à-dire le charbon d'abord,
+
+45
+00:05:29.900 --> 00:05:36.380
+<v Thierry Geerts>et puis le pétrole et le matériau l'acier, le caoutchouc et d'autres matières premières.
+
+46
+00:05:36.980 --> 00:05:40.200
+<v Thierry Geerts>Eh bien, la révolution digitale est basée sur la connaissance.
+
+47
+00:05:40.980 --> 00:05:45.680
+<v Thierry Geerts>Aujourd'hui, si vous voulez faire une application pour
+
+48
+00:05:46.180 --> 00:05:53.320
+<v Thierry Geerts>cent millions d'utilisateurs, eh bien, il faut neuf personnes intelligentes autour de la table et on sait construire l'application et la distribuer à cent millions de personnes.
+
+49
+00:05:53.700 --> 00:05:59.539
+<v Thierry Geerts>Alors que dans le temps, si on voulait fabriquer cent millions de voitures, on était obligé d'acheter beaucoup d'acier, beaucoup de caoutchouc.
+
+50
+00:06:00.140 --> 00:06:09.868
+<v Thierry Geerts>Et donc c'est la connaissance qui est la valeur aujourd'hui, de ce qu'on construit. Et c'est donc l'être humain qui est au centre de cette révolution industrielle.
+
+51
+00:06:09.908 --> 00:06:16.708
+<v Thierry Geerts>Plus que celui qui possède dans le temps du pétrole était riche. Aujourd'hui, c'est celui qui a les meilleurs talents qui a cette richesse.
+
+52
+00:06:16.738 --> 00:06:25.508
+<v Thierry Geerts>Et donc on remet l'individu au centre du débat. La technologie, et donc le mot est mal choisi, de digitalisation, parce que la technologie semble être au centre de ça, mais ce n'est pas vrai.
+
+53
+00:06:25.888 --> 00:06:30.468
+<v Thierry Geerts>La technologie rend possible une économie plus humaine basée sur l'individu, la connaissance.
+
+54
+00:06:30.628 --> 00:06:37.528
+<v Guillaume Hachez>Mh. Mais d'après ce que vous dites, tout le monde ne sera forcément pas égal face à cette révolution numérique puisque tout le monde n'a pas accès à une éducation de qualité.
+
+55
+00:06:37.548 --> 00:06:42.608
+<v Guillaume Hachez>Donc, est-ce que finalement, cette nouvelle révolution, voilà, industrielle ne va pas renforcer
+
+56
+00:06:43.128 --> 00:06:47.908
+<v Guillaume Hachez>? C'est une question assez politique, assez sociétale, mais est-ce que cette révolution ne va pas renforcer encore plus
+
+57
+00:06:48.508 --> 00:06:56.068
+<v Guillaume Hachez>les écarts entre, voilà, les classes qui ont la chance de pouvoir accéder à une éducation de qualité et les classes populaires qui ont peut-être moins cette chance ?
+
+58
+00:06:56.108 --> 00:07:03.308
+<v Thierry Geerts>Alors, c'est en tout cas très différent. Dans le temps, c'est ceux qui possédaient des pétroles ou des usines qui étaient riches.
+
+59
+00:07:03.788 --> 00:07:08.268
+<v Thierry Geerts>Et aujourd'hui, quelqu'un, même sans aucun... Admettons, vos parents ne sont pas riches, mais vous parvenez à vous débrouiller.
+
+60
+00:07:08.908 --> 00:07:17.568
+<v Thierry Geerts>En digital, vous pouvez créer une app tout seul avec moins de moyens que jamais auparavant. Et donc, en fait, c'est quand même beaucoup plus démocratique qu'était la révolution industrielle précédente.
+
+61
+00:07:17.668 --> 00:07:24.628
+<v Thierry Geerts>Une fois de plus, cette révolution digitale n'est pas que pour les super talents style ingénieurs spécialisés en intelligence artificielle.
+
+62
+00:07:25.048 --> 00:07:32.868
+<v Thierry Geerts>On voit que beaucoup de talents qui ont développé des chouettes applications ou qui aident à cette révolution du numérique sont des gens qui ont simplement beaucoup d'entrepreneuriat, d'envie,
+
+63
+00:07:33.588 --> 00:07:39.228
+<v Thierry Geerts>qui s'y sont mis, parce que, une fois de plus, la technologie n'est pas aussi réfractaire que par le passé.
+
+64
+00:07:40.088 --> 00:07:46.968
+<v Thierry Geerts>Quand vous receviez un ordinateur dans le temps, il y avait juste un écran noir avec un C en vert. Sans manuel, vous saviez rien faire.
+
+65
+00:07:47.388 --> 00:07:57.568
+<v Thierry Geerts>Alors qu'aujourd'hui, si vous avez un petit business en ligne, vous pouvez, sans manuel, toucher une grande audience via de la publicité digitale de façon en fait relativement simple.
+
+66
+00:07:57.968 --> 00:08:07.068
+<v Thierry Geerts>Avec des cours d'une demi-journée, on devient déjà marketé digital. Et donc l'accès à tout ça est plus simple. Il y a juste qu'aujourd'hui, on a un peu peur de faire le pas.
+
+67
+00:08:07.788 --> 00:08:14.648
+<v Thierry Geerts>Et c'est pour ça qu'on stimule un certain nombre de programmes pour rendre ça le plus inclusif possible. Donc, vous n'avez pas entendu parler de Molengeek ?
+
+68
+00:08:14.688 --> 00:08:17.868
+<v Guillaume Hachez>Nous avons reçu Julie Foulon dans ce podcast il y a quelques mois.
+
+69
+00:08:17.908 --> 00:08:26.118
+<v Thierry Geerts>Eh bien voilà, c'est exactement la chose que vous montrez. Molengeek prouve qu'indépendamment de ses origines et de ses formations, il y a moyen de devenir un entrepreneur tech,
+
+70
+00:08:26.988 --> 00:08:38.028
+<v Thierry Geerts>et parfois de dépasser une grande entreprise qui a beaucoup de directeurs et beaucoup de gens très intelligents et au fait qui ont un cycle tellement coincé par le passé qu'ils ne parviennent pas à embrasser le futur.
+
+71
+00:08:38.628 --> 00:08:49.328
+<v Thierry Geerts>Et donc, Molengeek, on a aidé ça parce qu'on croyait très fort à l'initiative, mais c'est surtout un exemple pour montrer que c'est plus inclusif que jamais auparavant.
+
+72
+00:08:49.748 --> 00:08:55.368
+<v Guillaume Hachez>Oui, tout à fait. Le numérique permet, voilà, une certaine ascension sociale. C'est particulièrement évident avec Molengeek, c'est vrai.
+
+73
+00:08:55.428 --> 00:08:58.788
+<v Guillaume Hachez>Vous êtes souvent assez critique de la situation en Belgique,
+
+74
+00:08:59.268 --> 00:09:10.188
+<v Guillaume Hachez>comme moi, donc ça tombe bien. Vous dites par exemple que les Belges ont généralement complètement raté le train de l'e-commerce, puisque les Belges font eux-mêmes plutôt leur achat en France et aux Pays-Bas.
+
+75
+00:09:10.228 --> 00:09:16.748
+<v Guillaume Hachez>Qu'en Belgique, il n'y a pas vraiment d'alternative. On sait aussi que le pourcentage des diplômes, des diplômés en informatique est très très faible.
+
+76
+00:09:16.928 --> 00:09:24.128
+<v Guillaume Hachez>C'est, je crois, 1,1 % parmi tous nos diplômés sont diplômés en informatique. Pourquoi est-ce que les Belges sont autant à la traîne dans le numérique, Thierry Geerts ?
+
+77
+00:09:24.168 --> 00:09:30.848
+<v Thierry Geerts>Alors, il y a plusieurs choses. Et ça, c'est tellement sociétal qu'il faut aborder beaucoup de choses. Il y a quand même deux éléments assez importants.
+
+78
+00:09:31.697 --> 00:09:39.508
+<v Thierry Geerts>Premièrement, les Belges sont plutôt des fabricants que des commerçants. Donc, nous avons énormément d'usines de production en pharmaceutique, assemblage de voitures, etc.
+
+79
+00:09:39.908 --> 00:09:47.238
+<v Thierry Geerts>C'est formidable. Mais l'Internet a commencé par le commerce. Et donc, en Hollande, ce sont des commerçants nés. Et donc,
+
+80
+00:09:47.828 --> 00:09:53.628
+<v Thierry Geerts>j'aime assez bien quand je fais des conférences, j'en ai fait une aux Pays-Bas. Quand vous expliquez le potentiel du digital
+
+81
+00:09:54.108 --> 00:10:00.388
+<v Thierry Geerts>à une PME en Hollande, l'entrepreneur dit tout de suite : « Bah, je vais vendre mes produits à Singapour, au Mexique.
+
+82
+00:10:00.718 --> 00:10:08.167
+<v Thierry Geerts>» Et il commence le lendemain et vous faites la même conférence à Namur et ils disent : « C'est intéressant, je vais pouvoir toucher et gueuser.
+
+83
+00:10:08.648 --> 00:10:17.828
+<v Thierry Geerts>» Et, vous voyez, donc on pense petit quelque part hein. Et le Hollandais va directement commencer, investir un peu d'argent et voir si ça fonctionne.
+
+84
+00:10:18.387 --> 00:10:23.708
+<v Thierry Geerts>Et le Belge va dire : « Je vais y réfléchir. » Et alors, donc c'est plus raisonnable. Le Belge est raisonné et réfléchit.
+
+85
+00:10:23.748 --> 00:10:24.528
+<v Guillaume Hachez>Le Belge est prudent.
+
+86
+00:10:24.568 --> 00:10:32.128
+<v Thierry Geerts>Est prudent, mais naturellement, dans un âge où tout change, ce n'est pas de bon conseil. Alors, je crois qu'il est bon d'être prudent.
+
+87
+00:10:32.218 --> 00:10:37.288
+<v Thierry Geerts>Il ne faut pas sauter sur le numérique sans rien y connaître, mais il faut sauter dessus. Donc, il faut quand même s'y lancer.
+
+88
+00:10:37.948 --> 00:10:45.948
+<v Thierry Geerts>Surtout que c'est un secteur où il y a moyen d'expérimenter. Je crois que dans le temps, si vous vouliez acheter un serveur, vous essayiez rapidement payer cent mille euros.
+
+89
+00:10:46.128 --> 00:10:51.478
+<v Thierry Geerts>Aujourd'hui, du marketing digital, vous pouvez commencer avec des toutes petites sommes à essayer ce qui fonctionne. Vous investissez cinq cent euros, mille euros.
+
+90
+00:10:52.088 --> 00:11:02.268
+<v Thierry Geerts>Vous voyez si vos produits sont intéressants pour une recherche au Japon ou au Mexique. Et donc, vous commencez petit, vous voyez si ça fonctionne et puis vous pouvez mettre le turbo dessus.
+
+91
+00:11:02.768 --> 00:11:08.068
+<v Thierry Geerts>Et là, même quand ça fonctionne, le Belge va pas mettre le turbo. Il va se dire : « Oui, mais il faut faire une croissance prudente.
+
+92
+00:11:08.508 --> 00:11:15.048
+<v Thierry Geerts>» Les Américains, ils vont peut-être directement tout exploser. Je dis pas qu'il faut faire ça, mais donc il y a une prudence qui, elle, est génétique.
+
+93
+00:11:15.128 --> 00:11:27.008
+<v Thierry Geerts>Donc, il y a l'élément commerce par rapport à producteur et alors, il y a le génétique, mais qui est stimulé par le fait que on a eu tellement de succès à la révolution industrielle précédente que nous vivons relativement bien.
+
+94
+00:11:27.048 --> 00:11:29.588
+<v Thierry Geerts>Je sais que c'est politiquement difficile de dire-
+
+95
+00:11:29.638 --> 00:11:32.748
+<v Guillaume Hachez>C'est vrai. Les Belges sont parmi les plus aisés à l'échelle européenne avec les Suisses.
+
+96
+00:11:32.848 --> 00:11:43.308
+<v Thierry Geerts>On adore se plaindre en Belgique et on a des problèmes à résoudre, mais on est quand même en moyenne bien aisé, avec une population bien éduquée, des soins de santé accessibles et plein de choses à améliorer.
+
+97
+00:11:44.308 --> 00:11:52.478
+<v Thierry Geerts>Mais ça fait qu'on est quand même mieux. Si vous n'avez rien, mais alors rien du tout, même pas une allocation de chômage et que le digital arrive vers vous, vous dites : « Ça, c'est mon occasion de me sauver.
+
+98
+00:11:53.098 --> 00:11:59.848
+<v Thierry Geerts>» Alors que si vous dites : « Oui, ben au fait, bon, je me plains de tout, mais au fait, j'ai ce qu'il faut », vous allez pas prendre de risques.
+
+99
+00:11:59.888 --> 00:12:03.708
+<v Guillaume Hachez>La détresse sociale est un moteur que les Belges connaissent peut-être un peu moins que les autres. C'est ça que vous dites.
+
+100
+00:12:03.948 --> 00:12:11.388
+<v Thierry Geerts>Voilà. Alors ça, c'est un peu bizarre de dire que... Mais c'est quand même la détresse sociale qui a fait que la Wallonie était au centre de la révolution industrielle, la première.
+
+101
+00:12:12.008 --> 00:12:19.758
+<v Thierry Geerts>Et c'est parce qu'il n'y avait pas grand-chose. Je veux dire, on vivait dans les champs, on n'avait presque rien. Et donc, quand la révolution industrielle est arrivée, tout le monde a sauté dessus.
+
+102
+00:12:20.760 --> 00:12:30.180
+<v Thierry Geerts>Et aujourd'hui, comme on fonctionne encore avec la précédente, c'est difficile à changer, de laisser de côté ce qu'on connaît et ce qui fonctionne depuis cent cinquante ans en Belgique.
+
+103
+00:12:30.240 --> 00:12:36.160
+<v Thierry Geerts>Et donc c'est ce qui s'appelle du change management, tant au niveau entreprise qu'au niveau sociétal. C'est difficile.
+
+104
+00:12:36.240 --> 00:12:43.500
+<v Thierry Geerts>Changer, c'est difficile. C'est pas dans notre nature humaine de changer. D'un côté, c'est quand même plus passionnant que de continuer à faire la même chose.
+
+105
+00:12:44.460 --> 00:12:52.480
+<v Thierry Geerts>Et je crois que y a tellement de choses qu'on peut réinventer, qu'on peut mieux faire dans notre société, que c'est une opportunité de pouvoir réinventer notre monde grâce au numérique.
+
+106
+00:12:52.660 --> 00:13:03.280
+<v Guillaume Hachez>Mh. Vous évoquiez il y a un instant la Wallonie. Vous dites dans le livre que trop souvent, les Wallons sont trop peu, de manière générale, inspirés par la technologie.
+
+107
+00:13:04.100 --> 00:13:09.740
+<v Guillaume Hachez>Cette différence entre les Wallons d'un côté et les Bruxellois et les Flamands de l'autre, à quoi est-ce qu'elle est due ?
+
+108
+00:13:09.800 --> 00:13:17.860
+<v Thierry Geerts>Alors là aussi, c'est historique, mais il faut pas oublier que, si on retourne un peu dans le temps, l'économie wallonne était bien plus florissante que l'économie flamande.
+
+109
+00:13:18.160 --> 00:13:28.600
+<v Thierry Geerts>Et donc la Wallonie a eu ce succès sur l'économie industrielle. La Flandre n'a pas vraiment connu. La Flandre s'est réveillée dans les années 80 avec un plan qui était Flanders Technology,
+
+110
+00:13:29.500 --> 00:13:37.400
+<v Thierry Geerts>qui était de dire : « Eh bien, on va inspirer toute la Flandre à la troisième révolution industrielle » qui était l'informatique et la robotique.
+
+111
+00:13:38.040 --> 00:13:45.560
+<v Thierry Geerts>Et donc eux qui étaient en retard par rapport à la Wallonie, la Wallonie qui est rentrée en pleine crise de l'acier, etc., crise sombre et toutes ces histoires-là.
+
+112
+00:13:45.580 --> 00:13:52.940
+<v Thierry Geerts>À ce moment-là, la Flandre s'est dit : « On va lancer un grand plan d'inspiration ». Et ce plan était vraiment très ambitieux.
+
+113
+00:13:52.980 --> 00:13:59.080
+<v Thierry Geerts>Y avait des affiches le long des autoroutes, y avait tous les écolos ont été voir des expositions sur la robotique.
+
+114
+00:13:59.660 --> 00:14:07.040
+<v Thierry Geerts>Et ça a inspiré toute une génération d'embrasser cette nouvelle révolution industrielle. Et ils en ont encore toujours les bénéfices.
+
+115
+00:14:07.600 --> 00:14:15.199
+<v Thierry Geerts>Et donc c'est pour ça que je me dis : « Ben, on est maintenant dans la quatrième révolution industrielle. On a juste à côté de la Wallonie un plan qui a pas mal marché.
+
+116
+00:14:15.600 --> 00:14:22.120
+<v Thierry Geerts>Si on le mettait au goût du jour et on se relançait, dire voilà, on va faire Belgium Digital plutôt que de faire Flanders Technology.
+
+117
+00:14:22.400 --> 00:14:28.920
+<v Thierry Geerts>Il est temps pour un plan Belgium Digital » parce que cette révolution industrielle, elle doit réellement être portée par onze millions de Belges.
+
+118
+00:14:28.960 --> 00:14:36.720
+<v Thierry Geerts>Tout le monde est concerné. Que vous soyez jeune, âgé, que vous habitiez à la campagne ou en ville, que vous êtes une grande haute formation, peu de formation, peu importe.
+
+119
+00:14:37.360 --> 00:14:42.800
+<v Thierry Geerts>C'est une révolution pour tous et c'est une opportunité pour tous. Mais je crois que ça, il faut l'expliquer à tout le monde.
+
+120
+00:14:43.360 --> 00:14:54.540
+<v Thierry Geerts>Donc, il faut rassurer les gens pour dire que c'est pas si compliqué et que y a des bénéfices à le faire, tout en leur donnant un peu peur que si on ne le fait pas, du coup, ça devient un peu embêtant parce que les autres vont le faire à notre place.
+
+121
+00:14:54.820 --> 00:15:00.260
+<v Guillaume Hachez>Oui, ben justement, vous dites dans votre livre que cette révolution numérique, ce sera généralement une très bonne chose.
+
+122
+00:15:00.300 --> 00:15:09.770
+<v Guillaume Hachez>En tout cas, ça peut l'être. Mais voilà, si tous ne sont pas égaux face à elle, hein, on disait, voilà, l'adoption de la technologie en Wallonie, peut-être un peu moins qu'en Flandre, en Belgique, peut-être un peu moins qu'ailleurs.
+
+123
+00:15:10.410 --> 00:15:19.979
+<v Guillaume Hachez>Sur base de tout ça, on a l'impression que finalement, il est tout à fait possible qu'elle se passe très mal pour certains Belges ou pour beaucoup de Belges, au final.
+
+124
+00:15:20.460 --> 00:15:22.400
+<v Guillaume Hachez>C'est quand même assez inquiétant comme perspective.
+
+125
+00:15:23.240 --> 00:15:29.640
+<v Thierry Geerts>Mais ça, c'est toujours comme ça, hein. Si on n'avait pas embrassé la révolution industrielle il y a cent ans, eh bien, on n'aurait pas de sécurité sociale aujourd'hui, hein.
+
+126
+00:15:29.700 --> 00:15:36.380
+<v Thierry Geerts>Si on n'avait pas informatisé notre pays dans les années 80, ben, on n'en serait pas-- on serait nulle part aujourd'hui.
+
+127
+00:15:36.720 --> 00:15:45.960
+<v Thierry Geerts>Donc oui, mais ça, c'est l'être humain. Et je crois que c'est tout à fait normal. Et écoutez, si vous aviez un business il y a vingt ans, vous imaginiez pas faire des affaires sans avoir de fax.
+
+128
+00:15:46.620 --> 00:15:53.370
+<v Thierry Geerts>C'est évident, tout le monde avait un fax. Eh bien aujourd'hui, 50 % des entrepreneurs wallons se disent : « Je vais faire des affaires, mais j'ai pas de site Internet ».
+
+129
+00:15:54.220 --> 00:16:01.220
+<v Thierry Geerts>Eh bien, on peut se dire : « Ah, mais c'est un risque ». Je dis surtout, bah y a guerre pas d'or, hein. Aujourd'hui, l'Internet a vingt-cinq ans.
+
+130
+00:16:01.260 --> 00:16:08.120
+<v Thierry Geerts>Si après vingt-cinq ans d'Internet, vous n'avez pas embrassé cette technologie-là, vous méritez de recevoir une claque d'un concurrent.
+
+131
+00:16:08.220 --> 00:16:17.379
+<v Thierry Geerts>Et j'espère que ce concurrent sera plutôt fait par l'autre voisin wallon ou Belge ou Européen. Mais ça, il faut s'y attendre.
+
+132
+00:16:17.400 --> 00:16:25.320
+<v Thierry Geerts>Et ça, je crois que, bon, c'est la réalité du monde depuis toujours. Et une fois de plus, il s'agit pas d'être en avance.
+
+133
+00:16:25.940 --> 00:16:31.320
+<v Thierry Geerts>Ça dure depuis vingt-cinq ans. Il est temps de monter sur le train. Et ça, je crois qu'on peut quand même le dire de façon un peu plus stricte.
+
+134
+00:16:31.360 --> 00:16:34.540
+<v Thierry Geerts>Et c'est pas pour autant un risque. Il n'est pas trop tard, mais il faut s'y mettre.
+
+135
+00:16:35.300 --> 00:16:44.720
+<v Guillaume Hachez>L'école est un sujet qui revient étrangement souvent dans ce podcast. Quel constat faites-vous quant à la place du numérique dans nos écoles aujourd'hui en Belgique ?
+
+136
+00:16:44.800 --> 00:16:50.120
+<v Thierry Geerts>Alors, il est clair que l'école ne prépare pas au numérique, ce qui est un petit peu inquiétant vu qu'on est quand même en plein dedans.
+
+137
+00:16:50.160 --> 00:16:58.400
+<v Thierry Geerts>Et je vais vous donner un exemple important. Nous apprenons à nos enfants à traverser la rue à l'école. Et heureusement, parce que traverser la route, c'est quand même un petit peu dangereux.
+
+138
+00:16:58.500 --> 00:17:04.400
+<v Thierry Geerts>Ceci dit, on a quand même construit l'autoroute de l'information qu'est Internet et on ne leur apprend pas à traverser l'autoroute.
+
+139
+00:17:04.780 --> 00:17:12.820
+<v Thierry Geerts>On leur apprend à traverser la route, mais pas l'autoroute. Et puis après, on s'étonne que, un, y a des accidents qui se passent, hein, donc, ils postent des photos qu'ils auraient mieux fait de pas poster.
+
+140
+00:17:13.260 --> 00:17:19.540
+<v Thierry Geerts>Ils ont un mot de passe qui est une vraie passoire. Et quand ils deviennent adultes, ils n'entreprennent pas dans le digital.
+
+141
+00:17:19.680 --> 00:17:27.080
+<v Thierry Geerts>Donc, y a quand même une relation de cause à effet évidente. Donc, y a un rattrapage rapide à faire de notre système de scolarité.
+
+142
+00:17:27.740 --> 00:17:34.420
+<v Thierry Geerts>Ceci dit, une révolution industrielle, c'est plus profond que ça. Je crois pas que l'école toute seule peut nous amener au XXIe siècle.
+
+143
+00:17:34.520 --> 00:17:40.540
+<v Thierry Geerts>Je crois que c'est une responsabilité des entreprises. Par exemple, si vous avez des collaborateurs, de les accompagner en transformation numérique.
+
+144
+00:17:41.250 --> 00:17:47.720
+<v Thierry Geerts>C'est la responsabilité du gouvernement d'expliquer ce qui se passe, d'accompagner ça, le rôle des médias, d'accepter, d'expliquer ce qui se passe. Et donc
+
+145
+00:17:48.320 --> 00:17:52.290
+<v Thierry Geerts>merci de me donner la parole aujourd'hui. Mais aussi à chaque
+
+146
+00:17:52.560 --> 00:18:00.070
+<v Thierry Geerts>individu, si vous vivez en 2019 et que vous regardez un petit peu autour de vous, vous pouvez vous dire : « Est-ce que je suis à la page ou je suis pas à la page ?
+
+147
+00:18:00.130 --> 00:18:05.800
+<v Thierry Geerts>» Je crois que y a une responsabilité de tout un chacun aussi. On peut pas toujours attendre que le système fasse ce qu'il faut.
+
+148
+00:18:05.880 --> 00:18:14.520
+<v Thierry Geerts>Si vous êtes dans une entreprise qui vous donne pas de formation digitale, vous devez ou bien prendre des formations au cours du soir ou bien peut-être changer d'entreprise.
+
+149
+00:18:14.580 --> 00:18:22.560
+<v Thierry Geerts>Mais vous pouvez vous rendre compte qu'à un certain moment, si vous encodez des factures à longueur de journée, vous pouvez vous dire : « Mh, dans cinq ans, probablement qu'un système le fera mieux que moi.
+
+150
+00:18:22.940 --> 00:18:31.048
+<v Thierry Geerts>Je pourrais peut-être faire autre chose. » Donc voilà, c'est une responsabilité, je crois, globale. Et ça permet de dire que tout le monde est responsable.
+
+151
+00:18:31.088 --> 00:18:33.448
+<v Thierry Geerts>Parce que sinon, tout le monde va attendre que l'autre fasse.
+
+152
+00:18:33.868 --> 00:18:43.448
+<v Guillaume Hachez>Et en Belgique, on peut dire que ça risque de durer assez longtemps puisque voilà, on sait que les réformes sont assez lentes au niveau de l'éducation, voilà, entre les trois communautés, les différents ministères. On sait que
+
+153
+00:18:44.168 --> 00:18:53.128
+<v Guillaume Hachez>le ministère de l'Éducation du côté francophone, le ministère de l'Enseignement supérieur qui forme les enseignants et le ministère de la Région wallonne de l'économie qui
+
+154
+00:18:53.728 --> 00:18:58.288
+<v Guillaume Hachez>fournit le matériel, qui fournit les connexions Internet, etc., sont trois ministères séparés, respectivement dirigés par,
+
+155
+00:18:58.968 --> 00:19:00.668
+<v Guillaume Hachez>CDH, PS et Mouvement réformateur.
+
+156
+00:19:00.708 --> 00:19:04.348
+<v Guillaume Hachez>Et on espère qu'ils feront une révolution numérique efficace, mais voilà.
+
+157
+00:19:04.478 --> 00:19:09.628
+<v Thierry Geerts>Alors, indépendamment de leur couleur politique, je crois que maintenant, il est temps de s'entendre et d'arrêter le jeu.
+
+158
+00:19:09.708 --> 00:19:15.408
+<v Thierry Geerts>Il est urgent de régler ce problème-là. Ceci dit, comme je dis, tout le monde est responsable, eh ben on essaye aussi de rapporter notre pierre à l'édifice.
+
+159
+00:19:15.428 --> 00:19:23.468
+<v Thierry Geerts>Donc, il y a quand même deux choses qu'on fait assez intensivement. La première chose, c'est Cybersimple. Cybersimple.be est un site,
+
+160
+00:19:24.268 --> 00:19:29.668
+<v Thierry Geerts>où on explique aux enfants et aux adultes l'importance de la sécurité sur Internet.
+
+161
+00:19:30.088 --> 00:19:34.668
+<v Thierry Geerts>Je vous rappelle que le mot de passe le plus utilisé par les Belges pour l'instant est encore toujours un, deux, trois, quatre, cinq, six.
+
+162
+00:19:35.388 --> 00:19:46.008
+<v Thierry Geerts>Et après, il faut pas s'étonner que quelqu'un parte avec vos données de paiement et vide votre compte. Et donc, on explique ce genre de principes, la sécurité pour les enfants, le mot de passe et d'autres choses.
+
+163
+00:19:46.148 --> 00:19:58.408
+<v Thierry Geerts>Cybersimple, c'est très facile d'accès, c'est en collaboration avec Test Achats et la Générale du Numérique. Et la deuxième chose, c'est qu'on s'est rendu compte qu'y a un problème spécifique en Belgique, c'est les PME.
+
+164
+00:19:58.878 --> 00:20:07.058
+<v Thierry Geerts>Vous savez, les grandes entreprises ont des consultants qui peuvent leur expliquer ce que le digital fait, etc. L'entrepreneur, il est un peu tout seul parfois par rapport à ça.
+
+165
+00:20:07.068 --> 00:20:09.728
+<v Thierry Geerts>Et donc on a lancé une formation qui s'appelle l'Atelier digital.
+
+166
+00:20:10.548 --> 00:20:17.488
+<v Thierry Geerts>Et depuis qu'on a lancé, il y a septante mille personnes qui travaillent dans des entreprises qui ont participé à la formation, qui leur donnent les bases du marketing digital.
+
+167
+00:20:17.898 --> 00:20:27.548
+<v Thierry Geerts>Et notre ambition, c'est d'arriver à cent mille personnes avant la fin de l'année, donc d'augmenter le rythme, parce qu'on pense qu'on a notre partie de responsabilité à prendre dans l'histoire.
+
+168
+00:20:28.098 --> 00:20:33.008
+<v Thierry Geerts>Il y a deux choses que vous avez en main. La première chose, c'est expliquer aux enfants ce qu'on poste et ce qu'on ne poste pas.
+
+169
+00:20:33.888 --> 00:20:47.818
+<v Thierry Geerts>Comment expliquer aux jeunes qui vont arriver en puberté que se faire une photo de soi-même à moitié dénudé et la faire circuler juste à une personne, ben une fois que c'est en digital, ça peut se copier, hein.
+
+170
+00:20:48.228 --> 00:20:53.208
+<v Thierry Geerts>Et ça, il suffit, à un enfant de dix ans, de montrer deux, trois exemples de choses qui ont sûrement mal passé.
+
+171
+00:20:53.228 --> 00:21:00.068
+<v Thierry Geerts>Ils ont vite compris. Par contre, si on leur explique pas, ils le font d'abord avant d'avoir compris, ce qui change énormément la donne au niveau personnel.
+
+172
+00:21:00.448 --> 00:21:06.788
+<v Thierry Geerts>La deuxième chose, c'est qu'il y a quand même une nouvelle loi qui s'est mise en place en mai l'année dernière qui est le RGDP.
+
+173
+00:21:07.088 --> 00:21:07.368
+<v Guillaume Hachez>Mmm-hmm.
+
+174
+00:21:07.388 --> 00:21:08.748
+<v Thierry Geerts>Là aussi, c'est RGDP ou-
+
+175
+00:21:08.848 --> 00:21:09.288
+<v Guillaume Hachez>GDPR.
+
+176
+00:21:09.388 --> 00:21:09.698
+<v Thierry Geerts>GDPR.
+
+177
+00:21:10.648 --> 00:21:15.768
+<v Thierry Geerts>Je dis ça toujours en anglais, donc GDPR. Bref, une nouvelle loi qui implique le respect de la vie privée,
+
+178
+00:21:16.488 --> 00:21:22.687
+<v Thierry Geerts>qui fait que toutes les entreprises sont obligées de suivre des règles très strictes pour utiliser vos données personnelles.
+
+179
+00:21:23.368 --> 00:21:33.248
+<v Thierry Geerts>Et là, à vous de vous dire, un : est-ce que je travaille avec des sociétés auxquelles je fais confiance ? Deux : est-ce que je maîtrise un certain nombre de choses de base sur ma vie privée ?
+
+180
+00:21:33.348 --> 00:21:37.988
+<v Thierry Geerts>Et donc, par exemple, à qui est-ce que je donne mon numéro de compte en banque, hein, pour donner un exemple plus pratique.
+
+181
+00:21:38.528 --> 00:21:47.408
+<v Thierry Geerts>Et là, ce serait-- là aussi, ça pourrait très bien rentrer dans un cours et il faut pas faire cinq ans d'université pour comprendre les principes de la sécurité et de la vie privée.
+
+182
+00:21:48.008 --> 00:21:55.548
+<v Thierry Geerts>Par exemple, pour Google, vous allez sur Google Mon Compte et vous allez voir tous les détails de ce que Google garde pour vous et vous allez décider que vous voulez plus.
+
+183
+00:21:55.708 --> 00:22:03.748
+<v Thierry Geerts>Par exemple, vous dites : « Ben moi, j'aime pas la publicité qui est ciblée sur moi et donc je veux plus de publicité ciblée.
+
+184
+00:22:03.778 --> 00:22:08.288
+<v Thierry Geerts>» Alors, après ça, il faudra pas s'étonner que même si vous avez soixante-cinq ans, vous recevez de la publicité pour des vents Perses.
+
+185
+00:22:08.348 --> 00:22:15.408
+<v Thierry Geerts>Ça, c'est, voilà, c'est l'avantage de la publicité ciblée. Elle a son désavantage aussi. Mais au moins, on peut faire le choix.
+
+186
+00:22:15.508 --> 00:22:24.028
+<v Thierry Geerts>Et je crois que faire ce choix de façon plus délibérée, c'est plus intéressant pour l'individu. Ça nous rassure aussi de savoir qu'on est en contrôle.
+
+187
+00:22:24.068 --> 00:22:31.048
+<v Thierry Geerts>Et c'est pas si compliqué. Mais il faut pas prendre les cas les plus sophistiqués, qui sont attaqués en échelle planétaire
+
+188
+00:22:31.728 --> 00:22:38.088
+<v Thierry Geerts>avec ce qu'on peut faire soi-même et ce qu'on peut expliquer soi-même facilement à un enfant, qui sont des principes relativement simples.
+
+189
+00:22:38.098 --> 00:22:46.848
+<v Thierry Geerts>Je veux dire, on explique aussi à son enfant de dix ans de pas se balader tout nu dans la rue. Alors, je sais pas pourquoi on pourrait pas leur expliquer qu'il faut pas en faire une photo non plus et la faire circuler sur les réseaux sociaux.
+
+190
+00:22:47.257 --> 00:22:49.428
+<v Thierry Geerts>Et ils sont tout à fait ouverts à ce genre d'explication.
+
+191
+00:22:49.507 --> 00:22:58.488
+<v Guillaume Hachez>Vous évoquiez à l'instant le RGPD, le GDPR. Voilà, la puissance de Google, au-delà de ces infrastructures, des talents qu'il accueille,
+
+192
+00:22:59.168 --> 00:23:02.568
+<v Guillaume Hachez>ce sont, voilà, aussi les quantités importantes de données que vous collectez.
+
+193
+00:23:03.028 --> 00:23:11.808
+<v Guillaume Hachez>Comment est-ce que Google a accueilli finalement le RGPD ? Parce qu'on le présente souvent comme une loi un petit peu, un bâton dans les roues de Google.
+
+194
+00:23:11.848 --> 00:23:11.928
+<v Thierry Geerts>Oui.
+
+195
+00:23:12.128 --> 00:23:13.548
+<v Guillaume Hachez>Est-ce que c'est comme ça que ça a été vécu ?
+
+196
+00:23:13.728 --> 00:23:21.568
+<v Thierry Geerts>Alors non. Ça, j'ai expliqué à tout un chacun qui voulait bien l'entendre. Nous respections cette nouvelle loi avant que la loi existe.
+
+197
+00:23:21.668 --> 00:23:28.428
+<v Thierry Geerts>Donc deux ans avant, les principes étaient déjà appliqués sous-- Google Mon Compte ne date pas de mai l'année passée, mais de deux ans avant.
+
+198
+00:23:28.528 --> 00:23:37.688
+<v Thierry Geerts>Nous sommes convaincus qu'on a besoin de la confiance de l'individu. L'individu nous donnera sa confiance s'il contrôle ce qu'il fait avec ses données.
+
+199
+00:23:38.168 --> 00:23:39.168
+<v Thierry Geerts>Et donc c'est ce qu'on met en place.
+
+200
+00:23:39.728 --> 00:23:49.648
+<v Thierry Geerts>Et donc au contraire, comme nous avions pris de l'avance, pour nous, c'était plutôt relativement logique et on a plutôt bénéficié de la loi, alors qu'on a été clair dès le début.
+
+201
+00:23:49.688 --> 00:23:59.688
+<v Thierry Geerts>Si vous utilisez cette loi pour mettre des bâtons dans les roues de Google, vous vous trompez. Ayons plutôt une collaboration plus constructive sur ce qu'on veut faire avec la vie privée, comment écrire les textes.
+
+202
+00:23:59.708 --> 00:24:04.868
+<v Thierry Geerts>Et j'aurais préféré quelque chose-- je crois que le texte est bon, mais il est relativement incompréhensible pour une PME.
+
+203
+00:24:04.888 --> 00:24:11.108
+<v Thierry Geerts>Et ça, je trouve une erreur. Et il est incompréhensible pour la PME parce qu'il n'a pas été toujours écrit pour les bons principes.
+
+204
+00:24:11.148 --> 00:24:16.928
+<v Thierry Geerts>Les principes sont bons de respecter la vie privée, mais il faut faire une loi pour l'Europe et pas contre quelque chose.
+
+205
+00:24:16.938 --> 00:24:17.268
+<v Guillaume Hachez>Très bien.
+
+206
+00:24:17.888 --> 00:24:29.528
+<v Guillaume Hachez>Peut-être, voilà, un commentaire sur l'actualité récente. On sait que cette semaine, il me semble, la CNIL a infligé justement une amende de, je crois, cinquante millions d'euros à Google, une amende record, parce qu'elle estimait que
+
+207
+00:24:30.288 --> 00:24:32.268
+<v Guillaume Hachez>c'était pas assez clair quand on demandait à Google,
+
+208
+00:24:33.488 --> 00:24:34.988
+<v Guillaume Hachez>: « À quoi serviront mes données ?
+
+209
+00:24:35.028 --> 00:24:39.840
+<v Guillaume Hachez>Dans quel contexte seront-elles utilisées ? » Est-ce que vous avez un commentaire sur cette amende ?
+
+210
+00:24:39.880 --> 00:24:47.740
+<v Thierry Geerts>Je vais pas commenter sur un dossier juridique. Je voulais simplement dire que la plupart des associations de consommateurs ont confirmé qu'on a plutôt bien expliqué la vie privée.
+
+211
+00:24:48.360 --> 00:24:59.180
+<v Thierry Geerts>Et on est plutôt-- comme je vous l'avais dit, on a toujours été en avance sur le sujet. Donc, voilà. À vous de juger si vous trouvez nos produits utiles et si vous allez voir Google Mon Compte, si vous vous y retrouvez ou pas.
+
+212
+00:24:59.220 --> 00:25:00.180
+<v Thierry Geerts>Et vous serez seul juge.
+
+213
+00:25:00.600 --> 00:25:03.440
+<v Guillaume Hachez>Est-ce que Google va disputer ou est-ce que Google va simplement accepter l'amende ?
+
+214
+00:25:03.500 --> 00:25:08.120
+<v Thierry Geerts>Je sais rien parce que j'ai pas lu les détails. Et ça va plutôt être une guerre juridique, c'est relativement peu intéressant.
+
+215
+00:25:08.520 --> 00:25:15.100
+<v Guillaume Hachez>Très bien, mais on va enchaîner. Mais revenons un petit peu à vous, Thierry Geerts, et à ce qui vous occupe ici chez Google.
+
+216
+00:25:15.440 --> 00:25:22.860
+<v Guillaume Hachez>Il n'y a pas en Belgique de campus Google comme on peut en voir aux États-Unis, à Londres ou à Dublin. Il y a par contre des data centers.
+
+217
+00:25:23.440 --> 00:25:30.880
+<v Guillaume Hachez>Nous sommes ici, dans vos bureaux, à deux pas de la Commission européenne. Quelles sont les activités, en réalité, de Google Belgique ?
+
+218
+00:25:30.900 --> 00:25:41.060
+<v Thierry Geerts>Alors, on fait trois choses en Belgique. Vous l'avez très bien mentionné, les contacts avec l'Europe. La deuxième activité, dont je m'occupe principalement, c'est les contacts avec la Belgique.
+
+219
+00:25:41.300 --> 00:25:46.910
+<v Thierry Geerts>C'est les contacts avec les entreprises en Belgique, comment est-ce qu'ils peuvent utiliser l'Internet et tous nos utilisateurs en Belgique.
+
+220
+00:25:47.530 --> 00:25:57.200
+<v Thierry Geerts>Il y a alors le data center qui se trouve à Ghlin, qui est le plus grand data center en dehors des États-Unis, et le premier data center en dehors des États-Unis, qui se développe très très bien, qui est un peu l'usine Google.
+
+221
+00:25:57.250 --> 00:26:02.280
+<v Thierry Geerts>Quand vous utilisez Google, vous vous en rendez pas compte, mais en fait, pour faire fonctionner nos systèmes, il y a des gros investissements derrière hein.
+
+222
+00:26:02.340 --> 00:26:04.180
+<v Thierry Geerts>Entre temps, à Ghlin, il y a un milliard d'investis.
+
+223
+00:26:04.820 --> 00:26:08.620
+<v Thierry Geerts>Et il y a plein de monde qui travaille, parce que chaque fois que vous faites une recherche,
+
+224
+00:26:09.100 --> 00:26:15.160
+<v Thierry Geerts>vous faites tourner une vidéo sur YouTube, il y a à chaque fois, naturellement, un ordinateur qui se met en place à l'arrière avec une technologie très avancée.
+
+225
+00:26:15.320 --> 00:26:27.560
+<v Thierry Geerts>Vous vous rendez même pas compte que les données passent via le câble jusqu'à Ghlin. Et donc, non, non, Google est aussi une industrie relativement lourde, si vous voulez, pour traiter toutes ces données.
+
+226
+00:26:27.660 --> 00:26:34.420
+<v Guillaume Hachez>Je-- voilà, on l'évoquait, je l'évoquais il y a un instant, il n'y a pas de campus de Google ici en Belgique.
+
+227
+00:26:34.920 --> 00:26:36.880
+<v Guillaume Hachez>Il y en a un à Dublin, il y en a un à Londres.
+
+228
+00:26:37.350 --> 00:26:46.020
+<v Guillaume Hachez>Je me souviens qu'il y a quelques années, vous vous présentiez devant Beta Group et quelqu'un dans l'assistance, après votre présentation, vous a demandé : « Mais pourquoi ?
+
+229
+00:26:46.040 --> 00:26:51.880
+<v Guillaume Hachez>Pourquoi est-ce qu'il n'y a pas de campus de Google ici à Bruxelles ou ici en Belgique ? » Et j'avais beaucoup aimé votre réponse.
+
+230
+00:26:51.900 --> 00:26:56.640
+<v Guillaume Hachez>Donc j'aimerais vous reposer la question : pourquoi n'y a-t-il pas de campus Google ici en Belgique ?
+
+231
+00:26:56.660 --> 00:27:03.640
+<v Thierry Geerts>Alors, quand j'ai commencé, il y a sept ans, je m'intéressais très fort aux start-up en Belgique. Il y avait pas de culture d'entrepreneuriat.
+
+232
+00:27:03.740 --> 00:27:09.820
+<v Thierry Geerts>Mais aujourd'hui, on peut dire qu'il y a eu une énorme transformation. Il y a des campus d'entrepreneuriat partout.
+
+233
+00:27:10.460 --> 00:27:23.510
+<v Thierry Geerts>Il y a le Guy, on en a parlé, B Central, le Keddi à Charleroi, Startit à Anvers. Je veux dire, il y a partout, en cinquante ans, des fonds de start-up comme le Wing à Ollignies,
+
+234
+00:27:24.220 --> 00:27:26.520
+<v Thierry Geerts>et des campus qui sont mis en place.
+
+235
+00:27:26.620 --> 00:27:34.479
+<v Thierry Geerts>Or, ce n'est pas du tout le rôle de Google de se mettre à la place de quelque chose qui existe. Et donc aujourd'hui, le problème belge n'est plus là.
+
+236
+00:27:34.600 --> 00:27:43.480
+<v Thierry Geerts>On a tout un bel écosystème pour développer les start-up. On a un problème de scale-up. Comment est-ce qu'on rend une entreprise qui va financer jusqu'à un million d'euros ?
+
+237
+00:27:43.500 --> 00:27:48.300
+<v Thierry Geerts>Comment est-ce qu'on va trouver les gros financements à dix millions d'euros ? Mais ça, c'est-- là aussi, c'est pas nous qui nous occuperons de ça.
+
+238
+00:27:48.500 --> 00:27:56.960
+<v Thierry Geerts>Et alors, comment est-ce qu'on va transformer notre économie ? Comment les entreprises, toutes les PME fantastiques, les entreprises que nous avons, comment est-ce qu'on va les transformer au digital ?
+
+239
+00:27:57.020 --> 00:28:07.140
+<v Thierry Geerts>Et c'est là aujourd'hui que je vois le plus grand challenge. C'est pour ça que j'ai décidé d'investir plus dans l'atelier digital et les formations des entreprises plutôt que de mettre un campus qui est-- c'est toujours très visible et sympa.
+
+240
+00:28:07.210 --> 00:28:11.920
+<v Thierry Geerts>Mais franchement, je crois que là, il y a certainement ce qu'il faut en Belgique aujourd'hui.
+
+241
+00:28:11.960 --> 00:28:16.560
+<v Guillaume Hachez>Votre réponse m'étonne puisqu'elle diffère assez fortement de la réponse que j'avais entendue, voilà, flagelle ce jour-là.
+
+242
+00:28:17.040 --> 00:28:22.460
+<v Guillaume Hachez>Parce qu'à l'époque, vous disiez : « La Belgique est trop petite, trop divisée, ce n'est pas possible.
+
+243
+00:28:22.600 --> 00:28:23.680
+<v Guillaume Hachez>» Vous estimez que ça a changé ?
+
+244
+00:28:24.300 --> 00:28:27.820
+<v Thierry Geerts>Non, pour mettre un grand campus Google, il y avait peut-être pas assez de start-up.
+
+245
+00:28:28.420 --> 00:28:37.130
+<v Thierry Geerts>Mais aujourd'hui, je peux réellement dire qu'une start-up qui veut faire une start-up trouve des mètres carrés et trouve du financement s'ils ont un bon projet.
+
+246
+00:28:37.180 --> 00:28:43.260
+<v Thierry Geerts>Et ça, c'est différent d'il y a cinq ans. Donc aussi, on prouve à quel point on peut rattraper en Belgique quand on a décidé de s'y mettre.
+
+247
+00:28:43.720 --> 00:28:50.280
+<v Guillaume Hachez>Très bien. Donc voilà, on disait Google est aussi très présent à Dublin. L'Irlande, voilà, qui était autrefois très pauvre.
+
+248
+00:28:50.680 --> 00:29:00.440
+<v Guillaume Hachez>Il y a eu des investissements très importants grâce à l'Union européenne hein, les virements qui ont été faits, des fonds qui ont été principalement investis dans l'enseignement.
+
+249
+00:29:00.940 --> 00:29:12.000
+<v Guillaume Hachez>Donc, il y a une masse de travailleurs très bien éduqués en Irlande. C'est une des choses qui attirent justement, voilà, les géants américains et de partout dans le monde en Irlande.
+
+250
+00:29:12.660 --> 00:29:16.300
+<v Guillaume Hachez>Voilà, ce qui fait un petit peu la Silicon Valley européenne, c'est un petit peu l'Irlande.
+
+251
+00:29:16.320 --> 00:29:16.600
+<v Thierry Geerts>Oui.
+
+252
+00:29:16.720 --> 00:29:26.100
+<v Guillaume Hachez>Vous le dites dans votre livre : on est peut-être un peu trop bien dans notre Belgique et que finalement, on ne ressent pas l'urgence pour innover.
+
+253
+00:29:26.120 --> 00:29:34.159
+<v Guillaume Hachez>Voilà, c'est une différence que je vois avec l'Irlande, notamment, qui a connu la détresse, qui a connu la détresse sociale, alors qu'en Belgique, on le disait pas vraiment.
+
+254
+00:29:34.220 --> 00:29:41.800
+<v Guillaume Hachez>Est-ce que c'est ça notre frein principal ? Est-ce qu'il nous manque une catastrophe, voilà, une situation à l'irlandaise, la guerre et la famine ?
+
+255
+00:29:41.840 --> 00:29:47.560
+<v Thierry Geerts>Oui, mais c'est quand même un petit peu absurde de se dire qu'il faut attendre une crise pour pouvoir se renouveler hein.
+
+256
+00:29:47.630 --> 00:29:51.470
+<v Thierry Geerts>C'est, c'est-- Mais dans la nature, on voit ça hein. Parfois, il faut un incendie pour que-
+
+257
+00:29:51.470 --> 00:29:52.540
+<v Guillaume Hachez>Il faut tomber avant de pouvoir se relever.
+
+258
+00:29:53.160 --> 00:30:00.240
+<v Thierry Geerts>Mais bon. Je trouve qu'aujourd'hui, l'être humain devrait être plus intelligent, de pas se dire : il faut absolument que je prenne le mur avant de me réinventer.
+
+259
+00:30:00.520 --> 00:30:10.280
+<v Thierry Geerts>On voit par exemple que Charleroi, aujourd'hui, a retrouvé un dynamisme incroyable. Ils ont dû aller relativement profondément avant de pouvoir se dire : Tiens-- Et aujourd'hui, il y a une start-up scene à Charleroi, il y a un dynamisme de fou.
+
+260
+00:30:11.020 --> 00:30:17.140
+<v Thierry Geerts>On a fait un atelier digital à Charleroi qui était un des plus grands succès de 2018 et qui était un peu ma surprise.
+
+261
+00:30:17.220 --> 00:30:23.800
+<v Thierry Geerts>Et donc, comment est-ce qu'il y a des zones qui fonctionnent bien en Belgique pourraient se réinventer sans d'abord prendre le fond ?
+
+262
+00:30:23.820 --> 00:30:34.800
+<v Thierry Geerts>Parce que vous avez raison, Dublin, avant de devenir la base de Google et de plein d'autres sociétés technologiques, était vraiment un pays pauvre, avec un chômage énorme.
+
+263
+00:30:34.860 --> 00:30:39.720
+<v Thierry Geerts>Les Irlandais étaient tous travaillés aux États-Unis parce qu'il n'y avait pas d'avenir chez eux. Et aujourd'hui, c'est le contraire.
+
+264
+00:30:39.760 --> 00:30:46.700
+<v Thierry Geerts>Toute l'Europe va travailler en Irlande parce qu'il y a des sociétés fantastiques qui se sont installées. Et donc moi, je ne crois pas qu'il faut absolument passer par le fond.
+
+265
+00:30:47.050 --> 00:30:55.670
+<v Thierry Geerts>Mais ça demande un peu d'intelligence naturellement. Ça demande du courage de se dire, même si les affaires font du bien, je dis toujours, il faut remplacer le toit quand il fait beau.
+
+266
+00:30:56.450 --> 00:31:06.330
+<v Thierry Geerts>Et donc réinventer son business model quand les affaires vont bien et pas attendre qu'on se fait attaquer par la concurrence pour quand les affaires vont mal, changer son business model, voire se réinventer.
+
+267
+00:31:06.350 --> 00:31:12.230
+<v Thierry Geerts>Parce que là, l'entreprise n'a plus toujours le cash flow pour pouvoir faire cette transformation. Parce que changer, ça coûte aussi de l'argent.
+
+268
+00:31:12.570 --> 00:31:20.170
+<v Guillaume Hachez>Oui, donc cette révolution numérique se fera soit intelligemment et de manière assez rapide. On répondra aux changements qui sont nécessaires.
+
+269
+00:31:20.450 --> 00:31:24.809
+<v Guillaume Hachez>Ou bien elle se passera mal et on la verra passer sans s'y être préparé.
+
+270
+00:31:25.790 --> 00:31:36.950
+<v Guillaume Hachez>On l'a vu ces dernières semaines, ces derniers mois, qu'il y avait eu des vagues importantes de licenciements dans les sociétés comme Proximus, par exemple, ou comme chez RTL, voilà, en grande partie
+
+271
+00:31:38.010 --> 00:31:40.710
+<v Guillaume Hachez>mis sur le dos de justement cette révolution numérique.
+
+272
+00:31:41.370 --> 00:31:54.680
+<v Guillaume Hachez>On parlait de la Belgique paisible et du bon niveau de vie des Belges en général. Voilà, est-ce que tous ces signaux, tous ces événements n'indiquent pas qu'on se dirige plus vers une transition brutale que vers une transition paisible comme vous-
+
+273
+00:31:54.730 --> 00:32:02.850
+<v Thierry Geerts>Non, parce que ce n'est naturellement pas noir blanc comme vous l'indiquez. Je crois que ce serait noir blanc si on ne fait rien et ça, ce serait vraiment— je suis obligé de-
+
+274
+00:32:02.950 --> 00:32:04.370
+<v Guillaume Hachez>Est-ce qu'on fait des choses ? C'est la question.
+
+275
+00:32:04.390 --> 00:32:18.210
+<v Thierry Geerts>On fait plein de choses. Et je crois qu'il y a un nombre d'initiatives qu'on peut qu'applaudir ce qui se passe. Naturellement, je crois que c'est mon rôle aussi de ne pas être trop gentil en disant : Oui, oui, on fait ce qui est nécessaire.
+
+276
+00:32:18.750 --> 00:32:27.510
+<v Thierry Geerts>Ce que je crois qu'on fait, on fait ce qui est bien, mais on ne va pas assez vite et donc on ne crée pas l'opportunité, on ne prend pas l'opportunité en plein.
+
+277
+00:32:28.470 --> 00:32:37.430
+<v Thierry Geerts>Par exemple, aujourd'hui, on est déjà en pleine révolution transformation numérique depuis vingt-cinq ans. Il y a plus de gens au travail que jamais auparavant en Belgique, donc ça, c'est bien.
+
+278
+00:32:38.150 --> 00:32:45.910
+<v Thierry Geerts>Par contre, on a perdu trente-huit mille emplois à cause du fait que la logistique a eu dur à s'implanter en Belgique pour l'e-commerce.
+
+279
+00:32:45.930 --> 00:32:51.110
+<v Thierry Geerts>Elle s'est installée à nos frontières et donc on a exporté trente-huit mille emplois. Donc, on aurait pu avoir trente-huit mille emplois de plus.
+
+280
+00:32:51.750 --> 00:32:59.370
+<v Thierry Geerts>Donc, c'est un petit peu au milieu de ce que vous dites. Non, non, on est vraiment bien au niveau de la digitalisation. On a un ministre de l'agenda digital.
+
+281
+00:32:59.750 --> 00:33:07.330
+<v Thierry Geerts>Je suis sûr que c'est une priorité de nos différents gouvernements avec lesquels j'ai eu l'occasion de parler. Ils sont tout à fait intéressés et investis sur le sujet.
+
+282
+00:33:07.530 --> 00:33:16.250
+<v Thierry Geerts>Ça manque juste un peu d'ambition pour rattraper certaines choses comme par exemple l'e-commerce, comme vous avez dit, où les Hollandais et d'autres pays mini-mitros ont pris d'avance.
+
+283
+00:33:17.050 --> 00:33:23.670
+<v Thierry Geerts>Mais quand vous voyez ce qu'on fait en biopharmaceutique, etc, on est largement en avance par rapport aux pays étrangers.
+
+284
+00:33:23.730 --> 00:33:34.019
+<v Thierry Geerts>On fait plein de choses brillamment, mais je crois qu'on a quand même un petit peu peur de cette révolution numérique. Du coup, on n'y va pas avec suffisamment d'enthousiasme et donc on perd des opportunités.
+
+285
+00:33:34.190 --> 00:33:44.970
+<v Guillaume Hachez>Vous dites pas assez d'ambition. Est-ce que vous auriez des fantasmes, des rêves, des envies de projets justement ambitieux ? Et quel serait-il ?
+
+286
+00:33:45.010 --> 00:33:47.410
+<v Thierry Geerts>Oui. Je vous l'avais mentionné tantôt,
+
+287
+00:33:48.670 --> 00:33:52.310
+<v Thierry Geerts>si je pouvais rêver de ce qu'il faudrait faire en Belgique, c'est clairement un grand plan Belgium digital,
+
+288
+00:33:52.990 --> 00:34:04.530
+<v Thierry Geerts>où le digital se met en avant de tout ce qu'on fait et où on va inspirer tout le monde à participer à cette transformation numérique, où on n'est même plus obligé d'envoyer des gens en formation où ils se disent : Je vais y aller
+
+289
+00:34:05.070 --> 00:34:05.930
+<v Thierry Geerts>parce que ça m'intéresse,
+
+290
+00:34:07.010 --> 00:34:14.290
+<v Thierry Geerts>et dans laquelle il y aurait un axe d'intelligence artificielle assez forte, parce que la nouvelle vague numérique, c'est quand même l'intelligence artificielle.
+
+291
+00:34:14.870 --> 00:34:22.670
+<v Thierry Geerts>C'est un peu un buzzword. Ça veut surtout dire qu'on va avoir des ordinateurs qui auront une interaction plus facile et plus humaine, par exemple, avec la voix.
+
+292
+00:34:23.250 --> 00:34:28.170
+<v Thierry Geerts>Et nous avons des labos d'intelligence artificielle qui sont brillants en Belgique, plusieurs,
+
+293
+00:34:29.510 --> 00:34:42.290
+<v Thierry Geerts>mais ils sont encore financés comme si c'était un des projets parmi d'autres, alors que je crois que le digital, l'intelligence artificielle sont des éléments clés de notre avenir dans lesquels on devrait mettre plus de priorités.
+
+294
+00:34:42.330 --> 00:34:54.910
+<v Thierry Geerts>Donc investissons peut-être un peu moins en béton sur les secteurs traditionnels, investissons un peu plus dans les secteurs d'avenir avec un plan ambitieux qui s'appelle Belgium Digital, que tout le monde dirait : Tiens, ça, ça me donne envie.
+
+295
+00:34:55.230 --> 00:35:01.850
+<v Thierry Geerts>Du coup, les enseignants en parleront dans les cours. Du coup, les entreprises offriront plus rapidement leur transformation digitale.
+
+296
+00:35:01.890 --> 00:35:12.330
+<v Thierry Geerts>C'est plutôt accélérer ça et donner envie pour qu'on le fasse avec enthousiasme plutôt qu'on va le faire, mais on va le faire un peu plus tranquillement et avec moins d'envie.
+
+297
+00:35:13.630 --> 00:35:22.010
+<v Guillaume Hachez>Vous évoquiez il y a un instant l'intelligence artificielle et les relations peut-être plus humaines, tout simplement, avec les machines, par la voix notamment.
+
+298
+00:35:22.550 --> 00:35:32.910
+<v Guillaume Hachez>J'ai envie de poser la question, tout simplement, mais pour Google, le fait d'employer Google Assistant par la voix et de ne pas avoir une publicité sur laquelle on peut cliquer, avec laquelle on peut interagir, mais
+
+299
+00:35:33.590 --> 00:35:37.110
+<v Guillaume Hachez>est-ce que vous ne détruisez pas vous-même votre propre fond de commerce ?
+
+300
+00:35:38.450 --> 00:35:48.250
+<v Thierry Geerts>En quelque sorte, oui. Et donc nous faisons ce que nous prêchons, c'est-à-dire on change le toit quand il fait beau. Et pour ça, je vais vous expliquer un petit peu d'histoire sur Google.
+
+301
+00:35:48.530 --> 00:35:56.150
+<v Thierry Geerts>En 2010, on a décidé qu'on devenait une société mobile first, c'est-à-dire que tout ce qu'on allait développer, on allait le développer d'abord sur le mobile.
+
+302
+00:35:57.010 --> 00:36:05.030
+<v Thierry Geerts>À ce moment-là, on avait 4% de notre chiffre d'affaires sur mobile et 96% de notre chiffre d'affaires sur le fixe, le laptop ou l'ordinateur.
+
+303
+00:36:05.250 --> 00:36:10.170
+<v Thierry Geerts>À ce moment-là, la plupart des entrepreneurs disaient : Je ne vais pas investir tous mes moyens dans 4% de mon chiffre d'affaires.
+
+304
+00:36:10.570 --> 00:36:21.630
+<v Thierry Geerts>Mais comme on s'est dit : Ça, c'est l'avenir, on a décidé d'investir sur l'avenir. Et grâce à ça, aujourd'hui, nous avons 50% de clics en mobile et 50% de clics en fixe et les revenus sont comparables.
+
+305
+00:36:21.730 --> 00:36:32.310
+<v Thierry Geerts>On pense que la même chose va arriver avec l'intelligence artificielle, dure à prononcer. C'est-à-dire qu'aujourd'hui, on a dit : On devient une société intelligence artificielle d'abord.
+
+306
+00:36:32.770 --> 00:36:43.310
+<v Thierry Geerts>Toutes nos productions développées avec l'intelligence artificielle. Aujourd'hui, ça ne nous donne pas immédiatement des possibilités de revenus, mais on est persuadé que comme c'est l'avenir, on va pouvoir trouver les moyens de monétiser ça.
+
+307
+00:36:43.830 --> 00:36:50.770
+<v Thierry Geerts>Et on voit, par exemple, que la voix, souvent, c'est bien pour poser une question à un ordinateur. Par contre, la réponse par la voix n'est pas toujours utile.
+
+308
+00:36:51.210 --> 00:36:53.790
+<v Thierry Geerts>On est en plein salon de l'auto. Si vous dites : OK, Google,
+
+309
+00:36:55.130 --> 00:37:06.298
+<v Thierry Geerts>quelles sont les nouvelles voitures au salon ? S'il commence à parler et vous énumérer, il y a une nouvelle Ford untel et une nouvelle Renault untel, vous allez pas être très satisfait.
+
+310
+00:37:06.378 --> 00:37:14.238
+<v Thierry Geerts>Et par contre, on se rend que si on pose la question avec la voix et qu'alors un écran s'ouvre et vous montre la réponse, là, vous serez intéressé.
+
+311
+00:37:14.258 --> 00:37:20.858
+<v Thierry Geerts>Vous dites : « Ça, c'est une meilleure expérience client. » Et donc on va pouvoir retrouver une façon d'avoir un lien avec lequel on peut faire de la publicité.
+
+312
+00:37:21.538 --> 00:37:31.258
+<v Thierry Geerts>Comment-- et ça, on verra. Et ça, je crois que c'est très important dans le monde aujourd'hui d'oser investir dans l'avenir, même si on n'a pas un business plan tout à fait ficelé où on a--
+
+313
+00:37:32.038 --> 00:37:40.958
+<v Thierry Geerts>J'ai fait des calculs par le passé dans les médias où on faisait des calculs au centime près sur des plans d'affaires, alors que quand on réalise, on se rend compte que la réalité n'est pas comme ça.
+
+314
+00:37:41.018 --> 00:37:49.498
+<v Thierry Geerts>Donc si on mettait un peu moins de temps à faire des spreadsheets et un peu plus de temps à être entrepreneur, lancer l'idée plus vite, expérimenter.
+
+315
+00:37:49.538 --> 00:37:51.238
+<v Guillaume Hachez>On se lance et on réfléchit après. C'est ça que vous dites.
+
+316
+00:37:51.438 --> 00:37:55.957
+<v Thierry Geerts>Alors, c'est peut-être un peu extrême, mais disons que en tant que Belge, on ferait mieux de se dire qu'on va faire ça.
+
+317
+00:37:56.298 --> 00:38:00.978
+<v Thierry Geerts>Parce qu'aujourd'hui, on réfléchit vraiment pendant deux ans, puis on met deux ans à exécuter et ça met quatre ans avant qu'on soit prêt.
+
+318
+00:38:00.998 --> 00:38:02.457
+<v Thierry Geerts>Entre-temps, le marché a changé.
+
+319
+00:38:02.478 --> 00:38:05.818
+<v Guillaume Hachez>Oui, parce que là, la grande différence avec Google Assistant par rapport à, par exemple,
+
+320
+00:38:06.598 --> 00:38:16.018
+<v Guillaume Hachez>Google Maps ou Waze ou les Google Search classiques, c'est que voilà, dans tous les services que j'ai cités, on peut, en tant que marque, payer pour avoir un bon placement.
+
+321
+00:38:16.698 --> 00:38:19.698
+<v Guillaume Hachez>La grande différence avec Google Assistant, c'est qu'il y a une seule réponse.
+
+322
+00:38:19.738 --> 00:38:20.038
+<v Thierry Geerts>Oui.
+
+323
+00:38:20.098 --> 00:38:25.178
+<v Guillaume Hachez>Et donc la grande crainte, c'est de se dire : « Mais est-ce-- la seule réponse que j'ai, est-ce qu'un jour, elle sera monétisée ?
+
+324
+00:38:25.198 --> 00:38:27.648
+<v Guillaume Hachez>Est-ce qu'elle sera achetée par une marque ? »
+
+325
+00:38:27.678 --> 00:38:37.418
+<v Thierry Geerts>Elle pourra pas être monétisée. C'est exclu parce que ça doit être la meilleure réponse. Et si vous posez une fois une question à Google qui vous donne une réponse commerciale qui vous intéresse pas, c'est foutu.
+
+326
+00:38:37.628 --> 00:38:42.818
+<v Thierry Geerts>Vous allez plus utiliser le modèle. Donc il est clair que quand-- à toutes les questions où il y a une réponse, c'est pas là-dessus qu'on pourra gagner notre argent.
+
+327
+00:38:43.198 --> 00:38:45.018
+<v Thierry Geerts>Et donc c'est plutôt dans le cas d'une nouvelle voiture où il y a,
+
+328
+00:38:45.398 --> 00:38:55.178
+<v Thierry Geerts>même dans votre cas, il peut y avoir vingt options possibles et où nous proposerons vingt options, dont cinq sont clairement sponsorisées et vingt sont la réponse naturelle sur un écran qui va s'ouvrir.
+
+329
+00:38:55.258 --> 00:39:05.378
+<v Thierry Geerts>Je ne m'inquiète pas du tout pour les possibilités de monétisation là-dessus. Elles seront différentes. Et je vous assure que s'il y a une constante à travailler chez Google, c'est qu'on est en changement permanent
+
+330
+00:39:06.178 --> 00:39:07.538
+<v Thierry Geerts>et qu'on se remet en question tout le temps.
+
+331
+00:39:07.578 --> 00:39:13.937
+<v Thierry Geerts>Les gens disent : « Ouais, t'es tranquille chez Google, vous gagnez de l'argent, vous êtes peinard. » Je suis moins peinard que dans mon rôle précédent.
+
+332
+00:39:14.518 --> 00:39:20.478
+<v Thierry Geerts>Et chez Google, tout le monde est très conscient du changement, même à l'intérieur du numérique où il y a du changement,
+
+333
+00:39:21.198 --> 00:39:26.038
+<v Thierry Geerts>parce que naturellement, bon, on est la société qui montre un petit peu l'exemple, donc on doit être en avant de la technologie.
+
+334
+00:39:26.328 --> 00:39:28.598
+<v Thierry Geerts>On s'est mis des objectifs relativement ambitieux à ce niveau-là.
+
+335
+00:39:28.898 --> 00:39:29.578
+<v Guillaume Hachez>Oui.
+
+336
+00:39:29.578 --> 00:39:33.318
+<v Guillaume Hachez>L'intelligence artificielle, ça fonctionne très bien chez Google, ça fonctionne très bien
+
+337
+00:39:33.958 --> 00:39:40.618
+<v Guillaume Hachez>à la Silicon Valley, ça fonctionne bien en Chine également, ça fonctionne bien un peu en Israël, hein, puisque c'est financé par leurs investissements importants,
+
+338
+00:39:41.478 --> 00:39:42.518
+<v Guillaume Hachez>dans le cadre militaire.
+
+339
+00:39:43.058 --> 00:39:48.138
+<v Guillaume Hachez>En Europe, par contre, c'est un petit peu le désert, hein, et vous le dites dans votre livre, l'Europe est trop divisée.
+
+340
+00:39:48.838 --> 00:40:00.318
+<v Guillaume Hachez>La Chine et les USA comptent quant à eux un marché intérieur très important. Le-- en Europe, c'est divisé, au niveau des frontières, trop de langues, trop de cultures, trop de législations différentes.
+
+341
+00:40:00.358 --> 00:40:02.508
+<v Guillaume Hachez>Quand vous dites ça, mais on se dit : « Mais c'est un problème sans solution. »
+
+342
+00:40:02.918 --> 00:40:09.918
+<v Thierry Geerts>Non, une fois de plus, et c'est un sans solution si on y fait rien. Mais je crois que mon constat n'est pas fait pour dire, c'est foutu.
+
+343
+00:40:09.958 --> 00:40:14.198
+<v Thierry Geerts>Mon constat est fait pour que les gens se disent : « Ah, mais oui, en fait, il y a des opportunités, on peut faire des choses.
+
+344
+00:40:14.328 --> 00:40:23.518
+<v Thierry Geerts>» Je reviens au fait que malgré que c'est divisé, on a plein de labos en Belgique au niveau intelligence artificielle. En France, Macron a lancé un grand plan d'investissement sur l'intelligence artificielle.
+
+345
+00:40:24.438 --> 00:40:29.858
+<v Thierry Geerts>Deux de nos labos importants d'intelligence artificielle sont installés en Europe. Donc, enfin, pour l'instant encore en Europe, puisque c'est en Angleterre.
+
+346
+00:40:29.918 --> 00:40:34.918
+<v Thierry Geerts>DeepMind, qui est notre principal investissement en intelligence artificielle, se trouve en Europe. Donc, il y a plein de pépites.
+
+347
+00:40:35.238 --> 00:40:46.758
+<v Thierry Geerts>Ce que je dis, c'est qu'on sous-utilise notre pépite. Si on avait un marché unique et intérieur vraiment uniformisé, les entreprises européennes auraient accès à ce marché de cinq cent millions de personnes avant de devoir s'attaquer à l'étranger.
+
+348
+00:40:47.418 --> 00:40:55.958
+<v Thierry Geerts>Et donc, ce serait plus important que le marché européen. Et comme le produit national brut de l'Europe est plus important que la Chine, on aurait un marché plus juteux avec plus d'habitants.
+
+349
+00:40:56.238 --> 00:41:01.078
+<v Thierry Geerts>Je crois que c'est une opportunité ratée. Je suis un grand fan de l'Europe, mais on est à-- on s'est arrêté à la moitié.
+
+350
+00:41:01.598 --> 00:41:12.598
+<v Thierry Geerts>On n'a pas vraiment uniformisé. Donc si vous-- vous êtes un fabricant de châssis en Belgique et vous avez un webshop à Halle, hein, vous voyez, à Halle, c'est une commune près de Bruxelles.
+
+351
+00:41:12.698 --> 00:41:20.758
+<v Thierry Geerts>Et si vous voulez vendre vos châssis à dix kilomètres à la ronde, vous avez trois législations différentes à respecter en Belgique.
+
+352
+00:41:21.438 --> 00:41:31.738
+<v Thierry Geerts>Les législations de la Région bruxelloise, la Région wallonne et la Région flamande. Alors, quand vous vous attaquerez à la France, vous allez avoir un autre régime TVA, vous allez avoir d'autres législations au niveau vie privée.
+
+353
+00:41:31.958 --> 00:41:38.838
+<v Thierry Geerts>Et donc dès que vous avez un taux d'action de cinquante kilomètres, vous allez être confronté à dix législations différentes.
+
+354
+00:41:39.478 --> 00:41:48.898
+<v Thierry Geerts>C'est quand même pas très efficace. Et ça, je vois pas à qui ça rapporte. Ça n'a aucun avantage. Et je crois pas que la loi sur les châssis soit meilleure à Bruxelles qu'elle l'est en Wallonie.
+
+355
+00:41:49.558 --> 00:41:56.618
+<v Thierry Geerts>Si on se mettait d'accord sur la même, on aiderait nos entrepreneurs. On aiderait aussi les particuliers, ça deviendrait moins cher pour tout le monde.
+
+356
+00:41:56.658 --> 00:42:06.198
+<v Thierry Geerts>Et donc, pour finir, c'est le consommateur qui paye plus cher parce qu'il y a pas cette offre de services uniformisés. Et c'est les entreprises qui peuvent pas se développer de la même façon qu'elles ne pourraient le faire.
+
+357
+00:42:06.208 --> 00:42:12.558
+<v Thierry Geerts>Ceci dit, c'est pas ça qui doit nous retenir. Y a plein d'entrepreneurs européens qui ont, qui sont passés dans toutes les frontières.
+
+358
+00:42:12.978 --> 00:42:18.358
+<v Thierry Geerts>On a l'exemple de booking.com, c'est une société européenne. Elle s'est développée dans l'Europe entière, même dans le monde entier.
+
+359
+00:42:18.698 --> 00:42:28.978
+<v Thierry Geerts>Et ils ont fait face à ça. Et ils ont commencé avec les problèmes de frontières, d'explications. Donc, je crois que ça ne stimule pas notre économie digitale, mais c'est pas être une excuse non plus.
+
+360
+00:42:29.118 --> 00:42:39.278
+<v Guillaume Hachez>Voilà, le marché commun, le Digital Single Market, vous l'évoquiez tout à l'heure, Google participe également à des actions de lobbying ici, au, à la Commission européenne, au Parlement européen.
+
+361
+00:42:40.018 --> 00:42:46.518
+<v Guillaume Hachez>Est-ce que c'est quelque chose pour lequel Google milite activement, ça ? Plus de Digital Single Market, plus de marché commun, ici ?
+
+362
+00:42:47.058 --> 00:42:55.758
+<v Thierry Geerts>Absolument. Je crois que on a-- l'Europe a oublié d'expli-- de communiquer pourquoi il y a l'Europe. Et donc aujourd'hui, les gens se demandent : « Mais pourquoi est-ce qu'il faut une Europe ?
+
+363
+00:42:55.778 --> 00:43:03.978
+<v Thierry Geerts>C'est compliqué. » Sans Europe, on n'aurait pas eu la paix pendant cinquante ans. Et il faut connaître une guerre pour se rendre compte à quel point c'est un bonheur d'avoir la paix.
+
+364
+00:43:04.038 --> 00:43:13.298
+<v Thierry Geerts>Si vous pouviez payer avec l'euro dans les pays voisins et que vous devez pas changer-- moi, j'ai encore connu les florins et les francs français, hein, donc je partais à cinquante kilomètres de chez moi et je vais
+
+365
+00:43:14.098 --> 00:43:14.918
+<v Thierry Geerts>trouver d'autres monnaies.
+
+366
+00:43:14.938 --> 00:43:21.538
+<v Thierry Geerts>Donc l'Europe a fait des choses fantastiques pour nous. Mais aujourd'hui, les gens ont un doute pour l'Europe parce qu'on leur a plus expliqué, y a plus eu de grands projets européens.
+
+367
+00:43:21.658 --> 00:43:28.818
+<v Thierry Geerts>Et donc je crois créer cette, ce marché unique européen serait un vrai avantage pour les entreprises, les citoyens et l'Europe et pour être mieux communiqué.
+
+368
+00:43:28.878 --> 00:43:39.178
+<v Thierry Geerts>Ceci dit, notre, 'fin, je veux dire, notre mission n'est pas l'Europe, mais on, je crois qu'on essaie de dire ça pour, parce qu'on voit à quel point ça bloque les entreprises qui travaillent avec nous.
+
+369
+00:43:39.218 --> 00:43:45.078
+<v Guillaume Hachez>L'actualité du Digital Single Market, en ce moment, c'est surtout, voilà, la directive concernant le copyright.
+
+370
+00:43:45.698 --> 00:43:48.998
+<v Guillaume Hachez>Ça touche un petit peu à votre ancienne vie, voilà, dans le monde de la presse.
+
+371
+00:43:49.038 --> 00:43:49.478
+<v Thierry Geerts>Oui.
+
+372
+00:43:49.598 --> 00:44:02.958
+<v Guillaume Hachez>Voilà, il semble que y a peut-être une échappée, une porte de sortie pour arriver à exclure les articles onze et treize dont on parle souvent et qui, voilà, pour lesquels-- contre lesquels Google a souvent milité.
+
+373
+00:44:03.458 --> 00:44:10.978
+<v Guillaume Hachez>C'est un petit peu, encore une fois, un exemple emblématique qui montre que cette révolution numérique clive très fort, hein.
+
+374
+00:44:11.038 --> 00:44:18.178
+<v Guillaume Hachez>On voit justement dans votre ancienne industrie, le monde de la presse, les dents qui se serrent, le stress qui monte.
+
+375
+00:44:18.258 --> 00:44:29.718
+<v Guillaume Hachez>Et quand on lit, justement, voilà, les articles dans Le Soir, dans La Libre Belgique, etc., ces articles onze et treize sont dépeints comme le Graal, comme ce qui va sauver la presse écrite.
+
+376
+00:44:30.378 --> 00:44:37.678
+<v Guillaume Hachez>Comment est-ce que vous expliquez que on puisse avoir des interprétations aussi différentes au sujet de ces deux articles ?
+
+377
+00:44:37.738 --> 00:44:42.318
+<v Thierry Geerts>Alors, le dossier est terriblement complexe et je crois que ça nous mènerait beaucoup trop loin de rentrer dans le détail.
+
+378
+00:44:42.958 --> 00:44:49.078
+<v Thierry Geerts>Je crois-- moi, je dis qu'une chose, c'est : les législations qui existent doivent parfois être adaptées à ce nouveau monde numérique.
+
+379
+00:44:49.108 --> 00:44:55.438
+<v Thierry Geerts>Je veux dire, il est clair qu'on a une révolution industrielle qui change un certain nombre de paradigmes et donc il faut revoir un certain nombre de choses.
+
+380
+00:44:55.558 --> 00:45:03.898
+<v Thierry Geerts>Le travail de nuit, les systèmes TVA, plein de choses qui doivent être revues. Donc il est pas anormal de revoir également le copyright.
+
+381
+00:45:04.538 --> 00:45:14.718
+<v Thierry Geerts>Je crois qu'on est rentré dans ce débat-là de la même façon que dans le respect de la vie privée. On est d'accord sur les principes, mais faites attention à l'impact sur les PME, sur les petits éditeurs.
+
+382
+00:45:15.338 --> 00:45:24.958
+<v Thierry Geerts>Et donc y a des effets collatéraux qui, à mon avis, sont sous-estimés. Et donc il faut faire une loi simple, lisible et applicable, qui est au goût du jour.
+
+383
+00:45:25.138 --> 00:45:34.298
+<v Thierry Geerts>C'est pas toujours le cas dans ces textes qui sont là aujourd'hui. Et je crois que quand on écrit des choses qui sont incompréhensibles pour les gens, il vaut mieux pas l'écrire parce que c'est ça qui crée un certain populisme.
+
+384
+00:45:34.398 --> 00:45:39.978
+<v Thierry Geerts>Alors, vous recevez de nouveau cent mille pour dire que vous pouvez pas accéder tel site parce qu'il y a telle ou telle loi.
+
+385
+00:45:40.338 --> 00:45:50.457
+<v Thierry Geerts>Voilà, le consommateur, il comprend plus grand-chose. Et donc revenons-en à ce que l'expérience de l'utilisateur avec le respect des investissements de chacun.
+
+386
+00:45:50.538 --> 00:45:58.078
+<v Thierry Geerts>Mais le débat n'est pas toujours objectif. Pourquoi ? Parce que, voilà, y a des intérêts économiques en place. Y a beaucoup d'avis différents en Europe.
+
+387
+00:45:58.658 --> 00:46:07.398
+<v Thierry Geerts>Mais je crois qu'il faut surtout pas en faire une espèce de guerre du numérique, ça n'a aucun sens. Ça serait au-- ben pas avantageux pour tout un chacun.
+
+388
+00:46:08.098 --> 00:46:14.298
+<v Thierry Geerts>Réfléchissons plutôt à l'opportunité. Qu'est-ce qu'on peut faire en tant qu'individu pour être avec le goût du jour ?
+
+389
+00:46:14.338 --> 00:46:19.818
+<v Thierry Geerts>Comment les entrepreneurs peuvent être avec ça ? Et une fois de plus, même avec les éditeurs, on continue à travailler très activement.
+
+390
+00:46:19.858 --> 00:46:28.958
+<v Thierry Geerts>On a le Digital News Initiative, qui est une initiative Google où on travaille avec-- main dans la main avec les éditeurs de presse pour réinventer le modèle de la presse, hein.
+
+391
+00:46:29.018 --> 00:46:36.218
+<v Thierry Geerts>Comment est-ce qu'on peut trouver des neuves formes de financement ? Comment est-ce qu'on peut utiliser l'intelligence artificielle pour mieux connecter avec une audience, etc.
+
+392
+00:46:37.158 --> 00:46:42.878
+<v Thierry Geerts>? Plein de projets intéressants. Et donc je crois qu'il faut se focaliser sur ce qu'on peut faire pour l'avenir plutôt que faire des combats d'arrière-garde.
+
+393
+00:46:42.898 --> 00:46:49.838
+<v Guillaume Hachez>Mais vous pouvez nous en parler, voilà, de ces collaborations avec le monde de la presse ? Comment est-ce que, voilà, la presse devrait se réinventer, d'après vous ?
+
+394
+00:46:49.918 --> 00:46:54.138
+<v Guillaume Hachez>Quels sont les-- quels sont les conseils que vous donnez à ces différents acteurs ?
+
+395
+00:46:54.298 --> 00:46:58.558
+<v Thierry Geerts>Conseil, une fois de plus, eux sont les éditeurs. On peut dire qu'il y a un certain nombre d'opportunités.
+
+396
+00:46:58.618 --> 00:47:09.038
+<v Thierry Geerts>Je crois que je vous l'ai mentionné tantôt. Aujourd'hui, grâce à la digitalisation, vous pouvez toucher une audience bien plus large que par le passé, puisque vous avez plus la limitation de la distribution.
+
+397
+00:47:09.878 --> 00:47:16.158
+<v Thierry Geerts>Et donc aujourd'hui, une société qui-- 'fin, un éditeur qui écrirait un article intéressant,
+
+398
+00:47:16.838 --> 00:47:27.978
+<v Thierry Geerts>au lieu d'être limité par une distribution papier à dix mille exemplaires, peut toucher premièrement quatre millions de Wallons, et puis des francophones ailleurs, pourrait toucher cinquante millions de francophones dans le monde entier.
+
+399
+00:47:28.558 --> 00:47:38.698
+<v Thierry Geerts>Et donc, pourquoi est-ce qu'on crée pas plutôt du contenu en fonction d'une opportunité linguistique plus large que de se rester coincé sur son nombril qui est la francophonie en Belgique ?
+
+400
+00:47:38.718 --> 00:47:44.958
+<v Thierry Geerts>Pourquoi ne pas traduire ce genre de choses-là et pour laisser exporter ailleurs ? Y a la même chose sur les contenus audiovisuels.
+
+401
+00:47:45.618 --> 00:47:50.318
+<v Thierry Geerts>Le Danemark a fait quelque chose de fantastique. C'est plus-- le Danemark est une communauté d'environ quatre millions d'habitants qui parlent danois.
+
+402
+00:47:50.718 --> 00:48:00.098
+<v Thierry Geerts>Il y a dans le monde entier quatre millions de gens qui parlent danois. Et donc, vous imaginez créer du contenu de qualité pour la télévision danoise, c'est un peu compliqué parce que l'audience est minuscule.
+
+403
+00:48:00.398 --> 00:48:01.158
+<v Thierry Geerts>Eh bien aujourd'hui,
+
+404
+00:48:01.718 --> 00:48:16.718
+<v Thierry Geerts>une série danoise est un critère de qualité et le monde entier regarde la série danoise Borgen et The Bridge parce qu'ils ont investi en qualité de leur contenu et ils ont fait une espèce de modèle un peu la série noire danoise.
+
+405
+00:48:16.798 --> 00:48:24.678
+<v Thierry Geerts>Et donc malgré que les Danois, y a personne qui comprend, y a quand même deux cent millions de personnes qui regardent des séries danoises et y a eu des remakes des séries danoises.
+
+406
+00:48:24.698 --> 00:48:30.168
+<v Thierry Geerts>Et donc plutôt que d'essayer de faire de la-- de dire : « Ouais, on va protéger le Danemark avec trente-six mille
+
+407
+00:48:30.358 --> 00:48:35.898
+<v Thierry Geerts>droits et on va fermer les frontières », ils se sont dit : « C'est une opportunité pour nous parce que notre contenu peut être distribué de façon plus large.
+
+408
+00:48:36.368 --> 00:48:44.518
+<v Thierry Geerts>» Et donc je crois que ça, c'est des exemples de dire : « Tiens, il faut retourner le modèle. » Plutôt que d'apporter l'information du monde entier vers la Belgique, comment est-ce qu'on peut, de la Belgique,
+
+409
+00:48:45.018 --> 00:48:47.648
+<v Thierry Geerts>créer des contenus, l'information qui est intéressante pour-
+
+410
+00:48:47.658 --> 00:48:56.134
+<v Guillaume Hachez>C'est vrai que Le Soir et La Libre Belgique ne limitent pas leur audience à la Belgique francophone, mais au monde entier, à l'Europe entière, élargir leur public.
+
+411
+00:48:56.294 --> 00:49:04.434
+<v Thierry Geerts>C'est ce qu'ils font quelque part, puisque le groupe Rossel a investi en France. Donc le groupe Rossel n'est déjà plus du tout uniquement présent en francophonie, mais a des quotidiens en France.
+
+412
+00:49:04.554 --> 00:49:09.834
+<v Thierry Geerts>Comme je vous avais dit, les groupes flamands ont investi en langue. Donc quelque part, ils ont déjà amélioré leurs audiences.
+
+413
+00:49:09.894 --> 00:49:14.974
+<v Thierry Geerts>Ceci dit, ils n'ont pas encore focalisé sur le contenu qui peut sortir de la région dans laquelle ils ont un quotidien.
+
+414
+00:49:15.414 --> 00:49:23.194
+<v Thierry Geerts>Et j'ai pas dit que c'était simple. C'est juste pour dire qu'il faut réfléchir différemment. Et puis après, à chacun à réinventer son modèle.
+
+415
+00:49:23.414 --> 00:49:30.934
+<v Thierry Geerts>Mais je suis persuadé qu'il y a aujourd'hui, pour toute PME, il y a quatre milliards de personnes qui sont à un clic de votre entreprise.
+
+416
+00:49:30.994 --> 00:49:38.514
+<v Thierry Geerts>Pour chaque société média, il y a aussi quatre milliards de personnes qui sont à un clic. Naturellement, chaque contenu n'est pas pour tout le monde et les langues sont des barrières.
+
+417
+00:49:38.594 --> 00:49:44.034
+<v Thierry Geerts>Mais aujourd'hui, il est parfois suffisant de sous-titrer un contenu audiovisuel pour pouvoir l'exporter.
+
+418
+00:49:44.234 --> 00:49:53.954
+<v Guillaume Hachez>J'aimerais revenir un instant à la Belgique. On l'évoquait tout à l'heure, voilà, les start-up, autrefois très peu présentes, maintenant un peu plus, vous le disiez.
+
+419
+00:49:54.634 --> 00:50:04.814
+<v Guillaume Hachez>On reste, si pas le dernier, mais alors l'avant-dernier en termes de taux de création d'entreprise. Donc l'esprit d'entreprendre n'est pas vraiment présent, ou en tout cas trop peu.
+
+420
+00:50:05.254 --> 00:50:15.574
+<v Guillaume Hachez>Est-ce que Google aimerait voir, aimerait participer à un changement de mentalité à ce niveau-là ? Est-ce que Google se voudrait acteur pour encourager davantage de start-up à débarquer ?
+
+421
+00:50:15.734 --> 00:50:25.594
+<v Thierry Geerts>Comme je l'avais dit, un rôle ne doit pas être partout, loin de ça en faut. Donc, on inspire des start-up et on inspire des sociétés traditionnelles à faire la transformation numérique.
+
+422
+00:50:25.694 --> 00:50:29.234
+<v Thierry Geerts>Je pense que c'est à nous à stimuler l'entrepreneuriat en tant que tel.
+
+423
+00:50:29.974 --> 00:50:38.614
+<v Thierry Geerts>Je suis assez convaincu qu'on ferait mieux de parler plus d'entrepreneuriat dans notre système scolaire, parce qu'être entrepreneur, c'est quand même quelque chose qui est plutôt chouette.
+
+424
+00:50:38.734 --> 00:50:45.534
+<v Thierry Geerts>On prend son avenir en main, on n'est pas dépendant d'un patron, on établit son salaire soi-même et on développe ses affaires.
+
+425
+00:50:45.914 --> 00:50:51.094
+<v Thierry Geerts>Donc c'est plutôt beau. Alors que l'entrepreneuriat a quand même été un peu stigmatisé à la Belgique par le passé.
+
+426
+00:50:51.354 --> 00:50:58.894
+<v Thierry Geerts>Et les entrepreneurs qui réussissent sont un peu considérés comme suspects, alors que c'est eux qui créent quand même de la valeur.
+
+427
+00:50:59.434 --> 00:51:06.614
+<v Thierry Geerts>Et ça doit se faire en concertation avec les partenaires sociaux, etc. Donc c'est plutôt un climat. Aujourd'hui, il y a une opportunité de devenir entrepreneur.
+
+428
+00:51:06.654 --> 00:51:13.894
+<v Thierry Geerts>Aujourd'hui, c'est-- avant, c'était compliqué. J'étais entrepreneur, moi, quand j'étais étudiant, il fallait trouver du capital, c'était compliqué.
+
+429
+00:51:14.094 --> 00:51:21.554
+<v Thierry Geerts>Déjà, le mot entrepreneur dans les années 80, c'était pas terrible. Et avant de commencer, il fallait acheter un ordinateur qui coûtait très, très, très cher.
+
+430
+00:51:22.414 --> 00:51:34.714
+<v Thierry Geerts>Alors qu'aujourd'hui, vous achetez un laptop à trois cents euros, vous vous connectez à Internet, vous créez un webshop et vous pouvez toucher quatre milliards de consommateurs, tout seul avec un ordinateur.
+
+431
+00:51:35.294 --> 00:51:41.554
+<v Thierry Geerts>Et donc-- et ça, on voit ça. On voit des entrepreneurs fantastiques avec petites équipes, qui font des business fantastiques.
+
+432
+00:51:42.014 --> 00:51:43.314
+<v Guillaume Hachez>Le, donc l'opportunité est là.
+
+433
+00:51:43.354 --> 00:51:47.214
+<v Thierry Geerts>L'opportunité est là plus qu'elle n'était avant. C'est une meilleure période pour être entrepreneur qu'il y a trente ans.
+
+434
+00:51:47.574 --> 00:51:55.114
+<v Guillaume Hachez>Et voilà, l'opportunité est là et l'opportunité est là également pour Google qui, voilà, qui va utiliser ses services, les proposer à tous ces entrepreneurs.
+
+435
+00:51:55.854 --> 00:52:02.034
+<v Guillaume Hachez>La barrière culturelle reste là. La peur d'entreprendre, le mot entrepreneur fait encore un petit peu peur aujourd'hui en Belgique.
+
+436
+00:52:02.334 --> 00:52:06.594
+<v Guillaume Hachez>On l'a dit, un taux de création d'entreprise, je crois, trois virgule six pour cent ou quoi.
+
+437
+00:52:06.854 --> 00:52:07.353
+<v Thierry Geerts>Oui.
+
+438
+00:52:07.454 --> 00:52:15.094
+<v Guillaume Hachez>Pour-- voilà, bon, c'est évidemment plutôt difficile comme challenge, hein, la barrière poli-- la barrière culturelle.
+
+439
+00:52:15.114 --> 00:52:23.554
+<v Guillaume Hachez>Est-ce que Google ne serait pas intéressé par, je ne sais pas, moi, le-- on sait qu'il y a des Google Ventures, par exemple, à Mountain View.
+
+440
+00:52:23.614 --> 00:52:30.334
+<v Guillaume Hachez>Est-ce que Google serait intéressé par un petit peu-- donner un petit peu du charbon à cette révolution entrepreneuriale, cette révolution culturelle ?
+
+441
+00:52:30.394 --> 00:52:38.454
+<v Thierry Geerts>Alors, comme je l'avais dit tout à l'heure, il y a aujourd'hui plein d'organes et de-- les Invest, Win et d'autres programmes qui sont là.
+
+442
+00:52:38.534 --> 00:52:45.254
+<v Thierry Geerts>Donc, c'est pas-- on ne doit pas être à leur place. Les Google Ventures investit dans des projets fous dans lesquels les autres n'investissent pas.
+
+443
+00:52:45.874 --> 00:52:53.634
+<v Thierry Geerts>Et ça, c'est notre rôle. Nous, on utilise la technologie pour résoudre de grands problèmes sociétaux. On a investi, par exemple, dans les voitures autonomes, en 2010.
+
+444
+00:52:54.254 --> 00:53:00.254
+<v Thierry Geerts>Il fallait avoir du courage pour investir en voitures autonomes en 2010 et d'investir pendant des années dans un programme auquel personne ne croyait.
+
+445
+00:53:00.674 --> 00:53:06.494
+<v Thierry Geerts>Donc voilà, chacun a son rôle. Et je crois que notre mission est de faire quelque chose que les autres ne font pas.
+
+446
+00:53:06.504 --> 00:53:13.013
+<v Thierry Geerts>Aujourd'hui, je crois que c'est plutôt-- nous, ce que j'essaie de faire, c'est de dire : on montre l'opportunité et puis après, sous quelle forme elles sont prises.
+
+447
+00:53:13.094 --> 00:53:19.454
+<v Thierry Geerts>Est-ce que c'est les entreprises traditionnelles qui se transforment le digital ou bien est-ce que c'est des entrepreneurs qui relèvent le défi ?
+
+448
+00:53:19.494 --> 00:53:26.174
+<v Thierry Geerts>Je veux juste dire qu'aujourd'hui, il est plus simple d'entreprendre parce que les moyens sont là. Et deuxièmement, on doit réinventer notre monde.
+
+449
+00:53:26.704 --> 00:53:35.814
+<v Thierry Geerts>Donc tout ce qu'on f-- m'a fait jusqu'ici était basé sur des principes industriels. Et si vous êtes entrepreneur, vous dites : Tiens, en fait, bah, ça, ça marche pas très, très bien.
+
+450
+00:53:36.314 --> 00:53:44.854
+<v Thierry Geerts>Vous pouvez lancer une app ou lancer un produit. Et donc, il y a beaucoup plus d'opportunités de démarrage d'entreprise que jamais auparavant, puisqu'il faut tout réinventer.
+
+451
+00:53:44.874 --> 00:53:53.214
+<v Thierry Geerts>Dans la mobilité, il faut tout réinventer. Dans les soins de santé, il faut tout réinventer. Dans le commerce, on est en train de réinventer avec les e-commerces et les expériences en magasin.
+
+452
+00:53:53.834 --> 00:54:04.514
+<v Thierry Geerts>Mais il y a encore énormément à faire, mais on ne peut qu'en parler. Après, voilà, c'est pas à nous à dire : Vous devez être entrepreneur, vous faites exactement ce que vous voulez de votre vie.
+
+453
+00:54:04.754 --> 00:54:09.754
+<v Thierry Geerts>Moi, je suis très enthousiaste par rapport à ça. Je coache des entrepreneurs, je parle à beaucoup d'entrepreneurs ou des potentiels entrepreneurs.
+
+454
+00:54:10.014 --> 00:54:18.434
+<v Thierry Geerts>Le seul problème, je crois, c'est qu'on a fait peur aux Belges sur le risque entrepreneurial. Et ça, c'est dommage. À cause de ça, on bloque plutôt des envies.
+
+455
+00:54:18.514 --> 00:54:23.454
+<v Thierry Geerts>Donc moi, j'ai envie de redonner envie aux gens. Et puis après, une fois de plus, l'envie, c'est ce que vous avez envie de faire.
+
+456
+00:54:23.914 --> 00:54:30.634
+<v Thierry Geerts>Et aussi de revaloriser des métiers qui, par le passé, étaient un peu perdus. Moi, je regarde les plus beaux métiers du monde, c'est être plombier, par exemple.
+
+457
+00:54:30.694 --> 00:54:39.354
+<v Thierry Geerts>Mon père m'a envoyé à un stage de plomberie en espérant que je fasse de la plomberie. Malheureusement, j'ai réussi mes études universitaires, mais on oublie les métiers manuels.
+
+458
+00:54:39.474 --> 00:54:48.394
+<v Thierry Geerts>Quelqu'un qui fait bien son métier en manuel est beaucoup plus heureux comme indépendant que quelqu'un qui est dans une usine à travailler sept heures par jour.
+
+459
+00:54:49.014 --> 00:54:55.894
+<v Thierry Geerts>C'est pas toujours aussi humain. Mais nous avons dévalorisé ces métiers, et c'est assez incompréhensible. Il faut revaloriser le métier d'enseignant aussi.
+
+460
+00:54:55.914 --> 00:55:06.234
+<v Thierry Geerts>Je crois que c'est un des plus beaux métiers du monde, terriblement indispensable dans une période de transition. On n'a pas, en tant que société, vraiment revalorisé ce métier.
+
+461
+00:55:06.294 --> 00:55:12.394
+<v Thierry Geerts>Dans le temps, l'enseignant, le maire et le médecin étaient les personnes les plus importantes d'un village. Ce n'est plus le cas.
+
+462
+00:55:12.454 --> 00:55:14.454
+<v Thierry Geerts>Ça devrait redevenir un petit peu le cas.
+
+463
+00:55:14.514 --> 00:55:21.589
+<v Guillaume Hachez>Oui, on évoquait tout à l'heure, voilà, la question du numérique à l'école qui n'est pas assez présente, la question de l'entrepreneuriat à l'école qui n'est pas assez présente.
+
+464
+00:55:22.050 --> 00:55:26.790
+<v Guillaume Hachez>On évoquait, voilà, le fait que la Belgique est un système un petit peu en forme de couches, en forme de lasagne.
+
+465
+00:55:27.570 --> 00:55:35.930
+<v Guillaume Hachez>Le fait que Google participe, encourage, et aide financièrement une initiative comme MolenGeek-
+
+466
+00:55:36.130 --> 00:55:36.450
+<v Thierry Geerts>Oui.
+
+467
+00:55:36.470 --> 00:55:37.370
+<v Guillaume Hachez>Est-ce que ce n'est pas en partie
+
+468
+00:55:37.830 --> 00:55:44.630
+<v Guillaume Hachez>le constat d'un échec au niveau de l'enseignement en Belgique, du fait que le numérique soit aussi autant absent des écoles, le fait que
+
+469
+00:55:45.070 --> 00:55:50.550
+<v Guillaume Hachez>il y ait autant de jeunes qui soient délaissés et qui ne rencontrent pas l'opportunité qu'est le numérique au sein de l'école ?
+
+470
+00:55:50.570 --> 00:55:55.790
+<v Guillaume Hachez>Est-ce que finalement, MolenGeek n'est pas le symptôme, le résultat d'un échec de l'enseignement ici en Belgique ?
+
+471
+00:55:55.890 --> 00:56:04.470
+<v Thierry Geerts>Non, non, je crois pas que-- un, nous avons l'enseignement le plus qualitatif qu'on puisse imaginer quand même. Je veux dire, ce qui a réalisé l'enseignement en Belgique, on a quand même un taux d'éducation générale.
+
+472
+00:56:04.530 --> 00:56:12.210
+<v Thierry Geerts>Si le populisme ne perce pas trop en Belgique, c'est parce que la plupart des Belges ont une bonne éducation et donc comprennent qu'on est en train de leur vendre des bobards.
+
+473
+00:56:12.230 --> 00:56:23.330
+<v Thierry Geerts>Et donc ça, c'est une bonne chose. Le problème, c'est que cette transition est difficile à faire. Donc il est normal que dans une période de transition rapide, c'est pas cent pour cent clair ce qu'on peut faire.
+
+474
+00:56:23.390 --> 00:56:31.890
+<v Thierry Geerts>Donc il est normal qu'il y a des initiatives diverses et variées qui testent et qui inspirent. MolenGeek est une réussite, mais c'était pas évident.
+
+475
+00:56:32.170 --> 00:56:39.890
+<v Thierry Geerts>Et le monde de l'enseignement n'est pas quelque chose qui peut se faire sur des hype ou sur un coup de chance. Ça doit être très structuré et bien fait.
+
+476
+00:56:39.950 --> 00:56:49.690
+<v Thierry Geerts>Donc j'espère uniquement que le monde de l'enseignement puisse s'inspirer de ce genre d'initiative et le plus vite possible les structurer avec la pédagogie que eux connaissent et que nous n'avons pas.
+
+477
+00:56:49.770 --> 00:56:57.110
+<v Thierry Geerts>Et la seule chose que je leur demande, c'est d'être ouvert à tout ce genre d'initiative. Y a une autre initiative fantastique-- déjà, nous, nous participons.
+
+478
+00:56:57.170 --> 00:57:02.850
+<v Thierry Geerts>Cet été, nous on fait des stages pour les enfants à l'atelier digital, au-dessus de la gare centrale, à BeCentral.
+
+479
+00:57:02.970 --> 00:57:09.270
+<v Thierry Geerts>Donc c'est quand même un lieu que j'invite tout un chacun à visiter, où il y a quarante initiatives digitales au-dessus de la gare centrale,
+
+480
+00:57:09.970 --> 00:57:17.270
+<v Thierry Geerts>qui est une initiative mixte publique, privée, avec énormément d'enthousiasme et de potentiel.
+
+481
+00:57:17.350 --> 00:57:24.230
+<v Thierry Geerts>Une autre initiative bien structurée, c'est CoderDojo, qui est une formation des jeunes par les jeunes pour l'informatique.
+
+482
+00:57:24.250 --> 00:57:31.630
+<v Thierry Geerts>Et donc les jeunes, comme ils vont chez les scouts le dimanche ou le lundi après-midi, ils vont le samedi matin à un cours de coding.
+
+483
+00:57:31.750 --> 00:57:37.630
+<v Thierry Geerts>Ils apprennent à coder. Ces cours sont tous pleins. L'initiative a été inventée y a pas mal d'années en Irlande.
+
+484
+00:57:37.850 --> 00:57:47.190
+<v Thierry Geerts>Elle tourne en Flandre depuis longtemps. Elle se développe en Wallonie et à Bruxelles. C'est le genre de programme que j'aimerais que le programme éducatif intègre.
+
+485
+00:57:47.379 --> 00:57:52.910
+<v Thierry Geerts>Parce que le problème de CoderDojo, qui est toujours plein et fantastique, c'est qui inscrit ces enfants à CoderDojo ?
+
+486
+00:57:52.950 --> 00:57:53.370
+<v Guillaume Hachez>Les geeks.
+
+487
+00:57:53.430 --> 00:57:58.710
+<v Thierry Geerts>Les geeks, les gens qui font de l'informatique, ils se disent : Ah, je comprends que c'est important, j'envoie mon enfant.
+
+488
+00:57:58.910 --> 00:58:06.310
+<v Thierry Geerts>Je vois pas pourquoi un enfant qui est fils d'ouvrier d'une usine, peu importe, ne peut pas avoir cette même chance.
+
+489
+00:58:07.300 --> 00:58:10.320
+<v Thierry Geerts>L'avantage du système scolaire en Belgique, c'est qu'il est inclusif. Tout le monde-
+
+490
+00:58:10.320 --> 00:58:10.970
+<v Guillaume Hachez>Universel, oui.
+
+491
+00:58:10.990 --> 00:58:11.430
+<v Thierry Geerts>a accès.
+
+492
+00:58:12.110 --> 00:58:14.740
+<v Thierry Geerts>Et je trouve que c'est un malheur que les--
+
+493
+00:58:15.410 --> 00:58:21.770
+<v Thierry Geerts>c'est uniquement les gens qui savent que CoderDojo existe, c'est-à-dire les enfants qui probablement avaient déjà un ordinateur à la maison
+
+494
+00:58:22.430 --> 00:58:27.130
+<v Thierry Geerts>et l'auraient probablement dehors en tout cas fait, alors que ça devrait être donné aux autres.
+
+495
+00:58:27.499 --> 00:58:38.810
+<v Thierry Geerts>Et je vous assure que si vous donnez des cours de formation à tout le monde, vous allez voir à quel point c'est inclusif, à quel point des enfants qui a priori n'étaient pas en réussite scolaire deviennent excellents en informatique,
+
+496
+00:58:39.510 --> 00:58:41.530
+<v Thierry Geerts>et donc peuvent devenir des super talents.
+
+497
+00:58:42.170 --> 00:58:54.010
+<v Thierry Geerts>Nous avons fait une session de quelques heures dans une école. Et après cette session-là, on avait un feedback sur les élèves et on avait dit : Voilà, cet élève-là, il est formidable, il va réussir.
+
+498
+00:58:54.230 --> 00:59:05.050
+<v Thierry Geerts>Et l'enseignant était bouche bée parce que c'était son plus mauvais élève. Et donc, quelque part, en Belgique, on a tendance à évaluer nos élèves,
+
+499
+00:59:06.330 --> 00:59:11.490
+<v Thierry Geerts>comme si on mesurait les poissons à s'ils savent monter dans les arbres, hein.
+
+500
+00:59:11.630 --> 00:59:18.950
+<v Thierry Geerts>Et donc fatalement, les poissons savent pas monter dans les arbres, donc ils sont toujours mal évalués, mais ils savent bien nager, hein.
+
+501
+00:59:19.010 --> 00:59:26.110
+<v Thierry Geerts>Et donc, on donne des bons points à plein de mammifères qui savent monter aux arbres, mais on rate les poissons.
+
+502
+00:59:26.130 --> 00:59:28.610
+<v Thierry Geerts>Eh ben, en informatique, c'est un peu vrai.
+
+503
+00:59:28.630 --> 00:59:29.069
+<v Guillaume Hachez>Y a un peu de ça.
+
+504
+00:59:29.190 --> 00:59:35.479
+<v Thierry Geerts>Y a des gens qui sont excellents en école scolaire traditionnelle et qui sont excellents en informatique, mais y a aussi des gens qui ne réussissent pas en système scolaire,
+
+505
+00:59:35.590 --> 00:59:40.430
+<v Thierry Geerts>qui sont excellents en informatique, qui deviennent des geeks, et que grands entrepreneurs qui ont raté
+
+506
+00:59:40.910 --> 00:59:43.090
+<v Thierry Geerts>complètement leurs études.
+
+507
+00:59:43.110 --> 00:59:50.790
+<v Thierry Geerts>Beaucoup de nos tech entrepreneurs aux États-Unis n'ont pas terminé leurs études. Et prenons quand même l'exemple d'Albert Einstein, qui n'a pas été particulièrement apprécié par ses profs.
+
+508
+00:59:51.270 --> 00:59:51.690
+<v Guillaume Hachez>Oui.
+
+510
+00:59:52.430 --> 00:59:55.890
+<v Guillaume Hachez>C'est la solution, du coup, pour ces élèves geeks qui ont des difficultés à l'école ?
+
+511
+00:59:55.930 --> 01:00:02.090
+<v Thierry Geerts>Alors moi, je dis toujours, en tant que parent : Ne comptez pas uniquement sur l'école pour l'éducation, hein. Montrez-leur rapi--
+
+512
+01:00:02.359 --> 01:00:08.370
+<v Thierry Geerts>à jeune âge, trouvez des cours à côté, achetez un ordinateur, montrez-leur ou faites-leur développer eux-mêmes.
+
+513
+01:00:08.410 --> 01:00:18.310
+<v Thierry Geerts>Ils se débrouillent tout seuls, hein. Vous donnez un ordinateur, ils font des choses magnifiques. Mais alors, j'espère, moi, que l'enseignement puisse intégrer ce genre de choses dans le programme, et le plus vite possible.
+
+514
+01:00:18.450 --> 01:00:27.730
+<v Guillaume Hachez>Oui. Dernière question : vous proposez d'introduire un chief digital officer au niveau fédéral. Il y a déjà un ministre de l'Agenda numérique, Alexander De Croo.
+
+515
+01:00:27.770 --> 01:00:33.850
+<v Guillaume Hachez>Je crois qu'aujourd'hui, c'est un secrétaire d'État, puisqu'il a été remplacé suite à la crise gouvernementale que nous avons connue récemment.
+
+516
+01:00:33.930 --> 01:00:35.460
+<v Thierry Geerts>Un ministre Philippe De Backer, qui est à l'Agenda numérique.
+
+517
+01:00:35.460 --> 01:00:37.290
+<v Guillaume Hachez>C'est ça, ouais. Il est pas, il passe secrétaire d'État ?
+
+518
+01:00:37.330 --> 01:00:38.390
+<v Thierry Geerts>Non non, il est devenu ministre.
+
+519
+01:00:38.490 --> 01:00:38.590
+<v Guillaume Hachez>Ah.
+
+520
+01:00:38.600 --> 01:00:40.430
+<v Thierry Geerts>Il était secrétaire d'État, il est devenu ministre.
+
+521
+01:00:40.480 --> 01:00:47.510
+<v Guillaume Hachez>Ah, oui, juste. Voilà. On ne s'en sort plus. Vous proposez, voilà, d'introduire ce nouveau, voilà, ce nouveau chief digital officer.
+
+522
+01:00:47.890 --> 01:00:50.910
+<v Guillaume Hachez>Quelle différence avec le travail du ministre à l'Agenda numérique ?
+
+523
+01:00:50.970 --> 01:00:59.210
+<v Thierry Geerts>Alors, le problème, c'est de dépolitiser tout ça. Comme vous l'avez dit très bien, comme on en a parlé de l'enseignement tout à l'heure, dans le numérique, y a le même problème.
+
+524
+01:00:59.590 --> 01:01:09.830
+<v Thierry Geerts>C'est-- pour réaliser le numérique, c'est très transversal. Vous devez faire ça clairement dans toutes les régions du pays et ça touche l'enseignement, l'entrepreneuriat, l'économie, enfin tous les domaines.
+
+525
+01:01:09.990 --> 01:01:14.290
+<v Thierry Geerts>Et donc aujourd'hui, quand Alexander De Croo a présenté son plan pour le digital,
+
+526
+01:01:15.070 --> 01:01:23.090
+<v Thierry Geerts>eh ben, il s'est rendu compte que dans tout ce qu'il fait faire, pour la moitié, il avait pas les compétences pour le faire, enfin les pouvoirs pour le faire parce que c'était un collègue-
+
+527
+01:01:23.110 --> 01:01:28.190
+<v Guillaume Hachez>C'était particulièrement évident pendant notre interview où il parlait beaucoup de l'enseignement et je lui disais : « Mais ce n'est pas votre compétence. »
+
+528
+01:01:28.210 --> 01:01:28.370
+<v Thierry Geerts>Voilà.
+
+529
+01:01:28.730 --> 01:01:29.970
+<v Guillaume Hachez>J'étais un petit peu gêné, oui, c'est vrai.
+
+530
+01:01:30.490 --> 01:01:35.100
+<v Thierry Geerts>Donc alors, je suis pas du tout dans le politique et donc je sais pas comment il faut résoudre ça. Et donc dans mon livre, j'ai dit
+
+531
+01:01:36.170 --> 01:01:46.490
+<v Thierry Geerts>: peut-être qu'une solution, c'est de prendre une personne apolitique, et de nommer un chief digital officer qui est une personne indépendante, non politisée, auquel les politiciens donnent un certain pouvoir comme,
+
+532
+01:01:47.630 --> 01:01:58.390
+<v Thierry Geerts>et puis s'attaquer à ce problème-là de façon plus entrepreneuriale, plus rapide que nos politiques ne puissent faire, dans lequel toutes les régions et tous les niveaux de pouvoir seraient à la table.
+
+533
+01:01:58.430 --> 01:02:06.270
+<v Thierry Geerts>Il y aurait un conseil d'administration qui serait composé alors de ces ministres qui ont ces pouvoirs, de telle sorte que y a naturellement un contrôle démocratique.
+
+534
+01:02:06.490 --> 01:02:13.290
+<v Thierry Geerts>C'est pas une espèce de Mussolini qui va régler le digital, au contraire. Il faut que ce soit inclusif. Mais on va devoir s'accélérer là-dessus.
+
+535
+01:02:13.910 --> 01:02:21.710
+<v Thierry Geerts>Et j'ai été inspiré par un certain nombre de modèles comme ça. On voit que à Londres, le digital a très fort été développé par un chief digital officer.
+
+536
+01:02:22.290 --> 01:02:32.120
+<v Thierry Geerts>Stockholm a nommé un chief digital officer également. Au Danemark, il y a des initiatives comparables. Et on voit que ça fonctionne même dans des pays un peu moins compliqués, mais où quand même,
+
+537
+01:02:32.570 --> 01:02:36.230
+<v Thierry Geerts>comme c'est transversal, ils ont aussi un certain nombre de problèmes pour faire avancer les choses.
+
+538
+01:02:36.290 --> 01:02:42.710
+<v Thierry Geerts>On nomme quelqu'un qui ait une mission très bien précise et qui s'attaque à ça. Ce qui me semble normal dans une transition pareille,
+
+539
+01:02:43.650 --> 01:02:49.410
+<v Thierry Geerts>que on ait quelqu'un qui ne fait que ça et qui essaye d'aller de l'avant le plus vite possible avec une mission.
+
+540
+01:02:49.810 --> 01:02:55.210
+<v Thierry Geerts>Avec Alexander De Croo, il avait le numérique, mais il avait aussi l'aide au développement et il était aussi vice-premier ministre.
+
+541
+01:02:55.220 --> 01:02:55.780
+<v Guillaume Hachez>Et la poste, et oui, toute la partie-
+
+542
+01:02:55.810 --> 01:02:56.600
+<v Thierry Geerts>Et la poste, etc.
+
+543
+01:02:57.550 --> 01:03:01.750
+<v Thierry Geerts>Non, non, mais il faut maintenant, il faut arrêter de jouer. Il faut quelqu'un qui est le
+
+544
+01:03:02.510 --> 01:03:12.370
+<v Thierry Geerts>plus capable possible, indépendamment des couleurs politiques, âge, homme, femme, n'importe, peu importe, quelqu'un qui prenne le challenge et qui ait le soutien de tout le monde pour faire avancer ça.
+
+545
+01:03:12.510 --> 01:03:19.850
+<v Guillaume Hachez>Oui. Un projet, voilà, plus fédéral, plus-- une refédéralisation, voilà, de ces compétences plutôt que de les mettre en couches.
+
+546
+01:03:19.890 --> 01:03:28.790
+<v Thierry Geerts>Si on dit refédéralisation des compétences, on va dire : « Ça, ça va pas se passer. » Non, non, on garde les choses comme elles sont, mais on met en commun quelqu'un qui va avoir une plate- une co-plateforme commune.
+
+547
+01:03:28.830 --> 01:03:29.710
+<v Guillaume Hachez>Va traverser la Laval.
+
+548
+01:03:30.130 --> 01:03:40.330
+<v Thierry Geerts>Oui, parce que ça a quand même fonctionné. Faut pas oublier, par exemple, dans la taxation des poids lourds en Belgique, ils ont dû installer partout en Belgique des systèmes pour traquer les camions.
+
+549
+01:03:40.810 --> 01:03:48.150
+<v Thierry Geerts>Eh bien, les trois régions, du coup, parce qu'ils pouvaient taxer, se sont entendues et technologiquement, ça s'est mis en place en un minimum de temps et ça fonctionne.
+
+550
+01:03:48.190 --> 01:03:56.710
+<v Thierry Geerts>Personne n'en parle et ça s'est fait avec les trois régions, qui, tout à coup, comme ils pouvaient gagner de l'argent, ont décidé de pas se chamailler pour une fois.
+
+551
+01:03:57.050 --> 01:04:05.230
+<v Thierry Geerts>Et donc y a moyen de faire ça sans pour autant changer le système d'État qui est un sujet hautement politisé et qui, franchement, n'intéresse plus personne.
+
+552
+01:04:05.350 --> 01:04:07.590
+<v Thierry Geerts>Je crois qu'il faut maintenant faire avancer le schmilblick.
+
+553
+01:04:07.730 --> 01:04:14.080
+<v Guillaume Hachez>Mais voilà, on vous sent en tout cas très animé par ce grand projet. Du coup, on a très envie de poser la question, on va tirer cartes.
+
+554
+01:04:14.130 --> 01:04:17.290
+<v Guillaume Hachez>Est-ce que vous seriez éventuellement candidat pour un tel poste ?
+
+555
+01:04:17.370 --> 01:04:22.050
+<v Thierry Geerts>C'est amusant, j'avais pas du tout pensé à ce boomerang. Et vous êtes certainement pas le premier qui pose la question.
+
+556
+01:04:22.070 --> 01:04:23.290
+<v Thierry Geerts>La réponse est non, pas du tout.
+
+557
+01:04:23.740 --> 01:04:33.659
+<v Guillaume Hachez>Non, parce que quand vous décrivez le chief digital officer comme étant externe à la politique, pas un politicien, mais quelqu'un qui connaît quand même bien tout ça, voilà, on se dit : « Il a une idée, il a une idée derrière la tête. »
+
+558
+01:04:33.690 --> 01:04:41.450
+<v Thierry Geerts>Non, non. En fait, j'ai écrit le livre et puis mon éditeur m'a dit : « Oui, mais vous pouvez pas laisser ça sans avoir des suggestions plus concrètes. »
+
+559
+01:04:41.460 --> 01:04:41.470
+<v Guillaume Hachez>D'accord.
+
+560
+01:04:41.470 --> 01:04:49.470
+<v Thierry Geerts>C'est facile de faire un constat et puis après, débrouillez-vous. Et donc, il m'a dit : « Non, non, il faut quand même suggérer un certain nombre d'options sans dire c'est ça la solution.
+
+561
+01:04:49.520 --> 01:04:54.230
+<v Thierry Geerts>» Et j'ai dit clairement dans le livre, pour moi, je crois que c'est aux politiciens à réfléchir à la solution.
+
+562
+01:04:54.410 --> 01:05:01.129
+<v Thierry Geerts>Et le chief digital officer est une piste que je mets sur la table, mais plus pour faire réfléchir que pour l'appliquer.
+
+563
+01:05:01.150 --> 01:05:06.550
+<v Thierry Geerts>Et du coup, comme j'ai mis ça comme une piste, pas du tout pensé qu'on me demande un jour de le faire. Non. Pourquoi ?
+
+564
+01:05:06.570 --> 01:05:11.530
+<v Thierry Geerts>Parce que j'ai encore énormément à faire ici chez Google. Je crois que Google News, c'était assez fantastique.
+
+565
+01:05:12.070 --> 01:05:17.450
+<v Thierry Geerts>Et je crois que je pourrais, par exemple, en être le partenaire, je suis prêt à aider tant au niveau personnel que pour Google.
+
+566
+01:05:18.130 --> 01:05:23.290
+<v Thierry Geerts>Mais voilà, je suis persuadé qu'il y a des gens capables en dehors sur le marché pour faire ça.
+
+567
+01:05:23.410 --> 01:05:26.210
+<v Guillaume Hachez>Nous arrivons au bout de Septante Minutes. Thierry Geerts, merci.
+
+568
+01:05:26.290 --> 01:05:27.390
+<v Thierry Geerts>Merci pour votre intérêt.
+
+569
+01:05:27.490 --> 01:05:36.530
+<v Guillaume Hachez>Vous êtes, comme on l'a dit, l'auteur de Digitalis, publié l'an dernier chez Racine, disponible en e-book ou en librairie pour une vingtaine d'euros, je crois.
+
+570
+01:05:36.710 --> 01:05:37.049
+<v Thierry Geerts>Oui.
+
+571
+01:05:37.170 --> 01:05:41.239
+<v Guillaume Hachez>On le recommande à tous nos auditeurs. Et chers auditeurs, on vous retrouve dans deux semaines. Au revoir.
+
+572
+01:05:41.350 --> 01:05:47.150
+<v Thierry Geerts>Au revoir.
+
+573
+01:05:49.950 --> 01:05:57.550
+<v Guillaume Hachez>Et voilà, c'est déjà tout pour ce Septante Minutes avec Thierry Geerts. Last but not least, on parlait de lui avec Myriam il y a deux semaines.
+
+574
+01:05:58.190 --> 01:06:07.070
+<v Guillaume Hachez>Rudy Lionet sera un invité dans quelques semaines. Et voilà, étant un grand fan de Cinq Heures depuis très longtemps, j'ai super hâte de faire ça.
+
+575
+01:06:07.710 --> 01:06:17.310
+<v Guillaume Hachez>Pour ne rien rater, n'oubliez pas de vous abonner à Septante Minutes Avec sur les réseaux sociaux. Il y a des liens dans la description de cet épisode et aussi sur votre plateforme de podcast préférée.
+
+576
+01:06:17.870 --> 01:06:22.630
+<v Guillaume Hachez>Allez, à dans deux semaines. Bye !

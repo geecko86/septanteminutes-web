@@ -1,0 +1,2657 @@
+WEBVTT
+
+0
+00:00:00.240 --> 00:00:18.420
+<v Guillaume Hachez>Salut, ici Guillaume Hachez. Vous écoutez Septante Minutes Avec. Salut tout le monde, j'espère que vous allez bien et que cette année 2022 a bien démarré pour vous.
+
+1
+00:00:18.880 --> 00:00:24.160
+<v Guillaume Hachez>De mon côté, ces premières semaines ont été bien chargées. J'ai d'ailleurs pris une semaine de retard pour publier cet épisode-ci.
+
+2
+00:00:24.240 --> 00:00:33.220
+<v Guillaume Hachez>Toutes mes excuses pour ça. Vous avez été très nombreux et nombreuses à écouter mon entretien avec Myriam le mois dernier, y compris un paquet de gens qui ont découvert Septante Minutes Avec à cette occasion.
+
+3
+00:00:33.840 --> 00:00:45.220
+<v Guillaume Hachez>Donc déjà, bienvenue à tous. Cette semaine, après le sujet très très concret qui était le harcèlement de Myriam, on va prendre beaucoup, beaucoup de hauteur et parler de quelque chose de terriblement abstrait.
+
+4
+00:00:45.240 --> 00:00:53.260
+<v Guillaume Hachez>Je m'entretiens avec Axel Cleeremans, qui est professeur de psychologie cognitive à l'ULB et aussi un très grand nom à l'international pour toutes questions liées à la conscience.
+
+5
+00:00:53.710 --> 00:00:59.880
+<v Guillaume Hachez>Donc autrement dit, le fait que nos petits cerveaux, nos petits organismes biologiques produisent des expériences subjectives.
+
+6
+00:01:00.780 --> 00:01:06.200
+<v Guillaume Hachez>On m'avait proposé ce sujet il y a longtemps et puis j'ai fini par regarder le documentaire Netflix où Axel Cleeremans apparaît,
+
+7
+00:01:06.800 --> 00:01:16.080
+<v Guillaume Hachez>et ça m'a très vite donné le vertige puisque au fond, la question de la conscience est une des très grandes questions restées sans réponse, au même titre que par exemple l'origine de la vie ou ce genre de choses.
+
+8
+00:01:16.640 --> 00:01:22.140
+<v Guillaume Hachez>Un sujet d'épisode assez différent donc de ce qu'on fait d'habitude. J'espère que ça vous plaira et que vous trouverez ça aussi enrichissant que moi.
+
+9
+00:01:22.720 --> 00:01:29.380
+<v Guillaume Hachez>Bonne écoute. J'ai aujourd'hui le plaisir d'être en présence de Axel Cleeremans. Bonjour Axel.
+
+10
+00:01:29.640 --> 00:01:30.520
+<v Axel Cleeremans>Bonjour.
+
+11
+00:01:30.600 --> 00:01:33.160
+<v Guillaume Hachez>Alors, pour celles et ceux qui ne vous connaissent pas encore,
+
+12
+00:01:33.660 --> 00:01:43.240
+<v Guillaume Hachez>vous êtes directeur de recherche avec le Fonds de recherche scientifique et professeur de psychologie cognitive à l'Université Libre de Bruxelles, où nous sommes actuellement pour cet enregistrement,
+
+13
+00:01:43.980 --> 00:01:52.380
+<v Guillaume Hachez>et vous dirigez le Consciousness, Cognition and Computation Group et le Centre de recherche en cognition et neurosciences.
+
+14
+00:01:52.960 --> 00:01:55.920
+<v Guillaume Hachez>Est-ce que j'ai bien résumé votre casquette ?
+
+15
+00:01:56.020 --> 00:01:56.440
+<v Axel Cleeremans>Absolument.
+
+16
+00:01:56.460 --> 00:01:57.320
+<v Guillaume Hachez>Vos différentes casquettes.
+
+17
+00:01:57.340 --> 00:01:57.800
+<v Axel Cleeremans>Oui.
+
+18
+00:01:57.840 --> 00:02:04.500
+<v Guillaume Hachez>Formidable. Alors, une autre façon de vous présenter, ce serait de dire que votre but numéro un dans la vie, c'est de répondre à une très grande question,
+
+19
+00:02:05.280 --> 00:02:12.500
+<v Guillaume Hachez>un problème dont la complexité a même été comparée aux autres grands problèmes comme la question de l'origine de l'univers, à savoir
+
+20
+00:02:13.260 --> 00:02:20.960
+<v Guillaume Hachez>: comment et pourquoi est-ce que les activités biologiques dans le cerveau produisent des expériences de conscience ?
+
+21
+00:02:20.970 --> 00:02:23.640
+<v Guillaume Hachez>Qu'est-ce qui vous a amené à travailler sur ce thème-là en particulier ?
+
+22
+00:02:24.480 --> 00:02:28.600
+<v Axel Cleeremans>Donc ça, c'est une longue histoire. Disons que étudiant,
+
+23
+00:02:29.500 --> 00:02:41.180
+<v Axel Cleeremans>je balançais entre la biologie, la médecine, des domaines comme ceux-là d'un côté, et puis alors, par ailleurs, la philosophie, que j'ai commencé à lire quand j'avais 18, 19 ans.
+
+24
+00:02:41.960 --> 00:02:50.090
+<v Axel Cleeremans>Ça m'a intéressé, mais enfin, en même temps, j'étais aussi fort intéressé par l'écologie, etc. Et donc l'histoire officielle, c'est que la psychologie,
+
+25
+00:02:50.620 --> 00:02:56.020
+<v Axel Cleeremans>et en particulier la psychologie cognitive ou expérimentale, était une sorte de bon compromis entre
+
+26
+00:02:57.180 --> 00:03:03.900
+<v Axel Cleeremans>des intérêts plutôt tournés vers des sciences exactes d'une part, et puis des intérêts tournés plutôt vers des sciences humaines de l'autre.
+
+27
+00:03:04.000 --> 00:03:06.280
+<v Axel Cleeremans>L'histoire pas officielle, c'est que j'avais des copains qui—
+
+28
+00:03:07.000 --> 00:03:07.300
+<v Guillaume Hachez>Toujours.
+
+29
+00:03:07.520 --> 00:03:12.130
+<v Axel Cleeremans>...voilà, voulaient faire la psycho. Et donc je me suis dit : « OK, hop, on y va. » Et donc—
+
+30
+00:03:12.160 --> 00:03:14.360
+<v Guillaume Hachez>OK. Donc ça, c'est pour la psychologie cognitive.
+
+31
+00:03:14.660 --> 00:03:14.880
+<v Axel Cleeremans>Oui.
+
+32
+00:03:14.940 --> 00:03:18.340
+<v Guillaume Hachez>C'est un champ un peu plus large que la question de la conscience.
+
+33
+00:03:18.620 --> 00:03:25.480
+<v Axel Cleeremans>Oui, tout à fait, absolument. Et alors, quand j'ai commencé la psycho, en fait, je voulais faire de la psychanalyse quoi—
+
+34
+00:03:25.580 --> 00:03:25.960
+<v Guillaume Hachez>D'accord.
+
+35
+00:03:26.000 --> 00:03:33.030
+<v Axel Cleeremans>...donc de la psychologie clinique. Et donc mes intérêts se portaient plutôt vers cela, au début. Puis d'une part, j'ai été un peu déçu par
+
+36
+00:03:33.680 --> 00:03:38.360
+<v Axel Cleeremans>ce que je trouvais en psychologie clinique et puis surtout, je ne m'imaginais plus être un thérapeute.
+
+37
+00:03:38.960 --> 00:03:44.460
+<v Axel Cleeremans>Et puis, par ailleurs, on a été enthousiasmé par ce que faisaient
+
+38
+00:03:45.180 --> 00:03:47.560
+<v Axel Cleeremans>mes anciens collègues en psychologie expérimentale, donc
+
+39
+00:03:48.060 --> 00:03:49.380
+<v Axel Cleeremans>des expériences qui visent à
+
+40
+00:03:49.520 --> 00:03:52.380
+<v Axel Cleeremans>véritablement comprendre quels sont les déterminants
+
+41
+00:03:52.500 --> 00:04:02.620
+<v Axel Cleeremans>biologiques de nos comportements quoi, à faire un lien finalement entre l'activité du cerveau, ce que l'on sait, et on savait beaucoup moins à l'époque à propos de l'activité du cerveau que ce qu'on en sait aujourd'hui,
+
+42
+00:04:03.280 --> 00:04:08.580
+<v Axel Cleeremans>et notre comportement, les choix que nous faisons, la manière dont nous traitons l'information de manière générale.
+
+43
+00:04:09.020 --> 00:04:22.360
+<v Axel Cleeremans>Et donc là, j'étais emballé par tout ça. Et puis c'est comme ça que j'en suis venu, avec ce background d'intérêt quand même pour la psychanalyse, à m'intéresser à tous les processus que l'on est capable de déployer sans conscience.
+
+44
+00:04:22.680 --> 00:04:22.790
+<v Guillaume Hachez>Mmm-hmm.
+
+45
+00:04:23.000 --> 00:04:23.330
+<v Axel Cleeremans>Donc il y avait deux questions—
+
+46
+00:04:23.330 --> 00:04:31.880
+<v Guillaume Hachez>Oui, parce que justement, dans la psychanalyse, il y a très fort cette idée de, on est habité par un inconscient dont on est vraiment, ben, inconscient pour le coup—
+
+47
+00:04:31.930 --> 00:04:31.940
+<v Axel Cleeremans>Oui.
+
+48
+00:04:31.940 --> 00:04:36.520
+<v Guillaume Hachez>...et dont on ne repère pas vraiment les agissements et les fonctionnements.
+
+49
+00:04:36.640 --> 00:04:37.039
+<v Axel Cleeremans>Mais donc là, il faut—
+
+50
+00:04:37.060 --> 00:04:38.730
+<v Guillaume Hachez>Donc c'est ça qui vous a amené à vous demander : « Tiens, mais—
+
+51
+00:04:38.740 --> 00:04:40.300
+<v Axel Cleeremans>Oui, c'est cet intérêt, disons,
+
+52
+00:04:41.040 --> 00:04:54.400
+<v Axel Cleeremans>à l'origine, vers cet inconscient, si vous voulez, vers cette idée que effectivement, en chacun de nous, il y a une sorte de système inconscient dans lequel se trouvent des désirs,
+
+53
+00:04:55.100 --> 00:05:02.700
+<v Axel Cleeremans>des peurs, des contenus mentaux d'une manière générale, qui s'expriment à travers le comportement, mais dont on n'a pas conscience.
+
+54
+00:05:03.210 --> 00:05:12.850
+<v Axel Cleeremans>Alors, il faut bien distinguer les approches psychanalytiques de l'inconscient avec lesquelles on peut débattre et l'idée plus générale qu'il y a un inconscient cognitif ou un inconscient tout court, finalement.
+
+55
+00:05:13.060 --> 00:05:23.060
+<v Axel Cleeremans>C'est-à-dire que nous ne sommes pas toujours conscients de tout ce que nous faisons, que nous ne sommes pas toujours conscients de toutes les raisons qui nous motivent à agir dans une direction, dans une autre, etc.
+
+56
+00:05:23.760 --> 00:05:25.600
+<v Axel Cleeremans>Et donc c'est autour de ces questions-là que
+
+57
+00:05:26.360 --> 00:05:33.860
+<v Axel Cleeremans>mes intérêts initiaux se sont portés, en particulier vers un ensemble de phénomènes qui relèvent de ce qu'on appelle l'apprentissage implicite,
+
+58
+00:05:34.480 --> 00:05:46.720
+<v Axel Cleeremans>c'est-à-dire finalement l'ensemble des habilités que nous sommes capables d'acquérir sans véritablement en avoir l'intention, un petit peu comme produit, si vous voulez, uniquement d'une pratique.
+
+59
+00:05:47.380 --> 00:05:52.800
+<v Axel Cleeremans>Pensons à toutes les activités athlétiques. Finalement, rouler à vélo, c'est quelque chose qu'on n'apprend pas à l'école.
+
+60
+00:05:52.900 --> 00:06:04.316
+<v Axel Cleeremans>On apprend à rouler à vélo en roulant à vélo. Et une fois qu'on a appris à rouler à vélo, c'est très difficile d'expliquer exactement ce qu'il s'agit de faire afin de transférer ses connaissances de manière explicite à quelqu'un d'autre.
+
+61
+00:06:04.856 --> 00:06:16.056
+<v Axel Cleeremans>Et donc là, on fait appel à des systèmes qui sont capables de s'adapter et de réaliser les objectifs qu'on a sans que l'on soit vraiment le pilote de ce qui est en train de se passer quoi.
+
+62
+00:06:16.076 --> 00:06:24.276
+<v Axel Cleeremans>Il suffit de pédaler et puis ça finit par marcher. Et en fait, il en va de même pour des habiletés autrement plus complexes, comme par exemple le langage.
+
+63
+00:06:24.896 --> 00:06:31.096
+<v Axel Cleeremans>Nous apprenons tous à parler, finalement, à nous exprimer, à interagir avec autrui, sans aucune instruction explicite.
+
+64
+00:06:31.356 --> 00:06:38.736
+<v Axel Cleeremans>Ces instructions explicites ne viennent que beaucoup plus tard, à l'école où on apprend à écrire, on apprend les règles de la grammaire et ainsi de suite.
+
+65
+00:06:39.236 --> 00:06:45.336
+<v Axel Cleeremans>Mais la communication verbale, l'utilisation du langage naturel, bah, c'est quelque chose qu'on apprend de manière implicite aussi.
+
+66
+00:06:45.836 --> 00:06:51.516
+<v Axel Cleeremans>Et donc, cet intérêt initial, si vous voulez, pour tout ce que l'on est capable de faire sans conscience, ça m'intéresse toujours d'ailleurs,
+
+67
+00:06:52.296 --> 00:06:58.636
+<v Axel Cleeremans>à amener beaucoup plus tard alors à m'intéresser plus spécifiquement aux mécanismes qui produisent la conscience elle-même.
+
+68
+00:06:58.736 --> 00:07:06.536
+<v Axel Cleeremans>Donc qu'est-ce qui distingue, d'une manière générale, ce que l'on peut faire sans conscience et ce que nous faisons avec conscience ?
+
+69
+00:07:06.576 --> 00:07:21.056
+<v Axel Cleeremans>Ça, c'est la grande question qui a animé toute ma carrière. Mais alors surtout, la question de connaître quels sont les mécanismes qui produisent nos états mentaux à partir de l'activité biologique du cerveau.
+
+70
+00:07:21.596 --> 00:07:26.816
+<v Axel Cleeremans>Ça, c'est, comme vous le disiez il y a quelques instants, une des plus grandes questions scientifiques qu'on peut se poser aujourd'hui.
+
+71
+00:07:27.276 --> 00:07:38.276
+<v Axel Cleeremans>C'est une question que Science avait considérée il y a une dizaine d'années maintenant comme étant équivalente, disons, à d'autres grandes questions sans réponse, comme l'origine de la vie ou l'origine de l'univers.
+
+72
+00:07:38.316 --> 00:07:50.596
+<v Guillaume Hachez>Mais justement, j'allais vous demander, si je devais vous demander, pour celles et ceux qui nous écoutent, une définition, une première définition, pour commencer cet entretien : qu'est-ce que c'est la conscience ?
+
+73
+00:07:50.616 --> 00:07:57.876
+<v Axel Cleeremans>Mais ce que les gens veulent dire par la conscience en général, c'est l'effet que cela fait. Donc ça vous fait quelque chose à vous d'être vous.
+
+74
+00:07:58.616 --> 00:08:09.056
+<v Axel Cleeremans>Ça ne fait rien à un ordinateur, par exemple, ou à une intelligence artificielle d'être cette intelligence artificielle, pas plus que cela ne fait quoi que ce soit à une table d'être une table.
+
+75
+00:08:09.616 --> 00:08:22.916
+<v Axel Cleeremans>Donc, vous avez une expérience intérieure, les choses suscitent non seulement des émotions, mais également des sensations, des pensées qui vous permettent de réagir de manière adaptative à ce qui vous arrive.
+
+76
+00:08:23.076 --> 00:08:34.756
+<v Axel Cleeremans>Et c'est quelque chose que tous les organismes vivants partagent peut-être, encore que, alors là, on peut s'interroger, par exemple, sur la conscience des bactéries.
+
+77
+00:08:34.836 --> 00:08:42.096
+<v Axel Cleeremans>Les intuitions diffèrent énormément. La plupart des gens vont dire : « Mais non, une bactérie n'est pas consciente parce qu'elle ne dispose pas d'un système nerveux.
+
+78
+00:08:42.176 --> 00:08:44.106
+<v Axel Cleeremans>C'est un organisme trop simple. »
+
+79
+00:08:44.136 --> 00:08:47.096
+<v Guillaume Hachez>Un exemple que vous employez régulièrement, c'est celui de la plante carnivore.
+
+80
+00:08:47.136 --> 00:08:57.996
+<v Axel Cleeremans>Oui, la plante carnivore. Alors ça, c'est un très bon exemple qui donne l'illusion, finalement, qu'on a affaire à un agent intentionnel, à qui cela fait quelque chose, justement, qui a des expériences.
+
+81
+00:08:58.676 --> 00:09:09.476
+<v Axel Cleeremans>Or, les plantes n'ont pas de système nerveux. Ce que l'on sait de la conscience exige la présence d'un système nerveux dont on ne connaît pas la complexité minimale.
+
+82
+00:09:10.136 --> 00:09:17.736
+<v Axel Cleeremans>Les biologistes s'interrogent sur la présence de structures dans les plantes qui fonctionneraient un petit peu comme le système nerveux qu'on trouve chez l'animal.
+
+83
+00:09:18.396 --> 00:09:28.836
+<v Axel Cleeremans>Mais en gros, personne n'a envie d'attribuer quoi que ce soit comme expérience subjective à une plante. Malgré le fait qu'une plante carnivore, par exemple, soit capable de faire preuve d'un comportement qui,
+
+84
+00:09:29.556 --> 00:09:33.516
+<v Axel Cleeremans>perçu de l'extérieur, a l'air d'être un comportement véritablement intentionnel.
+
+85
+00:09:33.936 --> 00:09:39.716
+<v Axel Cleeremans>Le piège des feuilles de la dionée carnivore se referme sur l'insecte
+
+86
+00:09:40.556 --> 00:09:49.856
+<v Axel Cleeremans>qui parcourt la surface de ses feuilles. Mais alors, bon finalement, personne n'a envie de dire : « La plante doit être tenue comme moralement responsable de la mort de l'insecte.
+
+87
+00:09:50.386 --> 00:10:04.776
+<v Axel Cleeremans>» Et encore moins de gens qui auraient envie de dire que la plante est sensible à sa propre existence, qu'elle est consciente d'elle-même, qu'elle perçoit les choses d'une manière qu'elle peut à son tour percevoir quoi.
+
+88
+00:10:04.856 --> 00:10:12.776
+<v Axel Cleeremans>Parce que finalement, la conscience, c'est ça. C'est je suis sensible à mes propres sensations. Et donc la sensibilité n'est pas la conscience.
+
+89
+00:10:12.836 --> 00:10:19.096
+<v Axel Cleeremans>L'histoire de la plante carnivore, le message, c'est ça. On peut avoir des systèmes qui sont sensibles, capables de réagir de manière appropriée.
+
+90
+00:10:19.536 --> 00:10:26.276
+<v Axel Cleeremans>Un thermostat fait ça, un ordinateur, une plante, mais ça veut pas dire que ces systèmes sont conscients.
+
+91
+00:10:26.336 --> 00:10:33.896
+<v Guillaume Hachez>Je trouve ça intéressant la façon dont vous formulez la chose. C'est des gens qui auraient envie de dire que— donc finalement, une forme d'intuition, une forme de—
+
+92
+00:10:35.656 --> 00:10:40.596
+<v Guillaume Hachez>qu'est-ce qu'on projette sur cette plante ou qu'est-ce qui se passerait ou non dans son fonctionnement ?
+
+93
+00:10:40.816 --> 00:10:47.195
+<v Guillaume Hachez>J'approche cette question parce qu'il y a beaucoup de visions différentes en ce qui concerne la conscience, beaucoup de définitions différentes.
+
+94
+00:10:47.636 --> 00:10:56.096
+<v Guillaume Hachez>Des gens qui vont dire qu'il y a un esprit, il y a une âme, il y a une conscience partout. D'autres qui vont dire : « Ben non, c'est beaucoup plus restreint.
+
+95
+00:10:57.876 --> 00:11:04.076
+<v Guillaume Hachez>» Dans votre domaine scientifique, qu'est-ce qu'il y a comme autre vision auquel vous vous opposez ?
+
+96
+00:11:04.616 --> 00:11:10.216
+<v Axel Cleeremans>Bah alors, m'opposer, c'est beaucoup dire parce qu'on est quand même largement dans le domaine de la spéculation.
+
+97
+00:11:10.476 --> 00:11:10.756
+<v Guillaume Hachez>Oui.
+
+98
+00:11:10.816 --> 00:11:20.996
+<v Axel Cleeremans>Encore que il y a aujourd'hui une véritable science de la conscience dont on pourra peut-être parler plus tard. C'est-à-dire qu'est apparue il y a une trentaine d'années maintenant,
+
+99
+00:11:21.376 --> 00:11:25.156
+<v Axel Cleeremans>une véritable approche empirique des phénomènes associés à la conscience.
+
+100
+00:11:25.676 --> 00:11:34.876
+<v Axel Cleeremans>Mais alors, les approches que je n'aime pas, bon alors, on écarte le dualisme, c'est-à-dire l'idée qu'il y a une âme, justement, qui serait constituée d'une substance différente de la matière.
+
+101
+00:11:35.496 --> 00:11:45.536
+<v Axel Cleeremans>Donc, moi, je m'inscris clairement dans une perspective matérialiste comme 99,9 % des gens qui réfléchissent à ces questions, comme la plupart des scientifiques, évidemment.
+
+102
+00:11:46.256 --> 00:11:57.956
+<v Axel Cleeremans>On pourrait même dire que le dualisme en tant que tel est une position qui est quelque part incompatible avec une approche scientifique, surtout que, bon, il n'y a aucune donnée empirique qui permette de soutenir l'idée que, etc.
+
+103
+00:11:58.976 --> 00:12:11.144
+<v Axel Cleeremans>Donc on écarte ça. Mais alors, une perspective qui fait beaucoup parler d'elle ces jours-ci, c'est cette perspective du panpsychisme, c'est-à-dire l'idée que toute matière comporte
+
+104
+00:12:12.044 --> 00:12:16.844
+<v Axel Cleeremans>un quantum de conscience, on va dire, donc même les particules élémentaires sont un tout petit peu conscientes.
+
+105
+00:12:16.924 --> 00:12:17.384
+<v Guillaume Hachez>Mh.
+
+106
+00:12:17.444 --> 00:12:24.703
+<v Axel Cleeremans>Et donc partant, des objets inanimés comme des tables, des rochers sont conscients aussi, les montagnes sont conscientes.
+
+107
+00:12:25.264 --> 00:12:35.743
+<v Axel Cleeremans>Et alors, a fortiori, tous les organismes vivants. Bon, c'est une idée qui présente un intérêt philosophique, donc il faut pas ne pas respecter cette position.
+
+108
+00:12:36.384 --> 00:12:46.204
+<v Axel Cleeremans>On peut véritablement défendre une position panpsychiste et ça suscite beaucoup de débats intéressants parmi la communauté des philosophes qui s'intéressent à ces questions.
+
+109
+00:12:46.944 --> 00:12:55.084
+<v Axel Cleeremans>Ceci étant dit, y a aucune preuve, si vous voulez, que les électrons sont conscients, qu'une table est consciente.
+
+110
+00:12:55.744 --> 00:12:59.244
+<v Axel Cleeremans>Moi, je trouve ça profondément contre-intuitif également, cette idée.
+
+111
+00:13:00.124 --> 00:13:10.604
+<v Axel Cleeremans>Et puis c'est un petit peu éliminer le problème difficile de la conscience, à savoir comprendre comment l'activité biologique du cerveau ou d'un système nerveux produit des états mentaux.
+
+112
+00:13:10.664 --> 00:13:21.524
+<v Axel Cleeremans>C'est un peu tenter d'expliquer ce mystère-là en faisant appel à un autre mystère, finalement quoi. Donc, en disant : « Bah, il y a une force mystérieuse dans l'univers qui s'apparente à la gravitation.
+
+113
+00:13:22.244 --> 00:13:25.464
+<v Axel Cleeremans>Cette force, c'est la conscience et elle anime
+
+114
+00:13:26.424 --> 00:13:29.984
+<v Axel Cleeremans>l'intégralité de la matière dans l'univers. » Bon ok, peut-être, on peut,
+
+115
+00:13:30.744 --> 00:13:42.824
+<v Axel Cleeremans>disons, s'intéresser à cette idée et la défendre avec des arguments philosophiques qui tiennent la route, mais y a aucune donnée empirique qui permette de dire quoi que ce soit à propos de cette possibilité quoi.
+
+116
+00:13:42.844 --> 00:13:53.064
+<v Guillaume Hachez>Oui. Y a encore une autre piste, une autre façon de définir la conscience qui moi m'intéresse beaucoup, qui est l'illusionnisme, l'idée que c'est une illusion.
+
+117
+00:13:53.084 --> 00:13:58.604
+<v Guillaume Hachez>Mais ça, on en parlera peut-être un peu plus tard puisque ça dépend d'autres questions.
+
+118
+00:13:59.794 --> 00:14:08.164
+<v Guillaume Hachez>Une phrase que je vous ai entendu prononcer dans une vidéo en ligne, c'est, et c'était en anglais : « Agency is part of consciousness.
+
+119
+00:14:08.304 --> 00:14:14.704
+<v Guillaume Hachez>» Donc, en français, ça donnerait : « Le fait d'être agent, ça fait partie de la définition de la conscience.
+
+120
+00:14:15.434 --> 00:14:20.904
+<v Guillaume Hachez>» Alors j'ai trouvé ça très intéressant et j'étais très déçu que ce soit la seule phrase. Je voulais entendre une heure là-dessus.
+
+121
+00:14:21.724 --> 00:14:25.884
+<v Guillaume Hachez>Comment est-ce que vous expliqueriez cette notion-là ?
+
+122
+00:14:26.044 --> 00:14:33.644
+<v Axel Cleeremans>Mais donc l'agentivité est certainement un aspect fondamental de l'expérience que nous avons en tant qu'être humain.
+
+123
+00:14:33.724 --> 00:14:40.924
+<v Axel Cleeremans>C'est-à-dire que j'ai le sentiment d'être responsable de mes actions, d'être au contrôle de mes actions, de faire des choix, etc., etc.
+
+124
+00:14:41.704 --> 00:14:56.184
+<v Axel Cleeremans>Et d'ailleurs, je projette cette intentionnalité ou agentivité sur d'autres agents aussi, parce que je leur attribue justement cette capacité de prendre des décisions de manière consciente, de manière réfléchie, de manière intentionnelle.
+
+125
+00:14:57.024 --> 00:15:01.984
+<v Axel Cleeremans>Je sais pas très bien quoi dire de plus autour de ça, si ce n'est que on trouve là—
+
+126
+00:15:02.064 --> 00:15:16.304
+<v Guillaume Hachez>Par exemple, si on imaginait une personne en état de paralysie qui a finalement assez peu de capacité d'agir, de se mouvoir, d'exprimer des décisions.
+
+127
+00:15:16.324 --> 00:15:22.864
+<v Guillaume Hachez>D'un point de vue extérieur, on ne peut plus vraiment dire que cette personne est agente, mais elle reste consciente.
+
+128
+00:15:23.064 --> 00:15:24.264
+<v Axel Cleeremans>Elle reste tout à fait consciente.
+
+129
+00:15:24.364 --> 00:15:29.984
+<v Guillaume Hachez>Donc comment est-ce qu'on réconcilie ça si l'agentivité est une partie de la définition ?
+
+130
+00:15:30.004 --> 00:15:41.184
+<v Axel Cleeremans>Disons que c'est un aspect— 'fin vous m'amenez à dire que la conscience est un phénomène complexe et multifacette qui comporte beaucoup de dimensions différentes.
+
+131
+00:15:41.204 --> 00:15:41.564
+<v Guillaume Hachez>On va voir—
+
+132
+00:15:41.724 --> 00:15:50.724
+<v Axel Cleeremans>Et l'agentivité, c'est certainement une dimension, disons, de l'expérience que nous avons du monde, qui est importante, qui est essentielle même pour chacun d'entre nous.
+
+133
+00:15:50.804 --> 00:15:57.784
+<v Axel Cleeremans>Mais elle est distincte, par ailleurs, de simplement la capacité que nous avons à percevoir les choses dans notre environnement.
+
+134
+00:15:57.804 --> 00:16:06.104
+<v Axel Cleeremans>Donc tout ce qui relève du sensoriel, finalement, la vision, l'audition, l'olfaction, le toucher, toute l'interception, les sensations qui
+
+135
+00:16:06.964 --> 00:16:20.104
+<v Axel Cleeremans>nous parviennent de notre propre corps, c'est cela qui constitue essentiellement l'expérience que nous avons du monde, avec les émotions qui accompagnent ces sensations et avec les pensées que nous pouvons avoir à propos de ces sensations.
+
+136
+00:16:20.724 --> 00:16:31.924
+<v Axel Cleeremans>Mais il se trouve que, en effet, si vous êtes privé de la capacité d'agir, votre capacité en tant qu'agent conscient s'en trouve forcément diminuée.
+
+137
+00:16:32.324 --> 00:16:32.504
+<v Guillaume Hachez>Mh.
+
+138
+00:16:32.604 --> 00:16:39.204
+<v Axel Cleeremans>Mais ça ne veut pas dire que vous devenez inconscient. Alors quelqu'un qui est inconscient est certes incapable d'agir.
+
+139
+00:16:40.004 --> 00:16:48.104
+<v Axel Cleeremans>Quelqu'un qui est conscient ne doit pas forcément agir tout le temps pour avoir le sentiment d'être conscient quoi.
+
+140
+00:16:48.204 --> 00:16:56.664
+<v Axel Cleeremans>Donc on peut très bien être entièrement passif quelque part. Pas de manière permanente, parce que là on entre dans le domaine de la pathologie.
+
+141
+00:16:57.324 --> 00:16:59.124
+<v Axel Cleeremans>Y a des travaux très très
+
+142
+00:17:00.204 --> 00:17:14.204
+<v Axel Cleeremans>importants et intéressants qui sont réalisés à ce propos par mon collègue Steven Laureys, à l'Université de Liège, ainsi que par d'autres collègues qui travaillent justement sur ces états de conscience minimale ou des états qu'on appelle,
+
+143
+00:17:15.104 --> 00:17:25.864
+<v Axel Cleeremans>les états végétatifs permanents dans lesquels les gens sont effectivement inconscients parce qu'ils ont perdu certaines structures cérébrales qui sont essentielles pour définir le niveau de la conscience.
+
+144
+00:17:26.564 --> 00:17:39.304
+<v Axel Cleeremans>Et il y a d'autres patients qui sont en état locked-in et qui sont donc exactement dans la situation que vous décriviez, d'être incapables d'agir parce qu'ils sont entièrement paralysés,
+
+145
+00:17:40.084 --> 00:17:45.584
+<v Axel Cleeremans>à ceci près qu'ils gardent souvent le contrôle sur une ou deux paupières quoi.
+
+146
+00:17:45.644 --> 00:17:55.024
+<v Axel Cleeremans>Donc c'est le cas du journaliste français Bauby, qui a écrit cet ouvrage « Le Scaphandre et le Papillon », à partir duquel on a tiré un film.
+
+147
+00:17:55.624 --> 00:18:04.923
+<v Axel Cleeremans>Ultérieurement, il a écrit cet ouvrage en dictant l'intégralité de son texte à une assistante via sa paupière quoi. Donc—
+
+148
+00:18:04.944 --> 00:18:09.624
+<v Guillaume Hachez>Bon et finalement, voilà, c'est ça. Rien qu'avec le muscle de sa paupière, il est et il demeure agent.
+
+149
+00:18:09.684 --> 00:18:20.604
+<v Axel Cleeremans>Exactement. Justement, donc c'est ça la— Et la grande difficulté, c'est de faire la distinction clinique entre ces deux pathologies, parce que alors qu'il y a personne à la maison dans le cas des états végétatifs permanents,
+
+150
+00:18:21.184 --> 00:18:24.084
+<v Axel Cleeremans>la conscience de la personne qui se trouve en état locked-in
+
+151
+00:18:25.812 --> 00:18:27.192
+<v Axel Cleeremans>Semblable à la vôtre.
+
+152
+00:18:27.252 --> 00:18:40.272
+<v Axel Cleeremans>C'est-à-dire qu'il sait qu'il est toujours présent au monde, il a des sensations qu'il reçoit du monde extérieur, il est capable de raisonner, de penser, de réfléchir à sa situation et ainsi de suite.
+
+153
+00:18:40.572 --> 00:18:46.632
+<v Guillaume Hachez>Oui. Alors, vous disiez : « La conscience est un processus aux multiples facettes. » C'est vrai que j'ai un petit peu,
+
+154
+00:18:47.712 --> 00:18:53.552
+<v Guillaume Hachez>un petit peu coupé court en allant directement dans les questions plus techniques sur l'agentivité.
+
+155
+00:18:54.052 --> 00:18:58.832
+<v Guillaume Hachez>Quelles autres facettes pour définir la conscience ?
+
+156
+00:18:58.852 --> 00:19:09.292
+<v Axel Cleeremans>Disons qu'en général, y a trois grandes distinctions qui sont importantes. La première, la plus importante, c'est sans doute la distinction entre le niveau de la conscience et les contenus de la conscience hein.
+
+157
+00:19:09.372 --> 00:19:19.072
+<v Axel Cleeremans>Donc le niveau de conscience fait simplement référence à la différence entre l'état de sommeil et l'état d'éveil.
+
+158
+00:19:19.272 --> 00:19:26.912
+<v Axel Cleeremans>Donc quand vous êtes endormi, on va dire que vous êtes inconscient. Pourquoi ? Parce qu'il n'y a pas moyen d'interagir avec vous, à moins qu'on ne vous réveille, justement.
+
+159
+00:19:27.612 --> 00:19:33.252
+<v Axel Cleeremans>Il en va de même pour ces pathologies qu'on évoquait il y a quelques instants : état de conscience minimale, état végétatif permanent.
+
+160
+00:19:33.952 --> 00:19:39.932
+<v Axel Cleeremans>Donc ça, c'est une dimension de la conscience. Et puis, à cela, on peut opposer les contenus de la conscience.
+
+161
+00:19:40.132 --> 00:19:56.612
+<v Axel Cleeremans>C'est un usage transitif de la conscience dans la mesure où on est toujours conscient de quelque chose. Donc, je suis conscient d'avoir soif, je suis conscient d'être en retard, je suis conscient d'avoir envie de, et ainsi de suite.
+
+162
+00:19:57.112 --> 00:20:05.772
+<v Axel Cleeremans>Donc, il y a toujours un objet, finalement. La conscience, dans cette deuxième acception, a toujours un objet sur lequel elle se porte.
+
+163
+00:20:06.512 --> 00:20:13.432
+<v Axel Cleeremans>Et alors, ce qui fait que c'est une distinction intéressante, c'est que ces deux aspects peuvent être dissociés.
+
+164
+00:20:14.212 --> 00:20:19.552
+<v Axel Cleeremans>C'est-à-dire que quand on dort, par exemple, on peut néanmoins faire l'expérience d'être en train de rêver.
+
+165
+00:20:20.152 --> 00:20:26.952
+<v Axel Cleeremans>Et ces expériences peuvent être tellement prenantes qu'elles nous amènent parfois à nous réveiller, justement, en sueur à la suite d'un cauchemar.
+
+166
+00:20:27.772 --> 00:20:37.552
+<v Axel Cleeremans>Et puis, les pathologies qu'on évoquait il y a quelques instants illustrent la situation inverse, parce que les patients en état végétatif permanent montrent des signes d'éveil, ils ouvrent les yeux,
+
+167
+00:20:38.232 --> 00:20:40.712
+<v Axel Cleeremans>ils ont des cycles veille-sommeil et ainsi de suite,
+
+168
+00:20:41.412 --> 00:20:46.132
+<v Axel Cleeremans>mais y a pas moyen d'interagir avec eux parce qu'on dirait que y a plus de contenu de la conscience quoi.
+
+169
+00:20:46.652 --> 00:20:53.712
+<v Axel Cleeremans>Donc, ils n'ont non seulement pas conscience d'eux-mêmes, mais y a pas moyen de trianguler avec eux sur quoi que ce soit quoi.
+
+170
+00:20:53.792 --> 00:21:05.272
+<v Axel Cleeremans>Donc, ils ne répondent pas aux instructions qu'on leur donne et ainsi de suite. Donc tout se passe comme s'il y avait plus personne à la maison, malgré le fait que le niveau de conscience reste intact.
+
+171
+00:21:05.761 --> 00:21:10.101
+<v Axel Cleeremans>Donc ça, c'est une première distinction : niveau versus contenu. Puis, il y en a une seconde,
+
+172
+00:21:11.172 --> 00:21:21.072
+<v Axel Cleeremans>qui est une tripartite, en fait, qui oppose ce qu'on pourrait appeler la conscience perceptuelle, c'est-à-dire toutes les sensations qui nous parviennent du monde extérieur et de notre propre corps,
+
+173
+00:21:22.212 --> 00:21:30.072
+<v Axel Cleeremans>d'un côté, puis de l'autre côté, il y a la conscience de soi, c'est-à-dire la conscience que j'ai d'être moi-même, justement, un agent intentionnel,
+
+174
+00:21:30.892 --> 00:21:40.472
+<v Axel Cleeremans>et enfin la conscience que j'ai des états mentaux des autres, ce qu'on appelle, en psychologie et en philosophie de l'esprit, la théorie de l'esprit.
+
+175
+00:21:40.972 --> 00:21:46.352
+<v Axel Cleeremans>Hein donc, la capacité que j'ai à attribuer et à comprendre les états mentaux d'autres agents.
+
+176
+00:21:46.772 --> 00:21:46.872
+<v Guillaume Hachez>Mh.
+
+177
+00:21:47.292 --> 00:21:53.852
+<v Axel Cleeremans>Donc voilà, trois aspects dans ce deuxième paquet, si vous voulez. Et alors, dernière distinction,
+
+178
+00:21:54.632 --> 00:22:03.432
+<v Axel Cleeremans>qui est celle qui a suscité le plus de débats en matière de philosophie, c'est la distinction entre les fonctions que l'on peut associer à la conscience.
+
+179
+00:22:04.392 --> 00:22:17.632
+<v Axel Cleeremans>C'est-à-dire que la conscience nous permet de faire certaines choses que je suis incapable de faire si je suis inconscient, comme par exemple raisonner, comme par exemple faire des calculs, et ainsi de suite hein. Donc,
+
+180
+00:22:18.412 --> 00:22:26.932
+<v Axel Cleeremans>il y a tout un ensemble de fonctions associées à la conscience qu'on ne trouve pas quand on parle de représentation mentale inconsciente,
+
+181
+00:22:27.652 --> 00:22:35.672
+<v Axel Cleeremans>d'une part, et alors d'autre part, l'effet que cela fait, justement, c'est-à-dire les qualités, les caractéristiques qui sont associées à ces représentations conscientes.
+
+182
+00:22:36.582 --> 00:22:48.932
+<v Axel Cleeremans>Donc, si je perçois l'odeur de pain, par exemple, et que je suis affamé, y a des fonctions qui sont associées à ça, qui vont me permettre, par exemple, de chercher où se trouve ce pain-
+
+183
+00:22:49.212 --> 00:22:49.332
+<v Guillaume Hachez>Mh
+
+184
+00:22:49.472 --> 00:22:54.152
+<v Axel Cleeremans>...afin que je puisse le manger. Mais ça, c'est purement fonctionnel, on va dire. À la rigueur-
+
+185
+00:22:54.332 --> 00:22:54.532
+<v Guillaume Hachez>Mh
+
+186
+00:22:54.912 --> 00:23:03.332
+<v Axel Cleeremans>...on doit pas faire référence ici à l'expérience que je fais de l'odeur du pain. On pourrait imaginer un mécanisme, ce qui est d'ailleurs le cas pour toute une série d'organismes beaucoup plus simples,
+
+187
+00:23:03.932 --> 00:23:05.792
+<v Axel Cleeremans>dans lequel il n'y a que des mécanismes, finalement hein.
+
+188
+00:23:05.852 --> 00:23:18.392
+<v Axel Cleeremans>Une bactérie suit un gradient chimique, une limace se dirige vers les marqueurs qu'elle utilise pour repérer où se trouve une plante qu'elle peut manger et ainsi de suite.
+
+189
+00:23:19.132 --> 00:23:29.592
+<v Axel Cleeremans>Chez moi, j'ai en plus une sensation dont je fais l'expérience consciente quoi. Donc je sens cette odeur du pain, elle évoque des souvenirs, et ainsi de suite.
+
+190
+00:23:30.392 --> 00:23:34.432
+<v Axel Cleeremans>Et le point, c'est qu'on peut parler des fonctions sans évoquer l'expérience quoi. Donc-
+
+191
+00:23:34.652 --> 00:23:35.322
+<v Guillaume Hachez>Oui, oui
+
+192
+00:23:35.322 --> 00:23:42.872
+<v Axel Cleeremans>...et c'est pour ça que les philosophes introduisent une distinction. Mais il faut insister sur le fait que cette distinction n'est peut-être pas une distinction ontologique hein.
+
+193
+00:23:42.952 --> 00:23:49.452
+<v Axel Cleeremans>Donc c'est peut-être justement uniquement une distinction conceptuelle. Y a énormément de débats autour de cette idée-là quoi.
+
+194
+00:23:49.472 --> 00:23:49.822
+<v Guillaume Hachez>Ouais, ouais
+
+195
+00:23:50.012 --> 00:23:56.872
+<v Axel Cleeremans>Donc, niveau versus contenu, fonction versus expérience et puis conscience du monde, de soi et des autres.
+
+196
+00:23:56.932 --> 00:24:02.492
+<v Guillaume Hachez>C'est ça. Alors, énormément de choses à développer, évidemment. Énormément de questions qui me viennent.
+
+197
+00:24:03.272 --> 00:24:14.352
+<v Guillaume Hachez>Disons, la première chose, c'est voilà, vous donniez l'exemple d'organismes beaucoup plus simples qui vont très naturellement associer le-- très automatiquement, voilà, je détecte le pain très automatiquement,
+
+198
+00:24:15.392 --> 00:24:17.032
+<v Guillaume Hachez>c'est inévitable.
+
+199
+00:24:17.092 --> 00:24:28.808
+<v Guillaume Hachez>Je vais-- enfin, une série de fonctions vont se mettre en place pour aller acquérir le pain. Où est-ce qu'on trace la limite ?
+
+200
+00:24:28.828 --> 00:24:38.548
+<v Guillaume Hachez>Par exemple, est-ce qu'une fourmi est consciente ? Ou bien est-ce que c'est aussi un mécanisme très très simple où la détection du pain entraînera automatiquement,
+
+201
+00:24:39.488 --> 00:24:45.568
+<v Guillaume Hachez>le procédé d'aller essayer de le manger ou de le rapporter à la maison.
+
+202
+00:24:46.148 --> 00:24:47.068
+<v Guillaume Hachez>Quel est votre point de vue là-dessus ?
+
+203
+00:24:48.528 --> 00:24:51.188
+<v Axel Cleeremans>Mais alors ça, c'est une question extraordinairement compliquée parce que-
+
+204
+00:24:51.278 --> 00:24:52.458
+<v Guillaume Hachez>Bien sûr. Oui, comme toutes les questions
+
+205
+00:24:52.468 --> 00:25:01.168
+<v Axel Cleeremans>...parce qu'en fait, y a pas de réponse autour de laquelle tout le monde pourrait s'accorder puisqu'on dispose pas de signature biologique de la conscience quoi.
+
+206
+00:25:01.228 --> 00:25:12.208
+<v Axel Cleeremans>C'est-à-dire que personne n'a une idée très très claire des mécanismes nécessaires et suffisants pour que l'activité d'un système nerveux produise des états mentaux conscients.
+
+207
+00:25:12.808 --> 00:25:24.128
+<v Axel Cleeremans>Et donc y a pas de réponse à ça. Et donc on est condamné, si vous voulez, à faire appel à nos intuitions. Et elles sont parfois fort différentes entre différents auteurs ou même différentes personnes, tout simplement.
+
+208
+00:25:24.648 --> 00:25:31.828
+<v Axel Cleeremans>Donc moi, j'ai le sentiment très clair que mon-- qu'un chien, j'allais dire mon chien, mais j'en ai pas, qu'un chien est conscient, qu'un chat est conscient.
+
+209
+00:25:32.208 --> 00:25:32.308
+<v Guillaume Hachez>Mh.
+
+210
+00:25:32.448 --> 00:25:40.788
+<v Axel Cleeremans>Les singes, certainement, les éléphants, certainement, les dauphins sans doute. Mais alors jusqu'où on va comme ça ?
+
+211
+00:25:40.808 --> 00:25:49.608
+<v Axel Cleeremans>Les oiseaux aussi. Il y a d'ailleurs eu, il y a quelques années, un ensemble de scientifiques qui travaillent dans le domaine de la conscience, qui ont signé une déclaration.
+
+212
+00:25:49.708 --> 00:25:56.248
+<v Axel Cleeremans>C'est la déclaration de Cambridge à propos de la conscience chez l'animal et qui déclare, mais sur base de--
+
+213
+00:25:57.848 --> 00:26:05.908
+<v Axel Cleeremans>sur base d'arguments, finalement, que tous les mammifères, tous les oiseaux et tous les céphalopodes doivent être reconnus comme étant conscients.
+
+214
+00:26:06.468 --> 00:26:08.228
+<v Guillaume Hachez>Sur quelle base ?
+
+215
+00:26:08.248 --> 00:26:18.468
+<v Axel Cleeremans>Ben sur base de considérations anatomiques, mais très spéculatives, sur base d'arguments qui tournent autour de la complexité du système nerveux de ces différentes familles d'organismes.
+
+216
+00:26:19.208 --> 00:26:30.368
+<v Axel Cleeremans>Voilà. Mais on se pose par exemple la question autour des poissons, hein. Donc c'est très difficile d'imaginer des expériences qui permettraient en tout cas soutenir l'argument que les poissons sont conscients.
+
+217
+00:26:30.908 --> 00:26:40.088
+<v Axel Cleeremans>Mais par contre, si on reconnaissait que les poissons sont conscients, la manière dont on doit traiter alors les poissons doit radicalement changer.
+
+218
+00:26:40.148 --> 00:26:43.127
+<v Axel Cleeremans>Parce que pour l'instant, on les traite véritablement comme des objets.
+
+219
+00:26:43.168 --> 00:26:51.428
+<v Guillaume Hachez>Oui. Je crois qu'il y a une phrase que vous aimez bien citer qui concerne les chauves-souris et le fait de se projeter en tant que chauve-souris.
+
+220
+00:26:51.908 --> 00:27:07.428
+<v Axel Cleeremans>Oui, alors ça fait référence au titre d'un article célèbre dans le domaine de l'étude de la conscience, dont l'auteur était le philosophe américain Thomas Nagel, qui a publié en 1974 un article intitulé : What is it like to be a bat ?
+
+221
+00:27:07.438 --> 00:27:09.368
+<v Axel Cleeremans>Donc, quel effet cela fait-il d'être une chauve-souris
+
+222
+00:27:10.108 --> 00:27:20.738
+<v Axel Cleeremans>? Et alors, c'était très très bien trouvé, parce qu'une chauve-souris est justement un organisme qui est suffisamment complexe pour qu'on se dise : « Ben oui, tiens, il a une vie mentale, une chauve-souris, ça veut des choses,
+
+223
+00:27:21.648 --> 00:27:26.037
+<v Axel Cleeremans>ça reconnaît ses prédateurs, ça développe une série de stratégies,
+
+224
+00:27:27.008 --> 00:27:29.308
+<v Axel Cleeremans>pour chasser les insectes.
+
+225
+00:27:29.338 --> 00:27:39.168
+<v Axel Cleeremans>» Et en même temps, une chauve-souris a un système sensoriel complètement étrange dont le sonar s'est ultérieurement inspiré.
+
+226
+00:27:39.248 --> 00:27:51.847
+<v Axel Cleeremans>Et donc, c'est aussi un être avec lequel on a un peu du mal à s'identifier, et certainement plus qu'avec un chien ou un chat ou des organismes en tout cas de-- bon, qui sont plus familiers, qui ne savent pas voler, etc.
+
+227
+00:27:52.628 --> 00:27:56.368
+<v Axel Cleeremans>Et donc c'était très bien trouvé parce que le point de Nagel dans cet article,
+
+228
+00:27:57.088 --> 00:28:01.088
+<v Axel Cleeremans>et c'est un des obstacles, si vous voulez, pour l'étude scientifique de la conscience,
+
+229
+00:28:01.768 --> 00:28:14.668
+<v Axel Cleeremans>c'était de dire : on aurait beau tout savoir de la manière dont fonctionne le cerveau d'une chauve-souris, on n'en saurait toujours pas plus sur l'effet que cela fait d'être cette chauve-souris en train de chasser des insectes au crépuscule.
+
+230
+00:28:15.248 --> 00:28:25.088
+<v Axel Cleeremans>Et là, Nagel met le doigt sur un des problèmes, si vous voulez, associés à l'étude scientifique de la conscience, c'est que c'est un phénomène qui est fondamentalement privé.
+
+231
+00:28:25.638 --> 00:28:33.228
+<v Axel Cleeremans>Donc non seulement il est subjectif parce que c'est votre conscience et pas la mienne. Donc, vous avez une certaine perspective sur le monde que je ne partage pas totalement.
+
+232
+00:28:33.588 --> 00:28:45.368
+<v Axel Cleeremans>On partage beaucoup, évidemment, mais je ne suis pas identique à vous et donc mes expériences sont différentes des vôtres, d'une part, mais d'autre part, je ne sais pas l'effet que ça fait d'être vous.
+
+233
+00:28:45.608 --> 00:28:56.648
+<v Axel Cleeremans>Je peux imaginer ce que ça fait d'être vous. On parle de hétérophénoménologie dans ce cas-là. Essayer évidemment de me mettre par empathie, par sympathie, dans vos chaussures, etc.
+
+234
+00:28:57.648 --> 00:29:01.468
+<v Axel Cleeremans>Mais je ne pou-- j'ai aucun moyen d'être littéralement dans votre cerveau quoi.
+
+235
+00:29:01.508 --> 00:29:08.088
+<v Guillaume Hachez>Oui. Alors, ce phénomène-là, ce-- essayer de vous projeter, de vous mettre dans mes chaussures, de voir les choses de mon point de vue,
+
+236
+00:29:08.828 --> 00:29:14.268
+<v Guillaume Hachez>c'est ce qu'on appellerait de manière générale l'empathie cognitive, finalement, ou ce que vous appeliez tout à l'heure la théorie de l'esprit.
+
+237
+00:29:14.988 --> 00:29:18.748
+<v Guillaume Hachez>Je vais vous poser une colle. Question pas forcément très facile à répondre.
+
+238
+00:29:19.048 --> 00:29:23.348
+<v Axel Cleeremans>Vous m'avez posé que des colles jusqu'à présent, donc je me sens totalement psy.
+
+239
+00:29:23.448 --> 00:29:34.288
+<v Guillaume Hachez>Si on imaginait que vous ayez face à vous une personne autiste, donc pour lequel l'empathie cognitive est peut-être un peu plus un challenge, la théorie de l'esprit et ainsi de suite,
+
+240
+00:29:35.648 --> 00:29:48.688
+<v Guillaume Hachez>est-ce que puisque vous, vous avez cité ça comme un élément, un attribut de la conscience, hein, vous parliez de la conscience de soi, d'autrui ou de, voilà, de la perception,
+
+241
+00:29:49.288 --> 00:29:52.508
+<v Guillaume Hachez>est-ce qu'alors une personne qui a une empathie cognitive,
+
+242
+00:29:53.568 --> 00:29:59.428
+<v Guillaume Hachez>on va dire, moins développée, sera alors définie comme moins consciente ?
+
+243
+00:29:59.508 --> 00:30:00.428
+<v Axel Cleeremans>Non, certainement pas.
+
+244
+00:30:00.728 --> 00:30:04.728
+<v Guillaume Hachez>Ça ne se mesure pas de zéro à dix, je suis plus ou moins conscient.
+
+245
+00:30:04.968 --> 00:30:15.448
+<v Axel Cleeremans>Mais non, il faut abandonner cette idée qu'il y a-- alors, en tout cas chez l'être humain normal, il n'y a aucune raison de considérer qu'il y a des êtres plus ou moins conscients.
+
+246
+00:30:16.338 --> 00:30:25.767
+<v Axel Cleeremans>Mais la conscience peut avoir des contenus plus ou moins riches et ces contenus peuvent être donc quelqu'un qui a, qui a lu d'innombrables ouvrages et qui-
+
+247
+00:30:26.632 --> 00:30:30.712
+<v Axel Cleeremans>A vécu d'innombrables expériences, aura sans doute une expérience du monde plus riche.
+
+248
+00:30:31.412 --> 00:30:42.292
+<v Axel Cleeremans>Il n'en est pas davantage conscient. C'est juste que les contenus de sa conscience sont plus riches que quelqu'un qui a eu moins l'occasion, par exemple, de voyager ou de s'éduquer.
+
+249
+00:30:42.462 --> 00:30:42.832
+<v Guillaume Hachez>Mh.
+
+250
+00:30:42.912 --> 00:30:44.992
+<v Axel Cleeremans>Mais il s'agit pas de dire plus ou moins de conscience.
+
+251
+00:30:45.072 --> 00:30:45.652
+<v Guillaume Hachez>D'accord, OK.
+
+252
+00:30:45.672 --> 00:30:50.792
+<v Axel Cleeremans>Bon alors cet argument-là et ce débat-là s'étend chez l'animal, évidemment, hein, donc--
+
+253
+00:30:50.882 --> 00:30:51.312
+<v Guillaume Hachez>C'est-à-dire ?
+
+254
+00:30:51.972 --> 00:31:00.701
+<v Axel Cleeremans>Ben, c'est-à-dire que la question se pose de savoir est-ce que la conscience qu'un chien a du monde est moindre que celle de--
+
+255
+00:31:00.732 --> 00:31:04.512
+<v Guillaume Hachez>Oui, c'est ça. Ou un poisson. Oui, c'est ça, oui. La question qu'on explorait à l'instant.
+
+256
+00:31:04.592 --> 00:31:11.552
+<v Axel Cleeremans>On a un peu tendance-- enfin, il y a aussi toute une série de discussions intéressantes autour de ça, mais il faut un peu abandonner ça pour remplacer ça justement par,
+
+257
+00:31:12.572 --> 00:31:13.872
+<v Axel Cleeremans>une compréhension,
+
+258
+00:31:14.792 --> 00:31:21.612
+<v Axel Cleeremans>des états mentaux, de l'espace finalement mental dans laquelle je me déplace intérieurement, si vous voulez,
+
+259
+00:31:22.412 --> 00:31:29.172
+<v Axel Cleeremans>qui est davantage caractérisé non pas en termes de quantité, mais plus en termes de complexité ou de dimensionnalité, on va dire hein.
+
+260
+00:31:29.272 --> 00:31:36.112
+<v Axel Cleeremans>Donc il y a sans doute des espaces de conscience qui ont davantage de dimensions, si vous voulez, que d'autres.
+
+261
+00:31:36.132 --> 00:31:47.732
+<v Axel Cleeremans>Voilà. Alors peut-être qu'en termes de dimension, la conscience qu'une limace a de son monde est plus simple, comporte moins de dimensions que celle d'un être humain.
+
+262
+00:31:48.012 --> 00:31:48.212
+<v Guillaume Hachez>OK.
+
+263
+00:31:48.252 --> 00:31:51.792
+<v Axel Cleeremans>Alors, j'ai dit limace, mais je sais pas du tout si les limaces, je trouve ça un très bon exemple-
+
+264
+00:31:51.872 --> 00:31:52.402
+<v Guillaume Hachez>Vous restez prudent
+
+265
+00:31:52.402 --> 00:31:54.072
+<v Axel Cleeremans>...ont une conscience du monde ou pas.
+
+266
+00:31:54.152 --> 00:31:54.312
+<v Guillaume Hachez>Ouais.
+
+267
+00:31:54.352 --> 00:31:57.512
+<v Axel Cleeremans>Et encore une fois, les intuitions des uns et des autres vont différer très fortement là.
+
+268
+00:31:57.812 --> 00:32:01.931
+<v Guillaume Hachez>Mais c'est très bien. Mais vous, vous avez très bien répondu à ma colle.
+
+269
+00:32:02.632 --> 00:32:12.292
+<v Guillaume Hachez>La question que je voulais explorer maintenant, c'est-- voilà, on parlait du fait qu'il y avait différentes écoles, différentes grandes familles de-- pour donner une définition à,
+
+270
+00:32:13.252 --> 00:32:14.852
+<v Guillaume Hachez>à ce que c'est la conscience.
+
+271
+00:32:15.072 --> 00:32:23.212
+<v Guillaume Hachez>Vous expliquez que 99 % de la communauté scientifique suivait plutôt l'idée que c'est un phénomène biologique qui produit des états mentaux.
+
+272
+00:32:23.292 --> 00:32:33.672
+<v Guillaume Hachez>Je crois qu'il y a là-dedans deux grandes familles d'idées de-- quel pourrait être le fonctionnement de ces, oui, de ces cerveaux, de ces systèmes biologiques.
+
+273
+00:32:34.052 --> 00:32:36.072
+<v Guillaume Hachez>Est-ce que vous pouvez nous expliquer ?
+
+274
+00:32:36.152 --> 00:32:48.512
+<v Axel Cleeremans>Ouais, alors deux ou quatre, ça dépend un peu qui on interroge. Mais disons que les deux idées qui me semblent les plus cohérentes, c'est d'une part,
+
+275
+00:32:49.952 --> 00:33:05.532
+<v Axel Cleeremans>l'idée qui a été proposée par le psychologue Bernie Bars dans les années 80 et qui a été amplifiée et reformulée par Stanislas Dehaene et Jean-Pierre Changeux et collaborateurs plus tard, c'est l'idée que,
+
+276
+00:33:06.292 --> 00:33:14.632
+<v Axel Cleeremans>le cerveau est constitué par un ensemble de modules, si vous voulez, qui sont capables de traiter l'information de manière inconsciente et qui sont spécialisés.
+
+277
+00:33:15.132 --> 00:33:24.331
+<v Axel Cleeremans>Donc, on a un module pour reconnaître la forme visible des mots, on a un module pour-- alors, on a un module visuel, on a un module qui s'occupe de l'audition, et cetera, et cetera.
+
+278
+00:33:24.352 --> 00:33:28.572
+<v Axel Cleeremans>Enfin, il y a plein de-- le mot module d'ailleurs, il faudrait plutôt parler de réseau.
+
+279
+00:33:30.122 --> 00:33:30.162
+<v Guillaume Hachez>Mh.
+
+280
+00:33:30.162 --> 00:33:38.932
+<v Axel Cleeremans>Mais que, alors, il existe un ensemble de modules ou de processeurs spécialisés qui sont caractérisés par le fait qu'ils sont interconnectés,
+
+281
+00:33:39.752 --> 00:33:49.322
+<v Axel Cleeremans>à travers de grandes distances au niveau du cortex, via des connexions cortico-corticales à longue distance qui émanent de la couche cinq du cortex et qui-
+
+282
+00:33:49.322 --> 00:33:49.772
+<v Guillaume Hachez>Ohla, très technique
+
+283
+00:33:49.812 --> 00:34:01.132
+<v Axel Cleeremans>...interconnectent le lobe frontal, temporal et pariétal, essentiellement. Et tout cela forme une sorte de hub, si vous voulez, d'espace de travail neuronal
+
+284
+00:34:02.092 --> 00:34:07.292
+<v Axel Cleeremans>qui est caractérisé par le fait que à partir du moment où un traitement réalisé par des processeurs spécialisés
+
+285
+00:34:07.952 --> 00:34:18.672
+<v Axel Cleeremans>aboutit, connecte avec ce réseau central, eh bien l'information devient globalement disponible pour le traitement par n'importe quel autre module dans le cerveau.
+
+286
+00:34:18.812 --> 00:34:27.012
+<v Axel Cleeremans>C'est-à-dire qu'il est distribué dans le cerveau, il peut être exploité par différents processeurs pour différents objectifs.
+
+287
+00:34:27.072 --> 00:34:30.002
+<v Guillaume Hachez>Il se fait remarquer par les autres modules parce qu'il a atteint un certain-
+
+288
+00:34:30.002 --> 00:34:32.712
+<v Axel Cleeremans>Exactement. C'est ce que Dennett appelle la célébrité dans le cerveau qui-
+
+289
+00:34:32.782 --> 00:34:33.572
+<v Guillaume Hachez>Ouais, fame in the brain.
+
+290
+00:34:33.832 --> 00:34:37.732
+<v Axel Cleeremans>Qui-- fame in the brain. Donc il dit : c'est comme la célébrité à la télévision. À partir du moment--
+
+291
+00:34:38.472 --> 00:34:47.271
+<v Axel Cleeremans>les représentations mentales, les configurations d'activités neuronales, les trains d'activités qui se retrouvent dans cet espace de travail neuronal deviennent globalement disponibles. Et c'est pour cela
+
+292
+00:34:47.872 --> 00:34:51.112
+<v Axel Cleeremans>que on peut faire avec des représentations mentales dont on a conscience,
+
+293
+00:34:51.572 --> 00:35:01.152
+<v Axel Cleeremans>des choses qu'on est incapable de refaire avec des représentations mentales dont on n'a pas conscience, comme par exemple raisonner, utiliser ces représentations mentales comme objectifs à poursuivre,
+
+294
+00:35:01.692 --> 00:35:03.952
+<v Axel Cleeremans>parler de ces représentations mentales et ainsi de suite.
+
+295
+00:35:04.612 --> 00:35:10.932
+<v Axel Cleeremans>Donc ça, c'est la première idée qui n'a pas grand-chose à dire à propos de la question la plus difficile qui est celle de savoir pourquoi
+
+296
+00:35:11.632 --> 00:35:16.652
+<v Axel Cleeremans>l'activité dans ce réseau-là s'accompagne d'une expérience subjective, justement, pourquoi ça nous fait quelque chose.
+
+297
+00:35:17.212 --> 00:35:22.872
+<v Axel Cleeremans>La théorie est un peu muette par rapport à ça. Au-delà-- et il y a des philosophes qui disent : « Ben il n'y a rien d'autre à expliquer.
+
+298
+00:35:22.912 --> 00:35:31.452
+<v Axel Cleeremans>Une fois qu'on a expliqué cette disponibilité globale de l'information, on a expliqué l'expérience. » Il y a d'autres auteurs qui disent : « Mais non, on n'a rien expliqué du tout.
+
+299
+00:35:31.912 --> 00:35:41.432
+<v Axel Cleeremans>On a expliqué les aspects fonctionnels de la conscience, mais justement pas les aspects qualitatifs de l'expérience phénoménale elle-même.
+
+300
+00:35:42.242 --> 00:35:50.232
+<v Axel Cleeremans>» Donc ça, c'est la première chose, la première grande idée, si vous voulez. Et la deuxième grande idée est complètement différente, encore qu'on peut trouver des ponts.
+
+301
+00:35:51.012 --> 00:36:01.912
+<v Axel Cleeremans>Et on la doit aussi à un philosophe américain qui s'appelle David Rosenthal, et qui a proposé l'idée que la conscience implique ce qu'il appelle des pensées d'ordre supérieur.
+
+302
+00:36:02.572 --> 00:36:03.752
+<v Axel Cleeremans>Alors, qu'est-ce qu'il veut dire par là ?
+
+303
+00:36:04.552 --> 00:36:08.072
+<v Axel Cleeremans>L'idée, c'est que si, par exemple, je perçois votre visage,
+
+304
+00:36:08.772 --> 00:36:22.392
+<v Axel Cleeremans>comme c'est le cas maintenant, eh bien, il y a une représentation de ce visage qui existe dans mon cortex occipital, qui est la première région corticale à recevoir les informations qui me parviennent de la rétine.
+
+305
+00:36:23.352 --> 00:36:34.328
+<v Axel Cleeremans>Et donc il y a une représentation qui est caractéristique de votre visage à vous qui existe là. Mais cette représentation, qui existe donc sous la forme d'une configuration d'activité neurale, est inconsciente.
+
+306
+00:36:34.348 --> 00:36:48.928
+<v Axel Cleeremans>Elle ne deviendra consciente qu'à partir du moment où il y a une autre représentation, par exemple de mon cortex préfrontal à l'avant de mon cerveau, qui indique l'existence de la représentation de premier ordre à l'ensemble de mon cerveau.
+
+307
+00:36:49.728 --> 00:36:59.028
+<v Axel Cleeremans>Donc, si vous voulez, c'est comme s'il y avait, pour utiliser un langage issu de l'informatique, un pointeur vers une représentation de premier ordre.
+
+308
+00:36:59.468 --> 00:37:11.708
+<v Axel Cleeremans>Donc y a des pointeurs préfrontaux, si vous voulez, qui indiquent au cerveau dans son ensemble l'existence de représentations de premier ordre dans mon cortex visuel, dans mon cortex auditif et ainsi de suite.
+
+309
+00:37:11.768 --> 00:37:11.888
+<v Guillaume Hachez>Mmh.
+
+310
+00:37:12.248 --> 00:37:13.588
+<v Axel Cleeremans>Et donc, pour Rosenthal, c'est en
+
+311
+00:37:14.388 --> 00:37:27.208
+<v Axel Cleeremans>vertu de l'existence de ces représentations d'ordre supérieur que nous devenons conscients du contenu des représentations de premier ordre qui sont ainsi pointées par ces représentations d'ordre supérieur.
+
+312
+00:37:27.388 --> 00:37:37.908
+<v Guillaume Hachez>Oui. Et alors, dans cette explication-là, qu'est-ce qui distingue les informations qui méritent un pointeur de celles qui n'en ont pas ?
+
+313
+00:37:37.988 --> 00:37:46.067
+<v Axel Cleeremans>Oh là, on peut évoquer des mécanismes d'apprentissage, des mécanismes attentionnels, évidemment, qui font que je prête attention à certaines choses plutôt que d'autres et ainsi de suite.
+
+314
+00:37:46.088 --> 00:37:54.218
+<v Guillaume Hachez>Il me semble que dans vos explications, j'ai presque l'impression qu'on est en train de parler de, oui, la notion d'attention, de trouble de l'attention ou de voilà-
+
+315
+00:37:54.398 --> 00:37:54.728
+<v Axel Cleeremans>Oui, c'est une-
+
+316
+00:37:54.908 --> 00:38:02.248
+<v Guillaume Hachez>Quelle est la concentration ? Et on s'éloigne très fort justement des notions d'expérience subjective, et cetera.
+
+317
+00:38:03.288 --> 00:38:14.048
+<v Axel Cleeremans>Disons que c'est une perspective qui laisserait à penser qu'il y a une sorte de perception intérieure, si vous voulez, que le cerveau perçoit sa propre activité.
+
+318
+00:38:14.068 --> 00:38:14.468
+<v Guillaume Hachez>Mmh.
+
+319
+00:38:15.008 --> 00:38:19.758
+<v Axel Cleeremans>Un petit peu comme s'il y avait en fait une sorte d'homoncule, hein, donc, vous voyez cette
+
+320
+00:38:20.608 --> 00:38:30.128
+<v Axel Cleeremans>métaphore de l'homoncule qui est-- ben cette idée naïve, finalement, que la raison pour laquelle on a conscience, c'est qu'à l'intérieur de mon cerveau, y a une sorte de petit homme, d'homoncule-
+
+321
+00:38:30.168 --> 00:38:31.348
+<v Guillaume Hachez>D'accord, OK.
+
+322
+00:38:31.358 --> 00:38:40.028
+<v Axel Cleeremans>...qui est une sorte de représentation minimaliste de vous-même, qui est en train de monitorer les écrans sur lesquels il voit tout ce qui se passe dans le monde extérieur, et cetera.
+
+323
+00:38:40.248 --> 00:38:48.428
+<v Axel Cleeremans>C'est un peu ce qu'on trouvait dans le film dont j'oublie le nom, évidemment, maintenant, ce film de science-fiction, Men in Black-
+
+324
+00:38:48.588 --> 00:38:49.878
+<v Guillaume Hachez>Ah oui, d'accord. Oui, oui.
+
+325
+00:38:49.898 --> 00:38:57.827
+<v Axel Cleeremans>Dans lequel à un moment donné, ils sont confrontés à un extraterrestre horrible dont ils parviennent à enlever l'exosquelette, si vous voulez.
+
+326
+00:38:57.848 --> 00:38:58.318
+<v Guillaume Hachez>C'est ça, voilà, le masque.
+
+327
+00:38:58.368 --> 00:39:01.788
+<v Axel Cleeremans>Et à l'intérieur, on trouve un tout petit alien qui est en train de piloter tout ça comme ça.
+
+328
+00:39:02.028 --> 00:39:11.988
+<v Guillaume Hachez>C'est marrant. Vous, ça vous évoque Men in Black. Moi, quand vous me parlez d'une petite créature qui est en contrôle des différents écrans, justement, je retombais sur Freud et l'inconscient, et cetera.
+
+329
+00:39:12.048 --> 00:39:14.738
+<v Guillaume Hachez>Donc, est-ce qu'on retombe là-dedans, finalement, dans cette idée de-
+
+330
+00:39:14.738 --> 00:39:20.828
+<v Axel Cleeremans>Non, on retombe pas du tout là-dedans avec cette théorie. Je crois que c'est une mauvaise manière de comprendre cette théorie de pensée d'ordre supérieur.
+
+331
+00:39:20.888 --> 00:39:27.628
+<v Axel Cleeremans>Mais elle présuppose effectivement qu'il y a une sorte de monitoring interne de ce qui est en train de se passer dans le cerveau.
+
+332
+00:39:28.308 --> 00:39:36.248
+<v Axel Cleeremans>Mais le mécanisme est complètement différent. Il ne s'agit pas de disponibilité globale de l'information. Il s'agit de ce mécanisme de pointage, hein.
+
+333
+00:39:36.288 --> 00:39:36.588
+<v Guillaume Hachez>D'accord.
+
+334
+00:39:36.637 --> 00:39:51.068
+<v Axel Cleeremans>Une région de mon cerveau pointe vers d'autres régions de mon cerveau. Mon cortex préfrontal regarde, examine, monitore, contrôle mon cortex sensoriel ou mes cortex sensoriels.
+
+335
+00:39:51.088 --> 00:39:51.668
+<v Guillaume Hachez>Très bien. Et donc--
+
+336
+00:39:52.068 --> 00:39:53.668
+<v Axel Cleeremans>Donc c'est deux mécanismes complètement différents.
+
+337
+00:39:53.688 --> 00:39:53.948
+<v Guillaume Hachez>Voilà.
+
+338
+00:39:53.968 --> 00:39:57.188
+<v Axel Cleeremans>Et à côté de ça, il y a encore deux positions. Une qui
+
+339
+00:39:58.168 --> 00:40:13.308
+<v Axel Cleeremans>présuppose que la conscience est associée à la stabilité. Donc quand une représentation, quand une configuration d'activité neurale existe pendant un certain temps, eh bien, cette représentation devient consciente.
+
+340
+00:40:13.868 --> 00:40:26.128
+<v Axel Cleeremans>Alors, on n'explique pas grand-chose, à mon sens, avec ça. La stabilité est peut-être une condition nécessaire pour qu'une représentation devienne consciente, mais à mon avis, elle n'est pas suffisante.
+
+341
+00:40:26.828 --> 00:40:33.118
+<v Axel Cleeremans>Et donc ça, c'est une théorie qui dépend ou qui fait appel, si vous voulez, à la structure profondément récurrente du cortex, hein.
+
+342
+00:40:33.148 --> 00:40:43.008
+<v Axel Cleeremans>Donc quand on a un système qui est connecté à lui-même quelque part, à ce moment-là, il est capable de maintenir une forme d'activité, même en l'absence de stimulation extérieure.
+
+343
+00:40:43.048 --> 00:40:55.368
+<v Axel Cleeremans>Donc ça, c'est une autre idée qui attire de l'intérêt. Et puis finalement, il y a une théorie qui est très controversée, qu'on appelle la théorie de l'information intégrée, qui est une théorie beaucoup plus abstraite,
+
+344
+00:40:56.368 --> 00:41:03.668
+<v Axel Cleeremans>qui attribue en fait la conscience aux caractéristiques architecturales, on va dire, de certains types de réseaux.
+
+345
+00:41:04.548 --> 00:41:09.248
+<v Axel Cleeremans>Et donc on a des systèmes qui sont caractérisés par un certain type de connectivité,
+
+346
+00:41:10.188 --> 00:41:23.048
+<v Axel Cleeremans>et qui donnent alors lieu à une certaine forme de complexité qui s'appelle Phi, dans cette-- qui est une sorte d'indice de complexité qui caractérise la manière dont fonctionnent ces réseaux.
+
+347
+00:41:23.328 --> 00:41:29.248
+<v Axel Cleeremans>Donc, on peut imaginer un ensemble de, je sais pas, cent neurones qui sont intégralement connectés. Ça, c'est une basse complexité.
+
+348
+00:41:29.808 --> 00:41:39.468
+<v Axel Cleeremans>Cent neurones entre lesquels il y a zéro connexion, basse complexité aussi. Et puis, il y a toute une série de configurations intermédiaires qui donnent lieu à une complexité élevée.
+
+349
+00:41:40.248 --> 00:41:46.028
+<v Axel Cleeremans>Et cet indice de complexité qui serait caractéristique, qui serait la signature des systèmes conscients.
+
+350
+00:41:46.268 --> 00:41:49.108
+<v Guillaume Hachez>Alors, encore une fois, je suis assez
+
+351
+00:41:50.108 --> 00:42:04.748
+<v Guillaume Hachez>interpellé par le fait que quatre grandes théories, est-ce que ces quatre grandes théories se basent sur des données, on va dire, objectives, quantifiables, quelque chose de-- voilà, une vraie démarche scientifique ?
+
+352
+00:42:04.788 --> 00:42:17.928
+<v Guillaume Hachez>Ou bien est-ce que-- en fait, quand vous me donnez ces explications, ça me rappelle presque les cours sur les différents courants philosophiques dans l'Antiquité où certains imaginaient, voilà, le courant matérialiste-
+
+353
+00:42:18.168 --> 00:42:20.808
+<v Axel Cleeremans>Si, c'est les courants philosophiques au XXIe siècle, hein.
+
+354
+00:42:21.188 --> 00:42:21.628
+<v Guillaume Hachez>C'est ça.
+
+356
+00:42:24.128 --> 00:42:35.120
+<v Axel Cleeremans>Non, écoutez, alors ça, bon, c'est toute une discussion. Alors évidemment, il y a une science de la conscience, et il est possible aujourd'hui de concevoir des expériences qui
+
+357
+00:42:35.900 --> 00:42:40.660
+<v Axel Cleeremans>font le contraste, par exemple, entre une information qui est traitée avec ou sans conscience.
+
+358
+00:42:41.200 --> 00:42:51.880
+<v Axel Cleeremans>C'est la stratégie principale que les chercheurs déploient. Mais les différentes perspectives théoriques que j'ai évoquées ne sont pas toutes testables de la même manière.
+
+359
+00:42:51.960 --> 00:43:03.940
+<v Axel Cleeremans>Donc, cette dernière théorie qui fait appel à la complexité, en fait, il y a très peu d'évidences qui permettent de soutenir cette idée parce que, en fait, la théorie ne se prête pas véritablement à un test empirique.
+
+360
+00:43:04.480 --> 00:43:12.160
+<v Axel Cleeremans>Elle est aussi-- alors donc ça, c'est une difficulté. L'autre difficulté, c'est que les théories ne sont pas toujours dirigées vers le même objet, hein.
+
+361
+00:43:12.280 --> 00:43:26.860
+<v Axel Cleeremans>Donc, la théorie de la complexité, que l'on doit à Giulio Tononi et Christof Koch, est davantage dirigée vers la question du niveau de la conscience plutôt que vers la question des contenus de la conscience.
+
+362
+00:43:27.820 --> 00:43:35.520
+<v Axel Cleeremans>Encore que, hein, il dirait, il me dirait pas tout à fait ça, mais enfin, soit. Et donc les théories n'ont pas toujours le même objet.
+
+363
+00:43:35.640 --> 00:43:43.160
+<v Axel Cleeremans>Alors par ailleurs, il y en a quatre que j'ai évoquées, mais chaque auteur dans ce domaine a sa propre théorie de la conscience, évidemment, hein.
+
+364
+00:43:43.240 --> 00:43:54.380
+<v Axel Cleeremans>Donc, en fait, on peut pas vraiment être un acteur dans ce domaine sans avoir sa propre théorie de la conscience. Mais la question de savoir comment je teste toutes ces théories est une question brûlante aujourd'hui
+
+365
+00:43:55.160 --> 00:44:04.400
+<v Axel Cleeremans>parce qu'il y a une étude que l'on doit à Itay Yaron et collègues de l'Université de Tel-Aviv, qui a en fait analysé,
+
+366
+00:44:05.240 --> 00:44:18.580
+<v Axel Cleeremans>à partir de six mille publications récentes dans le domaine de la conscience, quelle théorie l'article soutenait et surtout quelle était la démarche empirique du papier.
+
+367
+00:44:19.520 --> 00:44:28.200
+<v Axel Cleeremans>Et en fait, ils ont pu montrer ainsi que la plupart des articles empiriques qui sont publiés aujourd'hui soutiennent l'une des quatre théories
+
+368
+00:44:29.260 --> 00:44:34.500
+<v Axel Cleeremans>que j'ai évoquées il y a quelques instants, mais très très peu cherchent à faire le contraste entre deux théories.
+
+369
+00:44:35.040 --> 00:44:41.200
+<v Axel Cleeremans>Et donc la recherche aujourd'hui dans le domaine de la conscience se déroule un petit peu en silos, quoi, si vous voulez.
+
+370
+00:44:41.280 --> 00:44:41.550
+<v Guillaume Hachez>D'accord.
+
+371
+00:44:41.560 --> 00:44:54.440
+<v Axel Cleeremans>Ces théories ne communiquent pas vraiment entre elles. Il s'agit presque d'écoles de pensée et donc qui amènent à concevoir des expériences qui sont essentiellement qui ont une visée confirmatoire, plutôt que
+
+372
+00:44:55.460 --> 00:44:57.980
+<v Axel Cleeremans>de chercher à falsifier, en fait, les prédictions des théories.
+
+373
+00:44:58.560 --> 00:45:07.380
+<v Axel Cleeremans>Et donc il y a plusieurs problèmes, quoi. Les théories sont parfois difficilement falsifiables. Certaines le sont, sont tout à fait infalsifiables.
+
+374
+00:45:08.100 --> 00:45:19.520
+<v Axel Cleeremans>Et les chercheurs ont plutôt tendance à concevoir des expériences qui sont en tout cas compatibles avec les prédictions de la théorie, mais qui ne sont pas conçues de manière à remettre en question des prédictions critiques,
+
+375
+00:45:20.160 --> 00:45:21.340
+<v Axel Cleeremans>de ces théories.
+
+376
+00:45:21.440 --> 00:45:24.960
+<v Axel Cleeremans>Si vous voulez juste terminer ce petit,
+
+377
+00:45:25.960 --> 00:45:38.620
+<v Axel Cleeremans>ces réflexions autour des théories de la conscience par-- en soulignant le fait qu'il y a maintenant une initiative que je trouve particulièrement excitante et dans laquelle je suis impliqué, qui vise à en fait financer
+
+378
+00:45:39.500 --> 00:45:41.180
+<v Axel Cleeremans>des recherches qui
+
+379
+00:45:42.300 --> 00:45:46.940
+<v Axel Cleeremans>se caractérisent par le fait qu'elles impliquent une collaboration adversariale entre différents auteurs.
+
+380
+00:45:47.380 --> 00:46:03.510
+<v Axel Cleeremans>Et donc l'idée, c'est pour lutter contre ce phénomène de silos, on va en fait convaincre les auteurs de différentes théories de s'asseoir ensemble à la même table et de réfléchir ensemble à une ou à plusieurs expériences critiques,
+
+381
+00:46:04.320 --> 00:46:10.439
+<v Axel Cleeremans>à propos desquelles ils se mettent d'accord pour dire : « Ah, si ça sort comme ceci, alors ça soutient ta théorie.
+
+382
+00:46:10.900 --> 00:46:18.260
+<v Axel Cleeremans>Si ça sort comme ça, ça soutient ma théorie. » Et ces expériences sont alors réalisées par des équipes indépendantes, répliquées.
+
+383
+00:46:18.340 --> 00:46:30.720
+<v Axel Cleeremans>Tout est open science, donc toutes les données sont publiques, partageables, etc., etc. Et donc ça, je pense que c'est vraiment une démarche qui est financée par la fondation américaine Templeton World Charity Foundation,
+
+384
+00:46:31.660 --> 00:46:35.580
+<v Axel Cleeremans>dans le cadre d'un programme qu'ils appellent Accelerating Consciousness Research
+
+385
+00:46:36.220 --> 00:46:46.640
+<v Axel Cleeremans>et qui vise justement à sortir de cette espèce de stase un peu parfois dans laquelle on se trouve, dans laquelle différentes théories ne communiquent plus, en fait, et ne cherchent pas justement-
+
+386
+00:46:47.180 --> 00:46:47.540
+<v Guillaume Hachez>Oui.
+
+387
+00:46:47.560 --> 00:46:54.150
+<v Axel Cleeremans>...à concevoir des manips qui sont des manips décisives, quoi. C'est pas facile à faire tout seul, évidemment, hein.
+
+388
+00:46:54.150 --> 00:46:55.440
+<v Axel Cleeremans>Moi, j'ai pas envie spécialement-
+
+389
+00:46:55.780 --> 00:46:56.230
+<v Guillaume Hachez>Non, c'est très bien.
+
+390
+00:46:56.240 --> 00:46:58.500
+<v Axel Cleeremans>...de faire une manip qui va tuer ma théorie, quoi.
+
+391
+00:46:59.000 --> 00:47:00.180
+<v Guillaume Hachez>C'est très bien que ça se fasse de cette manière-
+
+392
+00:47:00.280 --> 00:47:00.500
+<v Axel Cleeremans>De toute façon.
+
+393
+00:47:00.680 --> 00:47:11.140
+<v Guillaume Hachez>...indépendante, oui. Et j'allais vous demander alors, donc dans la conception de ces expériences pour essayer d'objectiver ces théories, quelles sont celles qui vous intéressent le plus ?
+
+394
+00:47:11.380 --> 00:47:16.500
+<v Guillaume Hachez>Quelles sont les expériences que vous, vous pratiquez, que vous déployez ici à l'ULB ?
+
+395
+00:47:16.530 --> 00:47:30.060
+<v Axel Cleeremans>Ben alors, donc, ce qui m'intéresse beaucoup ces jours-ci, c'est d'exploiter un instrument qu'on a mis en place ici à l'ULB et qui permet de présenter des stimuli visuels à des durées très très courtes, sans masque.
+
+396
+00:47:30.380 --> 00:47:39.700
+<v Axel Cleeremans>Il faut savoir que quand on s'intéresse aux différences entre ce qu'on peut faire avec et sans conscience, la plupart des études concernent la modalité visuelle.
+
+397
+00:47:39.820 --> 00:47:44.780
+<v Axel Cleeremans>Donc, je vous montre quelque chose sur un écran. Et puis la question, c'est de savoir est-ce que vous l'avez perçu ou pas.
+
+398
+00:47:45.440 --> 00:47:51.120
+<v Axel Cleeremans>Et si vous l'avez pas perçu, est-ce que ça peut quand même influencer, par exemple, des décisions que vous prenez par la suite ?
+
+399
+00:47:51.180 --> 00:47:56.040
+<v Axel Cleeremans>C'est ce qu'on appelle la perception subliminale et l'amorçage, hein. Donc cette idée que je puisse
+
+400
+00:47:56.880 --> 00:48:06.520
+<v Axel Cleeremans>amorcer ou biaiser des préférences, amorcer des décisions en vous montrant des choses que vous percevez soit consciemment, mais aussi peut-être inconsciemment.
+
+401
+00:48:07.240 --> 00:48:12.050
+<v Axel Cleeremans>Et donc là, il y a une énorme littérature autour de ce processus d'amorçage, si vous voulez,
+
+402
+00:48:13.060 --> 00:48:17.760
+<v Axel Cleeremans>qui est intéressante, mais qui est aussi problématique d'un point de vue méthodologique,
+
+403
+00:48:18.480 --> 00:48:26.180
+<v Axel Cleeremans>parce que ces études posent la question de savoir comment est-ce que je décide si quelqu'un est conscient ou pas. Je peux vous poser la question : est-ce que vous avez vu ou pas ?
+
+404
+00:48:26.209 --> 00:48:36.620
+<v Axel Cleeremans>Mais est-ce que c'est mieux de poser la question comme ça, de manière binaire ou bien est-ce que je vous laisse le choix sur une échelle de zéro à dix de dire j'ai rien vu du tout, j'ai tout vu ou j'ai vu un truc intermédiaire ?
+
+405
+00:48:36.640 --> 00:48:39.480
+<v Guillaume Hachez>Donc des données subjectives ou des données objectives.
+
+406
+00:48:39.560 --> 00:48:47.580
+<v Axel Cleeremans>Exactement. Et donc ça, c'est le grand défi dans toutes ces études autour de la conscience, c'est qu'il faut justement qu'on combine des données subjectives et objectives.
+
+407
+00:48:47.640 --> 00:48:53.840
+<v Axel Cleeremans>Donc des données objectives, ça peut être des temps de réaction, des choses qui sont mesurées par des instruments.
+
+408
+00:48:53.880 --> 00:48:59.820
+<v Axel Cleeremans>Les données subjectives font référence justement à l'impression que vous avez du stimulus, à votre expérience du stimulus.
+
+409
+00:49:00.440 --> 00:49:08.060
+<v Axel Cleeremans>Et la conscience et l'étude de la conscience de ce point de vue-là est tout à fait unique dans le domaine des sciences d'une manière générale, quoi.
+
+410
+00:49:08.600 --> 00:49:21.260
+<v Axel Cleeremans>C'est le seul domaine dans lequel on doit vraiment exploiter, d'une manière raisonnée, on va dire, des données subjectives, des données auxquelles, comme le disait Nagel, personne n'a accès sauf vous.
+
+411
+00:49:22.140 --> 00:49:29.519
+<v Axel Cleeremans>Or ça pose problème parce que vous pouvez décider, par exemple, que vous n'avez rien vu et de dire : « J'ai rien vu », alors que vous avez vu quelque chose.
+
+412
+00:49:30.120 --> 00:49:31.500
+<v Axel Cleeremans>J'ai aucun moyen d'établir-
+
+413
+00:49:31.620 --> 00:49:31.720
+<v Guillaume Hachez>Mh.
+
+414
+00:49:32.460 --> 00:49:38.880
+<v Axel Cleeremans>la précision de votre propre jugement. Alors, on peut dire : « Bah ça suffit, parce que ce qui m'intéresse, c'est justement ce que les gens rapportent.
+
+415
+00:49:39.380 --> 00:49:45.780
+<v Axel Cleeremans>» Mais en fait, bon, on va pas rentrer dedans parce que c'est trop compliqué. C'est un problème qui, du point de vue épistémologique, est vraiment complexe, quoi.
+
+416
+00:49:46.140 --> 00:49:46.380
+<v Guillaume Hachez>Bien sûr.
+
+417
+00:49:46.400 --> 00:49:59.400
+<v Axel Cleeremans>Et donc pour résoudre une partie de ces problèmes, on a mis au point un tachistoscope qui est un instrument qui permet de présenter justement, mais avec des techniques modernes, des stimuli à des durées de l'ordre de la microseconde.
+
+418
+00:50:00.100 --> 00:50:04.300
+<v Axel Cleeremans>Donc c'est un millionième de seconde. Donc c'est vraiment une durée très très très courte.
+
+419
+00:50:04.320 --> 00:50:05.680
+<v Guillaume Hachez>Oui. Et vous affichez alors sur un...
+
+420
+00:50:06.020 --> 00:50:07.540
+<v Axel Cleeremans>Donc un tachistoscope.
+
+421
+00:50:07.620 --> 00:50:09.140
+<v Guillaume Hachez>Tachistoscope, d'accord. Et qu'est-ce que c'est ?
+
+422
+00:50:09.160 --> 00:50:15.680
+<v Axel Cleeremans>Les tachistoscopes étaient des anciens instruments que les psychologues utilisaient dans les années cinquante, soixante, septante.
+
+423
+00:50:16.200 --> 00:50:25.170
+<v Axel Cleeremans>Et puis ces instruments étaient remplacés par finalement des écrans d'ordinateur. Mais ces écrans d'ordinateur ne permettent pas-
+
+424
+00:50:25.220 --> 00:50:25.520
+<v Guillaume Hachez>D'afficher.
+
+425
+00:50:25.580 --> 00:50:31.480
+<v Axel Cleeremans>De présenter des stimuli à des durées aussi courtes. En général, on parle de huit millisecondes, seize millisecondes pour un-
+
+426
+00:50:31.520 --> 00:50:31.660
+<v Guillaume Hachez>C'est ça.
+
+427
+00:50:32.819 --> 00:50:33.800
+<v Axel Cleeremans>Un taux de rafraîchissement-
+
+428
+00:50:34.080 --> 00:50:35.520
+<v Guillaume Hachez>Soixante hertz de manière classique.
+
+429
+00:50:35.549 --> 00:50:38.100
+<v Axel Cleeremans>Soixante hertz, cent hertz, deux cent hertz, mais enfin bon-
+
+430
+00:50:38.140 --> 00:50:38.490
+<v Guillaume Hachez>Oui, ça va.
+
+431
+00:50:38.490 --> 00:50:39.420
+<v Axel Cleeremans>Tout ça reste dans des-
+
+432
+00:50:39.580 --> 00:50:40.230
+<v Guillaume Hachez>C'est trop long, oui.
+
+433
+00:50:40.260 --> 00:50:42.700
+<v Axel Cleeremans>Dans des durées assez longues.
+
+434
+00:50:43.320 --> 00:50:55.460
+<v Axel Cleeremans>Et alors, avec de tels types d'écran, les gens utilisent ce qu'on appelle le masquage, c'est-à-dire qu'on présente un stimulus pendant une durée courte, vingt-cinq millisecondes, quinze millisecondes, par exemple.
+
+435
+00:50:56.060 --> 00:51:05.660
+<v Axel Cleeremans>Et puis immédiatement après, on présente ce qu'on appelle un masque visuel. Donc s'il s'agit d'un mot, par exemple, je peux présenter un masque constitué par des fragments de lettres enchevêtrés.
+
+436
+00:51:06.280 --> 00:51:14.860
+<v Axel Cleeremans>Et donc l'impression que les gens ont quand ils voient un stimulus comme ça, c'est de voir uniquement le masque. Et la question intéressante là-derrière, c'est : est-ce que le mot a quand même été perçu ?
+
+437
+00:51:14.880 --> 00:51:17.380
+<v Axel Cleeremans>Est-ce qu'il a été traité d'une manière inconsciente
+
+438
+00:51:18.020 --> 00:51:29.720
+<v Axel Cleeremans>? Est-ce qu'il pourrait, par exemple, alors influencer le choix que je vais faire à propos d'une cible qui est présentée après cette combinaison stimulus subliminal, masque, et un stimulus que je dois traiter.
+
+439
+00:51:30.580 --> 00:51:38.780
+<v Axel Cleeremans>Donc, bon, donc tout ça est très bien, mais avec cet instrument-ci, on peut faire la même chose sans masque en présentant les stimuli à des durées tellement courtes,
+
+440
+00:51:39.200 --> 00:51:43.540
+<v Axel Cleeremans>si vous voulez, que les sujets n'en prennent pas conscience, tout simplement parce qu'il disparaît avant que,
+
+441
+00:51:44.220 --> 00:51:46.700
+<v Axel Cleeremans>il n'ait le temps de le percevoir consciemment.
+
+442
+00:51:47.240 --> 00:51:55.060
+<v Axel Cleeremans>Et donc, la question, c'est : est-ce qu'on va trouver les mêmes effets que dans cette littérature importante autour de l'amorçage subliminal, ou pas ?
+
+443
+00:51:55.080 --> 00:52:02.040
+<v Axel Cleeremans>Et puis quelle est la-- on peut poser des questions qui sont des questions nouvelles aujourd'hui, comme par exemple, quelle est la durée minimale
+
+444
+00:52:02.720 --> 00:52:14.820
+<v Axel Cleeremans>de présentation dont j'ai besoin pour reconnaître une émotion sur un visage, par exemple, pour identifier un mot, pour distinguer entre une scène naturelle ou une scène urbaine, par exemple, s'il s'agit d'images complexes.
+
+445
+00:52:14.840 --> 00:52:20.380
+<v Axel Cleeremans>Et donc on peut commencer à poser des questions qui sont beaucoup plus précises. Voilà, donc c'est un peu ça qu'on est en train de-
+
+446
+00:52:20.480 --> 00:52:25.380
+<v Guillaume Hachez>Et à quel point c'est récent le déploiement de ce nouvel instrument qui n'emploie pas de masque ?
+
+447
+00:52:25.400 --> 00:52:32.460
+<v Axel Cleeremans>Bah écoutez, on a construit ça nous-mêmes à partir du design d'une équipe suisse qui ont par la suite détruit leur instrument.
+
+448
+00:52:33.260 --> 00:52:36.300
+<v Axel Cleeremans>Donc pour des raisons que je n'ai pas encore bien comprises. Enfin, ça prenait trop de place.
+
+449
+00:52:36.680 --> 00:52:36.840
+<v Guillaume Hachez>OK.
+
+450
+00:52:37.020 --> 00:52:44.780
+<v Axel Cleeremans>Ils avaient des grands écrans. Donc on a refait cet équipement qui est, à ma connaissance, le seul dans le monde quoi.
+
+451
+00:52:44.799 --> 00:52:45.169
+<v Guillaume Hachez>Oui, je veux dire-
+
+452
+00:52:45.700 --> 00:52:53.379
+<v Axel Cleeremans>Il y a d'autres systèmes, notamment de projection, qui permettent d'arriver à des vitesses semblables, mais il y a très peu de gens qui utilisent ça pour l'instant.
+
+453
+00:52:53.400 --> 00:52:57.560
+<v Guillaume Hachez>D'accord, mais je veux dire, ce déploiement-là, vous l'avez fait il y a quelques mois, quelques années ?
+
+454
+00:52:57.580 --> 00:52:58.340
+<v Axel Cleeremans>Il y a quelques années.
+
+455
+00:52:58.480 --> 00:53:04.900
+<v Guillaume Hachez>Quelques années, oui. Parce que je pose la question parce que dans les vidéos que j'ai pu voir, vous employez encore des masques.
+
+456
+00:53:04.980 --> 00:53:08.600
+<v Axel Cleeremans>Oui, bien sûr. Parce que donc le masquage reste une technique intéressante évidemment.
+
+457
+00:53:08.620 --> 00:53:09.370
+<v Guillaume Hachez>D'accord. OK.
+
+458
+00:53:09.400 --> 00:53:10.700
+<v Axel Cleeremans>L'idée, ce n'est pas de remplacer-
+
+459
+00:53:10.960 --> 00:53:11.380
+<v Guillaume Hachez>D'accord, OK.
+
+460
+00:53:11.560 --> 00:53:23.460
+<v Axel Cleeremans>Complètement le masquage, parce que l'idée, c'est plutôt d'utiliser cet instrument pour étudier exactement ce que fait le masquage et pour bien comprendre les différences entre des effets qui sont alors davantage des effets attentionnels.
+
+461
+00:53:23.770 --> 00:53:32.180
+<v Axel Cleeremans>Hein, donc mon attention est capturée par le masque et c'est pour ça que je ne vois pas l'amorce, et les effets qui sont vraiment liés à la manière dont le stimulus visuel
+
+462
+00:53:32.880 --> 00:53:35.770
+<v Axel Cleeremans>est dégradé, en fait, par la durée de présentation très très courte.
+
+463
+00:53:35.780 --> 00:53:45.120
+<v Guillaume Hachez>Et donc je suis face à cet écran extrêmement rapide qui se rafraîchit extrêmement rapidement, qui va afficher alors un mot pendant, vous disiez une nanoseconde.
+
+464
+00:53:45.660 --> 00:53:46.590
+<v Axel Cleeremans>Micro, pas nano.
+
+465
+00:53:46.590 --> 00:53:47.900
+<v Guillaume Hachez>Une micro, pardon. OK. J'étais-
+
+466
+00:53:48.200 --> 00:53:49.110
+<v Axel Cleeremans>Nano, ça serait un peu-
+
+467
+00:53:49.150 --> 00:54:00.460
+<v Guillaume Hachez>J'étais un peu trop loin. Une microseconde alors. Et sur mon crâne seront disposés alors des électrodes ou des instruments pour regarder quelle zone de mon cerveau entre en activité.
+
+468
+00:54:01.200 --> 00:54:07.000
+<v Guillaume Hachez>Et qu'est-ce qu'on remarque alors ? Selon les différentes expériences, avec masquage, sans masquage, qu'est-ce que...
+
+469
+00:54:07.400 --> 00:54:09.340
+<v Axel Cleeremans>Bah alors ça, on n'a pas encore la réponse sans masquage.
+
+470
+00:54:09.400 --> 00:54:09.640
+<v Guillaume Hachez>D'accord.
+
+471
+00:54:09.660 --> 00:54:17.800
+<v Axel Cleeremans>On sait que même à des durées très courtes, le stimulus est traité. Donc, mais il ne s'agissait pas d'expériences d'amorçage subliminal.
+
+472
+00:54:17.880 --> 00:54:26.424
+<v Axel Cleeremans>C'est des expériences réalisées par Sperdin et Herzog, qui sont les collègues suisses qui avaient construit le premier tachistoscope. Mais Stanislas Dehaene a fait une expérience qui est
+
+473
+00:54:27.244 --> 00:54:39.264
+<v Axel Cleeremans>restée célèbre dans le domaine parce qu'elle représentait la première utilisation de l'imagerie cérébrale pour explorer justement les processus de traitement sans conscience.
+
+474
+00:54:39.984 --> 00:54:55.824
+<v Axel Cleeremans>Et donc là, l'expérience impliquait une situation d'amorçage dans laquelle je montre aux participants des stimuli invisibles parce que masqués, qui sont des nombres entre un et neuf.
+
+475
+00:54:56.643 --> 00:55:04.043
+<v Axel Cleeremans>Et puis, je leur demande de prendre une décision sur un autre nombre qui est présenté immédiatement après, et qui peut être plus grand ou plus petit que cinq.
+
+476
+00:55:04.684 --> 00:55:11.364
+<v Axel Cleeremans>Et donc, si le nombre présenté est plus petit que cinq, ils doivent pousser à gauche, s'il est plus grand que cinq, ils doivent pousser à droite.
+
+477
+00:55:11.864 --> 00:55:19.784
+<v Axel Cleeremans>Donc c'est une expérience d'amorçage classique. La question, évidemment, c'est qu'on s'attend à ce qu'on appelle des effets de congruence, c'est-à-dire que si l'amorce invisible--
+
+478
+00:55:20.624 --> 00:55:31.684
+<v Axel Cleeremans>si je vous montre ça et que vous en êtes conscient, en fait, si je vous montre trois, par exemple, ce qui vous amorce à préparer une réponse vers la gauche, et puis je vous montre six,
+
+479
+00:55:33.084 --> 00:55:46.964
+<v Axel Cleeremans>qui demande que vous répondiez à droite, vous-- parce que les deux stimuli sont incongruents, votre temps de réaction sera plus lent que si je vous présente trois d'abord et puis que je vous demande de répondre à quatre, par exemple.
+
+480
+00:55:47.314 --> 00:55:56.904
+<v Axel Cleeremans>Parce que là, on est chaque fois du même côté que cinq et donc la réponse est facilitée. Et la question qu'a posée Dehaene, c'est : qu'est-ce qui se passe quand cette amorce est subliminale ?
+
+481
+00:55:56.934 --> 00:56:04.624
+<v Axel Cleeremans>Parce qu'elle est masquée. Est-ce qu'elle exerce encore cet effet de facilitation sur-- ou d'interférence sur les réponses ?
+
+482
+00:56:04.684 --> 00:56:05.964
+<v Axel Cleeremans>Et ce qu'il a trouvé, c'est oui.
+
+483
+00:56:07.564 --> 00:56:12.464
+<v Axel Cleeremans>Et l'imagerie a montré que, en fait, on activait à peu près les mêmes réseaux, si vous voulez,
+
+484
+00:56:13.164 --> 00:56:19.944
+<v Axel Cleeremans>qui permettaient de fournir la réponse, mais on n'activait pas justement cet espace de travail global qu'on évoquait tout à l'heure.
+
+485
+00:56:20.204 --> 00:56:29.224
+<v Guillaume Hachez>Oui. Et une question qui me vient là comme ça, si on imaginait de nouveau l'affichage pendant une microseconde d'un mot-
+
+486
+00:56:29.264 --> 00:56:31.764
+<v Axel Cleeremans>Une microseconde, c'est vraiment trop court hein, personne ne voit rien du tout.
+
+487
+00:56:31.844 --> 00:56:32.054
+<v Guillaume Hachez>OK, OK.
+
+488
+00:56:32.164 --> 00:56:36.524
+<v Axel Cleeremans>Ce qu'on trouve, c'est-- Mais c'est quand même surprenant. Il faut cent cinquante microsecondes-
+
+489
+00:56:36.564 --> 00:56:37.004
+<v Guillaume Hachez>D'accord, OK
+
+490
+00:56:37.044 --> 00:56:40.184
+<v Axel Cleeremans>...trois cent cinquante microsecondes, donc un tiers de milliseconde-
+
+491
+00:56:40.264 --> 00:56:40.504
+<v Guillaume Hachez>C'est ça
+
+492
+00:56:40.844 --> 00:56:44.664
+<v Axel Cleeremans>...d'un stimulus contrasté suffit pour qu'on le perçoive intégralement quoi.
+
+493
+00:56:44.684 --> 00:56:54.464
+<v Guillaume Hachez>OK, OK. Donc un tiers de milliseconde, et qu'on affiche alors un mot ou une image ou quelque chose qui est connu comme générant un stimuli très fort.
+
+494
+00:56:55.184 --> 00:56:59.604
+<v Guillaume Hachez>Je sais pas, on peut imaginer, par exemple, le mot sexe ou quelque chose comme ça.
+
+495
+00:57:00.404 --> 00:57:10.664
+<v Guillaume Hachez>Est-ce que alors, quand on scanne le cerveau avec l'aide de ces électrodes, on remarque : tiens, cette zone du cerveau qui est typiquement associée à tel stimuli,
+
+496
+00:57:11.364 --> 00:57:16.624
+<v Guillaume Hachez>même si la personne n'est pas consciente d'avoir vu, d'avoir lu ce mot et que pour elle, rien n'est vraiment apparu
+
+497
+00:57:17.424 --> 00:57:21.844
+<v Guillaume Hachez>d'intelligible, est-ce qu'on observe déjà que le cerveau a réagi ou pas ?
+
+498
+00:57:21.864 --> 00:57:33.064
+<v Axel Cleeremans>Oui, tout à fait. Il y a une expérience de Dehaene aussi qui a montré exactement ça. Donc, même quand les gens ne perçoivent pas un mot qui est présenté subliminalement, donc quand on leur pose la question : « Qu'est-ce que vous avez vu ?
+
+499
+00:57:33.074 --> 00:57:45.384
+<v Axel Cleeremans>» Ils disent : « Rien. J'ai vu une masse », qu'on active encore, malgré tout, une région du cerveau, le fusiforme, le gyrus fusiforme gauche, qui est justement spécialisé dans le traitement de la forme visuelle des mots.
+
+500
+00:57:46.324 --> 00:57:52.624
+<v Axel Cleeremans>Donc-- Mais encore une fois, là, cette activation reste localisée, si vous voulez, dans cette région cérébrale et n'engage pas-
+
+501
+00:57:53.064 --> 00:57:53.424
+<v Guillaume Hachez>La conscience
+
+502
+00:57:53.434 --> 00:58:00.544
+<v Axel Cleeremans>...ne provoque pas l'ignition ou l'allumage, si vous voulez, de cet espace de travail global.
+
+503
+00:58:00.724 --> 00:58:14.503
+<v Guillaume Hachez>Oui, oui. Alors ça, ce sont quelques exemples d'expériences que vous menez ici à l'ULB. Vous expliquez que généralement, c'était assez siloté, que chaque expérience suivait globalement surtout une des quatre grandes familles.
+
+504
+00:58:15.184 --> 00:58:21.824
+<v Guillaume Hachez>Donc du coup, à laquelle est-ce que-- à laquelle de ces quatre grandes familles est-ce que ces expériences adhèrent le plus ?
+
+505
+00:58:21.864 --> 00:58:29.864
+<v Axel Cleeremans>Mais donc, les expériences qui nous intéressent à ce jour-ci ne sont pas spécifiquement dédiées au-
+
+506
+00:58:29.944 --> 00:58:30.104
+<v Guillaume Hachez>OK
+
+507
+00:58:30.264 --> 00:58:35.884
+<v Axel Cleeremans>...à tester une théorie particulière, encore qu'on en a fait dans cette direction-là aussi.
+
+508
+00:58:36.484 --> 00:58:42.824
+<v Axel Cleeremans>Mais si je devais choisir une des quatre théories, je préfère-- la théorie que je préfère, c'est la théorie des pensées d'ordre supérieur de Rosenthal quoi.
+
+509
+00:58:43.404 --> 00:58:54.744
+<v Axel Cleeremans>C'est celle qui me semble la plus cohérente, surtout parce qu'elle apporte une explication très naturelle, quasiment en fait intuitive, de la différence entre une représentation consciente et inconsciente.
+
+510
+00:58:55.524 --> 00:59:09.824
+<v Axel Cleeremans>Si j'ai des choses qui se passent dans mon cortex quelque part, je n'en serai conscient que si j'ai des représentations d'ordre supérieur appropriées qui décrivent, à l'ensemble du système, ce qui est en train de se passer.
+
+511
+00:59:10.384 --> 00:59:17.024
+<v Axel Cleeremans>Et donc ça laisse beaucoup de place pour des traitements sans conscience et ça donne une explication très très simple, finalement,
+
+512
+00:59:17.724 --> 00:59:23.464
+<v Axel Cleeremans>presque autoréférentielle, si vous voulez, de la raison pour laquelle nous sommes conscients de certaines de ces représentations et pas d'autres quoi.
+
+513
+00:59:23.504 --> 00:59:28.224
+<v Guillaume Hachez>Oui. Donc, si je vous demandais de nuancer encore un petit peu plus, vous expliquez tout à l'heure que
+
+514
+00:59:28.924 --> 00:59:39.944
+<v Guillaume Hachez>chaque chercheur, chaque scientifique dans ce domaine a quelque part sa propre vision de la chose et que c'est impossible de simplement adhérer à celle d'un autre quand on travaille dans ce secteur.
+
+515
+00:59:40.504 --> 00:59:47.084
+<v Guillaume Hachez>Si je devais vous demander votre point de vue, votre vision du fonctionnement de la conscience, qu'est-ce que...
+
+516
+00:59:47.764 --> 00:59:48.644
+<v Axel Cleeremans>Mais donc,
+
+517
+00:59:49.684 --> 01:00:02.424
+<v Axel Cleeremans>donc j'adhère, si vous voulez, à cette théorie des pensées d'ordre supérieur d'une manière générale, mais ce qui m'intéresse surtout, c'est cette idée que la conscience est quelque chose que le cerveau apprend à faire
+
+518
+01:00:03.144 --> 01:00:05.684
+<v Axel Cleeremans>en redécrivant en lui-même sa propre activité.
+
+519
+01:00:06.364 --> 01:00:15.844
+<v Axel Cleeremans>Et donc je prends conscience de certains contenus au fil du développement et ça commence alors que je suis un fœtus, donc dès que j'ai un embryon de système nerveux, si vous voulez.
+
+520
+01:00:15.924 --> 01:00:23.656
+<v Axel Cleeremans>Je pense qu'il y a une partie substantielle de l'activité de ce système nerveux qui est consacrée à redécrire sa propre activité à lui-même quoi.
+
+521
+01:00:24.176 --> 01:00:28.916
+<v Axel Cleeremans>Donc le cerveau essaie de comprendre lui-même la manière dont il fonctionne afin d'être capable
+
+522
+01:00:29.476 --> 01:00:39.136
+<v Axel Cleeremans>d'anticiper, par exemple, ce qui va se passer par la suite, y compris les besoins métaboliques de certaines régions cérébrales ou les conséquences des actions que je dirige vers le monde et vers autrui.
+
+523
+01:00:39.776 --> 01:00:43.196
+<v Axel Cleeremans>Et donc j'ai des processus d'apprentissage qui sont en boucle, si vous voulez,
+
+524
+01:00:43.896 --> 01:00:56.895
+<v Axel Cleeremans>et qui permettent justement au cerveau de développer ces systèmes de méta-représentation, une autre manière de parler de pensée d'ordre supérieur, mais qui est peut-être un peu moins chargée linguistiquement.
+
+525
+01:00:56.916 --> 01:01:00.476
+<v Axel Cleeremans>Donc des systèmes de méta-représentation qui décrivent justement
+
+526
+01:01:01.136 --> 01:01:02.996
+<v Axel Cleeremans>au cerveau sa propre activité lui-même.
+
+527
+01:01:03.656 --> 01:01:16.756
+<v Axel Cleeremans>Et donc une fois que ces systèmes de méta-représentation sont en place, on est bien dans une situation du type pensée d'ordre supérieur, parce qu'alors j'ai des représentations de premier ordre, ce que je suis en train de ressentir, de percevoir,
+
+528
+01:01:17.436 --> 01:01:26.506
+<v Axel Cleeremans>et des méta-représentations qui caractérisent, si vous voulez, la manière dont le système dans son ensemble, c'est-à-dire moi, le sujet, si vous voulez, doit interpréter
+
+529
+01:01:27.196 --> 01:01:28.576
+<v Axel Cleeremans>ces représentations de premier ordre.
+
+530
+01:01:29.196 --> 01:01:39.676
+<v Axel Cleeremans>Ça explique d'ailleurs aussi de manière très naturelle pourquoi je peux par exemple interpréter de manière complètement différente un état de premier ordre semblable.
+
+531
+01:01:40.196 --> 01:01:51.836
+<v Axel Cleeremans>Donc une stimulation particulière, par exemple, sera perçue comme douloureuse ou comme associée au plaisir, en fonction du moment, en fonction de différents individus et ainsi de suite quoi.
+
+532
+01:01:52.436 --> 01:02:05.216
+<v Axel Cleeremans>Donc ces méta-représentations peuvent aussi représenter de manière erronée ce qui est en train de se passer, ce qui caractérise toute une série d'états pathologiques en matière de maladies mentales quoi.
+
+533
+01:02:05.296 --> 01:02:08.216
+<v Guillaume Hachez>Oui. À nouveau, c'est terriblement abstrait, euh-
+
+534
+01:02:08.316 --> 01:02:09.246
+<v Axel Cleeremans>C'est terriblement abstrait, oui.
+
+535
+01:02:09.256 --> 01:02:19.436
+<v Guillaume Hachez>Est-ce que quelque expérience a pu se diriger vers une objectification de peut-être certains de ces éléments ?
+
+536
+01:02:19.476 --> 01:02:30.416
+<v Axel Cleeremans>Ben écoutez, donc non, il y a une série d'expériences qui sont réalisées par des très très bons collègues qui visent justement à trouver une sorte de fondement biologique,
+
+537
+01:02:31.116 --> 01:02:38.556
+<v Axel Cleeremans>à ces idées de pensée d'ordre supérieur en faisant jouer un rôle particulier au cortex préfrontal,
+
+538
+01:02:39.396 --> 01:02:46.336
+<v Axel Cleeremans>qui est la partie du cerveau, si vous voulez, qui est la plus abstraite, justement, et qui est aussi la plus connectée avec le restant du cerveau.
+
+539
+01:02:46.416 --> 01:02:55.456
+<v Axel Cleeremans>Donc c'est une sorte de siège naturel pour les méta-représentations que présuppose cette théorie d'ordre supérieur. Et donc là, on peut faire des choses comme
+
+540
+01:02:56.216 --> 01:03:03.556
+<v Axel Cleeremans>stimuler électriquement certaines régions du cortex préfrontal, afin de voir quelles sont les conséquences sur ce que les gens ressentent.
+
+541
+01:03:04.216 --> 01:03:17.776
+<v Axel Cleeremans>On peut interférer avec le traitement réalisé par certaines régions spécifiques de ce cortex préfrontal pour voir si on peut faire apparaître ou disparaître des stimuli dans l'expérience subjective des gens et ainsi de suite.
+
+542
+01:03:17.806 --> 01:03:28.436
+<v Axel Cleeremans>Donc il y a une série de travaux qui seraient beaucoup trop complexes d'aborder maintenant. Mais une des difficultés, c'est que beaucoup de ces travaux ne sont pas entièrement compatibles avec d'autres théories quoi.
+
+543
+01:03:28.696 --> 01:03:32.066
+<v Axel Cleeremans>Donc-- Et donc cette grosse question
+
+544
+01:03:33.096 --> 01:03:40.596
+<v Axel Cleeremans>d'identifier ce qu'on a appelé les corrélats neuraux de la conscience forment un vaste programme empirique,
+
+545
+01:03:41.536 --> 01:03:50.556
+<v Axel Cleeremans>qui se développe de manière un peu incrémentale sans qu'on soit encore arrivé à des réponses tout à fait, tout à fait claires par rapport
+
+546
+01:03:51.736 --> 01:03:53.036
+<v Axel Cleeremans>à ce qu'on peut espérer montrer.
+
+547
+01:03:53.136 --> 01:04:01.036
+<v Axel Cleeremans>D'autant plus que cette notion même de corrélat neural de la conscience n'est elle-même pas complètement claire. Est-ce qu'on cherche une région cérébrale ?
+
+548
+01:04:01.056 --> 01:04:09.096
+<v Axel Cleeremans>Est-ce qu'on cherche un réseau ? Est-ce qu'on cherche un type d'activité cérébrale, un type de connectivité entre différentes régions cérébrales ?
+
+549
+01:04:09.156 --> 01:04:15.075
+<v Axel Cleeremans>En réalité, même si on fait des progrès, personne n'a de réponse complètement claire par rapport à des questions aussi fondamentales que cela.
+
+550
+01:04:15.476 --> 01:04:19.696
+<v Axel Cleeremans>Et donc on pourrait penser : Ouf, tous ces travaux sur la conscience, c'est un peu
+
+551
+01:04:21.076 --> 01:04:31.066
+<v Axel Cleeremans>vaporeux, flou, etc. Mais il faut savoir qu'en réalité, cette question de la conscience n'est redevenue un problème scientifique qu'il y a une trentaine d'années quoi.
+
+552
+01:04:31.096 --> 01:04:38.816
+<v Axel Cleeremans>Donc c'est vraiment très très très récent hein. La psychologie a cent, cent vingt ans, quelque chose comme ça. Donc on en est au tout début quoi.
+
+553
+01:04:38.876 --> 01:04:44.346
+<v Guillaume Hachez>Et qu'est-ce qui fait alors qu'il y a trente ans, cette recherche a décollé ? Qu'est-ce qui-
+
+554
+01:04:44.576 --> 01:04:50.576
+<v Axel Cleeremans>C'est vraiment ce qui a changé l'orientation de mes travaux. Parce qu'alors qu'avant, je m'intéressais justement à tout ce qu'on pouvait faire sans conscience,
+
+555
+01:04:51.116 --> 01:04:55.056
+<v Axel Cleeremans>à partir de ce moment-là-- Mais évidemment, on ne peut pas faire ça sans s'intéresser à la conscience elle-même.
+
+556
+01:04:55.616 --> 01:04:59.256
+<v Axel Cleeremans>Ben donc c'est là que je suis entré en contact avec cette
+
+557
+01:05:00.376 --> 01:05:11.396
+<v Axel Cleeremans>communauté scientifique qui intéresse également d'ailleurs des philosophes, etc., qui est l'Association pour l'étude scientifique de la conscience que j'ai présidée l'année passée.
+
+558
+01:05:12.296 --> 01:05:28.496
+<v Axel Cleeremans>Et donc ce qui a changé les choses, c'est d'abord l'intérêt du prix Nobel Francis Crick, qui s'est intéressé, comme beaucoup de physiciens en fin de carrière ou beaucoup de biologistes, à un problème difficile, le problème de la conscience.
+
+559
+01:05:29.176 --> 01:05:41.655
+<v Axel Cleeremans>Et donc ils ont écrit un article qui a un peu marqué le renouveau d'intérêt pour la conscience en tant qu'objet d'études scientifiques à ce moment-là, au début de-- à la fin des années 80, je pense.
+
+560
+01:05:42.436 --> 01:05:52.356
+<v Axel Cleeremans>Puis, il y a eu les ouvrages de Dan Dennett, 1991, Consciousness Explained, l'ouvrage de David Chalmers, 1996, The Conscious Mind.
+
+561
+01:05:53.156 --> 01:06:07.836
+<v Axel Cleeremans>Et je crois que l'intérêt ou plutôt la perspective de pouvoir développer une perspective scientifique sur la conscience trouve son origine dans l'apparition des méthodes d'imagerie cérébrale à ce moment-là en fait.
+
+562
+01:06:07.856 --> 01:06:08.816
+<v Guillaume Hachez>Oui, une question d'outils.
+
+563
+01:06:08.876 --> 01:06:15.446
+<v Axel Cleeremans>À partir du moment où, à la fin des années 80, début des années 90, on devient capable d'utiliser par exemple
+
+564
+01:06:16.336 --> 01:06:29.039
+<v Axel Cleeremans>l'imagerie fonctionnelle pour aller visualiser le cerveau en action, on ouvre la possibilité d'établir justement des liens entre l'activité biologique du cerveau et les états mentaux.
+
+565
+01:06:29.100 --> 01:06:38.220
+<v Axel Cleeremans>Et cette possibilité était radicalement nouvelle. Avant, on avait la possibilité de faire des scans, si vous voulez, qui donnaient une idée de l'anatomie du cerveau.
+
+566
+01:06:38.880 --> 01:06:49.660
+<v Axel Cleeremans>Mais ce sont vraiment ces techniques-là qui ont permis de visualiser le métabolisme du cerveau, et de mesurer l'activité de ce cerveau alors qu'il est-- le sujet est en train de réaliser une tâche particulière.
+
+567
+01:06:50.010 --> 01:06:54.740
+<v Guillaume Hachez>Pour continuer sur, voilà, la question de l'histoire de ce secteur de recherche,
+
+568
+01:06:55.360 --> 01:07:04.680
+<v Guillaume Hachez>une idée qui-- 'fin, une crainte qui terrorise tous les chercheurs à travers le monde, c'est l'idée de stagner, l'idée de ne pas avancer dans ce domaine de recherche.
+
+569
+01:07:04.820 --> 01:07:11.020
+<v Guillaume Hachez>Hum, depuis que vous avez commencé à travailler sur ces questions, est-ce que vous avez progressé ? Est-ce que vous avez trouvé des choses ?
+
+570
+01:07:11.060 --> 01:07:16.040
+<v Guillaume Hachez>Est-ce que quand vous regardez là où vous étiez il y a, je sais pas, 30 ans, quand vous avez commencé à travailler sur ces questions--
+
+571
+01:07:16.400 --> 01:07:17.520
+<v Axel Cleeremans>Personnellement, vous voulez dire, ou--
+
+572
+01:07:17.920 --> 01:07:18.180
+<v Guillaume Hachez>Est-ce que oui--
+
+573
+01:07:18.300 --> 01:07:19.460
+<v Axel Cleeremans>Le domaine d'une manière générale ?
+
+574
+01:07:19.560 --> 01:07:20.860
+<v Guillaume Hachez>Mais les deux, finalement.
+
+575
+01:07:21.780 --> 01:07:29.520
+<v Axel Cleeremans>Bah écoutez, oui, on a fait d'immenses progrès. On a fait d'immenses progrès dans la détermination des bonnes questions.
+
+576
+01:07:30.040 --> 01:07:31.600
+<v Axel Cleeremans>Donc à quel type donc
+
+577
+01:07:32.380 --> 01:07:43.550
+<v Axel Cleeremans>de questions peut-on espérer répondre ? Il y a eu d'énormes progrès conceptuels, je pense. On a fait énormément de progrès en tant que communauté pour définir quelles étaient les grandes dimensions de la conscience, justement, quelles sont
+
+578
+01:07:44.220 --> 01:07:45.760
+<v Axel Cleeremans>les distinctions qu'il s'agit de faire.
+
+579
+01:07:46.460 --> 01:07:56.320
+<v Axel Cleeremans>Et puis, au début, il y a 30 ans, il y avait pas trois ou quatre grosses propositions théoriques qui valent la peine d'être poursuivies et testées de manière empirique.
+
+580
+01:07:56.940 --> 01:08:08.150
+<v Axel Cleeremans>Et puis, on en a appris énormément sur, en particulier les systèmes visuels, sur la manière dont le cerveau traite les informations visuelles, sur la manière dont on prend des décisions, etc.
+
+581
+01:08:08.460 --> 01:08:16.270
+<v Axel Cleeremans>Est-ce qu'on peut parler d'une trouvaille, si vous voulez, ou d'une découverte qui a changé les choses ?
+
+582
+01:08:16.320 --> 01:08:22.340
+<v Axel Cleeremans>Il y en a sans doute deux ou trois. Par exemple, le travail de Dehaene a vraiment été important dans cette perspective-là.
+
+583
+01:08:23.160 --> 01:08:31.640
+<v Axel Cleeremans>Il y en a d'autres, évidemment. Le travail de Kanwisher, par exemple aussi, sur ces phénomènes de rivalité binoculaire qui ont bien mis en évidence
+
+584
+01:08:32.440 --> 01:08:44.460
+<v Axel Cleeremans>comment, quand je perçois un stimulus ambigu, non seulement mon expérience subjective change d'un stimulus à l'autre, mais en plus, il y a des régions cérébrales très spécifiques qui s'activent de manière corrélée.
+
+585
+01:08:45.220 --> 01:08:56.540
+<v Axel Cleeremans>Mais avec tout ça, on n'a toujours pas finalement expliqué pourquoi ça nous fait quelque chose quoi. Donc ce problème difficile, hein : pourquoi est-ce que l'activité biologique du cerveau s'accompagne d'une expérience objective ?
+
+586
+01:08:56.600 --> 01:09:05.660
+<v Axel Cleeremans>Donc qui était le problème difficile identifié par David Chalmers, le philosophe australien, en 1995. Pourquoi ça nous fait quelque chose ?
+
+587
+01:09:05.760 --> 01:09:07.000
+<v Axel Cleeremans>Là, on n'a toujours pas de réponse quoi.
+
+588
+01:09:07.240 --> 01:09:14.940
+<v Guillaume Hachez>Alors, j'avais mentionné un peu plus tôt dans notre entretien que je voulais revenir sur la notion de l'illusion de la conscience.
+
+589
+01:09:15.700 --> 01:09:19.740
+<v Guillaume Hachez>Hum, est-ce que vous pouvez prouver que la conscience existe ?
+
+590
+01:09:19.800 --> 01:09:19.960
+<v Axel Cleeremans>Non.
+
+591
+01:09:21.020 --> 01:09:21.260
+<v Guillaume Hachez>C'est bête.
+
+592
+01:09:21.380 --> 01:09:24.080
+<v Axel Cleeremans>La conscience existe parce que je suis conscient.
+
+593
+01:09:24.620 --> 01:09:24.720
+<v Guillaume Hachez>OK.
+
+594
+01:09:25.080 --> 01:09:32.230
+<v Axel Cleeremans>C'est le « Je pense, donc je suis » de Descartes, quoi, quelque part hein. Ça, c'est clair. Mais alors oui, effectivement, il y a des théories
+
+595
+01:09:33.280 --> 01:09:39.620
+<v Axel Cleeremans>illusionnistes, comme on appelle ça, qui disent-- Bah, enfin, ça devient tout de suite très compliqué hein.
+
+596
+01:09:39.680 --> 01:09:53.820
+<v Axel Cleeremans>Donc, est-ce qu'il y a-- Dennett dit toujours ça : il y a pas de deuxième traduction ou transduction plutôt hein. Donc des informations visuelles sont traduites en activité électrique alors qu'elles arrivent dans mon cerveau.
+
+597
+01:09:54.360 --> 01:10:02.420
+<v Axel Cleeremans>Il y a pas maintenant une deuxième transduction en médium phénoménologique quoi. Donc, on s'arrête à l'activité électrique des cerveaux.
+
+598
+01:10:03.200 --> 01:10:11.920
+<v Axel Cleeremans>Mais alors, on a quand même l'impression d'avoir une vie mentale. On a l'impression, d'ailleurs, on en parle, de cette vie mentale comme si nous étions des dualistes hein.
+
+599
+01:10:12.120 --> 01:10:12.480
+<v Guillaume Hachez>Mmm-hmm.
+
+600
+01:10:12.680 --> 01:10:14.340
+<v Axel Cleeremans>Alors qu'il ne faut pas nécessairement être
+
+601
+01:10:14.920 --> 01:10:25.700
+<v Axel Cleeremans>dualiste pour autant, mais on en parle comme si on était des dualistes. Et donc il y a cette idée qu'il y a une espèce d'espace phénoménologique, ce qui n'est pas faux non plus, mais qui n'est pas indépendant de la matière et ainsi de suite.
+
+602
+01:10:26.260 --> 01:10:34.960
+<v Axel Cleeremans>Alors, comment est-ce qu'on se débrouille avec tout ça ? C'est vraiment pas très clair. Une manière de s'en sortir, c'est de dire : « Tout ça est une forme d'illusion. » Donc—
+
+603
+01:10:35.789 --> 01:10:35.840
+<v Guillaume Hachez>Mmm.
+
+604
+01:10:35.840 --> 01:10:42.820
+<v Axel Cleeremans>Il n'y a pas vraiment de conscience. J'ai seulement l'illusion que je suis conscient. C'est une sorte de construction radicale,
+
+605
+01:10:43.500 --> 01:10:52.220
+<v Axel Cleeremans>presque narrative, amplifiée par la société, par les interactions sociales que j'ai avec autrui, par le langage et ainsi de suite.
+
+606
+01:10:52.260 --> 01:10:59.380
+<v Axel Cleeremans>Mais en réalité, il n'y a que des mécanismes. Alors ça, ça doit être vrai quelque part. Évidemment, il n'y a que des mécanismes biologiques.
+
+607
+01:11:00.500 --> 01:11:06.420
+<v Axel Cleeremans>Les intuitions des uns et des autres diffèrent par rapport à la question de savoir : s'agit-il véritablement d'une illusion ?
+
+608
+01:11:06.460 --> 01:11:18.240
+<v Axel Cleeremans>Et s'il s'agit d'une illusion, quelle fonction a cette illusion ? Ou bien est-ce que, de manière congruente avec l'expérience que je fais de moi-même tous les jours, j'ai vraiment des états mentaux, j'ai vraiment des états,
+
+609
+01:11:19.200 --> 01:11:23.100
+<v Axel Cleeremans>émotionnels, j'ai vraiment des états de sensation.
+
+610
+01:11:24.120 --> 01:11:28.020
+<v Axel Cleeremans>Dennett fait l'analogie avec la magie de l'illusionnisme.
+
+611
+01:11:28.580 --> 01:11:28.590
+<v Guillaume Hachez>Mmm.
+
+612
+01:11:28.620 --> 01:11:36.660
+<v Axel Cleeremans>Donc, on est devant un illusionniste, on sait que c'est une illusion. Ça ne nous empêche pas de trouver que ça a l'air magique.
+
+613
+01:11:36.890 --> 01:11:37.880
+<v Guillaume Hachez>Oui, de le percevoir comme étant réel.
+
+614
+01:11:37.900 --> 01:11:43.160
+<v Axel Cleeremans>Oui. Alors, on peut poser la question : mais est-ce que c'est de la vraie magie ? Qu'est-ce qu'on veut dire par vraie magie ?
+
+615
+01:11:43.200 --> 01:11:49.020
+<v Axel Cleeremans>Donc, qu'est-ce qu'on veut dire par vraie magie ? Alors, on sait ce qu'on veut dire par vraie magie, c'est-à-dire que ça devient quelque chose de surnaturel.
+
+616
+01:11:49.780 --> 01:11:55.060
+<v Axel Cleeremans>Bon, personne n'a envie d'aller là et de dire que la conscience est une chose qui relève de la vraie magie,
+
+617
+01:11:55.720 --> 01:12:03.680
+<v Axel Cleeremans>mais on n'est pas pour autant forcé d'adopter une posture illusionniste dans laquelle on se dit : « Tout ça, en fait, c'est une histoire qu'on se raconte.
+
+618
+01:12:04.640 --> 01:12:09.980
+<v Axel Cleeremans>Non, j'ai pas d'états mentaux, non, j'ai pas ces sensations, etc. C'est simplement une histoire que je me raconte. »
+
+619
+01:12:09.990 --> 01:12:11.480
+<v Axel Cleeremans>Je trouve que ça va un peu loin aussi quoi.
+
+620
+01:12:11.920 --> 01:12:27.248
+<v Guillaume Hachez>Oui oui. Et ça amène également à une dernière question sur laquelle on va peut-être se quitter, c'est : si on met en place des systèmes artificiels créés nous-mêmes, par exemple à base d'ordinateurs qui
+
+621
+01:12:27.948 --> 01:12:35.808
+<v Guillaume Hachez>sont hyper complexes, on ne les a pas encore créés, et qu'on est face à un ordinateur qui a lui-même cette illusion d'être conscient.
+
+622
+01:12:37.028 --> 01:12:46.628
+<v Guillaume Hachez>Est-ce qu'on pourrait en arriver là ? Est-ce que ce serait alors de la conscience ? Et qu'est-ce qui différencierait cet ordinateur qui semble être persuadé d'être conscient ?
+
+623
+01:12:47.048 --> 01:12:48.608
+<v Guillaume Hachez>Qu'est-ce qui le différenciera de nous ?
+
+624
+01:12:48.668 --> 01:12:56.608
+<v Axel Cleeremans>Oui, ça, c'est exactement l'idée que défend, ces jours-ci, un auteur américain qui s'appelle Michael Graziano, qui—
+
+625
+01:12:58.048 --> 01:13:06.448
+<v Axel Cleeremans>Et il y a des aspects de ses idées avec lesquels je suis d'accord, qui fait en fait trouver son origine à la conscience dans les interactions sociales que nous avons avec autrui.
+
+626
+01:13:07.108 --> 01:13:13.108
+<v Axel Cleeremans>Donc il y a vraiment une composante sociale et une composante narrative constructiviste quelque part. Donc moi, je résonne pas mal avec ces idées-là.
+
+627
+01:13:13.588 --> 01:13:24.968
+<v Axel Cleeremans>Je trouve qu'il va un peu trop loin. Mais la question de savoir comment est-ce que je ferais la différence entre une machine qui est convaincue d'être consciente et une machine qui est vraiment consciente et qu'est-ce que ça veut dire ?
+
+628
+01:13:25.068 --> 01:13:33.028
+<v Axel Cleeremans>Il n'y a personne qui a une bonne réponse. Ça, c'est un problème épistémologique fondamental. Comment est-ce que je prouve que c'est une illusion ?
+
+629
+01:13:33.048 --> 01:13:41.228
+<v Axel Cleeremans>Comment est-ce que je prouve que c'est vrai ? En fait, il n'y a vraiment pas de réponse à ça, pour l'instant. Ceci étant dit,
+
+630
+01:13:42.048 --> 01:13:47.648
+<v Axel Cleeremans>dans ma perspective, il n'y a absolument rien qui s'oppose à l'idée qu'il est possible de construire une machine consciente.
+
+631
+01:13:47.688 --> 01:13:55.308
+<v Axel Cleeremans>Donc, on pourrait très très bien imaginer un système de neurones artificiels extraordinairement compliqués.
+
+632
+01:13:55.768 --> 01:14:04.868
+<v Axel Cleeremans>On en voit déjà aujourd'hui qui sont capables, en tout cas en matière non pas de conscience, mais d'intelligence, d'arriver à une complexité qui est quand même stupéfiante.
+
+633
+01:14:04.908 --> 01:14:12.728
+<v Axel Cleeremans>Quand AlphaGo bat Lee Sedol, pour avoir joué au go moi-même, sans doute plus ou moins six mois de ma vie,
+
+634
+01:14:13.748 --> 01:14:25.768
+<v Axel Cleeremans>si on mettait toutes mes tentatives ensemble, c'est un jeu qui est extraordinairement compliqué et que personne n'avait pensé être pouvoir solvable, si vous voulez, par une intelligence artificielle avant vingt ou trente ans quoi.
+
+635
+01:14:26.328 --> 01:14:30.668
+<v Axel Cleeremans>Or, ils le font maintenant. Et donc un système de neurones artificiels qui est exposé
+
+636
+01:14:31.328 --> 01:14:41.748
+<v Axel Cleeremans>à des situations et à des stimuli qui sont semblables à ceux qui caractérisent notre existence et qui est capable de piloter un corps, et bien pourquoi pas ?
+
+637
+01:14:42.048 --> 01:14:50.848
+<v Axel Cleeremans>Moi, je— Il n'y a pas d'argument qui me ferait dire que ce système resterait nécessairement un zombie. Donc, je pense qu'on peut avoir une conscience artificielle.
+
+638
+01:14:52.028 --> 01:14:59.768
+<v Axel Cleeremans>À partir de quel moment va-t-on reconnaître une conscience artificielle et comment va-t-on établir qu'il s'agit d'une vraie conscience ou d'une forme d'illusion ?
+
+639
+01:14:59.788 --> 01:15:09.788
+<v Axel Cleeremans>Peut-être que finalement, c'est une manière de répondre à ces questions telles qu'on se les pose par rapport à nous-mêmes quoi, d'essayer de construire une machine qui fait preuve de conscience.
+
+640
+01:15:10.388 --> 01:15:18.828
+<v Axel Cleeremans>Mais c'est un problème que mes collègues philosophes disent poser également d'énormes questions éthiques, qu'il s'agit d'attaquer dès à présent,
+
+641
+01:15:19.708 --> 01:15:26.368
+<v Axel Cleeremans>même bien avant que la possibilité véritable d'imaginer pouvoir construire une machine consciente ne soit présente quoi.
+
+642
+01:15:26.448 --> 01:15:36.888
+<v Axel Cleeremans>Parce que si on est capable de construire des machines conscientes, d'abord, je crois qu'on est en danger parce qu'on a des systèmes qui sont en gros duplicables à l'infini, et immortels.
+
+643
+01:15:37.128 --> 01:15:48.968
+<v Axel Cleeremans>Donc, c'est pas— S'ils sont malveillants en plus, on est vraiment très très mal partis. Mais si ces systèmes sont conscients, ils seront aussi alors capables de souffrir.
+
+644
+01:15:49.588 --> 01:15:57.538
+<v Axel Cleeremans>Et donc on va tout de suite devoir décider s'ils peuvent souffrir, dans quelles conditions, si on interdit les souffrances artificielles—
+
+645
+01:15:57.848 --> 01:15:57.928
+<v Guillaume Hachez>Ouais.
+
+646
+01:15:58.048 --> 01:15:59.428
+<v Axel Cleeremans>...et ainsi de suite. Donc.
+
+647
+01:15:59.888 --> 01:16:09.268
+<v Guillaume Hachez>Axel Cleeremans, je vous remercie. On ne peut que constater que vous êtes un véritable chercheur, un véritable scientifique, puisque vous arrivez à répondre longuement à mes questions
+
+648
+01:16:09.888 --> 01:16:15.408
+<v Guillaume Hachez>en posant toute une série d'autres questions et en concluant par : « Mais on ne sait pas. »
+
+649
+01:16:15.428 --> 01:16:20.798
+<v Axel Cleeremans>Écoutez, oui, je ne sais pas très bien par quoi conclure d'autre à part que c'est un domaine tout à fait passionnant—
+
+650
+01:16:20.948 --> 01:16:22.018
+<v Guillaume Hachez>Exactement. Tout à fait.
+
+651
+01:16:22.028 --> 01:16:27.248
+<v Axel Cleeremans>...qui est fondamental et qui est important. Donc, moi, je suis ravi d'essayer de travailler dedans, ouais.
+
+652
+01:16:27.388 --> 01:16:36.308
+<v Guillaume Hachez>Et pour conclure, on peut rappeler par exemple que vous êtes sur Netflix, Axel Cleeremans, dans un documentaire dont vous pouvez nous rappeler le titre.
+
+653
+01:16:36.917 --> 01:16:47.948
+<v Axel Cleeremans>Alors, il s'agit d'un documentaire qui s'appelle The Most Unknown et qui décrit finalement les interactions entre neuf scientifiques, de domaines radicalement différents.
+
+654
+01:16:47.988 --> 01:16:57.388
+<v Axel Cleeremans>Donc il y a un astrobiologiste, il y a des psychologues, il y a un physicien qui travaille sur la matière noire. Et donc on se rencontre absolument sans script.
+
+655
+01:16:58.038 --> 01:17:02.607
+<v Axel Cleeremans>C'est filmé à la manière d'un striptease quoi. Donc, ils filmaient tout le temps—
+
+656
+01:17:02.618 --> 01:17:10.148
+<v Guillaume Hachez>De très belles images. On vous voit dans le désert du Nevada, dans un shot filmé avec un drone, seul dans le désert.
+
+657
+01:17:10.188 --> 01:17:17.248
+<v Guillaume Hachez>C'est très bien filmé, très impressionnant. Et les conversations entre les différents chercheurs sont très enrichissantes et assez fascinantes à écouter.
+
+658
+01:17:17.308 --> 01:17:25.768
+<v Guillaume Hachez>Donc, on recommande, on valide The Most Unknown sur Netflix. Et je vous remercie encore une fois, Axel Cleeremans, pour cet entretien de Septante Minutes.
+
+659
+01:17:25.968 --> 01:17:26.628
+<v Axel Cleeremans>Merci à vous.
+
+660
+01:17:26.648 --> 01:17:40.388
+<v Guillaume Hachez>Au revoir. C'est déjà tout pour mon entretien de Septante Minutes avec Axel Cleeremans. Je suis sûr qu'en démarrant l'épisode, vous ne vous attendiez pas à ce qu'on finisse par parler de scénarios apocalyptiques style Terminator.
+
+661
+01:17:41.168 --> 01:17:49.028
+<v Guillaume Hachez>Et pourtant, on l'a fait. J'ai mis le lien vers le documentaire Netflix dans la description. N'hésitez pas à m'envoyer vos suggestions pour des prochains épisodes.
+
+662
+01:17:49.508 --> 01:17:55.008
+<v Guillaume Hachez>J'ai pas mal de grands projets, des sujets qui me font envie et dont j'ai parlé dans l'édito que j'ai sorti il y a quelques mois.
+
+663
+01:17:55.668 --> 01:18:04.008
+<v Guillaume Hachez>Mais ça prend pas mal de temps à préparer. J'espère pouvoir rapidement mettre les choses en œuvre et sortir l'épisode dans deux semaines, mais honnêtement, ça va être chaud.
+
+664
+01:18:04.608 --> 01:18:10.428
+<v Guillaume Hachez>N'oubliez pas de vous abonner à Septante Minutes Avec sur votre plateforme de podcast préférée et d'en parler autour de vous. Ciao, ciao, ciao.
