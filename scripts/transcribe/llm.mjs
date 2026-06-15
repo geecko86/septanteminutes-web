@@ -19,6 +19,14 @@ let resolvedModel = null;
 export class LlmCallError extends Error {}
 
 /**
+ * Thrown when the Claude subscription quota is exhausted. Unlike LlmCallError
+ * this is NOT retryable — the pipeline should abort immediately on seeing it.
+ */
+export class QuotaExhaustedError extends Error {}
+
+const QUOTA_PATTERNS = /usage.?limit|quota.?exceed|credit.?exhaust|out.?of.?credit|billing|insufficient.?credit/i;
+
+/**
  * The concrete model id the CLI alias resolved to (e.g. 'opus' →
  * 'claude-opus-4-8'), captured from the first successful call's envelope.
  * Null until a CLI call succeeds; the SDK backend uses its pinned id instead.
@@ -90,6 +98,7 @@ function runViaCli({ prompt, schema, timeoutMs }) {
     const args = [
       '-p',
       '--model', CLAUDE_CLI_MODEL,
+      '--effort', 'medium',
       '--tools', '',
       '--max-turns', '2',
       '--no-session-persistence',
@@ -126,7 +135,12 @@ function runViaCli({ prompt, schema, timeoutMs }) {
         return;
       }
       if (code !== 0) {
-        reject(new LlmCallError(`claude CLI exited with code ${code}: ${tail(stderr || stdout)}`));
+        const detail = tail(stderr || stdout);
+        if (QUOTA_PATTERNS.test(detail)) {
+          reject(new QuotaExhaustedError(`Claude quota exhausted: ${detail}`));
+        } else {
+          reject(new LlmCallError(`claude CLI exited with code ${code}: ${detail}`));
+        }
         return;
       }
 
@@ -139,11 +153,16 @@ function runViaCli({ prompt, schema, timeoutMs }) {
       }
 
       if (envelope.subtype !== 'success' || envelope.is_error || envelope.structured_output == null) {
-        reject(
-          new LlmCallError(
-            `claude CLI call failed (subtype=${envelope.subtype}, is_error=${envelope.is_error}): ${tail(envelope.result ?? '')}`,
-          ),
-        );
+        const detail = tail(envelope.result ?? '');
+        if (QUOTA_PATTERNS.test(detail)) {
+          reject(new QuotaExhaustedError(`Claude quota exhausted: ${detail}`));
+        } else {
+          reject(
+            new LlmCallError(
+              `claude CLI call failed (subtype=${envelope.subtype}, is_error=${envelope.is_error}): ${detail}`,
+            ),
+          );
+        }
         return;
       }
 
@@ -174,9 +193,10 @@ async function runViaSdk({ prompt, schema }) {
       model: ANTHROPIC_SDK_MODEL,
       max_tokens: 16000,
       messages: [{ role: 'user', content: prompt }],
-      output_config: { format: { type: 'json_schema', schema } },
+      output_config: { effort: 'medium', format: { type: 'json_schema', schema } },
     });
   } catch (error) {
+    if (QUOTA_PATTERNS.test(error.message)) throw new QuotaExhaustedError(`Claude quota exhausted: ${error.message}`);
     throw new LlmCallError(`Anthropic SDK call failed: ${error.message}`);
   }
 
