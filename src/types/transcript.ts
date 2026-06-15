@@ -8,6 +8,9 @@
  * it knows who spoke, exactly when (in seconds from the start), and what was said.
  */
 
+/** A single word with its raw ASR text and timestamps: [text, startSec, endSec]. */
+export type TranscriptWord = [string, number, number];
+
 /** A single spoken segment — one "turn" or part of a turn in the conversation. */
 export type TranscriptSegment = {
   /** Sequential index, 0-based, matches position in the segments array. */
@@ -20,6 +23,8 @@ export type TranscriptSegment = {
   speaker: string;
   /** The spoken text, punctuated and corrected by the post-processing pass. */
   text: string;
+  /** Word-level timestamps from the raw ASR output, for highlighting. */
+  words: TranscriptWord[];
 };
 
 /** The full transcript for one episode. */

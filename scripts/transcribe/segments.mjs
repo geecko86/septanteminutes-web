@@ -30,7 +30,7 @@ const MIN_SEGMENT_SECONDS = 0.01;
  *
  * @param {Array<{ text: string, start: number, end: number, type?: string, speaker_id?: string }>} words
  * @param {Partial<typeof DEFAULT_OPTIONS>} [options]
- * @returns {Array<{ id: number, start: number, end: number, speaker: string, text: string }>}
+ * @returns {Array<{ id: number, start: number, end: number, speaker: string, text: string, words: [string, number, number][] }>}
  */
 export function buildSegments(words, options = {}) {
   const opts = { ...DEFAULT_OPTIONS, ...options };
@@ -49,6 +49,7 @@ export function buildSegments(words, options = {}) {
     end: round3(segment.end),
     speaker: segment.speaker,
     text: segment.text,
+    words: segment.words,
   }));
 }
 
@@ -129,6 +130,7 @@ function splitTurn(turn, opts) {
       start: piece[0].start,
       end: piece[piece.length - 1].end,
       text: pieceText(piece),
+      words: piece.map((w) => [w.text, w.start, w.end]),
     }));
 }
 
@@ -195,6 +197,7 @@ function mergeFragments(segments, opts) {
     if (previous && isFragment && previous.speaker === segment.speaker) {
       previous.text = `${previous.text} ${segment.text}`;
       previous.end = segment.end;
+      previous.words = previous.words.concat(segment.words);
     } else {
       merged.push({ ...segment });
     }
