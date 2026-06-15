@@ -1008,8 +1008,9 @@
 }
 
 .wordActive {
-  background-color: rgba(198, 162, 72, 0.45);
+  background-color: rgba(198, 162, 72, 0.55);
   border-radius: 2px;
-  padding: 0 2px;
-  margin: 0 -2px;
+  /* box-shadow extends the highlight left/right without affecting the box
+     model — advancing the word index never causes a layout reflow. */
+  box-shadow: 3px 0 0 rgba(198, 162, 72, 0.55), -3px 0 0 rgba(198, 162, 72, 0.55);
 }

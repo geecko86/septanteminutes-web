@@ -20,6 +20,22 @@ import type { Transcript, TranscriptSegment } from '../../types/transcript';
 import styles from './insert.module.css';
 
 // ---------------------------------------------------------------------------
+// Word highlighting helpers
+// ---------------------------------------------------------------------------
+
+/**
+ * Splits a raw ASR word token into its displayable content and any trailing
+ * punctuation that should fall outside the highlight chip.
+ * Examples: "gens,"  → ["gens", ","]
+ *           "m'entoure." → ["m'entoure", "."]
+ *           "jamais" → ["jamais", ""]
+ */
+function splitTrailingPunct(text: string): [string, string] {
+  const m = text.match(/^([\s\S]*?)([.,!?;:…—–]*)$/);
+  return [m?.[1] ?? text, m?.[2] ?? ''];
+}
+
+// ---------------------------------------------------------------------------
 // Time formatting helpers
 // ---------------------------------------------------------------------------
 
@@ -158,16 +174,23 @@ const SegmentRow = React.memo(
             ...(showSpeaker ? undefined : { gridRow: '1 / span 2', alignSelf: 'baseline' }),
           }}
         >
-          {isActive && activeWordIndex >= 0 && segment.words?.length ? (
-            // Word-by-word highlighting: each word is a span; the active one
-            // gets a gold chip. Trailing space inside the span preserves wrapping.
+          {isActive && segment.words?.length ? (
+            // Word-by-word highlighting: trailing punctuation is split out so
+            // the chip never covers a comma or period. The highlight uses only
+            // box-shadow (no padding/margin changes) so advancing the word
+            // index never triggers a layout reflow.
             <span className={styles.linePaper}>
-              {segment.words.map((word, wi) => (
-                <span
-                  key={wi}
-                  className={wi === activeWordIndex ? styles.wordActive : undefined}
-                >{word[0]}{' '}</span>
-              ))}
+              {segment.words.map((word, wi) => {
+                const [content, punct] = splitTrailingPunct(word[0]);
+                return (
+                  <React.Fragment key={wi}>
+                    {wi === activeWordIndex && content
+                      ? <span className={styles.wordActive}>{content}</span>
+                      : content}
+                    {punct}{' '}
+                  </React.Fragment>
+                );
+              })}
             </span>
           ) : (
             <span className={styles.linePaper}>{segment.text}</span>
