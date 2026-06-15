@@ -91,3 +91,59 @@ export const SHOW_NAME = 'Septante Minutes Avec';
 export const HOST_NAME = 'Guillaume Hachez';
 /** Display name used for the host in transcripts and VTT voice tags. */
 export const HOST_DISPLAY_NAME = 'Guillaume Hachez';
+
+// --- Language ------------------------------------------------------------
+
+/** The show is French; this is every episode's language unless overridden. */
+export const DEFAULT_LANGUAGE = 'fr';
+
+/**
+ * The two episodes conducted entirely in English. Forcing French on them
+ * (the hardcoded default everywhere else) makes Scribe mis-transcribe the
+ * audio and the Claude pass "correct" English toward French. Keyed by the
+ * episode number as it appears in data.json (a string).
+ */
+export const EPISODE_LANGUAGE_OVERRIDES = { '1': 'en', '27': 'en' };
+
+/**
+ * Episodes with a long intro containing many voices (clips, montages…) that
+ * exhaust ElevenLabs' diarization capacity, causing it to merge all speakers.
+ * Value: the second at which the main interview begins. ASR is split: the
+ * intro is transcribed without diarization (all speech attributed to the host),
+ * the interview is transcribed with full diarization, then merged.
+ */
+export const EPISODE_INTERVIEW_OFFSETS = {
+  '18': 910,
+};
+
+/**
+ * Episodes with more than 2 speakers (multiple guests). ElevenLabs Scribe
+ * defaults to 2-speaker diarization; these need a higher count so each voice
+ * gets its own track. Keyed by episode number string.
+ */
+export const EPISODE_SPEAKER_COUNTS = {
+  '2': 3, '18': 3, '21': 4, '24': 3, '26': 3,
+  '34': 3, '38': 3, '42': 3, '47': 3, '63': 3,
+};
+
+/**
+ * Returns the explicit speaker count override for this episode, or null if
+ * ElevenLabs should auto-detect. Only episodes in EPISODE_SPEAKER_COUNTS
+ * receive a `num_speakers` hint; all others rely on Scribe's auto-detection.
+ */
+export function resolveSpeakerCount(num) {
+  return EPISODE_SPEAKER_COUNTS[num] ?? null;
+}
+
+/**
+ * Resolves an episode's language to the codes each stage needs:
+ *  - `tag`    : the BCP-47 code stored in the transcript JSON + RSS ('fr'|'en')
+ *  - `scribe` : ElevenLabs Scribe's ISO 639-3 code ('fra'|'eng') — a different
+ *               standard from `tag` on purpose (Scribe wants 639-3, podcast
+ *               apps want BCP-47).
+ * Accepts a number or string num (object keys coerce, so both look up the same).
+ */
+export function resolveLanguage(num) {
+  const tag = EPISODE_LANGUAGE_OVERRIDES[num] ?? DEFAULT_LANGUAGE;
+  return { tag, scribe: tag === 'en' ? 'eng' : 'fra' };
+}

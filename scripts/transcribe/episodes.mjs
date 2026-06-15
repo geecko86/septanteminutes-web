@@ -16,6 +16,17 @@ export function getGuestName(title) {
   return title?.split(/\s(-|–)\s?/g)[0]?.trim() ?? '';
 }
 
+/**
+ * Returns all guest names for multi-guest episodes.
+ * "Guest1 & Guest2 - Topic" → ["Guest1", "Guest2"]
+ * "Guest - Topic" → ["Guest"]
+ */
+export function getGuestNames(title) {
+  const guestPart = getGuestName(title);
+  if (!guestPart) return [];
+  return guestPart.split(/\s*[,&]\s*/).map((s) => s.trim()).filter(Boolean);
+}
+
 /** Returns the topic portion of a title (everything after the dash). */
 export function getEpisodeTopic(title) {
   return title?.split(/\s(-|–)\s?/g)[2]?.trim() ?? '';
