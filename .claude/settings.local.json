@@ -12,7 +12,8 @@
       "Bash(curl -sL \"https://fonts.cdnfonts.com/s/92636/Futura%20Condensed%20Extra%20Bold.woff\" -o /tmp/futura.woff)",
       "Bash(echo \"exit: $?\")",
       "Read(//tmp/**)",
-      "Bash(/tmp/fonttools-venv/bin/python3 *)"
+      "Bash(/tmp/fonttools-venv/bin/python3 *)",
+      "Bash(node scripts/transcribe.mjs --dry-run *)"
     ]
   }
 }
