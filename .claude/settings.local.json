@@ -13,7 +13,12 @@
       "Bash(echo \"exit: $?\")",
       "Read(//tmp/**)",
       "Bash(/tmp/fonttools-venv/bin/python3 *)",
-      "Bash(node scripts/transcribe.mjs --dry-run *)"
+      "Bash(node scripts/transcribe.mjs --dry-run *)",
+      "Bash(gh auth *)",
+      "Bash(gh api *)",
+      "Bash(gh pr *)",
+      "Bash(git fetch *)",
+      "Bash(git check-ignore *)"
     ]
   }
 }
