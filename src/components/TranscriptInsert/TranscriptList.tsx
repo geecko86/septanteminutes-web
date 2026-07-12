@@ -15,7 +15,6 @@
 
 import React, { useRef, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import MaterialSpinningLoader from '../MaterialSpinningLoader/index.js';
 import type { Transcript, TranscriptSegment } from '../../types/transcript';
 import styles from './insert.module.css';
 
@@ -52,6 +51,30 @@ function formatTime(seconds: number): string {
   }
   return `${m}:${String(s).padStart(2, '0')}`;
 }
+
+// ---------------------------------------------------------------------------
+// Skeleton loading rows — mimic the transcript grid while the JSON loads.
+// Rows fire sequentially (each waits for the previous to finish growing)
+// via animation-delay = index × 0.35 s (the grow duration).
+// ---------------------------------------------------------------------------
+
+const SKELETON_ROWS = [
+  { width: '72%' },
+  { width: '58%', speaker: true },
+  { width: '85%' },
+  { width: '46%' },
+  { width: '63%', speaker: true },
+  { width: '79%' },
+  { width: '54%' },
+  { width: '68%' },
+  { width: '91%', speaker: true },
+  { width: '41%' },
+  { width: '76%' },
+  { width: '83%' },
+  { width: '49%', speaker: true },
+  { width: '67%' },
+  { width: '88%' },
+];
 
 // ---------------------------------------------------------------------------
 // Ink stains — an absolute layer behind the text, scattered pseudo-randomly
@@ -354,9 +377,22 @@ export default function TranscriptList({
   // ---- Loading state ----
   if (loading) {
     return (
-      <div className={styles.loadingState}>
-        <MaterialSpinningLoader />
-        <span>Chargement de la transcription…</span>
+      <div className={styles.body} aria-busy="true">
+        <div className={styles.loadingState}>
+          {SKELETON_ROWS.map((row, i) => (
+            <div
+              key={i}
+              className={styles.skeletonRow}
+              style={{ '--delay': `${i * 0.35}s`, '--w': row.width } as React.CSSProperties}
+            >
+              <div className={styles.skeletonTs} />
+              <div className={styles.skeletonContent}>
+                {row.speaker && <div className={styles.skeletonSpeaker} />}
+                <div className={styles.skeletonText} />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
