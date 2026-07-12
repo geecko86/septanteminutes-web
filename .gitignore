@@ -47,5 +47,22 @@ buildId.txt
 # transcription pipeline cache (downloaded audio + raw ASR responses)
 /.transcripts-cache/
 
+# dubbing pipeline cache (extracted chunks + Hibiki output)
+/.dub-cache/
+
+# dubbing TTS engine venvs (XTTS etc.)
+/scripts/dub/.venv/
+/scripts/dub/.venv-*
+
+# Python bytecode caches
+__pycache__/
+
+# CosyVoice2 cloned repo (+ Matcha-TTS submodule) and downloaded model weights (~5GB)
+/scripts/dub/.cosyvoice-repo/
+/scripts/dub/.cosyvoice-models/
+
 # framer backup
 /framerbackup
+
+# stray git worktrees left behind by background agent runs
+/.claude/worktrees/
