@@ -6,7 +6,7 @@ on:
     # Europe/Brussels local time (DST-aware). 10 minutes before
     # update-episodes.yml's equivalent guard, giving the Cloud Function's
     # indeterminate run time room to finish.
-    - cron: '0 * * * *'
+    - cron: '20 * * * *'
   workflow_dispatch:
 
 jobs:
