@@ -2,13 +2,31 @@ name: Fetch episodes RSS
 
 on:
   schedule:
-    # 10 minutes before the update-episodes.yml schedule (55 */3 * * *),
-    # giving the Cloud Function's indeterminate run time room to finish.
-    - cron: '45 */3 * * *'
+    # Runs hourly; the guard job below only lets it proceed every 3 hours in
+    # Europe/Brussels local time (DST-aware). 10 minutes before
+    # update-episodes.yml's equivalent guard, giving the Cloud Function's
+    # indeterminate run time room to finish.
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.check.outputs.run }}
+    steps:
+      - id: check
+        run: |
+          hour=$(TZ='Europe/Brussels' date +%H)
+          if [ $((10#$hour % 3)) -eq 0 ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
   fetch:
+    needs: guard
+    if: github.event_name == 'workflow_dispatch' || needs.guard.outputs.run == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
