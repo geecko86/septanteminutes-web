@@ -2,9 +2,9 @@ name: Fetch episodes RSS
 
 on:
   schedule:
-    # 10 minutes before the update-episodes.yml schedule (0 */3 * * *),
+    # 10 minutes before the update-episodes.yml schedule (55 */3 * * *),
     # giving the Cloud Function's indeterminate run time room to finish.
-    - cron: '50 23,2,5,8,11,14,17,20 * * *'
+    - cron: '45 */3 * * *'
   workflow_dispatch:
 
 jobs:

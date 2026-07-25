@@ -2,7 +2,7 @@ name: Update episodes & deploy
 
 on:
   schedule:
-    - cron: '0 */3 * * *'
+    - cron: '55 */3 * * *'
   workflow_dispatch:
 
 permissions:
