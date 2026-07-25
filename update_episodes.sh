@@ -79,6 +79,6 @@ git add public/transcripts
 git commit -m "update data.json, .env and firebase.json"
 git push origin main
 
-yarn build && firebase --project septanteminutes deploy
+yarn build && firebase --project septanteminutes deploy --non-interactive
 
 exit
