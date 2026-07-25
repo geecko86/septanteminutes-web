@@ -30,6 +30,7 @@ if ! flock -n 9; then
 fi
 
 git pull origin main
+yarn install --frozen-lockfile
 
 episodes=$(gh issue list --label needs-transcript --state open --json title --jq '.[].title' \
     | grep -oE '[0-9]+' || true)
