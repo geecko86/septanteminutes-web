@@ -1,42 +1,7 @@
 #!/bin/bash
-
-# Function to fetch content from URL and store it in a variable
-fetch_content() {
-    content=$(curl -sS "$1")
-    echo "$content"
-}
-
-# Main script
-retry_count=0
-success_count=0
-max_retries=3
-
-while [ $retry_count -lt $max_retries ]; do
-    echo "Fetching content from URL..."
-    fetched_content=$(fetch_content "https://europe-west1-septanteminutes.cloudfunctions.net/getEpisodesFromRSS")
-
-    # Check if fetched content contains "error" (case insensitive)
-    if [[ $fetched_content =~ [Ee][Rr][Rr][Oo][Rr] ]]; then
-        echo "Fetched content contains error, retrying..."
-        ((retry_count++))
-    else
-        echo "Content fetched successfully."
-        ((success_count++))
-        if [ $success_count -eq 1 ]; then
-            echo "Doing it one more time in 70s"
-            sleep 70
-            ((retry_count++))
-            ((max_retries++))
-        else
-            break
-        fi
-    fi
-done
-
-if [ $retry_count -eq $max_retries ]; then
-    echo "Maximum retries reached. Failed to fetch content."
-    exit -1
-fi
+# Exports Firestore -> public/js/data.json and, if the episode count changed,
+# builds and deploys. Assumes scripts/fetch-episodes-rss.sh already ran
+# (separately scheduled) so Firestore is up to date by the time this runs.
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"

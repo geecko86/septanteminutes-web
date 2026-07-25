@@ -1,0 +1,16 @@
+name: Fetch episodes RSS
+
+on:
+  schedule:
+    # 10 minutes before the update-episodes.yml schedule (0 */3 * * *),
+    # giving the Cloud Function's indeterminate run time room to finish.
+    - cron: '50 23,2,5,8,11,14,17,20 * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trigger RSS -> Firestore sync
+        run: bash scripts/fetch-episodes-rss.sh
