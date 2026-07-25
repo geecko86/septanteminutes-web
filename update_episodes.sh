@@ -62,6 +62,9 @@ git add public/transcripts
 git commit -m "update data.json, .env and firebase.json"
 git push origin main
 
-yarn build && firebase --project septanteminutes deploy --non-interactive
+# --only hosting: this scheduled job deploys the WEBSITE only. The Cloud
+# Function getEpisodesFromRSS lives in a separate (non-public) project and is
+# deployed independently — never from here.
+yarn build && firebase --project septanteminutes deploy --only hosting --non-interactive
 
 exit
