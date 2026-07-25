@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   guard:
@@ -65,6 +66,7 @@ jobs:
         run: bash update_episodes.sh
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
+          GH_TOKEN: ${{ github.token }}
 
       - name: Clean up credential files
         if: always()

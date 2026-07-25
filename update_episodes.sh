@@ -8,6 +8,8 @@ cd "$parent_path"
 
 git pull origin main
 
+old_ids=$(jq -r '.episodes | keys[]' public/js/data.json 2>/dev/null | sort)
+
 node scripts/export-firestore-episodes.mjs septanteminutes-a0cde5efbc25.json
 
 item_count=$(jq '.episodes | length' public/js/data.json)
@@ -32,9 +34,26 @@ if [ "$current_count" -eq "$item_count" ]; then
     exit 0
 fi
 
-# Transcripts are generated offline: after a new episode lands, run
-# `yarn transcribe --all --missing`, review the output and commit it.
-echo "Reminder: new episode detected -> run 'yarn transcribe --all --missing', review public/transcripts/, then commit."
+# Transcripts are generated offline. Open a tracking issue per new episode
+# (closed automatically by .github/workflows/close-transcript-issues.yml once
+# public/transcripts/{num}.json is pushed) instead of only logging a reminder.
+new_ids=$(jq -r '.episodes | keys[]' public/js/data.json | sort | comm -13 <(echo "$old_ids") -)
+
+if command -v gh >/dev/null 2>&1; then
+    for num in $new_ids; do
+        title=$(jq -r --arg n "$num" '.episodes[$n].title' public/js/data.json)
+        echo "Opening tracking issue for episode $num ($title)"
+        gh issue create \
+            --title "Transcrire l'épisode $num" \
+            --label needs-transcript \
+            --body "Nouvel épisode détecté : **$title** (épisode $num).
+
+Pour transcrire : \`yarn transcribe $num\`, vérifier \`public/transcripts/$num.json\`, puis push sur main. Cette issue se ferme automatiquement une fois le transcript publié." \
+            2>&1 || echo "Warning: failed to open tracking issue for episode $num"
+    done
+else
+    echo "Reminder: new episode(s) detected ($new_ids) -> run 'yarn transcribe --all --missing', review public/transcripts/, then commit. (gh CLI not found, skipped issue creation)"
+fi
 
 git add .env
 git add public/js/data.json
