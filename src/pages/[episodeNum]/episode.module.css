@@ -274,8 +274,14 @@
   translate: -50% 0 0px;
 }
 
-.albums>div:nth-last-child(-1n + 9 of :not([data-visibility="hidden"])) {
-  /* eslint-disable */
+.albums>div[data-window="in"] {
+  display: block !important;
+}
+
+/* Play button and loading spinner aren't VinylAlbum instances and never get
+   a data-window attribute, so they need their own visibility override. */
+.albums>div.playButton,
+.albums>div.loading {
   display: block !important;
 }
 

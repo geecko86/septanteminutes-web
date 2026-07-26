@@ -26,6 +26,35 @@ import { useEventListener } from "usehooks-ts";
 
 import styles from "./album.module.css";
 
+// How many albums stay force-rendered (display:block) around the current
+// scroll position; the rest are `display:none` (see episode.module.css's
+// `.albums>div[data-window]` rule) to keep paint cost bounded.
+const VISIBLE_WINDOW_SIZE = 9;
+
+// All instances share the same underlying rotation value at any instant (see
+// the scrollYProgress handler below), so window membership can be computed
+// locally per instance: is a hypothetical album N positions further along
+// already hidden? Mirrors the clamp/interpolate arithmetic `rotateZ` uses,
+// just evaluated for a shifted position.
+function rotationForPosition(albumRotationValue: number, total: number, position: number): number {
+  const k = total - position - 1;
+  const inputA = k * -25 - 1;
+  const inputB = k * -25 - 25;
+  const fraction = Math.min(Math.max((albumRotationValue - inputA) / (inputB - inputA), 0), 1);
+  return fraction * -25;
+}
+
+// `ownHidden` is passed in (rather than derived here) so callers can supply
+// the spring-eased value for this album's own exit state, while still
+// evaluating the "is a further album already hidden" half against raw
+// progress — see call site.
+function computeInWindow(rawRotationValue: number, total: number, position: number, ownHidden: boolean): boolean {
+  if (ownHidden) return false;
+  const shiftedRotation = rotationForPosition(rawRotationValue, total, position + VISIBLE_WINDOW_SIZE);
+  const shiftedHidden = shiftedRotation < -24;
+  return shiftedHidden;
+}
+
 const VinylAlbum = React.forwardRef(( {
     position,
     scrollYProgress,
@@ -92,6 +121,10 @@ const VinylAlbum = React.forwardRef(( {
   // No re-render is needed so we keep it as a ref.
   const jumpRef = useRef(true);
 
+  // Mirrors `gone` (computed in the rotateZ-change handler below) so the
+  // scrollYProgress handler can read the spring-eased exit state.
+  const goneRef = useRef(false);
+
   // --- Refs for DOM nodes whose visual state is mutated directly on every
   //     animation frame, bypassing React's render cycle entirely. ---
 
@@ -109,6 +142,10 @@ const VinylAlbum = React.forwardRef(( {
   // starts in the right state before any scroll event fires.
   const initiallyHidden = position > episodeNumParam;
 
+  // Pre-scroll window-of-9, based on episodeNumParam rather than rotation
+  // (springs haven't been driven by scroll yet).
+  const initiallyInWindow = !initiallyHidden && position > episodeNumParam - VISIBLE_WINDOW_SIZE;
+
   // This effect mirrors the old useEffect that drove `setHidden`. It now writes
   // directly to the DOM node instead of going through state.
   useEffect(() => {
@@ -121,11 +158,25 @@ const VinylAlbum = React.forwardRef(( {
     const target = type === "shadow" ? shadowContainerRef.current : hoverContainerRef.current;
     if (target) {
       target.dataset.visibility = isHidden ? "hidden" : "visible";
+      if (!mayAnimate) {
+        target.dataset.window = !isHidden && position > episodeNumParam - VISIBLE_WINDOW_SIZE ? "in" : "out";
+      }
     }
   }, [mayAnimate, episodeNumParam, position, type]);
 
   useMotionValueEvent(scrollYProgress, "change", (progress: number) => {
     if (position != 0 && !ignoreScrollRef.current) {
+      // Computed here (not in the rotateZ-change handler) because
+      // scrollYProgress fires for every instance on every tick, regardless of
+      // whether this instance's own rotation is currently changing.
+      if (mayAnimate) {
+        const inWindow = computeInWindow(progress * (total - 1) * -25, total, position, goneRef.current);
+        const target = type === "shadow" ? shadowContainerRef.current : hoverContainerRef.current;
+        if (target) {
+          target.dataset.window = inWindow ? "in" : "out";
+        }
+      }
+
       if (jumpRef.current) {
         albumRotation.jump(progress * (total - 1) * -25);
         albumYOffset.jump(progress * (total - 1) * -200);
@@ -151,7 +202,6 @@ const VinylAlbum = React.forwardRef(( {
       window.matchMedia("(pointer: coarse) and (orientation: portrait)").matches ? 115 : 50
     );
 
-
     return () => {
       clearTimeout(id);
     }
@@ -160,6 +210,8 @@ const VinylAlbum = React.forwardRef(( {
   // This is the hot path: fires on every animation frame during scroll.
   // We write directly to DOM refs — no setState, no React re-render.
   useMotionValueEvent(rotateZ, "change", (rotation) => {
+    goneRef.current = mayAnimate && rotation < -24;
+
     if (type === "shadow") {
       // Pick the right shadow class based on rotation angle.
       // Writing className directly skips React's reconciler entirely.
@@ -176,7 +228,7 @@ const VinylAlbum = React.forwardRef(( {
     } else {
       const el = hoverContainerRef.current;
       if (el) {
-        const gone = mayAnimate && rotation < -24;
+        const gone = goneRef.current;
 
         // `hidden` attribute hides the element from layout and accessibility tree —
         // same effect as the old `hidden={isGone}` JSX prop.
@@ -208,6 +260,7 @@ const VinylAlbum = React.forwardRef(( {
       ref={shadowContainerRef}
       className={styles.shadow_container}
       data-visibility={initiallyHidden ? "hidden" : "visible"}
+      data-window={initiallyInWindow ? "in" : "out"}
     >
       <motion.div
         ref={shadowDivRef}
@@ -223,6 +276,7 @@ const VinylAlbum = React.forwardRef(( {
         ref={hoverContainerRef}
         className={styles.hover_container}
         data-visibility={initiallyHidden ? "hidden" : "visible"}
+        data-window={initiallyInWindow ? "in" : "out"}
         data-moving="false"
       >
         <motion.div
