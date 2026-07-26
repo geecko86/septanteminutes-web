@@ -1,0 +1,123 @@
+/* A glossy photo lab print tucked under the camera prop on the table.
+   Sized/positioned relative to the table (the component is mounted inside
+   div.table on the episode page, BEFORE the camera image in the DOM so the
+   camera paints over it — the print peeks out from underneath). Like every
+   object in the scene it is never perfectly straight — the base tilt lives in
+   the framer-motion animate (rotate: 6deg), not here, so hover/enter/exit can
+   animate it. */
+
+.print {
+  position: absolute;
+  top: 4.5%;
+  left: 13%;
+  width: 12%;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+
+  /* Photo paper: bright white stock, warmer than the table top */
+  background: linear-gradient(160deg, #fdfdfb 0%, #f4f2ec 100%);
+  /* The print is absolutely positioned, so % padding resolves against the
+     TABLE's width, not the print's own — these values are table-relative
+     (0.5% of table ≈ 4.2% of the 12%-wide print; thin bottom border, the
+     caption itself provides the white strip). */
+  padding: 0.5% 0.5% 0.08%;
+  box-sizing: border-box;
+  border-radius: 1px;
+  /* Clips the oversized, counter-rotating .gloss layer to the paper's shape */
+  overflow: hidden;
+
+  /* Same shadow level as the vinyl sleeves lying on the table */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 16px 0px, rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
+
+  /* Handwritten caption scales with the print itself */
+  container-type: inline-size;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* The 4:3 lab-print window — a smaller footprint on the crowded corner of the
+   table. Clips the zoomed img below. */
+.frameWrap {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Zoom past the letterbox bars YouTube bakes into the mq* frame files —
+     object-fit alone can't crop them (the image height already fills the
+     window). ~7% shaved off each edge. */
+  scale: 1.14;
+  /* A matte-to-gloss print, not a screen: soften the digital crispness a hair
+     and pull the saturation toward photo stock. */
+  filter: saturate(0.92) contrast(0.97) sepia(0.06);
+  pointer-events: none;
+}
+
+.caption {
+  display: block;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  /* Same rendered size as the previous 19cqw at 15% width — cqw scales with
+     the (now narrower, 12%) print, so the value compensates: 19 × 15/12 */
+  font-size: 24cqw;
+  line-height: 1.1;
+  color: rgb(38, 38, 38);
+  letter-spacing: -0.5px;
+  pointer-events: none;
+}
+
+/* Glossy photo-paper sheen: a diagonal specular band sweeping across the
+   WHOLE print (image and paper borders alike), plus a faint cool sheen along
+   the top edge — the coating catches the scene's light.
+   The reflection belongs to the light, not the paper: the component
+   counter-transforms this layer (mirrored framer-motion variants) so the
+   sheen stays fixed in world space while the print moves. Oversized
+   (inset: -50% → 200% of the print) so the counter-rotation never exposes
+   its edges; the parent's overflow: hidden clips it back to the paper. */
+.gloss {
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  /* Stops are expressed in the 200% layer's space: the print sits in the
+     central [25%, 75%] band, so print-space p% maps to 25 + p/2. */
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0) 41%,
+      rgba(255, 255, 255, 0.28) 47%,
+      rgba(255, 255, 255, 0.42) 49%,
+      rgba(255, 255, 255, 0.1) 52.5%,
+      rgba(255, 255, 255, 0) 56%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 24.5%,
+      rgba(255, 255, 255, 0.18) 25%,
+      rgba(255, 255, 255, 0) 34%
+    );
+}
+
+/* Mobile landscape: the table flips to a tall layout (aspect 1/0.4933) and the
+   camera prop stays visible — keep the print near it but rescale to the new
+   proportions. (Mobile portrait never mounts this component.) */
+@media (pointer: coarse) and (orientation: landscape) {
+  .print {
+    width: 14%;
+    top: 4%;
+    left: 12%;
+    /* Same table-relative padding math, for the wider print */
+    padding: 0.6% 0.6% 0.1%;
+  }
+}

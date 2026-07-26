@@ -188,6 +188,9 @@
   top: -7% !important;
   left: -2% !important;
   clip-path: inset(16% 0 15% 8%);
+  /* Pure decor, never clickable — and the VideoPrint photo tucked underneath
+     must stay clickable where the camera's box overlaps it. */
+  pointer-events: none;
 }
 
 .camera img {
@@ -208,6 +211,9 @@
   left: 18% !important;
   transform: rotate(-12deg);
   transform-origin: center;
+  /* Pure decor, never clickable — the VideoPrint photo tucked underneath
+     must stay clickable where the phone's box overlaps it. */
+  pointer-events: none;
 }
 
 .albums {

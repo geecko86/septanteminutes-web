@@ -29,8 +29,16 @@ fi
 
 echo "EPISODES_COUNT=$item_count" > .env
 
-if [ "$current_count" -eq "$item_count" ]; then
-    echo "EPISODES_COUNT is the same as the current count. No update needed."
+# Publish when the episode COUNT changed (new episode) OR when data.json's
+# CONTENT changed at constant count (e.g. a youtubeLink backfilled in Firestore
+# on an existing episode). Without the content check, field-level updates would
+# sit in Firestore forever and never reach the deployed site.
+# jq -S normalizes key order on both sides: Firestore does not guarantee field
+# order across exports, and a byte-level diff would redeploy on every run.
+if [ "$current_count" -eq "$item_count" ] && \
+   diff -q <(jq -S . public/js/data.json) <(git show HEAD:public/js/data.json | jq -S .) >/dev/null 2>&1; then
+    echo "Episode count unchanged and data.json content identical. No update needed."
+    git checkout -- public/js/data.json
     exit 0
 fi
 
