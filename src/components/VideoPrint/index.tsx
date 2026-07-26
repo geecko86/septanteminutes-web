@@ -65,7 +65,14 @@ export default function VideoPrint(props: {
     <AnimatePresence mode="wait">
       {props.ready && props.videoId && props.link && (
         <motion.a
-          key={props.videoId}
+          // Stable key on purpose: at rest the print is an undeveloped
+          // (black) polaroid tucked under the camera, visually identical for
+          // every filmed episode — so animating out/in between two episodes
+          // that BOTH have a video would be movement without change. The
+          // frame swaps silently under the opaque chemistry layer; the
+          // slide-under animation only plays when the video print actually
+          // appears or disappears (episode with ↔ without youtubeLink).
+          key="videoprint"
           className={styles.zone}
           href={props.link}
           target="_blank"
