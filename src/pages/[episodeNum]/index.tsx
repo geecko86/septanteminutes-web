@@ -194,11 +194,20 @@ export default function EpisodeTable(props: {
     if (pendingScrollActions.length && typeof window != "undefined") {
       (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)((pendingScrollActions.shift() as () => void))
     }
+
     const currentPosition = getCurrentPosition();
+
     const currentEpisode = vinyls.length - currentPosition - 1;
     setSelectedPosition(currentPosition);
     setSelectedEpisode(currentEpisode);
-    const newUrl = `${window.location.origin}/${currentEpisode + 1}`;
+    // Relative path WITH trailing slash, to be strictly comparable to
+    // router.asPath (next.config.js: trailingSlash: true). The previous
+    // absolute URL without the slash could never match asPath, so the URL
+    // effect below re-issued a shallow router.replace every 200ms forever —
+    // each replaceState makes Firefox re-evaluate reader mode, endlessly
+    // blinking the "reader view" icon in its URL bar (and wasting CPU on
+    // every browser).
+    const newUrl = `/${currentEpisode + 1}/`;
     setDisplayedURL(newUrl);
   }, [pendingScrollActions, getCurrentPosition, vinyls.length]);
   
@@ -250,7 +259,7 @@ export default function EpisodeTable(props: {
   }, [playingEpisode?.mp3, ready]);
 
   useEffect(() => {
-    if (displayedURL && !displayedURL.includes(router.asPath) && router.pathname == "/[episodeNum]") {
+    if (displayedURL && displayedURL !== router.asPath && router.pathname == "/[episodeNum]") {
       const id = setTimeout(() => {
         router.replace(displayedURL, undefined, { scroll: false, shallow: true });
       }, 200);
