@@ -542,6 +542,11 @@
   width: 3.15rem;
 }
 
+/* Maps the black glyph to exactly #FF0000, the YouTube button's red */
+.youtubeIcon {
+  filter: invert(19%) sepia(98%) saturate(7808%) hue-rotate(3deg) brightness(92%) contrast(148%);
+}
+
 .bottomSheet span,
 .bottomSheet strong,
 .bottomSheet h3,

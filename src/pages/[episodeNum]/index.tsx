@@ -831,7 +831,7 @@ export default function EpisodeTable(props: {
                 );
                 return (<div className={styles.bottomSheetRow} key={`bottomSheetRow_${service.name}`}>
                   { /* eslint-disable-next-line @next/next/no-img-element */}
-                  <img draggable="false" src={`/img/${i < array.length - 1 ? service.name.toLowerCase().replace(" ", "") : (browserName.toLowerCase() || "play")}.svg`} alt={`${service.name} Logo`} />
+                  <img draggable="false" className={service.name === "YouTube" ? styles.youtubeIcon : undefined} src={`/img/${i < array.length - 1 ? service.name.toLowerCase().replace(" ", "") : (browserName.toLowerCase() || "play")}.svg`} alt={`${service.name} Logo`} />
                   <strong>{service.name}</strong>
                   {service.link == "#" ? button :
                   <Link target="_blank" href={service.link}>
