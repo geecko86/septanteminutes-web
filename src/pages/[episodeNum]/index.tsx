@@ -103,6 +103,19 @@ export default function EpisodeTable(props: {
   const mainRef = useRef<HTMLDivElement>(null);
   const shadows = useRef<HTMLDivElement>(null);
   const idleAnimationTimeoutIdRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  // Bug #3 guard: armed the instant a resize/orientation-change event fires,
+  // disarmed ~400ms after the last one (300ms debounce below + 100ms after the
+  // corrective scrollTo settles). While armed, scrollCallback must not touch
+  // selectedPosition/selectedEpisode/displayedURL — a rotation briefly makes
+  // scrollTop inconsistent with the new dimensions, and without this guard
+  // scrollCallback reads that inconsistent scrollTop as "the user scrolled
+  // through several episodes" before the resize handler below gets a chance
+  // to correct it.
+  const isResizingRef = useRef(false);
+  // Cleanup for the "force landing" scroll listener installed by the resize
+  // handler below (see comment there) — lets a new resize/rotation event
+  // tear down a still-active previous one before installing its own.
+  const resizeForceCleanupRef = useRef<(() => void) | undefined>(undefined);
   const hasClickedNotebookRef = useRef(hasClickedNotebook);
   const hasClickedPlayRef = useRef(hasClickedPlay);
   const selectedVinyl = useRef<HTMLImageElement>(null);
@@ -194,6 +207,14 @@ export default function EpisodeTable(props: {
     if (pendingScrollActions.length && typeof window != "undefined") {
       (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)((pendingScrollActions.shift() as () => void))
     }
+
+    // Bug #3 guard: a resize/orientation-change is in flight. scrollTop is
+    // momentarily inconsistent with the container's new dimensions (the
+    // container is measured in "100%" — large viewport — while sections are
+    // 100svh — small viewport — so the two can diverge for a frame around a
+    // rotation). Bail out here and let the debounced resize handler restore
+    // the correct scroll position/selection once dimensions have settled.
+    if (isResizingRef.current) return;
 
     const currentPosition = getCurrentPosition();
 
@@ -448,11 +469,60 @@ export default function EpisodeTable(props: {
   });
 
   useEventListener("resize", (e) => {
+    // Bug #3: arm the guard the instant resize/orientation-change starts
+    // firing, so scrollCallback ignores any snap settling triggered by the
+    // transient scrollTop/dimension mismatch until we've corrected it below.
+    isResizingRef.current = true;
+    // A previous rotation's forcing loop may still be active (e.g. two
+    // resize events fire back-to-back) — tear it down before starting a new
+    // one so they don't fight each other.
+    resizeForceCleanupRef.current?.();
     if (timeoutId) clearTimeout(timeoutId);
     const newId = setTimeout(() => {
-      const destination = selectedPosition * (episodePage.current?.clientHeight || 0);
-      // console.log("scroll:", selectedPosition, ((episodePage.current)?.clientHeight || 0), destination);
-      episodePage.current?.scroll({ top: destination, behavior: "instant" });
+      const container = episodePage.current;
+      if (!container) {
+        isResizingRef.current = false;
+        return;
+      }
+
+      // Bug #1: prefer the exact offsetTop of the section for selectedPosition
+      // over selectedPosition * clientHeight — clientHeight reflects the
+      // container's "100%" (large viewport on mobile), which can diverge from
+      // a section's 100svh height, landing scroll a few pixels off the
+      // section boundary.
+      const sectionEl = container.children[selectedPosition + 1] as HTMLElement | undefined;
+      const destination = sectionEl?.offsetTop ?? (selectedPosition * container.clientHeight);
+
+      // Bug #3: on a real rotation, the layout keeps reflowing for a while
+      // after the resize event (media queries swapping the Chair/Headphones/
+      // camera elements in and out, .main's own height rule changing) and
+      // Chrome's scroll anchoring nudges scrollTop a little on every one of
+      // those reflows — each nudge is a real 'scroll' event, which restarts
+      // scroll-snap's own internal (auto-)snap-to-nearest-destination cycle.
+      // That cycle computes "nearest" using the container's clientHeight,
+      // which is momentarily wrong here, so it can drag the container to a
+      // completely different section (observed: rotating away from episode 25
+      // landed on section 51 — roughly double, matching the section height
+      // roughly halving in landscape) — a single fire-and-forget scrollTo
+      // loses that race. Instead, keep re-asserting our destination on every
+      // 'scroll' event until nothing moves again for a bit, which converges
+      // regardless of how many extra scroll/reflow cycles happen meanwhile.
+      let settleTimeout: ReturnType<typeof setTimeout>;
+      const holdDestination = () => {
+        container.scrollTo({ top: destination, behavior: "instant" });
+        clearTimeout(settleTimeout);
+        settleTimeout = setTimeout(() => {
+          container.removeEventListener("scroll", holdDestination);
+          resizeForceCleanupRef.current = undefined;
+          isResizingRef.current = false;
+        }, 150);
+      };
+      resizeForceCleanupRef.current = () => {
+        clearTimeout(settleTimeout);
+        container.removeEventListener("scroll", holdDestination);
+      };
+      container.addEventListener("scroll", holdDestination, { passive: true });
+      holdDestination();
     }, 300);
     setTimeoutId(newId);
     setIsPortrait(window.innerHeight > window.innerWidth);
