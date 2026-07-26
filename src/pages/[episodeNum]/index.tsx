@@ -34,6 +34,8 @@ import { stripHtmlTags } from "@/utils/stripHtml";
 import { getGuestName, getEpisodeTopic } from "@/utils/episodeTitle";
 import { Episode } from "@/types/episode";
 import InsertPeek from "../../components/TranscriptInsert/InsertPeek";
+import VideoPrint from "../../components/VideoPrint";
+import { getYoutubeVideoId } from "@/utils/youtubeLink";
 import { useTranscriptIndex } from "../../utils/useTranscript";
 
 import styles from "./episode.module.css";
@@ -527,6 +529,12 @@ export default function EpisodeTable(props: {
   // Whether the current description episode has an available transcript.
   const transcriptAvailable = transcriptIndexReady && (transcriptIndex?.has(descriptionEpisode.num) ?? false);
 
+  // Filmed episodes only: null unless youtubeLink is a valid YouTube watch URL.
+  const videoId = getYoutubeVideoId(descriptionEpisode?.youtubeLink);
+  // The bottom sheet acts on the SELECTED episode (like spotifyLink/appleLink).
+  const sheetVideoLink = getYoutubeVideoId(vinyls[selectedEpisode]?.youtubeLink)
+    ? vinyls[selectedEpisode]?.youtubeLink : undefined;
+
   return (
     <motion.div
       key="transition_loader"
@@ -620,6 +628,20 @@ export default function EpisodeTable(props: {
                 if (clickedNotebookCount == 0) localStorage.setItem("hasClickedNotebook", (clickedNotebookCount + 1).toString());
               }}
             />
+            {/* Photo print of the video shoot, tucked UNDER the camera (left
+                edge) and UNDER the phone (right edge) — the print is rendered
+                BEFORE both images so they paint over it (both are
+                pointer-events: none, purely decorative). Shown only for filmed
+                episodes, and only where the camera prop is visible (mobile
+                portrait gets the link via the service bottom sheet). */}
+            {!(isMobileDevice && isPortrait) && (
+              <VideoPrint
+                link={descriptionEpisode?.youtubeLink}
+                videoId={videoId}
+                guestName={getGuestName(descriptionEpisode?.title)}
+                ready={ready}
+              />
+            )}
             {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="(orientation:portrait) 13vh, 13vw" className={styles.phone} />}
             {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
             <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
@@ -742,12 +764,15 @@ export default function EpisodeTable(props: {
             <div className={styles.bottomSheet}>
               {[{ name: "Spotify", color: "#1DB954", link: vinyls[selectedEpisode].spotifyLink },
               { name: "Apple Podcasts", color: "#872EC4", link: vinyls[selectedEpisode].appleLink, skip: !isIOSDevice },
+              // Filmed episodes only. noPersist: watching the video once must not
+              // become the "preferred service" — most episodes have no video.
+              { name: "YouTube", color: "#FF0000", link: sheetVideoLink || "#", skip: !sheetVideoLink, noPersist: true },
               { name: browserName || "Ce navigateur", color: "rgb(42, 50, 54)", link: "#" }
               ].filter(i => !i.skip).map((service, i, array) => {
                 const button = (
                   <button tabIndex={i*10} className={styles.roundButton} style={{ backgroundColor: service.color, }} onClick={() => {
                     setBottomSheetOpen(false);
-                    sessionStorage.setItem("preferredService", service.name);
+                    if (!("noPersist" in service) || !service.noPersist) sessionStorage.setItem("preferredService", service.name);
                     if (service.link == "#") playEpisode(selectedEpisode);
                   }}>{i < array.length - 1 ? "Ouvrir ↗" : "Continuer"}</button>
                 );

@@ -1,0 +1,33 @@
+name: Close transcript issues
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/transcripts/**'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Close resolved "needs-transcript" issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --label needs-transcript --state open --json number,title | \
+          jq -c '.[]' | while read -r issue; do
+            number=$(echo "$issue" | jq -r '.number')
+            title=$(echo "$issue" | jq -r '.title')
+            ep=$(echo "$title" | grep -oE '[0-9]+' | head -1)
+            if [ -n "$ep" ] && [ -f "public/transcripts/${ep}.json" ]; then
+              echo "Closing issue #$number (episode $ep): transcript found"
+              gh issue close "$number" --comment "Transcript publié : \`public/transcripts/${ep}.json\`."
+            fi
+          done

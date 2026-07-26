@@ -8,7 +8,10 @@ export type Episode = {
     desc: string,
     descText?: string,
     num: string,
-    date: string
+    date: string,
+    /* Set by the getEpisodesFromRSS Cloud Function only for episodes that have a
+       real (16:9) video version on YouTube — absent or "" for most episodes. */
+    youtubeLink?: string
 };
 
 export type Season = {

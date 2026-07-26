@@ -1,47 +1,14 @@
 #!/bin/bash
-
-# Function to fetch content from URL and store it in a variable
-fetch_content() {
-    content=$(curl -sS "$1")
-    echo "$content"
-}
-
-# Main script
-retry_count=0
-success_count=0
-max_retries=3
-
-while [ $retry_count -lt $max_retries ]; do
-    echo "Fetching content from URL..."
-    fetched_content=$(fetch_content "https://europe-west1-septanteminutes.cloudfunctions.net/getEpisodesFromRSS")
-
-    # Check if fetched content contains "error" (case insensitive)
-    if [[ $fetched_content =~ [Ee][Rr][Rr][Oo][Rr] ]]; then
-        echo "Fetched content contains error, retrying..."
-        ((retry_count++))
-    else
-        echo "Content fetched successfully."
-        ((success_count++))
-        if [ $success_count -eq 1 ]; then
-            echo "Doing it one more time in 70s"
-            sleep 70
-            ((retry_count++))
-            ((max_retries++))
-        else
-            break
-        fi
-    fi
-done
-
-if [ $retry_count -eq $max_retries ]; then
-    echo "Maximum retries reached. Failed to fetch content."
-    exit -1
-fi
+# Exports Firestore -> public/js/data.json and, if the episode count changed,
+# builds and deploys. Assumes scripts/fetch-episodes-rss.sh already ran
+# (separately scheduled) so Firestore is up to date by the time this runs.
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 
 git pull origin main
+
+old_ids=$(jq -r '.episodes | keys[]' public/js/data.json 2>/dev/null | sort)
 
 node scripts/export-firestore-episodes.mjs septanteminutes-a0cde5efbc25.json
 
@@ -62,14 +29,39 @@ fi
 
 echo "EPISODES_COUNT=$item_count" > .env
 
-if [ "$current_count" -eq "$item_count" ]; then
-    echo "EPISODES_COUNT is the same as the current count. No update needed."
+# Publish when the episode COUNT changed (new episode) OR when data.json's
+# CONTENT changed at constant count (e.g. a youtubeLink backfilled in Firestore
+# on an existing episode). Without the content check, field-level updates would
+# sit in Firestore forever and never reach the deployed site.
+# jq -S normalizes key order on both sides: Firestore does not guarantee field
+# order across exports, and a byte-level diff would redeploy on every run.
+if [ "$current_count" -eq "$item_count" ] && \
+   diff -q <(jq -S . public/js/data.json) <(git show HEAD:public/js/data.json | jq -S .) >/dev/null 2>&1; then
+    echo "Episode count unchanged and data.json content identical. No update needed."
+    git checkout -- public/js/data.json
     exit 0
 fi
 
-# Transcripts are generated offline: after a new episode lands, run
-# `yarn transcribe --all --missing`, review the output and commit it.
-echo "Reminder: new episode detected -> run 'yarn transcribe --all --missing', review public/transcripts/, then commit."
+# Transcripts are generated offline. Open a tracking issue per new episode
+# (closed automatically by .github/workflows/close-transcript-issues.yml once
+# public/transcripts/{num}.json is pushed) instead of only logging a reminder.
+new_ids=$(jq -r '.episodes | keys[]' public/js/data.json | sort | comm -13 <(echo "$old_ids") -)
+
+if command -v gh >/dev/null 2>&1; then
+    for num in $new_ids; do
+        title=$(jq -r --arg n "$num" '.episodes[$n].title' public/js/data.json)
+        echo "Opening tracking issue for episode $num ($title)"
+        gh issue create \
+            --title "Transcrire l'épisode $num" \
+            --label needs-transcript \
+            --body "Nouvel épisode détecté : **$title** (épisode $num).
+
+Pour transcrire : \`yarn transcribe $num\`, vérifier \`public/transcripts/$num.json\`, puis push sur main. Cette issue se ferme automatiquement une fois le transcript publié." \
+            2>&1 || echo "Warning: failed to open tracking issue for episode $num"
+    done
+else
+    echo "Reminder: new episode(s) detected ($new_ids) -> run 'yarn transcribe --all --missing', review public/transcripts/, then commit. (gh CLI not found, skipped issue creation)"
+fi
 
 git add .env
 git add public/js/data.json
@@ -78,6 +70,9 @@ git add public/transcripts
 git commit -m "update data.json, .env and firebase.json"
 git push origin main
 
-yarn build && firebase --project septanteminutes deploy --non-interactive
+# --only hosting: this scheduled job deploys the WEBSITE only. The Cloud
+# Function getEpisodesFromRSS lives in a separate (non-public) project and is
+# deployed independently — never from here.
+yarn build && firebase --project septanteminutes deploy --only hosting --non-interactive
 
 exit

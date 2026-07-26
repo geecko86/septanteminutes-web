@@ -2,14 +2,34 @@ name: Update episodes & deploy
 
 on:
   schedule:
-    - cron: '0 */3 * * *'
+    # Runs hourly; the guard job only lets it proceed every 3 hours in
+    # Europe/Brussels local time (DST-aware), 10 minutes after
+    # fetch-episodes-rss.yml's equivalent guard.
+    - cron: '30 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.check.outputs.run }}
+    steps:
+      - id: check
+        run: |
+          hour=$(TZ='Europe/Brussels' date +%H)
+          if [ $((10#$hour % 3)) -eq 0 ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
   update-episodes:
+    needs: guard
+    if: github.event_name == 'workflow_dispatch' || needs.guard.outputs.run == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,6 +66,7 @@ jobs:
         run: bash update_episodes.sh
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
+          GH_TOKEN: ${{ github.token }}
 
       - name: Clean up credential files
         if: always()

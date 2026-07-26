@@ -21,5 +21,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      # Gate for Dependabot auto-merge: a dependency bump that breaks the
+      # test suite must block the merge, not travel silently to the next
+      # episode deploy.
+      - name: Test
+        run: yarn test --run
+
       - name: Build
         run: yarn build

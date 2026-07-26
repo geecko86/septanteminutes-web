@@ -19,8 +19,12 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Enable auto-merge for patch updates
-        if: steps.metadata.outputs.update-type == 'version-update:semver-patch'
+      # Majors stay manual — the only remaining human intervention. Grouped
+      # PRs report the HIGHEST update-type of the group, so a minor+patch
+      # maintenance group qualifies. Auto-merge only completes once the
+      # required "build" status check (tests + build) is green.
+      - name: Enable auto-merge for patch and minor updates
+        if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
