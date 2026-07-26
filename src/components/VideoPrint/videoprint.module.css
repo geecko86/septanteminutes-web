@@ -1,31 +1,43 @@
 /* A glossy photo lab print tucked under the camera prop on the table.
    Sized/positioned relative to the table (the component is mounted inside
    div.table on the episode page, BEFORE the camera image in the DOM so the
-   camera paints over it — the print peeks out from underneath). Like every
-   object in the scene it is never perfectly straight — the base tilt lives in
-   the framer-motion animate (rotate: 6deg), not here, so hover/enter/exit can
-   animate it. */
+   camera paints over it — the print peeks out from underneath). */
 
-.print {
+/* The static hit area: covers the union of the tucked (peek) and slid-out
+   poses, so hovering anywhere over the print — including where it hides
+   behind the camera body — slides it out, and the hover target itself never
+   moves (no hover-in/hover-out oscillation). Purely a positioning/hit box:
+   all the paper visuals live on .print.
+   Geometry: the print is 12% of the table and travels 45% of its own width,
+   so the zone is 12% × 1.45 ≈ 17.4% wide, and the print is 12/17.4 ≈ 69% of
+   the zone, anchored to its right edge. */
+.zone {
   position: absolute;
-  top: 4.5%;
-  left: 13%;
-  width: 12%;
+  top: 6%;
+  left: 7.6%;
+  width: 17.4%;
   display: block;
   cursor: pointer;
   text-decoration: none;
+}
+
+.print {
+  display: block;
+  width: 69%;
+  margin-left: auto;
 
   /* Photo paper: bright white stock, warmer than the table top */
   background: linear-gradient(160deg, #fdfdfb 0%, #f4f2ec 100%);
-  /* The print is absolutely positioned, so % padding resolves against the
-     TABLE's width, not the print's own — these values are table-relative
-     (0.5% of table ≈ 4.2% of the 12%-wide print; thin bottom border, the
-     caption itself provides the white strip). */
-  padding: 0.5% 0.5% 0.08%;
+  /* % padding of an in-flow block resolves against the containing block
+     (.zone, 17.4% of the table) — 2.9% of the zone ≈ 0.5% of the table,
+     i.e. ≈ 4.2% of the print's own width. Thin bottom border, the caption
+     itself provides the white strip. */
+  padding: 2.9% 2.9% 0.5%;
   box-sizing: border-box;
   border-radius: 1px;
   /* Clips the oversized, counter-rotating .gloss layer to the paper's shape */
   overflow: hidden;
+  position: relative;
 
   /* Same shadow level as the vinyl sleeves lying on the table */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 16px 0px, rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
@@ -47,6 +59,23 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
   pointer-events: none;
+  /* Anchors the .develop overlay */
+  position: relative;
+}
+
+/* Undeveloped instant-photo chemistry: the dark, slightly warm/green slab a
+   polaroid shows before it develops. Sits over the image inside the 4:3
+   window; the component fades it out (slowly, like real development) when
+   the print slides out from under the camera. */
+.develop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 90% at 45% 40%,
+    #2e3129 0%,
+    #23251e 55%,
+    #181a15 100%
+  );
 }
 
 .frame {
@@ -85,7 +114,7 @@
    counter-transforms this layer (mirrored framer-motion variants) so the
    sheen stays fixed in world space while the print moves. Oversized
    (inset: -50% → 200% of the print) so the counter-rotation never exposes
-   its edges; the parent's overflow: hidden clips it back to the paper. */
+   its edges; the print's overflow: hidden clips it back to the paper. */
 .gloss {
   position: absolute;
   inset: -50%;
@@ -95,11 +124,11 @@
   background:
     linear-gradient(
       115deg,
-      rgba(255, 255, 255, 0) 41%,
-      rgba(255, 255, 255, 0.28) 47%,
-      rgba(255, 255, 255, 0.42) 49%,
-      rgba(255, 255, 255, 0.1) 52.5%,
-      rgba(255, 255, 255, 0) 56%
+      rgba(255, 255, 255, 0) 37%,
+      rgba(255, 255, 255, 0.28) 43%,
+      rgba(255, 255, 255, 0.42) 45%,
+      rgba(255, 255, 255, 0.1) 48.5%,
+      rgba(255, 255, 255, 0) 52%
     ),
     linear-gradient(
       180deg,
@@ -111,13 +140,13 @@
 
 /* Mobile landscape: the table flips to a tall layout (aspect 1/0.4933) and the
    camera prop stays visible — keep the print near it but rescale to the new
-   proportions. (Mobile portrait never mounts this component.) */
+   proportions. Same zone/print ratio (the print travels the same 45% of its
+   width), print ≈ 14% of the table. (Mobile portrait never mounts this
+   component.) */
 @media (pointer: coarse) and (orientation: landscape) {
-  .print {
-    width: 14%;
-    top: 4%;
-    left: 12%;
-    /* Same table-relative padding math, for the wider print */
-    padding: 0.6% 0.6% 0.1%;
+  .zone {
+    width: 20.3%;
+    top: 5%;
+    left: 5.7%;
   }
 }
