@@ -1,0 +1,124 @@
+name: Deploy security updates
+
+# Deploys the website to Firebase Hosting when a Dependabot SECURITY PR is
+# merged — otherwise merged dependency fixes would sit on main, undeployed,
+# until the next episode triggers update_episodes.sh. Maintenance (weekly
+# version-update) merges deliberately do NOT deploy: they ship with the next
+# episode, under human eyes.
+#
+# workflow_dispatch allows a manual deploy of main through the same
+# test-gated path.
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never run two hosting deploys at once (e.g. against the scheduled
+# update-episodes job); queue instead of cancelling.
+concurrency:
+  group: hosting-deploy
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    # Merged Dependabot PRs only (or a manual dispatch).
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.merged == true &&
+       github.event.pull_request.user.login == 'dependabot[bot]')
+    runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.decide.outputs.deploy }}
+    steps:
+      - name: Fetch dependabot metadata
+        id: metadata
+        if: github.event_name == 'pull_request'
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Decide whether this merge warrants a deploy
+        id: decide
+        env:
+          EVENT: ${{ github.event_name }}
+          # Grouped security PRs carry the group name (see dependabot.yml,
+          # group "security") in their branch; single-dep security PRs are
+          # identified by fetch-metadata's alert-state.
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          ALERT_STATE: ${{ steps.metadata.outputs.alert-state }}
+        run: |
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          elif [[ "$HEAD_REF" == *security* ]] || [ -n "$ALERT_STATE" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            echo "Maintenance merge — will ship with the next episode deploy."
+          fi
+
+  deploy:
+    needs: gate
+    if: needs.gate.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      # Build from the post-merge state of main, not from the PR branch —
+      # this re-runs the full test suite against what will actually deploy.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install yarn
+        run: npm install -g yarn@1.22.22
+
+      - name: Install firebase-tools
+        run: npm install -g firebase-tools@15
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Test
+        run: yarn test --run
+
+      - name: Build
+        run: yarn build
+
+      - name: Sanity-check the static export
+        run: |
+          test -s out/index.html
+          test -s out/js/data.json
+          # An episode page must exist (trailingSlash export: out/<num>/index.html)
+          test -s out/95/index.html
+          grep -qi "septante" out/index.html
+
+      - name: Write Firebase Hosting deploy service account key
+        run: echo "${FIREBASE_SERVICE_ACCOUNT}" > "${RUNNER_TEMP}/firebase-sa.json"
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      - name: Deploy to Firebase Hosting
+        run: firebase --project septanteminutes deploy --only hosting --non-interactive
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
+
+      - name: Post-deploy smoke check
+        run: |
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" https://www.septanteminutes.be/)
+            [ "$code" = "200" ] && exit 0
+            sleep 10
+          done
+          echo "Site did not answer 200 after deploy (last: $code)" >&2
+          exit 1
+
+      - name: Clean up credential file
+        if: always()
+        run: rm -f "${RUNNER_TEMP}/firebase-sa.json"
