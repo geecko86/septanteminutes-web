@@ -20,6 +20,21 @@
   margin: 0;
 }
 
+/* Visually hidden, but exposed to screen readers AND to Readability (reader
+   mode): clipping — unlike display:none — does not count as invisible for
+   either. Used for the episode sheet's listen/watch links. */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .floor,
 .floor>img {
   height: 100%;

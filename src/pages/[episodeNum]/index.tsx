@@ -687,13 +687,21 @@ export default function EpisodeTable(props: {
           onKeyDown={handleKeyPress}
           tabIndex={0}
         >
-          <div className={styles.floor}>
+          {/* The whole visual scene (floor + table and every prop on it) is
+              decorative from a screen reader's point of view — the episode's
+              real content (number, title, description, listen/watch links)
+              lives in the section blocks below. aria-hidden also removes the
+              scene from Firefox's Readability parse, so reader mode shows the
+              episode sheet instead of a pile of prop images. NOT set on .main
+              itself: it carries tabIndex=0 for keyboard navigation, and a
+              focusable element must never be aria-hidden. */}
+          <div className={styles.floor} aria-hidden="true">
             <Image draggable="false" alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="60vw" style={{ objectFit: "cover" }} fill />
             {/* eslint-disable-next-line react-hooks/static-components -- intentional: Chair is a stable useMemo(dynamic(...)) component reference, not recreated each render */}
             { !(isMobileDevice && !isPortrait) && <Chair className={styles.chair} />}
             <div className={styles.invisiblefill} />
           </div>
-          <div className={styles.table}>
+          <div className={styles.table} aria-hidden="true">
             <div className={styles.table_shadow_box}>
               <motion.div className={styles.albums} ref={shadows}>
                 {vinyls.map((_, index) => (
@@ -899,18 +907,41 @@ export default function EpisodeTable(props: {
               }
             }}
           >
+            {/* The episode sheet: the ONLY content exposed to screen readers
+                and to reader mode (the scene is aria-hidden). Number, title,
+                description, and the listen/watch links. The links are
+                visually clipped (srOnly) but NOT display:none — Readability
+                treats clipped content as visible, so Firefox's reader view
+                shows a usable episode sheet. */}
             {(v.num === descriptionEpisode.num) && <>
-              <h1>Septante Minutes Avec {descriptionEpisode.title}</h1>
+              <h1>Épisode {v.num} — Septante Minutes Avec {descriptionEpisode.title}</h1>
               <h2>Description</h2>
               <p dangerouslySetInnerHTML={{ __html: descriptionEpisode.desc }} />
-              {/* Crawlable transcript link — visually hidden, for SEO and podcast apps.
-                  Uses the static prop for the initial episode (baked into HTML at build time)
-                  and the runtime transcriptAvailable for episodes scrolled to. */}
-              {(transcriptAvailable || (v.num === props.episode.num && props.transcriptAvailableStatic)) && (
-                <a href={`/transcripts/${v.num}.vtt`} style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
-                  Transcription de l&apos;épisode {v.num}
-                </a>
-              )}
+              <ul className={styles.srOnly}>
+                {descriptionEpisode.mp3 && (
+                  <li><a href={descriptionEpisode.mp3}>Écouter le MP3</a></li>
+                )}
+                {descriptionEpisode.spotifyLink && (
+                  <li><a href={descriptionEpisode.spotifyLink}>Écouter sur Spotify</a></li>
+                )}
+                {descriptionEpisode.appleLink && (
+                  <li><a href={descriptionEpisode.appleLink}>Écouter sur Apple Podcasts</a></li>
+                )}
+                {descriptionEpisode.youtubeLink && getYoutubeVideoId(descriptionEpisode.youtubeLink) && (
+                  <li><a href={descriptionEpisode.youtubeLink}>Regarder la vidéo sur YouTube</a></li>
+                )}
+                {/* Crawlable transcript link — for SEO and podcast apps too.
+                    Uses the static prop for the initial episode (baked into the
+                    HTML at build time) and the runtime transcriptAvailable for
+                    episodes scrolled to. */}
+                {(transcriptAvailable || (v.num === props.episode.num && props.transcriptAvailableStatic)) && (
+                  <li>
+                    <a href={`/transcripts/${v.num}.vtt`}>
+                      Transcription de l&apos;épisode {v.num}
+                    </a>
+                  </li>
+                )}
+              </ul>
             </>}
           </motion.div>
         ))}

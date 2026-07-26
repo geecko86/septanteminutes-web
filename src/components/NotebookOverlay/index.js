@@ -86,6 +86,13 @@ const NotebookOverlay = ({ title = "", subtitle = "", desc = "", date = "", tran
           >
             <FloatingOverlay
               lockScroll
+              // The open notebook is a purely VISUAL rendition: its content
+              // (title, description, subscribe links) duplicates the episode
+              // sheet exposed in the page sections. Keep it out of the
+              // accessibility tree — otherwise screen readers announce the
+              // whole description twice (and this pre-rendered overlay leaks
+              // into the tree even while closed).
+              aria-hidden="true"
               className={[styles.backdrop, descVisible ? "" : styles.hidden].join(" ")}
               onClick={(e) => {
                 if (!refs.floating.current?.contains(e.target)) {
