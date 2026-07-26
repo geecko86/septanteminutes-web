@@ -63,10 +63,17 @@ const VinylAlbum = React.forwardRef(( {
     [0, -25]
   );
 
+  // Exit-flip distance for translateX: wider on mobile portrait, where the
+  // album sleeve is much wider relative to the viewport than on desktop.
+  const [exitDistanceVW, setExitDistanceVW] = useState<number>(() => {
+    if (typeof window === "undefined") return 50;
+    return window.matchMedia("(pointer: coarse) and (orientation: portrait)").matches ? 115 : 50;
+  });
+
   const translateX = useTransform(
     albumXOffset,
     [(total - position - 1) * -500 - 25, (total - position - 1 + 1) * -500],
-    ["-0vw", "-50vw"]
+    ["-0vw", `-${exitDistanceVW}vw`]
   );
   const translateY = useTransform(
     albumYOffset,
@@ -138,6 +145,12 @@ const VinylAlbum = React.forwardRef(( {
     const id = setTimeout(() => {
       ignoreScrollRef.current = false;
     }, 50);
+
+    // Re-evaluate the exit distance on orientation change.
+    setExitDistanceVW(
+      window.matchMedia("(pointer: coarse) and (orientation: portrait)").matches ? 115 : 50
+    );
+
 
     return () => {
       clearTimeout(id);
