@@ -197,6 +197,24 @@ export default function EpisodeTable(props: {
 
     const currentPosition = getCurrentPosition();
 
+    // Bug #1 landing correction: scroll-snap's destination is "100% of the
+    // container", i.e. a multiple of the container's clientHeight. On mobile,
+    // the browser's URL bar can retract after the initial layout, growing the
+    // container's clientHeight (100%) away from a section's height (100svh).
+    // When that happens the snap still lands "one container-height" away from
+    // the start, which is no longer exactly "one section" away — scrollTop
+    // ends up a few pixels off a section boundary, scrollYProgress is
+    // slightly off an exact multiple, and the vinyl rotation spring (driven by
+    // that progress) never quite reaches -25deg — so it never crosses the
+    // -24deg "hidden" threshold and stays half-visible at the top of the
+    // screen. Fix: snap the container to the exact offsetTop of the section
+    // we landed on, which is what layout/CSS (100svh) actually agrees on.
+    const container = episodePage.current;
+    const sectionEl = container?.children[currentPosition + 1] as HTMLElement | undefined;
+    if (container && sectionEl && Math.abs(container.scrollTop - sectionEl.offsetTop) > 1) {
+      container.scrollTo({ top: sectionEl.offsetTop, behavior: "instant" });
+    }
+
     const currentEpisode = vinyls.length - currentPosition - 1;
     setSelectedPosition(currentPosition);
     setSelectedEpisode(currentEpisode);
