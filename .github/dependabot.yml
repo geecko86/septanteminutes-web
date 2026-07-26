@@ -1,0 +1,30 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Brussels
+    # One grouped PR for all minor+patch maintenance (less noise, and a green
+    # grouped PR = a single auto-merge). Majors come as separate PRs and are
+    # deliberately NOT auto-merged (see dependabot-auto-merge.yml).
+    groups:
+      maintenance:
+        applies-to: version-updates
+        update-types:
+          - minor
+          - patch
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Europe/Brussels
