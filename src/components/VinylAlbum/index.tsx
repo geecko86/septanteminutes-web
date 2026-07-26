@@ -26,16 +26,11 @@ import { useEventListener } from "usehooks-ts";
 
 import styles from "./album.module.css";
 
-// How many albums stay force-rendered (display:block) around the current
-// scroll position; the rest are `display:none` (see episode.module.css's
-// `.albums>div[data-window]` rule) to keep paint cost bounded.
+// Albums force-rendered around the current position; the rest are
+// display:none (see .albums>div[data-window] in episode.module.css).
 const VISIBLE_WINDOW_SIZE = 9;
 
-// All instances share the same underlying rotation value at any instant (see
-// the scrollYProgress handler below), so window membership can be computed
-// locally per instance: is a hypothetical album N positions further along
-// already hidden? Mirrors the clamp/interpolate arithmetic `rotateZ` uses,
-// just evaluated for a shifted position.
+// Mirrors rotateZ's clamp/interpolate arithmetic for a shifted position.
 function rotationForPosition(albumRotationValue: number, total: number, position: number): number {
   const k = total - position - 1;
   const inputA = k * -25 - 1;
@@ -44,10 +39,7 @@ function rotationForPosition(albumRotationValue: number, total: number, position
   return fraction * -25;
 }
 
-// `ownHidden` is passed in (rather than derived here) so callers can supply
-// the spring-eased value for this album's own exit state, while still
-// evaluating the "is a further album already hidden" half against raw
-// progress — see call site.
+// ownHidden is the spring-eased exit state; the window edge uses raw progress.
 function computeInWindow(rawRotationValue: number, total: number, position: number, ownHidden: boolean): boolean {
   if (ownHidden) return false;
   const shiftedRotation = rotationForPosition(rawRotationValue, total, position + VISIBLE_WINDOW_SIZE);
@@ -92,8 +84,7 @@ const VinylAlbum = React.forwardRef(( {
     [0, -25]
   );
 
-  // Exit-flip distance for translateX: wider on mobile portrait, where the
-  // album sleeve is much wider relative to the viewport than on desktop.
+  // Exit distance: sleeves are far wider vs the viewport on mobile portrait.
   const [exitDistanceVW, setExitDistanceVW] = useState<number>(() => {
     if (typeof window === "undefined") return 50;
     return window.matchMedia("(pointer: coarse) and (orientation: portrait)").matches ? 115 : 50;
@@ -121,8 +112,7 @@ const VinylAlbum = React.forwardRef(( {
   // No re-render is needed so we keep it as a ref.
   const jumpRef = useRef(true);
 
-  // Mirrors `gone` (computed in the rotateZ-change handler below) so the
-  // scrollYProgress handler can read the spring-eased exit state.
+  // Spring-eased exit state, readable from the scrollYProgress handler.
   const goneRef = useRef(false);
 
   // --- Refs for DOM nodes whose visual state is mutated directly on every
@@ -142,8 +132,7 @@ const VinylAlbum = React.forwardRef(( {
   // starts in the right state before any scroll event fires.
   const initiallyHidden = position > episodeNumParam;
 
-  // Pre-scroll window-of-9, based on episodeNumParam rather than rotation
-  // (springs haven't been driven by scroll yet).
+  // Pre-scroll window membership (springs not driven yet).
   const initiallyInWindow = !initiallyHidden && position > episodeNumParam - VISIBLE_WINDOW_SIZE;
 
   // This effect mirrors the old useEffect that drove `setHidden`. It now writes
@@ -166,9 +155,8 @@ const VinylAlbum = React.forwardRef(( {
 
   useMotionValueEvent(scrollYProgress, "change", (progress: number) => {
     if (position != 0 && !ignoreScrollRef.current) {
-      // Computed here (not in the rotateZ-change handler) because
-      // scrollYProgress fires for every instance on every tick, regardless of
-      // whether this instance's own rotation is currently changing.
+      // Driven by scrollYProgress: it ticks for every instance every frame,
+      // unlike rotateZ which is silent while this instance's spring is idle.
       if (mayAnimate) {
         const inWindow = computeInWindow(progress * (total - 1) * -25, total, position, goneRef.current);
         const target = type === "shadow" ? shadowContainerRef.current : hoverContainerRef.current;

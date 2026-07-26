@@ -103,18 +103,10 @@ export default function EpisodeTable(props: {
   const mainRef = useRef<HTMLDivElement>(null);
   const shadows = useRef<HTMLDivElement>(null);
   const idleAnimationTimeoutIdRef = useRef<NodeJS.Timeout | undefined>(undefined);
-  // Bug #3 guard: armed the instant a resize/orientation-change event fires,
-  // disarmed ~400ms after the last one (300ms debounce below + 100ms after the
-  // corrective scrollTo settles). While armed, scrollCallback must not touch
-  // selectedPosition/selectedEpisode/displayedURL — a rotation briefly makes
-  // scrollTop inconsistent with the new dimensions, and without this guard
-  // scrollCallback reads that inconsistent scrollTop as "the user scrolled
-  // through several episodes" before the resize handler below gets a chance
-  // to correct it.
+  // While a resize/orientation-change settles, scrollCallback must not
+  // update selection/URL from a transiently inconsistent scrollTop.
   const isResizingRef = useRef(false);
-  // Cleanup for the "force landing" scroll listener installed by the resize
-  // handler below (see comment there) — lets a new resize/rotation event
-  // tear down a still-active previous one before installing its own.
+  // Tears down a previous rotation's force-landing loop (see resize handler).
   const resizeForceCleanupRef = useRef<(() => void) | undefined>(undefined);
   const hasClickedNotebookRef = useRef(hasClickedNotebook);
   const hasClickedPlayRef = useRef(hasClickedPlay);
@@ -208,28 +200,14 @@ export default function EpisodeTable(props: {
       (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)((pendingScrollActions.shift() as () => void))
     }
 
-    // Bug #3 guard: a resize/orientation-change is in flight. scrollTop is
-    // momentarily inconsistent with the container's new dimensions (the
-    // container is measured in "100%" — large viewport — while sections are
-    // 100svh — small viewport — so the two can diverge for a frame around a
-    // rotation). Bail out here and let the debounced resize handler restore
-    // the correct scroll position/selection once dimensions have settled.
+    // Resize in flight: the debounced resize handler will restore position.
     if (isResizingRef.current) return;
 
     const currentPosition = getCurrentPosition();
 
-    // Bug #1 landing correction: scroll-snap's destination is "100% of the
-    // container", i.e. a multiple of the container's clientHeight. On mobile,
-    // the browser's URL bar can retract after the initial layout, growing the
-    // container's clientHeight (100%) away from a section's height (100svh).
-    // When that happens the snap still lands "one container-height" away from
-    // the start, which is no longer exactly "one section" away — scrollTop
-    // ends up a few pixels off a section boundary, scrollYProgress is
-    // slightly off an exact multiple, and the vinyl rotation spring (driven by
-    // that progress) never quite reaches -25deg — so it never crosses the
-    // -24deg "hidden" threshold and stays half-visible at the top of the
-    // screen. Fix: snap the container to the exact offsetTop of the section
-    // we landed on, which is what layout/CSS (100svh) actually agrees on.
+    // scroll-snap targets multiples of clientHeight, but sections are 100svh;
+    // on mobile the URL bar makes them diverge and snaps land off-boundary
+    // (leaving exit springs short of the -24deg hidden threshold) — realign.
     const container = episodePage.current;
     const sectionEl = container?.children[currentPosition + 1] as HTMLElement | undefined;
     if (container && sectionEl && Math.abs(container.scrollTop - sectionEl.offsetTop) > 1) {
@@ -239,13 +217,8 @@ export default function EpisodeTable(props: {
     const currentEpisode = vinyls.length - currentPosition - 1;
     setSelectedPosition(currentPosition);
     setSelectedEpisode(currentEpisode);
-    // Relative path WITH trailing slash, to be strictly comparable to
-    // router.asPath (next.config.js: trailingSlash: true). The previous
-    // absolute URL without the slash could never match asPath, so the URL
-    // effect below re-issued a shallow router.replace every 200ms forever —
-    // each replaceState makes Firefox re-evaluate reader mode, endlessly
-    // blinking the "reader view" icon in its URL bar (and wasting CPU on
-    // every browser).
+    // Trailing slash to match router.asPath exactly (trailingSlash: true) —
+    // a mismatch here re-issues a shallow replace every 200ms forever.
     const newUrl = `/${currentEpisode + 1}/`;
     setDisplayedURL(newUrl);
   }, [pendingScrollActions, getCurrentPosition, vinyls.length]);
@@ -469,13 +442,9 @@ export default function EpisodeTable(props: {
   });
 
   useEventListener("resize", (e) => {
-    // Bug #3: arm the guard the instant resize/orientation-change starts
-    // firing, so scrollCallback ignores any snap settling triggered by the
-    // transient scrollTop/dimension mismatch until we've corrected it below.
+    // Ignore snap settlements until the rotation is corrected below.
     isResizingRef.current = true;
-    // A previous rotation's forcing loop may still be active (e.g. two
-    // resize events fire back-to-back) — tear it down before starting a new
-    // one so they don't fight each other.
+    // Two quick rotations must not run competing forcing loops.
     resizeForceCleanupRef.current?.();
     if (timeoutId) clearTimeout(timeoutId);
     const newId = setTimeout(() => {
@@ -485,28 +454,13 @@ export default function EpisodeTable(props: {
         return;
       }
 
-      // Bug #1: prefer the exact offsetTop of the section for selectedPosition
-      // over selectedPosition * clientHeight — clientHeight reflects the
-      // container's "100%" (large viewport on mobile), which can diverge from
-      // a section's 100svh height, landing scroll a few pixels off the
-      // section boundary.
+      // The section's real offsetTop, not position*clientHeight (svh divergence).
       const sectionEl = container.children[selectedPosition + 1] as HTMLElement | undefined;
       const destination = sectionEl?.offsetTop ?? (selectedPosition * container.clientHeight);
 
-      // Bug #3: on a real rotation, the layout keeps reflowing for a while
-      // after the resize event (media queries swapping the Chair/Headphones/
-      // camera elements in and out, .main's own height rule changing) and
-      // Chrome's scroll anchoring nudges scrollTop a little on every one of
-      // those reflows — each nudge is a real 'scroll' event, which restarts
-      // scroll-snap's own internal (auto-)snap-to-nearest-destination cycle.
-      // That cycle computes "nearest" using the container's clientHeight,
-      // which is momentarily wrong here, so it can drag the container to a
-      // completely different section (observed: rotating away from episode 25
-      // landed on section 51 — roughly double, matching the section height
-      // roughly halving in landscape) — a single fire-and-forget scrollTo
-      // loses that race. Instead, keep re-asserting our destination on every
-      // 'scroll' event until nothing moves again for a bit, which converges
-      // regardless of how many extra scroll/reflow cycles happen meanwhile.
+      // Post-rotation reflows keep nudging scrollTop (scroll anchoring), each
+      // nudge restarting scroll-snap's snap-to-nearest with transiently wrong
+      // dimensions — keep re-asserting the destination until scroll stabilizes.
       let settleTimeout: ReturnType<typeof setTimeout>;
       const holdDestination = () => {
         container.scrollTo({ top: destination, behavior: "instant" });
@@ -687,14 +641,8 @@ export default function EpisodeTable(props: {
           onKeyDown={handleKeyPress}
           tabIndex={0}
         >
-          {/* The whole visual scene (floor + table and every prop on it) is
-              decorative from a screen reader's point of view — the episode's
-              real content (number, title, description, listen/watch links)
-              lives in the section blocks below. aria-hidden also removes the
-              scene from Firefox's Readability parse, so reader mode shows the
-              episode sheet instead of a pile of prop images. NOT set on .main
-              itself: it carries tabIndex=0 for keyboard navigation, and a
-              focusable element must never be aria-hidden. */}
+          {/* Decorative scene: the episode sheet below carries the real content.
+              Not on .main — focusable elements must never be aria-hidden. */}
           <div className={styles.floor} aria-hidden="true">
             <Image draggable="false" alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="60vw" style={{ objectFit: "cover" }} fill />
             {/* eslint-disable-next-line react-hooks/static-components -- intentional: Chair is a stable useMemo(dynamic(...)) component reference, not recreated each render */}
@@ -907,12 +855,8 @@ export default function EpisodeTable(props: {
               }
             }}
           >
-            {/* The episode sheet: the ONLY content exposed to screen readers
-                and to reader mode (the scene is aria-hidden). Number, title,
-                description, and the listen/watch links. The links are
-                visually clipped (srOnly) but NOT display:none — Readability
-                treats clipped content as visible, so Firefox's reader view
-                shows a usable episode sheet. */}
+            {/* The episode sheet — the only SR/reader-mode content. srOnly is
+                clipped, not display:none, so Readability still sees the links. */}
             {(v.num === descriptionEpisode.num) && <>
               <h1>Épisode {v.num} — Septante Minutes Avec {descriptionEpisode.title}</h1>
               <h2>Description</h2>
