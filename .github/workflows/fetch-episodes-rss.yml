@@ -23,7 +23,7 @@ jobs:
           read -r month hour <<< "$(TZ='Europe/Brussels' date '+%m %H')"
           # The show does not publish over the summer, so there is nothing to
           # sync. workflow_dispatch still runs — see the job condition below.
-          if [ "$month" = "08" ]; then
+          if [ "$month" = "08" ] || [ "$month" = "07" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
             echo "Summer break — no episodes expected in month $month."
           elif [ $((10#$hour % 3)) -eq 0 ]; then
