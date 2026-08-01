@@ -6,7 +6,7 @@
  * desktop and mobile in both builds and diffed pixel by pixel, then a set of
  * interaction flows is driven with a real browser in both builds. A flow that
  * works in the baseline but breaks in the candidate is a regression; a flow
- * broken in both was already broken and only gets reported as a note.
+ * broken in both means the check itself is broken and is reported just as loudly.
  *
  * Usage:
  *   node scripts/ux-check.mjs --head out --base out-base [--report ux-report]
@@ -64,18 +64,45 @@ function episodeCount() {
   return 1;
 }
 
+// Interview directories are named `<episodeNumber>-<slug>` and the slug isn't
+// derivable from EPISODES_COUNT alone, so resolve it from the build itself —
+// a route that vanishes (episode renumbered, dir missing) degrades to "skip"
+// rather than a hardcoded slug going stale and crashing the sweep.
+function interviewLatestRoute(dir) {
+  const parent = path.join(dir, 'podcast', 'interview');
+  const prefix = `${episodeCount()}-`;
+  const match = fs.readdirSync(parent, { withFileTypes: true }).find(
+    (entry) => entry.isDirectory() && entry.name.startsWith(prefix)
+  );
+  return match ? `/podcast/interview/${match.name}/` : null;
+}
+
 const CANDIDATE_ROUTES = [
   { name: 'home', url: '/' },
-  { name: 'faq', url: '/faq/' },
+  // Ordinary document flow — the only route where a full-page capture is
+  // both meaningful (real below-the-fold content) and stable.
+  { name: 'faq', url: '/faq/', fullPage: true },
   { name: 'episode-first', url: '/1/' },
   { name: 'episode-latest', url: `/${episodeCount()}/` },
+  { name: 'interview-latest', resolve: interviewLatestRoute },
 ];
 
 function routesFor(dir) {
-  return CANDIDATE_ROUTES.filter((route) =>
-    fs.existsSync(path.join(dir, route.url.replace(/^\/|\/$/g, ''), 'index.html')) ||
-    route.url === '/'
-  );
+  return CANDIDATE_ROUTES.flatMap((route) => {
+    if (route.resolve) {
+      let url;
+      try {
+        url = route.resolve(dir);
+      } catch {
+        return [];
+      }
+      return url ? [{ ...route, url }] : [];
+    }
+    return route.url === '/' ||
+      fs.existsSync(path.join(dir, route.url.replace(/^\/|\/$/g, ''), 'index.html'))
+      ? [route]
+      : [];
+  });
 }
 
 const VIEWPORTS = [
@@ -215,7 +242,7 @@ async function capture(browser, origin, label) {
       fs.mkdirSync(path.dirname(file), { recursive: true });
       await page.goto(route.url, { waitUntil: 'domcontentloaded' });
       await settle(page);
-      await page.screenshot({ path: file });
+      await page.screenshot({ path: file, fullPage: Boolean(route.fullPage) });
       shots.push({ viewport: viewport.name, route: route.name, file });
     }
     await context.close();
@@ -413,7 +440,9 @@ function renderSummary({ visual, flows, hasBase }) {
     lines.push('');
   }
   if (preexisting.length > 0) {
-    lines.push(`_Already failing on the base branch (not caused by this PR): ${preexisting.map((f) => `\`${f.name}\``).join(', ')}._`, '');
+    lines.push(`🔴 **Check is broken** — ${preexisting.length} flow(s) fail on the base branch too, not just this PR. The harness is not protecting these flows right now and they need repair:`, '');
+    for (const flow of preexisting) lines.push(`- \`${flow.name}\` (${flow.viewport}) — ${flow.detail}`);
+    lines.push('');
   }
 
   return lines.join('\n');
@@ -460,7 +489,7 @@ async function main() {
 
   const regressions = [
     ...visual.filter((v) => v.status !== 'ok'),
-    ...flows.filter((f) => f.regression),
+    ...flows.filter((f) => f.regression || (!f.headOk && !f.baseOk)),
   ];
   const summary = renderSummary({ visual, flows, hasBase });
 
