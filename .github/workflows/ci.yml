@@ -29,9 +29,6 @@ jobs:
           node-version: '22'
           cache: 'yarn'
 
-      - name: Install yarn
-        run: npm install -g yarn@1.22.22
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 

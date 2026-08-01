@@ -36,9 +36,6 @@ jobs:
           node-version: '22'
           cache: 'yarn'
 
-      - name: Install yarn
-        run: npm install -g yarn@1.22.22
-
       - name: Cache Playwright browsers
         uses: actions/cache@v6
         with:

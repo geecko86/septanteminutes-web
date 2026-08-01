@@ -5,7 +5,10 @@ on:
     # Runs hourly; the guard job only lets it proceed every 3 hours in
     # Europe/Brussels local time (DST-aware), 10 minutes after
     # fetch-episodes-rss.yml's equivalent guard.
-    - cron: '30 * * * *'
+    # Months are here as well as in the guard so July and August schedule
+    # nothing at all. Cron is evaluated in UTC, so the guard still owns the
+    # month boundary — the last hours of 30 June are already July in Brussels.
+    - cron: '30 * * 1-6,9-12 *'
   workflow_dispatch:
 
 permissions:
@@ -43,9 +46,6 @@ jobs:
         with:
           node-version: '22'
           cache: 'yarn'
-
-      - name: Install yarn
-        run: npm install -g yarn@1.22.22
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile

@@ -6,7 +6,11 @@ on:
     # Europe/Brussels local time (DST-aware). 10 minutes before
     # update-episodes.yml's equivalent guard, giving the Cloud Function's
     # indeterminate run time room to finish.
-    - cron: '20 * * * *'
+    # Months are here as well as in the guard so July and August schedule
+    # nothing at all, rather than starting a runner 24 times a day to read the
+    # clock and quit. Cron is evaluated in UTC, so the guard still owns the
+    # month boundary — the last hours of 30 June are already July in Brussels.
+    - cron: '20 * * 1-6,9-12 *'
   workflow_dispatch:
 
 permissions:
