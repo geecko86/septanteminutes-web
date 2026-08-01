@@ -1,0 +1,56 @@
+name: Update stale Dependabot PRs
+
+# main requires branches to be up to date before merging (branch protection,
+# strict mode), so every merge leaves the other open PRs BEHIND. Nothing
+# resolves that on its own: GitHub's auto-merge waits rather than updating the
+# branch, and Dependabot only revisits a PR on conflict or on its weekly
+# schedule. A green, auto-merge-armed PR can therefore sit for days needing a
+# nudge no one gives it.
+#
+# This is that nudge, once a day. Updating the branch re-runs the required
+# build check (and the UX review for npm majors) against current main, which is
+# the guarantee strict mode exists to provide.
+
+on:
+  schedule:
+    # 02:00 Europe/Brussels in summer. Cron is UTC and has no DST, so this
+    # drifts to 01:00 local in winter — harmless for a nightly sweep.
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update every Dependabot PR that is behind main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          # mergeStateStatus is computed lazily: GitHub answers UNKNOWN until it
+          # has worked the mergeability out. Ask once to warm it, then read.
+          gh pr list --author 'app/dependabot' --json number >/dev/null
+          sleep 15
+
+          behind=$(gh pr list --state open --author 'app/dependabot' \
+            --json number,mergeStateStatus \
+            --jq '[.[] | select(.mergeStateStatus == "BEHIND") | .number] | .[]')
+
+          if [ -z "$behind" ]; then
+            echo "No Dependabot PR is behind main."
+            exit 0
+          fi
+
+          for pr in $behind; do
+            if gh pr update-branch "$pr"; then
+              echo "· #$pr updated — its checks will re-run against current main"
+            else
+              # A PR that cannot be updated has diverged; Dependabot owns that
+              # case and will recreate it. Never fail the sweep over one PR.
+              echo "· #$pr could not be updated (likely conflicting) — leaving it to Dependabot"
+            fi
+          done
