@@ -18,6 +18,13 @@ review never merges — the PR simply waits, with diff images attached.
 Majors that the review skips (see below) have no UX to inspect, so `build`
 alone gates them.
 
+`main` requires branches to be up to date, so every merge leaves the other open
+PRs behind — and nothing resolves that on its own. GitHub's auto-merge waits
+rather than updating the branch, and Dependabot only revisits a PR on conflict
+or on its weekly schedule; a green, auto-merge-armed PR will otherwise sit for
+days. `update-stale-dependabot-prs.yml` sweeps them nightly at 02:00 local and
+updates any that are behind, which re-runs their checks against current `main`.
+
 Nothing here is irreversible on its own: merging to `main` does not deploy.
 Version updates ship with the next episode, under human eyes — only security
 merges deploy immediately (`deploy-security.yml`).
