@@ -669,6 +669,7 @@ export default function EpisodeTable(props: {
             <Pen className={styles.pen} />
             <Notebook
               className={styles.notebook}
+              data-testid="episode-notebook"
               ref={floatingSetReference}
               {...referenceProps}
               onClick={(e: Event) => {
@@ -738,7 +739,7 @@ export default function EpisodeTable(props: {
                 separate={true}
               />
             </div>
-            <motion.div className={styles.albums} onClick={() => {
+            <motion.div className={styles.albums} data-testid="episode-albums" onClick={() => {
               setHasClickedPlay(true);
               const playClickCount = Number(localStorage.getItem("hasClickedPlay") || 0);
               if (playClickCount < 3) localStorage.setItem("hasClickedPlay", (playClickCount + 1).toString());

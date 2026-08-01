@@ -14,6 +14,11 @@
 next.lock/
 /.firebase
 
+# yarn ux-check (dependency upgrade review)
+/out-head/
+/out-base/
+/ux-report/
+
 # production
 /build
 septanteminutes-*.json
