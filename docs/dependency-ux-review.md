@@ -43,7 +43,9 @@ and compares the two static exports with a real browser:
 
 - **Visual** — `/`, `/faq/`, episode 1 and the latest episode, screenshotted at
   1440×900 and on an emulated iPhone 13, then diffed pixel by pixel. Anything
-  above 0.15 % of changed pixels is reported with a diff image.
+  above 0.02 % of changed pixels is reported with a diff image. Two builds of
+  the same source diff to exactly zero, so that tolerance only has to absorb
+  antialiasing jitter.
 - **Interaction** — six flows driven through the built site: keyboard and wheel
   panning of the home scene, starting playback from the album pile, opening the
   notebook overlay, opening the mobile service sheet, and the post-it link back
@@ -64,7 +66,11 @@ identical. Four things make that true, all in `scripts/ux-check.mjs`:
 - `hasMovedHome` is seeded to `3` in `localStorage`, which retires the home
   page's idle swipe animation and the swiper hint. Without it the camera drifts
   between screenshots.
-- Every remote image is served as a 2×2 grey PNG. Layout on this site comes
+- The episode page holds its whole scene at `opacity: 0.001` until its priority
+  images resolve, so the capture waits for that scene to become visible rather
+  than for a fixed delay. On a fixed delay every episode screenshotted as the
+  same loading curtain.
+- Every remote image is served as a flat 2×2 `#9a9a9a` PNG. Layout comes
   from CSS (`next/image` `fill`), so geometry is preserved while the CDN drops
   out of the comparison entirely.
 - CSS animations and transitions are zeroed out and the context runs with
