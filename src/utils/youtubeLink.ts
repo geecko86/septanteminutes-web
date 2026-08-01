@@ -31,11 +31,11 @@ export function getYoutubeVideoId(link?: string): string | null {
   return id && VIDEO_ID.test(id) ? id : null;
 }
 
-// The build pipeline writes either a native 320x180 M13 storyboard tile or a
-// maxres2 YouTube fallback at this stable local URL. Keeping both sources
-// behind one path makes the acquisition fallback invisible to the component.
-export function getGeneratedYoutubeFrameUrl(videoId: string): string {
-  return `/generated/video-frames/${videoId}.webp`;
+// The build pipeline writes a native M13 tile, the last deployed frame, or a
+// maxres2 fallback at this stable local URL. Keeping every source behind one
+// path makes the build-time acquisition cascade invisible to the component.
+export function getGeneratedYoutubeFrameUrl(videoId: string, format: "webp" | "jpg" = "webp"): string {
+  return `/generated/video-frames/${videoId}.${format}`;
 }
 
 // Network fallback for a missing build artifact. This does not guarantee that

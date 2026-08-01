@@ -48,6 +48,7 @@ const NotebookOverlay = ({ title = "", subtitle = "", desc = "", date = "", tran
       <FloatingPortal>
         <AnimatePresence>
           <motion.div
+            data-testid="notebook-overlay"
             initial="close"
             exit="close"
             variants={{

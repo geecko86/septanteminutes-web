@@ -1,0 +1,160 @@
+name: Dependabot major review
+
+# Majors are the one class of dependency PR that never auto-merges — they wait
+# for a human. This workflow does the tedious half of that human's job: it
+# builds the site twice (base branch vs the bump), diffs every key route on
+# desktop and mobile, and drives the real interactions in a browser. A green
+# check means the upgrade looks and behaves like the current site; a red one
+# means there is something specific to go and look at, with diff images
+# attached.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: major-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    outputs:
+      review: ${{ steps.decide.outputs.review }}
+    steps:
+      - name: Fetch dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      # Two builds cost ~10 minutes, so they are spent only where a major could
+      # plausibly change what a visitor sees. Skipped: anything that never
+      # reaches the browser (types, lint, tests, build tooling that only reads
+      # code) and anything used solely by the offline pipelines. NOT skipped:
+      # the CSS/minification pipeline (cssnano, terser, *-loader, webpack) and
+      # sharp — those shape the emitted output and can absolutely move pixels.
+      - name: Decide whether a UX review is warranted
+        id: decide
+        env:
+          UPDATE_TYPE: ${{ steps.metadata.outputs.update-type }}
+          ECOSYSTEM: ${{ steps.metadata.outputs.package-ecosystem }}
+          NAMES: ${{ steps.metadata.outputs.dependency-names }}
+        run: |
+          if [ "$UPDATE_TYPE" != "version-update:semver-major" ] || [ "$ECOSYSTEM" != "npm_and_yarn" ]; then
+            echo "review=false" >> "$GITHUB_OUTPUT"
+            echo "Not an npm major — nothing to review."
+            exit 0
+          fi
+
+          review=false
+          for name in ${NAMES//,/ }; do
+            case "$name" in
+              # Type declarations — erased before anything runs.
+              @types/*) skip="type declarations" ;;
+              # Type checking and linting — never part of the bundle.
+              typescript|eslint|eslint-*|@eslint/*) skip="typecheck/lint only" ;;
+              # Test tooling — the test suite is its own CI gate.
+              vitest|@vitest/*|@vitejs/plugin-react|jsdom|@testing-library/*) skip="test tooling" ;;
+              # This checker itself, plus the bundle analyser.
+              playwright|@playwright/*|pixelmatch|pngjs|@next/bundle-analyzer) skip="dev tooling" ;;
+              # Offline pipelines: transcription, dubbing, Firestore export.
+              @anthropic-ai/sdk|firebase-admin) skip="offline pipeline only" ;;
+              *) skip="" ;;
+            esac
+            if [ -n "$skip" ]; then
+              echo "· $name — skipped ($skip)"
+            else
+              echo "· $name — reaches the browser, reviewing"
+              review=true
+            fi
+          done
+
+          echo "review=$review" >> "$GITHUB_OUTPUT"
+
+  ux-review:
+    needs: gate
+    if: needs.gate.outputs.review == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install yarn
+        run: npm install -g yarn@1.22.22
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('yarn.lock') }}
+          restore-keys: playwright-
+
+      - name: Install dependencies (candidate)
+        run: yarn install --frozen-lockfile
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build candidate
+        run: yarn build
+
+      - name: Stash candidate export
+        run: mv out out-head
+
+      # The baseline is built from the PR's merge base with the same commands,
+      # in a worktree with its own node_modules, so the only difference between
+      # the two exports is the dependency bump itself.
+      - name: Build baseline
+        run: |
+          git worktree add ../baseline ${{ github.event.pull_request.base.sha }}
+          cd ../baseline
+          yarn install --frozen-lockfile
+          yarn build
+          mv out "$GITHUB_WORKSPACE/out-base"
+
+      - name: UX check
+        id: ux
+        run: yarn ux-check --head out-head --base out-base --report ux-report
+
+      - name: Upload screenshots and diffs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ux-report
+          path: ux-report
+          retention-days: 14
+
+      - name: Publish result
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          if [ ! -f ux-report/summary.md ]; then
+            echo "## UX check" > ux-report/summary.md
+            echo "" >> ux-report/summary.md
+            echo "The check did not produce a report — see the job log." >> ux-report/summary.md
+          fi
+          {
+            cat ux-report/summary.md
+            echo ""
+            echo "_Screenshots and diff images are attached to this run as the \`ux-report\` artifact._"
+          } > comment.md
+          cat comment.md >> "$GITHUB_STEP_SUMMARY"
+          # Commenting needs a write-scoped token; the step summary above is
+          # always there as a fallback, so a failure here must not fail the job.
+          gh pr comment "$PR_URL" --body-file comment.md --edit-last \
+            || gh pr comment "$PR_URL" --body-file comment.md \
+            || echo "Could not comment on the PR — see the job summary."

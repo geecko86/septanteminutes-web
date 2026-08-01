@@ -26,15 +26,22 @@ firebase deploy           # deploy to Firebase Hosting (site: septanteminutesbe)
 
 `yarn build` also prepares the YouTube photo-print images. It selects the
 guest-focused tile from YouTube's M13 storyboard and stores it at its native
-320x180 resolution. This is the same lightweight process on local Macs and the
+320x180 resolution as both WebP and JPEG, allowing the browser to choose WebP
+with a JPEG fallback. This is the same lightweight process on local Macs and the
 Ubuntu runners used by GitHub Actions; it does not install Python packages,
 download models, or run AI inference.
 
-If the storyboard or crop cannot be obtained, the prebuild downloads
-`maxres2.webp`, falling back to `maxres2.jpg`. A failed build-time fetch does
-not block the site export; the lazy-loaded photo retries those same maxres2
-URLs in the browser. Set `VIDEO_THUMBNAILS_REFRESH=1` to regenerate cached
-images.
+On hosted runners, a direct YouTube request may omit the storyboard data. When
+`STORYBOARD_PROXY_URL` and `STORYBOARD_PROXY_TOKEN` are set, the prebuild retries
+through the narrow authenticated Raspberry Pi service described in
+[`docs/storyboard-proxy.md`](docs/storyboard-proxy.md). It then preserves the
+currently deployed frame from `septanteminutes.be`; if that is unavailable or
+invalid, it downloads `maxres2.webp`, falling back to `maxres2.jpg`. A failed
+build-time fetch does not block the site export. Set
+`VIDEO_THUMBNAILS_REFRESH=1` to regenerate cached images.
+
+The environment-based proxy is deliberately disabled outside GitHub Actions.
+Local `yarn build` always uses the direct YouTube/deployed/maxres2 cascade.
 
 ### Tests
 

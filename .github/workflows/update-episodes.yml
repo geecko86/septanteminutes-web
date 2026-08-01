@@ -67,6 +67,8 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
           GH_TOKEN: ${{ github.token }}
+          STORYBOARD_PROXY_TOKEN: ${{ secrets.STORYBOARD_PROXY_TOKEN }}
+          STORYBOARD_PROXY_URL: ${{ secrets.STORYBOARD_PROXY_URL }}
 
       - name: Clean up credential files
         if: always()

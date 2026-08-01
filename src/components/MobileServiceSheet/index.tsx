@@ -47,6 +47,7 @@ export default function MobileServiceSheet({ open, onDismiss, header, children }
               quickly (velocity > 500) to dismiss it. */}
           <motion.div
             className={styles.sheet}
+            data-testid="service-sheet"
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '100%' }}

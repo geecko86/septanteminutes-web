@@ -25,7 +25,9 @@ describe("VideoPrint", () => {
 
     let frame = getFrame();
     expect(frame.getAttribute("loading")).toBe("lazy");
-    expect(frame.getAttribute("src")).toBe(`/generated/video-frames/${videoId}.webp`);
+    expect(frame.getAttribute("src")).toBe(`/generated/video-frames/${videoId}.jpg`);
+    expect(document.querySelector("source")?.getAttribute("srcset"))
+      .toBe(`/generated/video-frames/${videoId}.webp`);
     expect(frame.getAttribute("data-loaded")).toBe("false");
 
     fireEvent.load(frame);
@@ -90,12 +92,12 @@ describe("VideoPrint", () => {
 
     const nextFrame = getFrame();
     expect(nextFrame).not.toBe(previousFrame);
-    expect(nextFrame.getAttribute("src")).toBe(`/generated/video-frames/${nextVideoId}.webp`);
+    expect(nextFrame.getAttribute("src")).toBe(`/generated/video-frames/${nextVideoId}.jpg`);
     expect(nextFrame.getAttribute("data-loaded")).toBe("false");
 
     // The previous element is no longer connected, so its late failure cannot
     // alter the newly mounted frame's retry state.
     fireEvent.error(previousFrame);
-    expect(nextFrame.getAttribute("src")).toBe(`/generated/video-frames/${nextVideoId}.webp`);
+    expect(nextFrame.getAttribute("src")).toBe(`/generated/video-frames/${nextVideoId}.jpg`);
   });
 });

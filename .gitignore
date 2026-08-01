@@ -14,6 +14,11 @@
 next.lock/
 /.firebase
 
+# yarn ux-check (dependency upgrade review)
+/out-head/
+/out-base/
+/ux-report/
+
 # production
 /build
 septanteminutes-*.json
@@ -70,3 +75,6 @@ __pycache__/
 
 # stray git worktrees left behind by background agent runs
 /.claude/worktrees/
+
+# machine-local Claude permissions and preferences
+/.claude/settings.local.json
