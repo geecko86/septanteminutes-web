@@ -68,7 +68,7 @@ jobs:
     steps:
       # Build from the post-merge state of main, not from the PR branch —
       # this re-runs the full test suite against what will actually deploy.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main
 
