@@ -64,19 +64,9 @@ function episodeCount() {
   return 1;
 }
 
-// Interview directories are named `<episodeNumber>-<slug>` and the slug isn't
-// derivable from EPISODES_COUNT alone, so resolve it from the build itself —
-// a route that vanishes (episode renumbered, dir missing) degrades to "skip"
-// rather than a hardcoded slug going stale and crashing the sweep.
-function interviewLatestRoute(dir) {
-  const parent = path.join(dir, 'podcast', 'interview');
-  const prefix = `${episodeCount()}-`;
-  const match = fs.readdirSync(parent, { withFileTypes: true }).find(
-    (entry) => entry.isDirectory() && entry.name.startsWith(prefix)
-  );
-  return match ? `/podcast/interview/${match.name}/` : null;
-}
-
+// /podcast/interview/<n>-<slug>/ is deliberately absent: it renders the same
+// desk component as /<n>/, so photographing it produced a byte-identical
+// mobile screenshot and cost a page load in both builds for no signal.
 const CANDIDATE_ROUTES = [
   { name: 'home', url: '/' },
   // Ordinary document flow — the only route where a full-page capture is
@@ -84,25 +74,13 @@ const CANDIDATE_ROUTES = [
   { name: 'faq', url: '/faq/', fullPage: true },
   { name: 'episode-first', url: '/1/' },
   { name: 'episode-latest', url: `/${episodeCount()}/` },
-  { name: 'interview-latest', resolve: interviewLatestRoute },
 ];
 
 function routesFor(dir) {
-  return CANDIDATE_ROUTES.flatMap((route) => {
-    if (route.resolve) {
-      let url;
-      try {
-        url = route.resolve(dir);
-      } catch {
-        return [];
-      }
-      return url ? [{ ...route, url }] : [];
-    }
-    return route.url === '/' ||
-      fs.existsSync(path.join(dir, route.url.replace(/^\/|\/$/g, ''), 'index.html'))
-      ? [route]
-      : [];
-  });
+  return CANDIDATE_ROUTES.filter((route) =>
+    fs.existsSync(path.join(dir, route.url.replace(/^\/|\/$/g, ''), 'index.html')) ||
+    route.url === '/'
+  );
 }
 
 const VIEWPORTS = [
