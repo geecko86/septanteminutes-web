@@ -70,3 +70,6 @@ __pycache__/
 
 # stray git worktrees left behind by background agent runs
 /.claude/worktrees/
+
+# machine-local Claude permissions and preferences
+/.claude/settings.local.json

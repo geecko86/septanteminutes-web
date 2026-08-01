@@ -90,6 +90,9 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          STORYBOARD_PROXY_TOKEN: ${{ secrets.STORYBOARD_PROXY_TOKEN }}
+          STORYBOARD_PROXY_URL: ${{ secrets.STORYBOARD_PROXY_URL }}
 
       - name: Sanity-check the static export
         run: |

@@ -72,8 +72,9 @@ function DevelopingFrame(props: {
   const [useGeneratedFrame, setUseGeneratedFrame] = React.useState(true);
   const [loaded, setLoaded] = React.useState(false);
   const [concealingForSwap, setConcealingForSwap] = React.useState(false);
+  const generatedWebpUrl = getGeneratedYoutubeFrameUrl(displayedFrame.videoId, "webp");
   const frameUrl = useGeneratedFrame
-    ? getGeneratedYoutubeFrameUrl(displayedFrame.videoId)
+    ? getGeneratedYoutubeFrameUrl(displayedFrame.videoId, "jpg")
     : getYoutubeFrameUrl(displayedFrame.videoId, frameRetry, frameFormat);
   const covered = !props.revealed || !loaded || concealingForSwap;
 
@@ -120,8 +121,10 @@ function DevelopingFrame(props: {
   return (
     <>
       <span className={styles.picture}>
-        { /* eslint-disable-next-line @next/next/no-img-element */}
-        <motion.img
+        <picture className={styles.sources}>
+          {useGeneratedFrame && <source srcSet={generatedWebpUrl} type="image/webp" />}
+          { /* eslint-disable-next-line @next/next/no-img-element */}
+          <motion.img
           // Each retry gets a fresh request lifecycle. The DevelopingFrame
           // holds the old video through its conceal phase, then resets before
           // mounting the next frame behind opaque chemistry.
@@ -160,7 +163,8 @@ function DevelopingFrame(props: {
           }}
           transition={transition}
           draggable="false"
-        />
+          />
+        </picture>
       </span>
       {/* Warm color-print patina, grain and optical falloff. Kept separate
           from the image so the source stays legible. */}

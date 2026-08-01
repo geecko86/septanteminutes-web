@@ -12,6 +12,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src/",
+    "storyboard-proxy": "node scripts/storyboard-proxy.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "transcribe": "node scripts/transcribe.mjs"

@@ -49,6 +49,7 @@ describe('getYoutubeVideoId', () => {
 describe('getYoutubeFrameUrl', () => {
   it('builds the stable local URL generated from M13 during yarn build', () => {
     expect(getGeneratedYoutubeFrameUrl('qNzGPn4wHnQ')).toBe('/generated/video-frames/qNzGPn4wHnQ.webp');
+    expect(getGeneratedYoutubeFrameUrl('qNzGPn4wHnQ', 'jpg')).toBe('/generated/video-frames/qNzGPn4wHnQ.jpg');
   });
 
   it('builds a max-resolution JPEG frame URL by default', () => {
