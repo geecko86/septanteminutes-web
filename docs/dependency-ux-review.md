@@ -15,8 +15,16 @@ auto-merge when it passes; GitHub then holds the merge until the required
 `build` check is green, so neither half can land a bump on its own. A failing
 review never merges — the PR simply waits, with diff images attached.
 
-Majors that the review skips (see below) have no UX to inspect, so `build`
-alone gates them.
+npm majors that the review skips (see below) have no UX to inspect, so `build`
+alone gates them. GitHub Actions majors always wait for a human: several of
+them *are* the actions the review runs on, and nothing in CI exercises a
+workflow file, so auto-merging one would change the reviewer with no way to
+notice it broke.
+
+The review withdraws any existing auto-merge authorisation when it starts.
+Auto-merge completes on `build` alone once enabled, so without that a rebase
+could land the PR on the strength of a review of an older base while the fresh
+review was still running.
 
 `main` deliberately does **not** require branches to be up to date before
 merging. That setting deadlocks a queue of validated PRs: one merges, every

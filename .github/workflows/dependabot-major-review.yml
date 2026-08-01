@@ -32,6 +32,7 @@ jobs:
     outputs:
       review: ${{ steps.decide.outputs.review }}
       major: ${{ steps.decide.outputs.major }}
+      npm: ${{ steps.decide.outputs.npm }}
     steps:
       - name: Fetch dependabot metadata
         id: metadata
@@ -57,6 +58,7 @@ jobs:
           if [ "$UPDATE_TYPE" != "version-update:semver-major" ]; then
             echo "major=false" >> "$GITHUB_OUTPUT"
             echo "review=false" >> "$GITHUB_OUTPUT"
+            echo "npm=false" >> "$GITHUB_OUTPUT"
             echo "Not a major — nothing to do."
             exit 0
           fi
@@ -64,9 +66,12 @@ jobs:
 
           if [ "$ECOSYSTEM" != "npm_and_yarn" ]; then
             echo "review=false" >> "$GITHUB_OUTPUT"
-            echo "Action bumps cannot change how the site looks."
+            echo "npm=false" >> "$GITHUB_OUTPUT"
+            echo "An action bump cannot change how the site looks — but nothing"
+            echo "here exercises the workflows either, so it waits for a human."
             exit 0
           fi
+          echo "npm=true" >> "$GITHUB_OUTPUT"
 
           review=false
           for name in ${NAMES//,/ }; do
@@ -99,6 +104,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      # Auto-merge, once enabled, completes on the required "build" check alone.
+      # A rebase therefore re-runs this review but does not wait for it: the PR
+      # can land on the strength of a review of an older base while the fresh
+      # one is still building — cssnano did exactly that. Disarm on the way in
+      # and re-arm only on a pass, so the authorisation always describes the
+      # code being merged.
+      - name: Withdraw any previous authorisation
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --disable-auto "$PR_URL" || echo "no auto-merge was enabled"
+
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
@@ -186,12 +203,18 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: gh pr merge --auto --squash "$PR_URL"
 
-  # Majors the review deliberately skips (types, lint, test and dev tooling,
-  # offline pipelines, GitHub Actions) have no UX to inspect — for those the
-  # required "build" check is the whole story.
+  # npm majors the review skips (types, lint, test and dev tooling, offline
+  # pipelines) have no UX to inspect — for those the required "build" check is
+  # the whole story.
+  #
+  # GitHub Actions majors are excluded on purpose, even though they are just as
+  # invisible to a visitor: several of them are the actions this very workflow
+  # runs on, and nothing in CI exercises a workflow file. Auto-merging those
+  # would land a change to the reviewer with no way to notice it broke until
+  # the next npm major failed confusingly.
   auto-merge-unreviewed:
     needs: gate
-    if: needs.gate.outputs.major == 'true' && needs.gate.outputs.review == 'false'
+    if: needs.gate.outputs.major == 'true' && needs.gate.outputs.review == 'false' && needs.gate.outputs.npm == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Enable auto-merge
