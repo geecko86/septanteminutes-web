@@ -1,0 +1,17 @@
+[Unit]
+Description=Septante Minutes YouTube storyboard proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/services/septante-storyboard-proxy
+EnvironmentFile=%h/.config/septanteminutes/storyboard-proxy.env
+ExecStart=/usr/bin/node %h/services/septante-storyboard-proxy/storyboard-proxy.mjs
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target

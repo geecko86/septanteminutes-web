@@ -9,7 +9,8 @@ updates:
       timezone: Europe/Brussels
     # One grouped PR for all minor+patch maintenance (less noise, and a green
     # grouped PR = a single auto-merge). Majors come as separate PRs and are
-    # deliberately NOT auto-merged (see dependabot-auto-merge.yml).
+    # deliberately NOT auto-merged (see dependabot-auto-merge.yml); they get a
+    # visual + interaction review instead (dependabot-major-review.yml).
     groups:
       maintenance:
         applies-to: version-updates
