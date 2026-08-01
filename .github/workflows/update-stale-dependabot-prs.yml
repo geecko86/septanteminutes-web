@@ -60,11 +60,17 @@ jobs:
           fi
 
           for pr in $behind; do
-            if gh pr update-branch "$pr"; then
-              echo "· #$pr updated — its checks will re-run against current main"
+            # Ask Dependabot to rebase rather than calling `gh pr update-branch`.
+            # update-branch writes a merge commit authored by github-actions,
+            # and runs triggered by that actor sit in the "workflows awaiting
+            # approval" gate — the sweep would replace one manual nudge with
+            # another. A Dependabot-authored push runs unattended.
+            #
+            # This is only safe because the dependency workflows gate on the PR
+            # author: a rebase reassigns github.actor to whoever asked.
+            if gh pr comment "$pr" --body '@dependabot rebase' >/dev/null; then
+              echo "· #$pr — rebase requested from Dependabot"
             else
-              # A PR that cannot be updated has diverged; Dependabot owns that
-              # case and will recreate it. Never fail the sweep over one PR.
-              echo "· #$pr could not be updated (likely conflicting) — leaving it to Dependabot"
+              echo "· #$pr — could not ask for a rebase; leaving it"
             fi
           done
