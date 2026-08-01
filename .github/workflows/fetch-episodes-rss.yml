@@ -9,6 +9,9 @@ on:
     - cron: '20 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   guard:
     runs-on: ubuntu-latest
@@ -29,6 +32,20 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || needs.guard.outputs.run == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Outside the checkout: nothing here commits, but a key in the working
+      # tree is a habit worth not having.
+      - name: Write RSS trigger service account key
+        run: echo "${RSS_TRIGGER_SA}" > "${RUNNER_TEMP}/rss-trigger-sa.json"
+        env:
+          RSS_TRIGGER_SA: ${{ secrets.RSS_TRIGGER_SA }}
+
       - name: Trigger RSS -> Firestore sync
         run: bash scripts/fetch-episodes-rss.sh
+        env:
+          RSS_TRIGGER_KEY_FILE: ${{ runner.temp }}/rss-trigger-sa.json
+
+      - name: Clean up credential file
+        if: always()
+        run: rm -f "${RUNNER_TEMP}/rss-trigger-sa.json"
