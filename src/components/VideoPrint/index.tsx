@@ -57,16 +57,10 @@ function DevelopingFrame(props: {
   revealed: boolean,
 }) {
   const prefersReducedMotion = useReducedMotion();
-  const latestFrame = React.useRef({
+  const [displayedFrame, setDisplayedFrame] = React.useState({
     videoId: props.videoId,
     guestName: props.guestName,
   });
-  latestFrame.current = {
-    videoId: props.videoId,
-    guestName: props.guestName,
-  };
-
-  const [displayedFrame, setDisplayedFrame] = React.useState(latestFrame.current);
   const [frameRetry, setFrameRetry] = React.useState(0);
   const [frameFormat, setFrameFormat] = React.useState<"webp" | "jpg">("webp");
   const [useGeneratedFrame, setUseGeneratedFrame] = React.useState(true);
@@ -78,8 +72,10 @@ function DevelopingFrame(props: {
     : getYoutubeFrameUrl(displayedFrame.videoId, frameRetry, frameFormat);
   const covered = !props.revealed || !loaded || concealingForSwap;
 
-  const showLatestFrame = React.useCallback(() => {
-    setDisplayedFrame(latestFrame.current);
+  // The frame arrives as an argument rather than through a ref: both callers
+  // read it from the render that is currently on screen.
+  const showFrame = React.useCallback((frame: { videoId: string, guestName: string }) => {
+    setDisplayedFrame(frame);
     setFrameRetry(0);
     setFrameFormat("webp");
     setUseGeneratedFrame(true);
@@ -96,7 +92,7 @@ function DevelopingFrame(props: {
         setConcealingForSwap(false);
       }
       if (props.guestName !== displayedFrame.guestName) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- keep the loaded frame while refreshing its accessible name
+        // Keep the loaded frame while refreshing its accessible name.
         setDisplayedFrame((frame) => ({ ...frame, guestName: props.guestName }));
       }
       return;
@@ -105,14 +101,13 @@ function DevelopingFrame(props: {
     if (props.revealed && loaded) {
       // Keep showing the old photograph while its chemistry reforms. The
       // overlay's completion callback performs the hidden JPEG handoff.
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- transition state intentionally follows an external video ID change
       setConcealingForSwap(true);
     } else {
       // The picture is already chemically covered, so the handoff is invisible
       // and does not need an extra transition phase.
-      showLatestFrame();
+      showFrame({ videoId: props.videoId, guestName: props.guestName });
     }
-  }, [concealingForSwap, displayedFrame.guestName, displayedFrame.videoId, loaded, props.guestName, props.revealed, props.videoId, showLatestFrame]);
+  }, [concealingForSwap, displayedFrame.guestName, displayedFrame.videoId, loaded, props.guestName, props.revealed, props.videoId, showFrame]);
 
   const transition = covered
     ? { duration: prefersReducedMotion ? 0.12 : 0.29, ease: "easeInOut" as const }
@@ -123,7 +118,6 @@ function DevelopingFrame(props: {
       <span className={styles.picture}>
         <picture className={styles.sources}>
           {useGeneratedFrame && <source srcSet={generatedWebpUrl} type="image/webp" />}
-          { /* eslint-disable-next-line @next/next/no-img-element */}
           <motion.img
           // Each retry gets a fresh request lifecycle. The DevelopingFrame
           // holds the old video through its conceal phase, then resets before
@@ -183,7 +177,7 @@ function DevelopingFrame(props: {
         animate={{ opacity: covered ? 1 : 0 }}
         transition={transition}
         onAnimationComplete={() => {
-          if (concealingForSwap) showLatestFrame();
+          if (concealingForSwap) showFrame({ videoId: props.videoId, guestName: props.guestName });
         }}
       />
     </>
