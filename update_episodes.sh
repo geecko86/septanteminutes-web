@@ -80,6 +80,9 @@ git push origin main
 # --only hosting: this scheduled job deploys the WEBSITE only. The Cloud
 # Function getEpisodesFromRSS lives in a separate (non-public) project and is
 # deployed independently — never from here.
+# Installed here rather than up front: most runs stop at "no update needed"
+# above, and a global npm install is a slow way to reach that conclusion.
+command -v firebase >/dev/null || npm install -g firebase-tools@15
 yarn build && firebase --project septanteminutes deploy --only hosting --non-interactive
 
 exit
