@@ -20,6 +20,21 @@
   margin: 0;
 }
 
+/* Visually hidden, but exposed to screen readers AND to Readability (reader
+   mode): clipping — unlike display:none — does not count as invisible for
+   either. Used for the episode sheet's listen/watch links. */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .floor,
 .floor>img {
   height: 100%;
@@ -274,8 +289,14 @@
   translate: -50% 0 0px;
 }
 
-.albums>div:nth-last-child(-1n + 9 of :not([data-visibility="hidden"])) {
-  /* eslint-disable */
+.albums>div[data-window="in"] {
+  display: block !important;
+}
+
+/* Play button and loading spinner aren't VinylAlbum instances and never get
+   a data-window attribute, so they need their own visibility override. */
+.albums>div.playButton,
+.albums>div.loading {
   display: block !important;
 }
 
@@ -519,6 +540,11 @@
 .bottomSheet img {
   height: 3.15rem;
   width: 3.15rem;
+}
+
+/* Maps the black glyph to exactly #FF0000, the YouTube button's red */
+.youtubeIcon {
+  filter: invert(19%) sepia(98%) saturate(7808%) hue-rotate(3deg) brightness(92%) contrast(148%);
 }
 
 .bottomSheet span,
@@ -778,7 +804,8 @@
   .main {
     height: 100%;
     width: 100vw;
-    --table_height: 100svmin !important;
+    --table_height: 95vh !important;
+    --table_height: 95svh !important;
   }
 
   .table {
@@ -787,8 +814,9 @@
     height: var(--table_height) !important;
     min-height: unset !important;
     min-width: unset !important;
-    max-height: unset !important;
-    max-width: unset !important;
+    max-height: 95vh !important;
+    max-height: 95svh !important;
+    max-width: 98vw !important;
   }
 
   .postit a > img {
@@ -803,7 +831,7 @@
   }
 }
 
-@media (min-aspect-ratio: 2) {
+@media (min-aspect-ratio: 2) and (pointer: fine) {
   .table {
     max-height: 75vh;
     max-height: 75svh;
