@@ -1,0 +1,61 @@
+name: UX self-check
+
+# Runs the interaction flows in scripts/ux-check.mjs on a GitHub runner, with no
+# baseline and no pull request — the point is not to compare two builds but to
+# answer "does the harness still work here?".
+#
+# Worth having because the flows have failed on a runner while passing on a
+# laptop: a fresh checkout exports without public/api/buildId.txt, which broke
+# the vinyls worker and killed the album flows in CI only. Now that a flow
+# broken on the base build fails the dependency review outright, a silently
+# degraded harness blocks every npm major — so this is the button to press when
+# the checker itself is suspect, rather than waiting to find out on a PR.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  flows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install yarn
+        run: npm install -g yarn@1.22.22
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('yarn.lock') }}
+          restore-keys: playwright-
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build
+        run: yarn build
+
+      # --head alone: no baseline, so the visual diff is skipped and only the
+      # interaction flows run.
+      - name: Run the interaction flows
+        run: yarn ux-check --head out --report ux-report
+
+      - name: Upload the report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ux-self-check
+          path: ux-report
+          retention-days: 7
