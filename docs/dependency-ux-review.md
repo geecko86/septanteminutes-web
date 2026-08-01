@@ -18,24 +18,20 @@ review never merges — the PR simply waits, with diff images attached.
 Majors that the review skips (see below) have no UX to inspect, so `build`
 alone gates them.
 
-Merges go through GitHub's **merge queue**, which is what keeps several open
-PRs from deadlocking each other. Each entry is tested against `main` plus
-everything queued ahead of it and merged in order, so a PR never has to be
-rebased just because another one landed first.
+`main` deliberately does **not** require branches to be up to date before
+merging. That setting deadlocks a queue of validated PRs: one merges, every
+other open PR is instantly behind, and nothing resolves it — auto-merge waits
+rather than updating the branch, and Dependabot only revisits a PR on conflict
+or on its weekly schedule. Automating the update is a trap of its own:
+`gh pr update-branch` run with `GITHUB_TOKEN` puts a `github-actions` commit on
+the branch, and runs triggered by that actor sit in the "workflows awaiting
+approval" gate, so the checks never start; asking Dependabot to rebase instead
+does nothing, since it ignores commands from `github-actions[bot]`. A merge
+queue is the proper answer, but it requires an organization-owned repository.
 
-That deadlock is worth understanding, because the obvious fixes don't work. If
-`main` instead required branches to be up to date, every merge would strand the
-other open PRs, and nothing resolves that by itself: auto-merge waits rather
-than updating the branch, and Dependabot only revisits a PR on conflict or on
-its weekly schedule. Automating the update is a trap too — `gh pr update-branch`
-run with `GITHUB_TOKEN` puts a `github-actions` commit on the branch, and runs
-triggered by that actor sit in the "workflows awaiting approval" gate, so the
-checks never start; asking Dependabot to rebase instead does nothing, since it
-ignores commands from `github-actions[bot]`.
-
-`ci.yml` therefore answers `merge_group` as well as `pull_request` — the queue
-reports under the same required `build` check, and without that trigger it
-would wait forever for a check that never starts.
+The cost of turning it off is that two individually-green bumps can land
+without ever having been built together, so `ci.yml` also runs on pushes to
+`main`. That catches the combination one merge later rather than never.
 
 Nothing here is irreversible on its own: merging to `main` does not deploy.
 Version updates ship with the next episode, under human eyes — only security

@@ -3,10 +3,13 @@ name: CI
 on:
   pull_request:
     branches: [main]
-  # The merge queue validates each entry against main plus everything queued
-  # ahead of it, and reports under this same "build" check. Without this
-  # trigger the queue would wait forever for a check that never starts.
-  merge_group:
+  # main no longer requires PRs to be up to date before merging — that setting
+  # deadlocked every queue of open dependency PRs, and a merge queue (the
+  # proper fix) needs an organization-owned repo. So two bumps that are each
+  # green can now land without ever having been built together. Building main
+  # after every push is what catches that, one merge later instead of never.
+  push:
+    branches: [main]
 
 jobs:
   build:
