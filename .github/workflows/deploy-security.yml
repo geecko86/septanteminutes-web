@@ -38,7 +38,7 @@ jobs:
       - name: Fetch dependabot metadata
         id: metadata
         if: github.event_name == 'pull_request'
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@v3
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
@@ -68,11 +68,11 @@ jobs:
     steps:
       # Build from the post-merge state of main, not from the PR branch —
       # this re-runs the full test suite against what will actually deploy.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 

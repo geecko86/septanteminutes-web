@@ -29,7 +29,10 @@ const ROOT = path.resolve(__dirname, '..');
 // ---------------------------------------------------------------- arguments
 
 function parseArgs(argv) {
-  const out = { report: 'ux-report', threshold: 0.15, settle: 1500 };
+  // Two builds of the same source diff to exactly 0 changed pixels, so the
+  // tolerance only has to absorb antialiasing jitter — 0.15 % was lax enough
+  // to let a real text-metric shift through on the desktop episode page.
+  const out = { report: 'ux-report', threshold: 0.02, settle: 1500 };
   for (let i = 0; i < argv.length; i += 1) {
     const [key, inline] = argv[i].split('=');
     if (!key.startsWith('--')) continue;
@@ -101,6 +104,15 @@ const MIME = {
 function serve(dir) {
   const server = http.createServer((req, res) => {
     const clean = decodeURIComponent(req.url.split('?')[0]);
+    // next.config.js writes public/api/buildId.txt during the build, so a fresh
+    // checkout exports without it — and Firebase answers the miss with the SPA
+    // fallback rather than a 404. A hard 404 here makes the vinyls worker throw,
+    // leaving the episode pages with no data and the album flows dead on
+    // vinyls[selectedEpisode]. Serve a stand-in so CI matches production.
+    if (clean === '/api/buildId.txt' && !fs.existsSync(path.join(dir, 'api/buildId.txt'))) {
+      res.writeHead(200, { 'content-type': 'text/plain' }).end('ux-check');
+      return;
+    }
     let file = path.join(dir, clean);
     // trailingSlash: true — every route is a directory holding an index.html.
     if (!path.extname(file)) file = path.join(file, 'index.html');
@@ -120,11 +132,13 @@ function serve(dir) {
 
 // ------------------------------------------------------- browser determinism
 
-// A 2x2 grey PNG standing in for every remote image. Geometry on this site is
-// CSS-driven (next/image fill), so substituting the bytes keeps the layout
-// identical while removing the CDN from the comparison entirely.
+// A 2x2 flat #9a9a9a PNG standing in for every remote image. Geometry on this
+// site is CSS-driven (next/image fill), so substituting the bytes keeps the
+// layout identical while removing the CDN from the comparison entirely.
+// Flat and neutral on purpose: a coloured placeholder scales up into invented
+// gradients that swamp the scene and make the diff artifact unreadable.
 const PLACEHOLDER_PNG = Buffer.from(
-  'iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEklEQVR42mNkYPhfz0AEYBxVSAcAOAsD/1sVUUgAAAAASUVORK5CYII=',
+  'iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAADklEQVR42mOYBQYMEAoAMpYHOU6YhpUAAAAASUVORK5CYII=',
   'base64'
 );
 
@@ -173,6 +187,19 @@ async function newPage(browser, viewport, origin) {
 
 async function settle(page) {
   await page.waitForLoadState('networkidle').catch(() => {});
+  // The episode page holds its whole scene at opacity 0.001 until the priority
+  // images resolve (up to PRIORITY_IMAGE_TIMEOUT_MS). Screenshotting on a fixed
+  // delay caught the curtain instead of the room — every episode looked alike.
+  await page
+    .waitForFunction(
+      () => {
+        const scene = document.querySelector('[data-testid="episode-scene"]');
+        return !scene || Number(getComputedStyle(scene).opacity) > 0.9;
+      },
+      undefined,
+      { timeout: 10000 }
+    )
+    .catch(() => console.warn('  scene never became visible — capturing anyway'));
   await page.addStyleTag({ content: FREEZE_CSS }).catch(() => {});
   await page.waitForTimeout(args.settle);
 }

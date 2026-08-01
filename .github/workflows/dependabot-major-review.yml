@@ -1,19 +1,20 @@
 name: Dependabot major review
 
-# Majors are the one class of dependency PR that never auto-merges — they wait
-# for a human. This workflow does the tedious half of that human's job: it
-# builds the site twice (base branch vs the bump), diffs every key route on
-# desktop and mobile, and drives the real interactions in a browser. A green
-# check means the upgrade looks and behaves like the current site; a red one
-# means there is something specific to go and look at, with diff images
-# attached.
+# A green build says nothing about whether the scene still looks right, which
+# is why majors used to wait for a human. This workflow answers that question
+# instead: it builds the site twice (base branch vs the bump), diffs every key
+# route on desktop and mobile, and drives the real interactions in a browser.
+#
+# Pass, and the major earns auto-merge — GitHub still holds it until the
+# required "build" check is green, so both halves must agree. Fail, and it
+# waits for a human with diff images attached.
 
 on:
   pull_request:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 concurrency:
@@ -22,14 +23,19 @@ concurrency:
 
 jobs:
   gate:
-    if: github.actor == 'dependabot[bot]'
+    # Who OPENED the PR, not who pushed last: a human asking for a rebase
+    # ("@dependabot rebase") makes that push their own, and gating on the actor
+    # would silently disable the whole review for exactly the PRs someone is
+    # paying attention to.
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
     outputs:
       review: ${{ steps.decide.outputs.review }}
+      major: ${{ steps.decide.outputs.major }}
     steps:
       - name: Fetch dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@v3
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
@@ -46,9 +52,19 @@ jobs:
           ECOSYSTEM: ${{ steps.metadata.outputs.package-ecosystem }}
           NAMES: ${{ steps.metadata.outputs.dependency-names }}
         run: |
-          if [ "$UPDATE_TYPE" != "version-update:semver-major" ] || [ "$ECOSYSTEM" != "npm_and_yarn" ]; then
+          # Patch and minor are none of this workflow's business: they are
+          # grouped, reviewed and auto-merged by dependabot-auto-merge.yml.
+          if [ "$UPDATE_TYPE" != "version-update:semver-major" ]; then
+            echo "major=false" >> "$GITHUB_OUTPUT"
             echo "review=false" >> "$GITHUB_OUTPUT"
-            echo "Not an npm major — nothing to review."
+            echo "Not a major — nothing to do."
+            exit 0
+          fi
+          echo "major=true" >> "$GITHUB_OUTPUT"
+
+          if [ "$ECOSYSTEM" != "npm_and_yarn" ]; then
+            echo "review=false" >> "$GITHUB_OUTPUT"
+            echo "Action bumps cannot change how the site looks."
             exit 0
           fi
 
@@ -83,11 +99,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -158,3 +174,28 @@ jobs:
           gh pr comment "$PR_URL" --body-file comment.md --edit-last \
             || gh pr comment "$PR_URL" --body-file comment.md \
             || echo "Could not comment on the PR — see the job summary."
+
+      # The site still looks and behaves as it did, so this major has run out
+      # of reasons to wait for a human. --auto hands it to GitHub, which holds
+      # the merge until the required "build" check (lint + tests + build) is
+      # green — so both halves have to agree before anything lands.
+      - name: Enable auto-merge
+        if: steps.ux.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --squash "$PR_URL"
+
+  # Majors the review deliberately skips (types, lint, test and dev tooling,
+  # offline pipelines, GitHub Actions) have no UX to inspect — for those the
+  # required "build" check is the whole story.
+  auto-merge-unreviewed:
+    needs: gate
+    if: needs.gate.outputs.major == 'true' && needs.gate.outputs.review == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --squash "$PR_URL"

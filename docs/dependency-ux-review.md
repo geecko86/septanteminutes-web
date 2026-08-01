@@ -1,15 +1,26 @@
 # Reviewing a major dependency upgrade
 
 Minor and patch bumps arrive as one grouped weekly PR and auto-merge once CI is
-green. Majors arrive on their own and never auto-merge — `next`, `react`,
-`framer-motion` and friends can build perfectly and still ruin the scene.
-
-Two checks run on those PRs:
+green. Majors arrive on their own, and `next`, `react`, `framer-motion` and
+friends can build perfectly and still ruin the scene — so they have to earn
+their merge:
 
 | Check | What it proves |
 | --- | --- |
-| `build` (`ci.yml`) | Tests pass and the static export still builds. |
+| `build` (`ci.yml`) | Lint is clean, tests pass, the static export still builds. |
 | `ux-review` (`dependabot-major-review.yml`) | The site still *looks* and *behaves* the same. |
+
+A major auto-merges only once **both** are satisfied. The UX review enables
+auto-merge when it passes; GitHub then holds the merge until the required
+`build` check is green, so neither half can land a bump on its own. A failing
+review never merges — the PR simply waits, with diff images attached.
+
+Majors that the review skips (see below) have no UX to inspect, so `build`
+alone gates them.
+
+Nothing here is irreversible on its own: merging to `main` does not deploy.
+Version updates ship with the next episode, under human eyes — only security
+merges deploy immediately (`deploy-security.yml`).
 
 ## When it runs
 
@@ -32,7 +43,9 @@ and compares the two static exports with a real browser:
 
 - **Visual** — `/`, `/faq/`, episode 1 and the latest episode, screenshotted at
   1440×900 and on an emulated iPhone 13, then diffed pixel by pixel. Anything
-  above 0.15 % of changed pixels is reported with a diff image.
+  above 0.02 % of changed pixels is reported with a diff image. Two builds of
+  the same source diff to exactly zero, so that tolerance only has to absorb
+  antialiasing jitter.
 - **Interaction** — six flows driven through the built site: keyboard and wheel
   panning of the home scene, starting playback from the album pile, opening the
   notebook overlay, opening the mobile service sheet, and the post-it link back
@@ -53,13 +66,23 @@ identical. Four things make that true, all in `scripts/ux-check.mjs`:
 - `hasMovedHome` is seeded to `3` in `localStorage`, which retires the home
   page's idle swipe animation and the swiper hint. Without it the camera drifts
   between screenshots.
-- Every remote image is served as a 2×2 grey PNG. Layout on this site comes
+- The episode page holds its whole scene at `opacity: 0.001` until its priority
+  images resolve, so the capture waits for that scene to become visible rather
+  than for a fixed delay. On a fixed delay every episode screenshotted as the
+  same loading curtain.
+- Every remote image is served as a flat 2×2 `#9a9a9a` PNG. Layout comes
   from CSS (`next/image` `fill`), so geometry is preserved while the CDN drops
   out of the comparison entirely.
 - CSS animations and transitions are zeroed out and the context runs with
   `reducedMotion: 'reduce'`.
 - Service worker registration is stubbed, so no build serves another build's
   assets.
+- `/api/buildId.txt` gets a stand-in when the export lacks it. `next.config.js`
+  writes that file *during* the build, so a fresh checkout exports without it,
+  and Firebase answers the miss with the SPA fallback instead of a 404. Serving
+  a hard 404 made the vinyls worker throw, which left every episode page with
+  no data and quietly killed the album-click flows in CI while they passed
+  locally off a stale file.
 
 If a check ever turns flaky, that list is where to look first.
 
