@@ -18,12 +18,24 @@ review never merges — the PR simply waits, with diff images attached.
 Majors that the review skips (see below) have no UX to inspect, so `build`
 alone gates them.
 
-`main` requires branches to be up to date, so every merge leaves the other open
-PRs behind — and nothing resolves that on its own. GitHub's auto-merge waits
-rather than updating the branch, and Dependabot only revisits a PR on conflict
-or on its weekly schedule; a green, auto-merge-armed PR will otherwise sit for
-days. `update-stale-dependabot-prs.yml` sweeps them nightly at 02:00 local and
-updates any that are behind, which re-runs their checks against current `main`.
+Merges go through GitHub's **merge queue**, which is what keeps several open
+PRs from deadlocking each other. Each entry is tested against `main` plus
+everything queued ahead of it and merged in order, so a PR never has to be
+rebased just because another one landed first.
+
+That deadlock is worth understanding, because the obvious fixes don't work. If
+`main` instead required branches to be up to date, every merge would strand the
+other open PRs, and nothing resolves that by itself: auto-merge waits rather
+than updating the branch, and Dependabot only revisits a PR on conflict or on
+its weekly schedule. Automating the update is a trap too — `gh pr update-branch`
+run with `GITHUB_TOKEN` puts a `github-actions` commit on the branch, and runs
+triggered by that actor sit in the "workflows awaiting approval" gate, so the
+checks never start; asking Dependabot to rebase instead does nothing, since it
+ignores commands from `github-actions[bot]`.
+
+`ci.yml` therefore answers `merge_group` as well as `pull_request` — the queue
+reports under the same required `build` check, and without that trigger it
+would wait forever for a check that never starts.
 
 Nothing here is irreversible on its own: merging to `main` does not deploy.
 Version updates ship with the next episode, under human eyes — only security
