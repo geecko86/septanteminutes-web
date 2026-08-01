@@ -19,10 +19,11 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      # Majors stay manual — the only remaining human intervention. Grouped
-      # PRs report the HIGHEST update-type of the group, so a minor+patch
-      # maintenance group qualifies. Auto-merge only completes once the
-      # required "build" status check (tests + build) is green.
+      # Grouped PRs report the HIGHEST update-type of the group, so a
+      # minor+patch maintenance group qualifies. Auto-merge only completes once
+      # the required "build" status check (lint + tests + build) is green.
+      # Majors are handled by dependabot-major-review.yml, which enables
+      # auto-merge only after a visual + interaction review of the built site.
       - name: Enable auto-merge for patch and minor updates
         if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
         run: gh pr merge --auto --squash "$PR_URL"

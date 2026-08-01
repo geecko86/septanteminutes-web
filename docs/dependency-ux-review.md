@@ -1,15 +1,26 @@
 # Reviewing a major dependency upgrade
 
 Minor and patch bumps arrive as one grouped weekly PR and auto-merge once CI is
-green. Majors arrive on their own and never auto-merge — `next`, `react`,
-`framer-motion` and friends can build perfectly and still ruin the scene.
-
-Two checks run on those PRs:
+green. Majors arrive on their own, and `next`, `react`, `framer-motion` and
+friends can build perfectly and still ruin the scene — so they have to earn
+their merge:
 
 | Check | What it proves |
 | --- | --- |
-| `build` (`ci.yml`) | Tests pass and the static export still builds. |
+| `build` (`ci.yml`) | Lint is clean, tests pass, the static export still builds. |
 | `ux-review` (`dependabot-major-review.yml`) | The site still *looks* and *behaves* the same. |
+
+A major auto-merges only once **both** are satisfied. The UX review enables
+auto-merge when it passes; GitHub then holds the merge until the required
+`build` check is green, so neither half can land a bump on its own. A failing
+review never merges — the PR simply waits, with diff images attached.
+
+Majors that the review skips (see below) have no UX to inspect, so `build`
+alone gates them.
+
+Nothing here is irreversible on its own: merging to `main` does not deploy.
+Version updates ship with the next episode, under human eyes — only security
+merges deploy immediately (`deploy-security.yml`).
 
 ## When it runs
 
