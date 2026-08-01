@@ -589,6 +589,7 @@ export default function EpisodeTable(props: {
   return (
     <motion.div
       key="transition_loader"
+      data-testid="episode-scene"
       initial={{ opacity: 0.001 }}
       exit={{ opacity: 0 }}
       animate={{ opacity: ready ? 1 : 0.001 }}
