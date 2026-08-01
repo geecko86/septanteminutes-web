@@ -3,6 +3,10 @@ name: CI
 on:
   pull_request:
     branches: [main]
+  # The merge queue validates each entry against main plus everything queued
+  # ahead of it, and reports under this same "build" check. Without this
+  # trigger the queue would wait forever for a check that never starts.
+  merge_group:
 
 jobs:
   build:
