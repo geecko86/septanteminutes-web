@@ -5,6 +5,16 @@
 # that has this repo cloned, `gh` authenticated, and `.env.local` set up
 # with ELEVENLABS_API_KEY.
 #
+# Schedule (crontab on the Pi):
+#
+#   45 0,3,6,9,12,15,18,21 * 1-6,9-12 * ~/JS/septanteminutes-web/scripts/pi-transcribe-watcher.sh >> /var/log/transcribe-watcher.log 2>&1
+#
+# Issues can only appear when update-episodes.yml publishes, which its guard
+# limits to :30 on every third Brussels hour, and never in July or August — so
+# this runs 15 minutes behind it, on the same hours, skipping the same months.
+# The fixed hours only stay aligned because the Pi's clock is Europe/Brussels,
+# the same zone that guard reads; on a UTC machine they would drift with DST.
+#
 # Security notes:
 #   - This script only ever makes outbound requests (poll GitHub, call
 #     ElevenLabs/Claude, push to GitHub) — no inbound port is opened, unlike

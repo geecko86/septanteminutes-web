@@ -6,6 +6,12 @@ name: Deploy security updates
 # version-update) merges deliberately do NOT deploy: they ship with the next
 # episode, under human eyes.
 #
+# Also deploys when a transcript lands. The Pi watcher pushes
+# public/transcripts/<n>.{json,vtt} straight to main, and nothing else would
+# ship it: update_episodes.sh exits at "no update needed" whenever data.json is
+# unchanged, so a transcript used to wait for the next episode — a fortnight —
+# before readers could see it.
+#
 # workflow_dispatch allows a manual deploy of main through the same
 # test-gated path.
 
@@ -13,6 +19,10 @@ on:
   pull_request:
     types: [closed]
     branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'public/transcripts/**'
   workflow_dispatch:
 
 permissions:
@@ -26,9 +36,10 @@ concurrency:
 
 jobs:
   gate:
-    # Merged Dependabot PRs only (or a manual dispatch).
+    # Merged Dependabot PRs, a transcript push, or a manual dispatch.
     if: >
       github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
       (github.event.pull_request.merged == true &&
        github.event.pull_request.user.login == 'dependabot[bot]')
     runs-on: ubuntu-latest
@@ -52,7 +63,9 @@ jobs:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           ALERT_STATE: ${{ steps.metadata.outputs.alert-state }}
         run: |
-          if [ "$EVENT" = "workflow_dispatch" ]; then
+          # The push trigger is already filtered to public/transcripts/**, so
+          # reaching here on a push means a transcript changed.
+          if [ "$EVENT" = "workflow_dispatch" ] || [ "$EVENT" = "push" ]; then
             echo "deploy=true" >> "$GITHUB_OUTPUT"
           elif [[ "$HEAD_REF" == *security* ]] || [ -n "$ALERT_STATE" ]; then
             echo "deploy=true" >> "$GITHUB_OUTPUT"
