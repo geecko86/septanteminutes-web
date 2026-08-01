@@ -28,6 +28,8 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
+  /* Native-feeling sheet: system stack, like the rows below */
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 .body {

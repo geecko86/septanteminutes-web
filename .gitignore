@@ -47,6 +47,10 @@ buildId.txt
 # transcription pipeline cache (downloaded audio + raw ASR responses)
 /.transcripts-cache/
 
+# Generated storyboard/maxres2 frames and local thumbnail experiments
+/.video-thumbnail-cache/
+/public/generated/video-frames/
+
 # dubbing pipeline cache (extracted chunks + Hibiki output)
 /.dub-cache/
 

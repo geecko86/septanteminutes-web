@@ -8,14 +8,15 @@
    behind the camera body — slides it out, and the hover target itself never
    moves (no hover-in/hover-out oscillation). Purely a positioning/hit box:
    all the paper visuals live on .print.
-   Geometry: the print is 12% of the table and travels 45% of its own width,
-   so the zone is 12% × 1.45 ≈ 17.4% wide, and the print is 12/17.4 ≈ 69% of
-   the zone, anchored to its right edge. */
+   Geometry: the print is 12% of the table and travels from -45% to +12.5% of
+   its own width. The zone therefore spans 12% × 1.575 ≈ 18.9%; the print is
+   12/18.9 ≈ 63.5% of the zone. Its 28.6% left margin preserves the original
+   tucked position while leaving room for the farther-right revealed pose. */
 .zone {
   position: absolute;
   top: 6%;
   left: 7.6%;
-  width: 17.4%;
+  width: 18.9%;
   display: block;
   cursor: pointer;
   text-decoration: none;
@@ -23,8 +24,8 @@
 
 .print {
   display: block;
-  width: 69%;
-  margin-left: auto;
+  width: 63.5%;
+  margin-left: 28.6%;
 
   /* Photo paper: bright white stock, warmer than the table top */
   background: linear-gradient(160deg, #fdfdfb 0%, #f4f2ec 100%);
@@ -63,13 +64,90 @@
   position: relative;
 }
 
+.picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mid-century color-print PostFX. The image itself carries the tonal grade;
+   this layer adds the irregularities of an optical print without lowering
+   the useful brightness or contrast of its subject. */
+.patina {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+
+  /* A slight amber bias in the light and cooler residue in the shadows,
+     followed by very gentle exposure falloff at the corners. */
+  background:
+    radial-gradient(
+      ellipse at 48% 45%,
+      transparent 58%,
+      rgba(74, 43, 20, 0.17) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 218, 154, 0.22) 0%,
+      rgba(217, 190, 134, 0.09) 45%,
+      rgba(94, 139, 128, 0.1) 100%
+    );
+  mix-blend-mode: soft-light;
+}
+
+/* Fine monochrome silver-grain texture generated in CSS, rather than a
+   downloaded bitmap. It is deliberately low-opacity: visible as print
+   character, not as a veil over faces or background detail. */
+.patina::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='105' viewBox='0 0 140 105'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.85'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  mix-blend-mode: soft-light;
+  opacity: 0.24;
+}
+
+/* Uneven enlarger exposure and restrained highlight bloom keep the result
+   from feeling like a uniform modern CSS filter. Both lobes brighten rather
+   than obscure the underlying photograph. */
+.patina::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255, 240, 204, 0.2), transparent 35%),
+    radial-gradient(circle at 76% 72%, rgba(255, 226, 171, 0.11), transparent 42%);
+  mix-blend-mode: screen;
+}
+
+/* Optical edge falloff shaped as four soft lobes. This keeps the straight
+   edges visibly developed while avoiding the heavy corner accumulation of a
+   conventional radial vignette; the useful center remains untouched. */
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 72% 10% at 50% 0%, rgba(18, 10, 4, 0.21), transparent 100%),
+    radial-gradient(ellipse 72% 10% at 50% 100%, rgba(18, 10, 4, 0.21), transparent 100%),
+    radial-gradient(ellipse 10% 72% at 0% 50%, rgba(18, 10, 4, 0.19), transparent 100%),
+    radial-gradient(ellipse 10% 72% at 100% 50%, rgba(18, 10, 4, 0.19), transparent 100%),
+    radial-gradient(ellipse at 50% 46%, transparent 86%, rgba(20, 12, 6, 0.14) 100%);
+}
+
 /* Undeveloped instant-photo chemistry: the dark, slightly warm/green slab a
-   polaroid shows before it develops. Sits over the image inside the 4:3
-   window; the component fades it out (slowly, like real development) when
-   the print slides out from under the camera. */
+   polaroid shows before it develops. It remains opaque until the current JPEG
+   has loaded, preventing either a broken-image placeholder or the next
+   episode's frame from flashing through during navigation. */
 .develop {
   position: absolute;
   inset: 0;
+  z-index: 2;
+  opacity: 1;
   background: radial-gradient(
     120% 90% at 45% 40%,
     #2e3129 0%,
@@ -83,13 +161,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Zoom past the letterbox bars YouTube bakes into the mq* frame files —
-     object-fit alone can't crop them (the image height already fills the
-     window). ~7% shaved off each edge. */
-  scale: 1.14;
-  /* A matte-to-gloss print, not a screen: soften the digital crispness a hair
-     and pull the saturation toward photo stock. */
-  filter: saturate(0.92) contrast(0.97) sepia(0.06);
+  /* A close lab-print crop keeps attention on the guest and trims the rounded
+     black edge present in YouTube's storyboard tiles. */
+  scale: 1.16;
+  /* Warm consumer color print: retained midtone contrast and a small exposure
+     lift keep the frame readable while subdued saturation and sepia move it
+     away from the crisp, cool look of an embedded JPEG. */
+  filter: brightness(1.07) contrast(1.08) saturate(0.72) sepia(0.26);
   pointer-events: none;
 }
 
@@ -124,11 +202,11 @@
   background:
     linear-gradient(
       115deg,
-      rgba(255, 255, 255, 0) 37%,
-      rgba(255, 255, 255, 0.28) 43%,
-      rgba(255, 255, 255, 0.42) 45%,
-      rgba(255, 255, 255, 0.1) 48.5%,
-      rgba(255, 255, 255, 0) 52%
+      rgba(255, 255, 255, 0) 43%,
+      rgba(255, 255, 255, 0.24) 49.5%,
+      rgba(255, 255, 255, 0.36) 52.5%,
+      rgba(255, 255, 255, 0.11) 56%,
+      rgba(255, 255, 255, 0) 60%
     ),
     linear-gradient(
       180deg,
@@ -140,12 +218,11 @@
 
 /* Mobile landscape: the table flips to a tall layout (aspect 1/0.4933) and the
    camera prop stays visible — keep the print near it but rescale to the new
-   proportions. Same zone/print ratio (the print travels the same 45% of its
-   width), print ≈ 14% of the table. (Mobile portrait never mounts this
-   component.) */
+   proportions. The print remains ≈ 14% of the table and travels from -45%
+   to +12.5% of its own width. (Mobile portrait never mounts this component.) */
 @media (pointer: coarse) and (orientation: landscape) {
   .zone {
-    width: 20.3%;
+    width: 22.05%;
     top: 5%;
     left: 5.7%;
   }

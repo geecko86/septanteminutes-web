@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getYoutubeVideoId, getYoutubeFrameUrl } from './youtubeLink';
+import { getGeneratedYoutubeFrameUrl, getYoutubeVideoId, getYoutubeFrameUrl } from './youtubeLink';
 
 describe('getYoutubeVideoId', () => {
   it('extracts the id from a standard watch URL', () => {
@@ -47,7 +47,19 @@ describe('getYoutubeVideoId', () => {
 });
 
 describe('getYoutubeFrameUrl', () => {
-  it('builds an auto-extracted video frame URL (mq3, not the hand-made mqdefault)', () => {
-    expect(getYoutubeFrameUrl('qNzGPn4wHnQ')).toBe('https://i.ytimg.com/vi/qNzGPn4wHnQ/mq3.jpg');
+  it('builds the stable local URL generated from M13 during yarn build', () => {
+    expect(getGeneratedYoutubeFrameUrl('qNzGPn4wHnQ')).toBe('/generated/video-frames/qNzGPn4wHnQ.webp');
+  });
+
+  it('builds a max-resolution JPEG frame URL by default', () => {
+    expect(getYoutubeFrameUrl('qNzGPn4wHnQ')).toBe('https://i.ytimg.com/vi/qNzGPn4wHnQ/maxres2.jpg');
+  });
+
+  it('builds the WebP variant served from YouTube\'s WebP path', () => {
+    expect(getYoutubeFrameUrl('qNzGPn4wHnQ', 0, 'webp')).toBe('https://i.ytimg.com/vi_webp/qNzGPn4wHnQ/maxres2.webp');
+  });
+
+  it('adds a cache-busting retry token without changing the selected frame', () => {
+    expect(getYoutubeFrameUrl('qNzGPn4wHnQ', 2)).toBe('https://i.ytimg.com/vi/qNzGPn4wHnQ/maxres2.jpg?retry=2');
   });
 });
