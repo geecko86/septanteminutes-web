@@ -13,6 +13,11 @@ name: UX self-check
 
 on:
   workflow_dispatch:
+    inputs:
+      baseline:
+        description: 'Ref to compare against. Blank runs the flows only; any ref also exercises the two-build visual comparison the dependency review depends on.'
+        required: false
+        default: 'HEAD~1'
 
 permissions:
   contents: read
@@ -23,6 +28,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v7
         with:
@@ -47,10 +54,27 @@ jobs:
       - name: Build
         run: yarn build
 
-      # --head alone: no baseline, so the visual diff is skipped and only the
-      # interaction flows run.
-      - name: Run the interaction flows
-        run: yarn ux-check --head out --report ux-report
+      - name: Stash the build
+        run: mv out out-head
+
+      # Same worktree-plus-its-own-node_modules shape the dependency review
+      # uses, so this exercises that path too and not just the comparison.
+      - name: Build the baseline
+        if: inputs.baseline != ''
+        run: |
+          git worktree add ../baseline "${{ inputs.baseline }}"
+          cd ../baseline
+          yarn install --frozen-lockfile
+          yarn build
+          mv out "$GITHUB_WORKSPACE/out-base"
+
+      - name: Compare, or run the flows alone
+        run: |
+          if [ -d out-base ]; then
+            yarn ux-check --head out-head --base out-base --report ux-report
+          else
+            yarn ux-check --head out-head --report ux-report
+          fi
 
       - name: Upload the report
         if: always()
