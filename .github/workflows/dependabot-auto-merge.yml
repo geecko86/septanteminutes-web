@@ -10,7 +10,9 @@ permissions:
 
 jobs:
   auto-merge:
-    if: github.actor == 'dependabot[bot]'
+    # Who OPENED the PR, not who pushed last — a human "@dependabot rebase"
+    # reassigns the actor and would skip the merge for that PR.
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Fetch dependabot metadata

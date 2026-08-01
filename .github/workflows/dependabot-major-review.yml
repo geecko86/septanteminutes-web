@@ -23,7 +23,11 @@ concurrency:
 
 jobs:
   gate:
-    if: github.actor == 'dependabot[bot]'
+    # Who OPENED the PR, not who pushed last: a human asking for a rebase
+    # ("@dependabot rebase") makes that push their own, and gating on the actor
+    # would silently disable the whole review for exactly the PRs someone is
+    # paying attention to.
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
     outputs:
       review: ${{ steps.decide.outputs.review }}

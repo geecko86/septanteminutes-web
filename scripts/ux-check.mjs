@@ -104,6 +104,15 @@ const MIME = {
 function serve(dir) {
   const server = http.createServer((req, res) => {
     const clean = decodeURIComponent(req.url.split('?')[0]);
+    // next.config.js writes public/api/buildId.txt during the build, so a fresh
+    // checkout exports without it — and Firebase answers the miss with the SPA
+    // fallback rather than a 404. A hard 404 here makes the vinyls worker throw,
+    // leaving the episode pages with no data and the album flows dead on
+    // vinyls[selectedEpisode]. Serve a stand-in so CI matches production.
+    if (clean === '/api/buildId.txt' && !fs.existsSync(path.join(dir, 'api/buildId.txt'))) {
+      res.writeHead(200, { 'content-type': 'text/plain' }).end('ux-check');
+      return;
+    }
     let file = path.join(dir, clean);
     // trailingSlash: true — every route is a directory holding an index.html.
     if (!path.extname(file)) file = path.join(file, 'index.html');

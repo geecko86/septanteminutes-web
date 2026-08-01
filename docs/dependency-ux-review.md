@@ -77,6 +77,12 @@ identical. Four things make that true, all in `scripts/ux-check.mjs`:
   `reducedMotion: 'reduce'`.
 - Service worker registration is stubbed, so no build serves another build's
   assets.
+- `/api/buildId.txt` gets a stand-in when the export lacks it. `next.config.js`
+  writes that file *during* the build, so a fresh checkout exports without it,
+  and Firebase answers the miss with the SPA fallback instead of a 404. Serving
+  a hard 404 made the vinyls worker throw, which left every episode page with
+  no data and quietly killed the album-click flows in CI while they passed
+  locally off a stale file.
 
 If a check ever turns flaky, that list is where to look first.
 
