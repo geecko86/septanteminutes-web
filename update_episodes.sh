@@ -10,9 +10,14 @@ git pull origin main
 
 old_ids=$(jq -r '.episodes | keys[]' public/js/data.json 2>/dev/null | sort)
 
-# CI writes the key outside the checkout so it can never be swept into a
-# commit; locally it sits in the repo root, gitignored.
-node scripts/export-firestore-episodes.mjs "${FIRESTORE_CREDENTIALS:-septanteminutes-a0cde5efbc25.json}"
+# CI passes a key written outside the checkout, so it can never be swept into a
+# commit. With no key the export falls back to application default credentials
+# — locally, whoever ran `gcloud auth application-default login`.
+if [ -n "${FIRESTORE_CREDENTIALS:-}" ]; then
+    node scripts/export-firestore-episodes.mjs "$FIRESTORE_CREDENTIALS"
+else
+    node scripts/export-firestore-episodes.mjs
+fi
 
 item_count=$(jq '.episodes | length' public/js/data.json)
 
