@@ -38,13 +38,21 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           # mergeStateStatus is computed lazily: GitHub answers UNKNOWN until it
-          # has worked the mergeability out. Ask once to warm it, then read.
-          gh pr list --author 'app/dependabot' --json number >/dev/null
-          sleep 15
+          # has worked the mergeability out, and asking is what starts the work.
+          # A PR still UNKNOWN when we filter looks identical to one that is up
+          # to date, so it gets silently skipped and waits for the next sweep —
+          # poll until every PR has a real answer.
+          for attempt in 1 2 3 4 5 6; do
+            prs=$(gh pr list --state open --author 'app/dependabot' \
+              --json number,mergeStateStatus)
+            unknown=$(echo "$prs" | jq '[.[] | select(.mergeStateStatus == "UNKNOWN")] | length')
+            [ "$unknown" = "0" ] && break
+            echo "waiting on GitHub to compute mergeability ($unknown pending, attempt $attempt)"
+            sleep 15
+          done
+          echo "$prs" | jq -r '.[] | "  #\(.number): \(.mergeStateStatus)"'
 
-          behind=$(gh pr list --state open --author 'app/dependabot' \
-            --json number,mergeStateStatus \
-            --jq '[.[] | select(.mergeStateStatus == "BEHIND") | .number] | .[]')
+          behind=$(echo "$prs" | jq -r '[.[] | select(.mergeStateStatus == "BEHIND") | .number] | .[]')
 
           if [ -z "$behind" ]; then
             echo "No Dependabot PR is behind main."
