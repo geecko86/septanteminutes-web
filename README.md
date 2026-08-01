@@ -24,6 +24,18 @@ firebase login            # required if not already authenticated
 firebase deploy           # deploy to Firebase Hosting (site: septanteminutesbe)
 ```
 
+`yarn build` also prepares the YouTube photo-print images. It selects the
+guest-focused tile from YouTube's M13 storyboard and stores it at its native
+320x180 resolution. This is the same lightweight process on local Macs and the
+Ubuntu runners used by GitHub Actions; it does not install Python packages,
+download models, or run AI inference.
+
+If the storyboard or crop cannot be obtained, the prebuild downloads
+`maxres2.webp`, falling back to `maxres2.jpg`. A failed build-time fetch does
+not block the site export; the lazy-loaded photo retries those same maxres2
+URLs in the browser. Set `VIDEO_THUMBNAILS_REFRESH=1` to regenerate cached
+images.
+
 ### Tests
 
 ```bash

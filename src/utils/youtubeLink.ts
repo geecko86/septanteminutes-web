@@ -31,12 +31,26 @@ export function getYoutubeVideoId(link?: string): string | null {
   return id && VIDEO_ID.test(id) ? id : null;
 }
 
-// A real frame from the video (auto-extracted by YouTube, 320x180).
-// Deliberately NOT mqdefault.jpg: that's the hand-made thumbnail, which
-// carries big title text and would look wrong printed as a photo. mq1/mq2/mq3
-// are frames from the first/middle/last third — their positions are FIXED, so
-// none of them can guarantee the guest is in frame (depends on each episode's
-// cut); mq3 (last third) chosen by the owner.
-export function getYoutubeFrameUrl(videoId: string): string {
-  return `https://i.ytimg.com/vi/${videoId}/mq3.jpg`;
+// The build pipeline writes either a native 320x180 M13 storyboard tile or a
+// maxres2 YouTube fallback at this stable local URL. Keeping both sources
+// behind one path makes the acquisition fallback invisible to the component.
+export function getGeneratedYoutubeFrameUrl(videoId: string): string {
+  return `/generated/video-frames/${videoId}.webp`;
+}
+
+// Network fallback for a missing build artifact. This does not guarantee that
+// the guest is pictured, but it keeps the YouTube link usable if acquisition
+// failed before the build.
+export function getYoutubeFrameUrl(
+  videoId: string,
+  retry = 0,
+  format: "jpg" | "webp" = "jpg",
+): string {
+  const directory = format === "webp" ? "vi_webp" : "vi";
+  const frameUrl = `https://i.ytimg.com/${directory}/${videoId}/maxres2.${format}`;
+
+  // A failed external image request can be retained by the browser or the
+  // service worker for the current URL. A retry gets a distinct request while
+  // keeping the selected maxres2 frame exactly the same.
+  return retry > 0 ? `${frameUrl}?retry=${retry}` : frameUrl;
 }
