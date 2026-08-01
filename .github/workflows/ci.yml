@@ -11,6 +11,12 @@ on:
   push:
     branches: [main]
 
+# This job builds and tests code from pull requests, including forks. The
+# repository default is already read-only, but that is a setting someone can
+# change; a workflow that runs untrusted code should not depend on it.
+permissions:
+  contents: read
+
 jobs:
   build:
     name: build

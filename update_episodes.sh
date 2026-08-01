@@ -10,7 +10,9 @@ git pull origin main
 
 old_ids=$(jq -r '.episodes | keys[]' public/js/data.json 2>/dev/null | sort)
 
-node scripts/export-firestore-episodes.mjs septanteminutes-a0cde5efbc25.json
+# CI writes the key outside the checkout so it can never be swept into a
+# commit; locally it sits in the repo root, gitignored.
+node scripts/export-firestore-episodes.mjs "${FIRESTORE_CREDENTIALS:-septanteminutes-a0cde5efbc25.json}"
 
 item_count=$(jq '.episodes | length' public/js/data.json)
 

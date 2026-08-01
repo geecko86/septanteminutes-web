@@ -32,9 +32,9 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || needs.guard.outputs.run == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: '22'
 
@@ -52,8 +52,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      # Outside the checkout, deliberately: this job runs `git commit` and
+      # pushes to a public repo, and a private key in the working tree is one
+      # `git add -A` away from publication.
       - name: Write Firestore export service account key
-        run: echo "${FIRESTORE_SERVICE_ACCOUNT}" > septanteminutes-a0cde5efbc25.json
+        run: echo "${FIRESTORE_SERVICE_ACCOUNT}" > "${RUNNER_TEMP}/firestore-sa.json"
         env:
           FIRESTORE_SERVICE_ACCOUNT: ${{ secrets.FIRESTORE_SERVICE_ACCOUNT }}
 
@@ -65,6 +68,7 @@ jobs:
       - name: Fetch episodes, build and deploy if changed
         run: bash update_episodes.sh
         env:
+          FIRESTORE_CREDENTIALS: ${{ runner.temp }}/firestore-sa.json
           GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
           GH_TOKEN: ${{ github.token }}
           STORYBOARD_PROXY_TOKEN: ${{ secrets.STORYBOARD_PROXY_TOKEN }}
@@ -72,4 +76,4 @@ jobs:
 
       - name: Clean up credential files
         if: always()
-        run: rm -f septanteminutes-a0cde5efbc25.json "${RUNNER_TEMP}/firebase-sa.json"
+        run: rm -f "${RUNNER_TEMP}/firestore-sa.json" "${RUNNER_TEMP}/firebase-sa.json"
