@@ -190,6 +190,17 @@ jobs:
             || gh pr comment "$PR_URL" --body-file comment.md \
             || echo "Could not comment on the PR — see the job summary."
 
+      # An App token, not GITHUB_TOKEN: a merge pushed with the latter spawns no
+      # workflow runs, so CI would never rebuild main and deploy-security.yml
+      # would never ship the result. See dependabot-auto-merge.yml.
+      - name: Mint a merge token
+        id: token
+        if: steps.ux.outcome == 'success'
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       # The site still looks and behaves as it did, so this major has run out
       # of reasons to wait for a human. --auto hands it to GitHub, which holds
       # the merge until the required "build" check (lint + tests + build) is
@@ -197,7 +208,7 @@ jobs:
       - name: Enable auto-merge
         if: steps.ux.outcome == 'success'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.token.outputs.token }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: gh pr merge --auto --squash "$PR_URL"
 
@@ -215,8 +226,15 @@ jobs:
     if: needs.gate.outputs.major == 'true' && needs.gate.outputs.review == 'false' && needs.gate.outputs.npm == 'true'
     runs-on: ubuntu-latest
     steps:
+      - name: Mint a merge token
+        id: token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Enable auto-merge
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.token.outputs.token }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: gh pr merge --auto --squash "$PR_URL"

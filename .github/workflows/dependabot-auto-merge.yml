@@ -21,6 +21,19 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
+      # A merge pushed with GITHUB_TOKEN spawns no workflow runs at all, which
+      # silently disabled both things that are supposed to happen after a
+      # dependency lands: CI never rebuilt main, and deploy-security.yml never
+      # shipped a security fix — it only ever fired for PRs merged by hand.
+      # This App installation token is a real actor, so the downstream triggers
+      # behave. It is minted per run and expires in an hour, unlike a PAT.
+      - name: Mint a merge token
+        id: token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       # Grouped PRs report the HIGHEST update-type of the group, so a
       # minor+patch maintenance group qualifies. Auto-merge only completes once
       # the required "build" status check (lint + tests + build) is green.
@@ -31,4 +44,4 @@ jobs:
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.token.outputs.token }}

@@ -12,13 +12,15 @@ name: Deploy security updates
 # unchanged, so a transcript used to wait for the next episode — a fortnight —
 # before readers could see it.
 #
-# CAVEAT: the pull_request trigger does NOT fire for PRs that
-# dependabot-auto-merge.yml merged, because a merge pushed with GITHUB_TOKEN
-# never spawns workflow runs. Security updates are usually patch-level, so
-# auto-merge claims most of them first and this workflow sits idle — every
-# pull_request run so far came from a hand-merged PR. Judged not worth a PAT:
-# the site is statically exported, so most alerts have no runtime presence, and
-# workflow_dispatch ships main through this same test-gated path on demand.
+# The pull_request trigger depends on the merge being attributed to a real
+# actor: a merge pushed with GITHUB_TOKEN spawns no workflow runs, so while
+# auto-merge used that token this workflow only ever fired for hand-merged PRs
+# — and since security updates are usually patch-level, auto-merge claimed them
+# first and the fix sat on main undeployed. dependabot-auto-merge.yml now merges
+# with an App installation token, which is what makes the trigger below fire.
+#
+# workflow_dispatch allows a manual deploy of main through the same
+# test-gated path.
 
 on:
   pull_request:
