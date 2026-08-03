@@ -12,8 +12,13 @@ name: Deploy security updates
 # unchanged, so a transcript used to wait for the next episode — a fortnight —
 # before readers could see it.
 #
-# workflow_dispatch allows a manual deploy of main through the same
-# test-gated path.
+# CAVEAT: the pull_request trigger does NOT fire for PRs that
+# dependabot-auto-merge.yml merged, because a merge pushed with GITHUB_TOKEN
+# never spawns workflow runs. Security updates are usually patch-level, so
+# auto-merge claims most of them first and this workflow sits idle — every
+# pull_request run so far came from a hand-merged PR. Judged not worth a PAT:
+# the site is statically exported, so most alerts have no runtime presence, and
+# workflow_dispatch ships main through this same test-gated path on demand.
 
 on:
   pull_request:
