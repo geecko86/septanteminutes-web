@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/build-video-thumbnails.mjs",
-    "build": "next build",
+    "build": "node scripts/build.mjs",
     "start": "next start",
     "lint": "eslint src/",
     "storyboard-proxy": "node scripts/storyboard-proxy.mjs",
@@ -28,7 +28,6 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "scroll-snap": "^5.0.2",
-    "usehooks-ts": "^3.1.1",
     "web-vitals": "^6.0.1",
     "workbox-core": "^7.4.1",
     "workbox-expiration": "^7.4.1",
@@ -104,5 +103,17 @@
     "@babel/plugin-transform-modules-systemjs": ">=7.29.4",
     "vite": ">=8.0.16",
     "ws": ">=7.5.11"
+  },
+  "browserslist": {
+    "production": [
+      "Chrome >= 120",
+      "Firefox >= 121",
+      "Safari >= 16"
+    ],
+    "development": [
+      "last 1 Chrome version",
+      "last 1 Firefox version",
+      "last 1 Safari version"
+    ]
   }
 }

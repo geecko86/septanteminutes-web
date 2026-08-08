@@ -6,7 +6,7 @@ import isOldPhone from "../../utils/mobileChecker";
 import styles from "./poster.module.css";
 
 const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
-    const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height }, offset, onReady, isLast, ...newProps } = props;
+    const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height }, offset, onReady, isLast, initialScene, ...newProps } = props;
 
     const parentRef = useRef<HTMLDivElement>(null);
     const home = document.getElementById("home");
@@ -26,14 +26,14 @@ const PosterComponentOldPhone = React.forwardRef<HTMLImageElement, PosterProps>(
     // TODO: size when landscape rotation
     return (<div {...newProps} style={style} ref={parentRef}>
         <motion.div style={{ position: "relative", translateX, translateZ: "0px", height: "100%", width: "100%" }}>
-          <Image draggable="false" alt="" priority={priority} ref={ref} src={src} quality={50} sizes={size} fill />
+          <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} alt="" priority={priority} ref={ref} src={src} quality={50} sizes={size} fill />
         </motion.div>
     </div>);
 });
 PosterComponentOldPhone.displayName = 'PosterComponentOldPhone';
 
 const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>((props, ref) => {
-    const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height, parallaxFactor, leftOffset }, onReady, offset, isLast, ...newProps } = props;
+    const { motionValue, priority, setFirstPosterMotionValue, position, poster: { src, ratio, height, parallaxFactor, leftOffset }, onReady, offset, isLast, initialScene, ...newProps } = props;
 
     const jumpToValue = (val: number | string) => {
         if (!isLast && typeof(val) === "string") {
@@ -53,7 +53,7 @@ const PosterComponentNewDevice = React.forwardRef<HTMLImageElement, PosterProps>
     // TODO: size when landscape rotation
     return (<div {...newProps} ref={newRef} style={style}>
         <motion.div style={{ position: "relative", translateX, translateZ: "0px", height: "100%", width: "100%" }}>
-          <Image draggable="false" alt="" priority={priority} ref={ref} src={props.poster.src} quality={50} sizes={size} fill />
+          <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} alt="" priority={priority} ref={ref} src={props.poster.src} quality={50} sizes={size} fill />
         </motion.div>
     </div>);
 });
@@ -95,6 +95,7 @@ type PosterProps = {
     onReady?: () => void,
     setFirstPosterMotionValue: (val: MotionValue) => void,
     isLast?: boolean,
+    initialScene?: boolean,
     position: number,
     poster: {
         src: string,

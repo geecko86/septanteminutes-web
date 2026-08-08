@@ -77,10 +77,11 @@ const CANDIDATE_ROUTES = [
 ];
 
 function routesFor(dir) {
-  return CANDIDATE_ROUTES.filter((route) =>
-    fs.existsSync(path.join(dir, route.url.replace(/^\/|\/$/g, ''), 'index.html')) ||
-    route.url === '/'
-  );
+  return CANDIDATE_ROUTES.filter((route) => {
+    if (args.route && route.name !== args.route) return false;
+    return fs.existsSync(path.join(dir, route.url.replace(/^\/|\/$/g, ''), 'index.html'))
+      || route.url === '/';
+  });
 }
 
 const VIEWPORTS = [
@@ -192,19 +193,30 @@ async function newPage(browser, viewport, origin) {
 
 async function settle(page) {
   await page.waitForLoadState('networkidle').catch(() => {});
-  // The episode page holds its whole scene at opacity 0.001 until the priority
-  // images resolve (up to PRIORITY_IMAGE_TIMEOUT_MS). Screenshotting on a fixed
-  // delay caught the curtain instead of the room — every episode looked alike.
+  // Both scene routes remain covered until their marked initial images, fonts,
+  // and device modules settle. The production failure escape hatch is 12s, so
+  // leave enough room for that plus the reveal transition in synthetic runs.
   await page
     .waitForFunction(
       () => {
-        const scene = document.querySelector('[data-testid="episode-scene"]');
+        const scene = document.querySelector('[data-testid="episode-scene"], [data-testid="home-scene"]');
         return !scene || Number(getComputedStyle(scene).opacity) > 0.9;
       },
       undefined,
-      { timeout: 10000 }
+      { timeout: 15000 }
     )
-    .catch(() => console.warn('  scene never became visible — capturing anyway'));
+    .catch(async () => {
+      const readiness = await page.evaluate(() => {
+        const images = [...document.querySelectorAll('img[data-initial-scene="true"]')];
+        return {
+          markedImages: images.length,
+          incompleteImages: images.filter((image) => !image.complete).map((image) => image.currentSrc || image.src),
+          brokenImages: images.filter((image) => image.complete && !image.naturalWidth).map((image) => image.currentSrc || image.src),
+          vinyls: document.querySelectorAll('[data-testid="episode-albums"] img[data-initial-scene="true"]').length,
+        };
+      });
+      console.warn(`  scene never became visible — ${JSON.stringify(readiness)}`);
+    });
   await page.addStyleTag({ content: FREEZE_CSS }).catch(() => {});
   await page.waitForTimeout(args.settle);
 }

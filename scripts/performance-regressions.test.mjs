@@ -1,0 +1,106 @@
+import { describe, expect, it, vi } from 'vitest';
+import { mkdtempSync, readFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+
+import { BUILD_ID_PATTERN, createBuildId, writeBuildId } from './build-id.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const read = (relativePath) => readFileSync(path.join(root, relativePath), 'utf8');
+
+async function runWorker(relativePath, message) {
+  const requests = [];
+  const messages = [];
+  const context = {
+    console,
+    encodeURIComponent,
+    postMessage: value => messages.push(value),
+    fetch: vi.fn(async url => {
+      requests.push(url);
+      return {
+        ok: true,
+        json: async () => ({
+          episodes: {
+            1: { num: '1', season: '1' },
+            2: { num: '2', season: '1' },
+          },
+        }),
+      };
+    }),
+  };
+  vm.createContext(context);
+  vm.runInContext(read(relativePath), context);
+  context.onmessage({ data: message });
+  await new Promise(resolve => setTimeout(resolve, 0));
+  return { requests, messages };
+}
+
+describe('performance request regressions', () => {
+  it('writes the same valid build ID that is supplied to compilation', () => {
+    const tempRoot = mkdtempSync(path.join(tmpdir(), 'septante-build-id-'));
+    const buildId = createBuildId('release_2026-08-05');
+    writeBuildId(tempRoot, buildId);
+
+    expect(BUILD_ID_PATTERN.test(buildId)).toBe(true);
+    expect(readFileSync(path.join(tempRoot, 'public/api/buildId.txt'), 'utf8')).toBe(buildId);
+  });
+
+  it.each(['public/js/seasonFetcher.js', 'public/js/vinylsFetcher.js'])(
+    '%s makes one direct versioned data request',
+    async workerPath => {
+      const result = await runWorker(workerPath, {
+        buildId: 'release_2026-08-05',
+        cachedSeasons: '[]',
+      });
+      expect(result.requests).toEqual(['/js/data.json?buildId=release_2026-08-05']);
+    }
+  );
+
+  it('disables route prefetch for initial homepage albums and the episode home link', () => {
+    expect(read('src/components/HomeAlbum/index.js')).toContain('prefetch={false}');
+    expect(read('src/pages/[episodeNum]/index.tsx')).toMatch(/link={`\/#\$\{selectedEpisode \+ 1\}`}\s+prefetch={false}/);
+    expect(read('src/pages/[episodeNum]/index.tsx')).toContain("{ pathname: router.pathname, query: { episodeNum } }");
+  });
+
+  it('keeps device-specific priority and existing loading decisions explicit', () => {
+    const home = read('src/pages/index.tsx');
+    expect(home).toContain('fetchPriority={!isMobileDevice && i === 0 ? "high" : undefined}');
+    expect(home).toContain('fetchPriority={isMobileDevice &&');
+    expect(home).toContain('loading={isMobileDevice ? "lazy" : "eager"}');
+    expect(home).toContain('loading="lazy" quality={50}');
+    expect(read('src/components/HomeAlbum/index.js')).toContain('loading="eager"');
+    expect(read('src/components/RecordPlayer/index.js')).toContain('fetchPriority="high"');
+  });
+
+  it('keeps Google Fonts external and removes the stale Caveat font preload', () => {
+    const document = read('src/pages/_document.js');
+    expect(document).toContain('fonts.googleapis.com/css2?family=Caveat');
+    expect(document).toContain('rel="stylesheet"');
+    expect(document).not.toContain('/caveat/v18/');
+    expect(read('src/pages/_document.js')).not.toMatch(/href="\/fonts\/.*Caveat/i);
+  });
+
+  it('gates both routes on the finite initial-scene contract instead of a DOM priority snapshot', () => {
+    const home = read('src/pages/index.tsx');
+    const episode = read('src/pages/[episodeNum]/index.tsx');
+    expect(home).toContain('waitForInitialScene');
+    expect(home).toContain('sceneModulesReady');
+    expect(episode).toContain('waitForInitialScene');
+    expect(episode).toContain('sceneModulesReady');
+    expect(episode).toContain('Math.max(0, Math.min(requested, vinyls.length - 1))');
+    expect(episode).not.toContain("querySelectorAll('img[fetchpriority=\"high\"]')");
+    expect(read('src/utils/initialSceneReady.ts')).toContain('document.fonts.ready');
+  });
+
+  it('keeps the restored compact Plant2 blur and the original chair rendition sizes', () => {
+    const plant = read('src/framer/assets/Plant2.jsx');
+    const encodedBlur = plant.match(/base64,([A-Za-z0-9+/=]+)"/)?.[1] || '';
+    expect(encodedBlur.length).toBeGreaterThan(0);
+    expect(encodedBlur.length).toBeLessThan(500);
+    const chair = read('src/framer/assets/Chair.jsx');
+    expect(chair).toContain('mobile ? "25vh" : "50vh"');
+    expect(chair).not.toContain('80vmax');
+  });
+});

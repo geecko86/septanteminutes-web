@@ -13,6 +13,7 @@ const FrontColumn = function FrontColumn(props) {
         subtitle,
         blur,
         priority,
+        initialScene,
         ...otherProps
     } = props;
 
@@ -20,11 +21,11 @@ const FrontColumn = function FrontColumn(props) {
         <>
             <div {...otherProps} className={[className, styles.front_column].join(" ")}>
                 <div style={{ position: 'absolute', height: '100%', width: '100%' }}>
-                    <Image draggable="false" alt="" fill sizes="14875svh/208" src="https://framerusercontent.com/images/O0BnVL6xjWTnfJ2Hot68ihn7Hzo.png" style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', color: 'transparent', opacity: '0.1' }} />
+                    <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} alt="" fill sizes="72vh" quality={35} src="https://framerusercontent.com/images/O0BnVL6xjWTnfJ2Hot68ihn7Hzo.png" style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', color: 'transparent', opacity: '0.1' }} />
                     <div style={{ height: '100%', width: '100%', background: 'radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 60%), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0))' }} />
                 </div>
                 <div className={styles.photo} data-border="true" style={{ "--borderBottomWidth": '15px', "--borderColor": '#E0E0E0', "--borderLeftWidth": '15px', "--borderRightWidth": '15px', "--borderStyle": 'solid', "--borderTopWidth": '15px', aspectRatio: ratio, filter: 'drop-shadow(rgba(0, 0, 0, 0.1) 0px 6px 1px) drop-shadow(rgba(0, 0, 0, 0.05) 0px 16px 4px)' }}>
-                    <Image draggable="false" alt="" priority={priority} sizes="30vw" fill={true} src={pic} style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', objectFit: 'cover', color: 'transparent', backgroundColor: 'rgb(40, 40, 40)' }} blurDataURL={blur} placeholder="blur" />
+                    <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} alt="" priority={priority} sizes="min(36vw, 52vh)" quality={65} fill={true} src={pic} style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', objectFit: 'cover', color: 'transparent', backgroundColor: 'rgb(40, 40, 40)' }} blurDataURL={blur} placeholder="blur" />
                 </div>
                 <div className={styles.legende}>
                     <div className={styles.subtitle}>

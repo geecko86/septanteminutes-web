@@ -14,9 +14,7 @@
  */
 const withPWAInit = require("@ducanh2912/next-pwa").default;
 const TerserPlugin = require('terser-webpack-plugin');
-const { webpack } = require('next/dist/compiled/webpack/webpack');
 const HtmlMinifier = require('html-minifier-terser');
-const fs = require('fs');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const withWrapper = (process.env.ANALYZE === 'true') ? require('@next/bundle-analyzer')({
@@ -53,9 +51,7 @@ const NextConfig = {
     formats: ["image/webp"],
     imageSizes: [128, 256, 384, 480, 560],
   },
-  webpack: (
-    config, { buildId, isServer }
-  ) => {
+  webpack: (config, { isServer }) => {
     // scroll-snap@5 ships with "type":"module" in its package.json, which makes
     // webpack try to parse it as an ES module. Two problems arise:
     //
@@ -233,15 +229,6 @@ const NextConfig = {
         });
       },
     });
-
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.env.BUILD_ID': JSON.stringify(buildId),
-      }),
-      function () {
-        fs.writeFileSync('public/api/buildId.txt', buildId);
-      }
-    );
 
     config.optimization.splitChunks = {
       chunks: 'all',

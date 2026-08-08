@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 
 const NotebookLarge = React.forwardRef((props, ref) => {
   const [hovered, setHovered] = useState(false);
+  const { initialScene, style, ...containerProps } = props;
   
   return (
     <motion.div
-      {...props}
+      {...containerProps}
       ref={ref}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
@@ -16,12 +17,13 @@ const NotebookLarge = React.forwardRef((props, ref) => {
         rotate: !hovered ? 0 : -3
       }}
       style={{
-        ...(props.style),
+        ...style,
         position: "relative",
         overflow: "clip"
       }}
     >
       <Image draggable="false"
+        data-initial-scene={initialScene ? "true" : undefined}
         src="https://framerusercontent.com/images/zLZpVcFd3TJlKbssFNQWljSjDo.png"
         sizes={`(max-aspect-ratio: 4 / 3) and (min-aspect-ratio: 9.1 / 16) and (min-width: 875px) 51.7vw, ${0.55 * (73 / 2.0268)}vw`}
         alt="notebook"

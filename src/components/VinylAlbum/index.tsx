@@ -22,7 +22,6 @@ import {
   MotionStyle,
 } from "framer-motion";
 import Image from "next/image";
-import { useEventListener } from "usehooks-ts";
 
 import styles from "./album.module.css";
 
@@ -55,6 +54,7 @@ const VinylAlbum = React.forwardRef(( {
     mayAnimate = false,
     alt = "",
     priority = false,
+    initialScene = false,
     type = "vinyl",
     episodeNumParam = -1,
     onSelect = () => {},
@@ -178,22 +178,25 @@ const VinylAlbum = React.forwardRef(( {
     }
   });
 
-  useEventListener("resize", () => {
-    // Pause scroll handling during resize to avoid visual glitches.
-    ignoreScrollRef.current = true;
-    const id = setTimeout(() => {
-      ignoreScrollRef.current = false;
-    }, 50);
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    const handleResize = () => {
+      ignoreScrollRef.current = true;
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        ignoreScrollRef.current = false;
+      }, 50);
+      setExitDistanceVW(
+        window.matchMedia("(pointer: coarse) and (orientation: portrait)").matches ? 115 : 50
+      );
+    };
 
-    // Re-evaluate the exit distance on orientation change.
-    setExitDistanceVW(
-      window.matchMedia("(pointer: coarse) and (orientation: portrait)").matches ? 115 : 50
-    );
-
+    window.addEventListener("resize", handleResize, { passive: true });
     return () => {
-      clearTimeout(id);
-    }
-  });
+      window.removeEventListener("resize", handleResize);
+      if (timeout) clearTimeout(timeout);
+    };
+  }, []);
 
   // This is the hot path: fires on every animation frame during scroll.
   // We write directly to DOM refs — no setState, no React re-render.
@@ -274,6 +277,7 @@ const VinylAlbum = React.forwardRef(( {
           style={style as MotionStyle}
         >
           <Image draggable="false"
+            data-initial-scene={initialScene ? "true" : undefined}
             src={image}
             alt={alt}
             fill={true}
@@ -293,6 +297,7 @@ const VinylAlbum = React.forwardRef(( {
             }}
           />
           <Image draggable="false"
+            data-initial-scene={initialScene ? "true" : undefined}
             src="https://framerusercontent.com/images/xASprVMQ8YKj6GHkS84CpZ7ElQ.png"
             alt=""
             fill={true}
@@ -329,6 +334,7 @@ const ShadowAlbum = (props: VinylProps) => {
 type VinylProps = {
   position: number,
   priority?: boolean,
+  initialScene?: boolean,
   scrollYProgress: MotionValue,
   image?: string,
   total: number,

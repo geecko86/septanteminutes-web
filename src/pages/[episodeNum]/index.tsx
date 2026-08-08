@@ -6,8 +6,7 @@ import React, {
   cloneElement,
 } from "react";
 import { motion, useScroll, animate, useMotionValueEvent, usePresence } from "framer-motion";
-import { useEventListener } from "usehooks-ts";
-import createScrollSnap from "scroll-snap";
+import createScrollSnap from "scroll-snap/dist/scroll-snap.esm.js";
 import { generateNextSeo } from 'next-seo/pages';
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -19,7 +18,7 @@ import type {
   GetStaticPaths,
 } from 'next';
 
-import { Pen as Pen_ } from "../../framer/ImageWrapper.js";
+import Pen_ from "../../framer/assets/Pen";
 import Notebook_ from "../../framer/Notebook-Large-POCp.js";
 import ImagedPostIt_ from "../../framer/Imaged-Post-It-1vlf.js";
 
@@ -37,17 +36,24 @@ import InsertPeek from "../../components/TranscriptInsert/InsertPeek";
 import VideoPrint from "../../components/VideoPrint";
 import { getYoutubeVideoId } from "@/utils/youtubeLink";
 import { useTranscriptIndex } from "../../utils/useTranscript";
+import { BUILD_ID } from "../../utils/buildId";
+import { waitForInitialScene } from "../../utils/initialSceneReady";
 
 import styles from "./episode.module.css";
 
 // Named constants for timeouts used throughout this page.
 // Using names instead of bare numbers makes intent clear and prevents
 // accidental mismatches when the same value appears in multiple places.
-const PRIORITY_IMAGE_TIMEOUT_MS = 3200;   // max wait for fetchpriority images before declaring ready
+const INITIAL_SCENE_TIMEOUT_MS = 12_000;  // long failure escape hatch; normal readiness is asset-driven
 const IDLE_PLAY_BUTTON_DELAY_MS = 2500;   // delay before the play-button idle animation starts
 const IDLE_PLAY_BUTTON_REPEAT_MS = 6500;  // how often the idle animation repeats
 const NOTEBOOK_IDLE_INITIAL_MS = 1000;    // initial delay before the notebook idle wobble
 const NOTEBOOK_IDLE_REPEAT_MS = 3750;     // how often the notebook wobble repeats
+
+const loadHeadphones = () => import("../../framer/assets/Headphones");
+const loadChair = () => import("../../framer/assets/Chair");
+const Headphones = dynamic(loadHeadphones, { ssr: false });
+const Chair = dynamic(loadChair, { ssr: false });
 
 export default function EpisodeTable(props: {
   onReady: () => void,
@@ -61,12 +67,13 @@ export default function EpisodeTable(props: {
 
   const [ready, setReady] = useState(false);
   const [snapping, setSnapping] = useState(false);
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | undefined>(undefined);
   const [selectedPosition, setSelectedPosition] = useState(0);
   const [mayAnimate, setMayAnimate] = useState(false);
   const [isMobileDevice, setIsMobileDevice] = useState(true);
   const [isIOSDevice, setIsIOSDevice] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
+  const [deviceDetected, setDeviceDetected] = useState(false);
+  const [sceneModulesReady, setSceneModulesReady] = useState(false);
   const [hasClickedNotebook, setHasClickedNotebook] = useState(false);
   const [hasClickedPlay, setHasClickedPlay] = useState(false);
   const [overlayNotebookTranslation, setOverlayNotebookTranslation] = useState("left");
@@ -74,7 +81,6 @@ export default function EpisodeTable(props: {
   const [episodeNumParam, setEpisodeNumParam] = useState(-1);
   const [vinyls, setVinyls] = useState<Episode[]>([]);
   const [selectedEpisode, setSelectedEpisode] = useState(vinyls.length - 1);
-  const [selectedVinylRendered, setSelectedVinylRendered] = useState(false)
   const [bottomSheetOpen, setBottomSheetOpen] = useState(false)
   const [browserName, setBrowserName] = useState("");
   const [transcriptOpen, setTranscriptOpen] = useState(false);
@@ -108,9 +114,11 @@ export default function EpisodeTable(props: {
   const isResizingRef = useRef(false);
   // Tears down a previous rotation's force-landing loop (see resize handler).
   const resizeForceCleanupRef = useRef<(() => void) | undefined>(undefined);
+  const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const resizeFrameRef = useRef(0);
+  const scrollCallbackFrameRef = useRef(0);
   const hasClickedNotebookRef = useRef(hasClickedNotebook);
   const hasClickedPlayRef = useRef(hasClickedPlay);
-  const selectedVinyl = useRef<HTMLImageElement>(null);
   const playbackMP3Ref = useRef<string | undefined>("");
   const onReadyRef = useRef(props.onReady);
   const isPlayingRef = useRef(false);
@@ -194,7 +202,7 @@ export default function EpisodeTable(props: {
     };
   };
 
-  const scrollCallback = useCallback(() => {
+  const performScrollCallback = useCallback(() => {
     setSnapping(false);
     if (pendingScrollActions.length && typeof window != "undefined") {
       (window.requestIdleCallback ? window.requestIdleCallback : window.requestAnimationFrame)((pendingScrollActions.shift() as () => void))
@@ -222,6 +230,13 @@ export default function EpisodeTable(props: {
     const newUrl = `/${currentEpisode + 1}/`;
     setDisplayedURL(newUrl);
   }, [pendingScrollActions, getCurrentPosition, vinyls.length]);
+
+  const scrollCallback = useCallback(() => {
+    cancelAnimationFrame(scrollCallbackFrameRef.current);
+    scrollCallbackFrameRef.current = requestAnimationFrame(performScrollCallback);
+  }, [performScrollCallback]);
+
+  useEffect(() => () => cancelAnimationFrame(scrollCallbackFrameRef.current), []);
   
   const onReady = useCallback(() => {
     if (onReadyRef.current) {
@@ -237,8 +252,12 @@ export default function EpisodeTable(props: {
     // All UA/feature detection runs inside this effect so it never executes
     // during static export (where navigator and window don't exist).
     const mobile = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+    const portrait = window.innerHeight > window.innerWidth;
+    let cancelled = false;
     // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: SSR-safe one-shot browser capability detection on mount
     setIsMobileDevice(mobile);
+    setIsPortrait(portrait);
+    setDeviceDetected(true);
     const ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
     setIsIOSDevice(ios);
     if (mobile) {
@@ -252,8 +271,16 @@ export default function EpisodeTable(props: {
         : /iPhone|iPad|iPod/.test(ua) || (/Safari/.test(ua) && !/Chrome/.test(ua)) ? "Safari"
         : "Chrome";
       setBrowserName(name);
-      setIsPortrait(window.innerHeight > window.innerWidth);
     }
+
+    const requiredModules = mobile
+      ? (portrait ? [loadChair()] : [loadHeadphones()])
+      : [loadChair(), loadHeadphones()];
+    Promise.all(requiredModules).then(() => {
+      if (!cancelled) setSceneModulesReady(true);
+    }).catch(console.error);
+
+    return () => { cancelled = true; };
   }, []);
 
   useEffect(() => {
@@ -273,7 +300,12 @@ export default function EpisodeTable(props: {
   useEffect(() => {
     if (displayedURL && displayedURL !== router.asPath && router.pathname == "/[episodeNum]") {
       const id = setTimeout(() => {
-        router.replace(displayedURL, undefined, { scroll: false, shallow: true });
+        const episodeNum = displayedURL.split('/').filter(Boolean)[0];
+        router.replace(
+          { pathname: router.pathname, query: { episodeNum } },
+          displayedURL,
+          { scroll: false, shallow: true }
+        );
       }, 200);
 
       return () => {
@@ -312,16 +344,15 @@ export default function EpisodeTable(props: {
   }, [vinyls.length, ready, doIdlePlayButtonAnimation, autoplay]);
 
   useEffect(() => {
-    const selectedEp = Math.min(Number(router?.query?.episodeNum || props.episode.num) - 1, vinyls.length - 1);
-    if (selectedEp) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: URL param drives initial episode selection; setState in effect is the correct pattern here
-      setEpisodeNumParam(selectedEp);
-      setSelectedEpisode(selectedEp);
-    } else if (!episodeNumParam) {
-      setEpisodeNumParam(vinyls.length - 1);
-      setSelectedEpisode(vinyls.length - 1);
-    }
-  }, [router.query.episodeNum, props.episode.num, vinyls.length, episodeNumParam]);
+    if (vinyls.length === 0) return;
+    const requested = Number(router?.query?.episodeNum || props.episode.num) - 1;
+    const selectedEp = Number.isFinite(requested)
+      ? Math.max(0, Math.min(requested, vinyls.length - 1))
+      : vinyls.length - 1;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- URL and fetched vinyl count determine the selected episode after static export hydration
+    setEpisodeNumParam(selectedEp);
+    setSelectedEpisode(selectedEp);
+  }, [router.query.episodeNum, props.episode.num, vinyls.length]);
 
   useEffect(() => {
     const element = episodePage.current;
@@ -355,48 +386,26 @@ export default function EpisodeTable(props: {
   }, [episodePage, getCurrentPosition, vinyls.length, pendingScrollActions, scrollCallback]);
 
   useEffect(() => {
-    if (ready) return;
+    if (ready
+      || !deviceDetected
+      || !sceneModulesReady
+      || vinyls.length === 0
+      || selectedEpisode < 0
+      || !mainRef.current) return;
 
-    let clear = false;
-    if (selectedVinyl.current && mainRef.current && mainRef.current.querySelector('img[fetchpriority="high"]')) {
-      const priorityImages = document.querySelectorAll('img[fetchpriority="high"]');
-      console.log(`creating ${priorityImages.length} promises`)
-      const priorityImagesPromises = [...priorityImages].map((el: Element, i: number) => (
-        new Promise<void>((resolve, _) => {
-          const img = el as HTMLImageElement;
-          const finish = () => {
-            resolve();
-          }
-          if (img.complete) finish();
-          else img.onload = finish;
-          img.onerror = () => {
-            console.error(new Error('Failed to load priority img ' + i));
-            finish();
-          };
-        })
-      ));
-      Promise.all(priorityImagesPromises).then(() => {
-        console.log(`All ${priorityImagesPromises.length} images loaded`);
-        if (!clear && !ready) { 
-          onReady();
-          setReady(true);
-        }
-      });
-    }
+    let cancelled = false;
+    waitForInitialScene({
+      root: mainRef.current,
+      timeoutMs: INITIAL_SCENE_TIMEOUT_MS,
+    }).then((scene) => {
+      if (cancelled) return;
+      if (scene.timedOut) console.warn(`Initial episode scene timed out after finding ${scene.imageCount} images`);
+      onReady();
+      setReady(true);
+    }).catch(console.error);
 
-    const timeoutId = setTimeout(() => {
-      console.log("Timeout on priority images");
-      if (!clear && !ready) { 
-        onReady();
-        setReady(true);
-      }
-    }, PRIORITY_IMAGE_TIMEOUT_MS);
-
-    return () => {
-      clearTimeout(timeoutId);
-      clear = true;
-    }
-  }, [selectedVinylRendered, selectedVinyl, mainRef, ready, onReady]);
+    return () => { cancelled = true; };
+  }, [deviceDetected, onReady, ready, sceneModulesReady, selectedEpisode, vinyls.length]);
 
   useEffect(() => {
     if (vinyls.length == 0) {
@@ -406,7 +415,7 @@ export default function EpisodeTable(props: {
             const { data } = e;
             setVinyls(data);
         };
-        myWorker.postMessage("");
+        myWorker.postMessage({ buildId: BUILD_ID });
         return () => {
           myWorker.terminate();
         }
@@ -441,46 +450,55 @@ export default function EpisodeTable(props: {
     }
   });
 
-  useEventListener("resize", (e) => {
-    // Ignore snap settlements until the rotation is corrected below.
-    isResizingRef.current = true;
-    // Two quick rotations must not run competing forcing loops.
-    resizeForceCleanupRef.current?.();
-    if (timeoutId) clearTimeout(timeoutId);
-    const newId = setTimeout(() => {
-      const container = episodePage.current;
-      if (!container) {
-        isResizingRef.current = false;
-        return;
-      }
+  useEffect(() => {
+    const handleResize = () => {
+      cancelAnimationFrame(resizeFrameRef.current);
+      resizeFrameRef.current = requestAnimationFrame(() => {
+        // Ignore snap settlements until the rotation is corrected below.
+        isResizingRef.current = true;
+        resizeForceCleanupRef.current?.();
+        if (resizeTimeoutRef.current) clearTimeout(resizeTimeoutRef.current);
 
-      // The section's real offsetTop, not position*clientHeight (svh divergence).
-      const sectionEl = container.children[selectedPosition + 1] as HTMLElement | undefined;
-      const destination = sectionEl?.offsetTop ?? (selectedPosition * container.clientHeight);
+        const portrait = window.innerHeight > window.innerWidth;
+        setIsPortrait(portrait);
+        resizeTimeoutRef.current = setTimeout(() => {
+          const container = episodePage.current;
+          if (!container) {
+            isResizingRef.current = false;
+            return;
+          }
 
-      // Post-rotation reflows keep nudging scrollTop (scroll anchoring), each
-      // nudge restarting scroll-snap's snap-to-nearest with transiently wrong
-      // dimensions — keep re-asserting the destination until scroll stabilizes.
-      let settleTimeout: ReturnType<typeof setTimeout>;
-      const holdDestination = () => {
-        container.scrollTo({ top: destination, behavior: "instant" });
-        clearTimeout(settleTimeout);
-        settleTimeout = setTimeout(() => {
-          container.removeEventListener("scroll", holdDestination);
-          resizeForceCleanupRef.current = undefined;
-          isResizingRef.current = false;
-        }, 150);
-      };
-      resizeForceCleanupRef.current = () => {
-        clearTimeout(settleTimeout);
-        container.removeEventListener("scroll", holdDestination);
-      };
-      container.addEventListener("scroll", holdDestination, { passive: true });
-      holdDestination();
-    }, 300);
-    setTimeoutId(newId);
-    setIsPortrait(window.innerHeight > window.innerWidth);
-  });
+          // Read the settled geometry once in this frame, before scroll writes.
+          const sectionEl = container.children[selectedPosition + 1] as HTMLElement | undefined;
+          const destination = sectionEl?.offsetTop ?? (selectedPosition * container.clientHeight);
+          let settleTimeout: ReturnType<typeof setTimeout> | undefined;
+          const holdDestination = () => {
+            container.scrollTo({ top: destination, behavior: "instant" });
+            if (settleTimeout) clearTimeout(settleTimeout);
+            settleTimeout = setTimeout(() => {
+              container.removeEventListener("scroll", holdDestination);
+              resizeForceCleanupRef.current = undefined;
+              isResizingRef.current = false;
+            }, 150);
+          };
+          resizeForceCleanupRef.current = () => {
+            if (settleTimeout) clearTimeout(settleTimeout);
+            container.removeEventListener("scroll", holdDestination);
+          };
+          container.addEventListener("scroll", holdDestination, { passive: true });
+          holdDestination();
+        }, 300);
+      });
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(resizeFrameRef.current);
+      if (resizeTimeoutRef.current) clearTimeout(resizeTimeoutRef.current);
+      resizeForceCleanupRef.current?.();
+    };
+  }, [selectedPosition]);
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     let scroll;
@@ -557,12 +575,11 @@ export default function EpisodeTable(props: {
   }, [isIOSDevice, audio, playingEpisode, vinyls, selectedEpisode, setPlayingEpisode, setPlaying]);
 
   const onVinylLoad = useCallback((episode: Episode, index: number) => {
-    if (index === selectedEpisode) setSelectedVinylRendered(true);
     if (!(isIOSDevice && !audio?.src) && autoplay?.num == episode.num) {
       console.log("autoplaying!");
       playEpisode(index, true);
     }
-  }, [isIOSDevice, selectedEpisode, audio?.src, autoplay?.num, playEpisode]);
+  }, [isIOSDevice, audio?.src, autoplay?.num, playEpisode]);
 
   // FC<any> annotation is needed because the ambient .d.ts wildcard pattern
   // for framer JS modules does not resolve reliably with TypeScript's bundler
@@ -571,9 +588,6 @@ export default function EpisodeTable(props: {
   const Notebook: React.FC<any> = Notebook_;
   const Pen: React.FC<any> = Pen_;
   const ImagedPostIt: React.FC<any> = ImagedPostIt_;
-
-  const Headphones = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Headphones), { ssr: false }), []);
-  const Chair = React.useMemo(() => dynamic(() => import("../../framer/ImageWrapper.js").then(mod => mod.Chair), { ssr: false }), []);
 
   const TranscriptInsertOverlay = React.useMemo(() => dynamic(() => import("../../components/TranscriptInsert"), { ssr: false }), []);
 
@@ -645,9 +659,8 @@ export default function EpisodeTable(props: {
           {/* Decorative scene: the episode sheet below carries the real content.
               Not on .main — focusable elements must never be aria-hidden. */}
           <div className={styles.floor} aria-hidden="true">
-            <Image draggable="false" alt="" priority={true} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="60vw" style={{ objectFit: "cover" }} fill />
-            {/* eslint-disable-next-line react-hooks/static-components -- intentional: Chair is a stable useMemo(dynamic(...)) component reference, not recreated each render */}
-            { !(isMobileDevice && !isPortrait) && <Chair className={styles.chair} />}
+            <Image draggable="false" data-initial-scene="true" alt="" priority={true} quality={55} src="https://framerusercontent.com/images/2cF7KwwG8pFQ1uqfCehmKfeN0.jpg" sizes="100vw" style={{ objectFit: "cover" }} fill />
+            { !(isMobileDevice && !isPortrait) && <Chair initialScene className={styles.chair} />}
             <div className={styles.invisiblefill} />
           </div>
           <div className={styles.table} aria-hidden="true">
@@ -665,10 +678,10 @@ export default function EpisodeTable(props: {
                 ))}
               </motion.div>
             </div>
-            {/* eslint-disable-next-line react-hooks/static-components -- intentional: Headphones is a stable useMemo(dynamic(...)) component reference, not recreated each render */}
-            {!(isMobileDevice && isPortrait) && <Headphones className={styles.headphones} />}
-            <Pen className={styles.pen} />
+            {!(isMobileDevice && isPortrait) && <Headphones initialScene className={styles.headphones} />}
+            <Pen initialScene className={styles.pen} />
             <Notebook
+              initialScene
               className={styles.notebook}
               data-testid="episode-notebook"
               ref={floatingSetReference}
@@ -697,21 +710,24 @@ export default function EpisodeTable(props: {
                 ready={ready}
               />
             )}
-            {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="(orientation:portrait) 13vh, 13vw" className={styles.phone} />}
-            {!(isMobileDevice && isPortrait) && <Image draggable="false" alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
-            <RecordPlayer className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
+            {!(isMobileDevice && isPortrait) && <Image draggable="false" data-initial-scene="true" alt="" fill src="https://framerusercontent.com/images/65xbC1wSqp8s7XWdQveqlGbrDM.png" sizes="(orientation:portrait) 13vh, 13vw" className={styles.phone} />}
+            {!(isMobileDevice && isPortrait) && <Image draggable="false" data-initial-scene="true" alt="" fill src="https://framerusercontent.com/images/BCLSnD6iOuaJTuIlIDw59Og8xM.png" sizes="16vmax" className={styles.camera} />}
+            <RecordPlayer initialScene className={styles.player} playing={isPlaying && status >= 3} onClick={() => {
               if (playingEpisode?.mp3) {
                 setPlaying(!isPlaying);
               }
             }} />
             <div className={styles.postitnotes}>
               <ImagedPostIt
+                initialScene
                 className={[styles.postit, styles.home_postit].join(" ")}
                 title={"Accueil"}
                 src="/img/back.svg"
                 link={`/#${selectedEpisode + 1}`}
+                prefetch={false}
               />
               <ImagedPostIt
+                initialScene
                 className={[styles.postit, styles.subscribe_postit].join(" ")}
                 ref={floatingSetReference}
                 src="/img/subscribe.svg"
@@ -726,6 +742,7 @@ export default function EpisodeTable(props: {
                 separate={false}
               />
               <ImagedPostIt
+                initialScene
                 className={[styles.postit, styles.download_postit].join(" ")}
                 title={"Télécharger"}
                 src="/img/download.svg"
@@ -733,6 +750,7 @@ export default function EpisodeTable(props: {
                 separate={true}
               />
               <ImagedPostIt
+                initialScene
                 className={[styles.postit, styles.contact_postit].join(" ")}
                 title={"Contact"}
                 src="/img/email4b.svg"
@@ -775,7 +793,7 @@ export default function EpisodeTable(props: {
               {vinyls.map((episode, index) => {
                 return (<VinylAlbum
                   key={`vinyl_${episode.num}`}
-                  ref={index === selectedEpisode ? selectedVinyl : undefined}
+                  initialScene={index === selectedEpisode}
                   image={episode["img"] || ""}
                   alt={episode["title"]}
                   total={vinyls.length}

@@ -2,14 +2,14 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import loader from './cdn_img_loader';
 
 describe('cdn_img_loader', () => {
-  beforeEach(() => { process.env.BUILD_ID = '42'; });
-  afterEach(() => { delete process.env.BUILD_ID; });
+  beforeEach(() => { process.env.NEXT_PUBLIC_BUILD_ID = 'test-42'; });
+  afterEach(() => { delete process.env.NEXT_PUBLIC_BUILD_ID; });
 
   it('transforms cloudinary URLs with scale and quality', () => {
     const src = 'https://res.cloudinary.com/demo/image/upload/sample.jpg';
     const result = loader({ src, width: 400, quality: 80 });
     expect(result).toContain('/upload/c_scale,w_400,f_webp,q_80/');
-    expect(result).toContain('?id=42');
+    expect(result).toContain('?id=test-42');
   });
 
   it('forces https for cloudinary http URLs', () => {
@@ -35,10 +35,10 @@ describe('cdn_img_loader', () => {
   });
 
   it('appends id param to unknown URLs', () => {
-    expect(loader({ src: '/img/other.png', width: 100 })).toBe('/img/other.png?id=42');
+    expect(loader({ src: '/img/other.png', width: 100 })).toBe('/img/other.png?id=test-42');
   });
 
   it('appends id param using & when URL already has query string', () => {
-    expect(loader({ src: '/img/other.png?foo=bar', width: 100 })).toBe('/img/other.png?foo=bar&id=42');
+    expect(loader({ src: '/img/other.png?foo=bar', width: 100 })).toBe('/img/other.png?foo=bar&id=test-42');
   });
 });

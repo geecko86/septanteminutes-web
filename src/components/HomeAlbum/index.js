@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import styles from "./homealbum.module.css";
 
-const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...otherProps }) => {
+const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, fetchPriority, initialScene, ...otherProps }) => {
   const [isHovered, setHovered] = useState(false);
   const { style, className, variant, l4skPfBuN, onReady, imageRef, ...rest } = otherProps;
 
@@ -23,6 +23,7 @@ const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...
       initial={variant}
       className={`framer-LFfFl ${className || ""}`}
       scroll={false} id={id} href={`/${num}`}
+      prefetch={false}
       onClick={onClick}
     >
       <motion.div
@@ -46,11 +47,13 @@ const HomeAlbumComponent = ({ height, id, image, num, guest, width, onClick, ...
       >
         {image && (
           <Image draggable="false"
+            data-initial-scene={initialScene ? "true" : undefined}
             src={image}
             ref={imageRef}
             fill={true}
             sizes="(orientation: portrait) 20vh, 15vw"
             quality={80}
+            fetchPriority={fetchPriority}
             className={styles.homeAlbum_img}
             loading="eager"
             placeholder="blur"

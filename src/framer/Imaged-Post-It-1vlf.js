@@ -31,13 +31,15 @@ const css = [
   ".framer-C4Wjh .framer-v-tgvrn3 .framer-tgvrn3 { cursor: pointer; }",
 ];
 
-const getProps = ({ height = 140, width = 140, id, image, link, onClick, separate, logo, title, ...props }) => {
+const getProps = ({ height = 140, width = 140, id, image, link, onClick, separate, logo, title, prefetch, initialScene, ...props }) => {
   var ref2;
   return {
     onClick,
     ...props,
     link: link,
     separate: separate,
+    prefetch: prefetch,
+    initialScene: initialScene,
     XmvAL8ZsJ:
       (ref2 = image !== null && image !== void 0 ? image : props.XmvAL8ZsJ) !==
         null && ref2 !== void 0
@@ -64,6 +66,8 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
     src,
     link,
     separate,
+    prefetch,
+    initialScene,
     onClick,
     ...restProps
   } = getProps(props);
@@ -93,9 +97,10 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
             tabIndex="0"
             onClick={onClick}
           >
-            <Image key="img_postitIMG" alt="" fill sizes="10vmax" {...toResponsiveImage(XmvAL8ZsJ)} />
+            <Image key="img_postitIMG" data-initial-scene={initialScene ? "true" : undefined} alt="" fill sizes="10vmax" {...toResponsiveImage(XmvAL8ZsJ)} />
             <Link
               href={link || "#"} style={{ width: "100%", height: "100%" }}
+              prefetch={prefetch}
               scroll={false} target={separate ? "_blank" : ""}>
               <div key="call-to-action_postitIMG" className="framer-d1mgg1" data-framer-component-type="RichTextContainer"
               style={{
@@ -108,6 +113,7 @@ const Component = /*#__PURE__*/ React.forwardRef(function ImagedPostIt(
               </div>
               { /* eslint-disable-next-line */}
               <img draggable="false" key="logo_postitIMG"
+                data-initial-scene={initialScene ? "true" : undefined}
                 alt=""
                 src={src}
                 style={{

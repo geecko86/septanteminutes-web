@@ -28,12 +28,6 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://fonts.gstatic.com/s/caveat/v18/Wnz6HAc5bAfYB2Q7ZjYYiAzcPA.woff2"
-            as="font"
-            type="font/woff2" crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
             href="https://res.cloudinary.com/dcodwkhcg/raw/upload/v1780276542/fonts/ulteriora-condensed-extra-bold_ymgni2.woff2"
             as="font"
             type="font/woff2" crossOrigin="anonymous"
@@ -88,7 +82,7 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" sizes="256x256" href="/img/256.png" />
           <link rel="apple-touch-icon" sizes="512x512" href="/img/512.png" />
 
-          <link rel="manifest" href={`/manifest.json?v=${process.env.BUILD_ID || 0}`} />
+          <link rel="manifest" href={`/manifest.json?v=${process.env.NEXT_PUBLIC_BUILD_ID || 'development'}`} />
           <link rel="mask-icon" href="/img/icon.svg" color="#5bbad5" />
           <link rel="shortcut icon" href="/favicon.ico" />
 

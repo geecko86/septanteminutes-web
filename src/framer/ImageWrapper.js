@@ -9,7 +9,7 @@ import { useTransform } from "framer-motion";
 import isOldPhone from "@/utils/mobileChecker";
 
 const ImageOffsetWrapperComponentOldPhone = (props) => {
-    const { position, motionValue, style, priority, offset, offsetFactor, loading, src, sizes, ...newProps } = props;
+    const { position, motionValue, style, priority, offset, offsetFactor, loading, src, sizes, quality, fetchPriority, initialScene, ...newProps } = props;
 
     const translateX = useTransform(motionValue, (value) => {
         const numerator = value;
@@ -18,20 +18,20 @@ const ImageOffsetWrapperComponentOldPhone = (props) => {
 
     return (<div {...newProps}>
         <motion.div style={{ ...style, position: "relative", translateX: offset || translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image draggable="false" src={src} alt="" fill loading={priority ? "eager" : "lazy"} priority={!!priority} sizes={sizes || "10vw"} />
+            <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} src={src} alt="" fill loading={priority ? "eager" : "lazy"} priority={!!priority} fetchPriority={fetchPriority} quality={quality} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
 
 const ImageOffsetWrapperComponentNewDevice = (props) => {
-    const { motionValue, src, offsetFactor, onReady, priority, offset, sizes, loading, style, ...newProps } = props;
+    const { motionValue, src, offsetFactor, onReady, priority, offset, sizes, loading, style, quality, fetchPriority, initialScene, ...newProps } = props;
     const ref = useRef(null);
 
     const translateX = useOffset(ref, motionValue, offsetFactor || 30, 0.9515, src, onReady);
 
     return (<div {...newProps} ref={ref}>
         <motion.div style={{ ...style, position: "relative", translateX: translateX, translateZ: "4px", height: "100%", width: "100%" }}>
-            <Image draggable="false" src={src} alt="" fill loading={priority ? "eager" : "lazy"} priority={!!priority} sizes={sizes || "10vw"} />
+            <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} src={src} alt="" fill loading={priority ? "eager" : "lazy"} priority={!!priority} fetchPriority={fetchPriority} quality={quality} sizes={sizes || "10vw"} />
         </motion.div>
     </div>)
 };
@@ -48,14 +48,14 @@ const ImageOffsetWrapper = React.memo(ImageOffsetWrapperComponent);
 ImageOffsetWrapper.displayName = 'ImageOffsetWrapper';
 
 const ImageWrapperComponent = (props) => {
-    const { src, sizes, priority, onReady, style, blurDataURL, ...otherProps } = props;
+    const { src, sizes, priority, onReady, style, blurDataURL, loading, quality, fetchPriority, initialScene, ...otherProps } = props;
 
     const placeholder = useMemo(() => {
         return !!blurDataURL ? "blur" : "empty";
     }, [blurDataURL]);
 
     return (<motion.div {...otherProps} style={{ transform: "translateZ(4px)", ...style }} >
-        <Image draggable="false" src={src} blurDataURL={blurDataURL} loading={priority ? "eager" : "lazy"} priority={!!priority} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
+        <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} src={src} blurDataURL={blurDataURL} loading={priority ? "eager" : "lazy"} priority={!!priority} fetchPriority={fetchPriority} quality={quality} placeholder={placeholder} alt="" fill sizes={sizes || "10vw"} />
     </motion.div>)
 };
 
@@ -87,7 +87,7 @@ export const Chair = (props) => {
     // or in components that only render client-side, so typeof window is safe here.
     const isMobileDevice = typeof window !== "undefined" &&
         (window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0);
-    const comp = (<ImageWrapper sizes={isMobileDevice ? "25vh" : "50vh"} {...props} priority={!isMobileDevice} src="https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png" />);
+    const comp = (<ImageWrapper sizes={isMobileDevice ? "25vh" : "50vh"} quality={60} {...props} priority={!isMobileDevice} src="https://framerusercontent.com/images/1rnV14P8MhyhWjPOrSeUNIVvs.png" />);
     return { ...comp, displayName: "Chair" };
 };
 
@@ -117,7 +117,7 @@ export const Plant1 = (props) => { // Spark
 };
 
 export const Plant2 = (props) => { // Frontblur
-    const blurData = "data:image/webp;base64,UklGRnIEAABXRUJQVlA4WAoAAAAwAAAAFwAAFwAASUNDUKACAAAAAAKgbGNtcwRAAABtbnRyUkdCIFhZWiAH6AACABEAFQAxABBhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1kZXNjAAABIAAAAEBjcHJ0AAABYAAAADZ3dHB0AAABmAAAABRjaGFkAAABrAAAACxyWFlaAAAB2AAAABRiWFlaAAAB7AAAABRnWFlaAAACAAAAABRyVFJDAAACFAAAACBnVFJDAAACFAAAACBiVFJDAAACFAAAACBjaHJtAAACNAAAACRkbW5kAAACWAAAACRkbWRkAAACfAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACQAAAAcAEcASQBNAFAAIABiAHUAaQBsAHQALQBpAG4AIABzAFIARwBCbWx1YwAAAAAAAAABAAAADGVuVVMAAAAaAAAAHABQAHUAYgBsAGkAYwAgAEQAbwBtAGEAaQBuAABYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMQgAABd7///MlAAAHkwAA/ZD///uh///9ogAAA9wAAMBuWFlaIAAAAAAAAG+gAAA49QAAA5BYWVogAAAAAAAAJJ8AAA+EAAC2xFhZWiAAAAAAAABilwAAt4cAABjZcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltjaHJtAAAAAAADAAAAAKPXAABUfAAATM0AAJmaAAAmZwAAD1xtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAEcASQBNAFBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJBTFBIzgAAAAGAZG3b8eZNatu2R9bMxg5sa2pjlNMN2B5lB12DbbsNn/p7lxARE0D/NAkI1CFOx+ZNmTNLmFxxOZVvIGTe1r2r/VAseojoFCzsb2uhvBgzEZCYDp4qAMV9t7MAWU0cAsDjuqdAYOuZ5ofmvs/ifxLHDfw6lmD5PyqR/zakQ4Jh0y/ABz4qhcglKlrWoWg2IXEJmSck6xGrnS8xJ+px5epyhbpxBdjzeDWOjjR6caSdKz7O0zgyboHbDI6YHWAnhsNmCViy4TCIra0K1/sHVlA4INYAAADwBQCdASoYABgAPjEUiEKiISEYDAQAIAMEsoBdioAXZzvIX+9IqwL/XkVF94bwk7ehSXnOxsySgAD+/qAXhOAqsbk2ZQvFBGBmeHCrxM/dU6Avlzn9of/2vkuyoH1SYA1wWjBVrbHzg0wTywMRIJTNDjNsD/ozgtz6TJv+PIT9079dAbmB+DPYTSZaJo8jX7P++wla91Y+6jc70y0GHr5B+Fu+P4lhpvNE9r3YBn3KvsdZZSY8Qtjy571c5s8/3/gf5G5ckj8m0FVghO2e4tgO9/ExgAAA";
+    const blurData = "data:image/webp;base64,UklGRrIAAABXRUJQVlA4WAoAAAAQAAAACwAACwAAQUxQSGIAAAABcFNt27I8v0w2ueCyOoRg9AYEsCgcAvjGIQSbOwX+DKz6vh0iYgIAQO3WZNB653api1Ry/XqvDCq/fb+vVar4fL83acrqLfdDmQLMnALeU8ALMVfkstNJliuEYYEzxyPjD1ZQOCAqAAAAcAEAnQEqDAAMAASAciWMAsOxQAAA/u+D828D/voCs31SOwVm+SZ8AAAA";
     const comp = (<ImageWrapper sizes={"25vh"} placeholder="blur" blurDataURL={blurData} {...props} priority src="https://framerusercontent.com/images/lFUB6zkoI3fsnsa3UYKcdXQVhE.png" />);
     return { ...comp, displayName: "Plant2" };
 };
@@ -139,6 +139,6 @@ export const Eggchair = (props) => {
 
 export const BackwallLight = (props) => {
     const { offset, ...newProps } = props;
-    const comp = (<ImageWrapper {...newProps} style={{translateX: offset || 0}} priority={true} loading="eager" src="https://framerusercontent.com/images/nrc6Kp2HXcr2ppbsl4XQtHFx0tY.png" sizes="(max-width: 416px) 20vh, 50vh" />);
+    const comp = (<ImageWrapper {...newProps} style={{translateX: offset || 0}} priority={true} loading="eager" src="https://framerusercontent.com/images/nrc6Kp2HXcr2ppbsl4XQtHFx0tY.png" sizes="92vh" />);
     return { ...comp, displayName: "BackwallLight" };
 }

@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode, useCallback, useEffect, useState } from 'react'
-import type { NextComponentType, NextPage, NextPageContext } from 'next'
+import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
@@ -7,7 +7,7 @@ import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
 import LoadingAnim from '../components/LoadingAnim'
-import { PlaybackProvider } from '../utils/PlayerContext'
+import { PlaybackProvider, usePlayback } from '../utils/PlayerContext'
 import useUpdateChecker from '../utils/updateChecker';
 import useBrowserCheck from '../utils/browserCheck';
 
@@ -15,7 +15,18 @@ import styles from "./layout.module.css"
 
 const FloatingPlaybackControls = dynamic(() => import('../components/FloatingPlaybackControls'), { ssr: false });
 
-export default function MyApp({ Component, pageProps, statusCode }: AppPropsWithLayout) {
+function ActivePlaybackControls() {
+  const { playingEpisode } = usePlayback();
+  if (!playingEpisode?.mp3) return null;
+
+  return (
+    <div className={styles.overlay} key="overlay">
+      <FloatingPlaybackControls />
+    </div>
+  );
+}
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const [loadedRoute, setLoaded] = useState("");
   const [_, setDisplayedComponent] = useState(Component?.name);
@@ -47,23 +58,14 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   }, [Component.name]);
 
   useEffect(() => {
-    const handle404 = () => {
-      // Handle the error here
-      logAndSetLoaded("404");
-      console.error('404 - Page not found')
-    }
+    const handleRouteError = () => logAndSetLoaded(pathname === '/404' ? '404' : pathname);
+    if (pathname === '/404') handleRouteError();
 
-    const handleRouteChange = async (url: string) => {
-      const response = await fetch(url)
-      if (response.status === 404) handle404()
-    }
-    if (statusCode === 404) handle404()
-
-    routerEvents.on('routeChangeStart', handleRouteChange)
+    routerEvents.on('routeChangeError', handleRouteError)
     return () => {
-      routerEvents.off('routeChangeStart', handleRouteChange)
+      routerEvents.off('routeChangeError', handleRouteError)
     }
-  }, [routerEvents, statusCode]);
+  }, [pathname, routerEvents]);
 
   useEffect(() => {
     let timeoutId: (NodeJS.Timeout | undefined) = undefined;
@@ -295,9 +297,7 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
         }}>
           <Component {...pageProps} key={Component.name} onReady={onReady} />
         </AnimatePresence>
-        <div className={styles.overlay} key="overlay">
-          <FloatingPlaybackControls />
-        </div>
+        <ActivePlaybackControls />
       </PlaybackProvider>
       {/* </StrictMode> */}
       {!loadingAnimGone && <div id="globalLoader" style={(!showLoadingAnim && loadedRoute) ? { opacity: 0, pointerEvents: "none", position: "fixed", transition: "opacity 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000)" } : { position: "fixed" }}>
@@ -307,31 +307,10 @@ export default function MyApp({ Component, pageProps, statusCode }: AppPropsWith
   )
 }
 
-MyApp.getInitialProps = async ({ Component, ctx }: { Component: NextComponentType; ctx: NextPageContext }) => {
-  let pageProps = {}
-  let statusCode = null
-
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx)
-  }
-
-  if (ctx.res) {
-    // If `ctx.res` is defined, we're on the server.
-    statusCode = ctx.res.statusCode
-  } else {
-    // If we're on the client, we can fetch the page's status.
-    const response = await fetch(window.location.href)
-    statusCode = response.status
-  }
-
-  return { pageProps, statusCode }
-}
-
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
 
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout,
-  statusCode: number
+  Component: NextPageWithLayout
 }

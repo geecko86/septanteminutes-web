@@ -8,9 +8,9 @@ import styles from "./season.module.css";
 
 import { MotionValue } from "framer-motion";
 
-const HomeChair = dynamic(() => import("@/framer/ImageWrapper").then((mod) => mod.HomeChair), { ssr: false });
+const HomeChair = dynamic(() => import("@/framer/assets/HomeChair"), { ssr: false });
 
-const PresentationWallContents = () => {
+const PresentationWallContents = ({ initialScene = false }: { initialScene?: boolean }) => {
     const paragraphRef = React.useRef<HTMLParagraphElement>(null);
     const [overflowSize, setOverflowSize] = useState(30);
 
@@ -36,7 +36,7 @@ const PresentationWallContents = () => {
         <div className={styles.presentationWallContents}>
             <div className={styles.presentationText}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img draggable="false" alt="Septante Minutes Avec" src="/img/sma_title.svg" />
+                <img draggable="false" data-initial-scene={initialScene ? "true" : undefined} alt="Septante Minutes Avec" src="/img/sma_title.svg" />
 
                 <div
                     ref={paragraphRef}
@@ -66,10 +66,11 @@ const SeasonComponent = (props: {
     ready: boolean,
     position: number,
     playerVisible: boolean,
-    motionValue: MotionValue
+    motionValue: MotionValue,
+    initialScene?: boolean
 }) => {
 
-    const { chair, seasonTitle, children, playerVisible, className, style, ready, position, motionValue, ...otherProps } = props;
+    const { chair, seasonTitle, children, playerVisible, className, style, ready, position, motionValue, initialScene, ...otherProps } = props;
 
     const arrayKeys = useMemo(() => [...Array(Math.max(1, Math.ceil((children?.length || 2) / 2 / 3.3))).keys()], [children]);
 
@@ -104,6 +105,7 @@ const SeasonComponent = (props: {
                         arrayKeys.map((i) => (
                             <div key={`season_${seasonTitle}_texture_${i}`} style={{ height: "100%", width: "auto", aspectRatio: 3 / 2, position: "relative" }}>
                                 <Image draggable="false"
+                                    data-initial-scene={initialScene ? "true" : undefined}
                                     alt="" fill={true}
                                     priority={true}
                                     className={styles.wall} sizes="(orientation:portrait) 30vh, 66vh"
@@ -129,6 +131,7 @@ const SeasonComponent = (props: {
                     {!presentationWall && <div className={styles.header} key={`season_header_${seasonTitle}`} data-framer-name="Header">
                         <div className={styles.header_logo} data-framer-name="Logo">
                             <Image draggable="false"
+                                data-initial-scene={initialScene ? "true" : undefined}
                                 alt="Septante Minutes Avec" fill={true}
                                 className={styles.header_logo_img} sizes="128px"
                                 src="/img/sma_title.svg"
@@ -156,16 +159,16 @@ const SeasonComponent = (props: {
                         </div>
                     </div>}
                     {
-                        presentationWall ? <PresentationWallContents /> :
+                        presentationWall ? <PresentationWallContents initialScene={initialScene} /> :
                             <div className={styles.albums_container} data-framer-name="Albums" style={{ opacity: 1 }}>
                                 {children}
                             </div>
                     }
                     {!presentationWall ? <div className={styles.season_legende} data-framer-name="LEGENDE" style={{ opacity: 1 }}>
-                        <Image draggable="false" src="/img/side_A.svg" unoptimized alt="" loading="lazy" width={31} height={12} />
-                        <Image draggable="false" src="/img/45_rpm.svg" unoptimized alt="" loading="lazy" width={13} height={12} />
-                        <Image draggable="false" src="/img/stereo.svg" unoptimized alt="" loading="lazy" width={28} height={12} />
-                        <Image draggable="false" src="/img/import.svg" unoptimized alt="" loading="lazy" width={21} height={12} />
+                        <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} src="/img/side_A.svg" unoptimized alt="" loading="lazy" width={31} height={12} />
+                        <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} src="/img/45_rpm.svg" unoptimized alt="" loading="lazy" width={13} height={12} />
+                        <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} src="/img/stereo.svg" unoptimized alt="" loading="lazy" width={28} height={12} />
+                        <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} src="/img/import.svg" unoptimized alt="" loading="lazy" width={21} height={12} />
                         <div className={styles.richtextcontainer2} data-framer-component-type="RichTextContainer" style={{ outline: "none", display: "flex", flexDirection: "column", justifyContent: "flex-start", transform: "none", opacity: 1 }}>
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>Disponible sur toutes</p>
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>les plateformes</p>
@@ -179,14 +182,14 @@ const SeasonComponent = (props: {
                             { name: "instagram_black", link: "https://www.instagram.com/GuiHachez/" },
                             { name: "rss", link: "https://anchor.fm/s/b43f59a8/podcast/rss" }].map((item) => (
                             <a key={item.name} href={item.link} target="_blank" style={item.name.endsWith("_black") ? { aspectRatio: 1, transform: "scale(1.23)", height: "inherit" } : {}}>
-                                <Image draggable="false" src={`/img/${item.name}.svg`} unoptimized alt={item.name.split("_")[0]} width={16} height={16} />
+                                <Image draggable="false" data-initial-scene={initialScene ? "true" : undefined} src={`/img/${item.name}.svg`} unoptimized alt={item.name.split("_")[0]} width={16} height={16} />
                             </a>
                         )) }
                     </div>}
                 </div>
                 {chair ?
                     (<div className={styles.chair} data-framer-name="Chair" >
-                        <HomeChair alt="" className={styles.chair_img} priority={ready}
+                        <HomeChair alt="" initialScene={initialScene} className={styles.chair_img} priority={ready}
                             motionValue={motionValue} src={chair} style={{
                                 position: "absolute",
                                 objectFit: "contain",
