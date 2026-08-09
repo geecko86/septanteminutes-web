@@ -1,16 +1,23 @@
 onmessage = function (event) {
     const { buildId, cachedSeasons = '[]' } = event.data || {};
-    const localSeasons = typeof cachedSeasons === 'string' ? JSON.parse(cachedSeasons) : cachedSeasons;
+    let localSeasons = [];
+    try {
+        const parsed = typeof cachedSeasons === 'string' ? JSON.parse(cachedSeasons) : cachedSeasons;
+        if (Array.isArray(parsed)) localSeasons = parsed;
+    } catch {
+        // Ignore corrupt legacy cache entries; the versioned network request
+        // below replaces them without asking the user to clear site data.
+    }
 
-    if (localSeasons && localSeasons.length > 3) {
-        postMessage(localSeasons);
+    if (localSeasons.length > 3) {
+        postMessage({ source: 'cache', seasons: localSeasons });
     }
     if (!/^[A-Za-z0-9_-]{8,64}$/.test(buildId || '')) {
-        if (!localSeasons?.length) postMessage([]);
         return;
     }
 
     fetch(`/js/data.json?buildId=${encodeURIComponent(buildId)}`, {
+        cache: 'no-store',
         headers: {
             Pragma: 'no-cache',
             Expires: '-1',
@@ -30,10 +37,9 @@ onmessage = function (event) {
                 name: season,
                 episodes: vinyls.filter(ep => ep.season === season)
             }));
-            postMessage([...seasons].reverse());
+            postMessage({ source: 'network', seasons: [...seasons].reverse() });
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
-            if (!localSeasons?.length) postMessage([]);
         });
 }

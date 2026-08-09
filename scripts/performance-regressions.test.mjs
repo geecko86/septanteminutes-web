@@ -58,6 +58,59 @@ describe('performance request regressions', () => {
     }
   );
 
+  it('uses cached seasons only as a fallback before replacing them from the network', async () => {
+    const cachedSeasons = Array.from({ length: 4 }, (_, index) => ({
+      name: `cached-${index}`,
+      episodes: [],
+    }));
+    const result = await runWorker('public/js/seasonFetcher.js', {
+      buildId: 'release_2026-08-05',
+      cachedSeasons: JSON.stringify(cachedSeasons),
+    });
+
+    expect(result.messages[0]).toEqual({ source: 'cache', seasons: cachedSeasons });
+    expect(result.messages[1]).toEqual({
+      source: 'network',
+      seasons: [{ name: '1', episodes: [
+        { num: '1', season: '1' },
+        { num: '2', season: '1' },
+      ] }],
+    });
+  });
+
+  it('recovers from malformed cached seasons without suppressing the network request', async () => {
+    const result = await runWorker('public/js/seasonFetcher.js', {
+      buildId: 'release_2026-08-05',
+      cachedSeasons: '<corrupt cache>',
+    });
+
+    expect(result.requests).toEqual(['/js/data.json?buildId=release_2026-08-05']);
+    expect(result.messages).toHaveLength(1);
+    expect(result.messages[0].source).toBe('network');
+  });
+
+  it('versions the season worker and reloads when a new build is detected', () => {
+    const home = read('src/pages/index.tsx');
+    const app = read('src/pages/_app.tsx');
+    expect(home).toContain('new Worker(`/js/seasonFetcher.js?buildId=${encodeURIComponent(BUILD_ID)}`)');
+    expect(home).not.toMatch(/\[ready, onTheMove, router\.asPath, seasons\.length\]/);
+    expect(app).toContain("updateUrl.searchParams.set('_build', buildId)");
+    expect(app).toContain('window.location.replace(updateUrl.toString())');
+  });
+
+  it('revalidates HTML and public workers while keeping hashed chunks immutable', () => {
+    const firebase = JSON.parse(read('firebase.json'));
+    const cacheControl = Object.fromEntries(firebase.hosting.headers
+      .filter(rule => rule.headers.some(header => header.key === 'Cache-Control'))
+      .map(rule => [rule.source, rule.headers.find(header => header.key === 'Cache-Control').value]));
+
+    expect(cacheControl['**/']).toContain('max-age=0');
+    expect(cacheControl['**/*.html']).toContain('max-age=0');
+    expect(cacheControl['/js/*.js']).toContain('max-age=0');
+    expect(cacheControl['/sw.js']).toContain('no-store');
+    expect(cacheControl['/_next/static/**/*.js']).toContain('immutable');
+  });
+
   it('disables route prefetch for initial homepage albums and the episode home link', () => {
     expect(read('src/components/HomeAlbum/index.js')).toContain('prefetch={false}');
     expect(read('src/pages/[episodeNum]/index.tsx')).toMatch(/link={`\/#\$\{selectedEpisode \+ 1\}`}\s+prefetch={false}/);

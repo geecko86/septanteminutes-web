@@ -100,14 +100,10 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page)
 
-  useUpdateChecker(() => {
-    fetch(window.location.href, {
-      headers: {
-        Pragma: 'no-cache',
-        Expires: '-1',
-        'Cache-Control': 'no-cache',
-      },
-    });
+  useUpdateChecker((buildId) => {
+    const updateUrl = new URL(window.location.href);
+    updateUrl.searchParams.set('_build', buildId);
+    window.location.replace(updateUrl.toString());
   });
 
   useBrowserCheck();

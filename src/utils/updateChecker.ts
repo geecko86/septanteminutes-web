@@ -4,6 +4,7 @@ import { BUILD_ID, isValidBuildId } from './buildId';
 export async function getDeployedBuildId(): Promise<string | null> {
   try {
     const response = await fetch('/api/buildId.txt', {
+      cache: 'no-store',
       headers: {
         Pragma: 'no-cache',
         Expires: '-1',
@@ -22,7 +23,7 @@ export async function getDeployedBuildId(): Promise<string | null> {
   }
 }
 
-const useUpdateChecker = (callback: () => void) => {
+const useUpdateChecker = (callback: (buildId: string) => void) => {
 
   const [updateAvailableChecked, setUpdateAvailable] = useState(false);
 
@@ -37,7 +38,7 @@ const useUpdateChecker = (callback: () => void) => {
       console.log("compiled buildId", BUILD_ID);
       if (buildId && buildId !== BUILD_ID) {
         // There's a new version deployed that we need to load
-        callback();
+        callback(buildId);
       }
     };
 

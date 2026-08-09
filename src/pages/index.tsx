@@ -110,6 +110,8 @@ export default function Home(props: {
     const firstAlbum = useRef<HTMLImageElement>(null), firstPoster = useRef<HTMLImageElement>(null);
     const resolveScrollRef = useRef<(() => void) | null>(null);
     const anchorScrollDoneRef = useRef(false);
+    const seasonWorkerRef = useRef<Worker | null>(null);
+    const seasonFetchStartedRef = useRef(false);
 
     const { setPlaying, isPlaying, setAutoplay, playingEpisode } = usePlayback();
     const router = useRouter();
@@ -129,14 +131,26 @@ export default function Home(props: {
 
     useEffect(() => {
         let timeout: NodeJS.Timeout;
-        let worker: Worker | undefined;
-        if (window.Worker && ready && seasons.length <=  5) {
+        if (window.Worker && ready && !seasonFetchStartedRef.current) {
             timeout = setTimeout(() => {
+                if (seasonFetchStartedRef.current) return;
+                seasonFetchStartedRef.current = true;
                 console.log("fetching seasons");
-                worker = new Worker("/js/seasonFetcher.js");
+                const worker = new Worker(`/js/seasonFetcher.js?buildId=${encodeURIComponent(BUILD_ID)}`);
+                seasonWorkerRef.current = worker;
                 worker.onmessage = function (e) {
-                    requestAnimationFrame(() => setSeasons([{ name: "", episodes: [] }, ...e.data]));
-                    localStorage.setItem('seasons', JSON.stringify(e.data));
+                    const payload = e.data;
+                    const fetchedSeasons = Array.isArray(payload) ? payload : payload?.seasons;
+                    if (!Array.isArray(fetchedSeasons)) return;
+
+                    requestAnimationFrame(() => setSeasons([{ name: "", episodes: [] }, ...fetchedSeasons]));
+                    if (Array.isArray(payload) || payload.source === 'network') {
+                        localStorage.setItem('seasons', JSON.stringify(fetchedSeasons));
+                    }
+                    if (payload?.source === 'network') {
+                        worker.terminate();
+                        if (seasonWorkerRef.current === worker) seasonWorkerRef.current = null;
+                    }
                 };
                 worker.postMessage({
                     buildId: BUILD_ID,
@@ -147,9 +161,13 @@ export default function Home(props: {
 
         return () => {
             clearTimeout(timeout);
-            worker?.terminate();
         };
-    }, [ready, onTheMove, router.asPath, seasons.length]);
+    }, [ready, onTheMove, router.asPath]);
+
+    useEffect(() => () => {
+        seasonWorkerRef.current?.terminate();
+        seasonWorkerRef.current = null;
+    }, []);
 
     useEffect(() => {
         let resizeFrame = 0;
