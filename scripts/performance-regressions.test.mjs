@@ -92,10 +92,15 @@ describe('performance request regressions', () => {
   it('versions the season worker and reloads when a new build is detected', () => {
     const home = read('src/pages/index.tsx');
     const app = read('src/pages/_app.tsx');
+    const updateChecker = read('src/utils/updateChecker.ts');
     expect(home).toContain('new Worker(`/js/seasonFetcher.js?buildId=${encodeURIComponent(BUILD_ID)}`)');
     expect(home).not.toMatch(/\[ready, onTheMove, router\.asPath, seasons\.length\]/);
     expect(app).toContain("updateUrl.searchParams.set('_build', buildId)");
     expect(app).toContain('window.location.replace(updateUrl.toString())');
+    expect(updateChecker).toContain('/api/buildId.txt?compiled=${encodeURIComponent(BUILD_ID)}');
+    expect(updateChecker).toContain('navigator.serviceWorker.getRegistrations()');
+    expect(updateChecker).toContain('window.caches.delete(cacheName)');
+    expect(updateChecker).toContain('alreadyAttempted');
   });
 
   it('revalidates HTML and public workers while keeping hashed chunks immutable', () => {

@@ -5,11 +5,16 @@ describe('getDeployedBuildId', () => {
   afterEach(() => vi.unstubAllGlobals());
 
   it('accepts a successful plain-text build token', async () => {
-    vi.stubGlobal('fetch', vi.fn(async () => new Response('release_2026-08-05', {
+    const fetchMock = vi.fn(async () => new Response('release_2026-08-05', {
       status: 200,
       headers: { 'content-type': 'text/plain; charset=utf-8' },
-    })));
+    }));
+    vi.stubGlobal('fetch', fetchMock);
     await expect(getDeployedBuildId()).resolves.toBe('release_2026-08-05');
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringMatching(/^\/api\/buildId\.txt\?compiled=/),
+      expect.objectContaining({ cache: 'no-store' }),
+    );
   });
 
   it('rejects an HTML hosting fallback even when its status is 200', async () => {
