@@ -1,6 +1,10 @@
 name: CI
 
 on:
+  # Episode updates are pushed with GITHUB_TOKEN, whose push/PR events are
+  # intentionally recursion-suppressed. The updater explicitly dispatches CI
+  # on that protected PR branch and waits for this exact `build` check.
+  workflow_dispatch:
   pull_request:
     branches: [main]
   # main no longer requires PRs to be up to date before merging — that setting

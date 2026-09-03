@@ -79,7 +79,7 @@ Google gives you, braces and newlines included — pasting just the
 
 `public/js/data.json` is the single source of truth for all episode metadata (titles, guests, dates, audio URLs), and is committed so builds need no network access to Firestore.
 
-Regenerating it is automated. `fetch-episodes-rss.yml` triggers the `getEpisodesFromRSS` Cloud Function (which lives in a separate, non-public project) to sync the podcast feed into Firestore. `update-episodes.yml` then exports Firestore, updates `EPISODES_COUNT`, opens a transcript tracking issue per new episode, and creates an auto-merge PR when the exported content changed. CI must pass before the PR reaches protected `main`; that push triggers `deploy-security.yml`, which rebuilds and deploys Firebase Hosting.
+Regenerating it is automated. `fetch-episodes-rss.yml` triggers the `getEpisodesFromRSS` Cloud Function (which lives in a separate, non-public project) to sync the podcast feed into Firestore. `update-episodes.yml` then exports Firestore, updates `EPISODES_COUNT`, opens a transcript tracking issue per new episode, and creates a protected PR when the exported content changed. It explicitly runs CI on that commit and merges only after the required build passes, then dispatches `deploy-security.yml` to rebuild and deploy Firebase Hosting.
 
 ### Project structure
 

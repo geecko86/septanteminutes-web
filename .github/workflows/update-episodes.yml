@@ -10,8 +10,10 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
   issues: write
+  pull-requests: write
 
 concurrency:
   group: episode-update
@@ -47,18 +49,8 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || needs.guard.outputs.run == 'true'
     runs-on: ubuntu-latest
     steps:
-      # Push the update branch and create its PR as the repository App. Unlike
-      # GITHUB_TOKEN, App-authored events start CI and downstream workflows.
-      - name: Mint an episode update token
-        id: token
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          token: ${{ steps.token.outputs.token }}
           fetch-depth: 0
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -86,8 +78,7 @@ jobs:
         run: bash update_episodes.sh
         env:
           FIRESTORE_CREDENTIALS: ${{ runner.temp }}/firestore-sa.json
-          GH_TOKEN: ${{ steps.token.outputs.token }}
-          ISSUES_GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
           EPISODE_UPDATE_BRANCH: automation/episode-update-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Clean up credential file
