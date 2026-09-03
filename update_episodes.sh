@@ -1,7 +1,7 @@
 #!/bin/bash
 # Exports Firestore -> public/js/data.json and, when its content changed, opens
-# a PR, dispatches CI on that exact commit, waits for the required build check,
-# merges it, and explicitly dispatches the Firebase deployment.
+# a PR, approves and waits for its required build check, merges it, and
+# explicitly dispatches the Firebase deployment.
 
 set -euo pipefail
 
@@ -83,10 +83,11 @@ case "$update_branch" in
     *) echo "Invalid episode update branch: $update_branch" >&2; exit 1 ;;
 esac
 
-# main is protected by CI's required `build` check. GITHUB_TOKEN-authored push
-# events do not start other workflows, so explicitly dispatch CI on the update
-# branch and wait for its check before merging. The deploy is dispatched for
-# the same reason after the merge.
+# main is protected by CI's required `build` check. A PR created by GITHUB_TOKEN
+# gets a pull_request workflow run, but GitHub initially marks that run as
+# `action_required`. Approve that exact run, wait for its PR-associated check,
+# and only then merge. The deploy is explicitly dispatched after the merge
+# because GITHUB_TOKEN-authored merge events do not start other workflows.
 git push origin "HEAD:refs/heads/$update_branch"
 pr_url=$(gh pr create \
     --base main \
@@ -96,14 +97,13 @@ pr_url=$(gh pr create \
 echo "Episode update PR created: $pr_url"
 
 commit_sha=$(git rev-parse HEAD)
-gh workflow run ci.yml --ref "$update_branch"
 
 ci_run_id=""
 for ((attempt = 1; attempt <= 30; attempt++)); do
     ci_run_id=$(gh run list \
         --workflow ci.yml \
         --branch "$update_branch" \
-        --event workflow_dispatch \
+        --event pull_request \
         --limit 10 \
         --json databaseId,headSha \
         --jq "[.[] | select(.headSha == \"$commit_sha\")][0].databaseId // empty")
@@ -112,11 +112,18 @@ for ((attempt = 1; attempt <= 30; attempt++)); do
 done
 
 if [ -z "$ci_run_id" ]; then
-    echo "Could not find the dispatched CI run for $commit_sha." >&2
+    echo "Could not find the PR CI run for $commit_sha." >&2
     exit 1
 fi
 
-echo "Waiting for CI run $ci_run_id on $commit_sha"
+ci_conclusion=$(gh run view "$ci_run_id" --json conclusion --jq '.conclusion // empty')
+if [ "$ci_conclusion" = "action_required" ]; then
+    repository=${GITHUB_REPOSITORY:-$(gh repo view --json nameWithOwner --jq '.nameWithOwner')}
+    echo "Approving PR CI run $ci_run_id on $commit_sha"
+    gh api --method POST "repos/$repository/actions/runs/$ci_run_id/approve" >/dev/null
+fi
+
+echo "Waiting for PR CI run $ci_run_id on $commit_sha"
 gh run watch "$ci_run_id" --exit-status
 gh pr merge --squash --delete-branch "$pr_url"
 gh workflow run deploy-security.yml --ref main

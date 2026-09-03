@@ -123,14 +123,15 @@ describe('performance request regressions', () => {
 
     expect(script).toContain('set -euo pipefail');
     expect(script).toContain('git push origin "HEAD:refs/heads/$update_branch"');
-    expect(script).toContain('gh workflow run ci.yml --ref "$update_branch"');
+    expect(script).toContain('--event pull_request');
+    expect(script).toContain('actions/runs/$ci_run_id/approve');
     expect(script).toContain('gh run watch "$ci_run_id" --exit-status');
     expect(script).toContain('gh pr merge --squash --delete-branch');
     expect(script).toContain('gh workflow run deploy-security.yml --ref main');
     expect(script).not.toContain('firebase deploy');
     expect(updater).toContain('actions: write');
     expect(updater).toContain('EPISODE_UPDATE_BRANCH: automation/episode-update-');
-    expect(read('.github/workflows/ci.yml')).toContain('workflow_dispatch:');
+    expect(read('.github/workflows/ci.yml')).not.toContain('workflow_dispatch:');
     expect(deployer).toContain("- 'public/js/data.json'");
   });
 
