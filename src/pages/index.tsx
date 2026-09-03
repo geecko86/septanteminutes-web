@@ -671,8 +671,8 @@ export default function Home(props: {
                                         seasons.map((season, i) => {
                                             const left = invisibleSeasonSeparators.slice(0, i + 1).reduce((sum, value) => sum + value, 0);
                                             return (<React.Fragment key={season.name + "_invisible00_fragment"}>
-                                                <Poster setFirstPosterMotionValue={setFirstPosterMotionValue} ref={i == 0 ? firstPoster : undefined} offset={left} className={[styles.poster, posters[i].className].join(" ")} key={`${season.name}_poster_${i}_${invisibleSeasonSeparators[i]}`}
-                                                    initialScene priority={!isMobileDevice && (ready || i == 0)} poster={posters[i]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
+                                                <Poster setFirstPosterMotionValue={setFirstPosterMotionValue} ref={i == 0 ? firstPoster : undefined} offset={left} className={[styles.poster, posters[i % posters.length].className].join(" ")} key={`${season.name}_poster_${i}_${invisibleSeasonSeparators[i]}`}
+                                                    initialScene priority={!isMobileDevice && (ready || i == 0)} poster={posters[i % posters.length]} isLast={i == seasons.length - 1} motionValue={newScrollX} position={i} />
                                             </React.Fragment>)
                                         })
                                     }
