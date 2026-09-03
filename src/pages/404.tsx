@@ -6,8 +6,7 @@ import { Spotlight } from "../components/Spotlight";
 import styles from "./404.module.css"
 import Link from "next/link";
 
-export default function Custom404(props: { offline ?: boolean, errorCode ?: number, error ?: Error }) {
-    const router = useRouter();
+export function NotFoundScreen(props: { offline ?: boolean, errorCode ?: number, error ?: Error, onNavigateHome: () => void }) {
     const [visible, setVisible] = useState(true);
     const [isOnline, setIsOnline] = useState(!(props.offline));
     const [randomName, setRandomName] = useState(firstNames[0]);
@@ -46,7 +45,7 @@ export default function Custom404(props: { offline ?: boolean, errorCode ?: numb
     const leaving = () => {
         setVisible(false);
         setTimeout(() => {
-            router.push("/")
+            props.onNavigateHome();
         }, 800);
     };
 
@@ -91,6 +90,11 @@ export default function Custom404(props: { offline ?: boolean, errorCode ?: numb
             </main>
         </div>
     )
+}
+
+export default function Custom404(props: { offline ?: boolean, errorCode ?: number, error ?: Error }) {
+    const router = useRouter();
+    return <NotFoundScreen {...props} onNavigateHome={() => router.push("/")} />;
 }
 
 const firstNames = [
