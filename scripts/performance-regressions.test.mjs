@@ -116,6 +116,34 @@ describe('performance request regressions', () => {
     expect(cacheControl['/_next/static/**/*.js']).toContain('immutable');
   });
 
+  it('publishes episode exports through a CI-gated PR before deployment', () => {
+    const script = read('update_episodes.sh');
+    const updater = read('.github/workflows/update-episodes.yml');
+    const deployer = read('.github/workflows/deploy-security.yml');
+
+    expect(script).toContain('set -euo pipefail');
+    expect(script).toContain('git push origin "HEAD:refs/heads/$update_branch"');
+    expect(script).toContain('gh pr merge --auto --squash --delete-branch');
+    expect(script).not.toContain('firebase deploy');
+    expect(updater).toContain('actions/create-github-app-token@v2');
+    expect(updater).toContain('EPISODE_UPDATE_BRANCH: automation/episode-update-');
+    expect(deployer).toContain("- 'public/js/data.json'");
+  });
+
+  it('selects explicit Brussels DST schedules without using delayed start hours', () => {
+    const rss = read('.github/workflows/fetch-episodes-rss.yml');
+    const updater = read('.github/workflows/update-episodes.yml');
+
+    expect(rss).toContain("cron: '20 1,4,7,10,13,16,19,22");
+    expect(rss).toContain("cron: '20 2,5,8,11,14,17,20,23");
+    expect(updater).toContain("cron: '30 1,4,7,10,13,16,19,22");
+    expect(updater).toContain("cron: '30 2,5,8,11,14,17,20,23");
+    expect(rss).toContain('SCHEDULE: ${{ github.event.schedule }}');
+    expect(updater).toContain('SCHEDULE: ${{ github.event.schedule }}');
+    expect(rss).not.toContain("date '+%m %H'");
+    expect(updater).not.toContain("date '+%m %H'");
+  });
+
   it('disables route prefetch for initial homepage albums and the episode home link', () => {
     expect(read('src/components/HomeAlbum/index.js')).toContain('prefetch={false}');
     expect(read('src/pages/[episodeNum]/index.tsx')).toMatch(/link={`\/#\$\{selectedEpisode \+ 1\}`}\s+prefetch={false}/);

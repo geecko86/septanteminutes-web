@@ -1,7 +1,9 @@
 #!/bin/bash
-# Exports Firestore -> public/js/data.json and, if the episode count changed,
-# builds and deploys. Assumes scripts/fetch-episodes-rss.sh already ran
-# (separately scheduled) so Firestore is up to date by the time this runs.
+# Exports Firestore -> public/js/data.json and, when its content changed, opens
+# an auto-merge PR. CI supplies main's required build check; the push of the
+# merged data commit then triggers the test-gated Firebase deployment.
+
+set -euo pipefail
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
@@ -23,7 +25,8 @@ item_count=$(jq '.episodes | length' public/js/data.json)
 
 # Read the current value of EPISODES_COUNT from .env if it exists
 if [ -f .env ]; then
-    current_count=$(grep 'EPISODES_COUNT=' .env | sed 's/EPISODES_COUNT=//')
+    current_count=$(sed -n 's/^EPISODES_COUNT=//p' .env | head -1)
+    current_count=${current_count:-0}
 else
     current_count=0
 fi
@@ -54,11 +57,11 @@ fi
 # public/transcripts/{num}.json is pushed) instead of only logging a reminder.
 new_ids=$(jq -r '.episodes | keys[]' public/js/data.json | sort | comm -13 <(echo "$old_ids") -)
 
-if command -v gh >/dev/null 2>&1; then
+if command -v gh >/dev/null 2>&1 && [ -n "${ISSUES_GH_TOKEN:-${GH_TOKEN:-}}" ]; then
     for num in $new_ids; do
         title=$(jq -r --arg n "$num" '.episodes[$n].title' public/js/data.json)
         echo "Opening tracking issue for episode $num ($title)"
-        gh issue create \
+        GH_TOKEN="${ISSUES_GH_TOKEN:-$GH_TOKEN}" gh issue create \
             --title "Transcrire l'épisode $num" \
             --label needs-transcript \
             --body "Nouvel épisode détecté : **$title** (épisode $num).
@@ -72,17 +75,24 @@ fi
 
 git add .env
 git add public/js/data.json
-git add firebase.json
-git add public/transcripts
-git commit -m "update data.json, .env and firebase.json"
-git push origin main
+git commit -m "Update episode data"
 
-# --only hosting: this scheduled job deploys the WEBSITE only. The Cloud
-# Function getEpisodesFromRSS lives in a separate (non-public) project and is
-# deployed independently — never from here.
-# Installed here rather than up front: most runs stop at "no update needed"
-# above, and a global npm install is a slow way to reach that conclusion.
-command -v firebase >/dev/null || npm install -g firebase-tools@15
-yarn build && firebase --project septanteminutes deploy --only hosting --non-interactive
+update_branch=${EPISODE_UPDATE_BRANCH:-automation/episode-update-$(date -u +%Y%m%d%H%M%S)}
+case "$update_branch" in
+    automation/episode-update-*) ;;
+    *) echo "Invalid episode update branch: $update_branch" >&2; exit 1 ;;
+esac
+
+# main is protected by CI's required `build` check. Publish a branch and let
+# auto-merge land it only after that check passes; never deploy an unpushed
+# runner-local commit.
+git push origin "HEAD:refs/heads/$update_branch"
+pr_url=$(gh pr create \
+    --base main \
+    --head "$update_branch" \
+    --title "Update episode data" \
+    --body "Automated Firestore episode export. This PR will merge after the required CI build passes.")
+gh pr merge --auto --squash --delete-branch "$pr_url"
+echo "Episode update PR created: $pr_url"
 
 exit

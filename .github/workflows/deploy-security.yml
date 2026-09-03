@@ -6,7 +6,8 @@ name: Deploy security updates
 # version-update) merges deliberately do NOT deploy: they ship with the next
 # episode, under human eyes.
 #
-# Also deploys when a transcript lands. The Pi watcher pushes
+# Also deploys when episode data or a transcript lands. Episode data reaches
+# main through an auto-merged, CI-gated PR; the Pi watcher pushes
 # public/transcripts/<n>.{json,vtt} straight to main, and nothing else would
 # ship it: update_episodes.sh exits at "no update needed" whenever data.json is
 # unchanged, so a transcript used to wait for the next episode — a fortnight —
@@ -29,6 +30,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'public/js/data.json'
       - 'public/transcripts/**'
   workflow_dispatch:
 
@@ -43,7 +45,7 @@ concurrency:
 
 jobs:
   gate:
-    # Merged Dependabot PRs, a transcript push, or a manual dispatch.
+    # Merged Dependabot PRs, episode/transcript pushes, or a manual dispatch.
     if: >
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'push' ||
@@ -70,8 +72,8 @@ jobs:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           ALERT_STATE: ${{ steps.metadata.outputs.alert-state }}
         run: |
-          # The push trigger is already filtered to public/transcripts/**, so
-          # reaching here on a push means a transcript changed.
+          # The push trigger is filtered to episode data and transcripts, so
+          # either kind of content update should deploy.
           if [ "$EVENT" = "workflow_dispatch" ] || [ "$EVENT" = "push" ]; then
             echo "deploy=true" >> "$GITHUB_OUTPUT"
           elif [[ "$HEAD_REF" == *security* ]] || [ -n "$ALERT_STATE" ]; then

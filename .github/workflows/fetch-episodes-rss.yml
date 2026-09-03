@@ -2,15 +2,12 @@ name: Fetch episodes RSS
 
 on:
   schedule:
-    # Runs hourly; the guard job below only lets it proceed every 3 hours in
-    # Europe/Brussels local time (DST-aware). 10 minutes before
-    # update-episodes.yml's equivalent guard, giving the Cloud Function's
-    # indeterminate run time room to finish.
-    # Months are here as well as in the guard so July and August schedule
-    # nothing at all, rather than starting a runner 24 times a day to read the
-    # clock and quit. Cron is evaluated in UTC, so the guard still owns the
-    # month boundary — the last hours of 30 June are already July in Brussels.
-    - cron: '20 * * 1-6,9-12 *'
+    # GitHub may start scheduled jobs hours late. Two explicit UTC schedules
+    # preserve the 3-hour Brussels cadence across DST; the guard selects the
+    # one matching today's Brussels offset without looking at the delayed
+    # runner start hour. This runs 10 minutes before the export workflow.
+    - cron: '20 1,4,7,10,13,16,19,22 * 1-6,9-12 *' # CEST (UTC+2)
+    - cron: '20 2,5,8,11,14,17,20,23 * 1-6,9-12 *' # CET (UTC+1)
   workflow_dispatch:
 
 permissions:
@@ -23,17 +20,22 @@ jobs:
       run: ${{ steps.check.outputs.run }}
     steps:
       - id: check
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
         run: |
-          read -r month hour <<< "$(TZ='Europe/Brussels' date '+%m %H')"
-          # The show does not publish over the summer, so there is nothing to
-          # sync. workflow_dispatch still runs — see the job condition below.
-          if [ "$month" = "08" ] || [ "$month" = "07" ]; then
+          read -r month offset <<< "$(TZ='Europe/Brussels' date '+%m %z')"
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif [ "$month" = "08" ] || [ "$month" = "07" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
             echo "Summer break — no episodes expected in month $month."
-          elif [ $((10#$hour % 3)) -eq 0 ]; then
+          elif { [ "$offset" = "+0200" ] && [ "$SCHEDULE" = "20 1,4,7,10,13,16,19,22 * 1-6,9-12 *" ]; } || \
+               { [ "$offset" = "+0100" ] && [ "$SCHEDULE" = "20 2,5,8,11,14,17,20,23 * 1-6,9-12 *" ]; }; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Ignoring the schedule for the other Brussels UTC offset ($offset)."
           fi
 
   fetch:

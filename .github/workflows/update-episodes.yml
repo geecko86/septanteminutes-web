@@ -2,18 +2,20 @@ name: Update episodes & deploy
 
 on:
   schedule:
-    # Runs hourly; the guard job only lets it proceed every 3 hours in
-    # Europe/Brussels local time (DST-aware), 10 minutes after
-    # fetch-episodes-rss.yml's equivalent guard.
-    # Months are here as well as in the guard so July and August schedule
-    # nothing at all. Cron is evaluated in UTC, so the guard still owns the
-    # month boundary — the last hours of 30 June are already July in Brussels.
-    - cron: '30 * * 1-6,9-12 *'
+    # Paired with fetch-episodes-rss.yml's explicit UTC schedules. The guard
+    # selects the schedule matching Brussels' current DST offset and does not
+    # reject a valid job merely because GitHub started it in a later hour.
+    - cron: '30 1,4,7,10,13,16,19,22 * 1-6,9-12 *' # CEST (UTC+2)
+    - cron: '30 2,5,8,11,14,17,20,23 * 1-6,9-12 *' # CET (UTC+1)
   workflow_dispatch:
 
 permissions:
   contents: write
   issues: write
+
+concurrency:
+  group: episode-update
+  cancel-in-progress: false
 
 jobs:
   guard:
@@ -22,17 +24,22 @@ jobs:
       run: ${{ steps.check.outputs.run }}
     steps:
       - id: check
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
         run: |
-          read -r month hour <<< "$(TZ='Europe/Brussels' date '+%m %H')"
-          # The show does not publish over the summer, so there is nothing to
-          # export. workflow_dispatch still runs — see the job condition below.
-          if [ "$month" = "07" ] || [ "$month" = "08" ]; then
+          read -r month offset <<< "$(TZ='Europe/Brussels' date '+%m %z')"
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif [ "$month" = "07" ] || [ "$month" = "08" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
             echo "Summer break — no episodes expected in month $month."
-          elif [ $((10#$hour % 3)) -eq 0 ]; then
+          elif { [ "$offset" = "+0200" ] && [ "$SCHEDULE" = "30 1,4,7,10,13,16,19,22 * 1-6,9-12 *" ]; } || \
+               { [ "$offset" = "+0100" ] && [ "$SCHEDULE" = "30 2,5,8,11,14,17,20,23 * 1-6,9-12 *" ]; }; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Ignoring the schedule for the other Brussels UTC offset ($offset)."
           fi
 
   update-episodes:
@@ -40,7 +47,19 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || needs.guard.outputs.run == 'true'
     runs-on: ubuntu-latest
     steps:
+      # Push the update branch and create its PR as the repository App. Unlike
+      # GITHUB_TOKEN, App-authored events start CI and downstream workflows.
+      - name: Mint an episode update token
+        id: token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          token: ${{ steps.token.outputs.token }}
+          fetch-depth: 0
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -63,20 +82,14 @@ jobs:
         env:
           FIRESTORE_SERVICE_ACCOUNT: ${{ secrets.FIRESTORE_SERVICE_ACCOUNT }}
 
-      - name: Write Firebase Hosting deploy service account key
-        run: echo "${FIREBASE_SERVICE_ACCOUNT}" > "${RUNNER_TEMP}/firebase-sa.json"
-        env:
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-
-      - name: Fetch episodes, build and deploy if changed
+      - name: Export episodes and open a protected update PR if changed
         run: bash update_episodes.sh
         env:
           FIRESTORE_CREDENTIALS: ${{ runner.temp }}/firestore-sa.json
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
-          GH_TOKEN: ${{ github.token }}
-          STORYBOARD_PROXY_TOKEN: ${{ secrets.STORYBOARD_PROXY_TOKEN }}
-          STORYBOARD_PROXY_URL: ${{ secrets.STORYBOARD_PROXY_URL }}
+          GH_TOKEN: ${{ steps.token.outputs.token }}
+          ISSUES_GH_TOKEN: ${{ github.token }}
+          EPISODE_UPDATE_BRANCH: automation/episode-update-${{ github.run_id }}-${{ github.run_attempt }}
 
-      - name: Clean up credential files
+      - name: Clean up credential file
         if: always()
-        run: rm -f "${RUNNER_TEMP}/firestore-sa.json" "${RUNNER_TEMP}/firebase-sa.json"
+        run: rm -f "${RUNNER_TEMP}/firestore-sa.json"

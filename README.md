@@ -71,15 +71,15 @@ Google gives you, braces and newlines included — pasting just the
 | Secret | Used by | Authenticates | Breaks if missing/wrong |
 |--------|---------|----------------|--------------------------|
 | `FIRESTORE_SERVICE_ACCOUNT` | `update-episodes.yml` | GCP service account key JSON, read by `scripts/export-firestore-episodes.mjs` to export Firestore → `public/js/data.json` | `update_episodes.sh` fails at the export step; `data.json` is never refreshed and no deploy happens |
-| `FIREBASE_SERVICE_ACCOUNT` | `update-episodes.yml`, `deploy-security.yml` | Key JSON exposed as `GOOGLE_APPLICATION_CREDENTIALS` for `firebase deploy --only hosting` | The build completes but the Firebase Hosting deploy step fails; the site is never updated |
+| `FIREBASE_SERVICE_ACCOUNT` | `deploy-security.yml` | Key JSON exposed as `GOOGLE_APPLICATION_CREDENTIALS` for `firebase deploy --only hosting` | The build completes but the Firebase Hosting deploy step fails; the site is never updated |
 | `RSS_TRIGGER_SA` | `fetch-episodes-rss.yml` | Key JSON for a service account granted `roles/cloudfunctions.invoker` on the private `getEpisodesFromRSS` Cloud Function; `scripts/fetch-episodes-rss.sh` mints a short-lived Google identity token from it | The function answers 401/403, the script exits non-zero, and Firestore stays stale until the next successful run |
-| `STORYBOARD_PROXY_URL` / `STORYBOARD_PROXY_TOKEN` | `update-episodes.yml`, `deploy-security.yml` (build step) | Bearer token for the Raspberry Pi storyboard proxy — see [`docs/storyboard-proxy.md`](docs/storyboard-proxy.md) | Not fatal: the build falls back to the deployed frame or `maxres2.webp`/`.jpg`; only affects a fallback path for guest tile images on hosted runners |
+| `STORYBOARD_PROXY_URL` / `STORYBOARD_PROXY_TOKEN` | `deploy-security.yml` (build step) | Bearer token for the Raspberry Pi storyboard proxy — see [`docs/storyboard-proxy.md`](docs/storyboard-proxy.md) | Not fatal: the build falls back to the deployed frame or `maxres2.webp`/`.jpg`; only affects a fallback path for guest tile images on hosted runners |
 
 ### Episode data
 
 `public/js/data.json` is the single source of truth for all episode metadata (titles, guests, dates, audio URLs), and is committed so builds need no network access to Firestore.
 
-Regenerating it is automated. `fetch-episodes-rss.yml` triggers the `getEpisodesFromRSS` Cloud Function (which lives in a separate, non-public project) to sync the podcast feed into Firestore; `update-episodes.yml` then runs `update_episodes.sh`, which exports Firestore to `data.json` via `scripts/export-firestore-episodes.mjs`, updates `EPISODES_COUNT` in `.env`, opens a transcript tracking issue per new episode, and deploys — but only when the episode count or the exported content actually changed.
+Regenerating it is automated. `fetch-episodes-rss.yml` triggers the `getEpisodesFromRSS` Cloud Function (which lives in a separate, non-public project) to sync the podcast feed into Firestore. `update-episodes.yml` then exports Firestore, updates `EPISODES_COUNT`, opens a transcript tracking issue per new episode, and creates an auto-merge PR when the exported content changed. CI must pass before the PR reaches protected `main`; that push triggers `deploy-security.yml`, which rebuilds and deploys Firebase Hosting.
 
 ### Project structure
 
