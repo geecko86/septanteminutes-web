@@ -8,6 +8,8 @@
     align-items: center;
     background: rgba(27, 40, 56, 0.96) none repeat scroll 0 0;
     position: absolute;
+    top: 0;
+    left: 0;
     contain: paint;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
