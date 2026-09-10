@@ -1,8 +1,8 @@
 #!/bin/bash
 # Triggers the Cloud Function that syncs the podcast RSS feed into Firestore.
-# Runs as its own scheduled job, separate from update_episodes.sh, because the
-# Cloud Function's completion time is indeterminate: this job is scheduled to
-# run ~10 minutes before the Firestore export job, giving it time to finish.
+# The scheduled update workflow runs this immediately before exporting
+# Firestore. The Cloud Function does not answer until its writes have completed,
+# so a successful return is the ordering barrier for the export.
 #
 # The function requires IAM auth (roles/cloudfunctions.invoker), so the caller
 # presents a short-lived Google-signed identity token. In CI the identity comes

@@ -72,14 +72,14 @@ Google gives you, braces and newlines included — pasting just the
 |--------|---------|----------------|--------------------------|
 | `FIRESTORE_SERVICE_ACCOUNT` | `update-episodes.yml` | GCP service account key JSON, read by `scripts/export-firestore-episodes.mjs` to export Firestore → `public/js/data.json` | `update_episodes.sh` fails at the export step; `data.json` is never refreshed and no deploy happens |
 | `FIREBASE_SERVICE_ACCOUNT` | `deploy-security.yml` | Key JSON exposed as `GOOGLE_APPLICATION_CREDENTIALS` for `firebase deploy --only hosting` | The build completes but the Firebase Hosting deploy step fails; the site is never updated |
-| `RSS_TRIGGER_SA` | `fetch-episodes-rss.yml` | Key JSON for a service account granted `roles/cloudfunctions.invoker` on the private `getEpisodesFromRSS` Cloud Function; `scripts/fetch-episodes-rss.sh` mints a short-lived Google identity token from it | The function answers 401/403, the script exits non-zero, and Firestore stays stale until the next successful run |
+| `RSS_TRIGGER_SA` | `update-episodes.yml`, `fetch-episodes-rss.yml` | Key JSON for a service account granted `roles/cloudfunctions.invoker` on the private `getEpisodesFromRSS` Cloud Function; `scripts/fetch-episodes-rss.sh` mints a short-lived Google identity token from it | The function answers 401/403, the script exits non-zero, and the ordered update stops before exporting stale Firestore data |
 | `STORYBOARD_PROXY_URL` / `STORYBOARD_PROXY_TOKEN` | `deploy-security.yml` (build step) | Bearer token for the Raspberry Pi storyboard proxy — see [`docs/storyboard-proxy.md`](docs/storyboard-proxy.md) | Not fatal: the build falls back to the deployed frame or `maxres2.webp`/`.jpg`; only affects a fallback path for guest tile images on hosted runners |
 
 ### Episode data
 
 `public/js/data.json` is the single source of truth for all episode metadata (titles, guests, dates, audio URLs), and is committed so builds need no network access to Firestore.
 
-Regenerating it is automated. `fetch-episodes-rss.yml` triggers the `getEpisodesFromRSS` Cloud Function (which lives in a separate, non-public project) to sync the podcast feed into Firestore. `update-episodes.yml` then exports Firestore, updates `EPISODES_COUNT`, opens a transcript tracking issue per new episode, and creates a protected PR when the exported content changed. It approves the PR's GitHub-gated CI run and merges only after the required build passes, then dispatches `deploy-security.yml` to rebuild and deploy Firebase Hosting.
+Regenerating it is automated. On each scheduled run, `update-episodes.yml` first triggers the `getEpisodesFromRSS` Cloud Function (which lives in a separate, non-public project) and waits for its Firestore writes to complete. It then exports Firestore, updates `EPISODES_COUNT`, opens a transcript tracking issue per new episode, and creates a protected PR when the exported content changed. It approves the PR's GitHub-gated CI run and merges only after the required build passes, then dispatches `deploy-security.yml` to rebuild and deploy Firebase Hosting. `fetch-episodes-rss.yml` remains available as a manual sync diagnostic, but has no independent schedule that could race the export.
 
 ### Project structure
 
