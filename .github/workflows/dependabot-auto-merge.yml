@@ -29,7 +29,7 @@ jobs:
       # behave. It is minted per run and expires in an hour, unlike a PAT.
       - name: Mint a merge token
         id: token
-        uses: actions/create-github-app-token@v2
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
