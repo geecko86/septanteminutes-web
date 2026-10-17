@@ -659,7 +659,7 @@ export default function Home(props: {
                         <motion.div key="layer_0" ref={layer0} className={[styles.layer_0, styles.layer, columnFocus ? styles.blur16 : styles.blurReady].join(" ")} >
                             <div className={styles.ceiling} key={"ceiling"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
-                                    <div key={`ceiling_${i}`} style={{ aspectRatio: 3618 / 858, width: "auto", height: "100vh", position: "relative" }}>
+                                    <div key={`ceiling_${i}`} style={{ position: "relative" }}>
                                         <Image draggable="false" data-initial-scene="true" loading={isMobileDevice ? "lazy" : "eager"} fetchPriority={!isMobileDevice && i === 0 ? "high" : undefined} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
                                     </div>
                                 ))}

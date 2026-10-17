@@ -171,14 +171,19 @@
 }
 
 .ceiling {
+    --scene-h: 100vh;
+    --scene-h: 100svh;
+    --band-h: 11.5vh;
+    --band-h: 11.5svh;
     position: absolute;
     transform: rotate(180deg);
     transform-origin: 46%;
     display: flex;
     width: 100%;
-    height: 100%;
-    bottom: 88.5vh;
-    bottom: 88.5svh;
+    /* Band is all that reaches the screen; a full-scene-height box made the
+       layer big enough that Firefox rasterised it at reduced scale. */
+    top: 0;
+    height: var(--band-h);
 }
 
 @supports (-webkit-hyphens:none) {
@@ -190,8 +195,7 @@
 .ceiling::before {
     content: " ";
     width: 100%;
-    height: 11.5vh;
-    height: 11.5svh;    
+    height: var(--band-h);
     position: absolute;
     display: block;
     background: #D3D3D3;
@@ -200,8 +204,7 @@
 .ceiling::after {
     content: " ";
     width: 100%;
-    height: 11.5vh;
-    height: 11.5svh;
+    height: var(--band-h);
     position: absolute;
     display: block;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, transparent 100%);
@@ -209,6 +212,16 @@
 
 .ceiling > div {
     opacity: 0.25;
+    flex-shrink: 0;
+    width: calc(var(--scene-h) * 3618 / 858);
+    height: var(--band-h);
+    overflow: hidden;
+}
+
+/* Full height, clipped by the tile: same pixels, smaller layer. */
+.ceiling > div img {
+    height: var(--scene-h) !important;
+    bottom: auto !important;
 }
 
 .floor {
@@ -859,13 +872,10 @@
     }
 
     .ceiling {
-        bottom: 88.5vmax;
-        bottom: 88.5svmax;
-    }
-
-    .ceiling::before, .ceiling::after {
-        height: 11.5vmax;
-        height: 11.5svmax;
+        --scene-h: 100vmax;
+        --scene-h: 100svmax;
+        --band-h: 11.5vmax;
+        --band-h: 11.5svmax;
     }
 
     .floor {
