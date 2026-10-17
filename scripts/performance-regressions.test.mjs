@@ -135,18 +135,21 @@ describe('performance request regressions', () => {
     expect(deployer).toContain("- 'public/js/data.json'");
   });
 
-  it('selects explicit Brussels DST schedules without using delayed start hours', () => {
+  it('uses one DST-aware schedule and syncs RSS before exporting Firestore', () => {
     const rss = read('.github/workflows/fetch-episodes-rss.yml');
     const updater = read('.github/workflows/update-episodes.yml');
+    const syncIndex = updater.indexOf('bash scripts/fetch-episodes-rss.sh');
+    const exportIndex = updater.indexOf('bash update_episodes.sh');
 
-    expect(rss).toContain("cron: '20 1,4,7,10,13,16,19,22");
-    expect(rss).toContain("cron: '20 2,5,8,11,14,17,20,23");
+    expect(rss).toContain('workflow_dispatch:');
+    expect(rss).not.toContain('schedule:');
     expect(updater).toContain("cron: '30 1,4,7,10,13,16,19,22");
     expect(updater).toContain("cron: '30 2,5,8,11,14,17,20,23");
-    expect(rss).toContain('SCHEDULE: ${{ github.event.schedule }}');
     expect(updater).toContain('SCHEDULE: ${{ github.event.schedule }}');
-    expect(rss).not.toContain("date '+%m %H'");
     expect(updater).not.toContain("date '+%m %H'");
+    expect(syncIndex).toBeGreaterThan(-1);
+    expect(exportIndex).toBeGreaterThan(syncIndex);
+    expect(updater).toContain('RSS_TRIGGER_SA: ${{ secrets.RSS_TRIGGER_SA }}');
   });
 
   it('disables route prefetch for initial homepage albums and the episode home link', () => {

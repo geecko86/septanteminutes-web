@@ -1,46 +1,13 @@
 name: Fetch episodes RSS
 
 on:
-  schedule:
-    # GitHub may start scheduled jobs hours late. Two explicit UTC schedules
-    # preserve the 3-hour Brussels cadence across DST; the guard selects the
-    # one matching today's Brussels offset without looking at the delayed
-    # runner start hour. This runs 10 minutes before the export workflow.
-    - cron: '20 1,4,7,10,13,16,19,22 * 1-6,9-12 *' # CEST (UTC+2)
-    - cron: '20 2,5,8,11,14,17,20,23 * 1-6,9-12 *' # CET (UTC+1)
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  guard:
-    runs-on: ubuntu-latest
-    outputs:
-      run: ${{ steps.check.outputs.run }}
-    steps:
-      - id: check
-        env:
-          EVENT: ${{ github.event_name }}
-          SCHEDULE: ${{ github.event.schedule }}
-        run: |
-          read -r month offset <<< "$(TZ='Europe/Brussels' date '+%m %z')"
-          if [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          elif [ "$month" = "08" ] || [ "$month" = "07" ]; then
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Summer break — no episodes expected in month $month."
-          elif { [ "$offset" = "+0200" ] && [ "$SCHEDULE" = "20 1,4,7,10,13,16,19,22 * 1-6,9-12 *" ]; } || \
-               { [ "$offset" = "+0100" ] && [ "$SCHEDULE" = "20 2,5,8,11,14,17,20,23 * 1-6,9-12 *" ]; }; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Ignoring the schedule for the other Brussels UTC offset ($offset)."
-          fi
-
   fetch:
-    needs: guard
-    if: github.event_name == 'workflow_dispatch' || needs.guard.outputs.run == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
