@@ -660,7 +660,7 @@ export default function Home(props: {
                             <div className={styles.ceiling} key={"ceiling"}>
                                 {[...Array(groundTexturesCount)].map((_, i) => (
                                     <div key={`ceiling_${i}`} style={{ position: "relative" }}>
-                                        <Image draggable="false" data-initial-scene="true" loading={isMobileDevice ? "lazy" : "eager"} fetchPriority={!isMobileDevice && i === 0 ? "high" : undefined} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="422vh" />
+                                        <Image draggable="false" data-initial-scene="true" loading={isMobileDevice ? "lazy" : "eager"} fetchPriority={!isMobileDevice && i === 0 ? "high" : undefined} quality={55} src="https://framerusercontent.com/images/N99SQvccncY8lkqgpW8uypkR1E.png" alt="" style={{ transform: `scale(${i % 2 ? -1 : 1}, 1)` }} fill sizes="min(422vh, 100vw)" />
                                     </div>
                                 ))}
                             </div>
