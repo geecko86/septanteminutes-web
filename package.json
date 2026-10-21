@@ -81,7 +81,7 @@
     "fast-uri": ">=3.1.1",
     "@babel/core": ">=7.29.6 <8",
     "@babel/plugin-transform-modules-systemjs": ">=7.29.4",
-    "vite": ">=8.0.16",
+    "vite": ">=8.3.5",
     "ws": ">=7.5.11",
     "uuid": "^11.1.1",
     "sharp": ">=0.35.5"
@@ -101,7 +101,7 @@
     "fast-uri": ">=3.1.1",
     "@babel/core": ">=7.29.6 <8",
     "@babel/plugin-transform-modules-systemjs": ">=7.29.4",
-    "vite": ">=8.0.16",
+    "vite": ">=8.3.5",
     "ws": ">=7.5.11"
   },
   "browserslist": {
