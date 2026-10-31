@@ -251,8 +251,10 @@
     pointer-events: all;
 }
 
-.presentationWall div[data-framer-name="LEGENDE"] h1 {
+.presentationWall div[data-framer-name="LEGENDE"] .legende_label {
     position: relative;
+    /* was an <h1>; keep its UA weight now that it is a span */
+    font-weight: 700;
     font-family: "Oswald", sans-serif;
     height: 100%;
     font-size: 1.5rem;
@@ -269,7 +271,7 @@
     height: 100%;
 }
 
-.presentationWall div[data-framer-name="LEGENDE"] a, .presentationWall div[data-framer-name="LEGENDE"] h1 {
+.presentationWall div[data-framer-name="LEGENDE"] a, .presentationWall div[data-framer-name="LEGENDE"] .legende_label {
     transition: 0.2s filter cubic-bezier(0.25, 0.1, 0.25, 1), 0.2s -webkit-filter cubic-bezier(0.25, 0.1, 0.25, 1);
     text-decoration: none;
     width: fit-content;
@@ -280,7 +282,7 @@
     flex-grow: 1;
 }
 
-.presentationWall div[data-framer-name="LEGENDE"] a:hover, .presentationWall div[data-framer-name="LEGENDE"] h1:hover {
+.presentationWall div[data-framer-name="LEGENDE"] a:hover, .presentationWall div[data-framer-name="LEGENDE"] .legende_label:hover {
     filter: brightness(0.02);
     transition: 0.7s filter cubic-bezier(0.25, 0.1, 0.25, 1), 0.7s -webkit-filter cubic-bezier(0.25, 0.1, 0.25, 1);
 }

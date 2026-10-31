@@ -174,7 +174,7 @@ const SeasonComponent = (props: {
                             <p className="framer-text" style={{ fontFamily: "\"Oswald\", \"Oswald Placeholder\", sans-serif", fontSize: "0.25rem", fontWeight: 600, lineHeight: "3ch", textTransform: "uppercase" }}>les plateformes</p>
                         </div>
                     </div> : <div className={[styles.season_legende].join(" ")} data-framer-name="LEGENDE">
-                    <span><Link href="/faq" scroll={false}><h1>FAQ</h1></Link></span>
+                    <span><Link href="/faq" scroll={false}><span className={styles.legende_label}>FAQ</span></Link></span>
                         { [
                             { name: "spotify", link: "https://open.spotify.com/show/1e5Wx2MUdGQNZupixNZw3r"},
                             { name: "applepodcasts", link: "https://podcasts.apple.com/be/podcast/septante-minutes-avec/id1435036591?mt=2" },
