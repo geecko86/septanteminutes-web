@@ -9,27 +9,21 @@
     ],
     "rewrites": [
       {
-        "source": "/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/faq",
-        "destination": "/faq.html"
-      },
-      {
         "source": "/feed",
         "destination": "/rss.xml"
       },
       {
         "source": "/rss",
         "destination": "/rss.xml"
-      },
-      {
-        "source": "**",
-        "destination": "/404.html"
       }
     ],
     "headers": [{
+      "source": "/transcripts/**",
+      "headers": [{
+        "key": "X-Robots-Tag",
+        "value": "noindex"
+      }]
+    }, {
       "source": "**/",
       "headers": [{
         "key": "Cache-Control",

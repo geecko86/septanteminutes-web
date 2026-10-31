@@ -627,9 +627,9 @@ export default function EpisodeTable(props: {
           {generateNextSeo({
             title: `Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`,
             description: descriptionEpisode?.descText,
-            canonical: `https://www.septanteminutes.be/podcast/interview/${descriptionEpisode.num}-${normalizeString(getGuestName(descriptionEpisode?.title))}`,
+            canonical: `https://www.septanteminutes.be/podcast/interview/${descriptionEpisode.num}-${normalizeString(getGuestName(descriptionEpisode?.title))}/`,
             openGraph: {
-              url: `https://www.septanteminutes.be/${descriptionEpisode.num}`,
+              url: `https://www.septanteminutes.be/podcast/interview/${descriptionEpisode.num}-${normalizeString(getGuestName(descriptionEpisode?.title))}/`,
               title: `Septante Minutes Avec ${getGuestName(descriptionEpisode?.title)}`,
               description: descriptionEpisode?.descText,
               locale: "fr_BE",
