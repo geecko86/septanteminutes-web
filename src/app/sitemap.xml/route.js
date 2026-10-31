@@ -10,13 +10,13 @@ const generateSiteMap = (episodes) => {
     <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         <url>
-          <loc>${EXTERNAL_DATA_URL}</loc>
+          <loc>${EXTERNAL_DATA_URL}/</loc>
         </url>
         <url>
-          <loc>${EXTERNAL_DATA_URL}/faq</loc>
+          <loc>${EXTERNAL_DATA_URL}/faq/</loc>
         </url>${episodes.map(({ num, title }) => `
         <url>
-          <loc>${EXTERNAL_DATA_URL}/podcast/interview/${num}-${normalizeString(getGuestName(title))}</loc>
+          <loc>${EXTERNAL_DATA_URL}/podcast/interview/${num}-${normalizeString(getGuestName(title))}/</loc>
         </url>`).join('')}
     </urlset>`;
   return xml;
