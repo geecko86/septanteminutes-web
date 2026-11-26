@@ -2,12 +2,15 @@ name: Update episodes & deploy
 
 on:
   schedule:
-    # The guard selects the schedule matching Brussels' current DST offset and
-    # does not reject a valid job merely because GitHub started it later.
-    # RSS sync and Firestore export happen sequentially in this workflow, so
-    # their ordering no longer depends on two independently delayed schedules.
-    - cron: '30 1,4,7,10,13,16,19,22 * 1-6,9-12 *' # CEST (UTC+2)
-    - cron: '30 2,5,8,11,14,17,20,23 * 1-6,9-12 *' # CET (UTC+1)
+    # Declared hourly to land ~8 real runs a day. GitHub drops most scheduled
+    # triggers under load: of 16 declared daily (the old DST pair), only 4-7
+    # arrived, and the guard discarded about half of those as the wrong offset
+    # -- roughly 2-3 effective checks a day instead of 8. One cron in UTC means
+    # every delivered trigger now does work. The poll time drifts an hour
+    # across DST, which does not matter for an RSS check, and a run with
+    # nothing new exits in well under a minute. Actions is free on this public
+    # repo, so over-declaring costs nothing.
+    - cron: '30 * * * 1-6,9-12'
   workflow_dispatch:
 
 permissions:
@@ -29,20 +32,15 @@ jobs:
       - id: check
         env:
           EVENT: ${{ github.event_name }}
-          SCHEDULE: ${{ github.event.schedule }}
         run: |
-          read -r month offset <<< "$(TZ='Europe/Brussels' date '+%m %z')"
+          month=$(TZ='Europe/Brussels' date '+%m')
           if [ "$EVENT" = "workflow_dispatch" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           elif [ "$month" = "07" ] || [ "$month" = "08" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
             echo "Summer break — no episodes expected in month $month."
-          elif { [ "$offset" = "+0200" ] && [ "$SCHEDULE" = "30 1,4,7,10,13,16,19,22 * 1-6,9-12 *" ]; } || \
-               { [ "$offset" = "+0100" ] && [ "$SCHEDULE" = "30 2,5,8,11,14,17,20,23 * 1-6,9-12 *" ]; }; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
           else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Ignoring the schedule for the other Brussels UTC offset ($offset)."
+            echo "run=true" >> "$GITHUB_OUTPUT"
           fi
 
   update-episodes:
