@@ -135,7 +135,7 @@ describe('performance request regressions', () => {
     expect(deployer).toContain("- 'public/js/data.json'");
   });
 
-  it('uses one DST-aware schedule and syncs RSS before exporting Firestore', () => {
+  it('polls on a single hourly UTC schedule and syncs RSS before exporting Firestore', () => {
     const rss = read('.github/workflows/fetch-episodes-rss.yml');
     const updater = read('.github/workflows/update-episodes.yml');
     const syncIndex = updater.indexOf('bash scripts/fetch-episodes-rss.sh');
@@ -143,9 +143,9 @@ describe('performance request regressions', () => {
 
     expect(rss).toContain('workflow_dispatch:');
     expect(rss).not.toContain('schedule:');
-    expect(updater).toContain("cron: '30 1,4,7,10,13,16,19,22");
-    expect(updater).toContain("cron: '30 2,5,8,11,14,17,20,23");
-    expect(updater).toContain('SCHEDULE: ${{ github.event.schedule }}');
+    expect(updater).toContain("cron: '30 * * 1-6,9-12 *'");
+    expect(updater.match(/- cron:/g)).toHaveLength(1);
+    expect(updater).not.toContain('github.event.schedule');
     expect(updater).not.toContain("date '+%m %H'");
     expect(syncIndex).toBeGreaterThan(-1);
     expect(exportIndex).toBeGreaterThan(syncIndex);
