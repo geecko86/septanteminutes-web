@@ -10,7 +10,7 @@ on:
     # across DST, which does not matter for an RSS check, and a run with
     # nothing new exits in well under a minute. Actions is free on this public
     # repo, so over-declaring costs nothing.
-    - cron: '30 * * * 1-6,9-12'
+    - cron: '30 * * 1-6,9-12 *'
   workflow_dispatch:
 
 permissions:
